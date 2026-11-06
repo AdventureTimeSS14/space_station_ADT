@@ -28,6 +28,7 @@ using Content.Shared.Interaction; // ADT-Tweak
 using Content.Server.ADT.Chat; // ADT-Tweak
 using Content.Shared.ADT.CCVar; // ADT-Tweak
 using Robust.Shared.Audio; // ADT-Tweak
+using Content.Shared.ADT.VoiceOfGod;
 
 namespace Content.Server.Chat.Systems;
 
@@ -211,7 +212,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var currentLanguage = language ?? _language.GetCurrentLanguage(source);
         var isCollectiveMind = currentLanguage.LanguageType is CollectiveMind;
 
-        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source) && !isCollectiveMind)
+        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source) && !isCollectiveMind && !HasComp<ADTVoiceOfGodSpeakerComponent>(source))
         {
             // hushed players cannot speak on local chat so will be sent as whisper instead
             desiredType = InGameICChatType.Whisper;

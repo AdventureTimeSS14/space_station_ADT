@@ -8,6 +8,14 @@
   components:
   - type: Sprite
     sprite: ADT/Season/Objects/Fun/broom.rsi
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,3
+    sprite: ADT/Season/Objects/Fun/broom.rsi
+    storedSprite:
+      state: icon
+      sprite: ADT/Season/Objects/Fun/broom.rsi
   - type: IncreaseDamageOnWield
     damage:
       types:

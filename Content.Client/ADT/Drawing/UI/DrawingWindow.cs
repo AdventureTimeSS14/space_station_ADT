@@ -11,6 +11,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -27,6 +28,8 @@ public sealed partial class DrawingWindow : DefaultWindow
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private readonly PenInputSystem _pen;
     private readonly CanvasDocument _document;
@@ -61,10 +64,13 @@ public sealed partial class DrawingWindow : DefaultWindow
     private readonly SettingSlider _taperOutSlider;
     private readonly SettingSlider _smoothingSlider;
     private bool _syncing;
+    private DrawingHotkeysWindow? _hotkeysWindow;
+    private readonly ISawmill _sawmill;
 
     public DrawingWindow(CanvasDocument document, bool ownsDocument)
     {
         IoCManager.InjectDependencies(this);
+        _sawmill = _log.GetSawmill("drawing");
         _pen = _systems.GetEntitySystem<PenInputSystem>();
 
         Title = Loc.GetString("adt-drawing-window-title");
@@ -77,6 +83,8 @@ public sealed partial class DrawingWindow : DefaultWindow
         _canvas.OnSample += UpdatePressure;
         _canvas.OnColorPicked += OnColorPicked;
         _canvas.OnViewChanged += UpdateStatus;
+        DrawingHotkeyStorage.Load(_canvas.Hotkeys, _res, _serialization, _sawmill);
+        _canvas.Hotkeys.Changed += SaveHotkeys;
         _document.HistoryChanged += UpdateHistoryButtons;
         _document.Layers.Changed += UpdateHistoryButtons;
 
@@ -316,6 +324,7 @@ public sealed partial class DrawingWindow : DefaultWindow
         sidebar.AddChild(_pressureBar);
         sidebar.AddChild(_pressureLabel);
         sidebar.AddChild(WrapLabel(Loc.GetString("adt-drawing-hotkeys"), Color.Gray));
+        sidebar.AddChild(ActionButton("adt-drawing-hotkeys-open", OpenHotkeys));
 
         _undoButton = ActionButton("adt-drawing-undo", _canvas.Undo);
         _redoButton = ActionButton("adt-drawing-redo", _canvas.Redo);
@@ -406,6 +415,8 @@ public sealed partial class DrawingWindow : DefaultWindow
         root.AddChild(right);
         Contents.AddChild(root);
 
+        OnClose += () => _hotkeysWindow?.Close();
+
         if (ownsDocument)
             OnClose += () => _document.Dispose();
 
@@ -437,6 +448,24 @@ public sealed partial class DrawingWindow : DefaultWindow
         _canvas.BaseLocked = baseLocked;
         _layerPanel.CanMerge = !locked && !baseLocked;
         UpdateHistoryButtons();
+    }
+
+    private void OpenHotkeys()
+    {
+        if (_hotkeysWindow != null)
+        {
+            _hotkeysWindow.MoveToFront();
+            return;
+        }
+
+        _hotkeysWindow = new DrawingHotkeysWindow(_canvas.Hotkeys);
+        _hotkeysWindow.OnClose += () => _hotkeysWindow = null;
+        _hotkeysWindow.OpenCentered();
+    }
+
+    private void SaveHotkeys()
+    {
+        DrawingHotkeyStorage.Save(_canvas.Hotkeys, _res, _serialization, _sawmill);
     }
 
     public static RichTextLabel WrapLabel(string text, Color color)
