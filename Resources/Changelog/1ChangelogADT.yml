@@ -17180,3 +17180,9 @@ Entries:
     id: 2086
     pr_number: 3639
     time: '2026-11-05T15:04:57Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Новакиды вновь могут пить топливо, type: Fix}
+    id: 2087
+    pr_number: 3646
+    time: '2026-11-06T09:09:59Z'
