@@ -23,7 +23,7 @@ using Content.Shared.Database;
 using Content.Shared.Disposal.Tube;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
-using Content.Shared.Ghost.Components;
+using Content.Shared.Ghost.Components; // ADT-Tweak
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Components;
