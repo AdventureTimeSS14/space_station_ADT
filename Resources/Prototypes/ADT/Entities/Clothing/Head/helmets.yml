@@ -178,6 +178,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Helmets/centcom_officer_helmet.rsi
 
+- type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseFoldable, BaseSecurityContraband ]
   id: ADTClothingHeadHelmetAssault
   name: assault helmet with visor
