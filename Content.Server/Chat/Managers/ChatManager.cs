@@ -380,10 +380,11 @@ internal sealed partial class ChatManager : IChatManager
             sponsorColorStr = adtColor.Value.ToHex();
         }
 
-        if (isAdmin)
+        if (_adminManager.HasAdminFlag(player, AdminFlags.NameColor))
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
+            isSponsor = false;
         }
         // ADT-Tweak-End
 
