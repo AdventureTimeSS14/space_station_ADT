@@ -7,7 +7,6 @@
   startingGear: ADTCentcomOperatorGear
   icon: "JobIconADTCentcomOperator"
   supervisors: job-supervisors-centcom # Corvax-JobSupervisors
-  canBeAntag: false
   accessGroups:
   - AllAccess
   # Start ADT Tweak
