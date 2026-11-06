@@ -25,6 +25,27 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
         base.Initialize();
 
         SubscribeLocalEvent<BarbellBenchVisualsComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<BarbellBenchVisualsComponent, EntInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<BarbellBenchVisualsComponent, EntRemovedFromContainerMessage>(OnRemoved);
+    }
+
+    private void OnInserted(Entity<BarbellBenchVisualsComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        OnSlotChanged(ent, args.Container);
+    }
+
+    private void OnRemoved(Entity<BarbellBenchVisualsComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        OnSlotChanged(ent, args.Container);
+    }
+
+    private void OnSlotChanged(Entity<BarbellBenchVisualsComponent> ent, BaseContainer container)
+    {
+        if (!TryComp<BarbellBenchComponent>(ent, out var bench) || container.ID != bench.BarbellSlotId)
+            return;
+
+        if (TryComp<AppearanceComponent>(ent, out var appearance))
+            AppearanceSystem.QueueUpdate(ent, appearance);
     }
 
     private void OnShutdown(Entity<BarbellBenchVisualsComponent> ent, ref ComponentShutdown args)

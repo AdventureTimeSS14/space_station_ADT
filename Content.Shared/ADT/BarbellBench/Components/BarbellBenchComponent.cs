@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.BarbellBench.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BarbellBenchComponent : Component
 {
-    [DataField("overlayPrototype")]
+    [DataField("overlayPrototype"), AutoNetworkedField]
     public EntProtoId OverlayPrototype = "ADTBarbellBenchOverlayVisual";
 
     [DataField("barbellSlotId")]

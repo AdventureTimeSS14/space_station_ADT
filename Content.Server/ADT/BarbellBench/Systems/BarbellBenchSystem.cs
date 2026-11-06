@@ -124,7 +124,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                     _actionsSystem.RemoveProvidedAction(buckled, ent, action);
 
                 if (TryComp<BarbellPinnedComponent>(buckled, out var pinned))
-                    Unpin((buckled, pinned), args.Entity, true);
+                    Unpin((buckled, pinned), args.Entity, true, true);
             }
         }
     }
@@ -135,15 +135,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             return;
 
         var performer = args.Performer;
-
-        if (TryComp<BarbellLiftComponent>(barbell, out var lift))
-        {
-            _stamina.TakeStaminaDamage(performer, lift.StaminaCost, source: performer, with: barbell, visual: true);
-            _popup.PopupEntity(Loc.GetString(lift.EmoteLocSelf), performer, performer, PopupType.Medium);
-        }
-
-        _training.AddTrainingProgress(performer, barbell);
-
         var now = _timing.CurTime;
         var rep = EnsureComp<ActiveBarbellRepComponent>(ent);
         rep.Performer = performer;
@@ -153,6 +144,14 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
         SetPerformingRep(ent, true);
         args.Handled = true;
+
+        if (TryComp<BarbellLiftComponent>(barbell, out var lift))
+        {
+            _stamina.TakeStaminaDamage(performer, lift.StaminaCost, source: performer, with: barbell, visual: true);
+            _popup.PopupEntity(Loc.GetString(lift.EmoteLocSelf), performer, performer, PopupType.Medium);
+        }
+
+        _training.AddTrainingProgress(performer, barbell);
     }
 
     private void UpdateReps(TimeSpan now)
@@ -194,6 +193,10 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     {
         base.OnUnstrapped(bench, ref args);
         RemComp<ActiveBarbellRepComponent>(bench);
+
+        var buckled = args.Buckle.Owner;
+        if (TryComp<BarbellPinnedComponent>(buckled, out var pinned) && pinned.Bench == bench.Owner)
+            Unpin((buckled, pinned), null, false, true);
     }
 
     private void OnBeforeStaminaCrit(Entity<StaminaComponent> ent, ref BeforeStaminaCritEvent args)
@@ -211,6 +214,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             return;
 
         var pinned = EnsureComp<BarbellPinnedComponent>(ent);
+        pinned.OriginalStunTime ??= ent.Comp.StunTime;
         pinned.Bench = benchUid;
         pinned.PinnedAt = _timing.CurTime;
         Dirty(ent, pinned);
@@ -249,10 +253,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             return;
         }
 
-        Unpin(ent, null, false);
-        _stamina.ExitStamCrit(ent);
-        _statusEffects.TryRemoveStatusEffect(ent, SharedStunSystem.StunId);
-        RemComp<KnockedDownComponent>(ent);
+        Unpin(ent, null, false, true);
     }
 
     private void OnPinnedInteractHand(Entity<BarbellPinnedComponent> ent, ref InteractHandEvent args)
@@ -314,15 +315,28 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         }
     }
 
-    private void Unpin(Entity<BarbellPinnedComponent> ent, EntityUid? barbell, bool popup)
+    private void Unpin(Entity<BarbellPinnedComponent> ent, EntityUid? barbell, bool popup, bool release = false)
     {
         if (barbell != null)
             _virtualItem.DeleteInHandsMatching(ent, barbell.Value);
         else if (TryGetPinnedBarbell(ent.Comp, out var pinnedBarbell))
             _virtualItem.DeleteInHandsMatching(ent, pinnedBarbell);
 
+        if (ent.Comp.OriginalStunTime is { } stunTime && TryComp<StaminaComponent>(ent, out var stamina))
+        {
+            stamina.StunTime = stunTime;
+            Dirty(ent, stamina);
+        }
+
         RemComp<BarbellPinnedComponent>(ent);
         RemComp<ActiveBarbellPinnedComponent>(ent);
+
+        if (release)
+        {
+            _stamina.ExitStamCrit(ent);
+            _statusEffects.TryRemoveStatusEffect(ent, SharedStunSystem.StunId);
+            RemComp<KnockedDownComponent>(ent);
+        }
 
         if (popup)
             _popup.PopupEntity(Loc.GetString("barbell-bench-recovered"), ent, ent, PopupType.Medium);
@@ -330,7 +344,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
     private bool StunPassed(EntityUid uid)
     {
-        return TryComp<KnockedDownComponent>(uid, out var knockedDown) && knockedDown.NextUpdate <= _timing.CurTime;
+        return !TryComp<KnockedDownComponent>(uid, out var knockedDown) || knockedDown.NextUpdate <= _timing.CurTime;
     }
 
     private bool StaminaRecovered(EntityUid uid)

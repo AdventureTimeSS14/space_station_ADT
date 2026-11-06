@@ -5,16 +5,16 @@ public sealed partial class ActiveBarbellPinnedComponent : Component
 {
 }
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class ActiveBarbellRepComponent : Component
 {
     [ViewVariables]
     public EntityUid Performer;
 
-    [ViewVariables]
+    [ViewVariables, AutoPausedField]
     public TimeSpan SoundTime;
 
-    [ViewVariables]
+    [ViewVariables, AutoPausedField]
     public TimeSpan EndTime;
 
     [ViewVariables]
