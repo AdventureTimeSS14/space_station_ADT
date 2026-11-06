@@ -74,8 +74,12 @@ public sealed partial class IdCardConsoleComponent : Component
         "Security",
         "Service",
         "Theatre",
-        "ADTExtended", // ADT-tweak: расширенный доступ
     };
+
+    // ADT-tweak start
+    [DataField, AutoNetworkedField]
+    public ProtoId<AccessGroupPrototype> ExtendedAccessGroup = "ADTAccessExtended";
+    // ADT-Tweak end
 
     [Serializable, NetSerializable]
     public sealed class IdCardConsoleBoundUserInterfaceState : BoundUserInterfaceState
