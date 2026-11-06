@@ -8,6 +8,9 @@
   "copyright": "aloha_snackbar from SS13, littletreats by dalm from TG Station, assembly_line by constellado from TG Station, orangejuice by thunder12345 from TG Station, nf by chimpstonfrom from TG Station, sleuths_lounge by twacywacy from TG Station, cafe_silentieux by .data_ from TG Station, therune_kayunderkay by kayunderkay from TG Station, maltroach by moffifuwa",
   "states": [
     {
+      "name": "empty"
+    },
+    {
       "name": "aloha_snackbar",
       "delays": [
         [

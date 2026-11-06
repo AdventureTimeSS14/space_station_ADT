@@ -7,3 +7,13 @@
 #  cost: 7000
 #  category: cargoproduct-category-name-livestock
 #  group: market
+
+- type: cargoProduct
+  id: ADTLivestockFrog
+  icon:
+    sprite: Mobs/Animals/frog.rsi
+    state: frog
+  product: ADTCrateNPCFrog
+  cost: 4000
+  category: cargoproduct-category-name-livestock
+  group: market

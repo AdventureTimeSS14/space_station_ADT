@@ -12,12 +12,15 @@ public sealed class TransactionsHistory
 
     public string? TargetId;
 
-    public TransactionsHistory(int amount, TimeSpan timestamp, string type, string initiatorName, string? targetId)
+    public string? Reason;
+
+    public TransactionsHistory(int amount, TimeSpan timestamp, string type, string initiatorName, string? targetId, string? reason = null)
     {
         Amount = amount;
         Timestamp = timestamp;
         Type = type;
         InitiatorName = initiatorName;
         TargetId = targetId;
+        Reason = reason;
     }
 }

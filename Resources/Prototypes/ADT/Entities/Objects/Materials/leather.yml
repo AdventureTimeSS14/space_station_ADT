@@ -109,10 +109,12 @@
     count: 30
   - type: AtmosExposed
   - type: Temperature
-    heatCapacity: 15000
+    specificHeat: 1000
+    heatCapacity: 5000
   - type: ADTDryable
     result: ADTMaterialLeather1
     dryingTemperature: 500
+    heatedDryingTemperature: 313.15
     wetness: 30
 
 - type: entity
