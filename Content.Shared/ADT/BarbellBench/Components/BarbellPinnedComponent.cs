@@ -9,4 +9,7 @@ public sealed partial class BarbellPinnedComponent : Component
     public EntityUid? Bench;
 
     public TimeSpan PinnedAt;
+
+    [DataField]
+    public TimeSpan? OriginalStunTime;
 }
