@@ -17281,3 +17281,14 @@ Entries:
     id: 2091
     pr_number: 3647
     time: '2026-11-06T12:36:39Z'
+  - author: blad_bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Уведомление консоли мониторинга теперь срабатывает только по датчикам
+          в режиме координат., type: Tweak}
+    id: 2092
+    pr_number: 3548
+    time: '2026-11-06T12:37:15Z'
