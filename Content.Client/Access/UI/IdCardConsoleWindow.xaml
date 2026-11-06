@@ -37,6 +37,7 @@
             <Control HorizontalExpand="True"/>
             <BoxContainer>
                 <Button Name="SelectAllButton" Text="{Loc 'id-card-console-window-select-all-button'}" />
+                <Button Name="ExtendedAccessButton" Text="{Loc 'id-card-console-window-extended-access-button'}" ToolTip="{Loc 'id-card-console-window-extended-access-tooltip'}" /> <!-- ADT-Tweak -->
                 <Button Name="DeselectAllButton" Text="{Loc 'id-card-console-window-deselect-all-button'}" />
             </BoxContainer>
         </BoxContainer>
