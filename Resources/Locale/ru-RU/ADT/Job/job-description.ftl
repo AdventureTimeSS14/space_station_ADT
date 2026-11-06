@@ -16,7 +16,6 @@ job-description-ADTCentcomOfficer = Офицер Центком
 job-description-ADTCentcomInspector = Ревизор Центком
 job-description-ADTCentcomOperator = Оператор Центком
 job-description-ADTCentcomInquisitor = Инквизитор Центком
- = Инквизитор
 
 # DSO roles
 
