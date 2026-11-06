@@ -503,12 +503,12 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
         comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
     }
 
-    private Dictionary<NetEntity, bool> CollectAlertStates(IEnumerable<ADTSuitSensorStatus> sensors)
+    private static Dictionary<NetEntity, bool> CollectAlertStates(IEnumerable<ADTSuitSensorStatus> sensors)
     {
         var current = new Dictionary<NetEntity, bool>();
         foreach (var sensor in sensors)
         {
-            if (!IsAlertSensorActive(sensor))
+            if (!IsAlertSensor(sensor))
                 continue;
 
             if (!sensor.IsAlive)
@@ -789,25 +789,17 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
         _navMap.EnsureNavMap(gridUid, mapGrid);
     }
 
-    private bool IsAlertSensorActive(ADTSuitSensorStatus status)
+    private static bool IsAlertSensor(ADTSuitSensorStatus status)
     {
-        return status.IsActive &&
-               status.Mode == ADTSuitSensorMode.SensorCords &&
-               TryGetEntity(status.ADTSuitSensorUid, out var sensorUid) &&
-               TryComp(sensorUid.Value, out ADTSuitSensorComponent? sensor) &&
-               sensor.Mode == ADTSuitSensorMode.SensorCords &&
-               sensor.User != null &&
-               GetNetEntity(sensor.User.Value) == status.OwnerUid;
+        return status.IsActive && status.Mode == ADTSuitSensorMode.SensorCords;
     }
 
-    private bool HasAlertCondition(IEnumerable<ADTSuitSensorStatus> sensors)
+    private static bool HasAlertCondition(IEnumerable<ADTSuitSensorStatus> sensors)
     {
         foreach (var sensor in sensors)
         {
-            if (!IsAlertSensorActive(sensor))
-            {
+            if (!IsAlertSensor(sensor))
                 continue;
-            }
 
             // Alert only for dead or MobState.Critical (unconscious), not high damage while awake.
             if (!sensor.IsAlive || sensor.IsCritical) //ADT-Tweak: NewMonitor
