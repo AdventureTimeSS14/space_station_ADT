@@ -14,7 +14,9 @@ public sealed class CargoConsoleInterfaceState : BoundUserInterfaceState
     public List<CargoOrderData> Orders;
     public List<ProtoId<CargoProductPrototype>> Products;
 
-    public CargoConsoleInterfaceState(string name, int count, int capacity, NetEntity station, List<CargoOrderData> orders, List<ProtoId<CargoProductPrototype>> products)
+    public Dictionary<ProtoId<CargoProductPrototype>, int> ProductCosts = new(); // ADT-Tweak
+
+    public CargoConsoleInterfaceState(string name, int count, int capacity, NetEntity station, List<CargoOrderData> orders, List<ProtoId<CargoProductPrototype>> products, Dictionary<ProtoId<CargoProductPrototype>, int>? productCosts = null) // ADT-Tweak
     {
         Name = name;
         Count = count;
@@ -22,5 +24,10 @@ public sealed class CargoConsoleInterfaceState : BoundUserInterfaceState
         Station = station;
         Orders = orders;
         Products = products;
+
+        // ADT-Tweak start
+        if (productCosts != null)
+            ProductCosts = productCosts;
+        // ADT-Tweak end
     }
 }
