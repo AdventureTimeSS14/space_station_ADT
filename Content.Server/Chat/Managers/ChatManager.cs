@@ -378,19 +378,14 @@ internal sealed partial class ChatManager : IChatManager
         {
             isSponsor = true;
             sponsorColorStr = adtColor.Value.ToHex();
-            colorOverride = adtColor;
         }
-        else
-        // ADT-Tweak-End
-        if (isSponsor && Color.TryFromName(sponsorColorStr, out var sponsorColor))
-        {
-            colorOverride = sponsorColor;
-        }
-        else if (isAdmin)
+
+        if (isAdmin)
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
         }
+        // ADT-Tweak-End
 
         // Определяем формат сообщения
         if (isAdmin && hasTitle && isSponsor)
