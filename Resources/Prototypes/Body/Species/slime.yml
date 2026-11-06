@@ -101,6 +101,11 @@
     maxItemSize: Large
     storageInsertSound:
       path: /Audio/Voice/Slime/slime_squish.ogg
+    # ADT-Tweak-Start
+    blacklist:
+      components:
+      - ActiveTimerTrigger
+    # ADT-Tweak-End
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
