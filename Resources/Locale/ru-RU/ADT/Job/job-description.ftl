@@ -15,7 +15,8 @@ job-description-ADTminer = Добывайте ценные минералы с �
 job-description-ADTCentcomOfficer = Офицер Центком
 job-description-ADTCentcomInspector = Ревизор Центком
 job-description-ADTCentcomOperator = Оператор Центком
-job-description-ADTInquisition = Инквизитор
+job-description-ADTCentcomInquisitor = Инквизитор Центком
+ = Инквизитор
 
 # DSO roles
 

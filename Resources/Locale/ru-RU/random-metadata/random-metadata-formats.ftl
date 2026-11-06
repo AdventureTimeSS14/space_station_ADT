@@ -2,7 +2,6 @@ random-metadata-name-format-default = { $part0 }
 random-metadata-description-format-default = { $part0 }
 # Used for standard humanoid names - "<firstName> <lastName>"
 name-format-standard = { $part0 } { $part1 }
-name-format-inquisitor = Инквизитор { $part0 }
 name-format-regal-rat = { $part0 } { $part1 }
 name-format-revenant = { $part0 } { $part1 } { $part2 }
 name-format-ninja = { $part0 } { $part1 }

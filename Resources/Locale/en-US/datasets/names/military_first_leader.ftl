@@ -5,4 +5,3 @@ names-military-leader-first-dataset-4 = Major
 names-military-leader-first-dataset-5 = Lieutenant
 
 names-inquisitor-title-dataset-1 = Inquisitor
-names-inquisitor-first-dataset-1 = Ginan

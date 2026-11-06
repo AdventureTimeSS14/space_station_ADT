@@ -63,4 +63,4 @@ ent-ADTRandomHumanoidSpawnerCentcomInquisitor = Инквизитор Центк�
     .desc = { "" }
 
 ent-ADTRandomHumanoidSpawnerCentcomOfficer = Офицер Центком
-    .desc = { "" } ADTRandomHumanoidSpawnerCentcomOfficer
+    .desc = { "" }
