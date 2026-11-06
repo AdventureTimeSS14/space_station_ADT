@@ -237,6 +237,7 @@
   - type: OfferItem
   - type: RadiationPopup
   - type: PickupHumans
+    handsRequired: 1
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
