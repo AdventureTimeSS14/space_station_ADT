@@ -115,6 +115,16 @@ public partial class BaseShuttleControl : MapGridControl
         }
     }
 
+    // ADT-Tweak-Start
+    protected void DrawNorthLine(DrawingHandleScreen handle, Angle angle)
+    {
+        var origin = MidPointVector;
+        var aExtent = (angle - Math.Tau / 4).ToVec() * ScaledMinimapRadius * 1.42f;
+        var lineColor = Color.Red.WithAlpha(0.1f);
+        handle.DrawLine(origin, origin + aExtent, lineColor);
+    }
+    // ADT-Tweak-End
+
     protected void DrawGrid(DrawingHandleScreen handle, Matrix3x2 gridToView, Entity<MapGridComponent> grid, Color color, float alpha = 0.01f)
     {
         var rator = Maps.GetAllTiles(grid.Owner, grid.Comp);

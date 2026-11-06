@@ -46,3 +46,4 @@ comms-console-level-Red-flavour-label = Сохраняйте бдительно�
 comms-console-level-Gamma-flavour-label = Рекомендуется крайняя осторожность
 comms-console-level-Delta-flavour-label = Удачи
 comms-console-level-Epsilon-flavour-label = Вы уволены
+comms-console-level-Unknown-flavour-label = Сохраняйте бдительность

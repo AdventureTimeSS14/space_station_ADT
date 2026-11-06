@@ -102,3 +102,33 @@
   license: "CC-BY-SA-3.0"
   copyright: "Adventure Time MRP Server"
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["ussp_parquet.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Etvy for Adventure Time project, based on Tiles/steel_herringbone.png"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["ussp_concrete.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Etvy for Adventure Time project, based on Tiles/steel.png"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["ussp_linoleum.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Etvy for Adventure Time project, based on Tiles/lino.png"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["ussp_steel_olive.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Etvy for Adventure Time project, based on Tiles/steel.png"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["ussp_steel_red.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Etvy for Adventure Time project, based on Tiles/steel.png"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["ussp_metlakh.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Etvy for Adventure Time project"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"

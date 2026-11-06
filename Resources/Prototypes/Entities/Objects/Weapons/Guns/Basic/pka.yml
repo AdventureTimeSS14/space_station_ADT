@@ -31,6 +31,8 @@
       hyper:
         sprite: ADT/Objects/Weapons/Guns/PKAs/chassis.rsi
         state: hyper
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletKineticAccelerator
   # ADT Tweak End
   - type: ContainerContainer
     containers:

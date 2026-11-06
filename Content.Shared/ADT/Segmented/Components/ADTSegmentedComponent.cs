@@ -20,6 +20,9 @@ public sealed partial class ADTSegmentedComponent : Component
 
     [ViewVariables]
     public Vector2 MoveDirection = new(0f, -1f);
+
+    [ViewVariables]
+    public Dictionary<int, Vector2> AnchorOverrides = new();
 }
 
 [DataDefinition]

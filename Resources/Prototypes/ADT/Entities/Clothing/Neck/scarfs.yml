@@ -239,3 +239,64 @@
       sprite: ADT/Clothing/Neck/Scarfs/white.rsi
     - type: Clothing
       sprite: ADT/Clothing/Neck/Scarfs/white.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckShawlBlack
+  name: black neck shawl
+  description: A stylish neck shawl protecting the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Shawl/black_shawl.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Shawl/black_shawl.rsi
+  - type: StaticPrice
+    price: 25
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckShawlBlue
+  name: blue neck shawl
+  description: A stylish neck shawl protecting the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Shawl/blue_shawl.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Shawl/blue_shawl.rsi
+  - type: StaticPrice
+    price: 25
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckShawlPink
+  name: pink neck shawl
+  description: A stylish neck shawl protecting the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Shawl/pink_shawl.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Shawl/pink_shawl.rsi
+  - type: StaticPrice
+    price: 25
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckShawlRed
+  name: red neck shawl
+  description: A stylish neck shawl protecting the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Shawl/red_shawl.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Shawl/red_shawl.rsi
+  - type: StaticPrice
+    price: 25
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckShawlWhite
+  name: white neck shawl
+  description: A stylish neck shawl protecting the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Shawl/white_shawl.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Shawl/white_shawl.rsi
+  - type: StaticPrice
+    price: 25

@@ -115,3 +115,52 @@
     back:
     - ADTClothingHeadHatDandelionFlowerWreath
   groupBy: "flowerwreath"
+
+# Pendants and Lockets Playtime
+- type: loadoutEffectGroup
+  id: ADTPlaytimePendantSteel
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 10h
+
+- type: loadoutEffectGroup
+  id: ADTPlaytimePendantSilver
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 25h
+
+- type: loadout
+  id: ADTClothingNeckLocketSteel
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTPlaytimePendantSteel
+  equipment:
+    neck: ADTClothingNeckLocketSteel
+
+- type: loadout
+  id: ADTClothingNeckHeartSteel
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTPlaytimePendantSteel
+  equipment:
+    neck: ADTClothingNeckHeartSteel
+
+- type: loadout
+  id: ADTClothingNeckLocketSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTPlaytimePendantSilver
+  equipment:
+    neck: ADTClothingNeckLocketSilver
+
+- type: loadout
+  id: ADTClothingNeckHeartSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTPlaytimePendantSilver
+  equipment:
+    neck: ADTClothingNeckHeartSilver

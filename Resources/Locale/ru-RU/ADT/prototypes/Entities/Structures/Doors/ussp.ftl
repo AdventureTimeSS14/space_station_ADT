@@ -1,0 +1,12 @@
+ent-ADTAirlockUSSP = шлюз СССП
+    .desc = Оливковый шлюз с золотой звездой на створке.
+    .suffix = СССП
+ent-ADTAirlockUSSPHermetic = гермодверь СССП
+    .desc = Тяжёлая гермодверь бункера СССП. Выдержит прямое попадание.
+    .suffix = СССП
+ent-ADTAirlockUSSPHatch = бункерный люк СССП
+    .desc = Герметичный бетонный люк бункера.
+    .suffix = СССП
+ent-ADTBlastDoorUSSPBunker = бункерные гермоворота СССП
+    .desc = Массивные гермоворота с красными звёздами на створках.
+    .suffix = СССП

@@ -17,7 +17,6 @@
     - id: DrinkShaker
     - id: ClothingEyesHudBeer
     - id: HandLabeler
-    - id: ADTMusicDiskVa11Hall #ADT-Tweak
     - id: DrinkBeerBottleFull
       amount: !type:BinomialNumberSelector
         trials: 3
@@ -67,8 +66,8 @@
     - !type:AllSelector
       rolls: 3
       children:
-      - id: FoodCondimentPacketSalt
-      - id: FoodCondimentPacketPepper
+      - id: ReagentContainerSalt
+      - id: ReagentContainerPepper
       # ADT-tweak-start
         amount: 3
       - id: FoodCondimentBottleEnzyme

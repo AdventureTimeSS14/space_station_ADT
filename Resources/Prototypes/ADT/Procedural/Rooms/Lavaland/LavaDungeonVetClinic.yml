@@ -42,7 +42,7 @@
   - proto: ADTCharcoalPack
     positions:
     - 1.5026,8.7421
-  - proto: ADTSpawnAncientGoliath
+  - proto: ADTMobLavalandGoliathAncient
     positions:
     - 13.5,16.5
   - proto: ADTTapeRecorder

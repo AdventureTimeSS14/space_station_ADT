@@ -1,0 +1,134 @@
+- type: startingGear
+  id: ADTExpeditionNPCBreathingBase
+  equipment:
+    pocket2: DoubleEmergencyOxygenTankFilled
+
+- type: startingGear
+  id: ADTSovietBunkerSoldierGearBase
+  parent: ADTExpeditionNPCBreathingBase
+  equipment:
+    jumpsuit: ADTInfantrymanTUSSPUniform
+    shoes: ADTClothingShoesBootsUSSPArmy
+    head: ADTClothingHeadHelmetUSSPSfera
+    mask: ADTClothingMaskGasUSSP
+    ears: ADTClothingHeadsetUSSP
+    outerClothing: ADTClothingOuterVestUSSPKZS1
+    gloves: ClothingHandsGlovesCombat
+    belt: ADTClothingRPSUSSP
+    back: ADTClothingBackpackOR80L
+    id: ADTUSSPArmyCard
+  storage:
+    back:
+    - Gauze
+    - Gauze
+    - MedicatedSuture
+    - RegenerativeMesh
+    - EmergencyMedipen
+    - FoodTinMRE
+    - FoodTinMRE
+
+- type: startingGear
+  id: ADTSovietBunkerRiflemanGear
+  parent: ADTSovietBunkerSoldierGearBase
+  inhand:
+  - WeaponRifleAk
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolViper
+    - MagazinePistolHighCapacity
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazineLightRifle
+
+- type: startingGear
+  id: ADTSovietBunkerShotgunnerGear
+  parent: ADTSovietBunkerSoldierGearBase
+  inhand:
+  - WeaponShotgunSawn
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolViper
+    - MagazinePistolHighCapacity
+    - BoxLethalshot
+
+- type: startingGear
+  id: ADTSovietBunkerMarksmanGear
+  parent: ADTSovietBunkerSoldierGearBase
+  inhand:
+  - WeaponSniperMosin
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolViper
+    - MagazinePistolHighCapacity
+    - MagazineBoxLightRifle
+
+- type: startingGear
+  id: ADTSovietBunkerRocketeerGear
+  parent: ADTSovietBunkerSoldierGearBase
+  inhand:
+  - ADTWeaponLauncherRocketFrag
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolViper
+    - MagazinePistolHighCapacity
+    - ADTCartridgeFragRocket
+    - ADTCartridgeFragRocket
+
+- type: startingGear
+  id: ADTSovietBunkerSniperGear
+  parent: ADTSovietBunkerSoldierGearBase
+  inhand:
+  - ADTWeaponSniperHristovNoScope
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolViper
+    - MagazinePistolHighCapacity
+    - MagazineBoxAntiMateriel
+
+- type: startingGear
+  id: ADTSovietBunkerMedicGear
+  parent: ADTSovietBunkerSoldierGearBase
+  equipment:
+    suitstorage: ADTHighVoltageDefibrillator
+  inhand:
+  - WeaponPistolViper
+  storage:
+    belt:
+    - CombatKnife
+    - MagazinePistolHighCapacity
+    - MagazinePistolHighCapacity
+    back:
+    - MedkitFilled
+    - MedkitFilled
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+
+- type: startingGear
+  id: ADTSmugglerPirateGearPlaceholder
+  parent: ADTExpeditionNPCBreathingBase
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    shoes: ClothingShoesBootsCombat
+    mask: ClothingMaskGasSyndicate
+    back: ClothingBackpackSalvage
+    pocket1: MagazinePistol
+  storage:
+    back:
+    - Gauze
+    - Gauze
+    - MedicatedSuture
+    - RegenerativeMesh
+    - EmergencyMedipen
+    - FoodTinMRE
+    - FoodTinMRE
+  inhand:
+  - WeaponPistolViper

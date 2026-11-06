@@ -88,4 +88,8 @@ public enum IconSmoothingMode : byte
     ///     Where this component contributes to our neighbors being calculated but we do not update our own sprite.
     /// </summary>
     NoSprite,
+
+    // ADT-Tweak start
+    Bitmask,
+    // ADT-Tweak end
 }

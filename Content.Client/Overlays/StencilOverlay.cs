@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Graphics;
+using Content.Client.ADT.Weather; // ADT-Tweak
 using Content.Client.Light.EntitySystems;
 using Content.Client.Parallax;
 using Content.Client.Weather;
@@ -42,6 +43,7 @@ public sealed partial class StencilOverlay : Overlay
     private readonly StatusEffectsSystem _statusEffects;
     private readonly TurfSystem _turf; // ADT-Tweak
     private readonly ADTWindController _wind; // ADT-Tweak
+    private readonly ADTWeatherTileCacheSystem _weatherCache; // ADT-Tweak
     private GridStencilSystem _gridStencil = default!;
     private HashSet<Entity<WeatherStatusEffectComponent, StatusEffectComponent>>? _weatherSet = new();
 
@@ -63,6 +65,7 @@ public sealed partial class StencilOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _turf = _entManager.System<TurfSystem>(); // ADT-Tweak
         _wind = _entManager.System<ADTWindController>(); // ADT-Tweak
+        _weatherCache = _entManager.System<ADTWeatherTileCacheSystem>(); // ADT-Tweak
         _gridStencil = _entManager.System<GridStencilSystem>();
         _shader = _protoManager.Index(CircleShader).InstanceUnique();
     }

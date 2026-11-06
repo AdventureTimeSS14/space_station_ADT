@@ -101,8 +101,10 @@ public sealed partial class ExplosionSystem
 
         while (anchoredEnumerator.MoveNext(out var uid))
         {
-            if (!_airtightQuery.TryGetComponent(uid, out var airtight) || !airtight.AirBlocked)
+            // ADT-Tweak-start
+            if (!_airtightQuery.TryGetComponent(uid, out var airtight) || !airtight.AirBlocked || !airtight.BlockExplosions)
                 continue;
+            // ADT-Tweak-end
 
             blockedDirections |= airtight.AirBlockedDirection;
             GetExplosionTolerance(uid.Value, tolerance);

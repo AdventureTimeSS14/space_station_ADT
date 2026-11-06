@@ -27,7 +27,6 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private GatherableSystem _gatherable = default!;
-    [Dependency] private ADTHardRockSystem _hardRock = default!;
     [Dependency] private ADTKineticCooldownSystem _cooldown = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _proto = default!;
@@ -198,7 +197,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
             foreach (var gatherable in gatherables)
             {
-                if (gatherable.Owner == args.Target || TerminatingOrDeleted(gatherable) || _hardRock.IsHardRock(gatherable))
+                if (gatherable.Owner == args.Target || TerminatingOrDeleted(gatherable))
                     continue;
 
                 _gatherable.Gather(gatherable.AsNullable(), args.Shooter);
@@ -230,11 +229,12 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         if (!IsAliveMob(args.Target) && !HasComp<GatherableComponent>(args.Target))
             return;
 
-        var left = cooldown.NextUse - _timing.CurTime;
-        if (left <= TimeSpan.Zero)
+        if (cooldown.NextUse <= _timing.CurTime)
             return;
 
-        _cooldown.ReduceCooldown((gun, cooldown), _timing.CurTime + left * ent.Comp.HitCoefficient);
+        // KA.attempt_reload(KA.overheat_time * 0.25)
+        var full = cooldown.NextUse - cooldown.LastUseStart;
+        _cooldown.ReduceCooldown((gun, cooldown), _timing.CurTime + full * ent.Comp.HitCoefficient);
     }
 
     private void OnDeathSyphonHit(Entity<ADTProjectileDeathSyphonComponent> ent, ref ProjectileHitEvent args)

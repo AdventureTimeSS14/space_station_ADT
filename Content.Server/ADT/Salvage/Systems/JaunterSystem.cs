@@ -7,9 +7,11 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chasm;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Medical;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -33,6 +35,7 @@ public sealed class JaunterSystem : EntitySystem
     [Dependency] private SharedStaminaSystem _stamina = default!;
     [Dependency] private VomitSystem _vomit = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -48,9 +51,21 @@ public sealed class JaunterSystem : EntitySystem
         if (args.Handled)
             return;
 
+        args.Handled = true;
+
+        if (!InNaturalGravity(args.User))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-jaunter-no-natural-gravity"), args.User, args.User);
+            return;
+        }
+
         _portal.SpawnLinkedPortal(args.User);
         QueueDel(uid);
-        args.Handled = true;
+    }
+
+    private bool InNaturalGravity(EntityUid user)
+    {
+        return TryComp<GravityComponent>(Transform(user).MapUid, out var gravity) && gravity.Enabled && gravity.Inherent;
     }
 
     private void OnBeforeFall(EntityUid uid, JaunterComponent comp, ref BeforeChasmFallingEvent args)

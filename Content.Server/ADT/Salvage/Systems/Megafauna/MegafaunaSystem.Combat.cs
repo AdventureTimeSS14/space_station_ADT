@@ -43,6 +43,8 @@ public sealed partial class MegafaunaSystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedStationSystem _station = default!;
 
+    private const string BusyKey = "MegafaunaBusy";
+
     private void InitializeCombat()
     {
         SubscribeLocalEvent<ADTMegafaunaAIComponent, MapInitEvent>(OnAIMapInit);
@@ -60,10 +62,22 @@ public sealed partial class MegafaunaSystem
 
     private void OnAIAttemptMelee(Entity<ADTMegafaunaAIComponent> ent, ref AttemptMeleeEvent args)
     {
-        if (!IsRecovering(ent))
+        if (IsRecovering(ent))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (!ent.Comp.MeleeOncePerDecision || HasComp<ActorComponent>(ent))
             return;
 
-        args.Cancelled = true;
+        if (!ent.Comp.MeleeReady)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        ent.Comp.MeleeReady = false;
     }
 
     private void OnAIMeleeHit(Entity<ADTMegafaunaAIComponent> ent, ref MeleeHitEvent args)
@@ -169,12 +183,18 @@ public sealed partial class MegafaunaSystem
         }
     }
 
-    private static bool TryConsumeDecision(ADTMegafaunaAIComponent ai, TimeSpan now)
+    private bool TryConsumeDecision(ADTMegafaunaAIComponent ai, TimeSpan now)
     {
         if (now < ai.NextDecisionAt)
             return false;
 
-        ai.NextDecisionAt = now + ai.DecisionInterval;
+        var jitter = ai.DecisionJitterMin;
+
+        if (ai.DecisionJitterMax > ai.DecisionJitterMin)
+            jitter += (ai.DecisionJitterMax - ai.DecisionJitterMin) * _random.NextDouble();
+
+        ai.NextDecisionAt = now + ai.DecisionInterval + jitter;
+        ai.MeleeReady = true;
         return true;
     }
 
@@ -221,6 +241,20 @@ public sealed partial class MegafaunaSystem
         }
 
         return false;
+    }
+
+    public void RefreshBusy(EntityUid uid)
+    {
+        if (!TryComp<HTNComponent>(uid, out var htn))
+            return;
+
+        var ev = new ADTMegafaunaBusyCheckEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        if (ev.Busy)
+            htn.Blackboard.SetValue(BusyKey, true);
+        else
+            htn.Blackboard.Remove<bool>(BusyKey);
     }
 
     public bool IsRangedReady(Entity<ADTMegafaunaAIComponent> ent)

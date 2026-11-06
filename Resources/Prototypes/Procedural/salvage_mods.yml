@@ -233,6 +233,8 @@
   biomes:
     #- LowDesert
     - Grasslands
+    - AquaPlanet # ADT-Tweak
+    - OasisDesertPlanet # ADT-Tweak
 
 - type: salvageDungeonMod
   id: LavaBrig
@@ -254,6 +256,7 @@
   proto: SnowyLabs
   biomes:
     - Snow
+    - BlizzzzzardPlanet # ADT-Tweak
 
 - type: salvageDungeonMod
   id: Haunted

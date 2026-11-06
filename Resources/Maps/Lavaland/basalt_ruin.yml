@@ -953,7 +953,7 @@ entities:
     - type: Transform
       pos: 6.5,1.5
       parent: 1
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 136
     components:
@@ -1290,7 +1290,7 @@ entities:
     - type: Transform
       pos: 17.5,-7.5
       parent: 1
-- proto: WallRockBasaltArtifactFragment
+- proto: ADTBasaltArtifactFragment
   entities:
   - uid: 152
     components:
@@ -1307,14 +1307,14 @@ entities:
     - type: Transform
       pos: 15.5,-7.5
       parent: 1
-- proto: WallRockBasaltDiamond
+- proto: ADTBasaltDiamond
   entities:
   - uid: 172
     components:
     - type: Transform
       pos: 1.5,4.5
       parent: 1
-- proto: WallRockBasaltPlasma
+- proto: ADTBasaltPlasma
   entities:
   - uid: 139
     components:
@@ -1346,7 +1346,7 @@ entities:
     - type: Transform
       pos: 13.5,-9.5
       parent: 1
-- proto: WallRockBasaltSilver
+- proto: ADTBasaltSilver
   entities:
   - uid: 200
     components:

@@ -3,7 +3,9 @@
 
   Разделка любого зверя лаваленда режущим оружием даёт материалы для крафта и еду. Часть добычи выпадает не в фиксированном количестве, а в случайном диапазоне от нуля до указанного максимума, так что не расстраивайтесь, если повезло меньше обычного.
 
-  <GuideAshwalkerLootEmbed Entity="ADTMobNightmareSpider" Guaranteed="Хитин ткача x3|Мясо паука x2|Жила наблюдателя x1|Кости x2|Урановая руда x2" Chance="Ядовитый клык (трофей):10"/>
+  <GuideAshwalkerLootEmbed Entity="ADTMobMarrowWeaver" Guaranteed="Хитин ткача x3|Паучья лапа x2|Жила наблюдателя x1|Кости x2|Урановая руда x2" Chance="Ядовитый клык (трофей):10"/>
+
+  <GuideAshwalkerLootEmbed Entity="ADTMobMarrowWeaverFrost" Guaranteed="Хитин ткача x3|Паучья лапа x2|Жила наблюдателя x1|Кости x2|Урановая руда x2" Chance="Ледяная железа (трофей):10"/>
 
   <GuideAshwalkerLootEmbed Entity="MobGoliath" Guaranteed="Мясо голиафа x3|Шкура голиафа x1|Кости, до 5 шт" Chance="Щупальце голиафа (трофей):10"/>
 

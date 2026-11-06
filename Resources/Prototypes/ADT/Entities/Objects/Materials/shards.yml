@@ -14,6 +14,10 @@
     refineResult:
     - id: SheetGlass1
     - id: SheetPlasma1
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50
+      Plasma: 50
   - type: DamageOnTrigger
     damage:
       types:
@@ -53,6 +57,10 @@
     refineResult:
     - id: SheetGlass1
     - id: SheetUranium1
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50
+      Uranium: 50
   - type: DamageOnTrigger
     damage:
       types:

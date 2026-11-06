@@ -30,7 +30,6 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private GatherableSystem _gatherable = default!;
-    [Dependency] private ADTHardRockSystem _hardRock = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ISharedAdminLogManager _adminLog = default!;
@@ -236,7 +235,7 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
         foreach (var rock in rocks)
         {
-            if (!TerminatingOrDeleted(rock) && !_hardRock.IsHardRock(rock))
+            if (!TerminatingOrDeleted(rock))
                 _gatherable.Gather(rock.AsNullable(), ent.Comp.Creator);
         }
     }
@@ -291,7 +290,7 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
         foreach (var rock in rocks)
         {
-            if (TerminatingOrDeleted(rock) || _hardRock.IsHardRock(rock))
+            if (TerminatingOrDeleted(rock))
                 continue;
 
             if (SnapToTile(Transform(rock).Coordinates) is not { } target || FindFieldAt(target) != null)

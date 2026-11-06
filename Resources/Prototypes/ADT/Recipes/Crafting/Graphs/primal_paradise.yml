@@ -21,9 +21,6 @@
   targetNode: codpiece
   category: construction-category-clothing
   objectType: Item
-  entityWhitelist:
-    components:
-    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTHunterBelt
@@ -112,9 +109,6 @@
   targetNode: footwraps
   category: construction-category-clothing
   objectType: Item
-  entityWhitelist:
-    components:
-    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTFootwrapsDragon
@@ -166,9 +160,6 @@
   targetNode: gloves
   category: construction-category-clothing
   objectType: Item
-  entityWhitelist:
-    components:
-    - ADTTribeMember
 
 - type: constructionGraph
   id: ADTWeaverGloves

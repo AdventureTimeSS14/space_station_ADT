@@ -1834,7 +1834,7 @@
     - 29.5,32.5
     - 30.5,32.5
     - 31.5,32.5
-  - proto: WallRockBasalt
+  - proto: ADTBasalt
     anchored: true
     positions:
     - 11.5,10.5

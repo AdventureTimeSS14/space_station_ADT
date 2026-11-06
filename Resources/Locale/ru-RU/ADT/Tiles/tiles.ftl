@@ -48,3 +48,10 @@ adt-tiles-admin-grass-realistic-light-floor = реалистичная свет�
 adt-tiles-admin-grass-realistic-dark-floor = реалистичная тёмная трава
 adt-tiles-necropolis-floor = пол некрополя
 adt-tiles-basalt-dug-floor = вскопанный базальт
+
+tiles-adt-ussp-parquet-floor = паркет «ёлочка»
+tiles-adt-ussp-metlakh-floor = метлахская плитка
+tiles-adt-ussp-concrete-floor = бетонный пол
+tiles-adt-ussp-linoleum-floor = советский линолеум
+tiles-adt-ussp-steel-olive-floor = оливковая стальная плитка
+tiles-adt-ussp-steel-red-floor = красная стальная плитка

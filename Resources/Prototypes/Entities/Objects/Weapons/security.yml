@@ -121,7 +121,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 20
+        Blunt: 17 # ADT-Tweak
         Structural: 25 # ADT-Tweak 0 -> 25
     soundHit:
       collection: MetalThud
