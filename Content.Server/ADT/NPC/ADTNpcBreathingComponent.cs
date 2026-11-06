@@ -13,6 +13,9 @@ public sealed partial class ADTNpcBreathingComponent : Component
     public TimeSpan SafeDelay = TimeSpan.FromSeconds(5);
 
     [DataField]
+    public TimeSpan ClassifyInterval = TimeSpan.FromSeconds(30);
+
+    [DataField]
     public float MinBreathablePressure = 16f;
 
     [DataField]
@@ -23,6 +26,9 @@ public sealed partial class ADTNpcBreathingComponent : Component
 
     [ViewVariables]
     public TimeSpan? SafeSince;
+
+    [ViewVariables]
+    public TimeSpan ClassifiedUntil;
 
     [ViewVariables]
     public bool[]? BreathableGases;

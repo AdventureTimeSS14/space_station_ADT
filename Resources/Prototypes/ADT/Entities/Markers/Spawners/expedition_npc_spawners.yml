@@ -550,7 +550,7 @@
       state: equipped-HELMET
     - sprite: Clothing/Eyes/Glasses/mercglasses.rsi
       state: equipped-EYES
-    - sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    - sprite: ADT/Objects/Weapons/Guns/Pistols/forged_autopistol.rsi
       state: inhand-right
   - type: ConditionalSpawner
     prototypes:
@@ -614,7 +614,7 @@
       state: equipped-BACKPACK
     - sprite: Clothing/Head/Hats/brownflatcap.rsi
       state: equipped-HELMET
-    - sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    - sprite: ADT/Objects/Weapons/Guns/Pistols/forged_pistol.rsi
       state: inhand-right
   - type: ConditionalSpawner
     prototypes:

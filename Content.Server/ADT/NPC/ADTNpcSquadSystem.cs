@@ -6,6 +6,7 @@ using Content.Shared.ADT.NPC;
 using Content.Shared.ADT.NPC.Components;
 using Content.Shared.Chat;
 using Content.Shared.Inventory;
+using Content.Shared.Mobs;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Random.Helpers;
@@ -15,16 +16,16 @@ using Robust.Shared.Random;
 
 namespace Content.Server.ADT.NPC;
 
-public sealed class ADTNpcSquadSystem : EntitySystem
+public sealed partial class ADTNpcSquadSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public const string FollowKey = "ADTSquadFollow";
     public const string PassiveKey = "ADTSquadPassive";
@@ -36,6 +37,8 @@ public sealed class ADTNpcSquadSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ADTNpcSquadCommanderComponent, MapInitEvent>(OnCommanderMapInit);
         SubscribeLocalEvent<ADTNpcSquadCommanderComponent, ADTSquadOrderActionEvent>(OnOrder);
+        SubscribeLocalEvent<ADTNpcSquadCommanderComponent, MobStateChangedEvent>(OnCommanderMobState);
+        SubscribeLocalEvent<ADTNpcSquadCommanderComponent, ComponentShutdown>(OnCommanderShutdown);
         SubscribeLocalEvent<ADTNpcCombatMemoryComponent, MapInitEvent>(OnMemberMapInit);
     }
 
@@ -83,6 +86,53 @@ public sealed class ADTNpcSquadSystem : EntitySystem
         UpdateActions(ent);
     }
 
+    private void OnCommanderMobState(Entity<ADTNpcSquadCommanderComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        ent.Comp.Follow = false;
+        UpdateActions(ent);
+        ReleaseFollowers(ent);
+    }
+
+    private void OnCommanderShutdown(Entity<ADTNpcSquadCommanderComponent> ent, ref ComponentShutdown args)
+    {
+        ReleaseFollowers(ent);
+    }
+
+    private void ReleaseFollowers(Entity<ADTNpcSquadCommanderComponent> ent)
+    {
+        var query = EntityQueryEnumerator<HTNComponent>();
+
+        while (query.MoveNext(out var uid, out var htn))
+        {
+            if (uid == ent.Owner || TerminatingOrDeleted(uid))
+                continue;
+
+            if (!htn.Blackboard.TryGetValue<EntityCoordinates>(LeaderCoordinatesKey, out var leader, EntityManager) ||
+                leader.EntityId != ent.Owner)
+            {
+                continue;
+            }
+
+            htn.Blackboard.SetValue(FollowKey, false);
+            htn.Blackboard.Remove<EntityCoordinates>(LeaderCoordinatesKey);
+            Replan(htn);
+        }
+    }
+
+    private void Replan(HTNComponent htn)
+    {
+        if (htn.Plan != null)
+        {
+            _htn.ShutdownTask(htn.Plan.CurrentOperator, htn.Blackboard, HTNOperatorStatus.Failed);
+            _htn.ShutdownPlan(htn);
+        }
+
+        _htn.Replan(htn);
+    }
+
     private void Announce(Entity<ADTNpcSquadCommanderComponent> ent, ADTSquadOrder order)
     {
         if (!ent.Comp.Lines.TryGetValue(order, out var lines) || !_proto.TryIndex(lines, out var set))
@@ -119,14 +169,7 @@ public sealed class ADTNpcSquadSystem : EntitySystem
             htn.Blackboard.SetValue(FollowKey, ent.Comp.Follow);
             htn.Blackboard.SetValue(PassiveKey, ent.Comp.Passive);
             htn.Blackboard.SetValue(LeaderCoordinatesKey, leader);
-
-            if (htn.Plan != null)
-            {
-                _htn.ShutdownTask(htn.Plan.CurrentOperator, htn.Blackboard, HTNOperatorStatus.Failed);
-                _htn.ShutdownPlan(htn);
-            }
-
-            _htn.Replan(htn);
+            Replan(htn);
         }
     }
 

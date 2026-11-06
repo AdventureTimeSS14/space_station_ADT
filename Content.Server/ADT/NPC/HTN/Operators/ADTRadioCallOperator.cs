@@ -1,6 +1,7 @@
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -63,6 +64,7 @@ public sealed partial class ADTRadioCallOperator : HTNOperator
     private bool TargetHasReagent(NPCBlackboard blackboard, ProtoId<ReagentPrototype> reagent)
     {
         if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager) ||
+            !_entManager.HasComponent<SleepingComponent>(target) ||
             !_entManager.TryGetComponent(target, out BloodstreamComponent? bloodstream))
         {
             return false;

@@ -45,7 +45,7 @@ public sealed partial class ADTNpcBreathingSystem : EntitySystem
             if (!_inventory.TryGetSlotEntity(uid, "mask", out var mask) || !HasComp<BreathToolComponent>(mask))
                 continue;
 
-            if (!TryClassifyGases(uid, respirator, breathing))
+            if (!TryClassifyGases(uid, respirator, breathing, now))
                 continue;
 
             TryComp<MaskComponent>(mask, out var maskComp);
@@ -89,9 +89,9 @@ public sealed partial class ADTNpcBreathingSystem : EntitySystem
         }
     }
 
-    private bool TryClassifyGases(EntityUid uid, RespiratorComponent respirator, ADTNpcBreathingComponent breathing)
+    private bool TryClassifyGases(EntityUid uid, RespiratorComponent respirator, ADTNpcBreathingComponent breathing, TimeSpan now)
     {
-        if (breathing.BreathableGases != null && breathing.ToxicGases != null)
+        if (breathing.BreathableGases != null && breathing.ToxicGases != null && now < breathing.ClassifiedUntil)
             return true;
 
         var breathable = new bool[Atmospherics.TotalNumberOfGases];
@@ -114,6 +114,7 @@ public sealed partial class ADTNpcBreathingSystem : EntitySystem
 
         breathing.BreathableGases = breathable;
         breathing.ToxicGases = toxic;
+        breathing.ClassifiedUntil = now + breathing.ClassifyInterval;
         return true;
     }
 

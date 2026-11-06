@@ -64,6 +64,13 @@ public sealed partial class ADTNpcGearSystem
 
     public void GetAmmo(EntityUid gun, out int count, out int capacity)
     {
+        if (TryComp<RevolverAmmoProviderComponent>(gun, out var revolver))
+        {
+            count = GetLiveRounds(revolver);
+            capacity = revolver.Capacity;
+            return;
+        }
+
         var ev = new GetAmmoCountEvent();
         RaiseLocalEvent(gun, ref ev);
         count = ev.Count;
@@ -92,6 +99,22 @@ public sealed partial class ADTNpcGearSystem
             return ballistic.Whitelist;
 
         return CompOrNull<RevolverAmmoProviderComponent>(gun)?.Whitelist;
+    }
+
+    private int GetLiveRounds(RevolverAmmoProviderComponent revolver)
+    {
+        var count = 0;
+
+        for (var i = 0; i < revolver.Capacity; i++)
+        {
+            if (revolver.Chambers[i] == true ||
+                TryComp<CartridgeAmmoComponent>(revolver.AmmoSlots[i], out var cartridge) && !cartridge.Spent)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     private static bool HasFreeChamber(RevolverAmmoProviderComponent revolver)
