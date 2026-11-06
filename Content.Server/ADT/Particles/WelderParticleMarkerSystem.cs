@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Particles;
 using Content.Shared.DoAfter;
+using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Prototypes;
 
@@ -34,6 +35,9 @@ public sealed class WelderParticleMarkerSystem : EntitySystem
                     continue;
 
                 if (doAfter.Args.Event is not SharedToolSystem.ToolDoAfterEvent { Fuel: > 0f })
+                    continue;
+
+                if (!HasComp<WelderComponent>(doAfter.Args.Used))
                     continue;
 
                 if (doAfter.Args.Target is not { } target)
