@@ -1,0 +1,20 @@
+- type: entityTable
+  id: ADTHolidayDeliveryNewYear
+  table: !type:GroupSelector
+    children:
+    - id: ADTPresentDelivery
+
+- type: entity
+  id: ADTPresentDelivery
+  parent: PresentRandom
+  suffix: Delivery
+  components:
+  - type: Delivery
+    baseSpesoReward: 500
+    baseSpesoPenalty: 125
+  - type: Speech
+    speechVerb: Robotic
+  - type: EntityTableContainerFill
+    containers:
+      delivery: !type:NestedSelector
+        tableId: LetterDeliveryRewards

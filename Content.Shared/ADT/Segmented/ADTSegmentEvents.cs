@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Segmented;
 public readonly record struct ADTSegmentsSpawnedEvent;
 
 [ByRefEvent]
-public record struct ADTSegmentDamageForwardEvent(EntityUid Root, DamageSpecifier Damage, float Modifier, bool Cancelled = false);
+public record struct ADTSegmentDamageForwardEvent(EntityUid Root, DamageSpecifier Damage, float Modifier, EntityUid? Origin, bool Cancelled = false);
 
 [ByRefEvent]
 public readonly record struct ADTSegmentStepStartedEvent(EntityUid Root);

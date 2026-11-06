@@ -262,7 +262,7 @@
     - 8.5,0.5
     - 9.5,0.5
     - 10.5,0.5
-  - proto: MobAncientGoliath
+  - proto: ADTMobLavalandGoliathAncient
     positions:
     - 6.5,7.5
     - 8.5,7.5

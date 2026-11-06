@@ -84,3 +84,24 @@
     back:
     - ADTPremiumCaseKimerk
     - ADTClothingUniformKimerK
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTScarfErichStohl
+  storage:
+    back:
+    - ADTClothingNeckScarfErichStohl
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTGlovesErichStohl
+  storage:
+    back:
+    - ADTClothingHandsGlovesErichStohl
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTJacketErichStohl
+  storage:
+    back:
+    - ADTClothingOuterCoatErichStohl

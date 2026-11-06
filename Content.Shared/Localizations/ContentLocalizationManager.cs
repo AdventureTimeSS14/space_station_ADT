@@ -31,7 +31,7 @@ namespace Content.Shared.Localizations
 
             _loc.LoadCulture(culture);
             _loc.LoadCulture(fallbackCulture); // Corvax-Localization
-            _loc.SetFallbackCluture(fallbackCulture); // Corvax-Localization
+            _loc.SetFallbackCulture(fallbackCulture); // Corvax-Localization
             _loc.AddFunction(culture, "MANY", FormatMany); // Corvax-Localization: To prevent problems in auto-generated locale files
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
@@ -70,6 +70,15 @@ namespace Content.Shared.Localizations
 
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
+            // ADT-Tweak-start
+            _loc.AddFunction(cultureEn, "PRESSURE", FormatPressure);
+            _loc.AddFunction(cultureEn, "POWERWATTS", FormatPowerWatts);
+            _loc.AddFunction(cultureEn, "POWERJOULES", FormatPowerJoules);
+            _loc.AddFunction(cultureEn, "ENERGYWATTHOURS", FormatEnergyWattHours);
+            _loc.AddFunction(cultureEn, "TOSTRING", args => FormatToString(cultureEn, args));
+            _loc.AddFunction(cultureEn, "NATURALFIXED", FormatNaturalFixed);
+            _loc.AddFunction(cultureEn, "NATURALPERCENT", FormatNaturalPercent);
+            // ADT-Tweak-end
         }
 
         private ILocValue FormatMany(LocArgs args)

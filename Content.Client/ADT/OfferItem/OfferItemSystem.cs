@@ -2,6 +2,7 @@ using Content.Shared.ADT.OfferItem;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Alert;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Item;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -19,6 +20,7 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IEyeManager _eye = default!;
     [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private SharedItemSystem _item = default!;
 
     private LayoutContainer? _root;
     private OfferItemIcon? _icon;
@@ -64,8 +66,26 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
             _root!.AddChild(_icon);
         }
 
+        _icon.IsGiver = !receiving;
+        _icon.SetIconSize(GetIconSize(item));
+
         var tooltip = receiving ? "offer-item-icon-tooltip" : "offer-item-icon-tooltip-giver";
         _icon.SetItem(item, Loc.GetString(tooltip, ("item", Identity.Name(item, EntityManager, local))));
+    }
+
+    private float GetIconSize(EntityUid item)
+    {
+        if (!TryComp<ItemComponent>(item, out var itemComp))
+            return 32f;
+
+        return _item.GetItemSizeWeight(itemComp.Size) switch
+        {
+            <= 1 => 24f,
+            <= 2 => 28f,
+            <= 4 => 32f,
+            <= 8 => 38f,
+            _ => 44f,
+        };
     }
 
     private bool TryGetOffer(EntityUid local, OfferItemComponent comp, out EntityUid giver, out EntityUid item)
@@ -73,11 +93,11 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
         giver = default;
         item = default;
 
-        if (comp.Target is not { } target)
-            return false;
-
         if (comp.IsInReceiveMode)
         {
+            if (comp.Target is not { } target)
+                return false;
+
             if (!TryComp<OfferItemComponent>(target, out var giverComp) || giverComp.Item is not { } offered)
                 return false;
 
@@ -86,7 +106,7 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
             return true;
         }
 
-        if (comp.Item is not { } own)
+        if (comp.Item is not { } own || !comp.IsInOfferMode && comp.Target == null)
             return false;
 
         giver = local;

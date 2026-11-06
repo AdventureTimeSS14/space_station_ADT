@@ -768,3 +768,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/socks_cow.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingCow
+  name: cow stockings
+  description: Cute cow print stockings. Moo!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/stocking_cow.rsi
+  - type: StaticPrice
+    price: 20

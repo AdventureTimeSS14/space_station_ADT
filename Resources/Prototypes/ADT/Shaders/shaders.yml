@@ -175,3 +175,8 @@
   path: "/Textures/ADT/Shaders/ghost_body.swsl"
   params:
     visibility: 0.55
+
+- type: shader
+  id: ADTBlastShockwave
+  kind: source
+  path: "/Textures/ADT/Shaders/blast_shockwave.swsl"

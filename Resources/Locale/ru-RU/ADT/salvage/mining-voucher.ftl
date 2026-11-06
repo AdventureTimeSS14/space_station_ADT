@@ -21,6 +21,10 @@ mining-voucher-survival-name = Набор выживальщика
 mining-voucher-survival-description =
     Содержит РПС утилизатора, что позволяет переносить ещё больше вещей,
     а так же спасательную капсулу и фальшфейер.
+mining-voucher-pka-upgrades-name = Набор улучшений ПКА
+mining-voucher-pka-upgrades-description =
+    Содержит модули скорострельности и дальности для ПКА,
+    улучшенную сумку для руды и нож выживания.
 mining-voucher-minebot-name = Набор роботизированных раскопок
 mining-voucher-minebot-description =
     Содержит маленького компаньона-копатьбота, который помогает вам хранить руду и охотиться на диких животных.
@@ -113,6 +117,9 @@ syndicate-commander-voucher-hardsuit-description = Усиленная верси
 
 syndicate-medic-voucher-hardsuit-name = кроваво-красный медицинский скафандр
 syndicate-medic-voucher-hardsuit-description = Тяжелобронированный и манёвренный продвинутый скафандр, предназначенный для полевых медицинских операций.
+
+syndicate-medic-voucher-mod-name = МОД "Медицинский"
+syndicate-medic-voucher-mod-description = Медицинская версия костюма "Gorlex Marauders". Рассчитана на полевую медицину под огнем.
 
 syndicate-commander-voucher-mod-name = МОД "Меркурий"
 syndicate-commander-voucher-mod-description = Сильно улучшенная версия обычного МОДа синдиката, что выполнена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.

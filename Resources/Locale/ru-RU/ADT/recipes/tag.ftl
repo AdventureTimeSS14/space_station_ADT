@@ -111,3 +111,4 @@ construction-graph-tag-welder = сварочный аппарат
 construction-graph-tag-archimedes-central-control-module = центральный модуль управления Архимеда
 construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда
 
+construction-graph-tag-microphone = микрофон

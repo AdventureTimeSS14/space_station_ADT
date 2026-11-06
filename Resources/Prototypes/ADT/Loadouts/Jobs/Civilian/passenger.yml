@@ -80,6 +80,19 @@
   equipment:
     outerClothing: ClothingOuterCoatSpaceAsshole
 
+- type: loadout
+  id: ADTClothingOuterCoatGentle
+  equipment:
+    outerClothing: ClothingOuterCoatGentle
+
+- type: loadout
+  id: ADTCoatJensen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JensenTimer
+  equipment:
+    outerClothing: ClothingOuterCoatJensen
+
 # Head
 - type: loadout
   id: ADTClothingHeadHatBowlerHat
@@ -90,6 +103,11 @@
   id: ADTClothingHeadHatTophat
   equipment:
     head: ClothingHeadHatTophat
+
+- type: loadout
+  id: ADTClothingHeadHatFedoraGrey
+  equipment:
+    head: ClothingHeadHatFedoraGrey
 
 # Eyes
 - type: loadout

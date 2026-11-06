@@ -64,7 +64,8 @@ namespace Content.Server.AruMoon.Plasmacutter
             BatteryRechargeComponent recharge)
         {
             var availableMaterial = _materialStorage.GetMaterialAmount(uid, fuelType);
-            var chargePerMaterial = availableMaterial * recharge.Multiplier;
+            var multiplier = recharge.MaterialMultipliers.GetValueOrDefault(fuelType, recharge.Multiplier);
+            var chargePerMaterial = availableMaterial * multiplier;
             if (TryComp<PowerCellSlotComponent>(uid, out var slot) && _powerCell.TryGetBatteryFromSlot((uid, slot), out var battery))
             {
                 _batterySystem.ChangeCharge(battery!.Value.AsNullable(), chargePerMaterial);

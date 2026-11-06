@@ -1162,3 +1162,30 @@ DrinkNeurotoxinGlass: null
 
 # ADT-Tweak
 ChemMaster: ADTChemMaster
+
+# ADT-Tweak-Start
+ADTClothingOuterArmorMinerReinforcedOne: ADTClothingOuterArmorMiner
+ADTClothingOuterArmorMinerReinforcedTwo: ADTClothingOuterArmorMiner
+ADTClothingOuterArmorMinerReinforcedFull: ADTClothingOuterArmorMiner
+ADTClothingHeadHelmetMinerReinforcedOne: ADTClothingHeadHelmetMiner
+ADTClothingHeadHelmetMinerReinforcedTwo: ADTClothingHeadHelmetMiner
+ADTClothingHeadHelmetMinerReinforcedFull: ADTClothingHeadHelmetMiner
+ADTMobNightmareSpider: ADTMobMarrowWeaver
+ADTMobShockSpider: ADTMobMarrowWeaverFrost
+ADTSpawnMobNightmareSpider: ADTSpawnMobMarrowWeaver
+ADTSpawnMobShockSpider: ADTSpawnMobMarrowWeaverFrost
+ADTTendrilNightmareSpider: ADTTendrilRandomThreat
+ADTTendrilShockSpider: ADTTendrilRandomThreat
+ADTTendrilIcewingWatcher: ADTTendrilLavaWatcher
+ADTTendrilMagmawingWatcher: ADTTendrilLavaWatcher
+ADTTendrilBScrab: ADTTendrilRandomThreat
+# ADT-Tweak-End
+
+# ADT-Tweak: remove Music song
+ADTBoxMusicDisksSyndicate: null
+ADTMusicDiskShanson: null
+
+ADTBarbellBenchOverlay: null # ADT-Tweak
+
+# ADT frogs 2026-11-05
+SpawnMobFrog: ADTSpawnMobFrog

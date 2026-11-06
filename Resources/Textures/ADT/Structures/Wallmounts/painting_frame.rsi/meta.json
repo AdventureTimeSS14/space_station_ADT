@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise SS220 at https://github.com/ss220-space/Paradise/blob/master220/icons/obj/art/artstuff.dmi; cover made for ADT",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "simple"
+        },
+        {
+            "name": "iron"
+        },
+        {
+            "name": "bamboo"
+        },
+        {
+            "name": "necropolis"
+        },
+        {
+            "name": "cover"
+        }
+    ]
+}

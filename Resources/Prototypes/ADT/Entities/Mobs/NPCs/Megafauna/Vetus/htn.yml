@@ -68,6 +68,12 @@
 - type: htnCompound
   id: ADTVetusCompound
   branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: MegafaunaBusy
+      tasks:
+        - !type:HTNCompoundTask
+          task: DoAbsolutelyNothingCompound
     - tasks:
         - !type:HTNCompoundTask
           task: ADTVetusCombatPrecondition

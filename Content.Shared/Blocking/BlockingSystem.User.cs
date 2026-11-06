@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Blocking.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components; // ADT-Tweak
@@ -9,6 +10,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power;
+using Content.Shared.PowerCell;
 using Content.Shared.Examine;
 
 namespace Content.Shared.Blocking;
@@ -17,7 +19,10 @@ public sealed partial class BlockingSystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedBatterySystem _batterySystem = default!; //ADT-Tweak
+    // ADT-Tweak-Start
+    [Dependency] private SharedBatterySystem _batterySystem = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    // ADT-Tweak-End
 
     private void InitializeUser()
     {
@@ -30,6 +35,7 @@ public sealed partial class BlockingSystem
         SubscribeLocalEvent<BlockingComponent, ItemToggleActivateAttemptEvent>(OnItemToggleAttempt); //ADT-Tweak
         SubscribeLocalEvent<BlockingComponent, ChargeChangedEvent>(OnChargeChanged); //ADT-Tweak
         SubscribeLocalEvent<BlockingComponent, ExaminedEvent>(OnBatteryExamined); //ADT-Tweak
+        SubscribeLocalEvent<BlockingComponent, PowerCellSlotEmptyEvent>(OnCellSlotEmpty); //ADT-Tweak
     }
 
     private void OnParentChanged(Entity<BlockingUserComponent> entity, ref EntParentChangedMessage args)
@@ -80,8 +86,6 @@ public sealed partial class BlockingSystem
             return;
         //ADT-Tweak-End
 
-        _damageable.TryChangeDamage(item, blockFraction * args.OriginalDamage); // ADT-Tweak
-
         // This is how much damage the shield is attempting to block
         var split = args.OriginalDamage * blockFraction;
         var damage = _damageable.ChangeDamage(item, split);
@@ -101,7 +105,7 @@ public sealed partial class BlockingSystem
         args.Damage *= 1f - blockFraction;
         args.Damage += blowthrough;
 
-        ConsumeBatteryCharge(item, blocking, (float)args.Damage.GetTotal()); //ADT-Tweak
+        ConsumeBatteryCharge(item, blocking, (float)(split.GetTotal() - blowthrough.GetTotal())); //ADT-Tweak
 
         if (blocking.IsRaised && damage.AnyPositive())
             _audio.PlayPvs(blocking.BlockSound, entity);
@@ -121,10 +125,14 @@ public sealed partial class BlockingSystem
         if (!entity.Comp.IsCharging)
             return;
 
-        if (!TryComp<BatteryComponent>(entity, out var battery))
+        if (!TryGetShieldBattery(entity, out var battery))
+        {
+            args.Cancelled = true;
+            args.Popup = Loc.GetString("handheld-light-component-cell-missing-message");
             return;
+        }
 
-        if (_batterySystem.GetCharge((entity, battery)) <= 0.1f)
+        if (_batterySystem.GetCharge(battery.Value.AsNullable()) <= 0.1f)
         {
             args.Cancelled = true;
             args.Popup = Loc.GetString("handheld-light-component-cell-dead-message");
@@ -139,13 +147,32 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(entity, out var battery) || _batterySystem.GetCharge((entity, battery)) > 0.1f)
             return;
 
-        if (TryComp<ItemToggleComponent>(entity, out var itemToggle))
-            _toggle.TryDeactivate((entity, itemToggle), null);
+        DeactivateEmptyShield(entity);
+    }
 
-        _popupSystem.PopupPredicted(Loc.GetString("inducer-empty"), entity, entity);
+    private void OnCellSlotEmpty(Entity<BlockingComponent> entity, ref PowerCellSlotEmptyEvent args)
+    {
+        if (!entity.Comp.IsCharging)
+            return;
+
+        DeactivateEmptyShield(entity);
+    }
+
+    private void DeactivateEmptyShield(Entity<BlockingComponent> entity)
+    {
+        if (TryComp<ItemToggleComponent>(entity, out var itemToggle) && itemToggle.Activated)
+        {
+            _toggle.TryDeactivate((entity, itemToggle), null);
+            _popupSystem.PopupPredicted(Loc.GetString("inducer-empty"), entity, entity);
+        }
 
         if (entity.Comp.User != null)
             StopBlocking(entity, entity.Comp.User.Value);
+    }
+
+    private bool TryGetShieldBattery(EntityUid uid, [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
+    {
+        return _powerCell.TryGetBatteryFromSlotOrEntity(uid, out battery);
     }
 
     private float ApplyBatteryLimitToBlockFraction(EntityUid uid, BlockingComponent component, float blockFraction, DamageSpecifier originalDamage)
@@ -153,12 +180,12 @@ public sealed partial class BlockingSystem
         if (!component.IsCharging)
             return blockFraction;
 
-        if (!TryComp<BatteryComponent>(uid, out var battery))
-            return blockFraction;
+        if (!TryGetShieldBattery(uid, out var battery))
+            return 0f;
 
         var originalTotalDamage = (float)originalDamage.GetTotal();
         var desiredShieldDamage = blockFraction * originalTotalDamage;
-        var maxBlockableDamage = (float)(_batterySystem.GetCharge((uid, battery)) / component.EnergyCostPerHit);
+        var maxBlockableDamage = (float)(_batterySystem.GetCharge(battery.Value.AsNullable()) / component.EnergyCostPerHit);
 
         if (desiredShieldDamage <= maxBlockableDamage)
             return blockFraction;
@@ -174,20 +201,23 @@ public sealed partial class BlockingSystem
         if (!component.IsCharging)
             return true;
 
-        if (!TryComp<BatteryComponent>(uid, out var battery))
+        if (!TryGetShieldBattery(uid, out var battery))
             return true;
 
-        return _batterySystem.GetCharge((uid, battery)) <= 0.1f;
+        return _batterySystem.GetCharge(battery.Value.AsNullable()) <= 0.1f;
     }
 
     private void ConsumeBatteryCharge(EntityUid uid, BlockingComponent component, float damage)
     {
-        if (component.IsCharging && TryComp<BatteryComponent>(uid, out var battery))
+        if (damage <= 0)
+            return;
+
+        if (component.IsCharging && TryGetShieldBattery(uid, out var battery))
         {
             var chargeToConsume = component.EnergyCostPerHit * damage;
-            var newCharge = Math.Max(0, _batterySystem.GetCharge((uid, battery)) - chargeToConsume);
+            var newCharge = Math.Max(0, _batterySystem.GetCharge(battery.Value.AsNullable()) - chargeToConsume);
 
-            _batterySystem.SetCharge(uid, newCharge);
+            _batterySystem.SetCharge(battery.Value.AsNullable(), newCharge);
         }
     }
 

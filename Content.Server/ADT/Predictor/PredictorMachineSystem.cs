@@ -106,7 +106,7 @@ public sealed class PredictorMachineSystem : EntitySystem
             return;
         }
 
-        if (!_bankCard.TryChangeBalance(bankCard.AccountId.Value, -component.Price))
+        if (!_bankCard.TryBurn(bankCard.AccountId.Value, component.Price, TransactionReason.PredictorFee, Name(args.User)))
         {
             _popup.PopupEntity(Loc.GetString("predictor-machine-payment-failed"), uid, args.User);
             _audio.PlayPvs(component.SoundDeny, uid);

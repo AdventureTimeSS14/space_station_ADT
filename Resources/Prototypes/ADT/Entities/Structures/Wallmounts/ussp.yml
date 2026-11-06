@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseWallmountMetallic
+  id: ADTLoudspeakerUSSP
+  name: loudspeaker
+  description: A wall loudspeaker. It relays the radio broadcast for everyone around.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/ussp_loudspeaker.rsi
+    state: loudspeaker
+  - type: RadioSpeaker
+    speechMode: Speak
+    soundOnReceive:
+      path: /Audio/ADT/Effects/static.ogg
+      params:
+        volume: -4
+        maxDistance: 14
+        variation: 0.05
+    channels:
+    - ADTOldBroadcast
+  - type: Speech
+    speechVerb: ADTRadioBroadcasting
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

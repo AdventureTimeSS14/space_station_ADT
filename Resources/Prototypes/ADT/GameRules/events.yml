@@ -39,6 +39,34 @@
   - type: CentComRandomEvent
 
 - type: entity
+  id: ADTCentComRandomEventRevolution
+  parent: CentComRandomEvent
+  components:
+  - type: StationEvent
+    weight: 0
+  - type: CentComRandomEvent
+    weights:
+      101: 2
+      102: 2
+      103: 2
+      104: 2
+      105: 2
+      106: 2
+      107: 2
+      108: 2
+      109: 2
+      110: 2
+      111: 2
+      112: 2
+      113: 2
+      114: 2
+      115: 2
+      116: 2
+    variantCounts:
+      101: 8
+      106: 4
+
+- type: entity
   parent: BaseGameRule
   id: MorphSpawn
   components:
@@ -48,8 +76,7 @@
     reoccurrenceDelay: 20
     minimumPlayers: 25
     duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
+  - type: VentSpawnRule
   - type: AntagSpawner
     prototype: ADTBaseMobMorph
   - type: AntagObjectives
@@ -141,3 +168,26 @@
       proto: ADTSpaceEmperor
   - type: DragonRule #чтобы отдельный рул не писать
   - type: GhostRoleAntagSpawner
+
+- type: entity
+  id: CargoCategorySurgeEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 8
+    duration: 600
+    maxDuration: 1200
+    earliestStart: 10
+    reoccurrenceDelay: 30
+    maxOccurrences: 7
+    minimumPlayers: 10
+  - type: CargoCategorySurgeRule
+
+- type: entity
+  id: ADTRevSalaryCutEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 0
+    duration: 1
+  - type: RevSalaryCutRule

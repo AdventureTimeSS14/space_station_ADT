@@ -480,3 +480,18 @@
   id: adthopelessness
   flavorType: Complex
   description: flavor-complex-adthopelessness
+
+- type: flavor
+  id: adt_jam_raspberry
+  flavorType: Complex
+  description: flavor-complex-adt-jam-raspberry
+
+- type: flavor
+  id: adt_jam_strawberry
+  flavorType: Complex
+  description: flavor-complex-adt-jam-strawberry
+
+- type: flavor
+  id: adt_jam_apricot
+  flavorType: Complex
+  description: flavor-complex-adt-jam-apricot

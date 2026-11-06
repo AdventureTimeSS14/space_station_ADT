@@ -11,6 +11,8 @@ namespace Content.Server.ADT.Shadowling;
 
 public sealed partial class ADTShadowlingAbilitySystem
 {
+    private EntityUid? _ascendAudioStream;
+
     private void InitializeAscension()
     {
         SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingAscendEvent>(OnAscend);
@@ -84,7 +86,8 @@ public sealed partial class ADTShadowlingAbilitySystem
 
     private void FinishAscend(Entity<ADTShadowlingComponent> ent, ADTShadowlingAscendActionComponent ascend)
     {
-        _audio.PlayGlobal(ascend.Sound, Filter.Broadcast(), true);
+        if (TerminatingOrDeleted(_ascendAudioStream))
+            _ascendAudioStream = _audio.PlayGlobal(ascend.Sound, Filter.Broadcast(), true)?.Entity;
 
         foreach (var nearby in _lookup.GetEntitiesInRange(ent.Owner, ascend.ShockwaveRange))
         {
