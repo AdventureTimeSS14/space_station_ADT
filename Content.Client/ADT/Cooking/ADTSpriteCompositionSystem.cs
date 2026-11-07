@@ -5,6 +5,7 @@ using Content.Shared.DisplacementMap;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Graphics.RSI;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Cooking;
@@ -153,7 +154,8 @@ public sealed partial class ADTSpriteCompositionSystem : EntitySystem
         DisplacementData? displacement = null,
         ShaderInstance? shader = null,
         Color? fill = null,
-        bool keepOwnShaders = false)
+        bool keepOwnShaders = false,
+        ProtoId<ShaderPrototype>? replaceOwnShader = null)
     {
         var keys = GetKeys(target);
         var counter = 0;
@@ -188,7 +190,11 @@ public sealed partial class ADTSpriteCompositionSystem : EntitySystem
             _sprite.LayerSetOffset(target.AsNullable(), newIndex, offset + layerOffset);
             _sprite.LayerSetRotation(target.AsNullable(), newIndex, layer.Rotation + rotation);
 
-            if (shader != null && !(keepOwnShaders && layer.Shader != null))
+            var keepOwn = keepOwnShaders
+                && layer.Shader != null
+                && !(replaceOwnShader != null && layer.ShaderPrototype == replaceOwnShader);
+
+            if (shader != null && !keepOwn)
                 target.Comp.LayerSetShader(newIndex, shader);
             else if (layer.Shader != null)
                 target.Comp.LayerSetShader(newIndex, layer.Shader, layer.ShaderPrototype?.Id);

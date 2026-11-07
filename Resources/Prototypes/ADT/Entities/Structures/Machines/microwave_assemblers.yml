@@ -198,7 +198,6 @@
         hard: false
   - type: Sprite
     sprite: ADT/Structures/Machines/oven.rsi
-    snapCardinals: true
     layers:
     - state: composite_off
   - type: Destructible

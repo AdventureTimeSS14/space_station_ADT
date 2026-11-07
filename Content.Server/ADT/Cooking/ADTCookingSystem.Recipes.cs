@@ -1067,7 +1067,22 @@ public sealed partial class ADTCookingSystem
     {
         BurnContents(ent, settings);
         if (ent.Comp.SoupResult != null && settings.Qualities.Count > 0)
-            ent.Comp.SoupQuality = settings.Qualities[0];
+        {
+            var previousQuality = ent.Comp.SoupQuality;
+            var burntId = settings.Qualities[0];
+            ent.Comp.SoupQuality = burntId;
+
+            if (previousQuality is { } previousId
+                && previousId != burntId
+                && _proto.TryIndex(previousId, out var previous)
+                && _proto.TryIndex(burntId, out var burnt)
+                && previous.NutritionMultiplier > 0
+                && _solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out var potSoln, out var pot))
+            {
+                ScaleSolutionNutrients(pot, burnt.NutritionMultiplier / previous.NutritionMultiplier, settings);
+                _solution.UpdateChemicals(potSoln.Value, false);
+            }
+        }
 
         SetStage(ent, ADTCookingStage.Burnt);
         RefreshVisualTiming(ent);

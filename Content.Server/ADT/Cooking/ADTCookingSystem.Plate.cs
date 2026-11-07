@@ -316,8 +316,21 @@ public sealed partial class ADTCookingSystem
             if (missing <= FixedPoint2.Zero)
                 continue;
 
-            poured.AddReagent(reagent.Id, missing);
-            _solution.RemoveReagent(sourceSoln.Value, reagent.Id, missing);
+            foreach (var (id, quantity) in sourceSolution.Contents.ToArray())
+            {
+                if (missing <= FixedPoint2.Zero)
+                    break;
+
+                if (id.Prototype != reagent)
+                    continue;
+
+                var removed = _solution.RemoveReagent(sourceSoln.Value, id, FixedPoint2.Min(quantity, missing));
+                if (removed <= FixedPoint2.Zero)
+                    continue;
+
+                poured.AddReagent(id, removed);
+                missing -= removed;
+            }
         }
 
         var top = items[^1];

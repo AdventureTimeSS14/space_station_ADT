@@ -214,7 +214,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
             if (sauce != null && displacement != null)
                 displacement = new DisplacementData(displacement) { ShaderOverride = null };
 
-            _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-item-{i}", slot.Offset, scale, rotation, null, null, displacement, sauce, keepOwnShaders: true);
+            _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-item-{i}", slot.Offset, scale, rotation, null, null, displacement, sauce, keepOwnShaders: true, replaceOwnShader: SauceShader);
         }
     }
 
