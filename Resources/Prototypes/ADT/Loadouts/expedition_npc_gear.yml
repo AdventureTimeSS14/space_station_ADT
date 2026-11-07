@@ -31,10 +31,10 @@
   id: ADTSovietBunkerRiflemanGear
   parent: ADTSovietBunkerSoldierGearBase
   inhand:
-  - WeaponRifleAk
+  - ADTWeaponRifleAKTac
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
     - MagazineLightRifle
@@ -42,16 +42,27 @@
     - MagazineLightRifle
 
 - type: startingGear
+  id: ADTSovietBunkerOfficerGear
+  parent: ADTSovietBunkerRiflemanGear
+  equipment:
+    jumpsuit: ADTOfficerArmyUSSPUniform
+    outerClothing: ADTClothingOuterCoatOfficerUSSPGreatcoat
+    head: ADTClothingHeadHatsOfficerArmyUSSPCap
+    id: ADTUSSPArmyOfficerCard
+
+- type: startingGear
   id: ADTSovietBunkerShotgunnerGear
   parent: ADTSovietBunkerSoldierGearBase
   inhand:
-  - WeaponShotgunSawn
+  - ADTWeaponShotgunEger
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
-    - BoxLethalshot
+    - ADTMagazineShotgunEger
+    - ADTMagazineShotgunEger
+    - ADTMagazineShotgunEger
 
 - type: startingGear
   id: ADTSovietBunkerMarksmanGear
@@ -60,7 +71,7 @@
   - WeaponSniperMosin
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
     - MagazineBoxLightRifle
@@ -72,23 +83,23 @@
   - ADTWeaponLauncherRocketFrag
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
     - ADTCartridgeFragRocket
     - ADTCartridgeFragRocket
 
 - type: startingGear
-  id: ADTSovietBunkerSniperGear
+  id: ADTSovietBunkerMachineGunnerGear
   parent: ADTSovietBunkerSoldierGearBase
   inhand:
-  - ADTWeaponSniperHristovNoScope
+  - ADTWeaponLightMachineGunMaxim
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - WeaponPistolViper
     - MagazinePistolHighCapacity
-    - MagazineBoxAntiMateriel
+    - ADTMagazineLightRifleMaximBox
 
 - type: startingGear
   id: ADTSovietBunkerMedicGear
@@ -99,7 +110,7 @@
   - WeaponPistolViper
   storage:
     belt:
-    - CombatKnife
+    - ADTUSSPCombatKnifeBarzai
     - MagazinePistolHighCapacity
     - MagazinePistolHighCapacity
     back:
@@ -113,14 +124,10 @@
     - CombatMedipen
 
 - type: startingGear
-  id: ADTSmugglerPirateGearPlaceholder
+  id: ADTSmugglerGearBase
   parent: ADTExpeditionNPCBreathingBase
   equipment:
-    jumpsuit: ClothingUniformJumpsuitOperative
-    shoes: ClothingShoesBootsCombat
-    mask: ClothingMaskGasSyndicate
-    back: ClothingBackpackSalvage
-    pocket1: MagazinePistol
+    id: ADTClothingNeckJetonSmuggler
   storage:
     back:
     - Gauze
@@ -130,5 +137,330 @@
     - EmergencyMedipen
     - FoodTinMRE
     - FoodTinMRE
+
+- type: startingGear
+  id: ADTSmugglerRaggedGearBase
+  parent: ADTSmugglerGearBase
+  equipment:
+    jumpsuit: ClothingUniformOveralls
+    outerClothing: ClothingOuterFlannelRed
+    head: ClothingHeadBandRed
+    shoes: ClothingShoesBootsWork
+    gloves: ClothingHandsGlovesFingerless
+    mask: ClothingMaskGas
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltMercWebbing
+    back: ClothingBackpackSatchelLeather
+
+- type: startingGear
+  id: ADTSmugglerMercGearBase
+  parent: ADTSmugglerGearBase
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    outerClothing: ClothingOuterVestWebMerc
+    head: ClothingHeadHelmetMerc
+    eyes: ClothingEyesGlassesMercenary
+    shoes: ClothingShoesBootsMerc
+    gloves: ClothingHandsMercGlovesCombat
+    mask: ClothingMaskGasMerc
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltMercWebbing
+    back: ClothingBackpackMerc
+
+- type: startingGear
+  id: ADTSmugglerRiflemanGear
+  parent: ADTSmugglerRaggedGearBase
+  equipment:
+    head: ClothingHeadHatGreyFlatcap
+    outerClothing: ClothingOuterCoatBomber
   inhand:
-  - WeaponPistolViper
+  - ADTWeaponRifleForged
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolForged
+    - MagazinePistol
+    - MagazineBoxLightRifle
+    - MagazineBoxLightRifle
+
+- type: startingGear
+  id: ADTSmugglerHunterGear
+  parent: ADTSmugglerRaggedGearBase
+  equipment:
+    head: ClothingHeadHatBrownFlatcap
+    outerClothing: ClothingOuterFlannelGreen
+  inhand:
+  - ADTWeaponRifleImprovised
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolImprovised
+    - MagazinePistol
+    - MagazineBoxLightRifle
+    - MagazineBoxLightRifle
+
+- type: startingGear
+  id: ADTSmugglerShotgunnerGear
+  parent: ADTSmugglerRaggedGearBase
+  inhand:
+  - ADTWeaponShotgunForged
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverForged
+    - SpeedLoaderMagnum
+    - BoxLethalshot
+    - BoxLethalshot
+
+- type: startingGear
+  id: ADTSmugglerRaiderGear
+  parent: ADTSmugglerMercGearBase
+  equipment:
+    head: ClothingHeadHatBeretMerc
+  inhand:
+  - ADTWeaponSubMachineGunForged
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolForgedAuto
+    - MagazinePistolHighCapacity
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+
+- type: startingGear
+  id: ADTSmugglerThugGear
+  parent: ADTSmugglerRaggedGearBase
+  equipment:
+    head: ClothingHeadBandSkull
+    outerClothing: ClothingOuterHoodieBlack
+  inhand:
+  - ADTWeaponSubMachineGunImprovised
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverImprovised
+    - SpeedLoaderMagnum
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+
+- type: startingGear
+  id: ADTSmugglerHeavyGear
+  parent: ADTSmugglerMercGearBase
+  inhand:
+  - ADTWeaponRifleTRR30
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolImprovisedHeavy
+    - MagazineMagnum
+    - ADTMagazineReactive30
+    - ADTMagazineReactive30
+
+- type: startingGear
+  id: ADTSmugglerTrooperGear
+  parent: ADTSmugglerMercGearBase
+  inhand:
+  - ADTWeaponRifleSTR55
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponPistolForged
+    - MagazinePistol
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifle
+
+- type: startingGear
+  id: ADTSmugglerMedicGear
+  parent: ADTSmugglerMercGearBase
+  equipment:
+    head: ADTClothingHeadHatBeanieMerc
+    suitstorage: ADTHighVoltageDefibrillator
+  inhand:
+  - ADTWeaponPistolForgedAuto
+  storage:
+    belt:
+    - CombatKnife
+    - MagazinePistolHighCapacity
+    - MagazinePistolHighCapacity
+    back:
+    - MedkitFilled
+    - MedkitFilled
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+
+- type: startingGear
+  id: ADTMarauderGearBase
+  parent: ADTExpeditionNPCBreathingBase
+  equipment:
+    id: SyndiOperativeIDCard
+    jumpsuit: ClothingUniformJumpsuitOperative
+    outerClothing: ClothingOuterVestWeb
+    head: ClothingHeadHelmetSyndicate
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    mask: ClothingMaskGasSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    belt: ClothingBeltMilitaryWebbing
+    back: ClothingBackpackSyndicate
+  storage:
+    back:
+    - Gauze
+    - Gauze
+    - MedicatedSuture
+    - RegenerativeMesh
+    - EmergencyMedipen
+    - FoodTinMRE
+    - FoodTinMRE
+
+- type: startingGear
+  id: ADTMarauderRiflemanGear
+  parent: ADTMarauderGearBase
+  inhand:
+  - WeaponSubMachineGunC20r
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolViper
+    - MagazinePistolHighCapacity
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+
+- type: startingGear
+  id: ADTMarauderBreacherGear
+  parent: ADTMarauderGearBase
+  equipment:
+    outerClothing: ClothingOuterEVASuitSyndicate
+  inhand:
+  - WeaponShotgunBulldog
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolViper
+    - MagazinePistolHighCapacity
+    - MagazineShotgun
+    - MagazineShotgun
+
+- type: startingGear
+  id: ADTMarauderGunnerGear
+  parent: ADTMarauderGearBase
+  inhand:
+  - WeaponLightMachineGunL6
+  storage:
+    belt:
+    - CombatKnife
+    - WeaponPistolCobra
+    - MagazinePistolCaselessRifle
+    - MagazineLightRifleBox
+
+- type: startingGear
+  id: ADTMarauderMedicGear
+  parent: ADTMarauderGearBase
+  equipment:
+    id: SyndiCorpsmanIDCard
+    jumpsuit: ClothingUniformJumpsuitParamedicSyndie
+    suitstorage: ADTHighVoltageDefibrillator
+  inhand:
+  - WeaponPistolCobra
+  storage:
+    belt:
+    - CombatKnife
+    - MagazinePistolCaselessRifle
+    - MagazinePistolCaselessRifle
+    back:
+    - MedkitFilled
+    - MedkitFilled
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+
+- type: startingGear
+  id: ADTSmugglerBossGear
+  parent: ADTSmugglerMercGearBase
+  equipment:
+    id: ADTClothingNeckJetonSmugglerBoss
+    head: ClothingHeadHatBeretMerc
+    outerClothing: ClothingOuterCoatBomber
+  inhand:
+  - ADTWeaponLightMachineGunHRC30
+
+- type: startingGear
+  id: ADTSmugglerBossGearArmorPiercing
+  parent: ADTSmugglerBossGear
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverForged
+    - SpeedLoaderMagnum
+    - ADTMagazineReactive30DrumHeavy
+
+- type: startingGear
+  id: ADTSmugglerBossGearBlast
+  parent: ADTSmugglerBossGear
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverForged
+    - SpeedLoaderMagnum
+    - ADTMagazineReactive30DrumHeavyBlast
+
+- type: startingGear
+  id: ADTSmugglerBossGearIncendiary
+  parent: ADTSmugglerBossGear
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverForged
+    - SpeedLoaderMagnum
+    - ADTMagazineReactive30DrumHeavyIncendiary
+
+- type: startingGear
+  id: ADTSmugglerBossGearShrapnel
+  parent: ADTSmugglerBossGear
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverForged
+    - SpeedLoaderMagnum
+    - ADTMagazineReactive30DrumHeavyShrapnel
+
+- type: startingGear
+  id: ADTSmugglerBossGearUranium
+  parent: ADTSmugglerBossGear
+  storage:
+    belt:
+    - CombatKnife
+    - ADTWeaponRevolverForged
+    - SpeedLoaderMagnum
+    - ADTMagazineReactive30DrumHeavyUranium
+
+- type: startingGear
+  id: ADTSmugglerTraderGear
+  parent: ADTSmugglerGearBase
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannel
+    outerClothing: ClothingOuterCoatBomber
+    head: ClothingHeadHatBrownFlatcap
+    shoes: ClothingShoesLeather
+    mask: ClothingMaskGas
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltMercWebbing
+    back: ClothingBackpackSatchelLeather
+  storage:
+    belt:
+    - ADTWeaponPistolForged
+    - MagazinePistol
+
+- type: startingGear
+  id: ADTMarauderVeteranGear
+  parent: ADTMarauderRiflemanGear
+  equipment:
+    id: SyndiCommanderIDCard
+    outerClothing: ClothingOuterCoatSyndieCapArmored
+    head: ClothingHeadHatSyndie

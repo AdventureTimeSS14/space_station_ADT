@@ -140,8 +140,10 @@
             targetKey: Target
         - !type:HTNPrimitiveTask
           operator: !type:ADTRadioCallOperator
-            call: Contact
+            call: Neutralized
             lineSet: ADTXenoborgRadioNeutralized
+            targetReagent: Nocturine
+            targetReagentMin: 8
             channel: Xenoborg
             cooldown: 20
             groupCooldown: 10
@@ -176,8 +178,10 @@
             targetKey: Target
         - !type:HTNPrimitiveTask
           operator: !type:ADTRadioCallOperator
-            call: Contact
+            call: Neutralized
             lineSet: ADTXenoborgRadioNeutralized
+            targetReagent: Nocturine
+            targetReagentMin: 8
             channel: Xenoborg
             cooldown: 20
             groupCooldown: 10

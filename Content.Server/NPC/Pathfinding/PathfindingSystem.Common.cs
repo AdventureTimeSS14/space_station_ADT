@@ -1,3 +1,4 @@
+using Content.Server.ADT.NPC;
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
 using Content.Shared.NPC;
@@ -52,6 +53,11 @@ public sealed partial class PathfindingSystem
             return 0f;
         }
 
+        // ADT-Tweak-Start
+        if (request.ADTBlockedTiles != null && request.ADTBlockedTiles.Contains((end.GraphUid, ADTNpcNavMemorySystem.GetTile(end))))
+            return 0f;
+        // ADT-Tweak-End
+
         if ((request.CollisionLayer & end.Data.CollisionMask) != 0x0 ||
             (request.CollisionMask & end.Data.CollisionLayer) != 0x0)
         {
@@ -70,12 +76,12 @@ public sealed partial class PathfindingSystem
             {
                 modifier += 10f;
             }
-            // ADT-Tweak start
+            // ADT-Tweak-Start
             else if (isDoor && isAccess && (request.Flags & PathFlags.Access) != 0x0)
             {
                 modifier += 1f;
             }
-            // ADT-Tweak end
+            // ADT-Tweak-End
             else if ((request.Flags & PathFlags.Smashing) != 0x0 && end.Data.Damage > 0f)
             {
                 modifier += 10f + end.Data.Damage / 100f;

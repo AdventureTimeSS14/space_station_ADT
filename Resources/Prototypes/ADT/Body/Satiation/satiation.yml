@@ -69,3 +69,17 @@
     Peckish: 0.4
     Starving: 0.2
     Dead: 0.1
+
+- type: satiation
+  id: ADTExpeditionNPCHunger
+  parent: NormalSatiationHunger
+  baseChangeRate: 0
+  startingValueMinimum: Okay
+  startingValueMaximum: Okay
+
+- type: satiation
+  id: ADTExpeditionNPCThirst
+  parent: NormalSatiationThirst
+  baseChangeRate: 0
+  startingValueMinimum: Okay
+  startingValueMaximum: Okay

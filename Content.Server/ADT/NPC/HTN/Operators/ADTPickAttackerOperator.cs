@@ -48,7 +48,7 @@ public sealed partial class ADTPickAttackerOperator : HTNOperator
             memory.LastAttacker is not { } attacker ||
             _entManager.Deleted(attacker) ||
             (_timing.CurTime - memory.LastHurt).TotalSeconds > Seconds ||
-            _mobState.IsIncapacitated(attacker) ||
+            (_mobState.IsIncapacitated(attacker) && !_mobState.IsSoftCritical(attacker)) ||
             _faction.IsEntityFriendly(owner, attacker))
         {
             return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((false, null));
