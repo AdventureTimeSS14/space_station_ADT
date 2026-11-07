@@ -40,6 +40,12 @@ public sealed class MapRotationCommand : LocalizedCommands
                     return;
                 }
 
+                if (bonus > MapRotationManager.MaxBonusVotes)
+                {
+                    shell.WriteError(Loc.GetString("cmd-maprotation-bonus-too-large", ("max", MapRotationManager.MaxBonusVotes)));
+                    return;
+                }
+
                 if (!_prototype.HasIndex<GameMapPrototype>(args[1]))
                 {
                     shell.WriteError(Loc.GetString("cmd-maprotation-unknown-map", ("map", args[1])));

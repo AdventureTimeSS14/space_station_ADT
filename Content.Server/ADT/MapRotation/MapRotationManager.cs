@@ -16,6 +16,7 @@ public sealed class MapRotationManager
     [Dependency] private IPlayerManager _players = default!;
 
     private const int PlayedHistoryLength = 10;
+    public const int MaxBonusVotes = ushort.MaxValue / 2;
 
     private ISawmill _sawmill = default!;
 
@@ -48,7 +49,7 @@ public sealed class MapRotationManager
 
         _cfg.OnValueChanged(ADTCCVars.MapRotationEnabled, value => _enabled = value, true);
         _cfg.OnValueChanged(ADTCCVars.MapRotationExcludeDepth, value => _excludeDepth = Math.Max(0, value), true);
-        _cfg.OnValueChanged(ADTCCVars.MapRotationBonusCap, value => _bonusCap = Math.Max(0, value), true);
+        _cfg.OnValueChanged(ADTCCVars.MapRotationBonusCap, value => _bonusCap = Math.Clamp(value, 0, MaxBonusVotes), true);
         _cfg.OnValueChanged(ADTCCVars.MapRotationMinPlayers, value => _minPlayers = Math.Max(0, value), true);
 
         _server = _cfg.GetCVar(CCVars.AdminLogsServerName);
@@ -64,7 +65,7 @@ public sealed class MapRotationManager
 
             foreach (var record in records)
             {
-                if (record.BonusPerPlayer > 0)
+                if (record.BonusPerPlayer > 0 && double.IsFinite(record.BonusPerPlayer))
                     _bonus[record.MapId] = record.BonusPerPlayer;
 
                 if (record.LastPlayed is { } played)
@@ -109,12 +110,12 @@ public sealed class MapRotationManager
 
     public int ToVotes(double perPlayer, int players)
     {
-        var votes = (int) Math.Round(perPlayer * players);
+        var raw = perPlayer * players;
+        if (double.IsNaN(raw) || raw <= 0)
+            return 0;
 
-        if (_bonusCap > 0)
-            votes = Math.Min(votes, _bonusCap);
-
-        return Math.Max(0, votes);
+        var limit = _bonusCap > 0 ? _bonusCap : MaxBonusVotes;
+        return (int) Math.Min(Math.Round(raw), limit);
     }
 
     public void RecordVote(Dictionary<string, int> tally)
@@ -127,7 +128,7 @@ public sealed class MapRotationManager
 
         var players = Math.Max(1, _players.PlayerCount);
 
-        _pendingTally = tally.ToDictionary(p => p.Key, p => (double) p.Value / players);
+        _pendingTally = tally.ToDictionary(p => p.Key, p => (double) Math.Clamp(p.Value, 0, MaxBonusVotes) / players);
     }
 
     public void RoundStarted(string mapId)
@@ -190,6 +191,8 @@ public sealed class MapRotationManager
     public void SetBonus(string mapId, int votes)
     {
         var players = Math.Max(1, Math.Max(_players.PlayerCount, _minPlayers));
+
+        votes = Math.Min(votes, MaxBonusVotes);
 
         if (votes > 0)
             _bonus[mapId] = (double) votes / players;
