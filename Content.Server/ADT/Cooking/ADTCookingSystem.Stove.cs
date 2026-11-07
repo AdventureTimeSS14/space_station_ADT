@@ -16,7 +16,7 @@ public sealed partial class ADTCookingSystem
 {
     private void InitializeStove()
     {
-        SubscribeLocalEvent<ADTStoveComponent, InteractUsingEvent>(OnStoveInteractUsing);
+        SubscribeLocalEvent<ADTStoveComponent, InteractUsingEvent>(OnStoveInteractUsing, before: new[] { typeof(SolutionSpikerSystem) });
         SubscribeLocalEvent<ADTStoveComponent, GetVerbsEvent<AlternativeVerb>>(OnStoveGetVerbs);
         SubscribeLocalEvent<ADTStoveComponent, EntInsertedIntoContainerMessage>(OnStoveInserted);
         SubscribeLocalEvent<ADTStoveComponent, EntRemovedFromContainerMessage>(OnStoveRemoved);

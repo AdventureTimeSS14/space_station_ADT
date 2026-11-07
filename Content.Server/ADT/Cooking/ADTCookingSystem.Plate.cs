@@ -19,7 +19,7 @@ public sealed partial class ADTCookingSystem
 
     private void InitializePlate()
     {
-        SubscribeLocalEvent<ADTPlateComponent, InteractUsingEvent>(OnPlateInteractUsing);
+        SubscribeLocalEvent<ADTPlateComponent, InteractUsingEvent>(OnPlateInteractUsing, before: new[] { typeof(SolutionSpikerSystem) });
         SubscribeLocalEvent<ADTPlateComponent, GetVerbsEvent<AlternativeVerb>>(OnPlateGetVerbs);
         SubscribeLocalEvent<ADTPlateComponent, EntInsertedIntoContainerMessage>(OnPlateInserted);
         SubscribeLocalEvent<ADTPlateComponent, EntRemovedFromContainerMessage>(OnPlateRemoved);

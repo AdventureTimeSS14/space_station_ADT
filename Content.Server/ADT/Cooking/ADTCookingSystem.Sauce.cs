@@ -8,7 +8,7 @@ public sealed partial class ADTCookingSystem
 {
     private void InitializeSauce()
     {
-        SubscribeLocalEvent<ADTDishComponent, InteractUsingEvent>(OnDishInteractUsing);
+        SubscribeLocalEvent<ADTDishComponent, InteractUsingEvent>(OnDishInteractUsing, before: new[] { typeof(SolutionSpikerSystem) });
     }
 
     private void OnDishInteractUsing(Entity<ADTDishComponent> ent, ref InteractUsingEvent args)
