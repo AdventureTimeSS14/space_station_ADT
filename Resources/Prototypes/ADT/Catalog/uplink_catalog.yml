@@ -1120,6 +1120,17 @@
   categories:
   - UplinkDisruption
 
+- type: listing
+  id: ADTUplinkShieldHandheldDiffuser
+  name: uplink-adt-shield-handheld-diffuser-name
+  description: uplink-adt-shield-handheld-diffuser-desc
+  icon: { sprite: ADT/Misc/shield.rsi, state: hdiffuser_off }
+  productEntity: ADTShieldHandheldDiffuser
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkDisruption
+
 ## ГОНДОЛА НАХУЙ!!!
 - type: listing
   id: UplinkGondola

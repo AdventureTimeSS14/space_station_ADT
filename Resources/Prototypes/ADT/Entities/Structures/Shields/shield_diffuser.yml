@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseMachine
+  id: ADTShieldDiffuser
+  name: shield diffuser
+  description: A small underfloor device specifically designed to disrupt energy barriers. It disrupts the shield directly above it. Commonly installed near exterior airlocks to prevent shields from blocking EVA access.
+  components:
+  - type: ShieldDiffuser
+  - type: Sprite
+    sprite: ADT/Misc/shield.rsi
+    layers:
+    - state: fdiffuser_on
+      map: [ "enum.ShieldDiffuserVisualLayers.Base" ]
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
