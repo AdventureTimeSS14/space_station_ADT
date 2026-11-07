@@ -467,3 +467,22 @@
     Heat: 0.85
     Poison: 0.8
     Cellular: 1.3
+
+- type: damageModifierSet
+  id: ADTShatteredRisen
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.8
+    Heat: 0.8
+    Cold: 0.8
+    Shock: 0.8
+    Caustic: 0.8
+    Poison: 0.8
+    Radiation: 0.8
+    Asphyxiation: 0.8
+    Bloodloss: 0.8
+    Cellular: 0.8
+    Structural: 0.8
+    Holy: 0.8
+    Ballistic: 0.8

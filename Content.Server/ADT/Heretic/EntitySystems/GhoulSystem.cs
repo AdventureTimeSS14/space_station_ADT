@@ -29,6 +29,9 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Server.ADT.NPC;
+using Content.Server.ADT.Heretic.Components;
+using Content.Shared.NPC;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
@@ -57,6 +60,9 @@ public sealed class GhoulSystem : EntitySystem
 {
     private static readonly ProtoId<HTNCompoundPrototype> Compound = "HereticSummonCompound";
     private static readonly EntProtoId<MindRoleComponent> GhoulRole = "MindRoleGhoul";
+    private const float FollowRefreshInterval = 2f;
+
+    private float _followRefresh;
 
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private AntagSelectionSystem _antag = default!;
@@ -91,6 +97,28 @@ public sealed class GhoulSystem : EntitySystem
         SubscribeLocalEvent<HereticMinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
 
         SubscribeLocalEvent<GhoulComponent, GetVisMaskEvent>(OnGhoulGetVis);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        _followRefresh -= frameTime;
+
+        if (_followRefresh > 0f)
+            return;
+
+        _followRefresh = FollowRefreshInterval;
+
+        var query = EntityQueryEnumerator<HereticMinionComponent, HTNComponent, ActiveNPCComponent>();
+
+        while (query.MoveNext(out var uid, out var minion, out var htn, out _))
+        {
+            if (minion.BoundHeretic is not { } heretic || TerminatingOrDeleted(heretic))
+                continue;
+
+            _npc.SetBlackboard(uid, NPCBlackboard.FollowTarget, heretic.ToCoordinates(), htn);
+        }
     }
 
     private void OnGhoulGetVis(Entity<GhoulComponent> ent, ref GetVisMaskEvent args)
@@ -177,6 +205,15 @@ public sealed class GhoulSystem : EntitySystem
             var htn = EnsureComp<HTNComponent>(ent);
             htn.RootTask = new HTNCompoundTask { Task = Compound };
             _htn.Replan(htn);
+
+            EnsureComp<ADTNpcGearComponent>(ent);
+            EnsureComp<ADTNpcCombatMemoryComponent>(ent);
+
+            if (TryComp<HereticMinionComponent>(ent.Owner, out var minionComp) &&
+                minionComp.BoundHeretic is { } boundHeretic)
+                _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, boundHeretic.ToCoordinates(), htn);
+
+            _npc.WakeNPC(ent, htn);
         }
 
         // ADT: no gray-skin recolor, appearance uses HumanoidProfile now
@@ -252,6 +289,8 @@ public sealed class GhoulSystem : EntitySystem
 
     private void OnShutdown(Entity<GhoulComponent> ent, ref ComponentShutdown args)
     {
+        DeleteMimicGear(ent);
+
         if (ent.Comp.BoundWeapon == null || TerminatingOrDeleted(ent.Comp.BoundWeapon.Value))
             return;
 
@@ -291,9 +330,24 @@ public sealed class GhoulSystem : EntitySystem
             Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
 
         DeleteGhoulEquipment(ent);
+        DeleteMimicGear(ent);
 
         // ADT: no shitmed BodySystem, gib via GibbingSystem
         _gibbing.Gib(ent, dropGiblets: ent.Comp.DropOrgansOnDeath);
+    }
+
+    private void DeleteMimicGear(EntityUid mimic)
+    {
+        if (!TryComp(mimic, out FleshMimicGearComponent? gear))
+            return;
+
+        foreach (var item in gear.Gear)
+        {
+            if (!TerminatingOrDeleted(item))
+                QueueDel(item);
+        }
+
+        gear.Gear.Clear();
     }
 
     private void DeleteGhoulEquipment(EntityUid ghoul)

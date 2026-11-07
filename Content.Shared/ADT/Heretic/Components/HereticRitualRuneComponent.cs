@@ -7,4 +7,6 @@ namespace Content.Shared.Heretic;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HereticRitualRuneComponent : Component
 {
+    [DataField]
+    public TimeSpan NextRitualTime;
 }

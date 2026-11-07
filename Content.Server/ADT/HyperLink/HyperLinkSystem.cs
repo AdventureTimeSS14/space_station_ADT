@@ -6,7 +6,7 @@ using Content.Shared.HyperLink;
 
 namespace Content.Server.HyperLink;
 
-public sealed class HyperLinkSystem : EntitySystem
+public sealed partial class HyperLinkSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
     public override void Initialize()

@@ -59,6 +59,11 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/combatboots.rsi
+  # ADT-Tweak-start
+  - type: Tag
+    tags:
+    - HeavyBoots
+  # ADT-Tweak-end
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
 

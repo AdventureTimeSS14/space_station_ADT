@@ -2,6 +2,8 @@
 
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Heretic.Components;
+using Content.Client.ADT.Heretic.Systems;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
@@ -24,6 +26,9 @@ public sealed class GhoulSystem : EntitySystem
 
     private void OnGetHereticIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
     {
+        if (_player.LocalEntity == ent.Owner)
+            args.StatusIcons.Add(HereticStatusIconSystem.HereticIcon);
+
         if (_player.LocalEntity is not { } player)
             return;
 
@@ -38,5 +43,8 @@ public sealed class GhoulSystem : EntitySystem
 
         if (ent.Comp.BoundHeretic == player)
             args.StatusIcons.Add(_prototype.Index(ent.Comp.GhoulIcon));
+
+        args.StatusIcons.Remove(HereticStatusIconSystem.GhoulIcon);
+        args.StatusIcons.Add(HasComp<ShatteredRisenComponent>(ent) ? HereticStatusIconSystem.ShatteredIcon : HereticStatusIconSystem.GhoulIcon);
     }
 }

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/f05aaca61b60f6cfb0a131be8819267c78df305f",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rose_stone_1"
+    },
+    {
+      "name": "rose_stone_2"
+    },
+    {
+      "name": "rose_stone_3"
+    },
+    {
+      "name": "rose_stone_4"
+    },
+    {
+      "name": "rose_stone_5"
+    },
+    {
+      "name": "rose_stone_6"
+    },
+    {
+      "name": "rose_stone_7"
+    },
+    {
+      "name": "rose_stone_8"
+    }
+  ]
+}

@@ -3,6 +3,72 @@
   flavorType: Complex
   description: flavor-complex-eldritch
 
+- type: flavor
+  id: clarity
+  flavorType: Complex
+  description: flavor-complex-clarity
+
+- type: flavor
+  id: rust
+  flavorType: Complex
+  description: flavor-complex-rust
+
+- type: reagent
+  id: EldritchRust
+  group: Unknown
+  name: reagent-name-eldritch-rust
+  desc: reagent-desc-eldritch-rust
+  physicalDesc: reagent-physical-desc-rusty
+  flavor: rust
+  color: "#b18644"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.33
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: EldritchRustStatusEffect
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:HealthChange
+        damage:
+          types:
+            Blunt: 2
+            Poison: 2
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:Jitter
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 30
+            Poison: 2
+
 - type: reagent
   id: EssenceEldritch
   group: Medicine
@@ -17,16 +83,20 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: -1
-            Radiation: -1
-            Caustic: -1
-            Poison: -1
-            Asphyxiation: -1
-            Bloodloss: -1
-            Blunt: -1
-            Slash: -1
-            Piercing: -1
-            Cellular: -1
+            Heat: -2
+            Radiation: -2
+            Caustic: -2
+            Poison: -2
+            Asphyxiation: -2
+            Bloodloss: -2
+            Blunt: -2
+            Slash: -2
+            Piercing: -2
+            Cellular: -2
+        conditions:
+        - !type:HereticOrGhoulCondition
+      - !type:ModifyBloodLevel
+        amount: 1
         conditions:
         - !type:HereticOrGhoulCondition
       - !type:ModifyBleed
@@ -43,8 +113,180 @@
         type: Remove
         conditions:
         - !type:HereticOrGhoulCondition
+      - !type:CleanBloodstream
+        cleanseRate: 5
+        conditions:
+        - !type:HasComponentCondition
+          components:
+          - Ghoul
+          invert: true
+          guidebookComponentName: reagent-comp-condition-heretic
       - !type:Electrocute
         conditions:
         - !type:HereticOrGhoulCondition
           inverted: true
         probability: 0.2
+
+- type: reagent
+  id: NewbornEther
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-ether
+  desc: reagent-desc-ether
+  physicalDesc: reagent-physical-desc-ether
+  flavor: eldritch
+  color: "#92ca35"
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectNewbornEther
+        time: 60
+        type: Set
+        conditions:
+        - !type:HereticOrGhoulCondition
+        - !type:ReagentCondition
+          reagent: NewbornEther
+          min: 5
+    Bloodstream:
+      effects:
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+        time: 5
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 9
+        delay: 5
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+        - !type:ReagentCondition
+          reagent: NewbornEther
+          min: 8
+
+- type: reagent
+  id: EldritchEssence
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-eldritch-essence
+  desc: reagent-desc-eldritch-essence
+  physicalDesc: reagent-physical-desc-eldritch-essence
+  flavor: eldritch
+  color: "#2d8a1e"
+
+- type: reagent
+  id: CrucibleSoul
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-crucible-soul
+  desc: reagent-desc-crucible-soul
+  physicalDesc: reagent-physical-desc-crucible-soul
+  flavor: eldritch
+  color: "#5c2d91"
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectCrucibleSoul
+        time: 60
+        type: Set
+        conditions:
+        - !type:HereticOrGhoulCondition
+        - !type:ReagentCondition
+          reagent: CrucibleSoul
+          min: 5
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 3
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectCrucibleSoul
+        time: 60
+        type: Set
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+        - !type:ReagentCondition
+          reagent: CrucibleSoul
+          min: 5
+
+- type: reagent
+  id: DuskAndDawn
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-clarity
+  desc: reagent-desc-clarity
+  physicalDesc: reagent-physical-desc-clarity
+  flavor: clarity
+  color: "#d5dc1d"
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDuskAndDawn
+        time: 60
+        type: Set
+        conditions:
+        - !type:HereticOrGhoulCondition
+        - !type:ReagentCondition
+          reagent: DuskAndDawn
+          min: 5
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectBlindness
+        time: 3
+        type: Add
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+
+- type: reagent
+  id: WoundedSoldier
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-wounded-soldier
+  desc: reagent-desc-wounded-soldier
+  physicalDesc: reagent-physical-desc-wounded-soldier
+  flavor: eldritch
+  color: "#8b0000"
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWoundedSoldier
+        time: 90
+        type: Set
+        conditions:
+        - !type:HereticOrGhoulCondition
+        - !type:ReagentCondition
+          reagent: WoundedSoldier
+          min: 5
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 5
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWoundedSoldier
+        time: 90
+        type: Set
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+        - !type:ReagentCondition
+          reagent: WoundedSoldier
+          min: 5

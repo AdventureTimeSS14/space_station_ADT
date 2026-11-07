@@ -22,3 +22,10 @@ public record struct GetVirtualItemBlockingEntityEvent(EntityUid Uid);
 // ADT: from Goob Wizard SharedSpellsSystem
 [Serializable, NetSerializable]
 public sealed class StopTargetingEvent : EntityEventArgs;
+
+[Serializable, NetSerializable]
+public sealed class HereticVoidBlinkRequestEvent(NetEntity target, NetCoordinates coordinates) : EntityEventArgs
+{
+    public NetEntity Target = target;
+    public NetCoordinates Coordinates = coordinates;
+}

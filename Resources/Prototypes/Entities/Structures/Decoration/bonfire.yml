@@ -50,6 +50,9 @@
   #  tags:
   #    - NoPaint
   # End ADT tweak
+  - type: Tag # ADT-Tweak
+    tags:
+    - Bonfire
   - type: IgnitionSource
     temperature: 700
     ignited: true

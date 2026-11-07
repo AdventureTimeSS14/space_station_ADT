@@ -1,0 +1,10 @@
+ent-ActionHereticMindGate = Mind Gate
+    .desc = Open your mind and theirs.
+ent-ActionHereticLunarParade = Lunar Parade
+    .desc = Fire a slow parade projectile.
+ent-ActionHereticRingleadersRise = Ringleaders Rise
+    .desc = Summon an echo per nearby victim.
+ent-ActionHereticMoonlightEcho = Moonlight Echo
+    .desc = Track your ringleader.
+ent-ActionHereticTouchOfMadness = Touch of Madness
+    .desc = Drain sanity and knock down.

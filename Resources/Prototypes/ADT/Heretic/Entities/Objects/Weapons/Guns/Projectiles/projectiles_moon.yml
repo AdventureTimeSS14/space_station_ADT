@@ -1,0 +1,35 @@
+- type: entity
+  id: ProjectileLunarParade
+  name: lunar parade
+  description: Join the parade.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/lunar_parade.rsi
+    layers:
+    - state: icon
+      shader: unshaded
+  - type: Clickable
+  - type: Physics
+    bodyType: Dynamic
+  - type: Projectile
+    deleteOnCollide: false
+    penetrationThreshold: 1000
+    damage:
+      types:
+        Heat: 0
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: LunarParadeProjectile
+  - type: TileFrictionModifier
+    modifier: 0

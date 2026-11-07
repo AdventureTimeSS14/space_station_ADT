@@ -68,6 +68,12 @@ knowledge-path-side-s3-shark-desc =
     Fire Sharks ignite their victims and drop plasma sheet once they die.
     You can only create 15 at a time.
 
+knowledge-path-side-s3-husk-name = Smoldering Husk
+knowledge-path-side-s3-husk-desc =
+    Scorched to the bone, yet still walking. The fire took everything except spite.
+
+    Your body hardens into a smoldering husk, halving all radiation damage you take.
+
 knowledge-path-side-s6-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s6-ice-spear-desc =
     Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
@@ -90,29 +96,18 @@ knowledge-path-side-s6-knife-desc =
     The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
     Also makes for a handy throwing weapon.
 
-## stage 7
-knowledge-path-side-s7-uncuff-name = Wave of Desperation
-knowledge-path-side-s7-uncuff-desc =
-    My shackles undone in dark fury, their feeble bindings crumble before my power.
+knowledge-path-side-s6-rifle-name = Lionhunter's Rifle
+knowledge-path-side-s6-rifle-desc =
+    An antique rifle, immaculate despite its age. The Lionhunter stalks prey across any distance.
 
-    Grants you Wave Of Desperation, a spell which can only be cast while restrained.
-    It removes your restraints, repels and knocks down adjacent people, and applies the Mansus Grasp to everything nearby.
-    However, you will fall unconscious a short time after casting this spell.
+    Allows you to transmute a wooden plank, a PDA and a slab of meat to create a Lionhunter's Rifle.
+    Right click a distant target in combat mode to aim. A fully aimed shot fires an empowered homing projectile that passes through walls, knocks the victim down and marks them.
 
-knowledge-path-side-s7-siphon-name = Blood Siphon
-knowledge-path-side-s7-siphon-desc =
-    No matter the man, we bleed all the same. That's what the Marshal told me.
+knowledge-path-side-s6-rifle-ammo-name = Lionhunter's Rifle Ammunition
+knowledge-path-side-s6-rifle-ammo-desc =
+    Heavy hunter's cartridges, tuned for the Lionhunter's Rifle.
 
-    Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
-    Additionally, you have a chance of transferring wounds you are experiencing to the target.
-
-knowledge-path-side-s7-crucible-name = Mawed Crucible
-knowledge-path-side-s7-crucible-desc =
-    This is pure agony. I wasn't able to summon the figure of the Aristocrat,
-    but with the Priest's attention I stumbled upon a different recipe...
-
-    Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
-    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
+    Allows you to transmute 3x 6.5mm rifle cartridges into 2 hunter's cartridges.
 
 # stage 8
 knowledge-path-side-s8-cleave-name = Blood Cleave
@@ -121,17 +116,178 @@ knowledge-path-side-s8-cleave-desc =
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
 
-## stage 9
-knowledge-path-side-s9-coin-name = Eldritch Coin
-knowledge-path-side-s9-coin-desc =
+knowledge-path-side-t1-ether-name = Ether of the Newborn
+knowledge-path-side-t1-ether-desc =
+    Vision and thought grow hazy as the fumes of this ichor swirl up to meet me.
+
+    Transmute a pool of vomit and a shard into a single use potion.
+    Drinking it will restore your body to full health at the cost of losing consciousness for a minute.
+
+knowledge-path-side-t1-coin-name = Eldritch Coin
+knowledge-path-side-t1-coin-desc =
     The Mansus is a place of all sorts of sins. But greed held a special role.
 
-    Transmute a sheet of plasma, a diamond and eyes into an Eldritch Coin.
-    The coin will open nearby airlocks if it lands on heads and bolt nearby airlocks if it lands on tails.
-    Using it on an airlock consumes the coin and permanently opens the airlock.
-    Attempting to flip or use the coin as a non-heretic will deal brute and/or burn damage, depending on the side it lands on.
+    Allows you to transmute a bar of silver or gold to create an Eldritch Coin.
+    The coin will open or close nearby doors when landing on heads and toggle their bolts when landing on tails.
 
-knowledge-path-side-s9-ashman-name = Ashen Ritual
-knowledge-path-side-s9-ashman-desc =
-    Transmute a pile of ash, a brain and a book to summon an Ashman.
-    Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
+knowledge-path-side-t1-curio-name = Unfathomable Curio
+knowledge-path-side-t1-curio-desc =
+    Along the way, on this long journey, I encounter all sorts of wonders.
+
+    Allows you to transmute 3 rods, lungs, and a utility belt into an Unfathomable Curio,
+    a belt with a lot of storage space that also functions as a focus. Whilst worn it will veil you,
+    blocking one blow of incoming damage, at the cost of the veil. The veil recharges itself out of combat.
+
+knowledge-path-side-t2-crucible-name = Mawed Crucible
+knowledge-path-side-t2-crucible-desc =
+    This is pure agony. I wasn't able to summon the figure of the Aristocrat,
+    but with the Priest's attention I stumbled upon a different recipe...
+
+    Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
+    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
+
+knowledge-path-side-t2-rustgrenade-name = Rust Sower Grenade
+knowledge-path-side-t2-rustgrenade-desc =
+    The Rusted Hills whispered of a device to spread their corruption far and wide.
+    The Marshal's gift came in the form of a simple grenade, reimagined.
+
+    Allows you to transmute a grenade casing, a rag, and 2 trash items into a Rust Sower Grenade.
+    When triggered, it releases a cloud of Eldritch Rust that corrodes everything in its path.
+
+knowledge-path-ritual-phylactery-name = Phylactery of Damnation
+knowledge-path-ritual-phylactery-desc =
+    The blood of the innocent calls to me. I have found a way to capture it, to hold it close.
+
+    Allows you to transmute a glass beaker and a pool of blood into a Phylactery of Damnation.
+    The Phylactery can instantly draw blood from nearby victims, even at great distances.
+
+knowledge-path-side-t4-maid-name = Maid in the Mirror
+knowledge-path-side-t4-maid-desc =
+    Within each reflection lies a gateway. The ascent is glass, and the walls are knives.
+
+    Allows you to transmute five sheets of glass to create a Maid in the Mirror.
+    Maids are decent combatants: those who meet their gaze bleed and gain a star mark.
+    You can only create four at a time.
+
+# ADT: Codex Morbus
+knowledge-path-side-t2-morbus-name = Codex Morbus
+knowledge-path-side-t2-morbus-desc =
+    The Codex Cicatrix whispers of a greater tome, one bound in suffering and written in blood.
+
+    Allows you to transmute a Codex Cicatrix and sacrifice a humanoid on your rune to create a Codex Morbus.
+    The Codex Morbus functions as a faster rune scriber and drains reality shifts four times faster.
+
+# ADT: Greaves of the Prophet
+knowledge-path-side-t2-greaves-name = Greaves of the Prophet
+knowledge-path-side-t2-greaves-desc =
+    Iron shoes for iron steps. The Prophet walked through fire and emerged unchanged.
+
+    Allows you to transmute 2 silver bars and a pair of combat boots or magboots to create Greaves of the Prophet.
+    Greaves provide excellent armor, protect against slipping, and reduce slowdown from damage.
+
+knowledge-path-side-t1-bookworm-name = Warren King's Welcome
+knowledge-path-side-t1-bookworm-desc =
+    Gnawed into vicious-stained fingerbones, my grim invitation snaps towards the heavy-set door.
+
+    Transmute 10 cable coil, a piece of paper and a multitool to brand all ID cards on your rune and nearby airlocks.
+    Branded IDs gain maintenance, external and heretic access. Branded airlocks only open to branded IDs and ignore the AI.
+
+heretic-ritual-bookworm-success = Branded {$count} ID card(s). Nearby airlocks reconfigured.
+
+knowledge-path-side-t1-mirror-name = Miraculous Mirror
+knowledge-path-side-t1-mirror-desc =
+    I was imperfect, weak. Every window showed a reflection I burned to change.
+
+    Transmute five silver bars and a pair of eyes into a Miraculous Mirror.
+    Heretics change appearance freely. Heathens who stare too long are trapped and stunned.
+
+knowledge-path-side-t2-wave-name = Wave Of Desperation
+knowledge-path-side-t2-wave-desc =
+    My shackles undone in dark fury, their feeble bindings crumble before my power.
+
+    Grants Wave Of Desperation, castable only while restrained. It deletes restraints, knocks down and throws nearby beings.
+
+knowledge-path-side-t2-unsealed-name = Unsealed Arts
+knowledge-path-side-t2-unsealed-desc =
+    A wind of inspiration blows through me. Great works yearn for mortal eyes.
+
+    Transmute paper plus one extra into a cursed painting. Each painting has a proximity aura and asymmetric examine.
+    Eyes for Weeping, heart for Desire, poppy for Vines, gloves for Beauty, trash for Rust.
+
+knowledge-path-side-t2-weeping-name = The Sister and He Who Wept
+knowledge-path-side-t2-weeping-desc =
+    Clears your mind, while cursing heathens with hallucinations.
+
+    Transmute paper and eyes into a weeping painting.
+
+knowledge-path-side-t2-desire-name = The Feast of Desire
+knowledge-path-side-t2-desire-desc =
+    Supplies you with food, while cursing heathens with hunger.
+
+    Transmute paper and a heart into a desire painting.
+
+knowledge-path-side-t2-vines-name = Great Chaparral Over Rolling Hills
+knowledge-path-side-t2-vines-desc =
+    Slows heathens who linger near it.
+
+    Transmute paper and a poppy into a vines painting.
+
+knowledge-path-side-t2-beauty-name = Lady of the Gate
+knowledge-path-side-t2-beauty-desc =
+    Steals the words of heathens.
+
+    Transmute paper and medical gloves into a beauty painting.
+
+knowledge-path-side-t2-rust-name = Master of the Rusted Mountain
+knowledge-path-side-t2-rust-desc =
+    Rusts the floor heathens walk on.
+
+    Transmute paper and trash into a rust painting.
+
+knowledge-path-side-t2-unwrap-name = Unwrap Minds
+knowledge-path-side-t2-unwrap-desc =
+    Exposes a heathen directly to the horrors of the Mansus, hypnotizing them.
+
+    Transmute a scalpel, a glass shard, a written paper and a living human.
+    Whatever is written becomes the hypnosis order. Destroys mindshield implants.
+
+knowledge-path-side-t3-ashen-name = Ashen Ritual
+knowledge-path-side-t3-ashen-desc =
+    I combined my principle of hunger with my desire for destruction.
+
+    Transmute ash, a book and a bonfire into an Ash Spirit. Limit 2.
+
+knowledge-path-side-t3-shattered-name = Shattered Ritual
+knowledge-path-side-t3-shattered-desc =
+    I witnessed a cold, rending force drag this corpse back to near-life.
+
+    Transmute a dead souled humanoid, a suit and gloves into a Shattered Risen. Limit 1.
+
+knowledge-path-side-t3-gate-name = Keys to the Backdoor
+knowledge-path-side-t3-gate-desc =
+    Open a backdoor to the Mansus.
+
+    Transmute a locker and a Codex Cicatrix into a paired two-way teleport gate. Limit 2, one pair.
+    Only heretics, ghouls, the dead or willing living may pass. The codex is consumed, the locker is kept.
+
+knowledge-path-side-t4-phase-name = Space Phase
+knowledge-path-side-t4-phase-desc =
+    You feel like your body can move through space as if you were dust.
+
+    Grants Space Phase, a cooldown-based self-jaunt that lets you move through walls and space.
+knowledge-path-side-t1-bottle-name = filled soul bottle
+knowledge-path-side-t1-bottle-desc =
+    A crystalline bottle filled with a swirling, ethereal essence. The whispers within have gone silent.
+knowledge-path-side-t1-sword-name = ragged sword
+knowledge-path-side-t1-sword-desc =
+    A blade that hums with something that is not quite a mind.
+knowledge-path-side-t1-envy-name = envy's knife
+knowledge-path-side-t1-envy-desc =
+    Their success will be yours.
+knowledge-path-side-t1-medal-name = sharp medal
+knowledge-path-side-t1-medal-desc =
+    Worn, your thrown blades come back to you.
+knowledge-path-side-t3-crown-name = crown of the gibbet
+knowledge-path-side-t3-crown-desc =
+    A ragged crown won by those who served their masters too well.
+    Worn, the flesh serves its master more faithfully: your ghoul limit is raised to 5.

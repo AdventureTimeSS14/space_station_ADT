@@ -54,29 +54,29 @@ public sealed class HereticShapeshiftRadialMenu : RadialMenu
             if (!_prototypeManager.TryIndex(polymorph, out var polymorphPrototype))
                 continue;
 
-            var config = polymorphPrototype.Configuration;
-
-            if (string.IsNullOrEmpty(config.Entity)) // ADT: Entity isn't nullable EntProtoId
-                continue;
-
-            var ent = _prototypeManager.Index(config.Entity);
-
             var button = new HereticPolymorphMenuButton
             {
                 SetSize = new Vector2(64, 64),
-                ToolTip = ent.Name,
+                ToolTip = polymorph.Id,
                 ProtoId = polymorph
             };
 
-            var texture = new TextureRect
+            if (polymorph.Id.StartsWith("Shapeshift") &&
+                _prototypeManager.TryIndex<EntityPrototype>("MobGhoul" + polymorph.Id.Substring("Shapeshift".Length), out var mob))
             {
-                VerticalAlignment = VAlignment.Center,
-                HorizontalAlignment = HAlignment.Center,
-                Texture = _spriteSystem.Frame0(ent),
-                TextureScale = new Vector2(2f, 2f)
-            };
+                button.ToolTip = mob.Name;
 
-            button.AddChild(texture);
+                var texture = new TextureRect
+                {
+                    VerticalAlignment = VAlignment.Center,
+                    HorizontalAlignment = HAlignment.Center,
+                    Texture = _spriteSystem.Frame0(mob),
+                    TextureScale = new Vector2(2f, 2f)
+                };
+
+                button.AddChild(texture);
+            }
+
             main.AddChild(button);
         }
 

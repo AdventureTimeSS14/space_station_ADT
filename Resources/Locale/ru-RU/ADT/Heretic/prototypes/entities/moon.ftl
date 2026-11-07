@@ -1,0 +1,15 @@
+ent-HereticBladeMoon = лунный клинок
+    .desc = Железный клинок, отражающий правду земли.
+    .suffix = Moon
+ent-HereticMoonAmulet = лунный амулет
+    .desc = Кусочек разума, души и луны.
+ent-ADTClothingOuterArmorHereticMoon = блистательная роба еретика
+    .desc = Пышный наряд, искажающий взор. Пока он надет, любой урон обращается в урон разуму, а ни оружие, ни клетка, ни толпа не могут вас удержать.
+ent-ADTClothingHeadHatHoodHereticMoon = блистательный капюшон еретика
+    .desc = Капюшон, скрывающий вас от далёких глаз и не дающий крику толпы добраться до вас.
+ent-ProjectileLunarParade = лунный парад
+    .desc = Присоединяйся к параду.
+ent-MobMoonIllusion = эхо заводилы
+    .desc = Мерцающее эхо заводилы.
+ent-MoonAscensionAura = аура вознесения луны
+    .desc = Безумие во плоти.

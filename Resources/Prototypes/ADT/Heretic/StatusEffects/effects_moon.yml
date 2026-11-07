@@ -1,0 +1,80 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: MoonConvertedStatusEffect
+  name: moon converted
+  components:
+  - type: StatusEffectAlert
+    alert: MoonConverted
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: MoonConverted
+    - type: MoonInsanityOverlay
+  - type: MoonConverted
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: MoonSleptStatusEffect
+  name: moon slept
+  components:
+  - type: StatusEffectAlert
+    alert: MoonSlept
+  - type: ForcedSleepingStatusEffect
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: MoonSlept
+
+- type: entity
+  parent: StatusEffectBase
+  id: MoonConfusedStatusEffect
+  name: moon confusion
+  description: Your senses betray you.
+  components:
+  - type: StatusEffectAlert
+    alert: MoonConfused
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: MoonConfused
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: MoonMarkStatusEffect
+  name: moon mark
+  components:
+  - type: StatusEffectAlert
+    alert: MoonConverted
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: MoonMarkStatus
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: MoonParadeStatusEffect
+  name: lunar parade
+  components:
+  - type: StatusEffectAlert
+    alert: MoonConverted
+  - type: MovementModStatusEffect
+    sprintSpeedModifier: 0.5
+    walkSpeedModifier: 0.5
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: MoonParadeStatus
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: MoonGraspHideStatusEffect
+  name: blessing of the moon
+  components:
+  - type: StatusEffectAlert
+    alert: MoonHide
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: MoonGraspHide
+    - type: Stealth
+      enabled: true
+      minVisibility: -1
+      lastVisibility: -1
+      maxVisibility: 0
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.5
+      movementVisibilityRate: 0.1

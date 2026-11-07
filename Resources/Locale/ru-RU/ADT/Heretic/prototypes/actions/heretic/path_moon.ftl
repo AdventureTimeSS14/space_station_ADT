@@ -1,0 +1,10 @@
+ent-ActionHereticMindGate = Врата Разума
+    .desc = Открой свой разум и чужой.
+ent-ActionHereticLunarParade = Лунный Парад
+    .desc = Выпусти медленный снаряд парада.
+ent-ActionHereticRingleadersRise = Восстание Заводил
+    .desc = Призови эхо на каждую жертву.
+ent-ActionHereticMoonlightEcho = Лунное Эхо
+    .desc = Выследи своего заводилу.
+ent-ActionHereticTouchOfMadness = Прикосновение Безумия
+    .desc = Выжги рассудок и сбей с ног.
