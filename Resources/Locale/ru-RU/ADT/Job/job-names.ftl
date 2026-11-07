@@ -31,6 +31,16 @@ job-name-ADTSpaceSecCommander = командир SPACE SEC
 job-name-ADTSpaceSecService = сотрудник SPACE SEC
 job-name-corrections-officer = надзиратель СБ
 ADTCorrectionsOfficer = надзиратель СБ
+
+# Centcom roles
+job-name-ADTCentcomOfficer = Офицер Центком
+job-name-ADTCentcomInspector = Ревизор Центком
+job-name-ADTCentcomOperator = Оператор Центком
+job-name-ADTInquisition = Инквизитор
+
+# DSO roles
+job-name-ADTSODOfficer = Офицер ДСО
+
 # Job titles
 cadet-space-sec = кадет SPACE SEC
 officer-space-sec = офицер SPACE SEC

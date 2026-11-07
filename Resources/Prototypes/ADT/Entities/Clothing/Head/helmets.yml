@@ -168,6 +168,17 @@
     sprite: ADT/Clothing/Head/Helmets/blue_shield_helmet.rsi
 
 - type: entity
+  parent: ClothingHeadHelmetSwat
+  id: ADTClothingHeadHelmetCentcomOfficer
+  name: centcom officer's helmet
+  description: A very durable helmet designed for Centcom officers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/centcom_officer_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/centcom_officer_helmet.rsi
+
+- type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseFoldable, BaseSecurityContraband ]
   id: ADTClothingHeadHelmetAssault
   name: assault helmet with visor

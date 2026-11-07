@@ -51,6 +51,17 @@
     damageCoefficient: 0.65
 
 - type: entity
+  parent: ADTClothingBlueshieldArmorElite
+  id: ADTClothingCentcomOfficerArmor
+  name: Centcom officer armor
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/centcom_officer_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/centcom_officer_armor.rsi
+
+- type: entity
   abstract: true
   id: BadgeOnClothing
   components:

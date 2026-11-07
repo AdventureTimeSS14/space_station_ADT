@@ -596,17 +596,114 @@
     - IPC
     - DraskSpecies # ADT-Tweak-end
   parent: EventHumanoidMindShielded
-  components:
-    - type: GhostRole
-      name: ghost-role-information-centcom-official-name
-      description: ghost-role-information-centcom-official-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: default
-      job: CentralCommandOfficial
+  components: # ADT-Remove-Ghostrole
     - type: Loadout
       prototypes: [ CentcommGear ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+
+# ADT-Tweak-start
+- type: randomHumanoidSettings
+  id: ADTCentcomInspectorSettings
+  parent: EventHumanoidMindShielded
+  speciesBlacklist:
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - CelecernSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies
+  components:
+    - type: Loadout
+      prototypes: [ ADTInspectorGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  name: CentComm Inspector
+  id: ADTRandomHumanoidSpawnerCentcomInspector
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: centcom
+    - type: RandomHumanoidSpawner
+      settings: ADTCentcomInspectorSettings
+
+- type: randomHumanoidSettings
+  id: ADTCentcomInquisitorSettings
+  parent: EventHumanoidMindShielded
+  speciesBlacklist:
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - CelecernSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies
+  components:
+    - type: Loadout
+      prototypes: [ ADTInquisitorGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstInquisitor
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+
+- type: entity
+  name: CentComm Inquisitor
+  id: ADTRandomHumanoidSpawnerCentcomInquisitor
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: centcom
+    - type: RandomHumanoidSpawner
+      settings: ADTCentcomInquisitorSettings
+
+
+- type: randomHumanoidSettings
+  id: ADTCentcomOfficerSettings
+  parent: ADTCentcomInspectorSettings
+  components:
+    - type: Loadout
+      prototypes: [ ADTCentcomOfficerGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  name: CentComm Officer
+  id: ADTRandomHumanoidSpawnerCentcomOfficer
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: centcom
+    - type: RandomHumanoidSpawner
+      settings: ADTCentcomOfficerSettings
+
+# ADT-Tweak-end
 
 ## Syndicate
 

@@ -10,3 +10,13 @@ job-description-senior-officer = Обучайте новых офицеров о
 job-description-corrections-officer = Обеспечивайте порядок и безопасность брига, следите за заключёнными и помогайте Смотрителю.
 job-description-ADTbarber = Создайте самый модный hair look на станции!
 job-description-ADTminer = Добывайте ценные минералы с Лаваленда для дальнейшей переработки и снабжения станции ресурсами.
+
+# Centcom roles
+job-description-ADTCentcomOfficer = Офицер Центком
+job-description-ADTCentcomInspector = Ревизор Центком
+job-description-ADTCentcomOperator = Оператор Центком
+job-description-ADTCentcomInquisitor = Инквизитор Центком
+
+# DSO roles
+
+job-description-ADTSODOfficer = Офицер ДСО

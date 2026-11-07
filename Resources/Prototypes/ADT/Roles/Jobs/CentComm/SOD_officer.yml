@@ -1,0 +1,36 @@
+- type: job
+  id: ADTSODOfficer
+  name: job-name-ADTSODOfficer
+  description: job-description-ADTSODOfficer
+  playTimeTracker: JobADTSODOfficer
+  setPreference: false
+  startingGear: ADTSODOfficerGear
+  icon: "JobIconADTSODOfficer"
+  supervisors: job-supervisors-centcom # Corvax-JobSupervisors
+  accessGroups:
+  - AllAccess
+  # Start ADT Tweak
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  # End ADT Tweak
+
+- type: startingGear
+  id: ADTSODOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficerBlack
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadCapCentcomBlack
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterArmorVestHidden
+    id: ADTSODOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: WeaponPistolN1984
+    pocket1: BoxFolderCentComClipboardThreePapers
+    pocket2: PenCentcom
+  storage:
+    back:
+    - Flash #ADT-CustomADTLoadout
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
