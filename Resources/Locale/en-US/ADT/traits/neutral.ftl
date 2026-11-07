@@ -70,3 +70,11 @@ trait-drunk-tolerance-desc = You are less affected by alcohol, you need more to 
 
 trait-polyglot-name = Polyglot
 trait-polyglot-desc = You know one extra language: an additional language slot is available in the character editor.
+
+trait-adt-singing-name = Singer
+trait-adt-singing-desc = You love singing so much that you can’t help yourself and sing non-stop.
+chat-speech-verb-adt-singing = sings
+accent-adt-singing-prefix-pattern = \A(?!♫)|(?!)
+accent-adt-singing-suffix-pattern = (?!)|(?<!♫)\z
+accent-adt-singing-prefix = { "♫ " }
+accent-adt-singing-suffix = { " ♫" }

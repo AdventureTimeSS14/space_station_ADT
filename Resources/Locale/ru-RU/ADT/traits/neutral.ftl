@@ -81,3 +81,11 @@ trait-invert-run-desc = Вы Pangaari? Нет? Не включайте.
 
 trait-polyglot-name = Полиглот
 trait-polyglot-desc = Вы знаете один дополнительный язык: в редакторе персонажа доступен ещё один слот языка.
+
+trait-adt-singing-name = Певец
+trait-adt-singing-desc = Вы настолько любите петь что не можете удержаться и поете без остановки.
+chat-speech-verb-adt-singing = поёт
+accent-adt-singing-prefix-pattern = \A(?!♫)|(?!)
+accent-adt-singing-suffix-pattern = (?!)|(?<!♫)\z
+accent-adt-singing-prefix = { "♫ " }
+accent-adt-singing-suffix = { " ♫" }
