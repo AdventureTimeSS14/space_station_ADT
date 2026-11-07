@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/fc4de530ce208ad6d91ad85cf241b094e64b2ae5/icons/mob/human/species/golems.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "golem_base",
+            "directions": 4
+        },
+        {
+            "name": "golem_head",
+            "directions": 4
+        },
+        {
+            "name": "golem_coal",
+            "directions": 4
+        },
+        {
+            "name": "golem_diamond",
+            "directions": 4
+        },
+        {
+            "name": "golem_platinum",
+            "directions": 4
+        },
+        {
+            "name": "golem_gold",
+            "directions": 4
+        },
+        {
+            "name": "golem_silver",
+            "directions": 4
+        },
+        {
+            "name": "golem_iron",
+            "directions": 4
+        },
+        {
+            "name": "golem_blue",
+            "directions": 4
+        },
+        {
+            "name": "golem_uranium",
+            "directions": 4
+        },
+        {
+            "name": "golem_plasma",
+            "directions": 4
+        }
+    ]
+}
