@@ -499,6 +499,9 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
     private void DrawOvenView(Entity<SpriteComponent> stove, int index, ADTStoveSlot slot, Entity<ADTCookwareComponent> cookware, ResPath rsi)
     {
         var comp = cookware.Comp;
+        if (!comp.Initialized)
+            return;
+
         var tint = slot.Tint ?? Color.White;
 
         var trayIndex = _composition.AddLayer(stove, $"adt-stove-oven-{index}", new SpriteSpecifier.Rsi(rsi, comp.OvenState!), slot.Offset);

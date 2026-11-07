@@ -56,7 +56,7 @@ public sealed partial class ADTCookingSystem
         if (HasComp<ADTPlateComponent>(args.Used) || HasComp<SolutionTransferComponent>(args.Used))
             return;
 
-        if (!HasComp<EdibleComponent>(args.Used))
+        if (!HasComp<EdibleComponent>(args.Used) && !IsPlateRecipeIngredient(args.Used))
             return;
 
         args.Handled = true;
@@ -68,6 +68,31 @@ public sealed partial class ADTCookingSystem
         }
 
         Container.Insert(args.Used, ent.Comp.Contents);
+    }
+
+    private bool IsPlateRecipeIngredient(EntityUid item)
+    {
+        var proto = MetaData(item).EntityPrototype?.ID;
+        foreach (var recipe in _proto.EnumeratePrototypes<ADTCookingRecipePrototype>())
+        {
+            if (recipe.Cookware != ADTCookwareType.Plate || recipe.Secret)
+                continue;
+
+            foreach (var ingredient in recipe.Ingredients)
+            {
+                if (ingredient.Id is { } id)
+                {
+                    if (proto == id.Id)
+                        return true;
+                }
+                else if (ingredient.Tag is { } tag && _tag.HasTag(item, tag))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private void MoveToPlate(Entity<ADTPlateComponent> plate, Entity<ADTCookwareComponent> cookware, EntityUid user)
