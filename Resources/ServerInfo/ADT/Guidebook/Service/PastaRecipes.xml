@@ -3,6 +3,8 @@
 # Паста & Спагетти
 
 Нет ничего лучше большой, дымящейся миски лапши, рамена или пасты. Ваш итальянский друг будет в восторге!
+<GuideADTCookingGroupEmbed Group="Pasta"/>
+
 <GuideMicrowaveGroupEmbed Group="Pasta"/>
 
 </Document>
