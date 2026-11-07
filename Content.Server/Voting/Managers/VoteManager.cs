@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.ADT.MapRotation;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -207,6 +208,14 @@ namespace Content.Server.Voting.Managers
             var id = _nextVoteId++;
 
             var entries = options.Options.Select(o => new VoteEntry(o.data, o.text)).ToArray();
+
+            // ADT-Tweak-Start
+            foreach (var (index, bonus) in options.BonusVotes)
+            {
+                if (index >= 0 && index < entries.Length)
+                    entries[index].Votes += Math.Clamp(bonus, 0, MapRotationManager.MaxBonusVotes);
+            }
+            // ADT-Tweak-End
 
             var start = _timing.RealTime;
             var end = start + options.Duration;
