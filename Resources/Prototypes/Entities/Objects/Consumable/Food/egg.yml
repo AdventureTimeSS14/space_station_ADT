@@ -104,6 +104,18 @@
   - type: Construction
     graph: Egg
     node: start
+  # ADT-Tweak-Start
+  - type: ADTCookwareCrackable
+    result: ADTFoodEggRaw
+    trash: Eggshells
+    sound:
+      collection: desecration
+      params:
+        volume: -6
+    cookware:
+    - Pan
+    - Tray
+  # ADT-Tweak-End
 
 - type: entity
   parent: FoodEggBase
