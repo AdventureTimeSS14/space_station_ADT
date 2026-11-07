@@ -19,7 +19,7 @@ public sealed partial class ADTCookingSystem
 {
     private void InitializeCookware()
     {
-        SubscribeLocalEvent<ADTCookwareComponent, InteractUsingEvent>(OnCookwareInteractUsing);
+        SubscribeLocalEvent<ADTCookwareComponent, InteractUsingEvent>(OnCookwareInteractUsing, before: new[] { typeof(SolutionSpikerSystem) });
         SubscribeLocalEvent<ADTCookwareComponent, GetVerbsEvent<AlternativeVerb>>(OnCookwareGetVerbs);
         SubscribeLocalEvent<ADTCookwareComponent, EntRemovedFromContainerMessage>(OnCookwareContentRemoved);
         SubscribeLocalEvent<ADTCookwareComponent, SolutionChangedEvent>(OnCookwareSolutionChanged);
@@ -45,7 +45,7 @@ public sealed partial class ADTCookingSystem
         if (HasComp<ADTCookwareComponent>(args.Used))
             return;
 
-        if (HasComp<SolutionTransferComponent>(args.Used) && !IsBowl(args.Used))
+        if (HasComp<SolutionTransferComponent>(args.Used) && !IsBowl(args.Used) && !IsRecipeIngredient(args.Used, ent.Comp.Type))
             return;
 
         args.Handled = TryUseOnCookware(ent, args.Used, args.User);
@@ -143,7 +143,7 @@ public sealed partial class ADTCookingSystem
         if (TryComp<ADTCookwareCrackableComponent>(used, out var crackable) && crackable.Cookware.Contains(comp.Type))
             return TryCrack(ent, (used, crackable), user);
 
-        if (!HasComp<EdibleComponent>(used))
+        if (!HasComp<EdibleComponent>(used) && !IsRecipeIngredient(used, comp.Type))
             return false;
 
         if (comp.Stage >= ADTCookingStage.Done)

@@ -20,8 +20,8 @@
   ingredients:
   - id: FoodBreadPlainSlice
     count: 1
-  - id: FoodButterSlice
-    count: 1
+  reagents:
+    Butter: 5
   time: 10
   result: FoodBreadButteredToast
   group: Breads
@@ -61,8 +61,8 @@
   ingredients:
   - id: FoodCorn
     count: 1
-  - id: FoodButterSlice
-    count: 1
+  reagents:
+    Butter: 5
   time: 20
   result: FoodMealCornInButter
   group: Savory
@@ -269,8 +269,8 @@
     count: 2
   - id: FoodCheeseSlice
     count: 1
-  - id: FoodButterSlice
-    count: 1
+  reagents:
+    Butter: 5
   time: 20
   result: FoodBakedGrilledCheeseSandwich
   group: Breakfast
@@ -284,8 +284,8 @@
     count: 2
   - id: FoodCheeseSlice
     count: 1
-  - id: FoodButterSlice
-    count: 1
+  reagents:
+    Butter: 5
   time: 20
   result: FoodBakedGrilledCheeseSandwichCotton
   group: Moth

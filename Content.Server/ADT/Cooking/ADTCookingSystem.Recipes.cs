@@ -401,9 +401,36 @@ public sealed partial class ADTCookingSystem
         return false;
     }
 
-    private static int Complexity(ADTCookingRecipePrototype recipe)
+    private static float Complexity(ADTCookingRecipePrototype recipe)
     {
-        return recipe.IngredientCount() * 10 + recipe.Reagents.Count;
+        var reagents = 0f;
+        foreach (var amount in recipe.Reagents.Values)
+        {
+            reagents += amount.Float();
+        }
+
+        return recipe.IngredientCount() * 10 + recipe.Reagents.Count + reagents / 10000f;
+    }
+
+    private bool IsRecipeIngredient(EntityUid item, ADTCookwareType type)
+    {
+        var proto = MetaData(item).EntityPrototype?.ID;
+        if (proto == null)
+            return false;
+
+        foreach (var recipe in _proto.EnumeratePrototypes<ADTCookingRecipePrototype>())
+        {
+            if (recipe.Cookware != type)
+                continue;
+
+            foreach (var ingredient in recipe.Ingredients)
+            {
+                if (ingredient.Id is { } id && id.Id == proto)
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     private bool MatchIngredients(IReadOnlyList<EntityUid> items, List<ADTCookingIngredient> ingredients)

@@ -221,7 +221,7 @@ public sealed partial class ADTCookingSystem
 
         var cookwareEnt = (cookwareUid.Value, cookware);
 
-        if (HasComp<SolutionTransferComponent>(used) && !IsBowl(used))
+        if (HasComp<SolutionTransferComponent>(used) && !IsBowl(used) && !IsRecipeIngredient(used, cookware.Type))
         {
             args.Handled = true;
             PourInto(cookwareEnt, used, user);

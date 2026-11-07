@@ -10,6 +10,7 @@
     id: cookware
     solution:
       maxVol: 50
+      canReact: false
   - type: RefillableSolution
     solution: cookware
   - type: DrainableSolution
