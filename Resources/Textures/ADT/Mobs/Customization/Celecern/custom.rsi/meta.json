@@ -44,10 +44,6 @@
             "directions": 4
         },
         {
-            "name": "blood_moons",
-            "directions": 4
-        },
-        {
             "name": "bobby_ears",
             "directions": 4
         },
@@ -232,10 +228,6 @@
             "directions": 4
         },
         {
-            "name": "fawn_spots",
-            "directions": 4
-        },
-        {
             "name": "goat_ears",
             "directions": 4
         },
@@ -261,10 +253,6 @@
         },
         {
             "name": "gollu_ears_broken_r",
-            "directions": 4
-        },
-        {
-            "name": "guards_stripes",
             "directions": 4
         },
         {
@@ -404,15 +392,7 @@
             "directions": 4
         },
         {
-            "name": "lines_emperos",
-            "directions": 4
-        },
-        {
             "name": "mini_shetka",
-            "directions": 4
-        },
-        {
-            "name": "queen_lines",
             "directions": 4
         },
         {
@@ -448,26 +428,6 @@
             "directions": 4
         },
         {
-            "name": "stars",
-            "directions": 4
-        },
-        {
-            "name": "stripes",
-            "directions": 4
-        },
-        {
-            "name": "tattoo",
-            "directions": 4
-        },
-        {
-            "name": "tree_lines",
-            "directions": 4
-        },
-        {
-            "name": "trinity_spots",
-            "directions": 4
-        },
-        {
             "name": "uzor1-l-leg",
             "directions": 4
         },
@@ -497,6 +457,302 @@
         },
         {
             "name": "uzor4-r-leg",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_torso",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_head",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_r_hand",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_l_foot",
+            "directions": 4
+        },
+        {
+            "name": "guards_stripes_r_foot",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_torso",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_head",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_r_hand",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_l_foot",
+            "directions": 4
+        },
+        {
+            "name": "lines_emperos_r_foot",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_torso",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_head",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_r_hand",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "queen_lines_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_torso",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_head",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_r_hand",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_l_foot",
+            "directions": 4
+        },
+        {
+            "name": "tree_lines_r_foot",
+            "directions": 4
+        },
+        {
+            "name": "trinity_spots_torso",
+            "directions": 4
+        },
+        {
+            "name": "trinity_spots_head",
+            "directions": 4
+        },
+        {
+            "name": "trinity_spots_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "trinity_spots_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "trinity_spots_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "trinity_spots_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "blood_moons_torso",
+            "directions": 4
+        },
+        {
+            "name": "blood_moons_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "fawn_spots_torso",
+            "directions": 4
+        },
+        {
+            "name": "fawn_spots_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "fawn_spots_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "fawn_spots_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "fawn_spots_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "stars_torso",
+            "directions": 4
+        },
+        {
+            "name": "stars_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "stars_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "stars_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "stars_r_hand",
+            "directions": 4
+        },
+        {
+            "name": "stars_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "stars_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "stars_l_foot",
+            "directions": 4
+        },
+        {
+            "name": "stars_r_foot",
+            "directions": 4
+        },
+        {
+            "name": "stripes_torso",
+            "directions": 4
+        },
+        {
+            "name": "stripes_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "stripes_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "stripes_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "stripes_r_hand",
+            "directions": 4
+        },
+        {
+            "name": "stripes_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "stripes_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "stripes_l_foot",
+            "directions": 4
+        },
+        {
+            "name": "stripes_r_foot",
+            "directions": 4
+        },
+        {
+            "name": "tattoo_torso",
+            "directions": 4
+        },
+        {
+            "name": "tattoo_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "tattoo_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "tattoo_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "tattoo_r_hand",
             "directions": 4
         }
     ]

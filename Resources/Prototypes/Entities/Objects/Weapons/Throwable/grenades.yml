@@ -7,6 +7,11 @@
   - type: ExplodeOnTrigger
     keysIn:
     - timer
+  - type: ADTShrapnelOnTrigger # ADT-Tweak
+    keysIn:
+    - timer
+    range: 4
+    maxShrapnel: 4
   - type: Explosive
     explosionType: Default
     maxIntensity: 10
@@ -103,6 +108,11 @@
   - type: ExplodeOnTrigger
     keysIn:
     - timer
+  - type: ADTShrapnelOnTrigger # ADT-Tweak
+    keysIn:
+    - timer
+    range: 6
+    maxShrapnel: 6
   - type: Explosive
     explosionType: Minibomb
     # Стандартные значения (200, 30, 60)

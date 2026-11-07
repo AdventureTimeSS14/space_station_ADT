@@ -41,6 +41,7 @@
         - id: Gauze
         - id: PillCanisterIron
         - id: PillCanisterCopper
+        - id: ADTMedicalSplint1 # ADT-Tweak
 
 - type: entity
   id: MedkitToxinFilled
@@ -125,6 +126,7 @@
         - id: ADTStimulantAutoInjector #Дезоко и диловен
         # - id: SyringeSaline
         - id: ADTHemostasisAutoInjector #Пополняет кровь
+        - id: ADTNanocalciumAutoInjector
         # ADT Tweak End
         - id: BruteAutoInjector
         - id: BurnAutoInjector

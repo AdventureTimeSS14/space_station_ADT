@@ -792,99 +792,595 @@
 
 - type: marking
   id: ADTCelecernBodyGuardStripes
-  bodyPart: Special
+  bodyPart: Chest
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: guards_stripes
+    state: guards_stripes_torso
 
 - type: marking
-  id: ADTCelecernBodyLinesEmperos
-  bodyPart: Special
+  id: ADTCelecernBodyGuardStripesHead
+  bodyPart: Head
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: lines_emperos
+    state: guards_stripes_head
 
 - type: marking
-  id: ADTCelecernBodyQueenLines
-  bodyPart: Special
+  id: ADTCelecernBodyGuardStripesLArm
+  bodyPart: LArm
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: queen_lines
+    state: guards_stripes_l_arm
 
 - type: marking
-  id: ADTCelecernBodyTreeLines
-  bodyPart: Special
+  id: ADTCelecernBodyGuardStripesRArm
+  bodyPart: RArm
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: tree_lines
+    state: guards_stripes_r_arm
 
 - type: marking
-  id: ADTCelecernBodyTrinitySpots
-  bodyPart: Special
-  groupWhitelist: [Celecern]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: trinity_spots
-
-- type: marking
-  id: ADTCelecernBodyBloodMoons
-  bodyPart: Special
-  groupWhitelist: [Celecern]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: blood_moons
-
-- type: marking
-  id: ADTCelecernBodyFawnSpots
-  bodyPart: Special
-  groupWhitelist: [Celecern]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: fawn_spots
-
-- type: marking
-  id: ADTCelecernBodyStars
-  bodyPart: Special
-  groupWhitelist: [Celecern]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: stars
-
-- type: marking
-  id: ADTCelecernBodyStripes
-  bodyPart: Special
-  groupWhitelist: [Celecern]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: stripes
-
-- type: marking
-  id: ADTCelecernBodyTattoo
-  bodyPart: Special
-  groupWhitelist: [Celecern]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: tattoo
-
-- type: marking
-  id: ADTCelecernBodyTattooHandLeft
+  id: ADTCelecernBodyGuardStripesLHand
   bodyPart: LHand
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: tattoo
+    state: guards_stripes_l_hand
 
 - type: marking
-  id: ADTCelecernBodyTattooHandRight
+  id: ADTCelecernBodyGuardStripesRHand
   bodyPart: RHand
   groupWhitelist: [Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
-    state: tattoo
+    state: guards_stripes_r_hand
+
+- type: marking
+  id: ADTCelecernBodyGuardStripesLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: guards_stripes_l_leg
+
+- type: marking
+  id: ADTCelecernBodyGuardStripesRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: guards_stripes_r_leg
+
+- type: marking
+  id: ADTCelecernBodyGuardStripesLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: guards_stripes_l_foot
+
+- type: marking
+  id: ADTCelecernBodyGuardStripesRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: guards_stripes_r_foot
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperos
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_torso
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosHead
+  bodyPart: Head
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_head
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_l_arm
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_r_arm
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosLHand
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_l_hand
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosRHand
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_r_hand
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_l_leg
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_r_leg
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_l_foot
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperosRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos_r_foot
+
+- type: marking
+  id: ADTCelecernBodyQueenLines
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_torso
+
+- type: marking
+  id: ADTCelecernBodyQueenLinesHead
+  bodyPart: Head
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_head
+
+- type: marking
+  id: ADTCelecernBodyQueenLinesLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_l_arm
+
+- type: marking
+  id: ADTCelecernBodyQueenLinesRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_r_arm
+
+- type: marking
+  id: ADTCelecernBodyQueenLinesLHand
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_l_hand
+
+- type: marking
+  id: ADTCelecernBodyQueenLinesRHand
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_r_hand
+
+- type: marking
+  id: ADTCelecernBodyQueenLinesLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_l_leg
+
+- type: marking
+  id: ADTCelecernBodyQueenLinesRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines_r_leg
+
+- type: marking
+  id: ADTCelecernBodyTreeLines
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_torso
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesHead
+  bodyPart: Head
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_head
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_l_arm
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_r_arm
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesLHand
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_l_hand
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesRHand
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_r_hand
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_l_leg
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_r_leg
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_l_foot
+
+- type: marking
+  id: ADTCelecernBodyTreeLinesRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines_r_foot
+
+- type: marking
+  id: ADTCelecernBodyTrinitySpots
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: trinity_spots_torso
+
+- type: marking
+  id: ADTCelecernBodyTrinitySpotsHead
+  bodyPart: Head
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: trinity_spots_head
+
+- type: marking
+  id: ADTCelecernBodyTrinitySpotsLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: trinity_spots_l_arm
+
+- type: marking
+  id: ADTCelecernBodyTrinitySpotsRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: trinity_spots_r_arm
+
+- type: marking
+  id: ADTCelecernBodyTrinitySpotsLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: trinity_spots_l_leg
+
+- type: marking
+  id: ADTCelecernBodyTrinitySpotsRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: trinity_spots_r_leg
+
+- type: marking
+  id: ADTCelecernBodyBloodMoons
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: blood_moons_torso
+
+- type: marking
+  id: ADTCelecernBodyBloodMoonsRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: blood_moons_r_arm
+
+- type: marking
+  id: ADTCelecernBodyFawnSpots
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: fawn_spots_torso
+
+- type: marking
+  id: ADTCelecernBodyFawnSpotsLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: fawn_spots_l_arm
+
+- type: marking
+  id: ADTCelecernBodyFawnSpotsRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: fawn_spots_r_arm
+
+- type: marking
+  id: ADTCelecernBodyFawnSpotsLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: fawn_spots_l_leg
+
+- type: marking
+  id: ADTCelecernBodyFawnSpotsRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: fawn_spots_r_leg
+
+- type: marking
+  id: ADTCelecernBodyStars
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_torso
+
+- type: marking
+  id: ADTCelecernBodyStarsLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_l_arm
+
+- type: marking
+  id: ADTCelecernBodyStarsRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_r_arm
+
+- type: marking
+  id: ADTCelecernBodyStarsLHand
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_l_hand
+
+- type: marking
+  id: ADTCelecernBodyStarsRHand
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_r_hand
+
+- type: marking
+  id: ADTCelecernBodyStarsLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_l_leg
+
+- type: marking
+  id: ADTCelecernBodyStarsRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_r_leg
+
+- type: marking
+  id: ADTCelecernBodyStarsLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_l_foot
+
+- type: marking
+  id: ADTCelecernBodyStarsRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars_r_foot
+
+- type: marking
+  id: ADTCelecernBodyStripes
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_torso
+
+- type: marking
+  id: ADTCelecernBodyStripesLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_l_arm
+
+- type: marking
+  id: ADTCelecernBodyStripesRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_r_arm
+
+- type: marking
+  id: ADTCelecernBodyStripesLHand
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_l_hand
+
+- type: marking
+  id: ADTCelecernBodyStripesRHand
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_r_hand
+
+- type: marking
+  id: ADTCelecernBodyStripesLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_l_leg
+
+- type: marking
+  id: ADTCelecernBodyStripesRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_r_leg
+
+- type: marking
+  id: ADTCelecernBodyStripesLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_l_foot
+
+- type: marking
+  id: ADTCelecernBodyStripesRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes_r_foot
+
+- type: marking
+  id: ADTCelecernBodyTattoo
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo_torso
+
+- type: marking
+  id: ADTCelecernBodyTattooLArm
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo_l_arm
+
+- type: marking
+  id: ADTCelecernBodyTattooRArm
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo_r_arm
+
+- type: marking
+  id: ADTCelecernBodyTattooLHand
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo_l_hand
+
+- type: marking
+  id: ADTCelecernBodyTattooRHand
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo_r_hand
 
 - type: marking
   id: ADTCelecernBodyShetka

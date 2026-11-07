@@ -121,6 +121,18 @@
         damage:
           types:
             Poison: 1
+      # Start ADT tweak
+      - !type:AdjustOrganDamage
+        category: Lungs
+        amount: 0.3
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: Plasma
+          min: 1
+      # End ADT tweak
       - !type:Vomit
         probability: 0.12
         conditions:
@@ -224,6 +236,15 @@
           types:
             Radiation:
               1
+      # Start ADT tweak
+      - !type:AdjustOrganDamage
+        category: Lungs
+        amount: 0.3
+        conditions:
+        - !type:ReagentCondition
+          reagent: Tritium
+          min: 1
+      # End ADT tweak
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
@@ -448,6 +469,12 @@
         damage:
           types:
             Cellular: 0.05
+      # Start ADT tweak
+      - !type:AdjustOrganDamage
+        minScale: 1
+        category: Lungs
+        amount: 0.2
+      # End ADT tweak
       - !type:ModifyStatusEffect
         minScale: 1
         effectProto: StatusEffectSeeingRainbow

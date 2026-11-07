@@ -189,7 +189,11 @@
     sprite: /Textures/Interface/Actions/actions_fakemindshield.rsi
     state: icon-on
   content:
-  - ADTBoxImplanters
+  - ClothingBackpackDuffelSurgeryFilled
+  - ClothingMaskBreathMedical
+  - ClothingMaskBreathMedical
+  - NitrousOxideTankFilled
+  - NitrousOxideTankFilled
   - ADTBoxFakeMindShield
   - RadioJammer
   - RadioJammer

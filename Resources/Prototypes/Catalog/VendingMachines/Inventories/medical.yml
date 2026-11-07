@@ -11,6 +11,7 @@
         ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
         ChemistryBottleEpinephrine: 3
         PillCanisterTricordrazine: 2
+        ADTMedicalSplint1: 4 # ADT-Tweak
     ADTVendingCategoryMedEquipment: # ADT-Tweak
         HandheldHealthAnalyzer: 1
         Syringe: 3
@@ -47,6 +48,7 @@
         ADTPatchPackFilled: 3
         ADTAntibioticOintment: 4
         ADTBloodPackTransfusionFull: 5
+        ADTBloodPackLidocaine: 3 # ADT-Tweak
         ADTSprayBottleStypticPowder: 5
         ADTSprayBottleSilverSulfadiazine: 5
         # ADT tweak end

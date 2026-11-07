@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from BandaStation at https://github.com/ss220club/BandaStation (icons/obj/medical/organs/organs.dmi), originally from tgstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "heart-on",
+            "delays": [
+                [
+                    0.4,
+                    0.2,
+                    0.4,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "heart-off"
+        },
+        {
+            "name": "liver"
+        },
+        {
+            "name": "kidneys"
+        },
+        {
+            "name": "stomach"
+        },
+        {
+            "name": "lungs"
+        },
+        {
+            "name": "eyes"
+        }
+    ]
+}

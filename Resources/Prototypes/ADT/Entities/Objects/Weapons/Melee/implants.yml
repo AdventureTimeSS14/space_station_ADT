@@ -29,6 +29,20 @@
     spread: 90
 
 - type: entity
+  parent: ADTMantisDaggers
+  id: ADTMantisDagger
+  categories: [ HideSpawnMenu ]
+  name: mantis dagger
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 5
+        Poison: 1
+  - type: Reflect
+    reflectProb: .15
+
+- type: entity
   parent: ClothingHandsBase
   id: ADTMistralFists
   categories: [ HideSpawnMenu ]

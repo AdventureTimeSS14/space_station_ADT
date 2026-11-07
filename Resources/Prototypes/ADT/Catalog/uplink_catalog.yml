@@ -771,11 +771,23 @@
     - UplinkImplants
 
 - type: listing
+  id: ADTUplinkAutoSurgeon
+  name: uplink-autosurgeon-name
+  description: uplink-autosurgeon-desc
+  productEntity: ADTSyndicateAutoSurgeonFlatpack
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
+  cost: {}
+  categories:
+    - UplinkImplants
+
+- type: listing
   id: ADTUplinkSandevistanImplant
   name: uplink-sandevistan-implant-name
   description: uplink-sandevistan-implant-desc
   icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
-  productEntity: ADTSandevistanAutoSurgeon
+  productEntity: ADTSandevistanImplant
   discountDownTo:
     Telecrystal: 8
   cost:
@@ -787,7 +799,7 @@
   id: ADTUplinkMantisDaggersImplant
   name: uplink-mantis-daggers-name
   description: uplink-mantis-daggers-desc
-  productEntity: ADTMantisDaggersAutoSurgeon
+  productEntity: ADTBoxMantisDaggers
   icon: { sprite: ADT/Implants/mantis_daggers.rsi, state: icon}
   discountDownTo:
     Telecrystal: 4

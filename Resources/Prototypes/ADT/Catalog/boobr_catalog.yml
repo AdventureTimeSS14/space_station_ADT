@@ -1707,10 +1707,34 @@
 
 #Аплинк ОБР - импланты
 - type: listing
+  id: ADTBoberAutoSurgeon
+  name: boobr-autosurgeon-name
+  description: boobr-autosurgeon-desc
+  productEntity: ADTERTAutoSurgeonFlatpack
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
+  cost: {}
+  categories:
+  - ADTUplinkERTImplanters
+
+- type: listing
+  id: ADTBoberAutoSurgeonRiot
+  name: boobr-autosurgeon-name
+  description: boobr-autosurgeon-desc
+  productEntity: ADTERTAutoSurgeonFlatpack
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
+  cost: {}
+  categories:
+  - ADTUplinkERTRiotImplanters
+
+- type: listing
   id: ADTBoberMantisDaggers
   name: boobr-mantis-blade-name
   description: boobr-mantis-blade-desc
-  productEntity: ADTERTMantisDaggersAutoSurgeon
+  productEntity: ADTBoxMantisDaggers
   icon: { sprite: ADT/Implants/mantis_daggers.rsi, state: icon}
   cost:
     Productunit: 4
@@ -1721,7 +1745,7 @@
   id: ADTBoberMantisDaggersRiot
   name: boobr-mantis-blade-name
   description: boobr-mantis-blade-desc
-  productEntity: ADTERTMantisDaggersAutoSurgeon
+  productEntity: ADTBoxMantisDaggers
   icon: { sprite: ADT/Implants/mantis_daggers.rsi, state: icon}
   cost:
     Productunit: 4
@@ -1733,7 +1757,7 @@
   name: boobr-sandevistan-autosurgeon-name
   description: boobr-sandevistan-autosurgeon-desc
   icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
-  productEntity: ADTERTSandevistanAutoSurgeon
+  productEntity: ADTSandevistanImplant
   conditions:
     - !type:ListingLimitedStockCondition
       stock: 1

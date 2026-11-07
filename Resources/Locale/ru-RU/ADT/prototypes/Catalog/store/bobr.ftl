@@ -295,11 +295,13 @@ boobr-powercell-hyper-name = Батарея гипер ёмкости
 boobr-powercell-hyper-desc = Стандартизированный перезаряжаемый элемент питания. Выглядит как редкий и мощный прототип.
 
 
-boobr-sandevistan-autosurgeon-name = САПО.Г. "Сандевистан"
-boobr-sandevistan-autosurgeon-desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта "Сандевистан".
+boobr-autosurgeon-name = САПО.Г. ОБР
+boobr-autosurgeon-desc = Операционный стол, который сам вживляет загруженный имплант. Импланты выдаются отдельно.
+boobr-sandevistan-autosurgeon-name = Имплант "Сандевистан"
+boobr-sandevistan-autosurgeon-desc = Военный кибер-имплант "Сандевистан". Для установки нужен САПО.Г.
 
-boobr-mantis-blade-name = САПО.Г. "Клинки богомола"
-boobr-mantis-blade-desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта "Клинки богомола".
+boobr-mantis-blade-name = Имплант "Клинки богомола"
+boobr-mantis-blade-desc = Пара военных кибер-имплантов "Клинок богомола", по одному на каждую руку. Для установки нужен САПО.Г.
 
 boobr-tracking-implants-name = Импланты "Трекер"
 boobr-tracking-implants-desc = Кейс с тремя имплантами "Трекер"

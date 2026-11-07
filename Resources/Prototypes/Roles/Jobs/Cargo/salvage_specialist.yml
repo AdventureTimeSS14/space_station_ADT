@@ -23,6 +23,10 @@
   - Salvage
   - Maintenance
   - External
+  special: # ADT-Tweak
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySkill
 
 - type: startingGear
   id: SalvageSpecialistGear

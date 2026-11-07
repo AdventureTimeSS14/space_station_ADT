@@ -1,14 +1,19 @@
 - type: entity
   id: OperatingTable
-  parent: Bed
+  parent: [ Bed, ConstructibleMachine, BaseConstructibleMachineDestructible ] # ADT-Tweak
   name: operating table
-  description: Special medical table for surgery. This one just seems to be a useless prop, though.
+  # ADT-Tweak start
+  description: Special medical table for surgery.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/optable.rsi
-    state: operating_table
+    sprite: ADT/Structures/Furniture/Tables/optable.rsi
+    state: surgery_table
     noRot: true
   - type: Icon
-    sprite: Structures/Furniture/Tables/optable.rsi
-    state: operating_table
+    sprite: ADT/Structures/Furniture/Tables/optable.rsi
+    state: surgery_table
+  - type: OperatingTable
+  - type: Machine
+    board: ADTOperatingTableMachineCircuitboard
+  # ADT-Tweak end
   - type: AmbientMusicMarkerMedical

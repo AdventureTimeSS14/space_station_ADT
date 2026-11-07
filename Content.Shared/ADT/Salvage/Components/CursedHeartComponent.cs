@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
@@ -23,6 +24,8 @@ public sealed partial class CursedHeartComponent : Component
     public FixedPoint2? OriginalCritThreshold;
     [DataField]
     public FixedPoint2? OriginalSoftCritThreshold;
+    [DataField]
+    public Solution? OriginalBloodReagents;
 }
 
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
