@@ -5,8 +5,8 @@ using Content.Server.Afk;
 // ADT-Tweak-start
 using Content.Server.Cloning;
 using Content.Server.Hands.Systems;
-// ADT-Tweak-end
 using Content.Server.GameTicking;
+// ADT-Tweak-end
 using Content.Server.EUI;
 using Content.Server.Ghost.Roles;
 using Content.Server.Mind;
@@ -140,7 +140,22 @@ namespace Content.Server.Administration.Systems
 
                             var copy = EntityManager.System<CloningSystem>()
                                 .CopyItem(item, Transform(args.User).Coordinates);
-                            if (copy is { } uid && !hands.TryPickupAnyHand(args.User, uid))
+                            if (copy is not { } uid)
+                                return;
+
+                            var solutions = EntityManager.System<SharedSolutionContainerSystem>();
+                            foreach (var (name, sourceSolution) in solutions.EnumerateSolutions(item))
+                            {
+                                if (name is null ||
+                                    !solutions.TryGetSolution(uid, name, out var targetSolution) ||
+                                    solutions.GetSolutionOwner(targetSolution.Value) != uid)
+                                    continue;
+
+                                targetSolution.Value.Comp.Solution = sourceSolution.Comp.Solution.Clone();
+                                solutions.UpdateChemicals(targetSolution.Value, needsReactionsProcessing: false);
+                            }
+
+                            if (!hands.TryPickupAnyHand(args.User, uid))
                                 Del(uid);
                         },
                     });
