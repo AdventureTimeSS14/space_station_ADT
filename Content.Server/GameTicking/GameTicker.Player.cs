@@ -145,7 +145,7 @@ namespace Content.Server.GameTicking
                             Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false,
                             audioParams: new AudioParams { Volume = -5f });
 
-                    if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers)
+                    if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers && !HandleLobbyWarmupConnect()) // ADT-Tweak
                     {
                         _roundStartCountdownHasNotStartedYetDueToNoPlayers = false;
                         _roundStartTime = _gameTiming.CurTime + LobbyDuration;

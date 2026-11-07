@@ -208,6 +208,14 @@ namespace Content.Server.Voting.Managers
 
             var entries = options.Options.Select(o => new VoteEntry(o.data, o.text)).ToArray();
 
+            // ADT-Tweak-Start
+            foreach (var (index, bonus) in options.BonusVotes)
+            {
+                if (index >= 0 && index < entries.Length)
+                    entries[index].Votes += bonus;
+            }
+            // ADT-Tweak-End
+
             var start = _timing.RealTime;
             var end = start + options.Duration;
             var reg = new VoteReg(id, entries, options.Title, options.InitiatorText,
