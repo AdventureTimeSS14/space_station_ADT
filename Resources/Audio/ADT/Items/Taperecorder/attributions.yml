@@ -15,3 +15,8 @@
   license: "CC-BY-NC-4.0"
   copyright: "Taken from CassetteRewind.flac by acclivity. Converted from Flac to Ogg."
   source: "https://freesound.org/people/acclivity/sounds/23393/"
+
+- files: ["cassette_insert_eject.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from cmss13"
+  source: "https://github.com/cmss13-devs/cmss13/blob/d5913ef37c373d523c9ea9f23ab8a4a534860e58/sound/weapons/handcuffs.ogg"

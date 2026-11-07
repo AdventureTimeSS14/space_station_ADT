@@ -1,0 +1,50 @@
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: ADTActionCassetteBase
+  components:
+  - type: Action
+    useDelay: 0.5
+    itemIconStyle: NoItem
+
+- type: entity
+  parent: ADTActionCassetteBase
+  id: ADTActionCassettePlayPause
+  name: Play/Pause
+  description: Starts or stops playing music.
+  components:
+  - type: Sprite
+    sprite: ADT/Actions/music_cassette_player.rsi
+    layers:
+    - state: walkman_playpause
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CassettePlayPauseActionEvent
+
+- type: entity
+  parent: ADTActionCassetteBase
+  id: ADTActionCassetteNext
+  name: Next song
+  description: Moves to the next track.
+  components:
+  - type: Sprite
+    sprite: ADT/Actions/music_cassette_player.rsi
+    layers:
+    - state: walkman_next
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CassetteNextActionEvent
+
+- type: entity
+  parent: ADTActionCassetteBase
+  id: ADTActionCassetteRestart
+  name: Restart song
+  description: Restarts the current track.
+  components:
+  - type: Sprite
+    sprite: ADT/Actions/music_cassette_player.rsi
+    layers:
+    - state: walkman_restart
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CassetteRestartActionEvent
