@@ -2,6 +2,7 @@ using Content.Shared.ADT.Cooking;
 using Content.Shared.ADT.Cooking.Components;
 using Content.Shared.ADT.Cooking.Prototypes;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
