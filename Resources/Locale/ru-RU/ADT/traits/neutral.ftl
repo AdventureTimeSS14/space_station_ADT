@@ -50,7 +50,7 @@ trait-chav-accent-name = Кокни
 trait-chav-accent-desc = Эй, приятель, что ты там сказал про мою бабушку? (Вы будете только мычать, как в наморднике)
 
 trait-archaic-accent-name = Архаичный
-trait-archaic-accent-desc = Вы говорите задом наперёд! 
+trait-archaic-accent-desc = Вы говорите задом наперёд!
 
 trait-scottish-accent-name = Шотландский акцент
 trait-scottish-accent-desc = Вы говорите, словно собираетесь отправиться к Лох-Несс!
@@ -84,8 +84,3 @@ trait-polyglot-desc = Вы знаете один дополнительный я
 
 trait-adt-singing-name = Певец
 trait-adt-singing-desc = Вы настолько любите петь что не можете удержаться и поете без остановки.
-chat-speech-verb-adt-singing = поёт
-accent-adt-singing-prefix-pattern = \A(?!♫)|(?!)
-accent-adt-singing-suffix-pattern = (?!)|(?<!♫)\z
-accent-adt-singing-prefix = { "♫ " }
-accent-adt-singing-suffix = { " ♫" }

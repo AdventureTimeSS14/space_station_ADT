@@ -22,3 +22,12 @@
   - chat-speech-verb-echo-2
   - chat-speech-verb-echo-3
   - chat-speech-verb-echo-4
+
+- type: speechVerb
+  id: ADTSinging
+  name: chat-speech-verb-name-adt-singing
+  speechVerbStrings:
+  - chat-speech-verb-adt-singing-1
+  - chat-speech-verb-adt-singing-2
+  - chat-speech-verb-adt-singing-3
+  - chat-speech-verb-adt-singing-4
