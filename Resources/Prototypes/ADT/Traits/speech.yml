@@ -280,4 +280,4 @@
     - type: VoiceOverride
       speechVerbOverride: ADTSinging
     - type: ReplacementAccent
-      accent: ADTSingingNotes
+      accent: adt_singing
