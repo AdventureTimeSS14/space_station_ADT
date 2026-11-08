@@ -9,8 +9,8 @@ using Robust.Shared.Physics.Components;
 namespace Content.Shared.ADT.Silicons;
 public sealed class BorgRemoteInteractionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 

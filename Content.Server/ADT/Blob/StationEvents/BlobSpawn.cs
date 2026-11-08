@@ -2,7 +2,7 @@
 
 using System.Linq;
 using Content.Shared.ADT.Blob;
-using Content.Server.Ghost.Roles.Events;
+using Content.Shared.Ghost;
 using Content.Server.Nutrition.Components;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
@@ -18,8 +18,8 @@ namespace Content.Server.ADT.Blob.StationEvents;
 
 public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPlayerManager _playerSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPlayerManager _playerSystem = default!;
 
     public override void Initialize()
     {

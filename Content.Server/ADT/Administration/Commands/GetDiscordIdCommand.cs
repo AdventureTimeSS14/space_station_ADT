@@ -12,7 +12,7 @@ namespace Content.Server.Administration.Commands
         public string Description => "Retrieves the Discord ID of a user.";
         public string Help => $"Usage: {Command} <user id or name>";
 
-        [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+        [Dependency] private IPlayerLocator _playerLocator = default!;
 
         public async void Execute(IConsoleShell shell, string argStr, string[] args)
         {

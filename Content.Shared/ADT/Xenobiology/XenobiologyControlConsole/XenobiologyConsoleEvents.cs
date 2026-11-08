@@ -9,3 +9,9 @@ public sealed partial class XenobiologyPlaceSlimeEvent : InstantActionEvent;
 public sealed partial class XenobiologyFeedMonkeyEvent : InstantActionEvent;
 
 public sealed partial class XenobiologyRecycleMonkeyEvent : InstantActionEvent;
+
+public sealed partial class XenobiologyAnalyzeSlimeEvent : InstantActionEvent;
+
+public sealed partial class XenobiologyApplyMutationPotionEvent : InstantActionEvent;
+
+public sealed partial class XenobiologyApplyStabilizerPotionEvent : InstantActionEvent;

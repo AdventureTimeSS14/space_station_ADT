@@ -1,0 +1,76 @@
+- type: entity
+  id: ADTSpawnRockVolcanicRandom
+  parent: MarkerBase
+  name: random volcanic rock spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+      state: full
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: ADTBasalt
+        weight: 86
+      - !type:GroupSelector
+        weight: 14
+        children:
+        - id: ADTBasaltUranium
+          weight: 5
+        - id: ADTBasaltDiamond
+          weight: 0.5
+        - id: ADTBasaltGold
+          weight: 10
+        - id: ADTBasaltCopper
+          weight: 11
+        - id: ADTBasaltSilver
+          weight: 12
+        - id: ADTBasaltPlasma
+          weight: 20
+        - id: ADTBasaltIron
+          weight: 40
+        - id: ADTBasaltGibtonite
+          weight: 4
+        - id: ADTBasaltBluespace
+          weight: 0.5
+        - id: ADTBasaltGem
+          weight: 1
+
+- type: entity
+  id: ADTSpawnRockVolcanicRandomHighChance
+  parent: MarkerBase
+  name: random volcanic rock spawner
+  suffix: High chance
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+      state: full
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: ADTBasalt
+        weight: 80
+      - !type:GroupSelector
+        weight: 20
+        children:
+        - id: ADTBasaltUranium
+          weight: 35
+        - id: ADTBasaltDiamond
+          weight: 30
+        - id: ADTBasaltGold
+          weight: 45
+        - id: ADTBasaltCopper
+          weight: 45
+        - id: ADTBasaltSilver
+          weight: 50
+        - id: ADTBasaltPlasma
+          weight: 50
+        - id: ADTBasaltBluespace
+          weight: 20
+        - id: ADTBasaltGem
+          weight: 20

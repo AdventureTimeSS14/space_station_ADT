@@ -8,18 +8,39 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Chemistry.Components.SolutionManager;
 
 namespace Content.Shared.EntityEffects.Effects.Solution;
-public sealed partial class ConvertReagentEntityEffectSystem : EntityEffectSystem<SolutionContainerManagerComponent, ConvertReagent>
+public sealed partial class ConvertReagentEntityEffectSystem : EntityEffectSystem<SolutionManagerComponent, ConvertReagent>
 {
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
-    protected override void Effect(Entity<SolutionContainerManagerComponent> entity, ref EntityEffectEvent<ConvertReagent> args)
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<SolutionComponent, EntityEffectEvent<ConvertReagent>>(OnSolutionEffect);
+    }
+
+    protected override void Effect(Entity<SolutionManagerComponent> entity, ref EntityEffectEvent<ConvertReagent> args)
+    {
+        Convert(entity.Owner, ref args);
+    }
+
+    private void OnSolutionEffect(Entity<SolutionComponent> entity, ref EntityEffectEvent<ConvertReagent> args)
+    {
+        if (HasComp<SolutionManagerComponent>(entity))
+            return;
+
+        Convert(entity.Owner, ref args);
+    }
+
+    private void Convert(EntityUid uid, ref EntityEffectEvent<ConvertReagent> args)
     {
         var scale = args.Scale;
 
         var solutionName = args.Effect.SolutionName;
         Entity<SolutionComponent>? solutionEntity = null;
         Content.Shared.Chemistry.Components.Solution? solution = null;
-        if (!_solutionContainer.ResolveSolution(entity.Owner, solutionName, ref solutionEntity, out solution) || solution == null)
+        if (solutionName == null
+            || !_solutionContainer.ResolveSolution(uid, solutionName, ref solutionEntity, out solution)
+            || solution == null)
             return;
 
         var soln = (solutionEntity.Value, Comp<SolutionComponent>(solutionEntity.Value));

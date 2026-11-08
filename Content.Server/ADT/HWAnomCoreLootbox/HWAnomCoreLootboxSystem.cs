@@ -28,15 +28,15 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
 {
     public sealed class HWAnomCoreLootboxSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly StatusEffectsSystem _status = default!;
-        [Dependency] private readonly BodySystem _bodySystem = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedHandsSystem _hands = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private StatusEffectsSystem _status = default!;
+        [Dependency] private BodySystem _bodySystem = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
         public override void Initialize()
         {
             base.Initialize();

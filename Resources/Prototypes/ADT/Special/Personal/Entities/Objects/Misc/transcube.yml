@@ -1,0 +1,34 @@
+#TODO Ну я не буду придумывать что-то особенное, пусть будет как кубик, это лучше изменить
+
+- type: entity
+  parent: BaseItem
+  abstract: true
+  name: transform cube
+  description: A cube that can transform items into a different form.
+  suffix: Personal
+  id: ADTBaseTransCube
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+
+- type: entity
+  parent: ADTBaseTransCube
+  id: ADTTransCubeLemonLimeLord
+  components:
+  - type: Sprite
+    state: wrapper
+  - type: Tag
+    tags:
+    - ADTLemonLimeLord
+
+- type: entity
+  parent: ADTBaseTransCube
+  id: ADTTransCubePrazatCool
+  components:
+  - type: Sprite
+    state: wrapper
+  - type: Tag
+    tags:
+    - ADTPrazatCool

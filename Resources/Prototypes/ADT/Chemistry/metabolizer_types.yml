@@ -96,3 +96,7 @@
 - type: metabolizerType
   id: XenobioSlime
   name: metabolizer-type-xenobio-slime
+
+- type: metabolizerType
+  id: Changeling
+  name: metabolizer-type-changeling

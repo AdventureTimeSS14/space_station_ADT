@@ -15,7 +15,7 @@
     sound:
       path: /Audio/Ambience/Objects/hdd_buzz.ogg
   - type: PointLight
-    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
+    lightMask: ADTLightMaskCircleA # ADT tweak
     radius: 1.5
     energy: 3.0
     color: "#3db83b"
@@ -25,7 +25,7 @@
     access: [["Engineering"]]
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    sprite: Structures/Power/apc.rsi # ADT-Tweak
     layers:
     - state: base
     - state: panel
@@ -34,28 +34,16 @@
     - state: display-charging
       shader: unshaded
       map: ["enum.ApcVisualLayers.ChargeState"]
-    - state: lock0-locked
-      shader: unshaded
-      map: ["enum.ApcVisualLayers.InterfaceLock"]
-      visible: false
-    - state: lock1-locked
-      shader: unshaded
-      map: ["enum.ApcVisualLayers.PanelLock"]
-      visible: false
-    - state: lock1-locked #when these are implemented get actual sprites.
+    - state: lock1-locked # ADT-Tweak
       shader: unshaded
       map: ["enum.ApcVisualLayers.Equipment"]
       visible: false
-    - state: lock1-locked
-      shader: unshaded
-      map: ["enum.ApcVisualLayers.Lighting"]
-      visible: false
-    - state: lock1-locked
-      shader: unshaded
-      map: ["enum.ApcVisualLayers.Environment"]
-      visible: false
   - type: Appearance
   - type: ApcVisuals
+    # ADT-Tweak-Start
+    channelIndicatorSuffixes: [ null, null, null, null ]
+    screenStateSuffixes: [ lack, charging, full, remote, lack ]
+    # ADT-Tweak-End
   - type: Battery
     # Very important:
     # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
@@ -79,7 +67,7 @@
     sourceNode: input
     loadNode: output
     collectionName: apc
-    sprite: Structures/Power/apc.rsi
+    sprite: Structures/Power/apc.rsi # ADT-Tweak
     state: static
   - type: BatteryCharger
     voltage: Medium
@@ -120,15 +108,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-    - trigger:
-        !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -153,6 +132,7 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: PowerGridCheckNotify
   - type: GuideHelp
     guides:
     - VoltageNetworks
@@ -171,19 +151,13 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Power/apc.rsi
+    sprite: Structures/Power/apc.rsi # ADT-Tweak
     state: frame
   - type: Construction
     graph: APC
     node: apcFrame
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50

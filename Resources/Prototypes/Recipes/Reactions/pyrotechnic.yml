@@ -7,6 +7,20 @@
       amount: 1
     Ethanol:
       amount: 1
+    # ADT-Tweak-Start
+    Sugar:
+      amount: 1
+    Phlogiston:
+      amount: 1
+  effects:
+  - !type:IgniteNearbyEffect
+    radius: 2
+    fireStacks: 2
+  - !type:PopupMessage
+    visualType: LargeCaution
+    messages: [ "napalm-reaction-flare" ]
+    type: Pvs
+    # ADT-Tweak-End
   products:
     Napalm: 3
 

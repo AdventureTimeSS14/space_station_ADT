@@ -9,7 +9,7 @@ namespace Content.Client.ADT.CrewMedal.UI;
 /// </summary>
 public sealed class CrewMedalBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     /// <summary>
     /// The main interface window.

@@ -1,6 +1,7 @@
 ﻿- type: entity
+  abstract: true
   parent: BaseStructure
-  id: ADTmarblelady
+  id: ADTBaseMarbleStatue
   name: beutiful marble lady
   description: She's so pretty
   placement:
@@ -16,6 +17,11 @@
     damageModifierSet: Metallic
   - type: Injurable
     damageContainer: StructuralInorganic
+
+- type: entity
+  parent: ADTBaseMarbleStatue
+  id: ADTmarblelady
+  components:
   - type: Destructible
     thresholds:
       - trigger:
@@ -66,7 +72,7 @@
     state: pillar_marble
 
 - type: entity
-  parent: ADTmarblelady
+  parent: ADTBaseMarbleStatue
   id: ADTmarbleStand
   name: marble stand
   description: stand for someone
@@ -210,7 +216,7 @@
     node: marbleLegionary
 
 - type: entity
-  parent: ADTmarblelady
+  parent: ADTBaseMarbleStatue
   id: ADTBirdMarble
   name: marble bird
   description: marble bird
@@ -258,7 +264,7 @@
     node: marbleCunning
 
 - type: entity
-  parent: ADTmarblelady
+  parent: ADTBaseMarbleStatue
   id: ADTScientistMarble
   name: marble scientist
   description: marble scientist
@@ -291,7 +297,7 @@
                 volume: -2
 
 - type: entity
-  parent: ADTmarblelady
+  parent: ADTBaseMarbleStatue
   id: ADTEyeMarble
   name: marble eye
   description: marble eye
@@ -336,7 +342,7 @@
     state: marble_undone
 
 - type: entity
-  parent: ADTmarblelady
+  parent: ADTBaseMarbleStatue
   id: ADTAncestorMarble
   name: marble ancestor
   description: marble ancestor

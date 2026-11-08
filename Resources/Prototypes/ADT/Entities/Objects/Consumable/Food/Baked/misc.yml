@@ -11,15 +11,14 @@
     flavors:
       - sweet
       - ADTStrawberryFlavor
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 2
   - type: Tag
     tags:
     - ADTMothFriendlyFood
@@ -35,13 +34,12 @@
   - type: Tag
     tags:
     - ADTFoodCondimentPacketMayo
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Mayo
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Mayo
+        Quantity: 10
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 2

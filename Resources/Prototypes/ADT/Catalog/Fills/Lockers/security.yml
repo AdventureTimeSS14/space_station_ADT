@@ -67,8 +67,6 @@
     - id: ADTClothingUniformCorrectionsOfficerGrey
     - id: ADTClothingUniformJumpskirtCorrectionsOfficer
     - id: Multitool
-      amount: !type:BinomialNumberSelector
-        trials: 3
     - !type:AllSelector
       rolls: 3
       children:

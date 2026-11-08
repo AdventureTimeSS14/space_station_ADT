@@ -5,8 +5,8 @@ namespace Content.Shared.ADT.Eye.Blinding;
 
 public sealed class DamageEyesOnFlashSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly BlindableSystem _blindable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private BlindableSystem _blindable = default!;
 
     public override void Initialize()
     {

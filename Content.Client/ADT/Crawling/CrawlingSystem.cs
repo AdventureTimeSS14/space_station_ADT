@@ -6,8 +6,8 @@ namespace Content.Client.ADT.Crawling;
 
 public sealed partial class CrawlingSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {

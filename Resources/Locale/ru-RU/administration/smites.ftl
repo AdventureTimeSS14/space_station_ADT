@@ -146,3 +146,7 @@ admin-trick-pause-map-description = Ставит выбранную карту �
 admin-trick-snap-joints-description = Удаляет все физические шарниры из объекта. К сожалению, не отщёлкивает все кости в теле.
 admin-trick-minigun-fire-description = Заставляет целевое оружие стрелять как миниган (очень быстро).
 admin-trick-set-bullet-amount-description = Быстро устанавливает значение количества незаспавненных патронов в оружии.
+admin-smite-kill-sign-hidden-name = Скрытая метка смерти
+admin-smite-make-stinky-name = Сделать вонючим
+admin-smite-kill-sign-hidden-description = Помечает игрока как цель для остальных. Сам игрок метку не видит.
+admin-smite-make-stinky-description = Цель начинает выделять аммиак и вонять. Фу!

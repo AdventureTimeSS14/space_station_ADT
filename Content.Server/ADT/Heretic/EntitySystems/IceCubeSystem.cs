@@ -19,11 +19,11 @@ namespace Content.Server.ADT.Heretic.EntitySystems;
 
 public sealed class IceCubeSystem : SharedIceCubeSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     private const string IceCubeFixture = "ice-cube-fixture";
 
@@ -33,7 +33,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 
         SubscribeLocalEvent<IceCubeComponent, ComponentStartup>(IceCubeAdded);
         SubscribeLocalEvent<IceCubeComponent, ComponentShutdown>(IceCubeRemoved);
-        SubscribeLocalEvent<IceCubeComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
+        SubscribeLocalEvent<IceCubeComponent, TemperatureChangedEvent>(OnTemperatureChange);
         SubscribeLocalEvent<IceCubeComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<IceCubeComponent, BeforeStaminaDamageEvent>(OnStaminaDamage, before: [typeof(SharedStaminaSystem)]);
     }
@@ -47,7 +47,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
             return;
 
         ent.Comp.SustainedDamage += args.Value * ent.Comp.StaminaDamageMeltProbabilityMultiplier;
-        if (ShouldUnfreeze(ent, temperature.CurrentTemperature))
+        if (ShouldUnfreeze(ent, temperature.Temperature))
             RemCompDeferred(ent, ent.Comp);
     }
 
@@ -65,7 +65,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         {
             _temperature.ForceChangeTemperature(uid,
                 MathF.Min(comp.UnfreezeTemperatureThreshold + 10f,
-                    temperature.CurrentTemperature + heat.Float() * comp.TemperaturePerHeatDamageIncrease),
+                    temperature.Temperature + heat.Float() * comp.TemperaturePerHeatDamageIncrease),
                 temperature);
         }
 
@@ -77,7 +77,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 
         ent.Comp.SustainedDamage += realDamage * ent.Comp.SustainedDamageMeltProbabilityMultiplier;
 
-        if (ShouldUnfreeze(ent, temperature.CurrentTemperature))
+        if (ShouldUnfreeze(ent, temperature.Temperature))
             RemCompDeferred(ent.Owner, ent.Comp);
     }
 
@@ -99,7 +99,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         return max <= min ? 1f : Math.Clamp((value - min) / (max - min), 0f , 1f);
     }
 
-    private void OnTemperatureChange(Entity<IceCubeComponent> ent, ref OnTemperatureChangeEvent args)
+    private void OnTemperatureChange(Entity<IceCubeComponent> ent, ref TemperatureChangedEvent args)
     {
         if (args.TemperatureDelta > 0f && args.CurrentTemperature > ent.Comp.UnfreezeTemperatureThreshold)
             RemCompDeferred(ent.Owner, ent.Comp);
@@ -115,7 +115,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         if (TryComp(uid, out TemperatureComponent? temperature))
         {
             _temperature.ForceChangeTemperature(uid,
-                MathF.Max(temperature.CurrentTemperature, comp.UnfrozenTemperature),
+                MathF.Max(temperature.Temperature, comp.UnfrozenTemperature),
                 temperature);
         }
 
@@ -146,7 +146,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         if (TryComp(uid, out TemperatureComponent? temperature))
         {
             _temperature.ForceChangeTemperature(uid,
-                MathF.Min(temperature.CurrentTemperature, comp.FrozenTemperature),
+                MathF.Min(temperature.Temperature, comp.FrozenTemperature),
                 temperature);
         }
 

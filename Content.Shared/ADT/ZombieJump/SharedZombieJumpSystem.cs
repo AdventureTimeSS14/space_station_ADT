@@ -13,12 +13,12 @@ using Robust.Shared.Physics.Events;
 namespace Content.Shared.ADT.ZombieJump;
 public abstract partial class SharedZombieJumpSystem : EntitySystem
 {
-    [Dependency] protected readonly ThrowingSystem Throwing = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedGravitySystem Gravity = default!;
-    [Dependency] protected readonly SharedActionsSystem Actions = default!;
-    [Dependency] protected readonly StandingStateSystem Standing = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected ThrowingSystem Throwing = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedGravitySystem Gravity = default!;
+    [Dependency] protected SharedActionsSystem Actions = default!;
+    [Dependency] protected StandingStateSystem Standing = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
 
     public override void Initialize()
     {

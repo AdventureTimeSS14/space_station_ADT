@@ -19,9 +19,10 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobFactorySystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
 
     public override void Initialize()
@@ -73,29 +74,32 @@ public sealed class BlobFactorySystem : EntitySystem
             }
             meleeWeaponComponent.Damage = blobbernautDamage;
         }
+
+        _blobCoreSystem.ChangeBlobEntChem(blobbernaut, blobCoreComponent.CurrentChem);
     }
 
-    [ValidatePrototypeId<ReagentPrototype>]
     private const string Phlogiston = "Phlogiston";
 
-    [ValidatePrototypeId<ReagentPrototype>]
     private const string TearGas = "TearGas";
 
-    [ValidatePrototypeId<ReagentPrototype>]
+    private const string UltraChloralHydrate = "ADTUltraChloralHydrate";
+
+    private const string PolytrinicAcid = "PolytrinicAcid";
+
+    private const string Ipecac = "Ipecac";
+
+    private const string Razorium = "Razorium";
+
+    private const string Fresium = "Fresium";
 
     private const string Lexorin = "Lexorin";
 
-    [ValidatePrototypeId<ReagentPrototype>]
     private const string Mold = "Mold";
 
-    [ValidatePrototypeId<ReagentPrototype>]
     private const string Bicaridine = "Bicaridine";
 
-    [ValidatePrototypeId<ReagentPrototype>]
     private const string Aluminium = "Aluminium";
-    [ValidatePrototypeId<ReagentPrototype>]
     private const string Iron = "Iron";
-    [ValidatePrototypeId<ReagentPrototype>]
     private const string Uranium = "Uranium";
 
     private void FillSmokeGas(Entity<BlobPodComponent> ent, BlobChemType currentChem)
@@ -126,6 +130,21 @@ public sealed class BlobFactorySystem : EntitySystem
                 blobGas.AddSolution(new Solution(Iron, FixedPoint2.New(10)){ CanReact = false },_prototypeManager);
                 blobGas.AddSolution(new Solution(Uranium, FixedPoint2.New(10)){ CanReact = false },_prototypeManager);
                 break;
+            case BlobChemType.ComatoseFiber:
+                blobGas.AddSolution(new Solution(UltraChloralHydrate, FixedPoint2.New(30)), _prototypeManager);
+                break;
+            case BlobChemType.ChainCoating:
+                blobGas.AddSolution(new Solution(Razorium, FixedPoint2.New(30)), _prototypeManager);
+                break;
+            case BlobChemType.SinewyTendons:
+                blobGas.AddSolution(new Solution(Ipecac, FixedPoint2.New(30)), _prototypeManager);
+                break;
+            case BlobChemType.CorrosiveSlime:
+                blobGas.AddSolution(new Solution(PolytrinicAcid, FixedPoint2.New(30)), _prototypeManager);
+                break;
+            case BlobChemType.CryogenicPoison:
+                blobGas.AddSolution(new Solution(Fresium, FixedPoint2.New(30)), _prototypeManager);
+                break;
             default:
                 blobGas.AddSolution(new Solution(TearGas, FixedPoint2.New(30)),_prototypeManager);
                 break;
@@ -143,7 +162,8 @@ public sealed class BlobFactorySystem : EntitySystem
         // forget dead pods
         component.BlobPods = component.BlobPods.Where(b => !TerminatingOrDeleted(b) && _mobState.IsAlive(b)).ToList();
 
-        if (component.BlobPods.Count >= component.SpawnLimit)
+        var maxPods = blobCoreComponent.CurrentChem == BlobChemType.SinewyTendons ? 5 : component.SpawnLimit;
+        if (component.BlobPods.Count >= maxPods)
             return;
 
         if (component.Accumulator < component.AccumulateToSpawn)

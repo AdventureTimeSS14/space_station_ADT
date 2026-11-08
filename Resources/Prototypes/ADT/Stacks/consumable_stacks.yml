@@ -39,3 +39,24 @@
   icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
   spawn: ADTGroundWalterMethCrystal
   maxCount: 10
+
+- type: stack
+  id: ADTBoneSplint
+  name: stack-adt-bone-splint
+  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
+  spawn: ADTBoneSplint1
+  maxCount: 10
+
+- type: stack
+  id: ADTClothBandage
+  name: stack-adt-cloth-bandage
+  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: gauze }
+  spawn: ADTClothBandage1
+  maxCount: 10
+
+- type: stack
+  id: ADTMushroomOintment
+  name: stack-adt-mushroom-ointment
+  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: ointment }
+  spawn: ADTMushroomOintment1
+  maxCount: 10

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Body;
 using Content.Shared.ADT.EntityEffects;
 using Content.Shared.Body;
@@ -11,10 +12,10 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class SexChangeSystem : EntityEffectSystem<HumanoidProfileComponent, SexChange>
 {
-    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private HumanoidProfileSystem _humanoid = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private GrammarSystem _grammar = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     protected override void Effect(Entity<HumanoidProfileComponent> entity, ref EntityEffectEvent<SexChange> args)
     {
@@ -51,9 +52,9 @@ public sealed partial class SexChangeSystem : EntityEffectSystem<HumanoidProfile
 
         _identity.QueueIdentityUpdate(entity);
 
-        if (TryComp<VisualBodyComponent>(entity, out var _))
+        if (_visualBody.TryGatherMarkingsData(entity.Owner, null, out var profiles, out _, out _))
         {
-            _visualBody.ApplyProfile(entity, new OrganProfileData { Sex = newSex });
+            _visualBody.ApplyProfiles(entity, profiles.ToDictionary(pair => pair.Key, pair => pair.Value with { Sex = newSex }));
         }
     }
 }

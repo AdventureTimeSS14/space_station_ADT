@@ -8,44 +8,65 @@
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#8e0ff0"
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: SheetPlastic10
-        number: 3
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: SheetPlasma1
-        number: 3
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateGas
-        gas: Plasma
-        moles: 55
+  - type: SlimeExtract
+    extractReactions:
+    - DarkPurpleSlimeExtractWaterReaction
+    - DarkPurpleSlimeExtractPlasmaReaction
+    - DarkPurpleSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyDarkPurpleExtract
+
+- type: extractReaction
+  id: DarkPurpleSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: SheetPlastic10
+      number: 3
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: DarkPurpleSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: SheetPlasma1
+      number: 3
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: DarkPurpleSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateGas
+      gas: Plasma
+      moles: 55
+    scalingOffset: 1
+  shouldDelete: false

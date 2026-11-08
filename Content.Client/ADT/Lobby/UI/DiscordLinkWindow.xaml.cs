@@ -15,11 +15,11 @@ namespace Content.Client.Lobby.UI;
 [UsedImplicitly]
 public sealed partial class DiscordLinkWindow : DefaultWindow
 {
-    [Dependency] private readonly IClipboardManager _clipboard = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly DiscordIdManager _discordIdManager = default!;
-    [Dependency] private readonly IUriOpener _uriOpener = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IClipboardManager _clipboard = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private DiscordIdManager _discordIdManager = default!;
+    [Dependency] private IUriOpener _uriOpener = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     private readonly string _defaultChannelLink = "https://discord.com/channels/901772674865455115/1351213738774237184";
     private string? _discordId;
     private string? _discordUsername;

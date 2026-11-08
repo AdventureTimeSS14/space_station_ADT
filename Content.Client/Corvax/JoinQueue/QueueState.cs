@@ -1,10 +1,12 @@
-﻿using Content.Shared.Corvax.JoinQueue;
+﻿using Content.Client.ADT.JoinQueue;
+using Content.Shared.Corvax.JoinQueue;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Corvax.JoinQueue;
 
@@ -17,6 +19,7 @@ public sealed class QueueState : State
     //private const string JoinSoundPath = "/Audio/Effects/voteding.ogg"; // ADT TWEAK 
 
     private QueueGui? _gui;
+    private QueueBoostyReminder? _boostyReminder;
 
     protected override void Startup()
     {
@@ -24,12 +27,22 @@ public sealed class QueueState : State
         _userInterfaceManager.StateRoot.AddChild(_gui);
 
         _gui.QuitPressed += OnQuitPressed;
+
+        _boostyReminder = new QueueBoostyReminder();
+    }
+
+    public override void FrameUpdate(FrameEventArgs e)
+    {
+        base.FrameUpdate(e);
+
+        _boostyReminder?.Update();
     }
 
     protected override void Shutdown()
     {
         _gui!.QuitPressed -= OnQuitPressed;
         _gui.Dispose();
+        _boostyReminder?.Dispose();
 
         //Ding(); // ADT TWEAK 
     }

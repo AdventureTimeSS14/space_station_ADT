@@ -1,4 +1,4 @@
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Objectives.Components;
 using Content.Shared.Objectives.Components;
 using Content.Server.ADT.Objectives.Components;
@@ -9,9 +9,9 @@ namespace Content.Server.ADT.Objectives.Systems;
 
 public sealed class CascadeConditionSystem : EntitySystem
 {
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly CheckSupermatterSystem _supermatter = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private CheckSupermatterSystem _supermatter = default!;
 
     public override void Initialize()
     {
@@ -47,8 +47,7 @@ public sealed class CascadeConditionSystem : EntitySystem
         {
             // Taking information about AlertLevel on station.
             // If station under cascade - mission complited.
-            var currentAlertLevel = _alertLevelSystem.GetLevel(station.Value);
-            return currentAlertLevel.Equals("cascade", StringComparison.OrdinalIgnoreCase) ? 1f : 0f;
+            return _alertLevelSystem.TryGetLevel(station.Value, out var currentAlertLevel) && currentAlertLevel.Value.Id == "Cascade" ? 1f : 0f;
         }
 
         return 0f;

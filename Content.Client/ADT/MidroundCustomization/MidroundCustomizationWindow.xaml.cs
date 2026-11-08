@@ -26,8 +26,10 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
     public Action<(string Proto, float Pitch, float MinVar, float MaxVar)>? OnBarkChanged;
     public Action<bool>? OnPointLightColorToggled;
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private Robust.Client.Player.IPlayerManager _players = default!;
+    [Dependency] private Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     private readonly SponsorsManager _sponsorsManager = IoCManager.Resolve<SponsorsManager>();
     private readonly SpeechBarksSystem _barkSystem;
@@ -156,6 +158,9 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
     private bool CanUseVoice(TTSVoicePrototype voice)
     {
         if (!voice.SponsorOnly)
+            return true;
+
+        if (_adtSponsors.IsTtsVoiceAllowed(_players.LocalSession, voice.ID))
             return true;
 
         if (!_sponsorsManager.TryGetInfo(out var sponsor))

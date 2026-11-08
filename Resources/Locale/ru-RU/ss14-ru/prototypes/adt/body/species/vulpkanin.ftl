@@ -1,0 +1,11 @@
+ent-ADTAppearanceVulpkanin = внешность вульпканина
+ent-OrganVulpkaninADTArmLeft = { ent-OrganBaseArmLeft }
+ent-OrganVulpkaninADTArmRight = { ent-OrganBaseArmRight }
+ent-OrganVulpkaninADTFootLeft = { ent-OrganBaseFootLeft }
+ent-OrganVulpkaninADTFootRight = { ent-OrganBaseFootRight }
+ent-OrganVulpkaninADTHandLeft = { ent-OrganBaseHandLeft }
+ent-OrganVulpkaninADTHandRight = { ent-OrganBaseHandRight }
+ent-OrganVulpkaninADTHead = { ent-OrganBaseHeadSexed }
+ent-OrganVulpkaninADTLegLeft = { ent-OrganBaseLegLeft }
+ent-OrganVulpkaninADTLegRight = { ent-OrganBaseLegRight }
+ent-OrganVulpkaninADTTorso = { ent-OrganBaseTorsoSexed }

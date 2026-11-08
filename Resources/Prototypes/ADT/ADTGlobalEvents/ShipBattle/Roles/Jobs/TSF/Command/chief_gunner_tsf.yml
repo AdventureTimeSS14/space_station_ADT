@@ -21,8 +21,6 @@
   icon: "JobIconChiefGunnerTSF"
   joinNotifyCrew: true
   supervisors: job-supervisors-tsf-captain
-  canBeAntag: false
-  weight: 17
   overrideConsoleVisibility: false
   accessGroups:
   - AllAccess

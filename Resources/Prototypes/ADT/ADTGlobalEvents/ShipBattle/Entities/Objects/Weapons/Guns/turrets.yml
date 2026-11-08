@@ -258,29 +258,22 @@
         - state: mag-9
           map: ["enum.GunVisualLayers.Mag"]
     - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 4000
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 2000
-          # TODO: Construction graph
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
-            - !type:ExplodeBehavior
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                ADTds30Broken:
-                  min: 1
-                  max: 1
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 2000
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
+        - !type:ExplodeBehavior
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            ADTds30Broken:
+              min: 1
+              max: 1
     - type: Gun
       fireRate: 4
       projectileSpeed: 25
@@ -635,29 +628,22 @@
     #   factions:
     #     - Syndicate
     - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 8000
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 4000
-          # TODO: Construction graph
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
-            - !type:ExplodeBehavior
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                ADTMk155Broken:
-                  min: 1
-                  max: 1
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 4000
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
+        - !type:ExplodeBehavior
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            ADTMk155Broken:
+              min: 1
+              max: 1
     - type: Gun
       fireRate: 0.1
       projectileSpeed: 25

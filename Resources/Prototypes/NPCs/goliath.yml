@@ -26,6 +26,14 @@
         - !type:HTNCompoundTask
           task: EscapeCompound
 
+    # ADT-Tweak-Start
+    - preconditions:
+        - !type:ADTGrabbedPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTGrabEscapeOperator
+    # ADT-Tweak-End
+
     - preconditions:
         - !type:PulledPrecondition
           isPulled: true

@@ -12,9 +12,9 @@ namespace Content.Server.ADT.Chat.Systems;
 
 public sealed class ADTDoEmoteSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IChatManager _chatManager = default!;
 
     public void TrySendDoEmote(EntityUid source, string message, ICommonSession player)
     {

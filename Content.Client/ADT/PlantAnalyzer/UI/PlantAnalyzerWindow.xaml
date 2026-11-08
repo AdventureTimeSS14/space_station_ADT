@@ -32,8 +32,6 @@
                 <Label Name="WaterUsage" Margin="0 5 0 5"/>
                 <Label Name="IdealHeat" Margin="0 5 0 5"/>
                 <Label Name="HeatTolerance" Margin="0 5 0 5"/>
-                <Label Name="IdealLight" Margin="0 5 0 5"/>
-                <Label Name="LightTolerance" Margin="0 5 0 5"/>
                 <Label Name="ToxinsTolerance" Margin="0 5 0 5"/>
                 <Label Name="LowPressureTolerance" Margin="0 5 0 5"/>
                 <Label Name="HighPressureTolerance" Margin="0 5 0 5"/>

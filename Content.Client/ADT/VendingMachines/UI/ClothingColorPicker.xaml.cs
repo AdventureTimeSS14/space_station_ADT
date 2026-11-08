@@ -15,7 +15,7 @@ namespace Content.Client.ADT.VendingMachines.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ClothingColorPicker : Control
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     public event Action<Color?>? OnColorChanged;
 
@@ -82,6 +82,7 @@ public sealed partial class ClothingColorPicker : Control
 
     public void SetColor(Color color)
     {
+        color = color.WithAlpha(1f);
         _currentColor = color;
         UpdateSliders(color);
         UpdateHex(color);

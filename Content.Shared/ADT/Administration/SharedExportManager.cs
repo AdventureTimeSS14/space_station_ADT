@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Export
 {
     public abstract class SharedExportManager
     {
-        [Dependency] protected readonly INetManager NetManager = default!;
+        [Dependency] protected INetManager NetManager = default!;
 
         public void Initialize()
         {

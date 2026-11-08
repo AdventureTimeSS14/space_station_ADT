@@ -10,6 +10,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.FixedPoint;
 using Content.Shared.Kitchen;
+using Content.Shared.Popups;
 using Content.Shared.Research.Systems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio;
@@ -21,14 +22,15 @@ using Robust.Shared.Utility;
 namespace Content.Server.ADT.MedicalAssembler;
 public sealed class ADTMedicalAssemblerSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedResearchSystem _research = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedResearchSystem _research = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -112,7 +114,7 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
                 if (remaining <= 0)
                     break;
 
-                if (GetPrototypeId(item) != solidProtoId)
+                if (GetPrototypeId(item) != solidProtoId.Id)
                     continue;
 
                 QueueDel(item);
@@ -184,13 +186,31 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
                 return;
         }
 
+        EntityUid? blank = null;
+        if (ent.Comp.CustomBlankPrototype is { } blankProto)
+        {
+            if (!_container.TryGetContainer(ent.Owner, ADTMedicalAssemblerComponent.MaterialsContainerId, out var storage))
+                return;
+
+            blank = storage.ContainedEntities.FirstOrDefault(item =>
+                !EntityManager.IsQueuedForDeletion(item) && GetPrototypeId(item) == blankProto.Id);
+            if (blank is not { Valid: true })
+            {
+                _popup.PopupEntity(Loc.GetString("medical-assembler-custom-no-blank"), ent, msg.Actor);
+                return;
+            }
+        }
+
+        if (blank is { } blankItem)
+            QueueDel(blankItem);
+
         foreach (var (reagentId, quantity) in reagents)
             _solution.RemoveReagent(beakerSolEnt.Value, reagentId, quantity);
 
         _solution.UpdateChemicals(beakerSolEnt.Value);
 
         var result = Spawn(resultProto, Transform(ent.Owner).Coordinates);
-        if (_solution.TryGetSolution(result, "pen", out var resultSolEnt, out var resultSolution))
+        if (_solution.TryGetSolution(result, "hypospray", out var resultSolEnt, out var resultSolution))
         {
             foreach (var (reagentId, quantity) in reagents)
                 resultSolution.AddReagent(reagentId, quantity);

@@ -1,19 +1,17 @@
-using System.Numerics;
+using Content.Shared.ADT.Medical;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 namespace Content.Shared.Damage.Systems;
 public sealed class HealOnHoldingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [ValidatePrototypeId<EntityPrototype>]
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ADTHealingVisualsSystem _healVisuals = default!;
     private const string HealEffect = "ADTEffectHealBusyFlash";
     public override void Initialize()
     {
@@ -73,8 +71,7 @@ public sealed class HealOnHoldingSystem : EntitySystem
             var block = EnsureComp<HealOnHoldingBlockedComponent>(mob.Value);
             block.Expires = curTime + TimeSpan.FromSeconds(component.Interval);
 
-            var effect = Spawn(HealEffect, new EntityCoordinates(mob.Value, Vector2.Zero));
-            _transform.SetParent(effect, mob.Value);
+            _healVisuals.TrySpawnHealEffect(mob.Value, HealEffect);
 
             var healDamage = component.Damage.Clone();
             foreach (var type in healDamage.DamageDict.Keys)

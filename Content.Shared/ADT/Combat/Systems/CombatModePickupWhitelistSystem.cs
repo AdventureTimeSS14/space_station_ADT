@@ -6,8 +6,8 @@ namespace Content.Shared.ADT.Combat;
 
 public sealed class CombatModePickupWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedCombatModeSystem _combat = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

@@ -1,6 +1,7 @@
 using Content.Server.ADT.Chat;
 using Content.Server.Radio;
 using Content.Shared.ADT.Language;
+using Content.Shared.Radio;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 
@@ -8,7 +9,7 @@ namespace Content.Server.ADT.Language;
 
 public sealed partial class LanguageSystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     private void InitializeTraits()
     {
         SubscribeLocalEvent<DeafTraitComponent, MapInitEvent>(OnDeafInit);

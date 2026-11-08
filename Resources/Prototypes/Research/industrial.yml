@@ -69,33 +69,33 @@
   cost: 10000
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
+  - SheetifierMachineCircuitboard # ADT Tweak
 # ADT Research Console Rework start
   position: 2,1
   requiredTech:
   - SpaceScanning
   # ADT Research Console Rework end
 
-- type: technology
-  id: IndustrialEngineering
-  name: research-technology-industrial-engineering
-  icon:
-    sprite: Structures/Machines/protolathe_hypercon.rsi
-    state: building
-  discipline: Industrial
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  # ADT-Tweak-Start
+  # ADT-Tweak-Start В связи с неиспользованием этого
+  # - type: technology
+  #   id: IndustrialEngineering
+  #   name: research-technology-industrial-engineering
+  #   icon:
+  #     sprite: Structures/Machines/protolathe_hypercon.rsi
+  #     state: building
+  #   discipline: Industrial
+  #   tier: 1
+  #   cost: 10000
   # - AutolatheHyperConvectionMachineCircuitboard
   # - ProtolatheHyperConvectionMachineCircuitboard
   # - CircuitImprinterHyperConvectionMachineCircuitboard
-  # ADT-Tweak-End
-  - SheetifierMachineCircuitboard
-# ADT Research Console Rework start
-  position: 1,2
-  requiredTech:
-  - MechanicalCompression
+  # - SheetifierMachineCircuitboard
+  # ADT Research Console Rework start
+  # position: 1,2
+  # requiredTech:
+  # - MechanicalCompression
   # ADT Research Console Rework end
+  # ADT-Tweak-End
 
 - type: technology
   id: PowerGeneration
@@ -152,7 +152,7 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
-  position: 0,0 # ADT Research Console Rework
+  position: 2,0 # ADT Research Console Rework
 
 # Tier 2
 
@@ -173,7 +173,7 @@
 # ADT Research Console Rework start
   position: 3,2
   requiredTech:
-  - IndustrialEngineering
+  - MechanicalCompression
   # ADT Research Console Rework end
 
 - type: technology
@@ -236,10 +236,9 @@
     - AdvancedMineralScannerEmpty
     - ADTBorgModuleAdvancedSalvage # ADT-Tweak
   # ADT Research Console Rework start
-  position: 4,-1
+  position: 5,-1
   requiredTech:
   - SalvageEquipment
-  - AdvSalvageWeapons # ADT-Tweak
   # ADT Research Console Rework end
 
 # Tier 3

@@ -49,6 +49,7 @@ using Content.Shared.Gibbing;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Shared.Light.Components;
+using Content.Shared.Store;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -240,7 +241,7 @@ public sealed partial class ChangelingSystem
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
+            _store.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { new ProtoId<CurrencyPrototype>("EvolutionPoint"), bonusEvolutionPoints } }, args.User, store);
             _store.UpdateUserInterface(args.User, args.User, store);
         }
 
@@ -284,11 +285,8 @@ public sealed partial class ChangelingSystem
         if (!TryComp<EdibleComponent>(target, out var food))
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
-            return;
-
         var totalFood = FixedPoint2.New(0);
-        foreach (var (_, sol) in _solution.EnumerateSolutions((target, solMan)))
+        foreach (var (_, sol) in _solution.EnumerateSolutions(target))
             foreach (var proto in BiomassAbsorbedChemicals)
                 totalFood += sol.Comp.Solution.GetTotalPrototypeQuantity(proto);
 
@@ -327,11 +325,8 @@ public sealed partial class ChangelingSystem
         if (args.Cancelled)
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
-            return;
-
         var totalFood = FixedPoint2.New(0);
-        foreach (var (name, sol) in _solution.EnumerateSolutions((target, solMan)))
+        foreach (var (name, sol) in _solution.EnumerateSolutions(target))
         {
             var solution = sol.Comp.Solution;
             foreach (var proto in BiomassAbsorbedChemicals)
@@ -690,12 +685,12 @@ public sealed partial class ChangelingSystem
             QueueDel(cuff);
         }
 
-        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) &&
-            ensnareable.IsEnsnared && ensnareable.Container.ContainedEntities.Count > 0)
+        // ADT-Tweak: ensnare API now goes through SharedEnsnareableSystem.
+        if (_snare.IsEnsnared(uid))
         {
-            var bola = ensnareable.Container.ContainedEntities[0];
-            _snare.ForceFree(bola, Comp<EnsnaringComponent>(bola));
-            QueueDel(bola);
+            var removed = _snare.ForceFreeAll(uid);
+            if (removed.Count > 0)
+                QueueDel(removed[0]);
         }
 
         // Goobstation start unwelds containers containing changelling.

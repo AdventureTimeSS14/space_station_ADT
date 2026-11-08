@@ -5,9 +5,9 @@ namespace Content.Client.ADT.BorgMarkers;
 
 public sealed class ADTBorgMarkerSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private ADTBorgMarkerOverlay? _instance;
 

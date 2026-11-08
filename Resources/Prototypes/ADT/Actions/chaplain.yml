@@ -3,12 +3,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_chaplain.rsi
-      state: saint_fist
     itemIconStyle: BigAction
     useDelay: 5
     priority: -60
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_chaplain.rsi
+    layers:
+    - state: saint_fist
   - type: TargetAction
   - type: EntityTargetAction
     whitelist:
@@ -22,12 +23,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_chaplain.rsi
-      state: hand_of_wololo
     itemIconStyle: BigAction
     useDelay: 30
     priority: -59
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_chaplain.rsi
+    layers:
+    - state: hand_of_wololo
   - type: TargetAction
   - type: EntityTargetAction
     whitelist:
@@ -41,12 +43,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_chaplain.rsi
-      state: holy_touch
     itemIconStyle: BigAction
     useDelay: 30
     priority: -58
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_chaplain.rsi
+    layers:
+    - state: holy_touch
   - type: TargetAction
   - type: EntityTargetAction
     canTargetSelf: false

@@ -12,7 +12,7 @@ public abstract partial class SharedChangelingRegenerateSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private EntityQuery<BloodstreamComponent> _bloodQuery;

@@ -94,6 +94,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
 /// <summary>
 /// <see cref="StatusIconData"/> but in new convenient prototype form!
 /// </summary>
+[DataDefinition]
 public abstract partial class StatusIconPrototype : StatusIconData, IPrototype
 {
     /// <inheritdoc/>
@@ -124,12 +125,6 @@ public sealed partial class JobIconPrototype : StatusIconPrototype, IInheritingP
 
     [ViewVariables(VVAccess.ReadOnly)]
     public string LocalizedJobName => Loc.GetString(JobName);
-
-    /// <summary>
-    /// Should the agent ID or ID card console be able to use this job icon?
-    /// </summary>
-    [DataField]
-    public bool AllowSelection = true;
 
     /// <summary>
     /// Should this job icon be considered a crew job for silicons?

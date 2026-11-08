@@ -90,7 +90,7 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 2
     components:

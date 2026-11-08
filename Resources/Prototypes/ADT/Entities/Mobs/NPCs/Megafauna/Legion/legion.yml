@@ -1,0 +1,248 @@
+- type: entity
+  id: ADTMegaFaunaLegion
+  name: Legion
+  description: One of many.
+  parent: ADTBaseMobMegafauna
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/legion_megafauna.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.5
+    layers:
+    - map:
+      - enum.DamageStateVisualLayers.Base
+      state: legion
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+      hitbox:
+        shape: !type:PhysShapeCircle
+          position: 0,0.5
+          radius: 1.875
+        density: 1
+        hard: true
+        layer:
+        - BulletImpassable
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: MovementIgnoreGravity
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  # ADT buff: в SS13 melee_damage 40
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 50
+        Structural: 400
+    range: 1.5
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+  # ADT buff: в SS13 armour_penetration 50
+  - type: ArmorPenetration
+    penetration: 0.6
+  - type: PointLight
+    radius: 3
+    energy: 1
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single "13"
+      AggroVisionRadius: !type:Single "18"
+      NavSmash: !type:Bool "true"
+      NavInteract: !type:Bool "true"
+      MeleeRange: !type:Single "1.5"
+      MeleeMissChance: !type:Single "0"
+      ADTFleeRange: !type:Single "5"
+      LegionKeepRange: !type:Single "5.5"
+    rootTask:
+      task: ADTLegionMegafaunaCompound
+  # SS13 retreat_distance 5 / minimum_distance 5
+  - type: ADTFlee
+    defaultRange: 5
+    distance: 1.5
+    updateThreshold: 0.75
+  - type: Megafauna
+  - type: ADTMegafaunaAI
+    decisionInterval: 2
+    actions:
+    - ActionADTLegionOpenFire
+  - type: ADTLegionMegafauna
+    # ADT buff: в SS13 луч бьёт на 70 - 20 * (доля ХП), то есть 50-70
+    laserDamageMax: 90
+    laserDamageHealthScale: 25
+    # SS13 update_transform(2)
+    initialScale: 2
+    # SS13 playsound(..., 200, TRUE)
+    laserTelegraphSound:
+      path: /Audio/ADT/Legion/basscannon.ogg
+      params:
+        volume: 6
+        maxDistance: 30
+    laserFireSound:
+      path: /Audio/ADT/Legion/marauder.ogg
+      params:
+        volume: 6
+        maxDistance: 30
+  - type: MegafaunaLoot
+    crateProto: null
+    loot:
+    - proto: ADTStormStaff
+    - proto: ADTKineticTrophyEmpoweredLegionSkull
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
+  - type: GpsSignal
+    tag: adt-gps-signal-legion
+    description: adt-gps-signal-legion-desc
+    color: "#B0A08A"
+  - type: StatusIcon
+    bounds: -1,-2,1,1
+
+- type: entity
+  id: ADTMobLegionBig
+  parent: BaseMobAsteroid
+  name: legion
+  description: One of many.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/legion_big.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0.5,0.5
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: legion
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: legion
+      Dead:
+        Base: legion
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        density: 120
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  # SS13 move_to_delay 14
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.72
+    baseSprintSpeed: 0.72
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Dead
+  # ADT buff: в SS13 melee_damage 20
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 25
+        Structural: 30
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      VisionRadius: !type:Single "5"
+      AggroVisionRadius: !type:Single "5"
+  - type: ADTLegionSpawner
+    prototypes:
+    - ADTMobLegion
+    interval: 20
+    maxMobs: 3
+    deleteOnDeath: true
+  - type: AshStormImmune
+  - type: Fauna
+
+- type: entity
+  id: ADTLegionBeamTelegraph
+  name: disintegration beam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: false
+  - type: Sprite
+    sprite: ADT/Effects/legion_beam.rsi
+    color: "#FFFFFF64"
+    drawdepth: BelowMobs
+    layers:
+    - state: beam
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: ADTLegionBeam
+  parent: ADTLegionBeamTelegraph
+  name: disintegration beam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#FFFFFF"
+  - type: TimedDespawn
+    lifetime: 2
+
+- type: entity
+  id: ADTLegionBeamLit
+  parent: ADTLegionBeam
+  name: disintegration beam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    energy: 1.5
+    color: "#FF3030"
+
+- type: entity
+  id: ActionADTLegionOpenFire
+  name: Legion Attack
+  description: Обрушиться на цель одной из атак Легиона.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/legion.rsi
+    layers:
+    - state: legion_skull
+  - type: TargetAction
+    checkCanAccess: false
+    range: 25
+  - type: WorldTargetAction
+    event: !type:ADTLegionOpenFireActionEvent

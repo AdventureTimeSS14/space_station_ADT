@@ -10,7 +10,6 @@
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
-  canBeAntag: false # ADT tweak?
   access:
   - Medical
   - Maintenance

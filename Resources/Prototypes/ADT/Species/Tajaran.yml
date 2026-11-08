@@ -28,6 +28,13 @@
   - GalacticCommon
   - SikTaj
   - CintaTaj
+  defaultSoundsBySex:
+  - ADTMaleTajaran
+  - ADTFemaleTajaran
+  - ADTMaleTajaran
+  voices:
+  - ADTMaleTajaran
+  - ADTFemaleTajaran
   maxAge: 45
   oldAge: 36
   youngAge: 22

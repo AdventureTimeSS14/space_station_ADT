@@ -1,0 +1,174 @@
+- type: adtDungeonRoom
+  id: ADTLavaDungeonHeliosEntrance
+  size: 9, 9
+  tags:
+  - LavaDungeonHeliosEntrance
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorConcrete
+    "m":
+      tile: FloorConcreteMono
+    "c":
+      tile: FloorDarkMono
+    "r":
+      tile: FloorReinforced
+    "p":
+      tile: Plating
+  tiles:
+  - "aaaaaaaaa"
+  - "abbmmmbba"
+  - "abpppppba"
+  - "abpcccpba"
+  - "abpcccpba"
+  - "abpcccpba"
+  - "abprrrpba"
+  - "abmmmmmba"
+  - "aabbbbbaa"
+  entities:
+  - proto: ADTHeliosWallReinforced
+    positions:
+    - 2.5,6.5
+    - 3.5,6.5
+    - 4.5,6.5
+    - 5.5,6.5
+    - 6.5,6.5
+    - 2.5,5.5
+    - 2.5,4.5
+    - 2.5,3.5
+    - 2.5,2.5
+    - 6.5,5.5
+    - 6.5,4.5
+    - 6.5,3.5
+    - 6.5,2.5
+  - proto: ADTHeliosBlastDoorOpen
+    positions:
+    - 3.5,2.5
+    - 4.5,2.5
+    - 5.5,2.5
+  - proto: ADTSteelDarkLeftStairs
+    positions:
+    - 3.5,3.5
+    - 3.5,4.5
+  - proto: ADTSteelDarkCenterStairs
+    positions:
+    - 4.5,3.5
+    - 4.5,4.5
+  - proto: ADTSteelDarkRightStairs
+    positions:
+    - 5.5,3.5
+    - 5.5,4.5
+  - proto: ADTHeliosShaftLeft
+    positions:
+    - 3.5,5.5
+  - proto: ADTHeliosGatewayEntrance
+    positions:
+    - 4.5,5.5
+  - proto: ADTHeliosShaftRight
+    positions:
+    - 5.5,5.5
+  - proto: SignSecurearea
+    positions:
+    - 3.5,6.5
+  - proto: ADTHeliosPosterBurnt
+    positions:
+    - 5.5,6.5
+  - proto: SignRadiationMed
+    positions:
+    - 6.5,4.5
+  - proto: SignDanger
+    positions:
+    - 2.5,4.5
+  - proto: BannerNanotrasen
+    positions:
+    - 1.5,6.5
+  - proto: ADTShelterSandbag
+    positions:
+    - 0.5,1.5
+    - 1.5,1.5
+    - 7.5,1.5
+    - 8.5,2.5
+  - proto: ADTBarrelFire
+    positions:
+    - 7.5,5.5
+  - proto: CrateGenericSteel
+    positions:
+    - 7.5,6.5
+  - proto: Rack
+    positions:
+    - 1.5,4.5
+  - proto: FlashlightLantern
+    positions:
+    - 1.4,4.6
+  - proto: ScrapSteel
+    positions:
+    - 0.6,3.4
+    - 8.2,4.1
+  - proto: ADTHeliosCorpseScience
+    positions:
+    - 3.5,1.5
+  - proto: ADTHeliosCorpseWorker
+    positions:
+    - 6.5,0.5
+  - proto: ADTHeliosCorpseEngineer
+    positions:
+    - 0.5,5.5
+  - proto: ADTHeliosRemainsCrawled
+    positions:
+    - 5.5,1.5
+  - proto: ClothingHeadHelmetSwat
+    positions:
+    - 7.6,7.4
+  - proto: CartridgePistolSpent
+    positions:
+    - 7.2,6.8
+    - 7.7,6.3
+    - 6.9,7.6
+    - 8.1,6.9
+    - 7.4,5.9
+    - 1.3,7.2
+    - 0.8,6.6
+    - 8.3,1.2
+    - 7.9,0.6
+  decals:
+  - id: splatter
+    color: "#6E0A0AFF"
+    positions:
+    - 3,1
+    - 6,0
+    - 0,5
+  - id: ADTsplatter3
+    color: "#6E0A0AFF"
+    positions:
+    - 4,2
+    - 2,1
+  - id: WarnLineN
+    positions:
+    - 3,1
+    - 4,1
+    - 5,1
+  - id: burnt2
+    positions:
+    - 7,5
+    - 1,2
+  - id: DirtHeavy
+    positions:
+    - 3,3
+    - 5,4
+    - 4,2
+  - id: DirtMedium
+    positions:
+    - 1,3
+    - 7,3
+    - 2,7
+    - 6,7
+  - id: Basalt3
+    positions:
+    - 0,0
+    - 8,8
+    - 8,0
+  - id: Basalt7
+    positions:
+    - 0,8
+    - 4,0

@@ -16,6 +16,9 @@ public sealed partial class ChatUIController
         if (!playHighlightSound)
             return;
 
+        if (_player.LocalEntity is { } localEntity && _ent.GetEntity(msg.SenderEntity) == localEntity)
+            return;
+
         if (!_config.GetCVar(ADTCCVars.ChatHighlightSoundEnabled))
             return;
 

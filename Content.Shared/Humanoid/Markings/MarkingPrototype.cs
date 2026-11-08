@@ -44,14 +44,34 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("sprites", required: true)]
         public List<SpriteSpecifier> Sprites { get; private set; } = default!;
 
+        /// <summary>
+        ///     Optional dictionary allowing assignment of shaders to sprite layers in a marking.
+        ///     This implementation is very messy but unfortunately Robust doesn't like shaders in SpriteSpecifiers.
+        /// </summary>
+        [DataField]
+        public Dictionary<string, string>? Shaders { get; private set; }
+
         public Marking AsMarking()
         {
             return new Marking(ID, Sprites.Count);
         }
 
-        //ADT tweak - allow markings to support shaders
-        [DataField("shader")]
+        /// <summary>
+        /// Chance this marking will be added by appearance randomizer.
+        /// </summary>
+        /// <remarks>
+        /// Default value is 1.
+        /// </remarks>
+        [DataField]
+        public float RandomWeight = 1f;
+
+        //ADT-Tweak-Start
+        [DataField]
         public string? Shader { get; private set; } = null;
-        //ADT tweak impstation edit
+
+        [DataField]
+        public List<HumanoidVisualLayers>? HidesLayers;
+        // ADT-Tweak-End
+
     }
 }

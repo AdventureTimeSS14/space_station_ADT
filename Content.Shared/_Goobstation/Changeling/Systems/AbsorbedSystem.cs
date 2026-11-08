@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
 using Content.Shared.Cloning.Events; // ADT-Tweak
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
@@ -17,9 +18,19 @@ public sealed partial class AbsorbedSystem : EntitySystem
         SubscribeLocalEvent<AbsorbedComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<AbsorbedComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<AbsorbedComponent, CloningEvent>(OnCloned); // ADT-Tweak
+        SubscribeLocalEvent<AbsorbedComponent, CloningAttemptEvent>(OnCloningAttempt); // ADT-Tweak
     }
 
     // ADT-Tweak start
+    /// <summary>
+    /// Поглощённого генокрада нельзя клонировать, в отличие от поглощённых обычных тел.
+    /// </summary>
+    private void OnCloningAttempt(Entity<AbsorbedComponent> ent, ref CloningAttemptEvent args)
+    {
+        if (HasComp<ChangelingIdentityComponent>(ent))
+            args.Cancelled = true;
+    }
+
     /// <summary>
     /// Снимает <see cref="UnrevivableComponent"/> с клона только для тел, опустошённых генокрадом
     /// (причина дефиба "defibrillator-hollow"), чтобы не затронуть трейт Unrevivable.

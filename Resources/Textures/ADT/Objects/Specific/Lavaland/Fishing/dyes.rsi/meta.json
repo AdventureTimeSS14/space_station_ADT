@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cinnabar_spleen"
+        },
+        {
+            "name": "crimson_spleen"
+        },
+        {
+            "name": "indigo_spleen"
+        },
+        {
+            "name": "mint_spleen"
+        },
+        {
+            "name": "amber_spleen"
+        },
+        {
+            "name": "cinnabar_dyes"
+        },
+        {
+            "name": "crimson_dyes"
+        },
+        {
+            "name": "indigo_dyes"
+        },
+        {
+            "name": "mint_dyes"
+        },
+        {
+            "name": "amber_dyes"
+        }
+    ]
+}

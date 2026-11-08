@@ -8,7 +8,7 @@ namespace Content.Client.ADT.Thunderdome;
 [UsedImplicitly]
 public sealed partial class ThunderdomeLoadoutEui : BaseEui
 {
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private IEntityNetworkManager _net = default!;
 
     private readonly ThunderdomeLoadoutWindow _window;
 

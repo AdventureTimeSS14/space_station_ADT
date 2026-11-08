@@ -1,13 +1,14 @@
-using System.Numerics;
 using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -15,43 +16,15 @@ namespace Content.Server.ADT.Hierophant;
 
 public sealed class HierophantAttacksSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    public static readonly Direction[] Cardinals =
-    {
-        Direction.North,
-        Direction.South,
-        Direction.East,
-        Direction.West,
-    };
-
-    public static readonly Direction[] Diagonals =
-    {
-        Direction.NorthEast,
-        Direction.NorthWest,
-        Direction.SouthEast,
-        Direction.SouthWest,
-    };
-
-    public static readonly Direction[] AllDirs =
-    {
-        Direction.North,
-        Direction.South,
-        Direction.East,
-        Direction.West,
-        Direction.NorthEast,
-        Direction.NorthWest,
-        Direction.SouthEast,
-        Direction.SouthWest,
-    };
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public void Blink(Entity<HierophantComponent> ent, MapCoordinates destination)
     {
@@ -68,36 +41,46 @@ public sealed class HierophantAttacksSystem : EntitySystem
 
         var now = _timing.CurTime;
 
-        Enqueue(ent, Step(now, HierophantStepType.Telegraph, destination));
-        Enqueue(ent, Step(now, HierophantStepType.Telegraph, source));
+        QueueTelegraph(ent, now, comp => comp.TelegraphProto, destination, null, false);
+        QueueTelegraph(ent, now, comp => comp.TelegraphProto, source, null, false);
 
         _audio.PlayPvs(ent.Comp.BlinkOutSound, _transform.ToCoordinates(source));
         _audio.PlayPvs(ent.Comp.BlinkInSound, _transform.ToCoordinates(destination));
 
         var at = now + TimeSpan.FromSeconds(0.2);
 
-        Enqueue(ent, Step(at, HierophantStepType.TelegraphTeleport, destination));
-        Enqueue(ent, Step(at, HierophantStepType.TelegraphTeleport, source));
+        QueueTelegraph(ent, at, comp => comp.TelegraphTeleportProto, destination, null, false);
+        QueueTelegraph(ent, at, comp => comp.TelegraphTeleportProto, source, null, false);
 
-        foreach (var coords in RangeTiles(destination, 1))
+        foreach (var coords in ADTMegafaunaGeometry.RangeTiles(destination, 1))
         {
-            Enqueue(ent, BlastStep(at, coords, ent.Comp.BlinkBlastDamage));
+            QueueBlast(ent, at, coords, ent.Comp.BlinkBlastDamage);
         }
 
-        foreach (var coords in RangeTiles(source, 1))
+        foreach (var coords in ADTMegafaunaGeometry.RangeTiles(source, 1))
         {
-            Enqueue(ent, BlastStep(at, coords, ent.Comp.BlinkBlastDamage));
+            QueueBlast(ent, at, coords, ent.Comp.BlinkBlastDamage);
         }
 
-        Enqueue(ent, Step(at, HierophantStepType.BlinkFadeOut, destination));
-        Enqueue(ent, Step(at + TimeSpan.FromSeconds(0.3), HierophantStepType.BlinkMove, destination));
-        Enqueue(ent, Step(at + TimeSpan.FromSeconds(0.4), HierophantStepType.BlinkFadeIn, destination));
-        Enqueue(ent, Step(at + TimeSpan.FromSeconds(0.6), HierophantStepType.BlinkFinish, destination));
+        var stored = Store(destination);
+
+        Schedule(ent, at, () => Fade(ent.Owner, 1f, 0f));
+        Schedule(ent, at + TimeSpan.FromSeconds(0.3), () =>
+        {
+            sys.SetDense(ent.Owner, false);
+            _transform.SetCoordinates(ent.Owner, stored);
+        });
+        Schedule(ent, at + TimeSpan.FromSeconds(0.4), () => Fade(ent.Owner, 0f, 1f));
+        Schedule(ent, at + TimeSpan.FromSeconds(0.6), () =>
+        {
+            sys.SetDense(ent.Owner, true);
+            sys.SetBlinking(ent, false);
+        });
     }
 
     public void BlinkSpam(Entity<HierophantComponent> ent, EntityUid target, int blinkCounter, float targetSlowness, bool belowHalfHealth)
     {
-        ent.Comp.NextRangedAt = _timing.CurTime + MajorCooldown(ent);
+        SetRangedCooldown(ent, MajorCooldown(ent));
 
         if ((!belowHalfHealth && !ent.Comp.Enraged) || blinkCounter <= 1)
         {
@@ -109,64 +92,61 @@ public sealed class HierophantAttacksSystem : EntitySystem
         sys.SetBlinking(ent, true);
 
         var now = _timing.CurTime;
-        Enqueue(ent, SayStep(now, "adt-hierophant-no-escape"));
-        Enqueue(ent, Step(now, HierophantStepType.SetAttackColor, default(MapCoordinates)));
+        QueueSay(ent, now, "adt-hierophant-no-escape");
+        QueueAttackColor(ent, now, true);
 
         var at = now + TimeSpan.FromSeconds(0.6);
         var interval = TimeSpan.FromSeconds(0.4 + targetSlowness);
 
         for (var i = 0; i < blinkCounter; i++)
         {
-            var step = Step(at, HierophantStepType.BlinkFadeOut, default(MapCoordinates));
-            step.Target = target;
-            step.Amount = 1;
-            Enqueue(ent, step);
+            Schedule(ent, at, () => BlinkTowards(ent, target, sys));
             at += interval;
         }
 
-        Enqueue(ent, Step(at, HierophantStepType.ClearAttackColor, default(MapCoordinates)));
-        Enqueue(ent, Step(at + TimeSpan.FromSeconds(0.8), HierophantStepType.ClearBlinking, default(MapCoordinates)));
+        QueueAttackColor(ent, at, false);
+        Schedule(ent, at + TimeSpan.FromSeconds(0.8), () => sys.SetBlinking(ent, false));
     }
 
     public void CrossBlastSpam(Entity<HierophantComponent> ent, EntityUid target, int crossCounter, float targetSlowness)
     {
-        ent.Comp.NextRangedAt = _timing.CurTime + MajorCooldown(ent);
+        SetRangedCooldown(ent, MajorCooldown(ent));
 
         var sys = EntityManager.System<HierophantSystem>();
         sys.SetBlinking(ent, true);
 
         var now = _timing.CurTime;
-        Enqueue(ent, SayStep(now, "adt-hierophant-nowhere-to-run"));
-        Enqueue(ent, Step(now, HierophantStepType.SetAttackColor, default(MapCoordinates)));
+        QueueSay(ent, now, "adt-hierophant-nowhere-to-run");
+        QueueAttackColor(ent, now, true);
 
         var at = now + TimeSpan.FromSeconds(0.6);
         var interval = TimeSpan.FromSeconds(0.6 + targetSlowness);
 
         for (var i = 0; i < crossCounter; i++)
         {
-            var dirs = _random.Prob(0.6f) ? Cardinals : Diagonals;
+            var dirs = _random.Prob(0.6f) ? ADTMegafaunaGeometry.Cardinals : ADTMegafaunaGeometry.Diagonals;
             QueueCrossBlast(ent, at, target, dirs);
             at += interval;
         }
 
-        Enqueue(ent, Step(at, HierophantStepType.ClearAttackColor, default(MapCoordinates)));
-        Enqueue(ent, Step(at + TimeSpan.FromSeconds(0.8), HierophantStepType.ClearBlinking, default(MapCoordinates)));
+        QueueAttackColor(ent, at, false);
+        Schedule(ent, at + TimeSpan.FromSeconds(0.8), () => sys.SetBlinking(ent, false));
     }
 
     public void ChaserSwarm(Entity<HierophantComponent> ent, EntityUid target, float targetSlowness)
     {
-        ent.Comp.NextRangedAt = _timing.CurTime + MajorCooldown(ent);
+        SetRangedCooldown(ent, MajorCooldown(ent));
         ent.Comp.NextChaserAt = _timing.CurTime + ent.Comp.ChaserCooldownTime;
 
         var sys = EntityManager.System<HierophantSystem>();
         sys.SetBlinking(ent, true);
 
         var now = _timing.CurTime;
-        Enqueue(ent, SayStep(now, "adt-hierophant-cannot-hide"));
-        Enqueue(ent, Step(now, HierophantStepType.SetAttackColor, default(MapCoordinates)));
+        QueueSay(ent, now, "adt-hierophant-cannot-hide");
+        QueueAttackColor(ent, now, true);
 
         var targets = GetNearbyTargets(ent, target);
-        var cardinals = new List<Direction>(Cardinals);
+        var cardinals = new List<Direction>(ADTMegafaunaGeometry.Cardinals);
         var at = now + TimeSpan.FromSeconds(0.6);
         var interval = TimeSpan.FromSeconds(0.8 + targetSlowness);
 
@@ -177,19 +157,15 @@ public sealed class HierophantAttacksSystem : EntitySystem
                 : _random.Pick(targets);
 
             var dir = PickAndTake(cardinals);
+            var speed = ent.Comp.ChaserSpeed;
 
-            var step = Step(at, HierophantStepType.Chaser, default(MapCoordinates));
-            step.Target = picked;
-            step.Direction = dir;
-            step.Speed = ent.Comp.ChaserSpeed;
-            step.Amount = 3;
-            Enqueue(ent, step);
+            Schedule(ent, at, () => SpawnScheduledChaser(ent, picked, speed, 3, dir));
 
             at += interval;
         }
 
-        Enqueue(ent, Step(at, HierophantStepType.ClearAttackColor, default(MapCoordinates)));
-        Enqueue(ent, Step(at + TimeSpan.FromSeconds(0.8), HierophantStepType.ClearBlinking, default(MapCoordinates)));
+        QueueAttackColor(ent, at, false);
+        Schedule(ent, at + TimeSpan.FromSeconds(0.8), () => sys.SetBlinking(ent, false));
     }
 
     public void Blasts(Entity<HierophantComponent> ent, EntityUid target, Direction[] directions)
@@ -199,33 +175,28 @@ public sealed class HierophantAttacksSystem : EntitySystem
 
     private void QueueCrossBlast(Entity<HierophantComponent> ent, TimeSpan at, EntityUid target, Direction[] directions)
     {
-        var telegraph = HierophantStepType.Telegraph;
+        if (directions == ADTMegafaunaGeometry.Cardinals)
+            QueueTelegraph(ent, at, comp => comp.TelegraphCardinalProto, null, target, true);
+        else if (directions == ADTMegafaunaGeometry.Diagonals)
+            QueueTelegraph(ent, at, comp => comp.TelegraphDiagonalProto, null, target, true);
+        else
+            QueueTelegraph(ent, at, comp => comp.TelegraphProto, null, target, false);
 
-        if (directions == Cardinals)
-            telegraph = HierophantStepType.TelegraphCardinal;
-        else if (directions == Diagonals)
-            telegraph = HierophantStepType.TelegraphDiagonal;
+        var dirs = new List<Direction>(directions);
+        var damage = ent.Comp.BlastDamage;
 
-        var telegraphStep = Step(at, telegraph, default(MapCoordinates));
-        telegraphStep.Target = target;
-        Enqueue(ent, telegraphStep);
-
-        var blastStep = Step(at + TimeSpan.FromSeconds(0.2), HierophantStepType.CrossBlast, default(MapCoordinates));
-        blastStep.Target = target;
-        blastStep.Directions = new List<Direction>(directions);
-        blastStep.Damage = ent.Comp.BlastDamage;
-        Enqueue(ent, blastStep);
+        Schedule(ent, at + TimeSpan.FromSeconds(0.2), () => CrossBlast(ent, target, dirs, damage));
     }
 
     public void MeleeBlast(Entity<HierophantComponent> ent, MapCoordinates coords)
     {
         var now = _timing.CurTime;
-        Enqueue(ent, Step(now, HierophantStepType.Telegraph, coords));
+        QueueTelegraph(ent, now, comp => comp.TelegraphProto, coords, null, false);
         _audio.PlayPvs(ent.Comp.TelegraphSound, _transform.ToCoordinates(coords));
 
-        foreach (var tile in RangeTiles(coords, 1))
+        foreach (var tile in ADTMegafaunaGeometry.RangeTiles(coords, 1))
         {
-            Enqueue(ent, BlastStep(now + TimeSpan.FromSeconds(0.2), tile, ent.Comp.BlastDamage));
+            QueueBlast(ent, now + TimeSpan.FromSeconds(0.2), tile, ent.Comp.BlastDamage);
         }
     }
 
@@ -250,9 +221,9 @@ public sealed class HierophantAttacksSystem : EntitySystem
                 at += TimeSpan.FromSeconds(delay);
             }
 
-            foreach (var tile in RingTiles(coords, distance))
+            foreach (var tile in ADTMegafaunaGeometry.RingTiles(coords, distance))
             {
-                Enqueue(ent, BlastStep(at, tile, ent.Comp.BlastDamage));
+                QueueBlast(ent, at, tile, ent.Comp.BlastDamage);
             }
         }
     }
@@ -277,7 +248,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
 
         ent.Comp.NextArenaAt = now + ent.Comp.ArenaCooldownTime;
 
-        foreach (var dir in Cardinals)
+        foreach (var dir in ADTMegafaunaGeometry.Cardinals)
         {
             var at = now;
             var previous = coords;
@@ -285,22 +256,22 @@ public sealed class HierophantAttacksSystem : EntitySystem
             for (var i = 0; i < 10; i++)
             {
                 at += TimeSpan.FromSeconds(0.05);
-                previous = Offset(previous, dir, 1);
+                previous = ADTMegafaunaGeometry.Offset(previous, dir, 1);
 
-                var step = Step(at, HierophantStepType.Squares, previous);
-                step.Direction = dir;
-                Enqueue(ent, step);
+                var stored = Store(previous);
+                Schedule(ent, at, () => SpawnSquares(ent, stored, dir));
             }
         }
 
-        foreach (var tile in RingTiles(coords, ent.Comp.ArenaRadius))
+        foreach (var tile in ADTMegafaunaGeometry.RingTiles(coords, ent.Comp.ArenaRadius))
         {
-            Enqueue(ent, Step(now, HierophantStepType.Wall, tile));
-            Enqueue(ent, BlastStep(now, tile, ent.Comp.BlastDamage));
+            var stored = Store(tile);
+            Schedule(ent, now, () => SpawnWall(ent, stored));
+            QueueBlast(ent, now, tile, ent.Comp.BlastDamage);
         }
 
         var ourCoords = _transform.GetMapCoordinates(ent.Owner);
-        var distance = ChebyshevDistance(ourCoords, coords);
+        var distance = ADTMegafaunaGeometry.ChebyshevDistance(ourCoords, coords);
 
         if (distance >= ent.Comp.ArenaRadius || forced)
             Blink(ent, coords);
@@ -319,125 +290,83 @@ public sealed class HierophantAttacksSystem : EntitySystem
         }
     }
 
-    public void ExecuteStep(Entity<HierophantComponent> ent, HierophantStep step)
+    private void QueueBlast(Entity<HierophantComponent> ent, TimeSpan at, MapCoordinates coords, float damage)
     {
-        var sys = EntityManager.System<HierophantSystem>();
+        var stored = Store(coords);
 
-        switch (step.Type)
+        Schedule(ent, at, () =>
         {
-            case HierophantStepType.Blast:
-            {
-                var blastCoords = ResolveCoords(step);
-
-                if (blastCoords != null)
-                    SpawnBlast(ent, blastCoords.Value, step.Damage, step.FriendlyFireCheck, step.MonsterDamageBoost);
-
-                break;
-            }
-
-            case HierophantStepType.Telegraph:
-                SpawnTelegraph(ent, step, ent.Comp.TelegraphProto);
-                break;
-
-            case HierophantStepType.TelegraphCardinal:
-                SpawnTelegraph(ent, step, ent.Comp.TelegraphCardinalProto);
-                break;
-
-            case HierophantStepType.TelegraphDiagonal:
-                SpawnTelegraph(ent, step, ent.Comp.TelegraphDiagonalProto);
-                break;
-
-            case HierophantStepType.TelegraphTeleport:
-                SpawnTelegraph(ent, step, ent.Comp.TelegraphTeleportProto);
-                break;
-
-            case HierophantStepType.CrossBlast:
-                ExecuteCrossBlast(ent, step);
-                break;
-
-            case HierophantStepType.Squares:
-                ExecuteSquares(ent, step);
-                break;
-
-            case HierophantStepType.Chaser:
-                ExecuteChaser(ent, step);
-                break;
-
-            case HierophantStepType.Wall:
-                ExecuteWall(ent, step);
-                break;
-
-            case HierophantStepType.BlinkFadeOut:
-                ExecuteFadeOut(ent, step, sys);
-                break;
-
-            case HierophantStepType.BlinkMove:
-                ExecuteBlinkMove(ent, step, sys);
-                break;
-
-            case HierophantStepType.BlinkFadeIn:
-                Fade(ent.Owner, 0f, 1f);
-                break;
-
-            case HierophantStepType.BlinkFinish:
-                sys.SetDense(ent.Owner, true);
-                sys.SetBlinking(ent, false);
-                break;
-
-            case HierophantStepType.SetBlinking:
-                sys.SetBlinking(ent, true);
-                break;
-
-            case HierophantStepType.ClearBlinking:
-                sys.SetBlinking(ent, false);
-                break;
-
-            case HierophantStepType.SetAttackColor:
-                _appearance.SetData(ent.Owner, HierophantVisuals.Attacking, true);
-                break;
-
-            case HierophantStepType.ClearAttackColor:
-                _appearance.SetData(ent.Owner, HierophantVisuals.Attacking, false);
-                break;
-
-            case HierophantStepType.Say:
-                if (step.Message != null)
-                    _megafauna.Say(ent.Owner, step.Message);
-                break;
-                // требует рефактора под полиморфизм
-        }
+            if (ResolveCoords(null, stored) is { } blastCoords)
+                SpawnBlast(ent, blastCoords, damage);
+        });
     }
 
-    private void ExecuteCrossBlast(Entity<HierophantComponent> ent, HierophantStep step)
+    private void QueueTelegraph(
+        Entity<HierophantComponent> ent,
+        TimeSpan at,
+        Func<HierophantComponent, EntProtoId> proto,
+        MapCoordinates? coords,
+        EntityUid? target,
+        bool sound)
     {
-        var coords = ResolveCoords(step);
+        var stored = coords is { } mapCoords ? Store(mapCoords) : default;
 
-        if (coords == null)
+        Schedule(ent, at, () =>
+        {
+            if (ResolveCoords(target, stored) is not { } telegraphCoords)
+                return;
+
+            var spawnCoords = _transform.ToCoordinates(telegraphCoords);
+            Spawn(proto(ent.Comp), spawnCoords);
+
+            if (sound)
+                _audio.PlayPvs(ent.Comp.TelegraphSound, spawnCoords);
+        });
+    }
+
+    private void QueueSay(Entity<HierophantComponent> ent, TimeSpan at, string message)
+    {
+        Schedule(ent, at, () => _megafauna.Say(ent.Owner, message));
+    }
+
+    private void QueueAttackColor(Entity<HierophantComponent> ent, TimeSpan at, bool attacking)
+    {
+        Schedule(ent, at, () => _appearance.SetData(ent.Owner, HierophantVisuals.Attacking, attacking));
+    }
+
+    private void CrossBlast(Entity<HierophantComponent> ent, EntityUid target, List<Direction> directions, float damage)
+    {
+        if (ResolveCoords(target, default) is not { } coords)
             return;
 
-        SpawnBlast(ent, coords.Value, step.Damage, step.FriendlyFireCheck, step.MonsterDamageBoost);
+        SpawnBlast(ent, coords, damage);
 
-        if (step.Directions == null)
-            return;
-
-        foreach (var dir in step.Directions)
+        foreach (var dir in directions)
         {
             for (var i = 1; i <= ent.Comp.BeamRange; i++)
             {
-                SpawnBlast(ent, Offset(coords.Value, dir, i), step.Damage, step.FriendlyFireCheck, step.MonsterDamageBoost);
+                SpawnBlast(ent, ADTMegafaunaGeometry.Offset(coords, dir, i), damage);
             }
         }
     }
 
-    private void ExecuteSquares(Entity<HierophantComponent> ent, HierophantStep step)
+    private void SpawnSquares(Entity<HierophantComponent> ent, EntityCoordinates coords, Direction dir)
     {
-        var squares = Spawn(ent.Comp.SquaresProto, step.Coords);
-        _transform.SetLocalRotation(squares, step.Direction.ToAngle());
+        var squares = Spawn(ent.Comp.SquaresProto, coords);
+        _transform.SetLocalRotation(squares, dir.ToAngle());
     }
 
-    private void ExecuteChaser(Entity<HierophantComponent> ent, HierophantStep step)
+    private void SpawnWall(Entity<HierophantComponent> ent, EntityCoordinates coords)
     {
-        if (step.Target == null || TerminatingOrDeleted(step.Target.Value))
+        var wall = Spawn(ent.Comp.WallProto, coords);
+
+        if (TryComp<HierophantWallComponent>(wall, out var wallComp))
+            wallComp.Caster = ent.Owner;
+    }
+
+    private void SpawnScheduledChaser(Entity<HierophantComponent> ent, EntityUid target, float speed, int moving, Direction dir)
+    {
+        if (TerminatingOrDeleted(target))
             return;
 
         var chaser = Spawn(ent.Comp.ChaserProto, _transform.GetMoverCoordinates(ent.Owner));
@@ -446,51 +375,27 @@ public sealed class HierophantAttacksSystem : EntitySystem
             return;
 
         comp.Caster = ent.Owner;
-        comp.Target = step.Target;
-        comp.Speed = step.Speed > 0f ? step.Speed : ent.Comp.ChaserSpeed;
+        comp.Target = target;
+        comp.Speed = speed > 0f ? speed : ent.Comp.ChaserSpeed;
         comp.Damage = ent.Comp.BlastDamage;
-
-        if (step.Amount > 0)
-        {
-            comp.Moving = step.Amount;
-            comp.MovingDir = step.Direction;
-        }
+        comp.Moving = moving;
+        comp.MovingDir = dir;
     }
 
-    private void ExecuteWall(Entity<HierophantComponent> ent, HierophantStep step)
+    private void BlinkTowards(Entity<HierophantComponent> ent, EntityUid target, HierophantSystem sys)
     {
-        var wall = Spawn(ent.Comp.WallProto, step.Coords);
-
-        if (TryComp<HierophantWallComponent>(wall, out var wallComp))
-            wallComp.Caster = ent.Owner;
-    }
-
-    private void ExecuteFadeOut(Entity<HierophantComponent> ent, HierophantStep step, HierophantSystem sys)
-    {
-        if (step.Amount == 1 && step.Target != null)
-        {
-            if (TerminatingOrDeleted(step.Target.Value))
-                return;
-
-            var targetCoords = _transform.GetMapCoordinates(step.Target.Value);
-            var ourCoords = _transform.GetMapCoordinates(ent.Owner);
-
-            if (ChebyshevDistance(ourCoords, targetCoords) < 1)
-                return;
-
-            sys.SetBlinking(ent, false);
-            Blink(ent, targetCoords);
-            sys.SetBlinking(ent, true);
+        if (TerminatingOrDeleted(target))
             return;
-        }
 
-        Fade(ent.Owner, 1f, 0f);
-    }
+        var targetCoords = _transform.GetMapCoordinates(target);
+        var ourCoords = _transform.GetMapCoordinates(ent.Owner);
 
-    private void ExecuteBlinkMove(Entity<HierophantComponent> ent, HierophantStep step, HierophantSystem sys)
-    {
-        sys.SetDense(ent.Owner, false);
-        _transform.SetCoordinates(ent.Owner, step.Coords);
+        if (ADTMegafaunaGeometry.ChebyshevDistance(ourCoords, targetCoords) < 1)
+            return;
+
+        sys.SetBlinking(ent, false);
+        Blink(ent, targetCoords);
+        sys.SetBlinking(ent, true);
     }
 
     private void Fade(EntityUid uid, float from, float to)
@@ -501,19 +406,6 @@ public sealed class HierophantAttacksSystem : EntitySystem
         fade.StartTime = _timing.CurTime;
         fade.Duration = TimeSpan.FromSeconds(0.2);
         Dirty(uid, fade);
-    }
-
-    private void SpawnTelegraph(Entity<HierophantComponent> ent, HierophantStep step, string proto)
-    {
-        var coords = ResolveCoords(step);
-
-        if (coords == null)
-            return;
-
-        Spawn(proto, _transform.ToCoordinates(coords.Value));
-
-        if (step.Type is HierophantStepType.TelegraphCardinal or HierophantStepType.TelegraphDiagonal)
-            _audio.PlayPvs(ent.Comp.TelegraphSound, _transform.ToCoordinates(coords.Value));
     }
 
     public EntityUid? SpawnBlast(
@@ -539,20 +431,39 @@ public sealed class HierophantAttacksSystem : EntitySystem
         return blast;
     }
 
-    private MapCoordinates? ResolveCoords(HierophantStep step)
+    private MapCoordinates? ResolveCoords(EntityUid? target, EntityCoordinates stored)
     {
-        if (step.Target != null && !TerminatingOrDeleted(step.Target.Value))
-            return _transform.GetMapCoordinates(step.Target.Value);
+        if (target != null && !TerminatingOrDeleted(target.Value))
+            return _transform.GetMapCoordinates(target.Value);
 
-        if (!step.Coords.IsValid(EntityManager))
+        if (!stored.IsValid(EntityManager))
             return null;
 
-        var coords = _transform.ToMapCoordinates(step.Coords);
+        var coords = _transform.ToMapCoordinates(stored);
 
         if (coords.MapId == MapId.Nullspace)
             return null;
 
         return coords;
+    }
+
+    private EntityCoordinates Store(MapCoordinates coords)
+    {
+        if (coords.MapId == MapId.Nullspace)
+            return default;
+
+        return _transform.ToCoordinates(coords);
+    }
+
+    private void Schedule(Entity<HierophantComponent> ent, TimeSpan at, Action action)
+    {
+        _megafauna.ScheduleAt(ent.Owner, at, action);
+    }
+
+    private void SetRangedCooldown(Entity<HierophantComponent> ent, TimeSpan cooldown)
+    {
+        if (TryComp<ADTMegafaunaAIComponent>(ent, out var ai))
+            _megafauna.SetRangedCooldown((ent.Owner, ai), cooldown);
     }
 
     private List<EntityUid> GetNearbyTargets(Entity<HierophantComponent> ent, EntityUid fallback)
@@ -606,90 +517,10 @@ public sealed class HierophantAttacksSystem : EntitySystem
             if (arenaCoords.MapId != coords.MapId)
                 continue;
 
-            if (ChebyshevDistance(arenaCoords, coords) <= arena.Radius)
+            if (ADTMegafaunaGeometry.ChebyshevDistance(arenaCoords, coords) <= arena.Radius)
                 return true;
         }
 
         return false;
-    }
-
-    private HierophantStep Step(TimeSpan at, HierophantStepType type, MapCoordinates coords)
-    {
-        var stored = default(EntityCoordinates);
-
-        if (coords.MapId != MapId.Nullspace)
-            stored = _transform.ToCoordinates(coords);
-
-        return new HierophantStep
-        {
-            ExecuteAt = at,
-            Type = type,
-            Coords = stored,
-        };
-    }
-
-    private HierophantStep BlastStep(TimeSpan at, MapCoordinates coords, float damage)
-    {
-        var step = Step(at, HierophantStepType.Blast, coords);
-        step.Damage = damage;
-        return step;
-    }
-
-    private HierophantStep SayStep(TimeSpan at, string message)
-    {
-        var step = Step(at, HierophantStepType.Say, default(MapCoordinates));
-        step.Message = message;
-        return step;
-    }
-
-    private void Enqueue(Entity<HierophantComponent> ent, HierophantStep step)
-    {
-        var sequence = EnsureComp<HierophantSequenceComponent>(ent.Owner);
-        sequence.Queue.Add(step);
-    }
-
-    public static IEnumerable<MapCoordinates> RangeTiles(MapCoordinates center, int radius)
-    {
-        for (var x = -radius; x <= radius; x++)
-        {
-            for (var y = -radius; y <= radius; y++)
-            {
-                yield return new MapCoordinates(center.Position + new Vector2(x, y), center.MapId);
-            }
-        }
-    }
-
-    public static IEnumerable<MapCoordinates> RingTiles(MapCoordinates center, int radius)
-    {
-        if (radius == 0)
-        {
-            yield return center;
-            yield break;
-        }
-
-        for (var x = -radius; x <= radius; x++)
-        {
-            for (var y = -radius; y <= radius; y++)
-            {
-                if (Math.Abs(x) != radius && Math.Abs(y) != radius)
-                    continue;
-
-                yield return new MapCoordinates(center.Position + new Vector2(x, y), center.MapId);
-            }
-        }
-    }
-
-    private static MapCoordinates Offset(MapCoordinates coords, Direction dir, int distance)
-    {
-        return new MapCoordinates(coords.Position + dir.ToVec() * distance, coords.MapId);
-    }
-
-    public static float ChebyshevDistance(MapCoordinates a, MapCoordinates b)
-    {
-        if (a.MapId != b.MapId)
-            return float.MaxValue;
-
-        var delta = a.Position - b.Position;
-        return Math.Max(Math.Abs(delta.X), Math.Abs(delta.Y));
     }
 }

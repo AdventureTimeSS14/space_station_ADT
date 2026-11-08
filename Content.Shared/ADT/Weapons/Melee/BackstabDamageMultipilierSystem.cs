@@ -4,8 +4,8 @@ using Content.Shared.Weapons.Melee.Events;
 namespace Content.Shared.Weapons.Melee.Backstab;
 public sealed class BackstabDamageMultipilierSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -26,7 +26,7 @@ public sealed class BackstabDamageMultipilierSystem : EntitySystem
         }
     }
 
-    private bool IsBehindTarget(EntityUid user, EntityUid target)
+    public bool IsBehindTarget(EntityUid user, EntityUid target)
     {
         var targetFacingDirection = _transform.GetWorldRotation(target).GetCardinalDir();
         var behindAngle = targetFacingDirection.GetOpposite().ToAngle();

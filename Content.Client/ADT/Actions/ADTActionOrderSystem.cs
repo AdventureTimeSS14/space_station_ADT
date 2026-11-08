@@ -1,259 +1,146 @@
+using System.IO;
 using System.Linq;
-using Content.Client.UserInterface.Systems.Actions;
-using Content.Shared.ADT.Actions;
-using Robust.Client.Player;
-using Robust.Client.UserInterface;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Player;
+using Content.Client.ADT.UserData;
+using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Serialization.Markdown;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+using YamlDotNet.Core;
+using YamlDotNet.RepresentationModel;
 
 namespace Content.Client.ADT.Actions;
 
 public sealed class ADTActionOrderSystem : EntitySystem
 {
-    private const int MaxOrderEntries = 64;
+    private static readonly ResPath LegacySavePath = new("/adt_action_order.yml");
+    private static readonly ResPath SavePath = ADTUserData.Root / "action_order.yml";
+    private static readonly TimeSpan SaveDelay = TimeSpan.FromSeconds(1);
 
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IResourceManager _resources = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
 
-    private readonly List<EntProtoId> _order = new();
-    private readonly Dictionary<EntProtoId, int> _places = new();
-    private readonly HashSet<EntProtoId> _removed = new();
+    private readonly ADTActionOrder _order = new();
 
-    private EntityUid? _cachedFor;
-    private EntityUid? _syncedFor;
-
-    private bool _pendingSend;
-
-    public IReadOnlyDictionary<EntProtoId, int> Order
-    {
-        get
-        {
-            EnsureCache();
-            return _places;
-        }
-    }
-
-    public IReadOnlySet<EntProtoId> Removed
-    {
-        get
-        {
-            EnsureCache();
-            return _removed;
-        }
-    }
+    private TimeSpan? _saveAt;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ADTActionOrderComponent, AfterAutoHandleStateEvent>(OnHandleState);
-        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnLocalPlayerAttached);
+        Load();
     }
 
-    private void OnLocalPlayerAttached(LocalPlayerAttachedEvent ev)
+    public override void Shutdown()
     {
-        _pendingSend = false;
-        _cachedFor = null;
-        _syncedFor = HasComp<ADTActionOrderComponent>(ev.Entity) ? ev.Entity : null;
+        base.Shutdown();
 
-        RebuildCache(ev.Entity);
-
-        _ui.GetUIController<ActionUIController>().ReloadActionOrder();
+        if (_saveAt != null)
+            Save();
     }
 
-    private void OnHandleState(Entity<ADTActionOrderComponent> ent, ref AfterAutoHandleStateEvent args)
+    public override void FrameUpdate(float frameTime)
     {
-        var wasSynced = _syncedFor == ent.Owner;
+        base.FrameUpdate(frameTime);
 
-        _syncedFor = ent.Owner;
+        if (_saveAt is { } saveAt && _timing.RealTime >= saveAt)
+            Save();
+    }
 
-        if (_player.LocalEntity != ent.Owner)
-            return;
+    public bool HasPlace(EntProtoId action)
+    {
+        return _order.HasPlace(action);
+    }
 
-        if (wasSynced && _cachedFor == ent.Owner)
-        {
-            Flush();
-            return;
-        }
+    public bool IsRemoved(EntProtoId action)
+    {
+        return _order.IsRemoved(action);
+    }
 
-        RebuildCache(ent.Owner);
-        _ui.GetUIController<ActionUIController>().ReloadActionOrder();
+    public List<T> Arrange<T>(IEnumerable<T> actions, Func<T, EntProtoId?> getKey)
+    {
+        return _order.Arrange(actions, getKey);
+    }
 
-        Flush();
+    public int GetInsertIndex(IReadOnlyList<EntProtoId?> hotbar, EntProtoId action)
+    {
+        return _order.GetInsertIndex(hotbar, action);
+    }
+
+    public void Store(IEnumerable<EntProtoId?> hotbar)
+    {
+        if (_order.Store(hotbar))
+            QueueSave();
     }
 
     public void SetRemoved(EntProtoId action, bool removed)
     {
-        if (_player.LocalEntity == null)
-            return;
+        if (_order.SetRemoved(action, removed))
+            QueueSave();
+    }
 
-        EnsureCache();
+    private void QueueSave()
+    {
+        _saveAt ??= _timing.RealTime + SaveDelay;
+    }
 
-        if (removed)
+    private void Load()
+    {
+        try
         {
-            if (!_removed.Add(action))
+            ADTUserData.MoveLegacy(_resources.UserData, LegacySavePath, SavePath);
+            if (!_resources.UserData.Exists(SavePath))
                 return;
-        }
-        else if (!_removed.Remove(action))
-        {
-            return;
-        }
 
-        Send();
+            using var reader = _resources.UserData.OpenText(SavePath);
+            var yaml = new YamlStream();
+            yaml.Load(reader);
+
+            var data = _serialization.Read<ADTActionOrderData>(yaml.Documents[0].RootNode.ToDataNode(), notNullableOverride: true);
+
+            _order.Load(data.Order.Where(id => _prototype.HasIndex(id)), data.Removed.Where(id => _prototype.HasIndex(id)));
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Failed to load the action order: {e}");
+        }
     }
 
-    public void Store(List<EntityUid?> actions)
+    private void Save()
     {
-        if (_player.LocalEntity == null)
-            return;
+        _saveAt = null;
 
-        EnsureCache();
-
-        var present = new List<EntProtoId>();
-        foreach (var action in actions)
+        var data = new ADTActionOrderData
         {
-            if (action is not { } actionId)
-                continue;
+            Order = _order.Order.ToList(),
+            Removed = _order.Removed.ToList(),
+        };
 
-            if (GetActionProto(actionId) is not { } proto)
-                continue;
-
-            if (present.Contains(proto))
-                continue;
-
-            present.Add(proto);
+        try
+        {
+            var node = _serialization.WriteValue(data, notNullableOverride: true);
+            _resources.UserData.CreateDir(SavePath.Directory);
+            using var writer = _resources.UserData.OpenWriteText(SavePath);
+            var yaml = new YamlStream { new YamlDocument(node.ToYamlNode()) };
+            yaml.Save(new YamlMappingFix(new Emitter(writer)), false);
         }
-
-        foreach (var proto in present)
+        catch (Exception e)
         {
-            if (_places.ContainsKey(proto) || _order.Count >= MaxOrderEntries)
-                continue;
-
-            _order.Add(proto);
-            _places[proto] = _order.Count - 1;
-        }
-
-        present.RemoveAll(proto => !_places.ContainsKey(proto));
-
-        var slots = new List<int>();
-        for (var i = 0; i < _order.Count; i++)
-        {
-            if (present.Contains(_order[i]))
-                slots.Add(i);
-        }
-
-        var count = Math.Min(slots.Count, present.Count);
-        for (var i = 0; i < count; i++)
-        {
-            _order[slots[i]] = present[i];
-        }
-
-        RebuildPlaces();
-        Send();
-    }
-
-    private void Send()
-    {
-        if (_player.LocalEntity is not { } uid)
-            return;
-
-        if (_syncedFor != uid)
-        {
-            _pendingSend = true;
-            return;
-        }
-
-        _pendingSend = false;
-
-        if (TryComp(uid, out ADTActionOrderComponent? order) && Matches(order))
-            return;
-
-        RaiseNetworkEvent(new ADTActionOrderChangeEvent(_order.ToList(), _removed.ToList()));
-    }
-
-    private void Flush()
-    {
-        if (_pendingSend)
-            Send();
-    }
-
-    private void EnsureCache()
-    {
-        if (_cachedFor == _player.LocalEntity)
-            return;
-
-        RebuildCache(_player.LocalEntity);
-    }
-
-    private void RebuildCache(EntityUid? player)
-    {
-        _order.Clear();
-        _places.Clear();
-        _removed.Clear();
-        _cachedFor = player;
-
-        if (player is not { } uid || !TryComp(uid, out ADTActionOrderComponent? order))
-            return;
-
-        if (!order.Order.IsDefaultOrEmpty)
-        {
-            foreach (var action in order.Order)
-            {
-                if (_places.ContainsKey(action))
-                    continue;
-
-                _order.Add(action);
-                _places[action] = _order.Count - 1;
-            }
-        }
-
-        if (order.Removed.IsDefaultOrEmpty)
-            return;
-
-        foreach (var action in order.Removed)
-        {
-            _removed.Add(action);
+            Log.Error($"Failed to save the action order: {e}");
         }
     }
+}
 
-    private void RebuildPlaces()
-    {
-        _places.Clear();
-        for (var i = 0; i < _order.Count; i++)
-        {
-            _places[_order[i]] = i;
-        }
-    }
+[DataDefinition]
+public sealed partial class ADTActionOrderData
+{
+    [DataField]
+    public List<EntProtoId> Order = new();
 
-    private bool Matches(ADTActionOrderComponent order)
-    {
-        var orderCount = order.Order.IsDefault ? 0 : order.Order.Length;
-        var removedCount = order.Removed.IsDefault ? 0 : order.Removed.Length;
-
-        if (orderCount != _order.Count || removedCount != _removed.Count)
-            return false;
-
-        for (var i = 0; i < orderCount; i++)
-        {
-            if (order.Order[i] != _order[i])
-                return false;
-        }
-
-        for (var i = 0; i < removedCount; i++)
-        {
-            if (!_removed.Contains(order.Removed[i]))
-                return false;
-        }
-
-        return true;
-    }
-
-    private EntProtoId? GetActionProto(EntityUid action)
-    {
-        if (!TryComp(action, out MetaDataComponent? metaData) || metaData.EntityPrototype is not { } proto)
-            return null;
-
-        return proto.ID;
-    }
+    [DataField]
+    public List<EntProtoId> Removed = new();
 }

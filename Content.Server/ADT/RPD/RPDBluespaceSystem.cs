@@ -8,9 +8,9 @@ namespace Content.Server.ADT.RPD;
 
 public sealed class RPDBluespaceSystem : EntitySystem
 {
-    [Dependency] private readonly BeamSystem _beam = default!;
-    [Dependency] private readonly PipeRestrictOverlapSystem _pipeRestrictOverlap = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private BeamSystem _beam = default!;
+    [Dependency] private PipeRestrictOverlapSystem _pipeRestrictOverlap = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     public override void Initialize()
     {

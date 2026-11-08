@@ -2,7 +2,7 @@
   parent: BaseBeaker
   id: BorgLargeBeaker
   name: integrated large beaker
-  description: An internal large compartment installed into a cyborg. Rated for 100 units of any liquid.
+  description: An internal large compartment installed into a cyborg. Rated for 120 units of any liquid.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker_large.rsi
@@ -14,10 +14,10 @@
   - type: Item
     size: Normal
     sprite: Objects/Specific/Chemistry/beaker_large.rsi
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 100
+  - type: Solution
+    solution:
+      maxVol: 120
+      reagents: []
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: beakerlarge

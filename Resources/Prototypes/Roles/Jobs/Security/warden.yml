@@ -23,7 +23,6 @@
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   access:
   - Security
   - Brig
@@ -40,6 +39,7 @@
   - !type:AddComponentSpecial # goobstation
     components:
       - type: SecurityStaff
+      - type: ADTTenCodeKnowledge # ADT-Tweak
 
 - type: startingGear
   id: WardenGear

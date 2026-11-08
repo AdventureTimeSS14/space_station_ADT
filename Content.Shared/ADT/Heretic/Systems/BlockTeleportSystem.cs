@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.Heretic.Systems;
 // ADT: from Goob BlockTeleportSystem, uses Blob's component
 public sealed class BlockTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

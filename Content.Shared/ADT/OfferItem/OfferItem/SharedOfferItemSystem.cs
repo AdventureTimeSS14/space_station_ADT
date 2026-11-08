@@ -12,10 +12,10 @@ namespace Content.Shared.ADT.OfferItem;
 
 public abstract partial class SharedOfferItemSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private INetManager _net = default!;
 
     protected static readonly ProtoId<AlertPrototype> OfferAlert = "Offer";
 

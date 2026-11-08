@@ -6,7 +6,7 @@ namespace Content.Client.ADT.Mech;
 
 public sealed class MechPhazeVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

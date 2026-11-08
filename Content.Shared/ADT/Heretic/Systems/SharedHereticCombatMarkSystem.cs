@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedHereticCombatMarkSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public virtual bool ApplyMarkEffect(EntityUid target,
         HereticCombatMarkComponent mark,

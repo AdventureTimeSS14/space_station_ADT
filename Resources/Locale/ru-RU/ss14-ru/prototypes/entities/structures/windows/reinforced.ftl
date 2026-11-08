@@ -5,3 +5,6 @@ ent-WindowReinforcedDirectional = направленное бронеокно
 ent-ReinforcedWindowDiagonal = { ent-ReinforcedWindow }
     .suffix = Диагональ
     .desc = { ent-ReinforcedWindow.desc }
+ent-WindowReinforcedDirectionalCorner = { ent-WindowReinforcedDirectional }
+    .suffix = Угол
+    .desc = { ent-WindowReinforcedDirectional.desc }

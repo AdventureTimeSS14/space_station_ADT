@@ -15,7 +15,6 @@
   startingGear: ADTBattleShipNavigatorTSFGear
   icon: "JobIconNavigatorTSF"
   supervisors: job-supervisors-tsf-commander
-  canBeAntag: false
   overrideConsoleVisibility: false
   access:
   - Security

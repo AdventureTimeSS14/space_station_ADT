@@ -23,13 +23,13 @@ namespace Content.Server.ADT.Radio.EntitySystems;
 
 public sealed class ADTTunableRadioSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly JammerSystem _jammer = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private JammerSystem _jammer = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<(string Message, EntityUid Source, int Frequency)> _recentlySent = new();
 

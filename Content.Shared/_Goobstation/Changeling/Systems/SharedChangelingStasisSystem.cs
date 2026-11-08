@@ -17,6 +17,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Content.Shared.Suicide; // ADT-Tweak
 using Robust.Shared.Utility;
 using Content.Shared.Body.Systems; // ADT-Tweak
 using Content.Shared.Body.Components; // ADT-Tweak
@@ -30,7 +31,7 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _state = default!;
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;

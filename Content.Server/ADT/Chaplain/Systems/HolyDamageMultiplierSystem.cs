@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Chaplain;
 
 public sealed class HolyDamageMultiplierSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     // Идентификатор типа святого урона
     private const string HolyDamageType = "Holy";

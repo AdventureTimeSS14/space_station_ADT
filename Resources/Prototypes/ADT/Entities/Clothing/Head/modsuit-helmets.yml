@@ -43,7 +43,7 @@
     enabled: false
     radius: 6
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     autoRot: true
 
 - type: entity
@@ -75,8 +75,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
-    coolingCoefficient: 0.005
+    coefficient: 0.005
   - type: FireProtection
     reduction: 0.8
   - type: ShowHealthBars
@@ -127,8 +126,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.005
-    coolingCoefficient: 0.005
+    coefficient: 0.005
   - type: FireProtection
     reduction: 0.8
   - type: EyeProtection
@@ -717,3 +715,13 @@
       - state: equipped-head-unshaded
         shader: unshaded
         color: "#17c9d4"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitSyndicate
+  id: ADTClothingHeadHelmetModsuitSyndicateMedic
+  name: syndicate medic MOD helmet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_medic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_medic.rsi

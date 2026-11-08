@@ -26,13 +26,13 @@
     - type: FlavorProfile
       flavors:
       - cold
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 5
-          reagents:
-          - ReagentId: Silicon
-            Quantity: 5
+    - type: Solution
+      id: food
+      solution:
+        maxVol: 5
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 5
     - type: Tag
       tags:
       - VoxFood

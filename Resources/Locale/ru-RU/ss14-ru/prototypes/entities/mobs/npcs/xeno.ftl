@@ -21,3 +21,5 @@ ent-MobSmallPurpleSnake = космическая гадюка
     .suffix = Маленькая
 ent-MobXenoLonePraetorianNoGhost = "Дейл"
     .desc = Преторианец, оставшийся после первоначальной зачистки станции. У него в пасти застряла пара окровавленных жетонов с выгравированным именем "Рядовой Дейл".
+ent-SolutionVenomDale = { ent-SolutionNormal }
+ent-SolutionVenomPurpleSnake = { ent-SolutionTiny }

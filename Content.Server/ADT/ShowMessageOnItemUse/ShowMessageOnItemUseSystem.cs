@@ -15,13 +15,13 @@ namespace Content.Server.ADT.ShowMessageOnItemUse;
 
 public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
 {
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
-    [Dependency] private readonly FlashSystem _flashSystem = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private EuiManager _euiManager = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private FlashSystem _flashSystem = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
     public override void Initialize()
     {
         base.Initialize();

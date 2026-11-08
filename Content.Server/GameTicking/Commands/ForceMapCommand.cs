@@ -15,12 +15,12 @@ using Content.Shared.Database;
 namespace Content.Server.GameTicking.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    public sealed class ForceMapCommand : LocalizedCommands
+    public sealed partial class ForceMapCommand : LocalizedCommands
     {
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-        [Dependency] private readonly IGameMapManager _gameMapManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!; // ADT-Tweak
+        [Dependency] private IConfigurationManager _configurationManager = default!;
+        [Dependency] private IGameMapManager _gameMapManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!; // ADT-Tweak
 
         public override string Command => "forcemap";
 

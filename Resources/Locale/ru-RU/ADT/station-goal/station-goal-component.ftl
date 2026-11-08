@@ -12,6 +12,35 @@ adt-station-goal-end =
     ================================================[italic]
                                           Место для печати[/italic]
 
+adt-station-goal-sent-announcement = Вам отправлена цель станции: { $goal }.
+
+adt-station-goal-transit-base-name = Транзитная смена
+adt-station-goal-transit-resourses-name = Транзитная смена с доставкой ресурсов
+adt-station-goal-transit-upgrade-name = Транзитная смена с улучшением оборудования
+adt-station-goal-transit-servicedecor-name = Транзитная смена с украшением помещений
+adt-station-goal-transit-servicetransport-name = Транзитная смена с доставкой припасов
+adt-station-goal-transit-artifact-name = Транзитная смена с доставкой артефактов
+adt-station-goal-transit-medicine-name = Транзитная смена с доставкой лекарств
+adt-station-goal-transit-contraband-name = Транзитная смена с доставкой контрабанды
+adt-station-goal-multiple-name = Список целей на выбор
+adt-station-goal-shuttle-name = Постройка шаттла
+adt-station-goal-dock-name = Строительство дока
+adt-station-goal-dormitory-name = Жилой блок
+adt-station-goal-tournament-name = Турнир
+adt-station-goal-restavration-name = Реставрация станции
+adt-station-goal-bridge-name = Ремонт мостика
+adt-station-goal-mail-name = Пневматическая почта
+adt-station-goal-ambusol-name = Синтез амбузола
+adt-station-goal-storage-name = Орбитальное хранилище
+adt-station-goal-medbay-name = Улучшение медотсека
+adt-station-goal-mech-name = Постройка мехов
+adt-station-goal-anomaly-name = Исследовательские материалы
+adt-station-goal-killbox-name = Тренировочный комплекс СБ
+adt-station-goal-greenhouses-name = Теплицы
+adt-station-goal-miningoutpost-name = Шахтёрский аванпост
+adt-station-goal-solars-name = Солнечные батареи
+station-goal-bluespace-artillery-name = Блюспейс артиллерия
+
 adt-station-goal-shuttle =
     { adt-station-goal-start }
 

@@ -12,21 +12,22 @@ using Content.Shared.Ghost;
 using Content.Shared.GameTicking;
 using Robust.Server.Player;
 using Content.Server.Maps;
+using Content.Shared.Ghost.Components;
 
 
 namespace Content.Server.ADT.Discord.Adminwho;
 
 public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly DiscordWebhook _discord = default!;
-    [Dependency] private readonly IAdminManager _adminMgr = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IGameMapManager _gameMapManager = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private DiscordWebhook _discord = default!;
+    [Dependency] private IAdminManager _adminMgr = default!;
+    [Dependency] private IGameTiming _time = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IGameMapManager _gameMapManager = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
 
     private TimeSpan _nextSendTime = TimeSpan.MinValue;
     private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(15);

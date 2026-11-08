@@ -12,9 +12,9 @@ using Robust.Shared.Utility;
 namespace Content.Shared.ADT.Radio.EntitySystems;
 public abstract class SharedRadioJobIconSystem : EntitySystem
 {
-    [Dependency] protected new readonly IPrototypeManager Prototype = default!;
-    [Dependency] protected readonly AccessReaderSystem AccessReader = default!;
-    [Dependency] protected readonly InventorySystem InventorySystem = default!;
+    [Dependency] protected new IPrototypeManager Prototype = default!;
+    [Dependency] protected AccessReaderSystem AccessReader = default!;
+    [Dependency] protected InventorySystem InventorySystem = default!;
 
     protected EntityQuery<RadioJobIconComponent> RadioJobIconQuery => _radioJobIconQuery;
     private EntityQuery<RadioJobIconComponent> _radioJobIconQuery;

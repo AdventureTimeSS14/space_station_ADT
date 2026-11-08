@@ -21,10 +21,7 @@
     mobState:
     - Dead
   - type: Vocal
-    sounds:
-      Male: UnisexIPC
-      Female: UnisexIPC
-      Unsexed: UnisexIPC
+    emoteSounds: UnisexIPC
   - type: NoSlip
   - type: Insulated
   - type: Tag

@@ -20,6 +20,14 @@
     Diamond: 200
 
 - type: latheRecipe
+  id: ADTAttachmentMagneticHarnessRecipe
+  result: ADTAttachmentMagneticHarnessLathe
+  completetime: 5
+  materials:
+    Steel: 300
+    Plastic: 200
+
+- type: latheRecipe
   id: ADTAttachmentVerticalGripRecipe
   result: ADTAttachmentVerticalGrip
   completetime: 5

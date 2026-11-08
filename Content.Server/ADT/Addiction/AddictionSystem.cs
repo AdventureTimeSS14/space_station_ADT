@@ -3,10 +3,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server.ADT.Traits;
+using Content.Server.Chat.Systems;
 using Content.Server.Popups;
-using Content.Server.Traits;
 using Content.Shared.ADT.Addiction;
 using Content.Shared.ADT.Body.Allergies;
+using Content.Shared.Alert;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Systems;
@@ -17,244 +19,416 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Addiction;
 
 /// <summary>
-/// Система зависимости: ловит приём доз (GetReagentEffectsEvent), копит уровень привыкания,
-/// при долгом воздержании запускает ломку и рейзит AddictionSymptomsChangedEvent,
-/// чтобы симптомы применила AddictionSymptomsSystem.
-/// Компонент есть у всех игроков со спавна, канал зависимости появляется
-/// при первом употреблении (подсесть может каждый), трайты дают стартовую
-/// неизлечимую зависимость с высоким уровнем.
+/// Копит уровень привыкания от доз и запускает ломку при воздержании.
+/// Конкретные зависимости не различает - всё лежит в AddictionPrototype.
 /// </summary>
-public sealed partial class AddictionSystem : EntitySystem
+public sealed class AddictionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private ChatSystem _chat = default!;
+
+    private const float UpdateInterval = 1f;
+
+    private float _accumulator;
+
+    /// <summary>
+    /// Null - реаген ничего не кормит.
+    /// </summary>
+    private readonly Dictionary<string, string?> _reagentKinds = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<AddictionComponent, GetReagentEffectsEvent>(OnGetReagentEffects);
-        // After TraitSystem: EnsureComp не должен перебить каналы, добавленные трайтом
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, after: [typeof(TraitSystem)]);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, after: [typeof(ADTTraitSystem)]);
+
+        _proto.PrototypesReloaded += OnPrototypesReloaded;
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+
+        _proto.PrototypesReloaded -= OnPrototypesReloaded;
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        _reagentKinds.Clear();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        _accumulator += frameTime;
+        if (_accumulator < UpdateInterval)
+            return;
+
+        var elapsed = _accumulator;
+        _accumulator = 0f;
+
         var query = EntityQueryEnumerator<AddictionComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            UpdateAddiction(uid, comp, frameTime);
+            var dead = _mobState.IsDead(uid);
+
+            foreach (var channel in comp.Channels)
+                UpdateChannel(uid, channel, elapsed, dead);
         }
     }
 
-    private void UpdateAddiction(EntityUid uid, AddictionComponent comp, float frameTime)
+    private void UpdateChannel(EntityUid uid, AddictionChannel channel, float elapsed, bool dead)
     {
-        var dead = _mobState.IsDead(uid);
+        if (!_proto.TryIndex(channel.Kind, out var proto))
+            return;
 
-        foreach (var channel in comp.Channels)
-            UpdateChannel(uid, comp, channel, frameTime, dead);
-    }
+        InitChannel(channel, proto);
 
-    /// <summary>
-    /// Обновляет один канал: инициализация рантайм-каналов, спад привыкания, ломка.
-    /// </summary>
-    private void UpdateChannel(EntityUid uid, AddictionComponent comp, AddictionChannel channel, float frameTime, bool dead)
-    {
-        InitRuntimeChannel(comp, channel);
-
-        // Привыкание медленно спадает само. Трайтовые зависимости неизлечимы - не спадают.
         if (!channel.Permanent)
-            channel.Level = MathF.Max(0f, channel.Level - comp.DecayRate * frameTime);
+            channel.Level = MathF.Max(0f, channel.Level - proto.DecayPerSecond * elapsed);
 
         var timeSinceDose = _timing.CurTime - channel.LastDoseTime;
 
-        // Доза была недавно - ломки нет
-        if (timeSinceDose < comp.WithdrawalDelay)
+        if (timeSinceDose < proto.Withdrawal.Delay)
         {
             if (channel.InWithdrawal)
                 StopWithdrawal(uid, channel);
 
+            WarnCraving(uid, channel, proto, timeSinceDose, dead);
+            UpdateAlert(uid, channel, proto, dead);
             return;
         }
 
-        // Уровень упал ниже порога - зависимость отпустила
-        if (channel.Level < comp.Threshold)
+        if (channel.Level < proto.CureThreshold)
         {
             if (channel.WasAddicted)
             {
                 channel.WasAddicted = false;
-                if (!dead)
-                    _popup.PopupEntity(Loc.GetString($"addiction-cured-{KindLoc(channel.Kind)}"), uid, uid);
+                if (!dead && proto.CuredPopup is { } cured)
+                    _popup.PopupEntity(Loc.GetString(cured), uid, uid, proto.LifecyclePopupType);
             }
 
             if (channel.InWithdrawal)
                 StopWithdrawal(uid, channel);
 
+            UpdateAlert(uid, channel, proto, dead);
             return;
         }
 
         if (dead)
+        {
+            UpdateAlert(uid, channel, proto, dead);
             return;
+        }
 
-        // Ломка: тяжесть сразу равна стадии зависимости (1 - лёгкая, 2 - средняя, 3 - тяжёлая).
-        // Стадия может смягчиться во время ломки (лечение детоксином, долгое воздержание) -
-        // тогда симптомы пересчитываются.
-        var stage = AddictionStage.FromLevel(channel.Level);
+        var stage = WithdrawalStage(proto, channel, timeSinceDose);
+        var stageData = proto.GetStage(stage);
 
         if (!channel.InWithdrawal || channel.Stage != stage)
         {
+            if (channel.InWithdrawal && stage > channel.Stage)
+                channel.NextPopupTime = TimeSpan.Zero;
+
             channel.InWithdrawal = true;
             channel.Stage = stage;
+            ResetEmoteTimers(channel, stageData);
             RaiseSymptomsChanged(uid);
+        }
+
+        if (stageData == null)
+        {
+            UpdateAlert(uid, channel, proto, dead);
+            return;
         }
 
         if (_timing.CurTime >= channel.NextPopupTime)
         {
-            channel.NextPopupTime = _timing.CurTime + comp.PopupInterval;
-            // Ключи поп-апов индексируются 0/1/2 (лёгкая/средняя/тяжёлая)
-            _popup.PopupEntity(Loc.GetString($"addiction-withdrawal-{KindLoc(channel.Kind)}-{stage - 1}"), uid, uid);
+            channel.NextPopupTime = _timing.CurTime + stageData.PopupInterval;
+
+            if (stageData.Popups.Count > 0)
+                _popup.PopupEntity(PickPopup(stageData.Popups, channel), uid, uid, stageData.PopupType);
+
+            TryPopupEmotes(uid, stageData);
+        }
+
+        TryIntervalEmotes(uid, channel, stageData);
+        UpdateAlert(uid, channel, proto, dead);
+    }
+
+    private static int WithdrawalStage(AddictionPrototype proto, AddictionChannel channel, TimeSpan timeSinceDose)
+    {
+        var cap = proto.StageFromLevel(channel.Level);
+        if (proto.Withdrawal.Ramp.Count == 0)
+            return cap;
+
+        var overdue = timeSinceDose - proto.Withdrawal.Delay;
+        var byTime = 1;
+        foreach (var step in proto.Withdrawal.Ramp)
+        {
+            if (overdue >= step.After && step.Stage > byTime)
+                byTime = step.Stage;
+        }
+
+        return Math.Min(cap, byTime);
+    }
+
+    private void WarnCraving(EntityUid uid, AddictionChannel channel, AddictionPrototype proto, TimeSpan timeSinceDose, bool dead)
+    {
+        if (dead || channel.CravingWarned)
+            return;
+
+        var withdrawal = proto.Withdrawal;
+        if (withdrawal.WarningAt is not { } at || withdrawal.WarningPopups.Count == 0)
+            return;
+
+        if (channel.Level < proto.CureThreshold)
+            return;
+
+        if (timeSinceDose < withdrawal.Delay * at)
+            return;
+
+        channel.CravingWarned = true;
+
+        var text = Loc.GetString(_random.Pick(withdrawal.WarningPopups));
+        _popup.PopupEntity(text, uid, uid, withdrawal.WarningPopupType);
+    }
+
+    private string PickPopup(List<LocId> popups, AddictionChannel channel)
+    {
+        if (popups.Count == 1)
+            return Loc.GetString(popups[0]);
+
+        var idx = _random.Next(popups.Count);
+        if (idx == channel.LastPopupIndex)
+            idx = (idx + 1) % popups.Count;
+
+        channel.LastPopupIndex = idx;
+        return Loc.GetString(popups[idx]);
+    }
+
+    private void TryPopupEmotes(EntityUid uid, AddictionStageData stageData)
+    {
+        foreach (var emote in stageData.Emotes)
+        {
+            if (emote.PopupChance <= 0f || !_random.Prob(emote.PopupChance))
+                continue;
+
+            _chat.TryEmoteWithChat(uid, emote.Emote);
         }
     }
 
-    /// <summary>
-    /// Инициализирует каналы, добавленные в рантайме (трайт-эффект после ComponentInit):
-    /// без времени последней дозы ломка началась бы мгновенно, а WasAddicted
-    /// нужен для корректных поп-апов подсадки и выздоровления.
-    /// </summary>
-    private void InitRuntimeChannel(AddictionComponent comp, AddictionChannel channel)
+    private void TryIntervalEmotes(EntityUid uid, AddictionChannel channel, AddictionStageData stageData)
     {
-        if (channel.LastDoseTime != TimeSpan.Zero)
+        for (var i = 0; i < stageData.Emotes.Count; i++)
+        {
+            var emote = stageData.Emotes[i];
+            if (emote.Interval is not { } interval)
+                continue;
+
+            if (i >= channel.NextEmoteTimes.Count)
+                continue;
+
+            if (channel.NextEmoteTimes[i] != TimeSpan.Zero && _timing.CurTime < channel.NextEmoteTimes[i])
+                continue;
+
+            channel.NextEmoteTimes[i] = _timing.CurTime + interval;
+            _chat.TryEmoteWithChat(uid, emote.Emote);
+        }
+    }
+
+    private static void ResetEmoteTimers(AddictionChannel channel, AddictionStageData? stageData)
+    {
+        channel.NextEmoteTimes.Clear();
+
+        if (stageData == null)
             return;
 
-        channel.LastDoseTime = _timing.CurTime;
-        if (channel.Level >= comp.Threshold)
+        for (var i = 0; i < stageData.Emotes.Count; i++)
+            channel.NextEmoteTimes.Add(TimeSpan.Zero);
+    }
+
+    private void UpdateAlert(EntityUid uid, AddictionChannel channel, AddictionPrototype proto, bool dead)
+    {
+        if (proto.Alert is not { } alert)
+            return;
+
+        if (dead || channel.Level < proto.CureThreshold)
+        {
+            _alerts.ClearAlert(uid, alert);
+            return;
+        }
+
+        short severity;
+        (TimeSpan, TimeSpan)? cooldown = null;
+
+        if (!channel.InWithdrawal)
+        {
+            severity = 0;
+            if (proto.AlertCooldown)
+                cooldown = (channel.LastDoseTime, channel.LastDoseTime + proto.Withdrawal.Delay);
+        }
+        else
+        {
+            severity = (short) Math.Clamp(channel.Stage, 1, proto.MaxAlertSeverity);
+        }
+
+        _alerts.ShowAlert(uid, alert, severity, cooldown, showCooldown: cooldown != null);
+    }
+
+    private void InitChannel(AddictionChannel channel, AddictionPrototype proto)
+    {
+        if (channel.Initialized)
+            return;
+
+        channel.Initialized = true;
+
+        if (channel.LastDoseTime == TimeSpan.Zero)
+            channel.LastDoseTime = _timing.CurTime;
+
+        if (channel.Level >= proto.CureThreshold)
             channel.WasAddicted = true;
     }
 
-    /// <summary>
-    /// Снимает ломку: сбрасывает флаги и пересчитывает симптомы.
-    /// </summary>
     private void StopWithdrawal(EntityUid uid, AddictionChannel channel)
     {
         channel.InWithdrawal = false;
         channel.Stage = 0;
+        channel.NextEmoteTimes.Clear();
         RaiseSymptomsChanged(uid);
     }
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        // Любой игрок может подсесть: компонент есть у всех с момента спавна
         var comp = EnsureComp<AddictionComponent>(args.Mob);
 
-        // Рандомный трайт: выбрать случайный канал из ещё не выбранных (после TraitSystem
-        // каналы конкретных трайтов уже в компоненте). Клиент блокирует выбор рандомного
-        // при всех трёх конкретных, тут защита на случай обхода.
-        if (!comp.RandomizeChannel)
+        // После ADTTraitSystem: каналы конкретных трайтов уже в компоненте.
+        if (comp.PendingRandomChannel is not { } pending)
             return;
 
-        comp.RandomizeChannel = false;
+        var pool = comp.PendingRandomPool;
+        comp.PendingRandomChannel = null;
+        comp.PendingRandomPool = null;
+
+        if (pool == null)
+            return;
 
         var taken = comp.Channels.Select(c => c.Kind).ToHashSet();
-        var pool = new List<AddictionKind> { AddictionKind.Alcohol, AddictionKind.Nicotine, AddictionKind.Drug };
-        pool.RemoveAll(taken.Contains);
+        var choices = pool.Where(kind => !taken.Contains(kind) && _proto.HasIndex(kind)).ToList();
 
-        if (pool.Count == 0)
+        if (choices.Count == 0)
             return;
 
-        var kind = _random.Pick(pool);
-        comp.Channels.Add(new AddictionChannel
-        {
-            Kind = kind,
-            Level = 100f,
-            Permanent = true,
-            LastDoseTime = _timing.CurTime,
-            WasAddicted = true,
-        });
+        pending.Kind = _random.Pick(choices);
+        comp.Channels.Add(pending);
     }
 
     private void OnGetReagentEffects(EntityUid uid, AddictionComponent comp, ref GetReagentEffectsEvent args)
     {
-        var kind = GetKind(args.Reagent, comp);
-        if (kind is not { } kindValue)
+        if (ResolveKind(args.Reagent) is not { } kind)
             return;
 
-        var channel = comp.Channels.FirstOrDefault(c => c.Kind == kindValue);
-        if (channel == null)
-        {
-            channel = new AddictionChannel { Kind = kindValue };
-            comp.Channels.Add(channel);
-        }
+        if (!_proto.TryIndex<AddictionPrototype>(kind, out var proto))
+            return;
 
-        ApplyDose(uid, comp, channel, comp.GainPerTick);
+        ApplyDose(uid, EnsureChannel(comp, kind), proto, proto.GainPerDose);
     }
 
-    /// <summary>
-    /// Учитывает дозу канала: растёт уровень, снимается ломка, фиксируется подсадка.
-    /// Общий для обычного употребления (метаболизм) и передоза лекарств.
-    /// </summary>
-    public void ApplyDose(EntityUid uid, AddictionComponent comp, AddictionChannel channel, float amount)
+    private string? ResolveKind(ReagentId reagent)
     {
-        channel.Level = MathF.Min(100f, channel.Level + amount);
+        if (_reagentKinds.TryGetValue(reagent.Prototype, out var cached))
+            return cached;
+
+        _proto.TryIndex(reagent.Prototype, out ReagentPrototype? reagentProto);
+
+        string? found = null;
+
+        // Реаген может подойти нескольким зависимостям - решает Priority.
+        foreach (var proto in _proto.EnumeratePrototypes<AddictionPrototype>()
+                     .OrderByDescending(p => p.Priority)
+                     .ThenBy(p => p.ID))
+        {
+            if (!proto.Sources.Any(source => source.Matches(reagent, reagentProto)))
+                continue;
+
+            found = proto.ID;
+            break;
+        }
+
+        _reagentKinds[reagent.Prototype] = found;
+        return found;
+    }
+
+    public AddictionChannel EnsureChannel(AddictionComponent comp, ProtoId<AddictionPrototype> kind)
+    {
+        foreach (var existing in comp.Channels)
+        {
+            if (existing.Kind == kind)
+                return existing;
+        }
+
+        var channel = new AddictionChannel { Kind = kind, LastDoseTime = _timing.CurTime };
+        comp.Channels.Add(channel);
+        return channel;
+    }
+
+    public void ApplyDose(EntityUid uid, AddictionChannel channel, AddictionPrototype proto, float amount)
+    {
+        channel.Initialized = true;
+        channel.Level = MathF.Min(proto.MaxLevel, channel.Level + amount);
         channel.LastDoseTime = _timing.CurTime;
         channel.NextPopupTime = TimeSpan.Zero;
+        channel.CravingWarned = false;
 
-        // Доза снимает ломку (поп-ап только если ломка реально была)
         if (channel.InWithdrawal)
         {
             StopWithdrawal(uid, channel);
-            _popup.PopupEntity(Loc.GetString($"addiction-dose-{KindLoc(channel.Kind)}"), uid, uid);
+
+            if (proto.DosePopup is { } dose)
+                _popup.PopupEntity(Loc.GetString(dose), uid, uid, proto.LifecyclePopupType);
         }
-        // Первое превышение порога - подсадка
-        else if (!channel.WasAddicted && channel.Level >= comp.Threshold)
+        else if (!channel.WasAddicted && channel.Level >= proto.CureThreshold)
         {
             channel.WasAddicted = true;
-            _popup.PopupEntity(Loc.GetString($"addiction-begin-{KindLoc(channel.Kind)}"), uid, uid);
+
+            if (proto.BeginPopup is { } begin)
+                _popup.PopupEntity(Loc.GetString(begin), uid, uid, proto.LifecyclePopupType);
         }
+
+        UpdateAlert(uid, channel, proto, _mobState.IsDead(uid));
     }
 
     /// <summary>
-    /// Определяет тип зависимости по рецепту: никотин по id, алкоголь по родительскому прототипу
-    /// BaseAlcohol (в ADT все спиртные его наследуют), наркотики по группе реагента Narcotics.
-    /// Настройки живут в компоненте.
+    /// Только сформировавшиеся зависимости.
     /// </summary>
-    private AddictionKind? GetKind(ReagentId reagent, AddictionComponent comp)
+    public List<AddictionInfo>? GetAddictionInfo(EntityUid uid)
     {
-        if (reagent.Prototype == comp.NicotineReagent)
-            return AddictionKind.Nicotine;
-
-        if (!_proto.TryIndex(reagent.Prototype, out ReagentPrototype? proto))
+        if (!TryComp<AddictionComponent>(uid, out var comp))
             return null;
 
-        if (proto.Parents != null && proto.Parents.Contains(comp.AlcoholParentId))
-            return AddictionKind.Alcohol;
+        List<AddictionInfo>? result = null;
 
-        if (proto.Group == comp.NarcoticGroup)
-            return AddictionKind.Drug;
+        foreach (var channel in comp.Channels)
+        {
+            if (!channel.WasAddicted || !_proto.TryIndex(channel.Kind, out var proto))
+                continue;
 
-        return null;
+            result ??= new List<AddictionInfo>();
+            result.Add(new AddictionInfo(channel.Kind.Id, proto.StageFromLevel(channel.Level), channel.Permanent));
+        }
+
+        return result;
     }
 
-    /// <summary>
-    /// Сообщает AddictionSymptomsSystem, что набор симптомов нужно пересчитать.
-    /// </summary>
     private void RaiseSymptomsChanged(EntityUid uid)
     {
         var ev = new AddictionSymptomsChangedEvent(uid);
         RaiseLocalEvent(uid, ref ev);
     }
-
-    private static string KindLoc(AddictionKind kind) => kind switch
-    {
-        AddictionKind.Alcohol => "alcohol",
-        AddictionKind.Nicotine => "nicotine",
-        AddictionKind.Drug => "drug",
-        AddictionKind.Medicine => "medicine",
-        AddictionKind.Omnizine => "omnizine",
-        _ => "alcohol",
-    };
 }

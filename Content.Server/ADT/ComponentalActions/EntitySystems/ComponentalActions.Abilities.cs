@@ -36,26 +36,26 @@ namespace Content.Server.ComponentalActions.EntitySystems;
 
 public sealed partial class ComponentalActionsSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly GunSystem _gunSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedActionsSystem _sharedActions = default!;
-    [Dependency] private readonly ClothingSpeedModifierSystem _clothingSpeedModifier = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly SpawnOnDespawnSystem _timeDespawnUid = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly PointLightSystem _light = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private GunSystem _gunSystem = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedActionsSystem _sharedActions = default!;
+    [Dependency] private ClothingSpeedModifierSystem _clothingSpeedModifier = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private LightningSystem _lightning = default!;
+    [Dependency] private SpawnOnDespawnSystem _timeDespawnUid = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private PointLightSystem _light = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private ElectrocutionSystem _electrocutionSystem = default!;
 
     private void InitializeCompAbilities()
     {

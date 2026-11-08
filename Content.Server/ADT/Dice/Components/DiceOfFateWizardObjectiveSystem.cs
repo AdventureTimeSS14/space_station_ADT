@@ -10,7 +10,7 @@ namespace Content.Server.ADT.Dice.Components;
 /// </summary>
 public sealed class DiceOfFateWizardObjectiveSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {

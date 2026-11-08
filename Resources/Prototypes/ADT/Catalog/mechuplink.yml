@@ -466,7 +466,7 @@
     Productunit: 4
   categories:
   - ADTUplinkERTMechAmmo
- 
+
 #Оружие аплинка ОБР против революции
 
 - type: listing
@@ -539,3 +539,23 @@
     Productunit: 4
   categories:
   - ADTUplinkERTRevolutionalMechWeapon
+
+- type: listing
+  id: UplinkERTRevMechGygax
+  name: uplink-syndimech-mech-gygax-name
+  description: uplink-syndimech-mech-gygax-desc
+  productEntity: ADTMechErtGygaxBattery
+  cost:
+    Productunit: 20
+  categories:
+  - ADTUplinkERTRevolutionalMechMechs
+
+- type: listing
+  id: UplinkERTRevMechPaddy
+  name: uplink-syndimech-mech-paddy-name
+  description: uplink-syndimech-mech-paddy-desc
+  productEntity: ADTMechpaddyBattery
+  cost:
+    Productunit: 10
+  categories:
+  - ADTUplinkERTRevolutionalMechMechs

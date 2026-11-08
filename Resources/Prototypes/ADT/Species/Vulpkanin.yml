@@ -3,7 +3,7 @@
   name: species-name-vulpkanin
   roundStart: true
   prototype: MobVulpkanin
-  dollPrototype: AppearanceVulpkaninADT
+  dollPrototype: ADTAppearanceVulpkanin
   skinColoration: Hues
   shortDesc: species-short-desc-vulpakin
   maleFirstNames: firstMaleVulp # ADT-LastnameGender
@@ -26,6 +26,13 @@
   defaultLanguages:
   - GalacticCommon
   - Canilunzt
+  defaultSoundsBySex:
+  - NesMaleVulpa
+  - NesFemaleVulpa
+  - NesFemaleVulpa
+  voices:
+  - NesMaleVulpa
+  - NesFemaleVulpa
   maxAge: 80
   oldAge: 50
   youngAge: 25

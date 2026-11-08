@@ -9,7 +9,7 @@
 //
 // public sealed class IVDripOverlay : Overlay
 // {
-//     [Dependency] private readonly IEntityManager _entity = default!;
+//     [Dependency] private IEntityManager _entity = default!;
 //
 //     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
 //

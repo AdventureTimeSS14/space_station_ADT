@@ -1,3 +1,4 @@
+using Content.Shared.Tools;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
@@ -20,6 +21,9 @@ public sealed partial class ADTAshFloraComponent : Component
 
     [DataField]
     public EntityWhitelist? ToolWhitelist;
+
+    [DataField]
+    public ProtoId<ToolQualityPrototype>? ToolQuality;
 
     [DataField]
     public EntProtoId? HarvestedPrototype;

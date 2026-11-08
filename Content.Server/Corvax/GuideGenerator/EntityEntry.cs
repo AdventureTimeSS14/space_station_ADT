@@ -32,7 +32,7 @@ public sealed class EntityEntry
         Label = proto.Components.Values
             .Select(x => x.Component)
             .OfType<LabelComponent>()
-            .Select(lc => lc.CurrentLabel)
+            .Select(lc => lc.LocalizedLabel?.Id ?? lc.CurrentLabel) // ADT-Tweak
             .Where(label => !string.IsNullOrEmpty(label))
             .Select(label => Loc.GetString(label!))
             .FirstOrDefault() ?? "";

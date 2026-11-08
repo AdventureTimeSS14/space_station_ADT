@@ -17,6 +17,13 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.SubFloor;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.FixedPoint;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -26,6 +33,7 @@ using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -34,22 +42,23 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly BlobTileSystem _blobTileSystem = default!;
-    //[Dependency] private readonly GridFixtureSystem _gridFixture = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private BlobTileSystem _blobTileSystem = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    //[Dependency] private GridFixtureSystem _gridFixture = default!;
 
     private const double ActionJobTime = 0.005;
     private readonly JobQueue _actionJobQueue = new(ActionJobTime);
@@ -100,7 +109,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             || !args.ClickLocation.IsValid(EntityManager))
             return;
 
-        var location = args.ClickLocation.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+        var location = args.ClickLocation.AlignWithClosestGridTile(entityManager: EntityManager);
         var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
@@ -177,8 +186,26 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         }
 
         var cost = core.Comp.BlobTileCosts[BlobTileType.Normal];
+
+        switch (core.Comp.CurrentChem)
+        {
+            case BlobChemType.ChainCoating:
+                cost *= 1.5f;
+                break;
+        }
+
         if (targetTileEmpty)
-            cost *= 2.5f;
+        {
+            switch (core.Comp.CurrentChem)
+            {
+                case BlobChemType.ComatoseFiber:
+                    cost *= 1f;
+                    break;
+                default:
+                    cost *= 2.5f;
+                    break;
+            }
+        }
 
         if (spendPoints)
         {
@@ -238,7 +265,21 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             return;
 
         _blobTileSystem.DoLunge(from, target);
-        _damageableSystem.TryChangeDamage(target, ent.Comp.ChemDamageDict[ent.Comp.CurrentChem]);
+
+        var damage = new DamageSpecifier(ent.Comp.ChemDamageDict[ent.Comp.CurrentChem]);
+        if (!HasComp<MobStateComponent>(target) && damage.DamageDict.TryGetValue("Structural", out var structDmg))
+        {
+            if (TryComp<InjurableComponent>(target, out var injurable) && injurable.DamageContainer is { } containerId)
+            {
+                if (_prototypeManager.TryIndex<DamageContainerPrototype>(containerId, out var container) &&
+                    !container.SupportedTypes.Contains("Structural"))
+                {
+                    damage.DamageDict["Blunt"] = damage.DamageDict.GetValueOrDefault("Blunt") + structDmg;
+                }
+            }
+        }
+
+        _damageableSystem.TryChangeDamage(target, damage);
 
         switch (ent.Comp.CurrentChem)
         {
@@ -259,6 +300,15 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
                     _flammable.Ignite(target, from, flammable);
                 }
 
+                break;
+            }
+            case BlobChemType.RegenerativeMateria:
+            {
+                if (TryComp<BloodstreamComponent>(target, out var bloodstream))
+                {
+                    var sol = new Solution("Lexorin", FixedPoint2.New(2.5f));
+                    _bloodstream.TryAddToBloodstream((target, bloodstream), sol);
+                }
                 break;
             }
         }

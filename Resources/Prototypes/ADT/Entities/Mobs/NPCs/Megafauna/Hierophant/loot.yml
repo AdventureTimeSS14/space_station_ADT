@@ -38,9 +38,6 @@
     blastRange: 11
     range: 5
   - type: ItemActionGrant
-    actions:
-    - ActionADTHierophantVortexRecall
-    - ActionADTHierophantToggleFriendlyFire
   - type: ActionGrant
     actions:
     - ActionADTHierophantVortexRecall

@@ -9,7 +9,7 @@ namespace Content.Client.ADT.ClockGreeting;
 [GenerateTypedNameReferences]
 public sealed partial class ClockGreetingUI : UIWidget
 {
-    [Dependency] private readonly IResourceCache _resCache = default!;
+    [Dependency] private IResourceCache _resCache = default!;
 
     public ClockGreetingUI()
     {

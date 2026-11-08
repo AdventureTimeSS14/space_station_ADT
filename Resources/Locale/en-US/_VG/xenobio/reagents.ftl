@@ -8,8 +8,8 @@ xenobio-reagent-jelly-purple-desc = This is a potent chemical mix that will caus
 xenobio-reagent-jelly-blue-name = Slime stabilizer
 xenobio-reagent-jelly-blue-desc = Reduces a slime's mutation chance by 25 percent, and carries through across generations.
 
-xenobio-reagent-jelly-darkblue-name = Slime chilling jelly
-xenobio-reagent-jelly-darkblue-desc = This jelly makes any consumer fireproof for a decent amount of time. Be a firebug without looking like one! Miners can make good use of this, as it will make them ash storm-proof.
+xenobio-reagent-jelly-black-name = Slime chilling jelly
+xenobio-reagent-jelly-black-desc = This jelly makes any consumer fireproof for a decent amount of time. Be a firebug without looking like one! Miners can make good use of this, as it will make them ash storm-proof.
 
 xenobio-reagent-jelly-cerulean-name = Slime Boost
 xenobio-reagent-jelly-cerulean-desc = When ingested by a slime it will produce more offspring on mitosis. Do not confuse with "Broly Boost".

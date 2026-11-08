@@ -405,3 +405,29 @@ stack-white-marble-floor = белый мраморный пол
 stack-dark-marble-floor = чёрный мраморный пол
 stack-plasma-marble-floor = плазменный мраморный пол
 stack-uranium-marble-floor = урановый мраморный пол
+stack-xenoborg-crystal =
+    { $amount ->
+        [1] кристалл
+        [few] кристалла
+       *[other] кристаллов
+    } ксеноборгов
+stack-conveyor-belt =
+    { $amount ->
+        [1] конвейерная лента
+        [few] конвейерные ленты
+       *[other] конвейерных лент
+    }
+stack-dark-steel-horizontal-slats-tile-bordered = тёмная стальная плитка с горизонтальными рейками и окантовкой
+stack-dark-steel-vertical-slats-tile-bordered = тёмная стальная плитка с вертикальными рейками и окантовкой
+stack-dark-steel-slats-tile-continuous = тёмная стальная плитка со сплошными рейками
+stack-steel-horizontal-slats-tile-bordered = стальная плитка с горизонтальными рейками и окантовкой
+stack-steel-vertical-slats-tile-bordered = стальная плитка с вертикальными рейками и окантовкой
+stack-steel-slats-tile-continuous = стальная плитка со сплошными рейками
+stack-white-steel-horizontal-slats-tile-bordered = белая стальная плитка с горизонтальными рейками и окантовкой
+stack-white-steel-vertical-slats-tile-bordered = белая стальная плитка с вертикальными рейками и окантовкой
+stack-white-steel-slats-tile-continuous = белая стальная плитка со сплошными рейками
+stack-ironsand-concrete-tile = бетонная плитка из железного песка
+stack-ironsand-concrete-mono-tile = бетонная моноплитка из железного песка
+stack-ironsand-concrete-smooth = гладкий бетон из железного песка
+stack-astro-ironsand-floor = астро-пол из железного песка
+stack-astro-ironsand-floor-borderless = астро-пол из железного песка без окантовки

@@ -13,11 +13,11 @@ namespace Content.Server.ADT.NPC;
 
 public sealed class ADTFleeSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSteeringSystem _steering = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NPCSteeringSystem _steering = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.25);
 
@@ -49,7 +49,7 @@ public sealed class ADTFleeSystem : EntitySystem
     {
         var blackboard = htn.Blackboard;
 
-        if (GetFleeCoordinates(ent, blackboard) is not { } coordinates)
+        if (!ent.Comp.Enabled || GetFleeCoordinates(ent, blackboard) is not { } coordinates)
         {
             blackboard.Remove<EntityCoordinates>(ent.Comp.CoordinatesKey);
             return;

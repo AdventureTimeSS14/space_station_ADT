@@ -54,3 +54,8 @@
   id: ADTThermoTech
   recipes:
   - ADTPatchThermo
+
+- type: latheRecipePack
+  id: ADTMedbeamPack
+  recipes:
+  - ADTWeaponMedbeamCivil

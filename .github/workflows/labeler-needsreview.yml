@@ -1,8 +1,12 @@
 ﻿name: "Labels: Review"
 
+# ADT-Tweak-start
 on:
-  pull_request_target:
-    types: [review_requested, opened]
+  workflow_dispatch:
+#on:
+#  pull_request_target:
+#    types: [review_requested, opened]
+# ADT-Tweak-end
 
 jobs:
   add_label:

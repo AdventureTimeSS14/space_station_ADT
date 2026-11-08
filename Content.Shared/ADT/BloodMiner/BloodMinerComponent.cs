@@ -71,16 +71,13 @@ public sealed partial class BloodMinerComponent : Component
     public TimeSpan NextShotAt;
 
     [DataField]
+    public float MinShootDistance = 1.5f;
+
+    [DataField]
     public float ButcherHealFraction = 0.5f;
 
     [DataField]
     public float DamageInterruptCoefficient = 0.01f;
-
-    [DataField]
-    public TimeSpan DecisionInterval = TimeSpan.FromSeconds(0.5);
-
-    [DataField]
-    public TimeSpan NextDecisionAt;
 }
 
 [Serializable, NetSerializable]

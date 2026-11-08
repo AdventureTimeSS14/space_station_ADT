@@ -19,10 +19,10 @@ namespace Content.Server.ADT.Administration.Commands;
 // Просто фановая команда, что по указанию никнейма, будет постить ваши введённые строки за игрового персонажа указанного никнеймом.
 public sealed class EchoChatCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     public override string Command => "echo_chat";
 

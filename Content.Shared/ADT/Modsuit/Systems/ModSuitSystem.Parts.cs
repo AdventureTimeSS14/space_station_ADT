@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Clothing;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Verbs;
@@ -19,6 +20,21 @@ public sealed partial class ModSuitSystem
 
         SubscribeLocalEvent<ModPartComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<ModPartComponent, GetVerbsEvent<EquipmentVerb>>(OnGetAttachedStripVerbsEvent);
+    }
+
+    public void RefreshWearerSuit(EntityUid wearer)
+    {
+        var query = EntityQueryEnumerator<ModSuitComponent>();
+        while (query.MoveNext(out var uid, out var suit))
+        {
+            if (suit.TempUser != wearer)
+                continue;
+
+            RefreshFullEquipModules((uid, suit));
+
+            if (_netMan.IsServer)
+                UpdateUserInterface(uid, suit);
+        }
     }
 
     private void OnAttachedInit(Entity<ModPartComponent> ent, ref ComponentInit args)
@@ -144,7 +160,7 @@ public sealed partial class ModSuitSystem
 
         if (GetPartsToggleStatus(ent, ent.Comp) == ModSuitAttachedStatus.NoneToggled)
         {
-            foreach (var clothing in ent.Comp.ClothingUids)
+            foreach (var clothing in ent.Comp.ClothingUids.Where(x => !IsPartCovered(ent.Comp, GetEntity(x.Key), x.Value)))
                 EquipPart(ent, user, GetEntity(clothing.Key), clothing.Value, false);
         }
         else
@@ -218,7 +234,7 @@ public sealed partial class ModSuitSystem
 
         UpdateCellDraw(ent);
 
-        if (GetPartsToggleStatus(ent.Owner, ent.Comp) == ModSuitAttachedStatus.AllToggled && _timing.IsFirstTimePredicted && _netMan.IsClient)
+        if (IsFullyCovered(ent.Owner, ent.Comp) && _timing.IsFirstTimePredicted && _netMan.IsClient)
             _audio.PlayGlobal(ent.Comp.FullyEnabledSound, user);
 
         if (updateUi)
@@ -285,6 +301,28 @@ public sealed partial class ModSuitSystem
         }
 
         UpdateUserInterface(ent, ent.Comp);
+    }
+
+    public bool IsPartCovered(ModSuitComponent component, EntityUid part, string slot)
+    {
+        if (!component.PartsContainer.Contains(part))
+            return true;
+
+        if (component.TempUser is not { } wearer || !Exists(wearer))
+            return false;
+
+        if (!_inventorySystem.HasSlot(wearer, slot))
+            return true;
+
+        return _inventorySystem.TryGetSlotEntity(wearer, slot, out var worn) && HasComp<MagbootsComponent>(worn);
+    }
+
+    public bool IsFullyCovered(EntityUid modSuit, ModSuitComponent? component = null)
+    {
+        if (!Resolve(modSuit, ref component) || component.ClothingUids.Count == 0)
+            return false;
+
+        return component.ClothingUids.All(x => IsPartCovered(component, GetEntity(x.Key), x.Value));
     }
 
     public int GetAttachedToggleCount(Entity<ModSuitComponent> ent)

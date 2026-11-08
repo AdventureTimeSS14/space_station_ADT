@@ -14,7 +14,7 @@ namespace Content.Shared.ADT.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
-    [Dependency] private readonly SharedStaminaSystem _stam = default!;
+    [Dependency] private SharedStaminaSystem _stam = default!;
 
     protected virtual void SubscribeBlade()
     {

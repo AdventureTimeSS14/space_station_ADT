@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.ADT.Generation;
 using Content.Shared.ADT.Lavaland.LegionCore;
 using Content.Shared.Body.Components;
@@ -18,13 +19,13 @@ namespace Content.Server.ADT.Lavaland.LegionCore;
 
 public sealed class ADTImplantedLegionCoreSystem : EntitySystem
 {
-    [Dependency] private readonly ADTLegionCoreToleranceSystem _tolerance = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private ADTLegionCoreToleranceSystem _tolerance = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     private readonly List<EntityUid> _pending = new();
 
@@ -60,7 +61,7 @@ public sealed class ADTImplantedLegionCoreSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<ADTImplantedLegionCoreComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != ent.Comp.TriggerState || ent.Comp.Triggered)
+        if (!ent.Comp.TriggerStates.Contains(args.NewMobState) || ent.Comp.Triggered)
             return;
 
         if (ent.Comp.LavalandOnly &&
@@ -78,7 +79,7 @@ public sealed class ADTImplantedLegionCoreSystem : EntitySystem
         if (!TryComp<ADTImplantedLegionCoreComponent>(uid, out var comp) ||
             !TryComp<DamageableComponent>(uid, out var damageable) ||
             !TryComp<MobStateComponent>(uid, out var state) ||
-            state.CurrentState != comp.TriggerState)
+            !comp.TriggerStates.Contains(state.CurrentState))
         {
             return;
         }

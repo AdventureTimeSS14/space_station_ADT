@@ -13,6 +13,9 @@ seeds-adt-inocybe-display-name = грибы иноцибе
 seeds-adt-embershroom-name = углегриба
 seeds-adt-embershroom-display-name = углегрибы
 
+seeds-adt-reishi-name = рейши
+seeds-adt-reishi-display-name = грибы рейши
+
 ent-ADTSeedLavalandCactusPacket = пакетик семян плодоносящего кактуса
     .desc = Из этих семян вырастают плодоносящие кактусы.
 ent-ADTSeedPolyporePacket = пакетик мицелия полипоры
@@ -23,3 +26,5 @@ ent-ADTSeedInocybePacket = пакетик мицелия иноцибе
     .desc = Из этого мицелия растёт иноцибе, вид родом с Лаваленда, галлюциногенный и ядовитый.
 ent-ADTSeedEmbershroomPacket = пакетик мицелия углегриба
     .desc = Из этого мицелия растут углегрибы, биолюминесцентные грибы, родные для Лаваленда.
+ent-ADTSeedReishiPacket = пакетик мицелия рейши
+    .desc = Из этого мицелия растёт что-то лечебное и расслабляющее.

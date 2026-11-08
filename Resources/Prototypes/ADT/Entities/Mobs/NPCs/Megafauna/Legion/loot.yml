@@ -1,0 +1,121 @@
+- type: entity
+  id: ADTKineticTrophyEmpoweredLegionSkull
+  name: empowered legion skull
+  description: A terrifying looking skull with glowing red eyes. Suitable as a trophy for a kinetic crusher.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/legion_loot.rsi
+    state: ashen_skull
+  - type: Trophy
+    effects:
+    - !type:CrusherDashTrophyEffect
+    examineText: adt-kinetic-trophy-empowered-legion-skull
+    trophyTag: ADTKineticTrophyEmpoweredLegionSkull
+  - type: Tag
+    tags:
+    - ADTKineticTrophyEmpoweredLegionSkull
+
+- type: Tag
+  id: ADTKineticTrophyEmpoweredLegionSkull
+
+- type: entity
+  id: ActionADTCrusherDash
+  name: Dash
+  description: Dash up to 3 tiles in the chosen direction.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/legion_loot.rsi
+    layers:
+    - state: ashen_skull
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:ADTCrusherDashActionEvent
+
+- type: entity
+  id: ADTStormStaff
+  parent: BaseItem
+  name: staff of storms
+  description: An ancient staff retrieved from the remains of Legion. The wind stirs as you move it.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/storm_staff.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: ADT/Objects/Weapons/Melee/storm_staff.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/storm_staff.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 25
+    soundHit:
+      path: /Audio/Weapons/genhit1.ogg
+  - type: LimitedCharges
+    maxCharges: 3
+  - type: AutoRecharge
+    rechargeDuration: 15
+  - type: ADTStormStaff
+    objectDamage:
+      types:
+        Heat: 20
+
+- type: entity
+  id: ADTEffectStormStaffTarget
+  categories: [ HideSpawnMenu ]
+  name: lightning target
+  components:
+  - type: Sprite
+    sprite: ADT/Effects/storm_staff_effects.rsi
+    drawdepth: BelowMobs
+    layers:
+    - state: target
+      shader: unshaded
+  - type: PointLight
+    radius: 1
+    energy: 1
+    color: "#9ECBFF"
+  - type: TimedDespawn
+    lifetime: 2
+
+- type: entity
+  id: ADTEffectThunderbolt
+  categories: [ HideSpawnMenu ]
+  name: thunderbolt
+  components:
+  - type: Sprite
+    sprite: ADT/Effects/thunderbolt.rsi
+    drawdepth: Effects
+    offset: 0,1
+    layers:
+    - state: thunderbolt
+      shader: unshaded
+  - type: PointLight
+    radius: 5
+    energy: 4
+    color: "#C5C5FF"
+  - type: TimedDespawn
+    lifetime: 0.6
+
+- type: entity
+  id: ADTEffectStormStaffElectricity
+  categories: [ HideSpawnMenu ]
+  name: electricity
+  components:
+  - type: Sprite
+    sprite: ADT/Effects/storm_staff_effects.rsi
+    drawdepth: Effects
+    layers:
+    - state: electricity
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.5

@@ -20,16 +20,16 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed class SharedStarTouchSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly Common.DivineInterventionSystem _divine = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private Common.DivineInterventionSystem _divine = default!;
 
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedStarGazerSystem _starGazer = default!;
-    [Dependency] private readonly SharedHereticAbilitySystem _hereticAbility = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private SharedStarGazerSystem _starGazer = default!;
+    [Dependency] private SharedHereticAbilitySystem _hereticAbility = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public static readonly EntProtoId StarTouchStatusEffect = "StatusEffectStarTouched";
     public static readonly EntProtoId DrowsinessStatusEffect = "StatusEffectDrowsiness";

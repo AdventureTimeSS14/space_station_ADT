@@ -12,7 +12,7 @@ namespace Content.Client.ADT.VisionOverlay;
 /// </summary>
 public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
 {
-    [Dependency] protected readonly IEntityManager _entityManager = default!;
+    [Dependency] protected IEntityManager _entityManager = default!;
     protected readonly ContainerSystem _containerSystem;
     protected readonly TransformSystem _transform;
 

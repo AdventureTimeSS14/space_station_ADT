@@ -12,17 +12,21 @@ using System.Linq;
 
 namespace Content.Client.ADT.UserInterface.Systems.Language;
 
-public sealed class LanguageMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed class LanguageMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<LanguageSystem>
 {
     public LanguageMenuWindow? _menu;
     private MenuButton? LanguagesButton => UIManager.GetActiveUIWidgetOrNull<Content.Client.UserInterface.Systems.MenuBar.Widgets.GameTopMenuBar>()?.LanguagesButton;
 
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    public override void Initialize()
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    public void OnSystemLoaded(LanguageSystem system)
     {
+        system.OnMenuStateReceived += OnStateUpdate;
+    }
 
-        EntityManager.EventBus.SubscribeEvent<LanguageMenuStateMessage>(EventSource.All, this, OnStateUpdate);
+    public void OnSystemUnloaded(LanguageSystem system)
+    {
+        system.OnMenuStateReceived -= OnStateUpdate;
     }
 
     private void OnStateUpdate(LanguageMenuStateMessage ev)

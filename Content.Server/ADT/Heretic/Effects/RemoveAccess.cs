@@ -16,8 +16,8 @@ public sealed partial class RemoveAccess : EntityEffectBase<RemoveAccess>
 
 public sealed partial class RemoveAccessEffectSystem : EntityEffectSystem<MetaDataComponent, RemoveAccess>
 {
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
-    [Dependency] private readonly SharedAccessSystem _access = default!;
+    [Dependency] private SharedIdCardSystem _idCard = default!;
+    [Dependency] private SharedAccessSystem _access = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<RemoveAccess> args)
     {

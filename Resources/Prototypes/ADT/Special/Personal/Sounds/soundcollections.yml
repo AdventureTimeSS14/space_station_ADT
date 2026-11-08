@@ -1,0 +1,40 @@
+- type: soundCollection
+  id: ADTToySqueakEmiliaEvenwood
+  files:
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-1.ogg
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-2.ogg
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-3.ogg
+  - /Audio/ADT/Special/Personal/minokaa_emilia_plushie/emilia_toy-4.ogg
+
+- type: soundCollection
+  id: ADTToySqueakNirkin
+  files:
+  - /Audio/ADT/Special/Personal/nirkin_plushie/cat_meow1.ogg
+  - /Audio/ADT/Special/Personal/nirkin_plushie/cat_meow2.ogg
+  - /Audio/ADT/Special/Personal/nirkin_plushie/cat_meow3.ogg
+
+- type: soundCollection
+  id: ADTToySqueakYuriyTrixter
+  files:
+  - /Audio/ADT/Special/Personal/etvy_yuriy_plushie/yuriy_toy-1.ogg
+  - /Audio/ADT/Special/Personal/etvy_yuriy_plushie/yuriy_toy-2.ogg
+  - /Audio/ADT/Special/Personal/etvy_yuriy_plushie/yuriy_toy-3.ogg
+
+- type: soundCollection
+  id: ADTRaven559MaskOn
+  files:
+  - /Audio/ADT/Special/Personal/ravenn599_mask_on/on1_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_on/on2_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_on/on3_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_on/on4_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_on/on5_cmb.ogg
+
+- type: soundCollection
+  id: ADTRaven559MaskOff
+  files:
+  - /Audio/ADT/Special/Personal/ravenn599_mask_off/off1_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_off/off2_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_off/off3_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_off/off4_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_off/off5_cmb.ogg
+  - /Audio/ADT/Special/Personal/ravenn599_mask_off/off6_cmb.ogg

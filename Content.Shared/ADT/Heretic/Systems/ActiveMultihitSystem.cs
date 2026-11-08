@@ -29,8 +29,7 @@ public sealed class ActiveMultihitSystem : EntitySystem
             var modifierSet = new DamageModifierSet
             {
                 Coefficients = args.BaseDamage.DamageDict
-                    .Select(x => new KeyValuePair<string, float>(x.Key, ent.Comp.DamageMultiplier))
-                    .ToDictionary(),
+                    .ToDictionary(x => x.Key, _ => ent.Comp.DamageMultiplier),
             };
 
             args.ModifiersList.Add(modifierSet);

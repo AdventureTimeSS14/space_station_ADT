@@ -29,17 +29,17 @@ namespace Content.Server.ADT.Blob.NPC.BlobPod;
 
 public sealed class BlobPodSystem : SharedBlobPodSystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobs = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private MobStateSystem _mobs = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private PopupSystem _popups = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private LanguageSystem _language = default!;
 
     public override void Initialize()
     {

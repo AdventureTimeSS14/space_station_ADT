@@ -12,8 +12,8 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class RemoveLanguageCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntitySystemManager _systemManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntitySystemManager _systemManager = default!;
 
     public override string Command => "languageremove";
 

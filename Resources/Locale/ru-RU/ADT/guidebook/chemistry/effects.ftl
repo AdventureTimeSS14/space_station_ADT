@@ -34,3 +34,13 @@ reagent-effect-guidebook-wash-stamp-reaction =
         [1] Смывает
        *[other] смывают
     } печати с лица
+reagent-effect-guidebook-cure-clone-cellular-decay =
+    { $chance ->
+        [1] Останавливает
+       *[other] останавливают
+    } клеточный распад клонированного тела
+reagent-effect-guidebook-murder-solution-burst =
+    { $chance ->
+        [1] Наносит
+       *[other] наносят
+    } разово { $amount } ед. радиационного урона, не чаще раза в { $cooldown } с

@@ -6,7 +6,7 @@ namespace Content.Client.ADT.Slimecats;
 public sealed partial class SlimecatsSleepActionSystem : EntitySystem
 {
 
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -1,0 +1,35 @@
+- type: localizedDataset
+  id: FigurinesLirBattlstorm
+  values:
+    prefix: adt-figurines-lirbattlstorm-
+    count: 7
+
+- type: localizedDataset
+  id: FigurinesGiPatter
+  values:
+    prefix: figurines-gipatter-
+    count: 3
+
+- type: localizedDataset
+  id: FigurinesApatia
+  values:
+    prefix: adt-figurines-apatia-
+    count: 4
+
+- type: localizedDataset
+  id: FigurinesUker
+  values:
+    prefix: adt-figurines-uker-
+    count: 4
+
+- type: localizedDataset
+  id: FigurinesBush
+  values:
+    prefix: adt-figurines-bush-
+    count: 3
+
+- type: localizedDataset
+  id: ADTFigurineTheokayaFriendlyOne
+  values:
+    prefix: adt-figurines-theokaya-
+    count: 3

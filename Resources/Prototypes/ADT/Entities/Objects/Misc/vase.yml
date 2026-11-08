@@ -6,13 +6,12 @@
   abstract: true
   components:
   - type: Anchorable
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Water
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Water
+        Quantity: 30
   - type: Sprite
     sprite: ADT/Objects/Misc/vase.rsi
     state: vase-0

@@ -4,7 +4,6 @@
   miningPoints: 1
   materials:
     RawIron: 100
-    Coal: 30
 
 - type: oreSmeltRecipe
   id: SmeltGlass
@@ -82,7 +81,6 @@
   materials:
     RawQuartz: 100
     RawIron: 50
-    Coal: 15
 
 - type: oreSmeltRecipe
   id: SmeltPlasmaGlass
@@ -100,7 +98,6 @@
     RawQuartz: 100
     RawPlasma: 100
     RawIron: 50
-    Coal: 15
 
 - type: oreSmeltRecipe
   id: SmeltPlasteel
@@ -109,7 +106,6 @@
   materials:
     RawPlasma: 100
     RawIron: 200
-    Coal: 30
 
 - type: oreSmeltRecipe
   id: SmeltUraniumGlass
@@ -127,7 +123,6 @@
     RawUranium: 100
     RawQuartz: 100
     RawIron: 50
-    Coal: 15
 
 - type: oreSmeltRecipe
   id: SmeltBluespaceCrystal

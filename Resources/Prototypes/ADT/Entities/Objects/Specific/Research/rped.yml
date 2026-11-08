@@ -21,8 +21,6 @@
     actions:
     - ActionRpedFilter
   - type: ItemActionGrant
-    actions:
-    - ActionRpedFilter
   - type: UserInterface
     interfaces:
       enum.PartExchangerUiKey.Key:

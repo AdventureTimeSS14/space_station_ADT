@@ -6,7 +6,7 @@ using Content.Shared.ADT.Blob;
 using Content.Server.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Objectives;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Antag;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -29,16 +29,16 @@ namespace Content.Server.ADT.Blob.GameTicking;
 
 public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 {
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly NukeCodePaperSystem _nukeCode = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly ObjectivesSystem _objectivesSystem = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private RoundEndSystem _roundEndSystem = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private NukeCodePaperSystem _nukeCode = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private ObjectivesSystem _objectivesSystem = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private EmergencyShuttleSystem _emergency = default!;
 
     public override void Initialize()
     {
@@ -106,8 +106,8 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         return true;
     }
 
-    private const string StationAlertCritical = "delta";
-    private const string StationAlertDetected = "red";
+    private const string StationAlertCritical = "DeltaNuke";
+    private const string StationAlertDetected = "Red";
 
     private void CheckChangeStage(
         Entity<StationBlobConfigComponent?> stationUid,
@@ -161,7 +161,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     blobRuleComp.DetectedAudio,
                     Color.Red);
 
-                _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
+                _alertLevelSystem.SetLevel(stationUid.Owner, StationAlertDetected, true, true, true, true);
 
                 RaiseLocalEvent(stationUid,
                     new BlobChangeLevelEvent
@@ -194,7 +194,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Color.Red);
                 }
 
-                _alertLevelSystem.SetLevel(stationUid, StationAlertCritical, true, true, true, true);
+                _alertLevelSystem.SetLevel(stationUid.Owner, StationAlertCritical, true, true, true, true);
 
                 RaiseLocalEvent(stationUid,
                     new BlobChangeLevelEvent
@@ -277,7 +277,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
             else if (name != null)
                 result += "\n" + Loc.GetString("blob-was-a-blob-with-objectives-named", ("name", name));
 
-            foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
+            foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).Issuer))
             {
                 foreach (var objective in objectiveGroup)
                 {

@@ -11,6 +11,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Pointing;
@@ -23,16 +24,17 @@ using System.Linq;
 namespace Content.Server.ADT.Xenobiology;
 public sealed partial class SlimeSpeechSystem : EntitySystem
 {
-    [Dependency] private readonly SlimeLatchSystem _slimeLatch = default!;
-    [Dependency] private readonly NpcFactionSystem _factions = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SlimeLatchSystem _slimeLatch = default!;
+    [Dependency] private NpcFactionSystem _factions = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private NameModifierSystem _nameModifier = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly Dictionary<SlimeCommandType, List<string>> _commandKeywords = new();
 
@@ -146,7 +148,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         slime.Comp.FollowingTarget = speaker;
         slime.Comp.NextFollowUpdate = TimeSpan.Zero;
         EnsureComp<SlimeFollowingComponent>(slime);
-        SayForCommand(slime, Loc.GetString("slime-speech-follow", ("target", speaker)), speaker);
+        SayForCommand(slime, Loc.GetString("slime-speech-follow", ("slime", slime), ("target", speaker)), speaker);
         return true;
     }
 
@@ -166,6 +168,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
         StopFollowing(slime);
         _slimeLatch.Unlatch(slime);
+        RemCompDeferred<SlimeRetaliateComponent>(slime);
 
         foreach (var hostile in hostiles)
         {
@@ -271,7 +274,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
         _factions.AggroEntity(new Entity<FactionExceptionComponent?>(slime, default), target);
         RefreshSpeed(slime);
-        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("target", target)), speaker);
+        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("slime", slime), ("target", _nameModifier.GetBaseName(target))), speaker);
     }
 
     private void CancelAttackOrder(Entity<SlimeComponent> slime, EntityUid speaker)
@@ -360,7 +363,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
     private void RefreshSpeed(Entity<SlimeComponent> slime)
     {
-        _speedModifier.RefreshMovementSpeedModifiers(slime);
+        _speedModifier.RefreshMovementSpeedModifiers(slime.Owner);
     }
 
     private void Say(EntityUid slime, string message)

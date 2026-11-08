@@ -9,9 +9,9 @@ namespace Content.Server.ADT.Silicons.Borgs;
 
 public sealed class ADTBorgShutdownSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBorgSystem _borg = default!;
-    [Dependency] private readonly SharedHandheldLightSystem _handheldLight = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedBorgSystem _borg = default!;
+    [Dependency] private SharedHandheldLightSystem _handheldLight = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

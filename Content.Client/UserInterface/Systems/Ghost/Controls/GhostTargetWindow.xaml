@@ -9,6 +9,12 @@
         <BoxContainer Orientation="Horizontal" SeparationOverride="5" Margin="0 4" >
             <Button Name="GhostnadoButton"
                     Text="{Loc 'ghost-target-window-warp-to-most-followed'}"/>
+            <Button Name="WarpToRandomFollowedButton"
+                    Text="{Loc 'ghost-target-window-warp-to-random-followed'}"
+                    ToolTip="{Loc 'ghost-target-window-warp-to-random-followed-tooltip'}"/>
+            <Button Name="WarpToRandomButton"
+                    Text="{Loc 'ghost-target-window-warp-to-random'}"
+                    ToolTip="{Loc 'ghost-target-window-warp-to-random-tooltip'}"/>
             <LineEdit Name="SearchBar"
                       PlaceHolder="{Loc 'entity-spawn-window-search-bar-placeholder'}"
                       HorizontalExpand="True"/>

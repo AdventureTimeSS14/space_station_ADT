@@ -1,7 +1,5 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.ComponentalActions.Components;
 
 [RegisterComponent]
@@ -11,8 +9,8 @@ public sealed partial class ProjectileActComponent : Component
     /// <summary>
     /// What entity should be spawned.
     /// </summary>
-    [DataField("prototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Prototype = "BulletKinetic";
+    [DataField("prototype", required: true)]
+    public EntProtoId Prototype = "BulletKinetic";
 
     /// <summary>
     /// Gets the targeted spawn positions; may lead to multiple entities being spawned.

@@ -15,9 +15,9 @@ namespace Content.Client.ADT.CharecterFlavor;
 [GenerateTypedNameReferences]
 public sealed partial class CharacterFlavorWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     /// <summary>
     /// true, если окно открыто как предпросмотр из лобби (без серверной загрузки headshot).

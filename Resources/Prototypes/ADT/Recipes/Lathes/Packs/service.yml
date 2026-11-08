@@ -37,7 +37,6 @@
   - PrintedDocumentPrescriptionDrugAuthorizationRecipe
   - PrintedDocumentPermissionDisposeBodyRecipe
   - PrintedDocumentConstructionPermitRecipe
-  - PrintedDocumentPermissionToExtendMarriageRecipe
   - PrintedDocumentOrderDismissalRecipe
   - PrintedDocumentOrderDeprivationAccessRecipe
   - PrintedDocumentOrderEncouragementRecipe
@@ -59,6 +58,13 @@
   - PrintedDocumentJudgmentRecipe
   - PrintedDocumentStatementHealtheRecipe
   - PrintedDocumentDecisionToStartTrialRecipe
+  - PrintedDocumentReportproceduralviolationsRecipe
+  - PrintedDocumentRequestliftlegalimmunityRecipe
+  - PrintedDocumentInvestigationReportRecipe
+  - PrintedDocumentRemnantscombatgearRecipe
+  - PrintedDocumentRequestchangestationtargetRecipe
+  - PrintedDocumentOrderamendingstandardoperatingproceduresRecipe
+  - PrintedDocumentOrderamendinglistregulatedsubstancesRecipe
 
 - type: latheRecipePack
   id: ADTPrinterEmagPack
@@ -78,6 +84,11 @@
 - type: latheRecipePack
   id: ADTServiceStaticPack
   recipes:
+  - ADTCookwarePanRecipe
+  - ADTCookwarePotRecipe
+  - ADTCookwareTrayRecipe
+  - ADTSpatulaRecipe
+  - ADTLadleRecipe
   - DrinkFlaskBar
   - DrinkVacuumFlask
   # - DrinkIceBucket # Ведро полное.

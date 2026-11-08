@@ -8,8 +8,8 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed class VelocityModifierContactsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     private readonly HashSet<EntityUid> _toUpdate = new();
     private readonly HashSet<EntityUid> _toRemove = new();

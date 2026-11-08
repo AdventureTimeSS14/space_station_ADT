@@ -8,8 +8,9 @@
   - type: Action
     useDelay: 10
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: rune_break
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: rune_break
   - type: InstantAction
     event: !type:DeleteAllCarvingsEvent

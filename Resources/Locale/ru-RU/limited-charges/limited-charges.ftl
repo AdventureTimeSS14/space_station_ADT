@@ -11,3 +11,4 @@ limited-charges-recharging =
         [few] осталось [color=yellow]{ $seconds }[/color] секунды.
        *[other] осталось [color=yellow]{ $seconds }[/color] секунд.
     }
+limited-charges-no-charges = Заряды закончились!

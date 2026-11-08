@@ -6,7 +6,7 @@ using Robust.Shared.Map;
 namespace Content.Server.ADT.ZombieJump.Preconditions;
 public sealed partial class ZombieJumpRangePrecondition : HTNPrecondition
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private SharedTransformSystem _transformSystem = default!;
 

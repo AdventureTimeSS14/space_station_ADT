@@ -1,3 +1,5 @@
+using Robust.Shared.Prototypes;
+
 namespace Content.Server.ADT.MedicalAssembler;
 
 [RegisterComponent]
@@ -15,4 +17,7 @@ public sealed partial class ADTMedicalAssemblerComponent : Component
 
     [DataField]
     public Dictionary<string, string> MedipenStylePrototypes = new();
+
+    [DataField]
+    public EntProtoId? CustomBlankPrototype;
 }

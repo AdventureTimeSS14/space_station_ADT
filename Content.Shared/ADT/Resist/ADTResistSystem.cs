@@ -12,10 +12,10 @@ namespace Content.Shared.ADT.Resist;
 
 public sealed class ADTResistSystem : EntitySystem
 {
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private static readonly ProtoId<AlertPrototype> FireAlert = "Fire";
 

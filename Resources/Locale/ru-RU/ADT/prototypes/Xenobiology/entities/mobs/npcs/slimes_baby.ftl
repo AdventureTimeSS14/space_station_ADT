@@ -40,3 +40,5 @@ ent-MobSlimeXenobioBabyBlack = чёрный слайм
     .desc = { ent-MobSlimeXenobioBaby.desc }
 ent-MobSlimeXenobioBabyAdamantine = адамантиевый слайм
     .desc = { ent-MobSlimeXenobioBaby.desc }
+ent-MobSlimeXenobioBabyRainbow = радужный слайм
+    .desc = Редкий и красивый экземпляр. Переливается всеми цветами радуги.

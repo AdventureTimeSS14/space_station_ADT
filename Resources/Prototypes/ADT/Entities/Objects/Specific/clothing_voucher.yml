@@ -21,7 +21,6 @@
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherJumpsuitTurtleneck
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -47,12 +46,12 @@
     - JumpsuitTurtleneckPurple
     - JumpsuitTurtleneckBlack
     - JumpsuitTurtleneckDarkBlue
+    - JumpsuitTurtleneckBeige
     typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherJumpskirtTurtleneck
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -83,7 +82,6 @@
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherHatsoft
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -109,7 +107,6 @@
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherScarfStriped
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -135,7 +132,6 @@
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherFacescarf
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -160,7 +156,6 @@
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherWinterCoatLight
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -191,7 +186,6 @@
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherScarfLong
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -217,7 +211,6 @@
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherTie
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -244,11 +237,12 @@
     - TieRed
     - TieYellow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearBoxers
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -266,12 +260,16 @@
     - UnderwearBoxersRed
     - UnderwearBoxersAmerica
     - UnderwearBoxersBoom
+    - UnderwearBoxersILoveArcan
+    - UnderwearBoxersPink
+    - UnderwearBoxersTSF
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearBriefs
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -286,11 +284,12 @@
     - UnderwearBriefsWhite
     - UnderwearBriefsMoth
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearPanties
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -314,12 +313,15 @@
     - UnderwearPantiesSilkRed
     - UnderwearPantiesChristmas
     - UnderwearPantiesCow
+    - UnderwearPantiesAmerica
+    - UnderwearPantiesPink
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearMonokiniBottom
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -334,11 +336,12 @@
     - UnderwearMonokiniBottomWhite
     - UnderwearMonokiniBottomBlack
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearBra
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -365,12 +368,16 @@
     - UnderwearBraSilkBlue
     - UnderwearBraSilkRed
     - UnderwearBraCow
+    - UnderwearBraAmerica
+    - UnderwearBraPink
+    - UnderwearBigbraCow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearMonokiniTop
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -385,11 +392,12 @@
     - UnderwearMonokiniTopWhite
     - UnderwearMonokiniTopBlack
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearTShirt
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -405,11 +413,12 @@
     - UnderwearTShirtBlack
     - UnderwearTShirtTelnik
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearSocks
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -442,11 +451,12 @@
     - SockPink
     - SockCow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearSocksKnee
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -475,11 +485,12 @@
     - SockKneeThin
     - SockKneeYellow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
 
 - type: entity
   parent: ADTClothingVoucherBase
   id: ADTClothingVoucherUnderwearStockings
-  abstract: false
   components:
   - type: Sprite
     layers:
@@ -514,4 +525,302 @@
     - SockThighThin
     - SockThighYellow
     - SockFullFishnet
+    - SockStockingCow
     typeDropPlace: InHands
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherAdidas
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: adidas_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - AdidasBlack
+    - AdidasBlue
+    - AdidasRed
+    - AdidasWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherCasualShirt
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - CasualShirtBeige
+    - CasualShirtDarkBlue
+    - CasualShirtGreen
+    - CasualShirtTeal
+    - CasualShirtYellow
+    - CasualShirtBlack
+    - CasualShirtBlue
+    - CasualShirtPurple
+    - CasualShirtRed
+    - CasualShirtWhite
+    - CasualShirtFancy
+    - CasualShirtRedPlaid
+    - CasualShirtHawaii
+    - CasualShirtTonny
+    - CasualShirtNavy
+    - CasualShirtLimbusco
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherKeikogi
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: keikogi_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - KeikogiWhite
+    - KeikogiOrange
+    - KeikogiBlue
+    - KeikogiYellow
+    - KeikogiGreen
+    - KeikogiBrown
+    - KeikogiBlack
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherHeels
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: heels_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - HeelsBlack
+    - HeelsGold
+    - HeelsRed
+    - HeelsWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherSandals
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: sandals_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - SandalsBlack
+    - SandalsBlue
+    - SandalsBrown
+    - SandalsGreen
+    - SandalsPink
+    - SandalsRed
+    - SandalsWhite
+    - SandalsYellow
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherBowtie
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: bowtie_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - BowtieBlack
+    - BowtieBlue
+    - BowtieRed
+    - BowtieWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherShawl
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: shawl_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - ShawlBlack
+    - ShawlBlue
+    - ShawlPink
+    - ShawlRed
+    - ShawlWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherBeanie
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: beanie_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - BeanieBeige
+    - BeanieBlack
+    - BeanieBlue
+    - BeanieBrown
+    - BeanieCyan
+    - BeanieDarkBlue
+    - BeanieDarkGreen
+    - BeanieGray
+    - BeanieGreen
+    - BeanieMerc
+    - BeanieOrange
+    - BeaniePurple
+    - BeanieRed
+    - BeanieWhite
+    - BeanieYellow
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherDownjacket
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: downjacket_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - DownjacketBlack
+    - DownjacketBlue
+    - DownjacketBrown
+    - DownjacketGreen
+    - DownjacketMerc
+    - DownjacketRed
+    - DownjacketWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherHoody
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: hoody_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - HoodyBeige
+    - HoodyBlack
+    - HoodyBlue
+    - HoodyBrown
+    - HoodyDarkBlue
+    - HoodyGray
+    - HoodyGreen
+    - HoodyPurple
+    - HoodyRed
+    - HoodyWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherSweatercut
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/clothing_voucher.rsi
+    state: sweatercut_auto
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - SweatercutBeige
+    - SweatercutBlack
+    - SweatercutBlue
+    - SweatercutRed
+    - SweatercutWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherKilt
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_blue.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - KiltBlue
+    - KiltGreen
+    - KiltRed
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherNightDress
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpskirt/night_white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - NightDressBlack
+    - NightDressRed
+    - NightDressWhite
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 30

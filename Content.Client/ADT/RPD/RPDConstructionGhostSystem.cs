@@ -15,10 +15,10 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
 {
     private const string PlacementMode = nameof(AlignRPDConstruction);
 
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly RPDSystem _rpdSystem = default!;
-    [Dependency] private readonly IPlacementManager _placementManager = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private RPDSystem _rpdSystem = default!;
+    [Dependency] private IPlacementManager _placementManager = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
     private Direction _placementDirection = default;
 
     public override void Update(float frameTime)

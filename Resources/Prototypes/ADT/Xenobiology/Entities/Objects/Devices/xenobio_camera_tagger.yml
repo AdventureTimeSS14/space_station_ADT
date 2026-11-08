@@ -1,0 +1,13 @@
+- type: entity
+  name: xenobiology camera tagger
+  id: ADTXenobiologyCameraTagger
+  parent: BaseItem
+  description: Tags any camera to register it to the xenobiology network. Spy on slimes further away, or even your neighbours!
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/camera_bug.rsi
+    state: camera_bug
+  - type: Item
+    size: Small
+  - type: XenobiologyConsoleCameraTagger
+  

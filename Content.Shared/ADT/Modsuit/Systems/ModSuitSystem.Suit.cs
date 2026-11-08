@@ -70,6 +70,7 @@ public sealed partial class ModSuitSystem
             _actionsSystem.SetEntityIcon(ent.Comp.ActionEntity.Value, action.EntityIcon);
 
         _actionContainer.EnsureAction(ent, ref ent.Comp.ActionMenuEntity, ent.Comp.MenuAction);
+        _actionContainer.EnsureAction(ent, ref ent.Comp.ToggleAllActionEntity, ent.Comp.ToggleAllAction);
 
         Dirty(ent);
 
@@ -131,6 +132,7 @@ public sealed partial class ModSuitSystem
 
         args.AddAction(ent.Comp.ActionMenuEntity);
         args.AddAction(ent.Comp.ActionEntity);
+        args.AddAction(ent.Comp.ToggleAllActionEntity);
     }
 
     private void OnRemoveModSuit(Entity<ModSuitComponent> ent, ref ComponentRemove args)
@@ -156,7 +158,7 @@ public sealed partial class ModSuitSystem
     /// </summary>
     private void OnModSuitEquip(Entity<ModSuitComponent> ent, ref GotEquippedEvent args)
     {
-        ent.Comp.TempUser = args.Equipee;
+        ent.Comp.TempUser = args.EquipTarget;
     }
 
     /// <summary>
@@ -178,7 +180,7 @@ public sealed partial class ModSuitSystem
             if (part.Value == null)
                 continue;
 
-            _inventorySystem.TryUnequip(args.Equipee, part.Value, force: true, predicted: true); //TODO: сделать чтобы это работало, а то сейчас писец после гиба
+            _inventorySystem.TryUnequip(args.EquipTarget, part.Value, force: true, predicted: true); //TODO: сделать чтобы это работало, а то сейчас писец после гиба
         }
     }
 
@@ -203,7 +205,7 @@ public sealed partial class ModSuitSystem
         if (GetPartsToggleStatus(ent) == ModSuitAttachedStatus.NoneToggled)
             return;
 
-        _popupSystem.PopupPredicted(Loc.GetString("modsuit-remove-all-attached-first"), args.Unequipee, args.Unequipee);
+        _popupSystem.PopupPredicted(Loc.GetString("modsuit-remove-all-attached-first"), args.UnEquipTarget, args.UnEquipTarget);
 
         args.Cancel();
     }

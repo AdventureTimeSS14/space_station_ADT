@@ -29,30 +29,31 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared.Wall;
 
 namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedMansusGraspSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IComponentFactory _compFactory = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
 
-    [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly BackStabSystem _backstab = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private SharedDoorSystem _door = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private BackStabSystem _backstab = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedVoidCurseSystem _voidCurse = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedStarMarkSystem _starMark = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
@@ -194,7 +195,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             {
                 if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
                     QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);
-                else if (HasComp<RustGraspComponent>(grasp) && _tag.HasAnyTag(target, "Wall", "Catwalk") ||
+                else if (HasComp<RustGraspComponent>(grasp) && (HasComp<WallComponent>(target) || _tag.HasTag(target, "Catwalk")) ||
                          HasComp<HereticRitualRuneComponent>(
                              target)) // If we have rust grasp and targeting a wall (or a catwalk) - do nothing, let other methods handle that. Also don't damage transmutation rune.
                     return false;

@@ -5,10 +5,10 @@
   id: ADTReagentCanister
   description: A big canister for a big boys.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 600
+  - type: Solution
+    solution:
+      maxVol: 600
+      reagents: []
   - type: Sprite
     sprite: ADT/Objects/Specific/Chemistry/canister.rsi
     layers:
@@ -43,13 +43,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Label
-    currentLabel: reagent-name-carbon
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        reagents:
-          - ReagentId: Carbon
-            Quantity: 600
+    localizedLabel: reagent-name-carbon
+  - type: Solution
+    solution:
+      maxVol: 600
+      reagents:
+      - ReagentId: Carbon
+        Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -58,13 +58,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-iodine
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Iodine
-              Quantity: 600
+      localizedLabel: reagent-name-iodine
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Iodine
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -73,13 +73,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-fluorine
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Fluorine
-              Quantity: 600
+      localizedLabel: reagent-name-fluorine
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Fluorine
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -88,13 +88,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-chlorine
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Chlorine
-              Quantity: 600
+      localizedLabel: reagent-name-chlorine
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Chlorine
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -103,13 +103,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-aluminium
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Aluminium
-              Quantity: 600
+      localizedLabel: reagent-name-aluminium
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -118,13 +118,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-phosphorus
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Phosphorus
-              Quantity: 600
+      localizedLabel: reagent-name-phosphorus
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Phosphorus
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -133,13 +133,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-sulfur
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Sulfur
-              Quantity: 600
+      localizedLabel: reagent-name-sulfur
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Sulfur
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -148,13 +148,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-silicon
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Silicon
-              Quantity: 600
+      localizedLabel: reagent-name-silicon
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -163,13 +163,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-hydrogen
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Hydrogen
-              Quantity: 600
+      localizedLabel: reagent-name-hydrogen
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Hydrogen
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -178,13 +178,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-lithium
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Lithium
-              Quantity: 600
+      localizedLabel: reagent-name-lithium
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Lithium
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -193,13 +193,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-sodium
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Sodium
-              Quantity: 600
+      localizedLabel: reagent-name-sodium
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Sodium
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -208,13 +208,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-potassium
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Potassium
-              Quantity: 600
+      localizedLabel: reagent-name-potassium
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Potassium
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -223,13 +223,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-radium
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Radium
-              Quantity: 600
+      localizedLabel: reagent-name-radium
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Radium
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -238,13 +238,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-iron
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Iron
-              Quantity: 600
+      localizedLabel: reagent-name-iron
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Iron
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -253,13 +253,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-copper
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Copper
-              Quantity: 600
+      localizedLabel: reagent-name-copper
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Copper
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -268,13 +268,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-gold
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Gold
-              Quantity: 600
+      localizedLabel: reagent-name-gold
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Gold
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -283,13 +283,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-mercury
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Mercury
-              Quantity: 600
+      localizedLabel: reagent-name-mercury
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Mercury
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -298,13 +298,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-silver
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Silver
-              Quantity: 600
+      localizedLabel: reagent-name-silver
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Silver
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -313,13 +313,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-ethanol
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Ethanol
-              Quantity: 600
+      localizedLabel: reagent-name-ethanol
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Ethanol
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -328,13 +328,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-sugar
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Sugar
-              Quantity: 600
+      localizedLabel: reagent-name-sugar
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -343,13 +343,13 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-nitrogen
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Nitrogen
-              Quantity: 600
+      localizedLabel: reagent-name-nitrogen
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Nitrogen
+          Quantity: 600
 
 - type: entity
   parent: ADTReagentCanister
@@ -358,10 +358,10 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Label
-      currentLabel: reagent-name-oxygen
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: Oxygen
-              Quantity: 600
+      localizedLabel: reagent-name-oxygen
+    - type: Solution
+      solution:
+        maxVol: 600
+        reagents:
+        - ReagentId: Oxygen
+          Quantity: 600

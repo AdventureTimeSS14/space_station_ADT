@@ -74,6 +74,7 @@
         children:
         - id: SecurityTechFabCircuitboard
         - id: CargoRequestSecurityComputerCircuitboard
+        - id: ADTSecShuttleConsoleCircuitboard # ADT tweak
 
 - type: entity
   parent: ToteBase
@@ -91,6 +92,7 @@
         - id: SalvageMagnetMachineCircuitboard
         - id: SalvageJobBoardComputerCircuitboard
         - id: MailTeleporterMachineCircuitboard
+        - id: ADTSalvageShuttleConsoleCircuitboard # ADT tweak
 
 - type: entity
   parent: BoxStamps

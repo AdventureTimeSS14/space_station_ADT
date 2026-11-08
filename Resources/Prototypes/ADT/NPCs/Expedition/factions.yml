@@ -1,0 +1,43 @@
+- type: npcFaction
+  id: ADTSovietBunker
+  hostile:
+  - ADTAshWalker
+  - ADTBlob
+  - ADTShadowling
+  - ADTSmugglersPirates
+  - ADTSpaceMobs
+  - Changeling
+  - Dragon
+  - Heretic
+  - KMT
+  - Mouse
+  - NanoTrasen
+  - Passive
+  - PetsNT
+  - Pirate
+  - Revolutionary
+  - SimpleHostile
+  - SimpleNeutral
+  - SpaceSecFaction
+  - Syndicate
+  - TSF
+  - Ursus
+  - Wizard
+  - Xeno
+  - Xenoborg
+  - Zombie
+
+- type: npcFaction
+  id: ADTSmugglersPirates
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Heretic
+  - Ursus
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg

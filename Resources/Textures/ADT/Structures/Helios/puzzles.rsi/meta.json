@@ -1,0 +1,89 @@
+{
+ "version": 1,
+ "license": "CC-BY-SA-3.0",
+ "copyright": "Sprited by Inconnu(discord:inconnu1337)",
+ "size": {
+  "x": 32,
+  "y": 32
+ },
+ "states": [
+  {
+   "name": "lights_off"
+  },
+  {
+   "name": "lights_on"
+  },
+  {
+   "name": "straight_off"
+  },
+  {
+   "name": "straight_on"
+  },
+  {
+   "name": "bend_off"
+  },
+  {
+   "name": "bend_on"
+  },
+  {
+   "name": "tee_off"
+  },
+  {
+   "name": "tee_on"
+  },
+  {
+   "name": "source"
+  },
+  {
+   "name": "sink"
+  },
+  {
+   "name": "plate_sun_off"
+  },
+  {
+   "name": "plate_sun_on"
+  },
+  {
+   "name": "sample_sun"
+  },
+  {
+   "name": "plate_eye_off"
+  },
+  {
+   "name": "plate_eye_on"
+  },
+  {
+   "name": "sample_eye"
+  },
+  {
+   "name": "plate_flame_off"
+  },
+  {
+   "name": "plate_flame_on"
+  },
+  {
+   "name": "sample_flame"
+  },
+  {
+   "name": "plate_wave_off"
+  },
+  {
+   "name": "plate_wave_on"
+  },
+  {
+   "name": "sample_wave"
+  },
+  {
+   "name": "key_off"
+  },
+  {
+   "name": "key_on"
+  },
+  {
+   "name": "hold_off"
+  },
+  {
+   "name": "hold_on"
+  }
+ ]
+}

@@ -14,10 +14,10 @@ public sealed class ADTBackDrawSystem : EntitySystem
 {
     private static readonly string[] BackSlots = { "suitstorage", "back" };
 
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

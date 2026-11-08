@@ -10,8 +10,8 @@ namespace Content.Shared.ADT.Medical.AdvancedMedBed;
 
 public sealed class AdvancedMedBedSystem : EntitySystem
 {
-    [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private MetabolizerSystem _metabolizer = default!;
+    [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
 
     public override void Initialize()
     {

@@ -7,7 +7,7 @@ namespace Content.Shared.Clothing;
 
 public abstract class SharedJumpbootsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actionContainer = default!;
+    [Dependency] private SharedActionsSystem _actionContainer = default!;
 
     public override void Initialize()
     {

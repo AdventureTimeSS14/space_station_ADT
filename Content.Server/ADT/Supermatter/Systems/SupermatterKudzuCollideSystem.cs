@@ -1,5 +1,5 @@
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -50,9 +50,9 @@ namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed class SupermatterKudzuOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
 
 

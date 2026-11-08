@@ -2,15 +2,13 @@ using Content.Server.CartridgeLoader;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.ADT.Economy;
 using Content.Shared.PDA;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Economy;
 
 public sealed class BankCartridgeSystem : EntitySystem
 {
-    [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly BankCardSystem _bankCardSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
+    [Dependency] private BankCardSystem _bankCardSystem = default!;
 
     public override void Initialize()
     {
@@ -33,8 +31,7 @@ public sealed class BankCartridgeSystem : EntitySystem
 
     private void OnAccountLink(EntityUid uid, BankCartridgeComponent component, BankAccountLinkMessage args)
     {
-        if (!_bankCardSystem.TryGetAccount(args.AccountId, out var account) || args.Pin != account.AccountPin ||
-            account.CommandBudgetAccount)
+        if (!_bankCardSystem.TryGetAccount(args.AccountId, out var account) || args.Pin != account.AccountPin)
         {
             component.AccountLinkResult = Loc.GetString("bank-program-ui-link-error");
             return;
@@ -49,8 +46,9 @@ public sealed class BankCartridgeSystem : EntitySystem
                 oldAccount.CartridgeUid == uid)
                 oldAccount.CartridgeUid = null;
 
-            if (account.CartridgeUid != null)
-                Comp<BankCartridgeComponent>(account.CartridgeUid.Value).AccountId = null;
+            if (account.CartridgeUid != null &&
+                TryComp<BankCartridgeComponent>(account.CartridgeUid.Value, out var oldCartridge))
+                oldCartridge.AccountId = null;
 
             account.CartridgeUid = uid;
             component.AccountId = args.AccountId;
@@ -90,40 +88,18 @@ public sealed class BankCartridgeSystem : EntitySystem
             return;
         }
 
-        if (senderAccount.Balance < args.Amount)
+        if (_bankCardSystem.GetBalance(component.AccountId.Value) < args.Amount)
         {
             component.TransferResult = Loc.GetString("bank-program-ui-transfer-error-funds");
             return;
         }
 
-        senderAccount.Balance -= args.Amount;
-        targetAccount.Balance += args.Amount;
-
-        if (senderAccount.History == null)
-            senderAccount.History = new List<TransactionsHistory>();
-        if (targetAccount.History == null)
-            targetAccount.History = new List<TransactionsHistory>();
-
-        senderAccount.History.Add(new TransactionsHistory(
-            -args.Amount,
-            _timing.CurTime,
-            Loc.GetString("bank-transfer"),
-            targetAccount.Name,
-            targetAccount.AccountId.ToString()
-        ));
-
-        targetAccount.History.Add(new TransactionsHistory(
-            args.Amount,
-            _timing.CurTime,
-            Loc.GetString("bank-transfer"),
-            senderAccount.Name,
-            senderAccount.AccountId.ToString()
-        ));
-
-        if (senderAccount.CartridgeUid != null)
-            UpdateUiState(senderAccount.CartridgeUid.Value, component.Loader!.Value);
-        if (targetAccount.CartridgeUid != null && targetAccount.CartridgeUid != senderAccount.CartridgeUid)
-            UpdateUiState(targetAccount.CartridgeUid.Value, component.Loader!.Value);
+        if (!_bankCardSystem.TryTransfer(component.AccountId.Value, args.AccountTargetId, args.Amount,
+                TransactionReason.BankTransfer, senderAccount.Name))
+        {
+            component.TransferResult = Loc.GetString("bank-program-ui-transfer-error-funds");
+            return;
+        }
 
         component.TransferResult = Loc.GetString("bank-program-ui-transfer-success", ("amount", args.Amount), ("target", targetAccount.Name));
     }
@@ -170,7 +146,7 @@ public sealed class BankCartridgeSystem : EntitySystem
 
         if (component.AccountId != null && _bankCardSystem.TryGetAccount(component.AccountId.Value, out var account))
         {
-            state.Balance = account.Balance;
+            state.Balance = _bankCardSystem.GetBalance(account.AccountId);
             state.AccountId = account.AccountId;
             state.OwnerName = account.Name;
             state.History = account.History ?? new List<TransactionsHistory>();

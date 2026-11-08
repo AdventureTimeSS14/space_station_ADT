@@ -29,7 +29,7 @@
     spawnFriendsSearchRadius: 10
     whitelist:
       components:
-      - Clumsy
+      - PermanentStatusEffects
 
 - type: entity
   name: spitter

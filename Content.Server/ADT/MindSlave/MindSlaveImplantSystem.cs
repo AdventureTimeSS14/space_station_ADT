@@ -15,10 +15,10 @@ namespace Content.Server.ADT.MindSlave;
 /// </summary>
 public sealed class MindSlaveImplantSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RoleSystem _roleSystem = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RoleSystem _roleSystem = default!;
 
     /// <summary>
     /// Subscribes to <see cref="ImplantRemovedEvent"/> for <see cref="MindSlaveImplantComponent"/>.

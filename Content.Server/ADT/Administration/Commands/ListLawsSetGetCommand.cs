@@ -10,8 +10,8 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Logs)]
 public sealed class ListLawsSetGetCommand : LocalizedCommands
 {
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public override string Command => "lslawset_get";
 

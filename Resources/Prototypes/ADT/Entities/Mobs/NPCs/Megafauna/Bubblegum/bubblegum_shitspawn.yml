@@ -1,5 +1,6 @@
 - type: entity
   id: ADTMegaFaunaBubblegumShitSpawnOriginalPower
+  categories: [ HideSpawnMenu ]
   name: bubblegum
   suffix: Original Power
   description: bublbegum desc
@@ -49,6 +50,17 @@
   - type: ArmorPenetration
     penetration: 0.5
   - type: Bubblegum
+  - type: ADTMegafaunaAI
+    decisionInterval: 0
+    rangedWhenAdjacent: true
+    targetAggressor: false
+    handleMelee: false
+    actions:
+    - ActionADTBubblegumTripleCharge
+    - ActionADTBubblegumHallucinationCharge
+    - ActionADTBubblegumSurround
+    - ActionADTBubblegumBloodWarp
+    - ActionADTBubblegumSummonNarsi
   - type: BubblegumTripleCharge
   - type: BubblegumHallucinationCharge
   - type: BubblegumSurround

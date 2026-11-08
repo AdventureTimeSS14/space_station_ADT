@@ -1,4 +1,5 @@
-﻿using Content.Client.FeedbackPopup;
+using Content.Client.ADT.Polls; // ADT-Tweak
+using Content.Client.FeedbackPopup;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -17,16 +18,18 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
-public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed partial class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
 {
-    [Dependency] private readonly IClientConsoleHost _console = default!;
-    [Dependency] private readonly IUriOpener _uri = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ChangelogUIController _changelog = default!;
-    [Dependency] private readonly InfoUIController _info = default!;
-    [Dependency] private readonly OptionsUIController _options = default!;
-    [Dependency] private readonly GuidebookUIController _guidebook = default!;
-    [Dependency] private readonly FeedbackPopupUIController _feedback = null!;
+    [Dependency] private IClientConsoleHost _console = default!;
+    [Dependency] private IUriOpener _uri = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ChangelogUIController _changelog = default!;
+    [Dependency] private InfoUIController _info = default!;
+    [Dependency] private OptionsUIController _options = default!;
+    [Dependency] private GuidebookUIController _guidebook = default!;
+    [Dependency] private FeedbackPopupUIController _feedback = null!;
+    [Dependency] private PollUIController _polls = default!; // ADT-Tweak
+    [Dependency] private ILocalizationManager _loc = default!;
 
     private Options.UI.EscapeMenu? _escapeWindow;
 
@@ -71,6 +74,17 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _feedback.ToggleWindow();
         };
 
+        // ADT-Tweak-Start
+        _escapeWindow.PollsButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _polls.ToggleListWindow();
+        };
+
+        _escapeWindow.OnOpen += UpdatePollsButton;
+        _polls.PollsChanged += UpdatePollsButton;
+        // ADT-Tweak-End
+
         _escapeWindow.ChangelogButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
@@ -109,6 +123,12 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         _escapeWindow.WebSiteButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWebsite) != "";
         // ADT-Tweak-end
 
+        _escapeWindow.AdminRemarksButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _console.ExecuteCommand("adminremarks");
+        };
+
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
             _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
@@ -122,6 +142,8 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         // Hide wiki button if we don't have a link for it.
         _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
 
+        _cfg.OnValueChanged(CCVars.SeeOwnNotes, OnSeeOwnNotesChanged, true);
+
         CommandBinds.Builder
             .Bind(EngineKeyFunctions.EscapeMenu,
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
@@ -130,6 +152,9 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
 
     public void OnStateExited(GameplayState state)
     {
+        _cfg.UnsubValueChanged(CCVars.SeeOwnNotes, OnSeeOwnNotesChanged);
+        _polls.PollsChanged -= UpdatePollsButton; // ADT-Tweak
+
         if (_escapeWindow != null)
         {
             _escapeWindow.Dispose();
@@ -137,6 +162,31 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         }
 
         CommandBinds.Unregister<EscapeUIController>();
+    }
+
+    // ADT-Tweak-Start
+    private void UpdatePollsButton()
+    {
+        if (_escapeWindow == null)
+            return;
+
+        var count = _polls.UnansweredCount;
+
+        _escapeWindow.PollsButton.Text = count > 0
+            ? _loc.GetString("adt-poll-escape-button-count", ("count", count))
+            : _loc.GetString("adt-poll-escape-button");
+    }
+    // ADT-Tweak-End
+
+    private void OnSeeOwnNotesChanged(bool seeOwnNotes)
+    {
+        if (_escapeWindow == null)
+            return;
+
+        _escapeWindow.AdminRemarksButton.Disabled = !seeOwnNotes;
+        _escapeWindow.AdminRemarksButton.ToolTip = !seeOwnNotes
+            ? _loc.GetString("ui-escape-remarks-button-disabled")
+            : null;
     }
 
     private void EscapeButtonOnOnPressed(ButtonEventArgs obj)

@@ -16,15 +16,17 @@ namespace Content.Client.Access.UI
     [GenerateTypedNameReferences]
     public sealed partial class IdCardConsoleWindow : DefaultWindow
     {
-        [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private IConfigurationManager _cfgManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private ILogManager _logManager = default!;
         private readonly ISawmill _logMill = default!;
 
         private readonly IdCardConsoleBoundUserInterface _owner;
 
         private AccessLevelControl _accessButtons = new();
         private readonly List<string> _jobPrototypeIds = new();
+
+        private readonly List<ProtoId<AccessLevelPrototype>> _extendedAccessLevels = new(); // ADT-Tweak
 
         private string? _lastFullName;
         private string? _lastJobTitle;
@@ -34,13 +36,15 @@ namespace Content.Client.Access.UI
         private static ProtoId<JobPrototype> _defaultJob = "Passenger";
 
         public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager,
-            List<ProtoId<AccessLevelPrototype>> accessLevels)
+            List<ProtoId<AccessLevelPrototype>> accessLevels,
+            List<ProtoId<AccessLevelPrototype>> extendedAccessLevels) // ADT-Tweak
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
             _logMill = _logManager.GetSawmill(SharedIdCardConsoleSystem.Sawmill);
 
             _owner = owner;
+            _extendedAccessLevels.AddRange(extendedAccessLevels);
 
             FullNameLineEdit.OnTextEntered += _ => SubmitData();
             FullNameLineEdit.IsValid = s => s.Length <= _cfgManager.GetCVar(CCVars.MaxNameLength);
@@ -83,6 +87,19 @@ namespace Content.Client.Access.UI
                 SetAllAccess(false);
                 SubmitData();
             };
+
+            // ADT-Tweak start
+            ExtendedAccessButton.OnPressed += _ =>
+            {
+                foreach (var access in _extendedAccessLevels)
+                {
+                    if (_accessButtons.ButtonsList.TryGetValue(access, out var button) && !button.Disabled)
+                        button.Pressed = true;
+                }
+
+                SubmitData();
+            };
+            // ADT-Tweak end
 
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
             _accessButtons.Populate(accessLevels, prototypeManager);

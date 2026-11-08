@@ -6,8 +6,8 @@ namespace Content.Client.ADT.Furniture.Tables.Systems;
 
 public sealed class RouletteVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     private const string AnimationKey = "roulette_roll";
 

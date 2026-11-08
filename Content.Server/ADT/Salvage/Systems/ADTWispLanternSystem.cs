@@ -11,12 +11,12 @@ namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed class ADTWispLanternSystem : EntitySystem
 {
-    [Dependency] private readonly FollowerSystem _follower = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedNightVisionSystem _nightVision = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private FollowerSystem _follower = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedNightVisionSystem _nightVision = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private const int CarrySearchDepth = 5;
 

@@ -10,9 +10,9 @@ namespace Content.Server.ADT.Deafness;
 
 public sealed class ADTDeafnessSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IChatManager _chatManager = default!;
 
     private const int MinFragmentLength = 4;
 

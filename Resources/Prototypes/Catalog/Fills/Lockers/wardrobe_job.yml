@@ -29,6 +29,7 @@
       - id: ClothingUniformJumpsuitPrisoner
       - id: ClothingUniformJumpskirtPrisoner
       - id: ClothingShoesColorBlack
+      - id: ADTClothingUniformJumpsuitNavyShirtPrisoner # ADT-Tweak
     - id: ClothingMaskMuzzle
     - !type:GroupSelector
       prob: 0.15
@@ -289,7 +290,14 @@
     - id: ClothingBackpackSecurity
     - id: ClothingShoesBootsJack
     - id: ClothingEyesGlassesSunglasses
-    - id: ClothingHeadHelmetBasic
+    # ADT-Tweak-start
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHelmetBasic
+        weight: 0.70
+      - id: ADTClothingHeadHelmetSecurityAlt
+        weight: 0.30
+    # ADT-Tweak-end
     - id: ClothingOuterArmorBasic
     - id: ClothingUniformJumpskirtSec
 

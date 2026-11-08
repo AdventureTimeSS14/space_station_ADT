@@ -6,22 +6,21 @@
   components:
   - type: FlavorProfile
     flavors:
-      - Bitter
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 16
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Toxin
-          Quantity: 4
-        - ReagentId: ADTOpium
-          Quantity: 10
+      - bitter
+  - type: Solution
+    solution:
+      maxVol: 16
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Toxin
+        Quantity: 4
+      - ReagentId: ADTOpium
+        Quantity: 10
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
   - type: Produce
-    seedId: ADTPapaverSomniferum
+    plantId: ADTPapaverSomniferumPlants
   - type: Extractable
     grindableSolutionName: food
   - type: Tag
@@ -42,16 +41,15 @@
     flavors:
       - ADTStrawberryFlavor
   - type: Produce
-    seedId: ADTStrawberry
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 9
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 4
+    plantId: ADTStrawberryPlants
+  - type: Solution
+    solution:
+      maxVol: 9
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 4
   - type: Extractable
     juiceSolution:
       reagents:

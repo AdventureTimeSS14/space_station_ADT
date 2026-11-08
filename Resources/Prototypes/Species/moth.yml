@@ -35,3 +35,12 @@
   oldAge: 45
   youngAge: 27
   # ADT end
+  # ADT-Tweak-Start
+  defaultSoundsBySex:
+  - MaleMoth
+  - FemaleMoth
+  - MaleMoth
+  voices:
+  - MaleMoth
+  - FemaleMoth
+  # ADT-Tweak-End

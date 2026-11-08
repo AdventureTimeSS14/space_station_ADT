@@ -1,0 +1,27 @@
+- type: objectiveIssuer
+  id: ADTHeretic
+  name: objective-issuer-heretic
+
+- type: objectiveIssuer
+  id: ADTBlob
+  name: objective-issuer-blob
+
+- type: objectiveIssuer
+  id: ADTBubblegum
+  name: objective-issuer-bubblegum
+
+- type: objectiveIssuer
+  id: ADTDiceOfFate
+  name: objective-issuer-dice-of-fate
+
+- type: objectiveIssuer
+  id: ADTShadowling
+  name: objective-issuer-adt-shadowling
+
+- type: objectiveIssuer
+  id: ADTHivemind
+  name: objective-issuer-hivemind
+
+- type: objectiveIssuer
+  id: ADTTiger
+  name: objective-issuer-tiger

@@ -14,6 +14,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
@@ -36,19 +37,19 @@ namespace Content.Shared.ADT.Systems.PickupHumans;
 
 public sealed class PickupHumansSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -302,6 +303,8 @@ public sealed class PickupHumansSystem : EntitySystem
         _actionBlocker.UpdateCanMove(carried);
         _movementSpeed.RefreshMovementSpeedModifiers(carrier);
 
+        Log.Info($"{ToPrettyString(carrier)} picked up {ToPrettyString(carried)}");
+
         return true;
     }
 
@@ -329,6 +332,8 @@ public sealed class PickupHumansSystem : EntitySystem
 
         var carrier = carried.Comp.Carrier;
         var bodyType = carried.Comp.OriginalBodyType;
+
+        Log.Info($"{ToPrettyString(carried.Owner)} dropped by {ToPrettyString(carrier)}");
 
         _doAfter.Cancel(carried.Comp.EscapeDoAfter);
 
@@ -490,6 +495,16 @@ public sealed class PickupHumansSystem : EntitySystem
     private void OnCarriedInteractionAttempt(Entity<TakenHumansComponent> ent, ref InteractionAttemptEvent args)
     {
         if (args.Target == null || args.Target == ent.Comp.Carrier)
+            return;
+
+        if (_hands.IsHolding(ent.Owner, args.Target))
+            return;
+
+        if (TryComp<TransformComponent>(args.Target, out var targetXform) &&
+            targetXform.ParentUid == ent.Owner)
+            return;
+
+        if (HasComp<MobStateComponent>(args.Target))
             return;
 
         args.Cancelled = true;

@@ -721,7 +721,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,4.5
       parent: 1
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 58
     components:

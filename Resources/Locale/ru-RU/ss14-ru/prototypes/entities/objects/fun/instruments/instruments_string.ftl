@@ -21,3 +21,5 @@ ent-ViolaInstrument = виола
     .desc = Как скрипка, только хуже.
 ent-CelloInstrument = виолончель
     .desc = Пижоны называют такие chell'ями.
+ent-FretlessBassGuitarInstrument = безладовая бас-гитара
+    .desc = С ней в руках вы чувствуете себя очень круто. Жаль, что так думают только бас-гитаристы с ладами.

@@ -2,6 +2,7 @@ using Content.Shared.ADT.Mind;
 using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Server.Player;
@@ -18,12 +19,12 @@ namespace Content.Server.ADT.Mind;
 /// </summary>
 public sealed partial class TemporaryMindSystem : EntitySystem
 {
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MindExamineSystem _mindEx = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private MindExamineSystem _mindEx = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {
@@ -37,7 +38,7 @@ public sealed partial class TemporaryMindSystem : EntitySystem
         if (args.Player.Status != SessionStatus.Disconnected)
             return;
 
-        CleanupDisposableMind(ent.Comp);
+        CleanupDisposableMind(ent);
         RemComp<TemporaryMindComponent>(ent);
     }
 
@@ -93,7 +94,7 @@ public sealed partial class TemporaryMindSystem : EntitySystem
 
         var coords = _transform.GetMapCoordinates(temporaryBody);
 
-        CleanupDisposableMind(temp);
+        CleanupDisposableMind((temporaryBody, temp));
 
         var ghost = Spawn("MobObserver", coords);
         _mind.Visit(temp.OriginalMind, ghost, origMind);
@@ -127,7 +128,7 @@ public sealed partial class TemporaryMindSystem : EntitySystem
         if (originalBody == null || !Exists(originalBody))
             return false;
 
-        CleanupDisposableMind(temp);
+        CleanupDisposableMind((temporaryBody, temp));
 
         if (origMind.UserId is { } userId && _playerManager.TryGetSessionById(userId, out var session))
             _playerManager.SetAttachedEntity(session, originalBody.Value);
@@ -136,11 +137,13 @@ public sealed partial class TemporaryMindSystem : EntitySystem
         return true;
     }
 
-    private void CleanupDisposableMind(TemporaryMindComponent temp)
+    private void CleanupDisposableMind(Entity<TemporaryMindComponent> ent)
     {
+        var temp = ent.Comp;
         if (Exists(temp.DisposableMind))
         {
             _mind.WipeMind(temp.DisposableMind);
+            _mind.ClearLastMind(ent, temp.DisposableMind);
             QueueDel(temp.DisposableMind);
         }
 

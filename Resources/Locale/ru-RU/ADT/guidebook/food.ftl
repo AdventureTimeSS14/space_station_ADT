@@ -18,6 +18,7 @@ guidebook-food-processing-type-microwave = Микроволновка
 guidebook-food-processing-type-oven = Печь
 guidebook-food-processing-type-assembler = Ассемлер
 guidebook-food-processing-type-medical-assembler = Медицинский Ассемлер
+guidebook-food-processing-type-tribal-oven = Каменная печь
 guidebook-food-processing-type-medical-generic = Жарить
 
 # End ADT-Tweak: processing types

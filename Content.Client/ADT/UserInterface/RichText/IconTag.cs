@@ -15,9 +15,9 @@ using Robust.Shared.Utility;
 namespace Content.Client.ADT.UserInterface.RichText;
 public sealed class IconTag : IMarkupTag
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     private SpriteSystem? _spriteSystem;
 
     private const int IconSize = 20;

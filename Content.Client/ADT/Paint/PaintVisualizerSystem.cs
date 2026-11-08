@@ -16,8 +16,8 @@ namespace Content.Client.ADT.Paint
         /// Visualizer for Paint which applies a shader and colors the entity.
         /// </summary>
 
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
 
         public ShaderInstance? Shader; // in Robust.Client.Graphics so cannot move to shared component.
 

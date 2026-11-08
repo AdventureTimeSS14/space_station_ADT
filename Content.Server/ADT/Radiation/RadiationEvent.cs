@@ -8,8 +8,8 @@ namespace Content.Server.ADT.Radiation;
 
 public sealed partial class RadiationEvent : EntitySystem
 {
-    [Dependency] private readonly RadiationSystem _radiation = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private RadiationSystem _radiation = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     /// <summary>
     /// Система ставит указанное кол-во радиации. После чего, после n-ного времени, начинает уменьшать радиационый фон на x рады, за y секунд.

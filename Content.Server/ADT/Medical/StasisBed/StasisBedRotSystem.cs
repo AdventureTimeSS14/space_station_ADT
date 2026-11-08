@@ -11,9 +11,9 @@ using Content.Shared.Chemistry.EntitySystems;
 namespace Content.Server.ADT.Medical.StasisBed;
 public sealed class StasisBedRotSystem : EntitySystem
 {
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly RottingSystem _rotting = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private RottingSystem _rotting = default!;
 
     private float _accumulator;
 
@@ -84,7 +84,8 @@ public sealed class StasisBedRotSystem : EntitySystem
             args.AddUpgradeLine(Loc.GetString("stasis-bed-rot-stopped"));
         else
             args.AddUpgradeLine(Loc.GetString("stasis-bed-rot-not-stopped",
-                ("percent", (int) ((1f - component.SlowMultiplier) * 100f))));
+                ("percent", (int) ((1f - component.SlowMultiplier) * 100f)),
+                ("tier", component.RotStopTier)));
 
         if (component.Tier >= component.InaprovalineTier)
             args.AddUpgradeLine(Loc.GetString("stasis-bed-inaprovaline", ("amount", component.InaprovalineAmount)));

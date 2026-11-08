@@ -25,3 +25,6 @@ ent-ClosetMaintenanceFilledRandom = { ent-ClosetMaintenance }
 ent-ClosetWallMaintenanceFilledRandom = { ent-ClosetWall }
     .suffix = Заполненный, Случайный
     .desc = { ent-ClosetWall.desc }
+ent-LockerSyndicateWallFilled = кроваво-красный настенный шкафчик
+    .suffix = Ядерщик, заполненный
+    .desc = Личное хранилище для снаряжения оперативника.

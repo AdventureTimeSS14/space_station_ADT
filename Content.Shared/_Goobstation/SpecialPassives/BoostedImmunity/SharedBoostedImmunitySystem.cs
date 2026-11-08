@@ -27,9 +27,10 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly BlindableSystem _blindSys = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodSys = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodSys = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSys = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!; // ADT-Tweak
 
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<MobStateComponent> _mobStateQuery;
@@ -172,14 +173,14 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         if (!_statusQuery.TryComp(ent, out var status))
             return;
 
-        _status.TryRemoveStatusEffect(ent, "TemporaryBlindness", status);
+        _statusNew.TryRemoveStatusEffect(ent, BlindnessSystem.BlindingStatusEffect); // ADT-Tweak
         _status.TryRemoveStatusEffect(ent, "BlurryVision", status);
     }
 
     private void SoberEntity(Entity<BoostedImmunityComponent> ent, StatusEffectsComponent status)
     {
         _drunkSys.TryRemoveDrunkenness(ent);
-        _status.TryRemoveStatusEffect(ent, "SeeingRainbows", status);
+        _statusNew.TryRemoveStatusEffect(ent, "StatusEffectSeeingRainbow"); // ADT-Tweak
     }
 
     private void RemovePacifism(Entity<BoostedImmunityComponent> ent, StatusEffectsComponent status)

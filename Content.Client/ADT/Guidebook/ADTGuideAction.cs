@@ -9,9 +9,9 @@ namespace Content.Client.ADT.Guidebook;
 
 public sealed class ADTGuideAction : ADTGuideEntry, IDocumentTag
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IEntitySystemManager _systems = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private IEntitySystemManager _systems = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private readonly SpriteSystem _sprite;
 
@@ -31,10 +31,10 @@ public sealed class ADTGuideAction : ADTGuideEntry, IDocumentTag
         if (!_proto.TryIndex<EntityPrototype>(actionId, out var proto))
             return false;
 
-        if (proto.TryGetComponent<ActionComponent>(out var action, _componentFactory)
-            && action.Icon is { } icon)
+        if (proto.TryGetComponent<ActionComponent>(out _, _componentFactory)
+            && proto.TryGetComponent<SpriteComponent>(out _, _componentFactory))
         {
-            AddIcon(_sprite.Frame0(icon));
+            AddIcon(_sprite.Frame0(proto));
         }
 
         args.TryGetValue("Note", out var note);

@@ -7,16 +7,16 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
   - type: Produce
-    seedId: ADTCannabisWhite
+    plantId: ADTCannabisWhitePlants
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: THC
-          Quantity: 5
-        - ReagentId: Omnizine
-          Quantity: 8
+  - type: Solution
+    solution:
+      maxVol: 13
+      reagents:
+      - ReagentId: THC
+        Quantity: 5
+      - ReagentId: Omnizine
+        Quantity: 8
 
 - type: entity
   name: dried cannabis leaves
@@ -27,14 +27,15 @@
   - type: Stack
     stackType: ADTLeavesCannabisWhiteDried
     count: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: THC
-          Quantity: 4
-        - ReagentId: Omnizine
-          Quantity: 7
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 11
+      reagents:
+      - ReagentId: THC
+        Quantity: 4
+      - ReagentId: Omnizine
+        Quantity: 7
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi # Corvax-Resprite: Fix path
     state: dried
@@ -49,14 +50,15 @@
   - type: Stack
     stackType: ADTGroundCannabisWhite
     count: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: THC
-          Quantity: 8
-        - ReagentId: Omnizine
-          Quantity: 14
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 22
+      reagents:
+      - ReagentId: THC
+        Quantity: 8
+      - ReagentId: Omnizine
+        Quantity: 14
   - type: Sprite
     sprite: Objects/Misc/reagent_fillings.rsi
     state: powderpile
@@ -81,16 +83,16 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi
   - type: Produce
-    seedId: ADTCoffeeTree
+    plantId: ADTCoffeeTreePlants
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Nutriment
-          Quantity: 2
+  - type: Solution
+    solution:
+      maxVol: 7
+      reagents:
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: Nutriment
+        Quantity: 2
 
 - type: entity
   name: roasted coffee beans
@@ -98,14 +100,15 @@
   id: ADTCoffeeBeansRoasted
   description: "Now its brown and smells realy great..."
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: ADTCoffeePowder
-          Quantity: 10
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Theobromine
+        Quantity: 5
+      - ReagentId: ADTCoffeePowder
+        Quantity: 10
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi # Corvax-Resprite: Fix path
     state: dried

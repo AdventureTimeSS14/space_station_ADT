@@ -16,11 +16,11 @@ namespace Content.Server.ADT.Sponsors;
 /// </summary>
 public sealed partial class SponsorManager : SharedSponsorManager
 {
-    [Dependency] private readonly IServerNetManager _netMgr = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private IServerNetManager _netMgr = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -37,6 +37,18 @@ public sealed partial class SponsorManager : SharedSponsorManager
     {
         public required List<SponsorGrant> Grants;
         public required SponsorData Data;
+        public SponsorGrant? Legacy;
+
+        public List<SponsorGrant> Effective
+        {
+            get
+            {
+                if (Legacy == null)
+                    return Grants;
+
+                return new List<SponsorGrant>(Grants) { Legacy };
+            }
+        }
     }
 
     public override void Initialize()
@@ -46,7 +58,6 @@ public sealed partial class SponsorManager : SharedSponsorManager
         _sawmill = _logManager.GetSawmill("sponsors.adt");
 
         _cfg.OnValueChanged(SponsorCVars.Enabled, OnEnabledChanged, true);
-        _cfg.OnValueChanged(SponsorCVars.LegacyBridge, OnLegacyBridgeChanged, true);
 
         _netMgr.RegisterNetMessage<MsgSponsorState>();
         _netMgr.RegisterNetMessage<MsgSetSponsorColors>(OnSetColors);
@@ -58,6 +69,8 @@ public sealed partial class SponsorManager : SharedSponsorManager
         _netMgr.Disconnect += OnDisconnect;
 
         _tiersLoad = LoadTiers();
+
+        InitializeLegacy();
     }
 
     public override void Shutdown()
@@ -65,7 +78,8 @@ public sealed partial class SponsorManager : SharedSponsorManager
         base.Shutdown();
 
         _cfg.UnsubValueChanged(SponsorCVars.Enabled, OnEnabledChanged);
-        _cfg.UnsubValueChanged(SponsorCVars.LegacyBridge, OnLegacyBridgeChanged);
+
+        ShutdownLegacy();
 
         _netMgr.Connecting -= OnConnecting;
         _netMgr.Connected -= OnConnected;
@@ -94,7 +108,7 @@ public sealed partial class SponsorManager : SharedSponsorManager
         if (cached.Data.NextExpiry == null || cached.Data.NextExpiry.Value > now)
             return cached.Data;
 
-        cached.Data = Resolve(cached.Grants, now);
+        cached.Data = Resolve(cached.Effective, now);
 
         SendState(userId);
         return cached.Data;
@@ -144,11 +158,18 @@ public sealed partial class SponsorManager : SharedSponsorManager
         try
         {
             var grants = await _db.GetSponsorGrantsAsync(userId.UserId);
-            _cache[userId] = new CachedSponsor
+            var now = DateTime.UtcNow;
+
+            var cached = new CachedSponsor
             {
                 Grants = grants,
-                Data = Resolve(grants, DateTime.UtcNow),
+                Data = SponsorData.Empty,
             };
+
+            RebuildLegacyGrant(userId, cached, now);
+            cached.Data = Resolve(cached.Effective, now);
+
+            _cache[userId] = cached;
         }
         catch (Exception ex)
         {
@@ -181,7 +202,7 @@ public sealed partial class SponsorManager : SharedSponsorManager
 
             msg.State = new SponsorStatePayload
             {
-                Benefits = BuildClientBenefits(cached.Grants, DateTime.UtcNow),
+                Benefits = BuildClientBenefits(cached.Effective, DateTime.UtcNow),
                 Tiers = data.Tiers.ToArray(),
                 NextExpiry = data.NextExpiry,
                 SelectedOocColor = ooc,
@@ -283,7 +304,11 @@ public sealed partial class SponsorManager : SharedSponsorManager
         if (!_cache.TryGetValue(userId, out var cached))
             return;
 
-        cached.Data = Resolve(cached.Grants, DateTime.UtcNow);
+        var now = DateTime.UtcNow;
+
+        RebuildLegacyGrant(userId, cached, now);
+        cached.Data = Resolve(cached.Effective, now);
+
         SendState(userId);
     }
 

@@ -1,9 +1,8 @@
-using Robust.Client.Graphics;
+﻿using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 
-// File lives under ADT/, but keeps the Medical.CrewMonitoring namespace so XAML
-// can resolve it via xmlns:ui without a separate clr-namespace (XamlIL + IDE).
-namespace Content.Client.Medical.CrewMonitoring;
+// ADT-Tweak: CrewMonitor UI control
+namespace Content.Client.ADT.Medical.CrewMonitoring;
 
 /// <summary>
 /// CRT-style alternating horizontal scanlines (one pixel light, one dark).

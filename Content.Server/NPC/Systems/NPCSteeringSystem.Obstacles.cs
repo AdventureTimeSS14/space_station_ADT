@@ -1,18 +1,16 @@
 using Content.Server.Destructible;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Climbing;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Doors.Systems; // ADT-Tweak
 using Content.Shared.NPC;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using ClimbableComponent = Content.Shared.Climbing.Components.ClimbableComponent;
 using ClimbingComponent = Content.Shared.Climbing.Components.ClimbingComponent;
-using Robust.Shared.Random;
 
 namespace Content.Server.NPC.Systems;
 
@@ -37,6 +35,10 @@ public sealed partial class NPCSteeringSystem
      * Also need to make sure it picks nearest obstacle path so it starts smashing in front of it.
      */
 
+    [Dependency] private EntityQuery<DoorComponent> _doorQuery = default!;
+    [Dependency] private EntityQuery<ClimbableComponent> _climbableQuery = default!;
+    [Dependency] private EntityQuery<DestructibleComponent> _destructibleQuery = default!;
+    [Dependency] private SharedDoorSystem _door = default!; // ADT-Tweak
 
     private SteeringObstacleStatus TryHandleFlags(EntityUid uid, NPCSteeringComponent component, PathPoly poly)
     {
@@ -84,12 +86,10 @@ public sealed partial class NPCSteeringSystem
             // Just walk into it stupid
             if (isDoor && !isAccessRequired)
             {
-                var doorQuery = GetEntityQuery<DoorComponent>();
-
                 // ... At least if it's not a bump open.
                 foreach (var ent in obstacleEnts)
                 {
-                    if (!doorQuery.TryGetComponent(ent, out var door))
+                    if (!_doorQuery.TryGetComponent(ent, out var door))
                         continue;
 
                     if (!door.BumpOpen && (component.Flags & PathFlags.Interact) != 0x0)
@@ -105,14 +105,29 @@ public sealed partial class NPCSteeringSystem
                 // If we get to here then didn't succeed for reasons.
             }
 
+            // ADT-Tweak start
+            if (isDoor && isAccessRequired && (component.Flags & PathFlags.Access) != 0x0)
+            {
+                if (obstacleEnts.Count == 0)
+                    return SteeringObstacleStatus.Completed;
+
+                foreach (var ent in obstacleEnts)
+                {
+                    if (!_doorQuery.TryGetComponent(ent, out var door) || door.State == DoorState.Open)
+                        continue;
+
+                    if (door.State == DoorState.Opening || _door.TryOpen(ent, door, uid))
+                        return SteeringObstacleStatus.Continuing;
+                }
+            }
+            // ADT-Tweak end
+
             if ((component.Flags & PathFlags.Prying) != 0x0 && isDoor)
             {
-                var doorQuery = GetEntityQuery<DoorComponent>();
-
                 // Get the relevant obstacle
                 foreach (var ent in obstacleEnts)
                 {
-                    if (doorQuery.TryGetComponent(ent, out var door) && door.State != DoorState.Open)
+                    if (_doorQuery.TryGetComponent(ent, out var door) && door.State != DoorState.Open)
                     {
                         // TODO: Use the verb.
 
@@ -141,12 +156,10 @@ public sealed partial class NPCSteeringSystem
                         return SteeringObstacleStatus.Continuing;
                     }
 
-                    var climbableQuery = GetEntityQuery<ClimbableComponent>();
-
                     // Get the relevant obstacle
                     foreach (var ent in obstacleEnts)
                     {
-                        if (climbableQuery.TryGetComponent(ent, out var table) &&
+                        if (_climbableQuery.TryGetComponent(ent, out var table) &&
                             _climb.CanVault(table, uid, uid, out _) &&
                             _climb.TryClimb(uid, uid, ent, out id, table, climbing))
                         {
@@ -165,8 +178,6 @@ public sealed partial class NPCSteeringSystem
                 if (_melee.TryGetWeapon(uid, out _, out var meleeWeapon) && meleeWeapon.NextAttack <= _timing.CurTime && TryComp<CombatModeComponent>(uid, out var combatMode))
                 {
                     _combat.SetInCombatMode(uid, true, combatMode);
-                    var destructibleQuery = GetEntityQuery<DestructibleComponent>();
-
                     // TODO: This is a hack around grilles and windows.
                     _random.Shuffle(obstacleEnts);
                     var attackResult = false;
@@ -174,7 +185,7 @@ public sealed partial class NPCSteeringSystem
                     foreach (var ent in obstacleEnts)
                     {
                         // TODO: Validate we can damage it
-                        if (destructibleQuery.HasComponent(ent))
+                        if (_destructibleQuery.HasComponent(ent))
                         {
                             attackResult = _melee.AttemptLightAttack(uid, uid, meleeWeapon, ent);
                             break;

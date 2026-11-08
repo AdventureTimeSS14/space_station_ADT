@@ -13,9 +13,9 @@ namespace Content.Server.ADT.NPC;
 
 public sealed partial class ChangeFactionStatusEffectSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly NpcFactionSystem _npc = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private NpcFactionSystem _npc = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
 
     public static readonly EntProtoId ChangeFactionStatusEffect = "ChangeFactionStatusEffect";
 

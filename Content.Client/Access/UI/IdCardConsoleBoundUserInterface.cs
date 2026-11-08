@@ -10,9 +10,9 @@ using static Content.Shared.Access.Components.IdCardConsoleComponent;
 
 namespace Content.Client.Access.UI
 {
-    public sealed class IdCardConsoleBoundUserInterface : BoundUserInterface
+    public sealed partial class IdCardConsoleBoundUserInterface : BoundUserInterface
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
         private readonly SharedIdCardConsoleSystem _idCardConsoleSystem = default!;
 
         private IdCardConsoleWindow? _window;
@@ -26,10 +26,15 @@ namespace Content.Client.Access.UI
         {
             base.Open();
             List<ProtoId<AccessLevelPrototype>> accessLevels;
+            List<ProtoId<AccessLevelPrototype>> extendedAccess = new(); // ADT-tweak
 
             if (EntMan.TryGetComponent<IdCardConsoleComponent>(Owner, out var idCard))
             {
                 accessLevels = idCard.AccessLevels;
+                // ADT-tweak start
+                if (_prototypeManager.TryIndex(idCard.ExtendedAccessGroup, out var extendedGroup))
+                    extendedAccess = new List<ProtoId<AccessLevelPrototype>>(extendedGroup.Tags);
+                // ADT-tweak end
             }
             else
             {
@@ -37,7 +42,7 @@ namespace Content.Client.Access.UI
                 _idCardConsoleSystem.Log.Error($"No IdCardConsole component found for {EntMan.ToPrettyString(Owner)}!");
             }
 
-            _window = new IdCardConsoleWindow(this, _prototypeManager, accessLevels)
+            _window = new IdCardConsoleWindow(this, _prototypeManager, accessLevels, extendedAccess) // ADT-tweak extended start
             {
                 Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName
             };

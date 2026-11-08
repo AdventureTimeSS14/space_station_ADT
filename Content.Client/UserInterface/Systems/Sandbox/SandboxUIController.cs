@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.ADT.SpawnMenu;
 using Content.Client.Administration.Managers;
 using Content.Client.Gameplay;
 using Content.Client.Sandbox;
@@ -23,12 +24,12 @@ namespace Content.Client.UserInterface.Systems.Sandbox;
 
 // TODO hud refactor should part of this be in engine?
 [UsedImplicitly]
-public sealed class SandboxUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<SandboxSystem>
+public sealed partial class SandboxUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<SandboxSystem>
 {
-    [Dependency] private readonly IConsoleHost _console = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IClientAdminManager _admin = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IConsoleHost _console = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private IClientAdminManager _admin = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     [UISystemDependency] private readonly SandboxSystem _sandbox = default!;
 
@@ -38,6 +39,11 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
     private EntitySpawningUIController EntitySpawningController => UIManager.GetUIController<EntitySpawningUIController>();
     private TileSpawningUIController TileSpawningController => UIManager.GetUIController<TileSpawningUIController>();
     private DecalPlacerUIController DecalPlacerController => UIManager.GetUIController<DecalPlacerUIController>();
+    // ADT-Tweak-Start
+    private ADTEntitySpawningUIController ADTEntitySpawningController => UIManager.GetUIController<ADTEntitySpawningUIController>();
+    private ADTTileSpawningUIController ADTTileSpawningController => UIManager.GetUIController<ADTTileSpawningUIController>();
+    private ADTDecalSpawningUIController ADTDecalSpawningController => UIManager.GetUIController<ADTDecalSpawningUIController>();
+    // ADT-Tweak-End
 
     private MenuButton? SandboxButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.SandboxButton;
 
@@ -53,7 +59,7 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
             {
                 if (!_admin.CanAdminPlace())
                     return;
-                EntitySpawningController.ToggleWindow();
+                ADTEntitySpawningController.ToggleWindow(); // ADT-Tweak
             }));
         _input.SetInputCommand(ContentKeyFunctions.OpenSandboxWindow,
             InputCmdHandler.FromDelegate(_ => ToggleWindow()));
@@ -62,14 +68,14 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
             {
                 if (!_admin.CanAdminPlace())
                     return;
-                TileSpawningController.ToggleWindow();
+                ADTTileSpawningController.ToggleWindow(); // ADT-Tweak
             }));
         _input.SetInputCommand(ContentKeyFunctions.OpenDecalSpawnWindow,
             InputCmdHandler.FromDelegate(_ =>
             {
                 if (!_admin.CanAdminPlace())
                     return;
-                DecalPlacerController.ToggleWindow();
+                ADTDecalSpawningController.ToggleWindow(); // ADT-Tweak
             }));
 
         CommandBinds.Builder
@@ -125,9 +131,9 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
                 _console.ExecuteCommand($"rmcomp {pnent.Id} StationAiOverlay");
         };
         _window.RespawnButton.OnPressed += _ => _sandbox.Respawn();
-        _window.SpawnTilesButton.OnPressed += _ => TileSpawningController.ToggleWindow();
-        _window.SpawnEntitiesButton.OnPressed += _ => EntitySpawningController.ToggleWindow();
-        _window.SpawnDecalsButton.OnPressed += _ => DecalPlacerController.ToggleWindow();
+        _window.SpawnTilesButton.OnPressed += _ => ADTTileSpawningController.ToggleWindow(); // ADT-Tweak
+        _window.SpawnEntitiesButton.OnPressed += _ => ADTEntitySpawningController.ToggleWindow(); // ADT-Tweak
+        _window.SpawnDecalsButton.OnPressed += _ => ADTDecalSpawningController.ToggleWindow(); // ADT-Tweak
         _window.GiveFullAccessButton.OnPressed += _ => _sandbox.GiveAdminAccess();
         _window.GiveAghostButton.OnPressed += _ => _sandbox.GiveAGhost();
         _window.ToggleLightButton.OnToggled += _ => _sandbox.ToggleLight();
@@ -182,6 +188,11 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
     {
         _window?.Close();
         EntitySpawningController.CloseWindow();
+        // ADT-Tweak-Start
+        ADTEntitySpawningController.CloseWindow();
+        ADTTileSpawningController.CloseWindow();
+        ADTDecalSpawningController.CloseWindow();
+        // ADT-Tweak-End
         TileSpawningController.CloseWindow();
     }
 

@@ -93,11 +93,21 @@ public sealed partial class SlimeComponent : Component
     [DataField]
     public int ExtractsProduced = 1;
 
+    [DataField]
+    public int SlimeSteroidAmount;
+
     /// <summary>
     /// What is the chance of offspring mutating? (this is per/offspring)
     /// </summary>
     [DataField]
     public float MutationChance = 0.45f;
+
+    /// <summary>
+    /// The breed a slime is guaranteed to produce at least one of during mitosis
+    /// when its mutation chance reaches 100%.
+    /// </summary>
+    [DataField]
+    public ProtoId<BreedPrototype>? MaxMutation;
 
     /// <summary>
     /// What hunger threshold must be met for mitosis?
@@ -109,7 +119,7 @@ public sealed partial class SlimeComponent : Component
     /// How long in between each mitosis/breeding check?
     /// </summary>
     [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// When is the next mitosis/breeding check?
@@ -187,4 +197,19 @@ public sealed partial class SlimeComponent : Component
 
     [DataField]
     public TimeSpan StopDuration = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public TimeSpan RetaliateDuration = TimeSpan.FromSeconds(8);
+
+    [DataField]
+    public float RetaliateMaxDistance = 15f;
+
+    /// <summary>
+    /// Шанс взрослого слайма уронить в стан
+    /// </summary>
+    [DataField]
+    public float AdultKnockdownChance = 0.15f;
+
+    [DataField]
+    public TimeSpan AdultKnockdownDuration = TimeSpan.FromSeconds(4);
 }

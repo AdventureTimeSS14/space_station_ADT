@@ -15,12 +15,12 @@ namespace Content.Server.ADT.Power;
 
 public sealed class BatteryDrinkerSystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private SiliconChargeSystem _silicon = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     public override void Initialize()
     {

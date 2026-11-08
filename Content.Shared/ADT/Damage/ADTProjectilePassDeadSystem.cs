@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Damage;
 
 public sealed class ADTProjectilePassDeadSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

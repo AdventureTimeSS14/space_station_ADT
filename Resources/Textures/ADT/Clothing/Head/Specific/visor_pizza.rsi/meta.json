@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911",
+  "size": {
+    "y": 32,
+    "x": 32
+  },
+  "states": [
+    {
+      "directions": 4,
+      "name": "equipped-HELMET"
+    },
+    {
+      "directions": 4,
+      "name": "flipped-equipped-HELMET"
+    },
+    {
+      "directions": 4,
+      "name": "flipped-inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "flipped-inhand-right"
+    },
+    {
+      "directions": 1,
+      "name": "icon"
+    },
+    {
+      "directions": 1,
+      "name": "icon_flipped"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-right"
+    }
+  ]
+}

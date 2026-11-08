@@ -1,0 +1,67 @@
+- type: constructionGraph
+  id: ADTGemSatchel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: satchel
+      steps:
+      - material: ADTLeather
+        amount: 1
+        doAfter: 2
+  - node: satchel
+    entity: ADTGemSatchel
+
+- type: construction
+  id: ADTGemSatchel
+  graph: ADTGemSatchel
+  startNode: start
+  targetNode: satchel
+  category: construction-category-storage
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTGemNecklace
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: necklace
+      steps:
+      - material: Gold
+        amount: 10
+      - material: ADTLeather
+        amount: 1
+        doAfter: 6
+  - node: necklace
+    entity: ADTClothingNeckGemNecklace
+
+- type: construction
+  id: ADTGemNecklace
+  graph: ADTGemNecklace
+  startNode: start
+  targetNode: necklace
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: ADTGemBracers
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bracers
+      steps:
+      - material: Gold
+        amount: 20
+        doAfter: 7
+  - node: bracers
+    entity: ADTClothingHandsGemBracers
+
+- type: construction
+  id: ADTGemBracers
+  graph: ADTGemBracers
+  startNode: start
+  targetNode: bracers
+  category: construction-category-clothing
+  objectType: Item

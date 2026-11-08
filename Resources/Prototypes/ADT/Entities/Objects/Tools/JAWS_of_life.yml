@@ -15,13 +15,13 @@
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Prying
+      - behavior: [ Prying ]
         sprite:
           sprite: ADT/Objects/Tools/jaws_of_life.rsi
           state: jaws_pry
         useSound: /Audio/Items/crowbar.ogg
         changeSound: /Audio/ADT/Items/JAWSofLife/change_claws_meat.ogg
-      - behavior: Cutting
+      - behavior: [ Cutting ]
         sprite:
           sprite: ADT/Objects/Tools/jaws_of_life.rsi
           state: jaws_cutter

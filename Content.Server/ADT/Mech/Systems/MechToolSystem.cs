@@ -8,7 +8,7 @@ namespace Content.Server.Mech.EntitySystems;
 
 public sealed class MechToolSystem : SharedMechToolSystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

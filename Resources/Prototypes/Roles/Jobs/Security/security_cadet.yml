@@ -27,7 +27,6 @@
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
-  canBeAntag: false
   access:
   - Security
   - Brig
@@ -42,6 +41,7 @@
   - !type:AddComponentSpecial # goobstation
     components:
       - type: SecurityStaff
+      - type: ADTTenCodeKnowledge # ADT-Tweak
 
 - type: startingGear
   id: SecurityCadetGear

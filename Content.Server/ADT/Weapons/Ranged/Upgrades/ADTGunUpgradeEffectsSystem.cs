@@ -2,8 +2,8 @@ using System.Linq;
 using Content.Server.ADT.Mining;
 using Content.Server.ADT.Mining.Resonator;
 using Content.Server.ADT.PressureDamageModify;
-using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Weapons.KineticCooldown;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades;
@@ -24,16 +24,15 @@ namespace Content.Server.ADT.Weapons.Ranged.Upgrades;
 
 public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GatherableSystem _gatherable = default!;
-    [Dependency] private readonly ADTHardRockSystem _hardRock = default!;
-    [Dependency] private readonly ADTKineticCooldownSystem _cooldown = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ADTResonatorSystem _resonator = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private GatherableSystem _gatherable = default!;
+    [Dependency] private ADTKineticCooldownSystem _cooldown = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private ADTResonatorSystem _resonator = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -198,10 +197,10 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
             foreach (var gatherable in gatherables)
             {
-                if (gatherable.Owner == args.Target || TerminatingOrDeleted(gatherable) || _hardRock.IsHardRock(gatherable))
+                if (gatherable.Owner == args.Target || TerminatingOrDeleted(gatherable))
                     continue;
 
-                _gatherable.Gather(gatherable, args.Shooter, gatherable.Comp);
+                _gatherable.Gather(gatherable.AsNullable(), args.Shooter);
             }
         }
 
@@ -230,11 +229,12 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         if (!IsAliveMob(args.Target) && !HasComp<GatherableComponent>(args.Target))
             return;
 
-        var left = cooldown.NextUse - _timing.CurTime;
-        if (left <= TimeSpan.Zero)
+        if (cooldown.NextUse <= _timing.CurTime)
             return;
 
-        _cooldown.ReduceCooldown((gun, cooldown), _timing.CurTime + left * ent.Comp.HitCoefficient);
+        // KA.attempt_reload(KA.overheat_time * 0.25)
+        var full = cooldown.NextUse - cooldown.LastUseStart;
+        _cooldown.ReduceCooldown((gun, cooldown), _timing.CurTime + full * ent.Comp.HitCoefficient);
     }
 
     private void OnDeathSyphonHit(Entity<ADTProjectileDeathSyphonComponent> ent, ref ProjectileHitEvent args)

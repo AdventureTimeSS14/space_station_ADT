@@ -1,0 +1,41 @@
+{
+ "version": 1,
+ "license": "CC-BY-SA-3.0",
+ "copyright": "Sprited by Inconnu(discord:inconnu1337)",
+ "size": {
+  "x": 32,
+  "y": 32
+ },
+ "states": [
+  {
+   "name": "body_sci"
+  },
+  {
+   "name": "body_eng"
+  },
+  {
+   "name": "body_sec"
+  },
+  {
+   "name": "body_med"
+  },
+  {
+   "name": "sheet"
+  },
+  {
+   "name": "charred"
+  },
+  {
+   "name": "skeleton"
+  },
+  {
+   "name": "buried"
+  },
+  {
+   "name": "crawled"
+  },
+  {
+   "name": "tag"
+  }
+ ]
+}

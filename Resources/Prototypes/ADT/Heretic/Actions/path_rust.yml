@@ -15,9 +15,10 @@
     checkCanInteract: false
     useDelay: 8
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: construction
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: construction
   - type: TargetAction
     checkCanAccess: false
     repeat: true
@@ -40,9 +41,10 @@
     itemIconStyle: NoItem
     sound:
       path: /Audio/Items/welder.ogg
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: aggressive_spread
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: aggressive_spread
   - type: InstantAction
     event: !type:EventHereticAggressiveSpread
   - type: HereticAction
@@ -66,9 +68,10 @@
     itemIconStyle: NoItem
     sound:
       path: /Audio/ADT/Heretic/smoke.ogg
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: entropic_plume
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: entropic_plume
   - type: InstantAction
     event: !type:EventHereticEntropicPlume
   - type: HereticAction
@@ -87,9 +90,10 @@
     checkCanInteract: false
     useDelay: 45
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: rust_charge
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: rust_charge
   - type: TargetAction
     range: 0
     checkCanAccess: false
@@ -111,9 +115,10 @@
     itemIconStyle: NoItem
     sound:
       path: /Audio/Items/welder.ogg
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: rust_wave
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: rust_wave
   - type: TargetAction
     range: 0
     checkCanAccess: false
@@ -122,6 +127,6 @@
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileWaveRust
-      speed: 2.8
+      projectileSpeed: 2.8
   - type: SpeakOnAction
     sentence: heretic-speech-rust-wave

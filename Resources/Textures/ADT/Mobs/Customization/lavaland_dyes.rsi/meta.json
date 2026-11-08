@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/mob/sprite_accessories/unathi/unathi_body_markings.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cinnabar_dyes",
+            "directions": 4
+        },
+        {
+            "name": "crimson_dyes",
+            "directions": 4
+        },
+        {
+            "name": "indigo_dyes",
+            "directions": 4
+        },
+        {
+            "name": "mint_dyes",
+            "directions": 4
+        },
+        {
+            "name": "amber_dyes",
+            "directions": 4
+        }
+    ]
+}

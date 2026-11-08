@@ -1,0 +1,1 @@
+ent-ADTCapitanRedLaser = { ent-BasicHitscan }

@@ -6,10 +6,11 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Xenobiology/Actions/actions_slime.rsi
-      state: slimeeat
     useDelay: 3
+  - type: Sprite
+    sprite: ADT/Xenobiology/Actions/actions_slime.rsi
+    layers:
+    - state: slimeeat
   - type: TargetAction
     range: 1
   - type: EntityTargetAction

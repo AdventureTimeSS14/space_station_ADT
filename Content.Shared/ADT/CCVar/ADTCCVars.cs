@@ -59,6 +59,12 @@ public sealed class ADTCCVars
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Text outline
+    */
+    public static readonly CVarDef<bool> EnableTextOutline =
+        CVarDef.Create("accessibility.text_outline", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
     * Discord
     */
 
@@ -274,6 +280,12 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> MapVoteRecentBanDepth =
         CVarDef.Create("game.map_vote_recent_ban_depth", 3, CVar.SERVER | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Запускать ли голосования за карту и режим при входе в лобби.
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyAutoVote =
+        CVarDef.Create("game.lobby_auto_vote", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
 
     public static readonly CVarDef<float> BookPrinterUploadCooldown =
         CVarDef.Create("bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);
@@ -283,6 +295,25 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<bool> PaySalary =
         CVarDef.Create("economy.pay_salary", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Доля зарплаты, уходящая как взнос на содержание станции в счёт PrimaryAccount.
+    /// 0.15 = 15% зарплаты идёт в бюджет станции. 0 отключает налог.
+    /// </summary>
+    public static readonly CVarDef<float> SalaryTaxRate =
+        CVarDef.Create("economy.salary_tax_rate", 0.20f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Рыночный перегрев - перезакупленный товар дешевеет в приёмке на паллетах.
+    /// </summary>
+    public static readonly CVarDef<bool> MarketDeflation =
+        CVarDef.Create("economy.market_deflation", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Минимальный депозит ЦК на каждый департаментский счёт каждую выплату зарплаты.
+    /// </summary>
+    public static readonly CVarDef<int> DepartmentDeposit =
+        CVarDef.Create("economy.department_deposit", 2000, CVar.SERVERONLY | CVar.ARCHIVE);
 
 
 
@@ -444,5 +475,175 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<float> ChatHighlightSoundVolume =
         CVarDef.Create("adt.chat_highlight_sound_volume", 1f, CVar.ARCHIVE | CVar.CLIENTONLY);
-}
 
+    /*
+    * Logic Circuit
+    */
+
+    public static readonly CVarDef<bool> LogicEnabled =
+        CVarDef.Create("adt.logic.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Сколько элементов помещается в одну схему.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxElements =
+        CVarDef.Create("adt.logic.max_elements", 64, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Сколько проводов помещается в одну схему.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxWires =
+        CVarDef.Create("adt.logic.max_wires", 128, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Сколько схем может тикать одновременно.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxActiveCircuits =
+        CVarDef.Create("adt.logic.max_active_circuits", 64, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Сколько тиков сервера проходит между обновлениями схемы.
+    /// </summary>
+    public static readonly CVarDef<int> LogicTickInterval =
+        CVarDef.Create("adt.logic.tick_interval", 2, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Предел длины текстового сигнала в символах.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxSignalLength =
+        CVarDef.Create("adt.logic.max_signal_length", 64, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Предел длины значения в настройках элемента.
+    /// </summary>
+    public static readonly CVarDef<int> LogicMaxConfigLength =
+        CVarDef.Create("adt.logic.max_config_length", 512, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Предел времени в миллисекундах, который все схемы вместе могут занять за один тик.
+    public static readonly CVarDef<float> LogicBudgetMs =
+        CVarDef.Create("adt.logic.budget_ms", 2f, CVar.SERVERONLY);
+
+    /*
+     * Join Queue
+     */
+
+    public static readonly CVarDef<bool> QueueGamesEnabled =
+        CVarDef.Create("queue.games_enabled", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> QueueGamesScoreToSpin =
+        CVarDef.Create("queue.games_score_to_spin", 3, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesSlotWinChance =
+        CVarDef.Create("queue.games_slot_win_chance", 0.05f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesSlotBypassMinutes =
+        CVarDef.Create("queue.games_slot_bypass_minutes", 10f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> QueueGamesTurnTime =
+        CVarDef.Create("queue.games_turn_time", 30f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> HostReservedSlots =
+        CVarDef.Create("queue.host_reserved_slots", 5, CVar.SERVERONLY);
+
+    /*
+     * State diagnostics
+     */
+
+    public static readonly CVarDef<bool> StateDiagnosticsEnabled =
+        CVarDef.Create("adt.state_diag_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> StateDiagnosticsRequestThreshold =
+        CVarDef.Create("adt.state_diag_request_threshold", 2, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsWindow =
+        CVarDef.Create("adt.state_diag_window", 60f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsCooldown =
+        CVarDef.Create("adt.state_diag_cooldown", 300f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> StateDiagnosticsRadius =
+        CVarDef.Create("adt.state_diag_radius", 20f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /*
+     * Canvas
+     */
+
+    public static readonly CVarDef<bool> CanvasEnabled =
+        CVarDef.Create("adt.canvas.enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<bool> CanvasWhitelist =
+        CVarDef.Create("adt.canvas.whitelist", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasRulesAccepted =
+        CVarDef.Create("adt.canvas.rules_accepted", 0, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> CanvasMaxPaintingMb =
+        CVarDef.Create("adt.canvas.max_painting_mb", 24, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasMaxSessions =
+        CVarDef.Create("adt.canvas.max_sessions", 12, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasMaxSessionsPerPlayer =
+        CVarDef.Create("adt.canvas.max_sessions_per_player", 1, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> CanvasHostGrace =
+        CVarDef.Create("adt.canvas.host_grace", 300f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasMaxEditors =
+        CVarDef.Create("adt.canvas.max_editors", 4, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> CanvasJoinRequestCooldown =
+        CVarDef.Create("adt.canvas.join_request_cooldown", 60f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasStrokeSamplesPerSec =
+        CVarDef.Create("adt.canvas.stroke_samples_per_sec", 1000, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasCommitDebounceMs =
+        CVarDef.Create("adt.canvas.commit_debounce_ms", 600, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<float> CanvasAutosaveInterval =
+        CVarDef.Create("adt.canvas.autosave_interval", 120f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasDownKbps =
+        CVarDef.Create("adt.canvas.down_kbps", 512, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasUpKbps =
+        CVarDef.Create("adt.canvas.up_kbps", 256, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<int> CanvasDraftSlots =
+        CVarDef.Create("adt.canvas.draft_slots", 2, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasDraftTtlDays =
+        CVarDef.Create("adt.canvas.draft_ttl_days", 14, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasPendingPerPlayer =
+        CVarDef.Create("adt.canvas.pending_per_player", 2, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> CanvasSubmitCooldown =
+        CVarDef.Create("adt.canvas.submit_cooldown", 600f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasRejectTtlDays =
+        CVarDef.Create("adt.canvas.reject_ttl_days", 3, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasApprovedPerPlayer =
+        CVarDef.Create("adt.canvas.approved_per_player", 20, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasApprovedTotalMb =
+        CVarDef.Create("adt.canvas.approved_total_mb", 0, CVar.SERVERONLY);
+
+    public static readonly CVarDef<string> CanvasBlobStore =
+        CVarDef.Create("adt.canvas.blob_store", "db", CVar.SERVERONLY);
+
+    public static readonly CVarDef<string> CanvasBlobDir =
+        CVarDef.Create("adt.canvas.blob_dir", "", CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> CanvasClientCacheMb =
+        CVarDef.Create("adt.canvas.client_cache_mb", 512, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> CanvasPressurePreset =
+        CVarDef.Create("adt.canvas.pressure_preset", "Liner", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> CanvasRightClickPicker =
+        CVarDef.Create("adt.canvas.right_click_picker", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+}

@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Lavaland.LegionCore;
 
 public sealed class ADTLegionCoreToleranceSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public static readonly ProtoId<DamageTypePrototype> CellularDamage = "Cellular";
 

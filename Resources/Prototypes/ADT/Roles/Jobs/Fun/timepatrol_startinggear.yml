@@ -19,7 +19,6 @@
   overrideConsoleVisibility: false
   joinNotifyCrew: true
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
     - Command
     - Brig

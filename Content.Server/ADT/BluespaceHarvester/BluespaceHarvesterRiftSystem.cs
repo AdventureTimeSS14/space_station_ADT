@@ -4,7 +4,7 @@ namespace Content.Server.ADT.BluespaceHarvester;
 
 public sealed class BluespaceHarvesterRiftSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Update(float frameTime)
     {

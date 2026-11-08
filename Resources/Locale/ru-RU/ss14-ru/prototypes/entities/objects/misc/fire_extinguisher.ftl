@@ -8,3 +8,6 @@ ent-FireExtinguisherMini = карманный огнетушитель
     .desc = Лёгкая и компактная модель огнетушителя в стекловолоконном корпусе. Вмещает меньше воды, чем его старший брат.
 ent-SelfRechargingFireExtinguisher = самозаполняющийся огнетушитель
     .desc = Он тушит пожары. Он медленно заполняется водой.
+ent-SolutionFireExtinguisher = { ent-SolutionNormal }
+ent-SolutionFireExtinguisherLarge = { ent-SolutionLarge }
+ent-SolutionFireExtinguisherMini = { ent-SolutionSmall }

@@ -60,7 +60,7 @@ public sealed partial class ADTShadowlingAbilitySystem
         if (distance <= glare.MeleeRange)
         {
             _stun.TryKnockdown(target, glare.CloseKnockdown, true);
-            _status.TryAddStatusEffect<MutedComponent>(target, glare.MuteEffect, glare.CloseMute, true);
+            _statusNew.TryUpdateStatusEffectDuration(target, glare.MuteEffect, glare.CloseMute);
             _stamina.TryTakeStamina(target, glare.CloseStamina, source: user);
             _popup.PopupEntity(Loc.GetString("shadowling-glare-close"), target, target, PopupType.LargeCaution);
             return true;
@@ -68,7 +68,7 @@ public sealed partial class ADTShadowlingAbilitySystem
 
         _stun.TryAddParalyzeDuration(target, glare.FarStun);
         _movementMod.TryUpdateMovementSpeedModDuration(target, glare.SlowEffect, glare.FarSlow, glare.SlowModifier);
-        _status.TryAddStatusEffect<MutedComponent>(target, glare.MuteEffect, glare.FarMute, true);
+        _statusNew.TryUpdateStatusEffectDuration(target, glare.MuteEffect, glare.FarMute);
         _popup.PopupEntity(Loc.GetString("shadowling-glare-far"), target, target, PopupType.LargeCaution);
         return true;
     }

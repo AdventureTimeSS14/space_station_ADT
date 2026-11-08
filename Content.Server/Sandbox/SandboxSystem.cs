@@ -19,17 +19,18 @@ using System.Linq;
 
 namespace Content.Server.Sandbox
 {
-    public sealed class SandboxSystem : SharedSandboxSystem
+    public sealed partial class SandboxSystem : SharedSandboxSystem
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IPlacementManager _placementManager = default!;
-        [Dependency] private readonly IConGroupController _conGroupController = default!;
-        [Dependency] private readonly IServerConsoleHost _host = default!;
-        [Dependency] private readonly SharedAccessSystem _access = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly ItemSlotsSystem _slots = default!;
-        [Dependency] private readonly GameTicker _ticker = default!;
-        [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IPlacementManager _placementManager = default!;
+        [Dependency] private IConGroupController _conGroupController = default!;
+        [Dependency] private IServerConsoleHost _host = default!;
+        [Dependency] private SharedAccessSystem _access = default!;
+        [Dependency] private InventorySystem _inventory = default!;
+        [Dependency] private ItemSlotsSystem _slots = default!;
+        [Dependency] private GameTicker _ticker = default!;
+        [Dependency] private SharedHandsSystem _handsSystem = default!;
+        [Dependency] private Content.Server.ADT.Placement.ADTTilePlacementSystem _adtTilePlacement = default!; // ADT-Tweak
 
         private bool _isSandboxEnabled;
 
@@ -59,6 +60,8 @@ namespace Content.Server.Sandbox
 
             _placementManager.AllowPlacementFunc = placement =>
             {
+                _adtTilePlacement.SnapTileToAdjacentGrid(placement); // ADT-Tweak
+
                 if (IsSandboxEnabled)
                 {
                     return true;
@@ -122,7 +125,7 @@ namespace Content.Server.Sandbox
                 return;
             }
 
-            var allAccess = PrototypeManager
+            var allAccess = ProtoMan
                 .EnumeratePrototypes<AccessLevelPrototype>()
                 .Select(p => new ProtoId<AccessLevelPrototype>(p.ID)).ToList();
 

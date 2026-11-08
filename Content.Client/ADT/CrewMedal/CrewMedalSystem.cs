@@ -8,7 +8,7 @@ namespace Content.Client.ADT.CrewMedal;
 /// </summary>
 public sealed class CrewMedalSystem : SharedCrewMedalSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterfaceSystem = default!;
 
     public override void Initialize()
     {

@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [BaseMachinePowered, ConstructibleMachine]
+  parent: [BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible]
   id: BaseRecharger
   placement:
     mode: SnapgridCenter
@@ -21,17 +21,9 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    - trigger:
-        !type:DamageTrigger
-        damage: 40
+        damage: 175
       behaviors:
       - !type:EmptyAllContainersBehaviour
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
@@ -90,12 +82,7 @@
   - type: Machine
     board: CellRechargerCircuitboard
   - type: WiresPanel
-  - type: GenericVisualizer
-    visuals:
-      enum.WiresVisuals.MaintenancePanelState:
-        enum.WiresVisualLayers.MaintenancePanel:
-          True: { visible: true }
-          False: { visible: false }
+  - type: WiresVisuals
   - type: PowerCellSlot
     cellSlotId: charger_slot
     # fitsInCharger is true i dont think this will ever affect anything negatively but it lets it function
@@ -138,7 +125,7 @@
     radius: 1.5
     color: "#03fc4e"
     energy: 1 # ADT tweak 0.7 > 1.0
-    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
+    lightMask: ADTLightMaskCircleA # ADT tweak
   - type: Charger
     chargeRate: 50
   - type: Sprite
@@ -173,15 +160,13 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          tags:
+          - Stunbaton
+          - ADTEnergyShield # ADT-Tweak
+          - ADTResonator # ADT-Tweak
           components:
           - BatteryAmmoProvider
-          - Stunbaton
-        #ADT-Tweak-Start
-        #  - PowerCell
-          tags:
-            - ADTEnergyShield
-            - ADTResonator
-        #ADT-Tweak-End
+        # - PowerCell # ADT-Tweak
         blacklist:
           tags:
           - PotatoBattery
@@ -213,7 +198,6 @@
           # ADT-Tweak-End
           components:
           - BatteryAmmoProvider
-          - Stunbaton
           - PowerCell
         blacklist:
           tags:
@@ -254,9 +238,9 @@
           - ADTEnergyShield
           - ADTResonator
           # ADT-Tweak-End
+          - Stunbaton
           components:
           - BatteryAmmoProvider
-          - Stunbaton
         blacklist:
           tags:
           - PotatoBattery

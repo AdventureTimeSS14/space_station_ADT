@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by pangaari (discord)",
+  "size": {
+    "y": 32,
+    "x": 32
+  },
+  "states": [
+    {
+      "directions": 1,
+      "name": "icon"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-right"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-nian"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-moth"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-vulp"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-vulpkanin"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-celecern"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-shadekin"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-tajaran"
+    }
+  ]
+}

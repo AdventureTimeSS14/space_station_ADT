@@ -12,17 +12,27 @@ namespace Content.Client.Options.UI.Tabs;
 [GenerateTypedNameReferences]
 public sealed partial class GraphicsTab : Control
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     public GraphicsTab()
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
-        Control.AddOptionCheckBox(CVars.DisplayVSync, VSyncCheckBox);
+        var vSync = Control.AddOptionCheckBox(CVars.DisplayVSync, VSyncCheckBox);
+        Control.AddOption(new OptionSliderIntInput(Control, _cfg, CVars.DisplayMaxFPS, MaxFpsInput, 0, 500));
         Control.AddOptionCheckBox(CCVars.AmbientOcclusion, AmbientOcclusionCheckBox);
         Control.AddOption(new OptionFullscreen(Control, _cfg, FullscreenCheckBox));
         Control.AddOption(new OptionLightingQuality(Control, _cfg, DropDownLightingQuality));
+        Control.AddOption(new OptionParticleQuality(Control, _cfg, DropDownParticleQuality)); // ADT: Particle quality.
+
+        Control.AddOptionSlider(
+            CCVars.ViewportSharpnessStrength,
+            SharpnessSlider,
+            0,
+            20,
+            (_, value) => Loc.GetString("ui-options-value-percent", ("value", value / 10f)));
 
         Control.AddOptionDropDown(
             CVars.DisplayUIScale,
@@ -56,6 +66,8 @@ public sealed partial class GraphicsTab : Control
             5,
             (_, value) => Loc.GetString("ui-options-vp-scale-value", ("scale", value)));
 
+        vSync.ImmediateValueChanged += _ => UpdateMaxFpsEnabled();
+        MaxFpsDisplayRateButton.OnPressed += _ => SetMaxFpsToDisplayRate();
         vpStretch.ImmediateValueChanged += _ => UpdateViewportSettingsVisibility();
         vpVertFit.ImmediateValueChanged += _ => UpdateViewportSettingsVisibility();
         IntegerScalingCheckBox.OnToggled += _ => UpdateViewportSettingsVisibility();
@@ -78,6 +90,24 @@ public sealed partial class GraphicsTab : Control
 
         UpdateViewportWidthRange();
         UpdateViewportSettingsVisibility();
+        UpdateMaxFpsEnabled();
+    }
+
+    private void UpdateMaxFpsEnabled()
+    {
+        var vSync = VSyncCheckBox.Pressed;
+        MaxFpsInput.Disabled = vSync;
+        MaxFpsDisplayRateButton.Disabled = vSync || _clyde.GetMainWindowMonitor() == null;
+        MaxFpsContainer.Modulate = vSync ? Color.FromHex("#FFFFFF80") : Color.White;
+    }
+
+    private void SetMaxFpsToDisplayRate()
+    {
+        if (_clyde.GetMainWindowMonitor() is not { RefreshRate: > 0 } monitor)
+            return;
+
+        MaxFpsInput.MaxValue = Math.Max(MaxFpsInput.MaxValue, monitor.RefreshRate);
+        MaxFpsInput.Value = monitor.RefreshRate;
     }
 
     private void UpdateViewportSettingsVisibility()
@@ -216,6 +246,32 @@ public sealed partial class GraphicsTab : Control
         }
     }
 
+    private sealed class OptionSliderIntInput : BaseOptionCVar<int>
+    {
+        private readonly OptionIntInput _input;
+
+        protected override int Value
+        {
+            get => _input.Value;
+            set => _input.Value = value;
+        }
+
+        public OptionSliderIntInput(
+            OptionsTabControlRow controller,
+            IConfigurationManager cfg,
+            CVarDef<int> cVar,
+            OptionIntInput input,
+            int minValue,
+            int maxValue)
+            : base(controller, cfg, cVar)
+        {
+            _input = input;
+            _input.MinValue = minValue;
+            _input.MaxValue = maxValue;
+            _input.OnValueChanged += _ => ValueChanged();
+        }
+    }
+
     private sealed class OptionIntegerScaling : BaseOptionCVar<int>
     {
         private readonly CheckBox _checkBox;
@@ -239,4 +295,59 @@ public sealed partial class GraphicsTab : Control
             };
         }
     }
+
+    // ADT-Start tweak: Particles
+    private sealed class OptionParticleQuality : BaseOption
+    {
+        private readonly IConfigurationManager _cfg;
+        private readonly OptionDropDown _dropDown;
+
+        private const int QualityOff    = 0;
+        private const int QualityLow    = 1;
+        private const int QualityMedium = 2;
+        private const int QualityHigh   = 3;
+        private const int QualityDefault = QualityHigh;
+
+        public OptionParticleQuality(OptionsTabControlRow controller, IConfigurationManager cfg, OptionDropDown dropDown) : base(controller)
+        {
+            _cfg = cfg;
+            _dropDown = dropDown;
+            var button = dropDown.Button;
+            button.AddItem(Loc.GetString("ui-options-particles-off"),    QualityOff);
+            button.AddItem(Loc.GetString("ui-options-particles-low"),    QualityLow);
+            button.AddItem(Loc.GetString("ui-options-particles-medium"), QualityMedium);
+            button.AddItem(Loc.GetString("ui-options-particles-high"),   QualityHigh);
+            button.OnItemSelected += args =>
+            {
+                _dropDown.Button.SelectId(args.Id);
+                ValueChanged();
+            };
+        }
+
+        public override void LoadValue()
+        {
+            _dropDown.Button.SelectId(_cfg.GetCVar(CCVars.ParticleQuality));
+        }
+
+        public override void SaveValue()
+        {
+            _cfg.SetCVar(CCVars.ParticleQuality, _dropDown.Button.SelectedId);
+        }
+
+        public override void ResetToDefault()
+        {
+            _dropDown.Button.SelectId(QualityDefault);
+        }
+
+        public override bool IsModified()
+        {
+            return _dropDown.Button.SelectedId != _cfg.GetCVar(CCVars.ParticleQuality);
+        }
+
+        public override bool IsModifiedFromDefault()
+        {
+            return _dropDown.Button.SelectedId != QualityDefault;
+        }
+    }
+    // ADT-Tweak End: Particles
 }

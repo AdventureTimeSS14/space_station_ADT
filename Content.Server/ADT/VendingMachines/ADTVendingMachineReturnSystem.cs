@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Power.EntitySystems;
-using Content.Server.VendingMachines;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Clothing.Components;
 using Content.Shared.IdentityManagement;
@@ -11,8 +10,8 @@ using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
-using Content.Shared.VendingMachines;
 using Content.Shared.Verbs;
+using Content.Shared.VendingMachines.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -21,24 +20,22 @@ namespace Content.Server.ADT.VendingMachines;
 
 public sealed class ADTVendingMachineReturnSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly VendingMachineSystem _vending = default!;
-
-    private const string ReturnedItemsContainerId = "ADTVendingReturnedItems";
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private VendingMachineSystem _vending = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VendingMachineComponent, ADTVendingReturnedEjectEvent>(OnReturnedEject);
-        SubscribeLocalEvent<VendingMachineComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+        SubscribeLocalEvent<ADTVendingMachineComponent, ADTVendingReturnedEjectEvent>(OnReturnedEject);
+        SubscribeLocalEvent<ADTVendingMachineComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
 
-    public bool TryReturnItem(EntityUid uid, VendingMachineComponent component, EntityUid user, EntityUid used)
+    public bool TryReturnItem(EntityUid uid, ADTVendingMachineComponent component, EntityUid user, EntityUid used)
     {
         if (HasComp<StealTargetComponent>(used) || ContainsStealTarget(used))
         {
@@ -53,7 +50,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
             return false;
         }
 
-        var container = _container.EnsureContainer<Container>(uid, ReturnedItemsContainerId);
+        var container = _container.EnsureContainer<Container>(uid, ADTVendingMachineComponent.ReturnedItemsContainerId);
         if (!_container.Insert(used, container))
         {
             Deny(uid, component);
@@ -62,6 +59,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
 
         component.ReturnedInventory[protoId] = component.ReturnedInventory.GetValueOrDefault(protoId) + 1;
         Dirty(uid, component);
+        _vending.UpdateVendingMachineInterfaceState(uid, component);
 
         _popup.PopupEntity(
             Loc.GetString("vending-machine-return-success", ("item", Identity.Entity(used, EntityManager))),
@@ -70,7 +68,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
         return true;
     }
 
-    private void OnGetVerbs(EntityUid uid, VendingMachineComponent component, GetVerbsEvent<Verb> args)
+    private void OnGetVerbs(EntityUid uid, ADTVendingMachineComponent component, GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.Using is not { } used)
             return;
@@ -98,16 +96,13 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
         return storage.Container.ContainedEntities.Any(e => HasComp<StealTargetComponent>(e));
     }
 
-    private void OnReturnedEject(EntityUid uid, VendingMachineComponent component, ADTVendingReturnedEjectEvent args)
+    private void OnReturnedEject(EntityUid uid, ADTVendingMachineComponent component, ADTVendingReturnedEjectEvent args)
     {
-        var container = _container.EnsureContainer<Container>(uid, ReturnedItemsContainerId);
+        var container = _container.EnsureContainer<Container>(uid, ADTVendingMachineComponent.ReturnedItemsContainerId);
 
         for (var i = 0; i < args.Count; i++)
         {
-            var returned = container.ContainedEntities.FirstOrDefault(e =>
-                TryComp<MetaDataComponent>(e, out var meta) &&
-                meta.EntityPrototype?.ID == args.ItemProtoId);
-
+            var returned = FindTopReturned(container, args.ItemProtoId);
             if (!Exists(returned))
                 break;
 
@@ -117,16 +112,31 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
 
             if (args.ThrowItem)
             {
-                var range = component.NonLimitedEjectRange;
+                if (!TryComp<VendingMachineEjectComponent>(uid, out var eject))
+                    return;
+
+                var range = eject.NonLimitedEjectRange;
                 var direction = new Vector2(_random.NextFloat(-range, range), _random.NextFloat(-range, range));
-                _throwingSystem.TryThrow(returned, direction, component.NonLimitedEjectForce);
+                _throwingSystem.TryThrow(returned, direction, eject.NonLimitedEjectForce);
             }
         }
     }
 
-    private void Deny(EntityUid uid, VendingMachineComponent component)
+    private EntityUid FindTopReturned(Container container, string protoId)
     {
-        _vending.Deny(uid, component);
+        for (var i = container.ContainedEntities.Count - 1; i >= 0; i--)
+        {
+            var ent = container.ContainedEntities[i];
+            if (TryComp<MetaDataComponent>(ent, out var meta) && meta.EntityPrototype?.ID == protoId)
+                return ent;
+        }
+
+        return EntityUid.Invalid;
+    }
+
+    private void Deny(EntityUid uid, ADTVendingMachineComponent component)
+    {
+        _vending.Deny((uid, component));
     }
 
     public void PaintClothing(EntityUid uid, Color? color)

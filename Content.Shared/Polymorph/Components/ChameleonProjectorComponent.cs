@@ -65,9 +65,8 @@ public sealed partial class ChameleonProjectorComponent : Component
 }
 
 // ADT-Tweak-Start
-public sealed partial class UndisguisedEvent : EntityEventArgs
+public sealed class UndisguisedEvent : EntityEventArgs
 {
-    [DataField]
     public EntityUid? User;
     public UndisguisedEvent(EntityUid user)
     {

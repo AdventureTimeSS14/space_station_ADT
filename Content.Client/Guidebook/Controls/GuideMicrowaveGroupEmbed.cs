@@ -15,8 +15,8 @@ namespace Content.Client.Guidebook.Controls;
 [UsedImplicitly]
 public sealed partial class GuideMicrowaveGroupEmbed : BoxContainer, IDocumentTag
 {
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly ISawmill _sawmill;
 
@@ -58,6 +58,12 @@ public sealed partial class GuideMicrowaveGroupEmbed : BoxContainer, IDocumentTa
         {
             if (recipe.HideInGuidebook) // Frontier: super secret recipes
                 continue; // Frontier: super secret recipes
+
+            // ADT-Tweak-Start
+            const int activeTypes = (int) (MicrowaveRecipeType.ADTMicrowave | MicrowaveRecipeType.ADTAssembler | MicrowaveRecipeType.MedicalAssembler | MicrowaveRecipeType.TribalOven);
+            if ((recipe.RecipeType & activeTypes) == 0)
+                continue;
+            // ADT-Tweak-End
 
             var embed = new GuideMicrowaveEmbed(recipe);
             AddChild(embed);

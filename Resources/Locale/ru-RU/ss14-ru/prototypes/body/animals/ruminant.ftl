@@ -3,3 +3,4 @@ ent-OrganRuminantStomach = { ent-OrganBaseStomach }
     .suffix = Травоядное животное
 ent-BaseMobRuminant = { "" }
     .desc = { "" }
+ent-SolutionStomachRuminant = { ent-SolutionStomach }

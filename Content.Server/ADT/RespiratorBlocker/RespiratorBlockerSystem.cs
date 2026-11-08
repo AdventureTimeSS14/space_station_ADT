@@ -5,7 +5,7 @@ namespace Content.Server.ADT.RespiratorBlocker;
 
 public sealed partial class RespiratorBlockSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private BodySystem _bodySystem = default!;
     public override void Initialize()
     {
         base.Initialize();

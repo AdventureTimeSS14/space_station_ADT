@@ -208,12 +208,14 @@
   components:
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier
-      path: /Audio/Weapons/chainsawwield.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsawwield.ogg
       params:
         volume: 1
   - type: MeleeRequiresWield
   - type: Unremoveable
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/divinechainsaw.rsi
     state: icon
@@ -227,7 +229,7 @@
         Holy: 1.25
         Slash: 0.5
     soundHit:
-      path: /Audio/Weapons/chainsaw.ogg
+      path: /Audio/ADT/Weapons/Chainsaw/chainsaw.ogg
       params:
         volume: -3
   - type: Item
@@ -359,7 +361,9 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.50
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Execution
     doAfterDuration: 3.0
   - type: HolyDamage

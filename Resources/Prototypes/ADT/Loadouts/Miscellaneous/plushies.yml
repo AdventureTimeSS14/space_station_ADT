@@ -1,0 +1,188 @@
+- type: loadout
+  id: ADTPlushieArachind
+  storage:
+    back:
+    - PlushieArachind
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieUrs
+  storage:
+    back:
+    - ADTPlushieUrs
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieDiona
+  storage:
+    back:
+    - PlushieDiona
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieHuman
+  storage:
+    back:
+    - PlushieHuman
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieVox
+  storage:
+    back:
+    - PlushieVox
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieVulp
+  storage:
+    back:
+    - PlushieVulp
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieMoth
+  storage:
+    back:
+    - PlushieMoth
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieSlime
+  storage:
+    back:
+    - PlushieSlime
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieLizard
+  storage:
+    back:
+    - PlushieLizard
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieAtmosian
+  storage:
+    back:
+    - PlushieAtmosian
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieXeno
+  storage:
+    back:
+    - PlushieXeno
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieNuke
+  storage:
+    back:
+    - PlushieNuke
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieExperiment
+  storage:
+    back:
+    - PlushieExperiment
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieBee
+  storage:
+    back:
+    - PlushieBee
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieOctocat
+  storage:
+    back:
+    - ADTPlushieOctocat
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieOwl
+  storage:
+    back:
+    - ADTPlushieOwl
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieSnake
+  storage:
+    back:
+    - PlushieSnake
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieCarp
+  storage:
+    back:
+    - PlushieCarp
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushiePenguin
+  storage:
+    back:
+    - PlushiePenguin
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieHampter
+  storage:
+    back:
+    - PlushieHampter
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieRouny
+  storage:
+    back:
+    - PlushieRouny
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieSharkBlue
+  storage:
+    back:
+    - PlushieSharkBlue
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieSharkPink
+  storage:
+    back:
+    - PlushieSharkPink
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieSharkGrey
+  storage:
+    back:
+    - PlushieSharkGrey
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTBlackSharkPlushie
+  storage:
+    back:
+    - ADTBlackSharkPlushie
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieNar
+  storage:
+    back:
+    - PlushieNar
+  groupBy: "plushies"
+
+- type: loadout
+  id: ADTPlushieRatvar
+  storage:
+    back:
+    - PlushieRatvar
+  groupBy: "plushies"

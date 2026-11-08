@@ -15,12 +15,10 @@ public sealed class SponsorColorJsonConverter : JsonConverter<Color>
         if (raw == null)
             throw new JsonException("Ожидалась hex-строка цвета, получен null.");
 
-        var color = Color.TryFromHex(raw);
-
-        if (color == null)
+        if (!Color.TryFromHex(raw, out var color))
             throw new JsonException($"'{raw}' не является корректным hex-цветом.");
 
-        return color.Value;
+        return color;
     }
 
     public override void Write(Utf8JsonWriter writer, Color value, JsonSerializerOptions options)

@@ -1,15 +1,13 @@
 using System.Threading;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Server.Felinid
 {
     [RegisterComponent]
     [Access(typeof(WoundLickingSystem))]
     public sealed partial class WoundLickingComponent : Component
     {
-        [DataField("woundLickingAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? WoundLickingAction = "ActionWoundLicking";
+        [DataField("woundLickingAction")]
+        public EntProtoId? WoundLickingAction = "ActionWoundLicking"; // ADT-Tweak
 
         [DataField("woundLickingActionEntity")]
         public EntityUid? WoundLickingActionEntity;

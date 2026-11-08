@@ -1,0 +1,60 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTEasel
+  name: easel
+  description: A wooden stand for canvases. Put a canvas on it and start painting.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/easel.rsi
+    noRot: true
+    layers:
+    - state: icon
+    - sprite: ADT/Objects/Fun/canvas.rsi
+      state: large
+      map: ["canvas"]
+      visible: false
+  - type: Appearance
+  - type: CanvasEasel
+  - type: ItemSlots
+    slots:
+      canvas:
+        name: adt-canvas-easel-slot
+        whitelist:
+          components:
+          - CanvasItem
+  - type: ContainerContainer
+    containers:
+      canvas: !type:ContainerSlot
+  - type: ActivatableUI
+    key: enum.CanvasEaselUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.CanvasEaselUiKey.Key:
+        type: CanvasEaselBoundUserInterface
+  - type: Anchorable
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 1
+            max: 2
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Tag
+    tags:
+    - Structure
+    - Wooden

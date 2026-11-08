@@ -15,8 +15,13 @@
   components:
   - type: WeatherStatusEffect
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: rain
+    # ADT-Tweak-Start
+      sprite: /Textures/ADT/Effects/Weather/rain.rsi
+      state: base
+    groundSprite:
+      sprite: /Textures/ADT/Effects/Weather/rain.rsi
+      state: ground
+    # ADT-Tweak-End
     sound:
       collection: Rain
       params:
@@ -127,8 +132,10 @@
   components:
   - type: WeatherStatusEffect
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: snowfall_light
+    # ADT-Tweak-Start
+      sprite: /Textures/ADT/Effects/Weather/snow.rsi
+      state: base
+    # ADT-Tweak-End
     sound:
       path: /Audio/Effects/Weather/snowstorm_weak.ogg
       params:
@@ -169,8 +176,13 @@
   components:
   - type: WeatherStatusEffect
     sprite:
-      sprite: /Textures/Effects/weather.rsi
-      state: storm
+    # ADT-Tweak-Start
+      sprite: /Textures/ADT/Effects/Weather/storm.rsi
+      state: base 
+    groundSprite:
+      sprite: /Textures/ADT/Effects/Weather/storm.rsi
+      state: ground
+    # ADT-Tweak-End
     sound:
       path: /Audio/Effects/Weather/rain_heavy.ogg
       params:

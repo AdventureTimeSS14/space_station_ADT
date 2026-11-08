@@ -18,9 +18,10 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: open_store
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: open_store
   - type: InstantAction
     event: !type:EventHereticOpenStore {}
   - type: HereticAction
@@ -35,9 +36,10 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: mansus_grasp
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: mansus_grasp
   - type: InstantAction
     event: !type:EventHereticMansusGrasp {}
   - type: HereticAction
@@ -53,9 +55,10 @@
   - type: Action
     useDelay: 2
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: living_heart
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: living_heart
   - type: InstantAction
     event: !type:EventHereticLivingHeart {}
   - type: HereticAction
@@ -71,9 +74,10 @@
   - type: Action
     useDelay: 10
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: mansus_link
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: mansus_link
   - type: TargetAction
   - type: EntityTargetAction
     event: !type:EventHereticMansusLink {}
@@ -93,9 +97,10 @@
     checkCanInteract: false
     useDelay: 6
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: shadowcloak
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: shadowcloak
   - type: InstantAction
     event: !type:EventHereticCloak
       status: ShadowCloakStatusEffect
@@ -116,9 +121,10 @@
   - type: Action
     useDelay: 10
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: shapeshift
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: shapeshift
   - type: InstantAction
     event: !type:EventHereticShapeshift
   # ADT: use local polymorphs, no Goob Shapeshift*

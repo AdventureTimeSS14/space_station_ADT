@@ -15,17 +15,18 @@ using System.Linq;
 using Robust.Shared.Spawners;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Station.Components;
 
 namespace Content.Server.ADT.SpaceWhale.StationProximity;
 
 public sealed class StationProximitySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _moveSpeed = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveSpeed = default!;
 
     private const float CheckInterval = 60;
     private TimeSpan _nextCheck = TimeSpan.Zero;

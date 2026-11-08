@@ -6,8 +6,8 @@ namespace Content.Shared.ADT.EntityEffects;
 
 public sealed class ADTTemporaryGlowEntityEffectSystem : EntityEffectSystem<MetaDataComponent, ADTTemporaryGlow>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTTemporaryGlow> args)
     {

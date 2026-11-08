@@ -7,7 +7,7 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class ChangeFactionEntityEffectSystem : EntityEffectSystem<NpcFactionMemberComponent, ChangeFactionEntityEffect>
 {
-    [Dependency] private readonly ChangeFactionStatusEffectSystem _changeFaction = default!;
+    [Dependency] private ChangeFactionStatusEffectSystem _changeFaction = default!;
 
     protected override void Effect(Entity<NpcFactionMemberComponent> entity, ref EntityEffectEvent<ChangeFactionEntityEffect> args)
     {

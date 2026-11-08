@@ -9,7 +9,7 @@ namespace Content.Shared.ADT.Crushers.Systems;
 
 public sealed class TrophyEffectsSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

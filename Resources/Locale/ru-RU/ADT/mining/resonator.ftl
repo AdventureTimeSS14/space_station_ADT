@@ -14,5 +14,3 @@ adt-resonator-popup-limit = Резонатор больше не удержив�
 adt-resonator-popup-no-charges = Заряд резонатора кончился, нужен зарядник.
 
 adt-resonance-field-popup-ruptured = Резонирующее поле разрывается прямо на вас!
-
-adt-hard-rock-popup-resistant = Эта порода не поддаётся ничему, кроме кирки!

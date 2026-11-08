@@ -1,0 +1,61 @@
+- type: entityTable
+  id: ADTRandomFishingBaitTable
+  table: !type:GroupSelector
+    prob: 0.4
+    children:
+    - id: ADTFishingBaitAshEater
+    - id: ADTFishingBaitBloodyLeach
+    - id: ADTFishingBaitGoldgrubLarva
+
+- type: entityTable
+  id: ADTLavalandMinorLootTable
+  table: !type:GroupSelector
+    children:
+    - !type:NoneSelector
+      weight: 40
+    - id: ADTMaterialSinew
+      weight: 4
+    - id: ADTMaterialGoliathHide5
+      weight: 2
+    - id: ADTAshDrakeHide
+      weight: 1
+    - !type:NestedSelector
+      tableId: ADTGemRandomTable
+      weight: 5
+    - id: ADTMaterialWeaverChitin
+      weight: 3
+    - id: ADTFoodCactusBerry
+      weight: 3
+    - id: ADTBoneKnife
+      weight: 1
+    - id: ADTMagmaGem
+      weight: 5
+    - id: ADTClothingNeckGemNecklace
+      weight: 1
+
+- type: entity
+  id: ADTLavalandMinorLootSpawner
+  parent: MarkerBase
+  name: random lavaland minor loot spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Objects/Specific/Lavaland/magma_gem.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ADTLavalandMinorLootTable
+
+- type: entityTable
+  id: ADTBasaltDigBaitTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTFishingBaitAshEater
+      weight: 42
+    - id: ADTFishingBaitBloodyLeach
+      weight: 33
+    - id: ADTFishingBaitGoldgrubLarva
+      weight: 24
+    - id: ADTFoodCharredKrill
+      weight: 1

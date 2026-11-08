@@ -7,7 +7,7 @@ namespace Content.Shared.Stealth;
 
 public abstract partial class SharedStealthSystem
 {
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> ADTSiliconStealthWhitelistTag = "ADTSiliconStealthWhitelist";
 

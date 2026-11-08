@@ -9,49 +9,71 @@
       state: core
       color: "#dcaa4f"
       shader: XenoMetallic
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ForceStealthNearbyEffect
-        radius: 12
-        duration: 60
-        chance: 0.5
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:DoSmokeEntityEffect
-        duration: 5
-        spreadAmount: 75
-        smokePrototype: Smoke
-      - !type:ForceStealthNearbyEffect
-        duration: 30
-        radius: 7
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ForceStealthNearbyEffect
-        radius: 1.5
-        duration: 120
+  - type: SlimeExtract
+    extractReactions:
+    - PyriteSlimeExtractWaterReaction
+    - PyriteSlimeExtractPlasmaReaction
+    - PyriteSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyPyriteExtract
+
+- type: extractReaction
+  id: PyriteSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:ForceStealthNearbyEffect
+      radius: 12
+      duration: 60
+      chance: 0.5
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: PyriteSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:DoSmokeEntityEffect
+      duration: 5
+      spreadAmount: 75
+      smokePrototype: Smoke
+    scalingOffset: 1
+  - effect: !type:ForceStealthNearbyEffect
+      duration: 30
+      radius: 7
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: PyriteSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:ForceStealthNearbyEffect
+      radius: 1.5
+      duration: 120
+    scalingOffset: 1
+  shouldDelete: false

@@ -24,7 +24,7 @@
     state: legion_core_stable
   - type: ADTRegenerativeCore
     duration: 60
-    applyDelay: 1
+    applyDelay: 0
     implantDelay: 5
     implantCellularMultiplier: 1
     instantHeal:
@@ -38,3 +38,6 @@
   - type: Construction
     graph: ADTLegionCoreStable
     node: stable
+  - type: Tag
+    tags:
+    - ADTLegionCore

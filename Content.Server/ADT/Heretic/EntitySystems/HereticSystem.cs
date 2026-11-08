@@ -48,31 +48,32 @@ using Content.Server.Hands.Systems;
 using Content.Shared.ADT.Bed.Cryostorage;
 using Robust.Shared.Enums;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Store;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticSystem : SharedHereticSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly HereticRitualSystem _ritual = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private SharedJobSystem _job = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private ObjectivesSystem _objectives = default!;
+    [Dependency] private HereticRitualSystem _ritual = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private PvsOverrideSystem _pvs = default!;
 
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IChatManager _chatMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IRobustRandom _rand = default!;
+    [Dependency] private IPlayerManager _playerMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IChatManager _chatMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private float _timer;
     private const float PassivePointCooldown = 20f * 60f;
@@ -98,6 +99,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         SubscribeLocalEvent<HereticSacrificeTargetComponent, EntityTerminatingEvent>(OnTargetTerminating);
         SubscribeLocalEvent<HereticSacrificeTargetComponent, EntityEnteredCryostorageEvent>(OnTargetEnteredCryostorage);
+        SubscribeLocalEvent<SacrificedComponent, ComponentStartup>(OnSacrificedStartup);
 
         SubscribeLocalEvent<HereticComponent, MindGotRemovedEvent>(OnMindRemoved);
         SubscribeLocalEvent<HereticComponent, MindGotAddedEvent>(OnMindAdded);
@@ -345,7 +347,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
         var (mindId, heretic, store, mind) = ent;
         var uid = user ?? mind.CurrentEntity;
 
-        _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "KnowledgePoint", amount } }, mindId, store);
+        _store.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { new ProtoId<CurrencyPrototype>("KnowledgePoint"), amount } }, mindId, store);
         _store.UpdateUserInterface(uid, mindId, store);
 
         if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
@@ -472,6 +474,12 @@ public sealed partial class HereticSystem : SharedHereticSystem
         TargetLeftTheRound(ent);
     }
 
+    private void OnSacrificedStartup(Entity<SacrificedComponent> ent, ref ComponentStartup args)
+    {
+        if (TryComp<HereticSacrificeTargetComponent>(ent, out var marker))
+            TargetLeftTheRound((ent.Owner, marker));
+    }
+
     private void TargetLeftTheRound(Entity<HereticSacrificeTargetComponent> ent)
     {
         // RerollTargets edits the marker's set, so walk a copy of it.
@@ -501,7 +509,39 @@ public sealed partial class HereticSystem : SharedHereticSystem
         var pickedTargets = new List<EntityUid>();
 
         if (keepValid)
-            pickedTargets = oldTargets.Where(candidates.Contains).ToList();
+        {
+            foreach (var target in oldTargets)
+            {
+                if (target == ignore || TerminatingOrDeleted(target))
+                    continue;
+
+                if (HasComp<SacrificedComponent>(target))
+                    continue;
+
+                if (HasComp<CryostorageContainedComponent>(target))
+                    continue;
+
+                if (HasComp<GhoulComponent>(target))
+                    continue;
+
+                if (!HasComp<HumanoidProfileComponent>(target))
+                    continue;
+
+                if (!_mind.TryGetMind(target, out var mind, out var mindComp) ||
+                    mind == ent.Owner ||
+                    HasComp<HereticComponent>(mind) ||
+                    !_job.MindTryGetJobId(mind, out var jobId) ||
+                    jobId == null)
+                    continue;
+
+                if (mindComp.UserId is not { } userId ||
+                    !_playerMan.TryGetSessionById(userId, out var session) ||
+                    session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
+                    continue;
+
+                pickedTargets.Add(target);
+            }
+        }
 
         var predicates = new List<Func<EntityUid, bool>>();
 
@@ -553,16 +593,22 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         bool IsSessionValid(ICommonSession session)
         {
-            if (!HasComp<HumanoidProfileComponent>(session.AttachedEntity))
+            if (session.AttachedEntity is not { } entity)
                 return false;
 
-            if (HasComp<GhoulComponent>(session.AttachedEntity.Value))
+            if (!HasComp<HumanoidProfileComponent>(entity))
                 return false;
 
-            if (HasComp<CryostorageContainedComponent>(session.AttachedEntity.Value))
+            if (HasComp<GhoulComponent>(entity))
                 return false;
 
-            if (!_mind.TryGetMind(session.AttachedEntity.Value, out var mind, out _) ||
+            if (HasComp<CryostorageContainedComponent>(entity))
+                return false;
+
+            if (HasComp<SacrificedComponent>(entity))
+                return false;
+
+            if (!_mind.TryGetMind(entity, out var mind, out _) ||
                 mind == ent.Owner || !_job.MindTryGetJobId(mind, out _))
                 return false;
 

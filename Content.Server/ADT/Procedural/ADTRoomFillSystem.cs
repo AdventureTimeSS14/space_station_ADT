@@ -8,10 +8,10 @@ namespace Content.Server.ADT.Procedural;
 
 public sealed class ADTRoomFillSystem : EntitySystem
 {
-    [Dependency] private readonly ADTDungeonRoomSystem _rooms = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private ADTDungeonRoomSystem _rooms = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
 
     public override void Initialize()
     {

@@ -18,15 +18,15 @@ namespace Content.Server.ADT.OreFurnace;
 
 public sealed class ADTOreFurnaceSystem : EntitySystem
 {
-    [Dependency] private readonly ADTSharedOreFurnaceSystem _furnace = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MiningPointsSystem _miningPoints = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private ADTSharedOreFurnaceSystem _furnace = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MiningPointsSystem _miningPoints = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {

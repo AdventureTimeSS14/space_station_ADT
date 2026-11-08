@@ -5,12 +5,11 @@
     <Button Name="ChatButton"
             StyleClasses="ButtonSquare"
             HorizontalExpand="True"
-            MaxSize="137 64"
+            MaxHeight="64"
             Margin="0 1">
         <BoxContainer Orientation="Horizontal"
                       HorizontalExpand="True"
                       VerticalExpand="True"
-                      MinWidth="132"
                       Margin="6 4"
                       VerticalAlignment="Center">
             <!-- Unread indicator dot -->
@@ -40,7 +39,7 @@
                 <Label Name="JobLabel"
                        StyleClasses="LabelSubText"
                        HorizontalExpand="True"
-                       ClipText="False"
+                       ClipText="True"
                        HorizontalAlignment="Center" />
             </BoxContainer>
         </BoxContainer>

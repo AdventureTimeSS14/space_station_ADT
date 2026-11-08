@@ -1,0 +1,68 @@
+{
+ "version": 1,
+ "license": "CC-BY-SA-3.0",
+ "copyright": "Sprited by Inconnu(discord:inconnu1337)",
+ "size": {
+  "x": 32,
+  "y": 32
+ },
+ "states": [
+  {
+   "name": "pillar_1"
+  },
+  {
+   "name": "piece_1"
+  },
+  {
+   "name": "pillar_2"
+  },
+  {
+   "name": "piece_2"
+  },
+  {
+   "name": "pillar_3"
+  },
+  {
+   "name": "piece_3"
+  },
+  {
+   "name": "pillar_4"
+  },
+  {
+   "name": "piece_4"
+  },
+  {
+   "name": "pillar_5"
+  },
+  {
+   "name": "piece_5"
+  },
+  {
+   "name": "pillar_6"
+  },
+  {
+   "name": "piece_6"
+  },
+  {
+   "name": "pillar_7"
+  },
+  {
+   "name": "piece_7"
+  },
+  {
+   "name": "pillar_8"
+  },
+  {
+   "name": "piece_8"
+  },
+  {
+   "name": "pillar_9"
+  },
+  {
+   "name": "piece_9"
+  },
+  {
+   "name": "icon"
+  }
+ ]
+}

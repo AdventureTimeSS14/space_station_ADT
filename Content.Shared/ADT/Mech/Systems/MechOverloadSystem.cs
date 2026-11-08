@@ -12,8 +12,8 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public sealed class MechOverloadSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -92,10 +92,7 @@ public sealed class MechOverloadSystem : EntitySystem
                 continue;
             overload.Accumulator = 0f;
 
-            var dmg = mech.MechToPilotDamageMultiplier;
-            mech.MechToPilotDamageMultiplier = 0f;
-            _damageable.TryChangeDamage(uid, overload.DamagePerSpeed, ignoreResistances: true);
-            mech.MechToPilotDamageMultiplier = dmg;
+            _damageable.SetDamage(uid, _damageable.GetAllDamage(uid) + overload.DamagePerSpeed);
         }
     }
 }

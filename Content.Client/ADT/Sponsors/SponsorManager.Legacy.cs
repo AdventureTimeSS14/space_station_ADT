@@ -10,8 +10,8 @@ namespace Content.Client.ADT.Sponsors;
 
 public sealed partial class SponsorManager
 {
-    [Dependency] private readonly SponsorsManager _legacy = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private SponsorsManager _legacy = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private bool _legacyBridge;
 

@@ -672,3 +672,102 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+
+- type: tile
+  id: ADTFloorUSSPParquet
+  name: tiles-adt-ussp-parquet-floor
+  sprite: /Textures/ADT/Tiles/ussp_parquet.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepWood
+  itemDrop: FloorTileItemWood
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorUSSPMetlakh
+  name: tiles-adt-ussp-metlakh-floor
+  sprite: /Textures/ADT/Tiles/ussp_metlakh.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorUSSPConcrete
+  name: tiles-adt-ussp-concrete-floor
+  sprite: /Textures/ADT/Tiles/ussp_concrete.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorUSSPLinoleum
+  name: tiles-adt-ussp-linoleum-floor
+  sprite: /Textures/ADT/Tiles/ussp_linoleum.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorUSSPSteelOlive
+  name: tiles-adt-ussp-steel-olive-floor
+  sprite: /Textures/ADT/Tiles/ussp_steel_olive.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorUSSPSteelRed
+  name: tiles-adt-ussp-steel-red-floor
+  sprite: /Textures/ADT/Tiles/ussp_steel_red.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000

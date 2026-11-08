@@ -10,11 +10,11 @@ namespace Content.Server.ADT.TeddyBear;
 
 public sealed class TeddyBearSystem : EntitySystem
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

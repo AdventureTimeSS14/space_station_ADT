@@ -1,0 +1,14 @@
+job-icon-group-cargo = Снабжение
+job-icon-group-command = Командование
+job-icon-group-engineering = Инженерный отдел
+job-icon-group-medical = Медицинский отдел
+job-icon-group-research = Научный отдел
+job-icon-group-security = Служба безопасности
+job-icon-group-service = Сервис
+job-icon-group-entertainer = Развлечения
+job-icon-group-civilian = Гражданские
+job-icon-group-centcomm = ЦентКом
+job-icon-group-silicon = Синтетики
+job-icon-group-blank = Пусто
+job-icon-group-threat = Угроза
+job-icon-group-admin = Админ

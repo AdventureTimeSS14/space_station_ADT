@@ -4,7 +4,7 @@ namespace Content.Client.ADT.Areas;
 
 public sealed class ShowAreasCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private IEntityManager _entities = default!;
 
     public string Command => "showareas";
     public string Description => "Shows area markers.";

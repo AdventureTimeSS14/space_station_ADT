@@ -7,7 +7,7 @@ namespace Content.Server.ADT.Pricing;
 
 public sealed class PriceExaminerSystem : EntitySystem
 {
-    [Dependency] private readonly PricingSystem _pricing = default!;
+    [Dependency] private PricingSystem _pricing = default!;
 
     public override void Initialize()
     {

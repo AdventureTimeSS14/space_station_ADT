@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.IntegrationTests.Fixtures;
+using Content.Shared.Chemistry.Components.SolutionManager; // ADT-Tweak
 using Content.Shared.Coordinates;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -84,7 +85,7 @@ public sealed class PrototypeSaveTest : GameTest
 
         var failures = new List<string>();
         // ADT-Tweak end
-        var context = new TestEntityUidContext();
+        var context = new TestEntityUidContext(seriMan);
 
         await server.WaitAssertion(() =>
         {
@@ -197,9 +198,7 @@ public sealed class PrototypeSaveTest : GameTest
     private static bool HasSolutionContainerWithSolutions(EntityPrototype prototype, IPrototypeManager prototypeMan)
     {
         if (prototype.Components.TryGetValue("SolutionContainerManager", out var entry) &&
-            entry.Mapping is not null &&
-            entry.Mapping.Children.TryGetValue("solutions", out var solutionsNode) &&
-            solutionsNode is MappingDataNode)
+            entry.Component is SolutionContainerManagerComponent { Solutions: not null })
         {
             return true;
         }
@@ -249,9 +248,9 @@ public sealed class PrototypeSaveTest : GameTest
         public string WritingComponent = string.Empty;
         public EntityPrototype? Prototype;
 
-        public TestEntityUidContext()
+        public TestEntityUidContext(ISerializationManager ser)
         {
-            SerializerProvider = new();
+            SerializerProvider = new(ser);
             SerializerProvider.RegisterSerializer(this);
         }
 

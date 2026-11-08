@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.NeedTagToUse
 {
     public sealed class NeedTagToUseSystem : EntitySystem
     {
-        [Dependency] private readonly TagSystem _tagSystem = default!;
+        [Dependency] private TagSystem _tagSystem = default!;
 
         public override void Initialize()
         {

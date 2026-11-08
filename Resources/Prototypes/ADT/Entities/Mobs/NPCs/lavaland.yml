@@ -14,7 +14,7 @@
       Alive:
         Base: legion
       Dead:
-        Base: legion_dead
+        Base: legion
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 3.0
@@ -27,6 +27,7 @@
       types:
         Blunt: 15
   - type: ADTLegion
+    corpseProto: ADTLegionCorpseSpawner
   - type: ADTFlee
     distance: 6
   - type: NpcFactionMember
@@ -47,6 +48,14 @@
   - type: ADTMobLoot
     loots:
       ADTKineticTrophyLegionSkull: 0.1
+
+- type: entity
+  id: ADTMobLegionTendril
+  parent: ADTMobLegion
+  suffix: Tendril
+  components:
+  - type: ADTLegion
+    corpseProto: ADTHeliosRemainsCharred
 
 - type: entity
   id: ADTMobLegionSkull
@@ -148,7 +157,7 @@
     actions: AncientGoliathActions
     delay: 3
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
@@ -179,159 +188,6 @@
   weights:
     ActionAncientGoliathTentacle: 0.5
     ActionGoliathTentacle: 0.5
-
-# SPIDERS
-
-- type: entity
-  name: Nightmare Spider
-  parent: ADTMobBaseSpiderVentCrawler
-  id: ADTMobNightmareSpider
-  components:
-  - type: Sprite
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: nightmare_spider
-      sprite: ADT/Mobs/Animals/spiders.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: nightmare_spider
-    noMovementLayers:
-      movement:
-        state: nightmare_spider
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: nightmare_spider
-      Dead:
-        Base: nightmare_spider_dead
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-    blackboard:
-      VisionRadius: !type:Single
-        15
-      AggroVisionRadius: !type:Single
-        15
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      215: Dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.0
-    baseSprintSpeed : 1.3
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      70: 0.8
-      125: 0.65
-      180: 0.5
-  - type: MeleeWeapon
-    damage:
-      types:
-        Piercing: 5
-        Poison: 15
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        reagents:
-        - ReagentId: NorepinephricAcid
-          Quantity: 100
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: NorepinephricAcid
-        Quantity: 2
-  - type: MeleeChemicalInjector
-    transferAmount: 12
-    solution: melee
-  - type: AshStormImmune
-  - type: Fauna
-  - type: Flammable
-    fireSpread: false
-    canResistFire: false
-    alwaysCombustible: false
-    maximumFireStacks: 0
-    damage:
-      types:
-        Heat: 0
-  - type: ADTMobLoot
-    loots:
-      ADTKineticTrophyPoisonFang: 0.1
-
-- type: entity
-  name: Shock Spider
-  parent: ADTMobBaseSpiderVentCrawler
-  id: ADTMobShockSpider
-  components:
-  - type: Sprite
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: ice_spider
-      sprite: ADT/Mobs/Animals/spiders.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: ice_spider
-    noMovementLayers:
-      movement:
-        state: ice_spider
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: ice_spider
-      Dead:
-        Base: ice_spider_dead
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-    blackboard:
-      VisionRadius: !type:Single
-        15
-      AggroVisionRadius: !type:Single
-        15
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      215: Dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.0
-    baseSprintSpeed : 1.3
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      70: 0.8
-      125: 0.65
-      180: 0.5
-  - type: MeleeWeapon
-    damage:
-      types:
-        Piercing: 20
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        reagents:
-        - ReagentId: Licoxide
-          Quantity: 35
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Licoxide
-        Quantity: 2
-  - type: MeleeChemicalInjector
-    transferAmount: 7
-    solution: melee
-  - type: AshStormImmune
-  - type: Fauna
-  - type: ADTMobLoot
-    loots:
-      ADTKineticTrophyFrostGland: 0.1
 
 #Crab
 - type: entity
@@ -409,16 +265,12 @@
   suffix: AI
   abstract: true
   components:
-  - type: Thirst
-    thresholds:
-      OverHydrated: 200
-      Okay: 150
-      Thirsty: 100
-      Parched: 50
-      Dead: 0
-    baseDecayRate: 0.04
+  - type: Satiation
+    satiations:
+      Thirst:
+        prototype: SimpleMobBaseThirst
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
     specificHeat: 42
   - type: StatusEffects
     allowed:
@@ -438,6 +290,9 @@
   - type: Fauna
   - type: ADTCleanRemains
   - type: AshStormImmune
+  - type: Grabbable
+    escapeChanceMultiplier: 2.5
+    escapeAttemptCooldown: 1
   - type: Flammable
     fireSpread: false
     canResistFire: false

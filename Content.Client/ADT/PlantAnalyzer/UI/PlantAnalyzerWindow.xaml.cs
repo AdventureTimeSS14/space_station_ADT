@@ -92,8 +92,6 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         WaterUsage.Text = Loc.GetString("plant-analyzer-tolerance-water-usage", ("waterUsage", adv is null ? "-" : $"{adv.Value.WaterConsumption:F2}"));
         IdealHeat.Text = Loc.GetString("plant-analyzer-tolerance-ideal-heat", ("idealHeat", adv is null ? "-" : $"{adv.Value.IdealHeat:F0}"));
         HeatTolerance.Text = Loc.GetString("plant-analyzer-tolerance-heat-tolerance", ("heatTolerance", adv is null ? "-" : $"{adv.Value.HeatTolerance:F1}"));
-        IdealLight.Text = Loc.GetString("plant-analyzer-tolerance-ideal-light", ("idealLight", adv is null ? "-" : $"{adv.Value.IdealLight:F1}"));
-        LightTolerance.Text = Loc.GetString("plant-analyzer-tolerance-light-tolerance", ("lightTolerance", adv is null ? "-" : $"{adv.Value.LightTolerance:F1}"));
         ToxinsTolerance.Text = Loc.GetString("plant-analyzer-tolerance-toxin-tolerance", ("toxinsTolerance", adv is null ? "-" : $"{adv.Value.ToxinsTolerance:F1}"));
         LowPressureTolerance.Text = Loc.GetString("plant-analyzer-tolerance-low-pressure", ("lowPressureTolerance", adv is null ? "-" : $"{adv.Value.LowPressureTolerance:F1}")); ;
         HighPressureTolerance.Text = Loc.GetString("plant-analyzer-tolerance-high-pressure", ("highPressureTolerance", adv is null ? "-" : $"{adv.Value.HighPressureTolerance:F1}"));

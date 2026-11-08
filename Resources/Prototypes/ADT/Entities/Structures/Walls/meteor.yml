@@ -179,7 +179,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_snow_west
 
-#NEW BFUU
 - type: entity
   abstract: true
   id: ADTBaseRockGibtonite
@@ -188,35 +187,21 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.Trigger.TriggerVisuals.VisualState:
+      enum.ADTGibtoniteVisuals.Stage:
         "gib":
-          Primed:
-            state: gibtonite_active
-            shader: unshaded
-            visible: true
-          Unprimed:
-            state: gibtonite_inactive
-            visible: false
-  - type: TimerTrigger
-    examinable: false
-    beepInterval: 0.8
-    beepSound:
-      collection: GlassCrack
-  - type: RandomTimerTrigger
-    min: 4
-    max: 8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:TimerStartBehavior
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-  - type: Gibtonite
-    extracted: false
+          Unstruck: { visible: false }
+          Active: { visible: true, state: gibtonite_active, shader: unshaded }
+          Stable: { visible: true, state: gibtonite_inactive }
+          Detonated: { visible: false }
+  - type: ADTGibtoniteDeposit
+    struckExplosion:
+      devastation: 1
+      heavy: 2
+      light: 5
+    timerExplosion:
+      devastation: 1
+      heavy: 3
+      light: 5
 
 - type: entity
   parent: [ ADTBaseRockGibtonite, AsteroidRock ]

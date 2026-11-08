@@ -7,13 +7,16 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 
 namespace Content.Shared.ADT.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly ThirstSystem _thirst = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
+
+    private static readonly SatiationValue StarvingThreshold = "Starving";
+    private static readonly SatiationValue ParchedThreshold = "Parched";
 
     protected virtual void SubscribeFlesh()
     {
@@ -61,13 +64,11 @@ public abstract partial class SharedHereticAbilitySystem
             _dmg.TryChangeDamage(target, dmg, origin: args.User);
 
             // hunger/thirst dropped near-critical, not instant death
-            if (TryComp(target, out HungerComponent? hunger)
-                && hunger.Thresholds.TryGetValue(HungerThreshold.Starving, out var starving))
-                _hunger.SetHunger(target, starving, hunger);
-
-            if (TryComp(target, out ThirstComponent? thirst)
-                && thirst.ThirstThresholds.TryGetValue(ThirstThreshold.Parched, out var parched))
-                _thirst.SetThirst(target, thirst, parched);
+            if (TryComp(target, out SatiationComponent? satiation))
+            {
+                _satiation.SetValue((target, satiation), SatiationSystem.Hunger, StarvingThreshold);
+                _satiation.SetValue((target, satiation), SatiationSystem.Thirst, ParchedThreshold);
+            }
         }
 
         InvokeTouchSpell<FleshSurgeryComponent>((ent.Owner, ent.Comp), args.User);

@@ -1,0 +1,57 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'adt-ritual-window-title'}"
+                      MinSize="780 520"
+                      SetSize="840 620">
+    <BoxContainer Orientation="Horizontal" Margin="8 8 8 8" HorizontalExpand="True" SeparationOverride="8">
+        <BoxContainer Orientation="Vertical" MinWidth="230" SeparationOverride="4">
+            <Label Text="{Loc 'adt-ritual-window-list'}" StyleClasses="LabelKeyText" />
+            <PanelContainer StyleClasses="PanelDark" VerticalExpand="True">
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False" Margin="4 4 4 4">
+                    <BoxContainer Name="RitualList" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="4">
+            <Label Name="RitualName" StyleClasses="LabelHeadingBigger" />
+            <PanelContainer StyleClasses="LowDivider" HorizontalExpand="True" SetHeight="2" Margin="0 0 0 4" />
+
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="8">
+
+                    <PanelContainer Name="DescriptionPanel" StyleClasses="BackgroundPanelDark">
+                        <RichTextLabel Name="RitualDescription" Margin="8 8 8 8" />
+                    </PanelContainer>
+
+                    <BoxContainer Name="RequirementsBlock" Orientation="Vertical" HorizontalExpand="True">
+                        <Label Text="{Loc 'adt-ritual-window-requirements'}" StyleClasses="LabelKeyText" />
+                        <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True">
+                            <BoxContainer Name="RequirementList" Orientation="Vertical" HorizontalExpand="True" Margin="8 6 8 6" />
+                        </PanelContainer>
+                    </BoxContainer>
+
+                    <BoxContainer Name="PriceBlock" Orientation="Vertical" HorizontalExpand="True">
+                        <Label Text="{Loc 'adt-ritual-window-price'}" StyleClasses="LabelKeyText" />
+                        <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True">
+                            <BoxContainer Name="PriceList" Orientation="Vertical" HorizontalExpand="True" Margin="8 6 8 6" />
+                        </PanelContainer>
+                    </BoxContainer>
+
+                    <BoxContainer Name="RiskBlock" Orientation="Vertical" HorizontalExpand="True">
+                        <Label Text="{Loc 'adt-ritual-window-risk'}" StyleClasses="LabelKeyText" />
+                        <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True">
+                            <BoxContainer Name="RiskList" Orientation="Vertical" HorizontalExpand="True" Margin="8 6 8 6" />
+                        </PanelContainer>
+                    </BoxContainer>
+
+                </BoxContainer>
+            </ScrollContainer>
+
+            <PanelContainer StyleClasses="LowDivider" HorizontalExpand="True" SetHeight="2" Margin="0 6 0 6" />
+            <Button Name="StartButton"
+                    Text="{Loc 'adt-ritual-window-start'}"
+                    StyleClasses="ButtonBig"
+                    Disabled="True" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
