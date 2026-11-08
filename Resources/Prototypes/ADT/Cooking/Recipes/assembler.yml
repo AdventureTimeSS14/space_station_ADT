@@ -1,0 +1,763 @@
+- type: microwaveMealRecipe
+  id: ADTAssemblerBreadDog
+  name: bread dog recipe
+  result: MobBreadDog
+  time: 15
+  group: Breads
+  reagents:
+    Cognizine: 5
+  solids:
+    FoodBreadSausage: 1
+    OrganAnimalHeart: 1
+    FoodSpaceshroomCooked: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerCatCake
+  name: cat cake recipe
+  result: MobCatCake
+  time: 15
+  group: Cake
+  reagents:
+    Milk: 15
+    Cognizine: 5
+  solids:
+    FoodCakePlain: 1
+    FoodSnackRaisins: 1
+    OrganAnimalHeart: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerCoffeeBeansRoasted
+  name: roasted coffee beans recipe
+  result: ADTCoffeeBeansRoasted
+  time: 10
+  solids:
+    ADTCoffeeBeans: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerDrinkTeaPackCherry
+  name: CherryTeapack
+  result: ADTCherryTeapack
+  time: 10
+  group: Other
+  solids:
+    ADTEmptyTeaPack: 1
+    FoodCherry: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerDrinkTeaPackOrange
+  name: OrangeTeapack
+  result: ADTOrangeTeapack
+  time: 10
+  group: Other
+  solids:
+    ADTEmptyTeaPack: 1
+    FoodOrange: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerDrinkTeaPackWatermelon
+  name: WatermelonTeapack
+  result: ADTWatermelonTeapack
+  time: 10
+  group: Other
+  solids:
+    ADTEmptyTeaPack: 1
+    FoodWatermelonSlice: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenChocolateFreezy
+  name: chocolate freezy recipe
+  result: ADTFoodFrozenChocolateFreezy
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenChocolateFreezyCaramel
+  name: chocolate caramel freezy recipe
+  result: ADTFoodFrozenChocolateFreezyCaramel
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+    Sugar: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenChocolateIceCream
+  name: chocolate icecream recipe
+  result: ADTFoodFrozenChocolateIceCream
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    IceCream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenChocolatePopsicle
+  name: chocolate popsicle recipe
+  result: ADTFoodFrozenChocolatePopsicle
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenChocolatePopsicleWithNutsRecipe
+  name: chocolate popsicle with nuts recipe
+  result: ADTFoodFrozenChocolatePopsicleWithNuts
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarNuts: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenHonkdae
+  name: honkdae icecream recipe
+  result: ADTFoodFrozenHonkdae
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ClothingMaskClown: 1
+  reagents:
+    IceCream: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenIceCreamWafflecone
+  name: wafflecone icecream recipe
+  result: ADTFoodFrozenIceCreamWafflecone
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    IceCream: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenIceCreamWaffleconeNutsRecipe
+  name: wafflecone with nuts recipe
+  result: ADTFoodFrozenIceCreamWaffleconeNuts
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodSnackChocolateBarNuts: 1
+  reagents:
+    IceCream: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenMelonPopsicleRecipe
+  name: melon popsicle recipe
+  result: ADTFoodFrozenMelonPopsicle
+  time: 5
+  group: Icecreams
+  solids:
+    FoodWatermelon: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenOrangePopsicle
+  name: orange popsicle recipe
+  result: ADTFoodFrozenOrangePopsicle
+  time: 5
+  group: Icecreams
+  solids:
+    FoodOrange: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPineappleChocolate
+  name: pineapple chocolate popsicle recipe
+  result: ADTFoodFrozenPineappleChocolate
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 1
+    FoodPineappleSlice: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleApple
+  name: apple popsicle recipe
+  result: ADTFoodFrozenPopsicleApple
+  time: 5
+  group: Icecreams
+  solids:
+    FoodApple: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleBanana
+  name: banana popsicle recipe
+  result: ADTFoodFrozenPopsicleBanana
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBanana: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleBananaFruitIce
+  name: banana fruit ice recipe
+  result: ADTFoodFrozenPopsicleBananaFruitIce
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBanana: 1
+  reagents:
+    Ice: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleBerryFruitIce
+  name: berry popsicle recipe
+  result: ADTFoodFrozenPopsicleBerryFruitIce
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBerries: 1
+  reagents:
+    Ice: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleGrapeFruitIce
+  name: grape popsicle recipe
+  result: ADTFoodFrozenPopsicleGrapeFruitIce
+  time: 5
+  group: Icecreams
+  solids:
+    FoodGrape: 1
+  reagents:
+    Ice: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleJumboNTRecipe
+  name: jumbo NT popsicle recipe
+  result: ADTFoodFrozenPopsicleJumbo
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 2
+  reagents:
+    Ice: 10
+    Cream: 10
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleJumboRecipe
+  name: jumbo popsicle recipe
+  result: FoodFrozenPopsicleJumbo
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    Ice: 10
+    Cream: 10
+    Sugar: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleMangoFruitIceRecipe
+  name: mango fruit ice recipe
+  result: ADTFoodFrozenPopsicleMangoFruitIce
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBungo: 1
+  reagents:
+    Ice: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleMole
+  name: mole popsicle recipe
+  result: ADTFoodFrozenPopsicleMole
+  time: 5
+  group: Icecreams
+  solids:
+    CottonBol: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleSeaSalt
+  name: seasalt icecream recipe
+  result: ADTFoodFrozenPopsicleSeaSalt
+  time: 5
+  group: Icecreams
+  reagents:
+    Ice: 5
+    Cream: 5
+    Saline: 10
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleSlime
+  name: slime popsicle recipe
+  result: ADTFoodFrozenPopsicleSlime
+  time: 5
+  group: Icecreams
+  reagents:
+    Ice: 5
+    Cream: 5
+    Slime: 10
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenPopsicleStrawberryFruitIce
+  name: strawberry popsicle recipe
+  result: ADTFoodFrozenPopsicleStrawberryFruitIce
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodStrawberry: 1
+  reagents:
+    Ice: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenSandwich
+  name: sandwich icecream recipe
+  result: FoodFrozenSandwich
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 2
+  reagents:
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenSandwichStrawberry
+  name: strawberry sandwich icecream recipe
+  result: FoodFrozenSandwichStrawberry
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 2
+    ADTFoodStrawberry: 1
+  reagents:
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenSpaceFreezy
+  name: space freezy recipe
+  result: ADTFoodFrozenSpaceFreezy
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    FoodBerries: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenSpaceFreezyCaramel
+  name: space caramel freezy recipe
+  result: ADTFoodFrozenSpaceFreezyCaramel
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    FoodBerries: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+    Sugar: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenSpaceIceCream
+  name: space icecream recipe
+  result: ADTFoodFrozenSpaceIceCream
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    FoodBerries: 1
+  reagents:
+    IceCream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenStrawberryIceCream
+  name: strawberry icecream recipe
+  result: ADTFoodFrozenStrawberryIceCream
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodStrawberry: 1
+  reagents:
+    IceCream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenSundae
+  name: sundae icecream recipe
+  result: ADTFoodFrozenSundae
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    FoodCherry: 1
+  reagents:
+    IceCream: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenThreeFlavorsFreezy
+  name: three flavors freezy recipe
+  result: ADTFoodFrozenThreeFlavorsFreezy
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodStrawberry: 1
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenThreeFlavorsFreezyCaramel
+  name: three flavors caramel freezy recipe
+  result: ADTFoodFrozenThreeFlavorsFreezyCaramel
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodStrawberry: 1
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+    Sugar: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenThreeFlavorsPopsicleRecipe
+  name: three flavors popsicle recipe
+  result: ADTFoodFrozenThreeFlavorsPopsicle
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodStrawberry: 1
+    FoodBanana: 1
+    FoodApple: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenVanillaFreezy
+  name: vanilla freezy recipe
+  result: ADTFoodFrozenVanillaFreezy
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenVanillaFreezyCaramel
+  name: vanilla caramel freezy recipe
+  result: ADTFoodFrozenVanillaFreezyCaramel
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+  reagents:
+    IceCream: 10
+    Cream: 5
+    Sugar: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenVanillaIceCream
+  name: vanilla icecream recipe
+  result: ADTFoodFrozenVanillaIceCream
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+  reagents:
+    IceCream: 10
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodFrozenWatermelonPopsicle
+  name: watermelon popsicle recipe
+  result: ADTFoodFrozenWatermelonPopsicle
+  time: 5
+  group: Icecreams
+  solids:
+    FoodWatermelonSlice: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodMealChocolateMedalRecipe
+  name: chocolate medal
+  result: ADTFoodSnackChocolateBarMedalPack
+  time: 5
+  group: Dessert
+  solids:
+    FoodSnackChocolateBar: 1
+    MaterialCloth1: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodRelaxPillRecipe
+  name: relax pill
+  result: ADTPillRelax
+  group: Secret
+  time: 15
+  reagents:
+    Water: 15
+  solids:
+    LeavesCannabis: 3
+    LeavesTobacco: 2
+    GroundCannabis: 1
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnackDriedBeefRecipe
+  name: dried beef recipe
+  result: ADTFoodSnackDriedBeef
+  time: 10
+  group: Savory
+  solids:
+    FoodMeat: 1
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnackDriedChickenRecipe
+  name: dried chicken recipe
+  result: ADTFoodSnackDriedChicken
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatChicken: 1
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnackDriedHorseRecipe
+  name: dried horse meat recipe
+  result: ADTFoodSnackDriedHorse
+  time: 10
+  group: Savory
+  solids:
+    FoodMeat: 2
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnackDriedPigRecipe
+  name: dried pork recipe
+  result: ADTFoodSnackDriedPig
+  time: 10
+  group: Savory
+  solids:
+    FoodMeat: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnowconeBerryRecipe
+  name: berry snowcone recipe
+  result: FoodFrozenSnowconeBerry
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBerries: 1
+  reagents:
+    Ice: 8
+    Sugar: 2
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnowconeClownRecipe
+  name: clowncone recipe
+  result: FoodFrozenSnowconeClown
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBanana: 1
+  reagents:
+    Ice: 8
+    Sugar: 2
+    Syrup: 2
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnowconeFlavorlessRecipe
+  name: flavorless snowcone recipe
+  result: FoodFrozenSnowcone
+  time: 5
+  group: Icecreams
+  reagents:
+    Ice: 8
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnowconeFruitRecipe
+  name: fruit salad snowcone recipe
+  result: FoodFrozenSnowconeFruit
+  time: 5
+  group: Icecreams
+  solids:
+    FoodApple: 1
+    FoodBanana: 1
+  reagents:
+    Ice: 8
+    Sugar: 2
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSnowconeMimeRecipe
+  name: mime snowcone recipe
+  result: FoodFrozenSnowconeMime
+  time: 5
+  group: Icecreams
+  reagents:
+    Ice: 8
+    Milk: 2
+  recipeType:
+  - ADTAssembler
+
+- type: microwaveMealRecipe
+  id: ADTAssemblerFoodSwirlLollipopRecipe
+  name: swirl lollipop recipe
+  result: FoodSnackSwirlLollipop
+  time: 5
+  group: Dessert
+  reagents:
+    Sugar: 15
+  recipeType:
+  - ADTAssembler
