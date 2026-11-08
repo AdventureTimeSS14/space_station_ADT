@@ -44,9 +44,9 @@
     state: icon
   - type: Item
     sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
-    size: Huge
+    size: Ginormous
     shape:
-    - 0,0,4,4
+    - 0,0,3,3
   - type: Clothing
     sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
   - type: Construction
@@ -54,7 +54,6 @@
     node: guitar
   - type: StaticPrice
     price: 25
-
   - type: Tool
     qualities:
     - Prying
@@ -66,7 +65,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 10
+        Blunt: 8
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: Wieldable
@@ -74,4 +73,4 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 5
+        Blunt: 6
