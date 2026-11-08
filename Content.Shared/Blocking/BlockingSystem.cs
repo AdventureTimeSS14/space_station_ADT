@@ -21,6 +21,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Toolshed.Syntax;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Weapons.Ranged.Systems;
 
 namespace Content.Shared.Blocking;
 
@@ -38,6 +39,7 @@ public sealed partial class BlockingSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popupSystem = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private GunShieldBraceSystem _shieldBrace = default!;
 
     [Dependency] private EntityQuery<BlockingComponent> _blockQuery;
     [Dependency] private EntityQuery<BlockingUserComponent> _userQuery;
@@ -90,16 +92,19 @@ public sealed partial class BlockingSystem : EntitySystem
             return;
 
         StartBlocking(entity, args.User);
+        _shieldBrace.RefreshHeldGuns(args.User);
     }
 
     private void OnUnequip(Entity<BlockingComponent> entity, ref GotUnequippedHandEvent args)
     {
         StopBlocking(entity, args.User);
+        _shieldBrace.RefreshHeldGuns(args.User);
     }
 
     private void OnDrop(Entity<BlockingComponent> entity, ref DroppedEvent args)
     {
         StopBlocking(entity, args.User);
+        _shieldBrace.RefreshHeldGuns(args.User);
     }
 
     private void OnGetActions(Entity<BlockingComponent> entity, ref GetItemActionsEvent args)
