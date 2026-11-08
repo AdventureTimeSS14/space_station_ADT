@@ -1,0 +1,9 @@
+ent-WeaponTurretCharonBase = M381 CHARON mass driver
+    .desc = { ent-BallisticArtilleryTier4HP.desc }
+    .suffix = Capital, T4
+ent-WeaponTurretCharon = M-381 «Харон» 
+    .desc = { ent-WeaponTurretCharonReload.desc } Эта установка питается от автозарядника и не требует ручной перезарядки.
+    .suffix = Станционный, Автозарядка, Т4
+ent-WeaponTurretCharonReload = M-381 «Харон»
+    .desc = Рельсовое орудие капитального класса, выпускающее массивный снаряд на экстремальной скорости и способное наносить катастрофический урон вражеским кораблям. Тяжёлый линейный ускоритель: может активироваться дистанционно или подключаться к GCS.
+    .suffix = Корабельный, Ручная перезарядка, Т4

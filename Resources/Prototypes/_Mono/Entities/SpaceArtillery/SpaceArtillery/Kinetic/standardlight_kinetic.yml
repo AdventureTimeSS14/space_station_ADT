@@ -1,0 +1,158 @@
+# L85
+
+- type: entity
+  id: WeaponTurretL85Autocannon
+  name: L85 14mm autocannon
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier1HP
+  suffix: Small, T1
+  description: A light 14mm ballistic autocannon designed for rapid fire point defense and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 250
+  - type: Sprite
+    offset: -0.03,0
+    sprite: _Mono/Objects/ShuttleWeapons/L85.rsi
+    layers:
+    - state: icon
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AutoShootGun
+  - type: GunSignalControl
+  - type: WirelessNetworkConnection
+    range: 700
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: Gun
+    damageModifier: 5
+    fireRate: 10
+    projectileSpeed: 192
+    minAngle: 0
+    maxAngle: 5
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/vulcan.ogg
+      params:
+        variation: 0.10
+        pitch: 1.10
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 100
+    powerUsePassive: 100
+  - type: Actions
+  - type: CombatMode
+    isInCombatMode: true
+  - type: Airtight
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine20mm
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine20mm
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadiationBlocker
+    resistance: 8
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.7,-0.7,0.7,0.7"
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Light
+  # - type: HardpointAnchorableOnly # Commented by LuaM: only superheavy weapons need a hardpoint
+  #   class: Ballistic
+  #   size: Light
+
+# Draupnir
+
+- type: entity
+  id: WeaponTurretRAC30
+  name: RAC-30 Draupnir Autocannon
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier2HP
+  suffix: Medium, T2
+  description: A heavy duty rapid fire 20x141mm autocannon, originally mounted as a dogfighting weapon on atmospheric craft. Low range, but devastating damage.
+  components:
+  - type: StaticPrice
+    price: 1000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/rac-30_draupnir.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AutoShootGun
+  - type: GunSignalControl
+  - type: WirelessNetworkConnection
+    range: 700
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: Gun
+    damageModifier: 1
+    fireRate: 25
+    projectileSpeed: 160
+    minAngle: 0
+    maxAngle: 4
+    soundGunshot:
+      collection: ShipGunGenericTiny
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 100
+    powerUsePassive: 100
+  - type: Actions
+  - type: CombatMode
+    isInCombatMode: true
+  - type: Airtight
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine30mm
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine30mm
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: RadiationBlocker
+    resistance: 8
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1.5
+    visibleFromOtherGrids: true
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+  # - type: HardpointAnchorableOnly # Commented by LuaM: only superheavy weapons need a hardpoint
+  #   class: Ballistic
+  #   size: Medium

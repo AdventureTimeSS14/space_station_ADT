@@ -1,0 +1,116 @@
+# Corporate War Era - Syndicate
+
+- type: entity
+  id: WeaponTurretSerpentMissile
+  name: Serpent torpedo launcher
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier3HP
+  description: A light torpedo launcher developed by the Syndicate during the corporate war, uses similar systems to the anaconda for self loading munitons.
+  components:
+  - type: StaticPrice
+    price: 5000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/serpent.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/launcher_alt.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 250
+    powerUsePassive: 200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 60
+  - type: Actions
+  - type: BatteryAmmoProvider
+    proto: ShipMissileSerpent
+    fireCost: 350
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.75
+    visibleFromOtherGrids: true
+  - type: ShipGunType
+    shipType: Missile
+  - type: ShipGunClass
+    shipClass: Heavy
+  # - type: HardpointAnchorableOnly # Commented by LuaM: only superheavy weapons need a hardpoint
+  #   class: Missile
+  #   size: Medium
+
+# Pre-Fracture
+
+- type: entity
+  id: WeaponTurretTorpedoEntropy
+  name: Curio-1602 electron torpedo launcher "Entropy"
+  suffix: ADS ONLY
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier3HP
+  description: An odd weapon of the pre-fracture era, it projects a mass of electrons that seek out the positive charge of nearby targets, overloading systems and shattering sections of hull.
+  components:
+  - type: StaticPrice
+    price: 5000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/entropy.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 250
+    powerUsePassive: 200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 400
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Actions
+  - type: BatteryAmmoProvider
+    proto: ShipMissileEntropy
+    fireCost: 4000
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.75
+  - type: ShipGunType
+    shipType: Missile
+  - type: ShipGunClass
+    shipClass: Heavy
+  # - type: HardpointAnchorableOnly # Commented by LuaM: only superheavy weapons need a hardpoint
+  #   class: Missile
+  #   size: Heavy

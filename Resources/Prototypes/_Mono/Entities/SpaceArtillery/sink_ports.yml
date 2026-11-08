@@ -1,0 +1,4 @@
+- type: sinkPort
+  id: SpaceArtilleryFire
+  name: signal-port-name-space-artillery-fire # LuaM: "Fire Armament" > signal-port-name-space-artillery-fire
+  description: signal-port-description-space-artillery-fire # LuaM: "Controls Space Artillery's firing mechanism." > signal-port-description-space-artillery-fire
