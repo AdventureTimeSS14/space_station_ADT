@@ -27,8 +27,8 @@ public sealed partial class SeedDnaConsoleWindow : FancyWindow
         UpdateEjectButtons(state);
         UpdateSellPanel(state);
 
-        PointsLabel.Text = Loc.GetString("seed-dna-points", ("points", state.Points), ("max", state.MaxPoints));
-        PointsLabel.ToolTip = Loc.GetString("seed-dna-points-tooltip");
+        StabilityLabel.Text = Loc.GetString("seed-dna-stability", ("value", state.Stability.ToString("0")));
+        StabilityLabel.ToolTip = Loc.GetString("seed-dna-stability-tooltip");
         SellButton.ToolTip = Loc.GetString("seed-dna-sell-tooltip");
 
         if (!ValidateSeed(state))

@@ -396,10 +396,7 @@
     sellChemicalPrice: 25
     sellAccount: Service
     sellCooldown: 30
-    maxPoints: 100
-    startingPoints: 50
     requireModifiedSeed: true
-    sellPointsPercent: 10
   - type: AccessReader
     access:
     - [ Hydroponics ]

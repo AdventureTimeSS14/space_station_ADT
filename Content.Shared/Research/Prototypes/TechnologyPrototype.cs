@@ -1,5 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.SeedDna.Prototypes;
 
 namespace Content.Shared.Research.Prototypes;
 
@@ -71,6 +72,9 @@ public sealed partial class TechnologyPrototype : IPrototype
     public IReadOnlyList<GenericUnlock> GenericUnlocks = new List<GenericUnlock>();
 
     // ADT Research Console Rework start
+    [DataField]
+    public List<ProtoId<SeedDnaGenePrototype>> UnlockedGenes = new();
+
     [DataField(required: true)]
     public Vector2i Position { get; private set; }
 

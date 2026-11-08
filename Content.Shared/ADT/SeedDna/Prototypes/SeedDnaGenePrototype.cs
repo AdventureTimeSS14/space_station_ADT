@@ -1,4 +1,3 @@
-using Content.Shared.Research.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.SeedDna.Prototypes;
@@ -11,9 +10,7 @@ public sealed partial class SeedDnaGenePrototype : IPrototype
     [DataField("valueType")] public SeedDnaGeneType ValueType = SeedDnaGeneType.Float;
     [DataField] public float Min;
     [DataField] public float Max;
-    [DataField] public ProtoId<TechnologyPrototype>? RequiredTechnology;
-    [DataField] public int Cost;
-    [DataField] public float CostPerUnit;
+    [DataField] public float InstabilityCost = 5f;
     [DataField] public int SellPrice;
     [DataField] public LocId? Description;
 }

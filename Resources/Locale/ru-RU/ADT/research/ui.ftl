@@ -1,4 +1,4 @@
-research-console-unlocks-text = Открывает следующие чертежи:
+research-console-unlocks-text = Открывает следующее:
 research-console-menu-recenter-button = Центрировать
 research-console-menu-server-researched-button = Изучено
 research-console-tech-cost-label = { $cost } О.И.

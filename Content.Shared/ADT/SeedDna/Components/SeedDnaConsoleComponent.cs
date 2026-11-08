@@ -40,18 +40,14 @@ public sealed partial class SeedDnaConsoleComponent : Component
     public TimeSpan SellCooldown = TimeSpan.FromSeconds(30f);
 
     [DataField]
-    public float SellPointsPercent = 10f;
+    public float InstabilityPerChemical = 3f;
 
     [DataField]
-    public int MaxPoints = 100;
-
-    [DataField]
-    public int StartingPoints = 50;
+    public float InstabilityPerGas = 2f;
 
     [DataField]
     public bool RequireModifiedSeed = true;
 
     [ViewVariables] public TimeSpan NextTransferAt;
     [ViewVariables] public TimeSpan NextSellAt;
-    [ViewVariables] public int Points;
 }

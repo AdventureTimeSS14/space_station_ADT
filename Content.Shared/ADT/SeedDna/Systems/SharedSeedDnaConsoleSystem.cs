@@ -254,4 +254,25 @@ public abstract class SharedSeedDnaConsoleSystem : EntitySystem
             && _botany.TryGetPlantComponent<PlantComponent>(seedComp.PlantData, seedComp.PlantProtoId, out var plant)
             && plant.IsModified;
     }
+
+    protected void AddSeedInstability(EntityUid? seed, float amount)
+    {
+        if (amount <= 0f
+            || !TryComp<SeedComponent>(seed, out var seedComp)
+            || seedComp.PlantData is not { } snapshot
+            || !TryComp<PlantComponent>(snapshot, out var plant))
+            return;
+
+        plant.Instability = Math.Clamp(plant.Instability + amount, 0f, 100f);
+        Dirty(snapshot, plant);
+    }
+
+    protected float GetSeedStability(EntityUid? seed)
+    {
+        if (TryComp<SeedComponent>(seed, out var seedComp)
+            && _botany.TryGetPlantComponent<PlantComponent>(seedComp.PlantData, seedComp.PlantProtoId, out var plant))
+            return Math.Clamp(100f - plant.Instability, 0f, 100f);
+
+        return 100f;
+    }
 }

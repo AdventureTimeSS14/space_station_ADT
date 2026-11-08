@@ -37,7 +37,7 @@ public sealed class SeedDnaConsoleWindowRow
         var title = ResolveTitle(entry);
 
         if (entry.Cost > 0)
-            title += $" ({Loc.GetString("seed-dna-row-cost", ("cost", entry.Cost))})";
+            title += $" ({Loc.GetString("seed-dna-row-instability", ("cost", entry.Cost))})";
 
         _titleLabel = new Label
         {

@@ -30,7 +30,7 @@
         </PanelContainer>
 
         <BoxContainer Orientation="Horizontal">
-            <Label Name="PointsLabel" VerticalAlignment="Center" HorizontalExpand="True"/>
+            <Label Name="StabilityLabel" VerticalAlignment="Center" HorizontalExpand="True"/>
             <Button Name="ServerListButton" Access="Public" Text="{Loc 'seed-dna-server-btn'}"/>
         </BoxContainer>
 

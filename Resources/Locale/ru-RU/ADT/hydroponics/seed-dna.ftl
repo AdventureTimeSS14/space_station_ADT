@@ -14,13 +14,9 @@ seed-dna-replace-btn = Перезаписать
 seed-dna-row-consume-gas = Потребляемый газ: { $gas }
 seed-dna-row-exude-gas = Выделяемый газ: { $gas }
 seed-dna-server-btn = Сервер исследований
-seed-dna-points = Очки генетики: { $points } / { $max }
-seed-dna-points-tooltip = Очки генетики начисляются за продажу модифицированных геномов и тратятся на каждый перенос гена. Приходится выбирать, что улучшать.
-seed-dna-row-cost = { $cost ->
-    [one] { $cost } очко
-    [few] { $cost } очка
-   *[other] { $cost } очков
-}
+seed-dna-stability = Стабильность генома: { $value }%
+seed-dna-stability-tooltip = Каждая правка генома снижает его стабильность. Нестабильный геном провоцирует дикие мутации у растения. Выращивание нового поколения семян постепенно стабилизирует линию.
+seed-dna-row-instability = Нестабильность: +{ $cost }
 seed-dna-row-locked = Требуется технология: { $tech }
 seed-dna-bool-true = да
 seed-dna-bool-false = нет
@@ -30,7 +26,7 @@ seed-dna-harvest-SelfHarvest = Самосбор
 seed-dna-sell-btn = Продать геном
 seed-dna-sell-price = Цена генома: ${ $price }
 seed-dna-sell-not-modified = Семя не модифицировано, продать нельзя
-seed-dna-sell-tooltip = Продажа генома пополняет очки генетики. Семя при этом тратится.
+seed-dna-sell-tooltip = Продажа генома приносит кредиты на счёт отдела. Семя при этом тратится.
 seed-dna-popup-no-power = Недостаточно питания!
 seed-dna-popup-no-access = Недостаточно доступа!
 seed-dna-popup-no-seed = В слоте нет семян!
@@ -39,14 +35,9 @@ seed-dna-popup-no-value = Нет данных для переноса!
 seed-dna-popup-immutable = Эти семена нельзя изменять!
 seed-dna-popup-no-server = Консоль не подключена к серверу исследований!
 seed-dna-popup-tech-locked = Требуется технология: { $tech }
-seed-dna-popup-no-points = Недостаточно очков генетики!
 seed-dna-popup-not-modified = Это семя не модифицировано, продать можно только изменённый геном.
 seed-dna-popup-cooldown = Подождите немного!
-seed-dna-popup-sold = Геном продан за ${ $price }, +{ $points ->
-    [one] { $points } очко
-    [few] { $points } очка
-   *[other] { $points } очков
-} генетики!
+seed-dna-popup-sold = Геном продан за ${ $price }!
 
 # -------------------------------------------------
 
@@ -66,9 +57,11 @@ seed-dna-row-Maturation = Скорость созревания
 seed-dna-row-Production = Скорость роста
 seed-dna-row-HarvestRepeat = Количество сборов урожая
 seed-dna-row-Potency = Потенция
+seed-dna-row-ADTChemicals = Химикаты в плодах
+seed-dna-row-ADTGases = Газы растения
 seed-dna-row-Seedless = Бессемянность
 seed-dna-row-Viable = Жизнеспособность
-seed-dna-row-Ligneous = Одревеснение
+seed-dna-row-Ligneous = Светящийся
 seed-dna-row-CanScream = Может издавать крик
 
 # -------------------------------------------------

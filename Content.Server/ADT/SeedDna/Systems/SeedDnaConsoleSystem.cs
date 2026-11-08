@@ -38,6 +38,8 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
+    private Dictionary<string, ProtoId<TechnologyPrototype>>? _geneTechnologies;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -46,14 +48,8 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         SubscribeLocalEvent<SeedDnaConsoleComponent, SeedDnaSellMessage>(OnSell);
 
         SubscribeLocalEvent<SeedDnaConsoleComponent, ComponentStartup>(OnUpdateUserInterface);
-        SubscribeLocalEvent<SeedDnaConsoleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SeedDnaConsoleComponent, EntInsertedIntoContainerMessage>(OnUpdateUserInterface);
         SubscribeLocalEvent<SeedDnaConsoleComponent, EntRemovedFromContainerMessage>(OnUpdateUserInterface);
-    }
-
-    private void OnMapInit(EntityUid uid, SeedDnaConsoleComponent component, MapInitEvent args)
-    {
-        component.Points = component.StartingPoints;
     }
 
     private void OnUpdateUserInterface(EntityUid uid, SeedDnaConsoleComponent component, EntityEventArgs args)
@@ -114,21 +110,26 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
             ? GetGeneValue(diskComponent.SeedData, geneId)
             : GetGeneValue(seedData, geneId);
 
-        if (!IsTransferUseful(gene, sourceValue, targetValue))
+        var isPurification = direction == SeedDnaTransferDirection.SeedToDisk
+            && gene.ValueType is SeedDnaGeneType.Chemical or SeedDnaGeneType.Gas;
+        if (!isPurification && !IsTransferUseful(gene, sourceValue, targetValue))
             return false;
 
-        var cost = ComputeGeneCost(gene, sourceValue);
-        if (cost > 0 && component.Points < cost)
-        {
-            _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-points"), uid);
-            return false;
-        }
+        var instabilityCost = GetInstabilityCost(component, gene, geneId);
 
         if (direction == SeedDnaTransferDirection.SeedToDisk)
         {
             diskComponent.SeedData ??= new SeedDataDto();
             if (!ApplyGeneToDto(diskComponent.SeedData, geneId, sourceValue))
                 return false;
+
+            if (seedData != null)
+            {
+                CutGeneFromDto(seedData, gene, geneId);
+                RewriteSeedData(seedItem.Value, seedData);
+                AddSeedInstability(seedItem.Value, instabilityCost);
+            }
+
             Dirty(diskItem.Value, diskComponent);
         }
         else
@@ -140,12 +141,73 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
                 return false;
 
             RewriteSeedData(seedItem.Value, seedData);
+            AddSeedInstability(seedItem.Value, instabilityCost);
         }
 
-        if (cost > 0)
-            component.Points -= cost;
-
         return true;
+    }
+
+    private static float GetInstabilityCost(
+        SeedDnaConsoleComponent component,
+        SeedDnaGenePrototype gene,
+        string geneId)
+    {
+        if (geneId.StartsWith(SeedDnaGeneEntry.ChemicalPrefix))
+            return component.InstabilityPerChemical;
+        if (geneId.StartsWith(SeedDnaGeneEntry.ConsumeGasPrefix)
+            || geneId.StartsWith(SeedDnaGeneEntry.ExudeGasPrefix))
+            return component.InstabilityPerGas;
+
+        return gene.InstabilityCost;
+    }
+
+    private static void CutGeneFromDto(SeedDataDto seedData, SeedDnaGenePrototype gene, string geneId)
+    {
+        if (geneId.StartsWith(SeedDnaGeneEntry.ChemicalPrefix))
+        {
+            seedData.Chemicals?.Remove(geneId[SeedDnaGeneEntry.ChemicalPrefix.Length..]);
+            return;
+        }
+
+        if (geneId.StartsWith(SeedDnaGeneEntry.ConsumeGasPrefix))
+        {
+            if (Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..], out var gas))
+                seedData.ConsumeGasses?.Remove(gas);
+            return;
+        }
+
+        if (geneId.StartsWith(SeedDnaGeneEntry.ExudeGasPrefix))
+        {
+            if (Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..], out var gas))
+                seedData.ExudeGasses?.Remove(gas);
+            return;
+        }
+
+        switch (geneId)
+        {
+            case "HarvestRepeat":
+                seedData.HarvestRepeat = SharedHarvestTypeDto.NoRepeat;
+                break;
+            case "Seedless":
+                seedData.Seedless = false;
+                break;
+            case "Viable":
+                seedData.Viable = false;
+                break;
+            case "Ligneous":
+                seedData.Ligneous = false;
+                break;
+            case "CanScream":
+                seedData.CanScream = false;
+                break;
+            case "Yield":
+                seedData.Yield = (int)gene.Min;
+                break;
+            default:
+                if (gene.ValueType == SeedDnaGeneType.Float)
+                    SetDtoGeneValue(seedData, geneId, gene.Min);
+                break;
+        }
     }
 
     private (EntityUid?, EntityUid?) GetSlotItems(SeedDnaConsoleComponent component)
@@ -181,14 +243,6 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         return null;
     }
 
-    private static int ComputeGeneCost(SeedDnaGenePrototype gene, object? value)
-    {
-        if (gene.CostPerUnit > 0f && value != null)
-            return Math.Max(1, (int)Math.Round(Convert.ToSingle(value) * gene.CostPerUnit));
-
-        return gene.Cost;
-    }
-
     private static bool IsTransferUseful(SeedDnaGenePrototype gene, object source, object? target)
     {
         if (target == null)
@@ -218,7 +272,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
     private bool CanTransferGene(EntityUid uid, SeedDnaGenePrototype gene)
     {
-        if (gene.RequiredTechnology is not { } technology)
+        if (!TryGetGeneTechnology(gene.ID, out var technology))
             return true;
 
         if (!_researchServer.TryGetClientServer(uid, out _, out _))
@@ -303,9 +357,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
         QueueDel(seedItem);
         component.NextSellAt = _timing.CurTime + component.SellCooldown;
-        var pointsGain = (int)Math.Round(price * component.SellPointsPercent / 100f);
-        component.Points = Math.Min(component.MaxPoints, component.Points + pointsGain);
-        _popup.PopupEntity(Loc.GetString("seed-dna-popup-sold", ("price", price), ("points", pointsGain)), uid, args.Actor);
+        _popup.PopupEntity(Loc.GetString("seed-dna-popup-sold", ("price", price)), uid, args.Actor);
         UpdateUserInterface(uid, component);
     }
 
@@ -507,6 +559,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         var connected = _researchServer.TryGetClientServer(uid, out _, out _);
         var canSell = seedData != null && _timing.CurTime >= component.NextSellAt;
         var seedModified = component.SeedSlot.Item is { Valid: true } seedItem && IsSeedModified(seedItem);
+        var stability = GetSeedStability(component.SeedSlot.Item);
 
         var newState = new SeedDnaConsoleBoundUserInterfaceState(
             seedPresent,
@@ -517,8 +570,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
             connected,
             seedData != null ? ComputeSellPrice(component, seedData) : 0,
             canSell,
-            component.Points,
-            component.MaxPoints,
+            stability,
             seedData != null && (!component.RequireModifiedSeed || seedModified)
         );
         _userInterface.SetUiState(uid, SeedDnaConsoleUiKey.Key, newState);
@@ -564,7 +616,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
                 SeedValue = FormatGeneValue(gene.ValueType, () => seedData != null ? GetDtoGeneValue(seedData, geneId) : null),
                 DiskValue = FormatGeneValue(gene.ValueType, () => diskData != null ? GetDtoGeneValue(diskData, geneId) : null),
                 Locked = lockedTech != null,
-                Cost = ComputeGeneCost(gene, rawSeed),
+                Cost = (int)gene.InstabilityCost,
                 LockedTech = lockedTech,
                 Description = gene.Description,
             });
@@ -606,7 +658,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
                 SeedValue = FormatChemical(seedChem, seedPotency),
                 DiskValue = FormatChemical(diskData?.Chemicals?.GetValueOrDefault(reagentId), diskPotency),
                 Locked = lockedTech != null,
-                Cost = gene.Cost,
+                Cost = (int)component.InstabilityPerChemical,
                 LockedTech = lockedTech,
             });
         }
@@ -647,7 +699,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
                 SeedValue = FormatFloat(seedData?.ConsumeGasses?.GetValueOrDefault(gas)),
                 DiskValue = FormatFloat(diskData?.ConsumeGasses?.GetValueOrDefault(gas)),
                 Locked = lockedTech != null,
-                Cost = gene.Cost,
+                Cost = (int)component.InstabilityPerGas,
                 LockedTech = lockedTech,
             });
 
@@ -660,7 +712,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
                 SeedValue = FormatFloat(seedData?.ExudeGasses?.GetValueOrDefault(gas)),
                 DiskValue = FormatFloat(diskData?.ExudeGasses?.GetValueOrDefault(gas)),
                 Locked = lockedTech != null,
-                Cost = gene.Cost,
+                Cost = (int)component.InstabilityPerGas,
                 LockedTech = lockedTech,
             });
         }
@@ -668,7 +720,8 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
     private string? GetLockedTech(EntityUid uid, SeedDnaGenePrototype gene)
     {
-        if (gene.RequiredTechnology is not { } technology)
+        // Ген не привязан ни к одному исследованию — доступен с самого начала раунда.
+        if (!TryGetGeneTechnology(gene.ID, out var technology))
             return null;
 
         if (_researchServer.TryGetClientServer(uid, out _, out _) && _research.IsTechnologyUnlocked(uid, technology))
@@ -677,6 +730,27 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         return _prototypes.TryIndex<TechnologyPrototype>(technology, out var tech)
             ? Loc.GetString(tech.Name)
             : (string)technology;
+    }
+
+    private bool TryGetGeneTechnology(string geneId, out ProtoId<TechnologyPrototype> technology)
+    {
+        _geneTechnologies ??= BuildGeneTechnologies();
+        return _geneTechnologies.TryGetValue(geneId, out technology);
+    }
+
+    private Dictionary<string, ProtoId<TechnologyPrototype>> BuildGeneTechnologies()
+    {
+        var map = new Dictionary<string, ProtoId<TechnologyPrototype>>();
+        foreach (var tech in _prototypes.EnumeratePrototypes<TechnologyPrototype>())
+        {
+            foreach (var geneId in tech.UnlockedGenes)
+            {
+                if (!map.ContainsKey(geneId))
+                    map[geneId] = tech.ID;
+            }
+        }
+
+        return map;
     }
 
     private string? FormatGeneValue(SeedDnaGeneType type, Func<object?> getValue)

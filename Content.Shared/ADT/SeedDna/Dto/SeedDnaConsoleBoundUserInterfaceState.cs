@@ -17,8 +17,7 @@ public sealed class SeedDnaConsoleBoundUserInterfaceState(
     bool connectedToServer,
     int sellPrice,
     bool canSell,
-    int points,
-    int maxPoints,
+    float stability,
     bool seedModified
 ) : BoundUserInterfaceState
 {
@@ -30,8 +29,7 @@ public sealed class SeedDnaConsoleBoundUserInterfaceState(
     public readonly bool ConnectedToServer = connectedToServer;
     public readonly int SellPrice = sellPrice;
     public readonly bool CanSell = canSell;
-    public readonly int Points = points;
-    public readonly int MaxPoints = maxPoints;
+    public readonly float Stability = stability;
     public readonly bool SeedModified = seedModified;
 }
 

@@ -8,7 +8,7 @@ namespace Content.Shared.Botany.Components;
 /// Component for storing plant growth data.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true, raiseAfterAutoHandleState: true)]
-[Access(typeof(PlantSystem), typeof(PlantMutationSystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
+[Access(typeof(PlantSystem), typeof(PlantMutationSystem), typeof(BotanySystem), typeof(SharedSeedDnaConsoleSystem))] // ADT-Tweak
 public sealed partial class PlantComponent : Component
 {
     /// <summary>
@@ -69,5 +69,8 @@ public sealed partial class PlantComponent : Component
     // ADT-Tweak start
     [DataField]
     public bool IsModified;
+
+    [DataField]
+    public float Instability;
     // ADT-Tweak end
 }
