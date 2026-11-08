@@ -1021,7 +1021,7 @@
     OilOlive: 5
   #ADT-Tweak Start
   recipeType:
-  - Microwave
+  - ADTMicrowave
   #ADT-Tweak End
 
 - type: microwaveMealRecipe
@@ -1113,7 +1113,7 @@
     FoodBowlBig: 1
   #ADT-Tweak Start
   recipeType:
-  - Microwave
+  - ADTMicrowave
   #ADT-Tweak End
 
 - type: microwaveMealRecipe

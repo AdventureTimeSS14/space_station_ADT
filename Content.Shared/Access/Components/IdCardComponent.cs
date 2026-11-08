@@ -1,5 +1,4 @@
 using Content.Shared.Access.Systems;
-using Content.Shared.ADT.AlertAccessLevel;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
@@ -10,7 +9,7 @@ namespace Content.Shared.Access.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(true)]
-[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), typeof(SharedAlertAccessLevel), Other = AccessPermissions.ReadWrite)] // ADT-tweak: added typeof(SharedAlertAccessLevel)
+[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
 public sealed partial class IdCardComponent : Component
 {
     [DataField]
