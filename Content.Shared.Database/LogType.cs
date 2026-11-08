@@ -510,7 +510,7 @@ public enum LogType
     CanvasDrawingBan = 1105,
     CanvasReport = 1106,
     CanvasWhitelist = 1107,
-
+    Economy = 1108,
     /// <summary>
     /// Ship weapons fired from a gunnery console. Same value as on Monolith.
     /// </summary>

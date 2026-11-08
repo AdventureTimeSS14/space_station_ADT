@@ -161,3 +161,7 @@ ent-ADTClothingHeadHatsOfficerArmyUSSPCap = фуражка армейского 
 ent-ADTClothingHeadHatsGeneralArmyUSSPCap = фуражка армейского генерала СССП
     .desc = Генеральская фуражка СССП с золотым шитьём на козырьке.
     .suffix = СССП
+
+ent-ADTClothingHeadDemonicHornsDeer = демонические рожки оленя
+    .suffix = Хеллоуин
+    .desc = Рога радио-демона. Бррр...

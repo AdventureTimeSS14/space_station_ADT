@@ -206,6 +206,9 @@ public sealed partial class GasTurbineMonitorSystem : EntitySystem
 
         bool TrySetStatorLoad()
         {
+            if (!float.IsFinite(args.StatorLoad))
+                return false;
+
             var newSet = Math.Max(args.StatorLoad, 1000f);
             if (turbine.StatorLoad != newSet)
             {

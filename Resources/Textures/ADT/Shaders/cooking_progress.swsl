@@ -1,0 +1,25 @@
+uniform highp float refTime;
+uniform highp float cookBase;
+uniform highp float cookRate;
+uniform highp float burnBase;
+uniform highp float burnRate;
+uniform highp float mode;
+
+void fragment() {
+    highp vec4 color = zTexture(UV);
+    highp float elapsed = max(TIME - refTime, 0.0);
+    highp float cook = clamp(cookBase + cookRate * elapsed, 0.0, 1.0);
+    highp float burn = clamp(burnBase + burnRate * elapsed, 0.0, 1.0);
+    highp float fade = smoothstep(0.1, 1.0, cook);
+
+    if (mode < 0.5) {
+        color.a *= 1.0 - fade;
+    } else if (mode < 1.5) {
+        color.a *= fade;
+    } else if (mode < 2.5) {
+        color.rgb = mix(color.rgb, color.rgb * vec3(0.85, 0.62, 0.38), cook * 0.6);
+    }
+
+    color.rgb = mix(color.rgb, color.rgb * vec3(0.22, 0.16, 0.12), burn * 0.85);
+    COLOR = color;
+}

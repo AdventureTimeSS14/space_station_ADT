@@ -1,0 +1,121 @@
+- type: particleEffect
+  id: ADTCookingSteam
+  sprite:
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  startColor: "#F4F6FAAA"
+  endColor: "#E8ECF200"
+  sizeOverLifetime:
+    - time: 0.0
+      value: 0.4
+    - time: 1.0
+      value: 1.2
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.0
+    - time: 0.15
+      value: 0.7
+    - time: 0.6
+      value: 0.5
+    - time: 1.0
+      value: 0.0
+  lifetime: 1.8
+  lifetimeVariance: 0.5
+  speed: 0.25
+  speedVariance: 0.1
+  particleSize: 0.25
+  sizeVariance: 0.2
+  emissionRate: 5
+  maxCount: 14
+  gravity: -0.3
+  drag: 0.3
+  noiseStrength: 0.12
+  noiseFrequency: 0.6
+  spreadAngle: 30
+  startRotationVariance: 180
+  rotationSpeedVariance: 30
+  shape:
+    type: CircleFill
+    radius: 0.1
+
+- type: particleEffect
+  id: ADTCookingSizzle
+  sprite:
+    sprite: ADT/Particles/generic.rsi
+    state: dot
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FFF4C8FF"
+    - time: 0.5
+      color: "#F2C25AEE"
+    - time: 1.0
+      color: "#C8802000"
+  lifetime: 0.45
+  lifetimeVariance: 0.15
+  speed: 0.9
+  speedVariance: 0.4
+  particleSize: 0.12
+  sizeVariance: 0.05
+  emissionRate: 14
+  maxCount: 16
+  gravity: 2.2
+  drag: 0.5
+  spreadAngle: 120
+  shape:
+    type: CircleFill
+    radius: 0.12
+
+- type: particleEffect
+  id: ADTCookingSmoke
+  sprite:
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  startColor: "#4A4644BB"
+  endColor: "#2A282600"
+  sizeOverLifetime:
+    - time: 0.0
+      value: 0.5
+    - time: 1.0
+      value: 1.5
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.0
+    - time: 0.1
+      value: 0.9
+    - time: 0.8
+      value: 0.6
+    - time: 1.0
+      value: 0.0
+  lifetime: 2.4
+  lifetimeVariance: 0.6
+  speed: 0.3
+  speedVariance: 0.1
+  particleSize: 0.3
+  sizeVariance: 0.2
+  emissionRate: 6
+  maxCount: 18
+  gravity: -0.35
+  drag: 0.2
+  noiseStrength: 0.1
+  noiseFrequency: 0.5
+  spreadAngle: 30
+  startRotationVariance: 180
+  rotationSpeedVariance: 40
+  shape:
+    type: CircleFill
+    radius: 0.12
+
+- type: particleEffect
+  id: ADTCookingFire
+  parent: ADTFireContinuous
+  emissionRate: 22
+  maxCount: 60
+  particleSize: 0.55
+  sizeVariance: 0.2
+  lifetime: 0.7
+  lifetimeVariance: 0.2
+  gravity: -0.6
+  shape:
+    type: CircleFill
+    radius: 0.16

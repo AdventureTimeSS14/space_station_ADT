@@ -266,3 +266,14 @@
     sprite: ADT/Special/Personal/Darkiich/erich_scarf.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Darkiich/erich_scarf.rsi
+
+#NikSAN
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckNikSANCloak
+  name: scientist parade cloak
+  description: scientist parade cloak
+  suffix: Personal, NikSAN
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/niksan_cloak.rsi

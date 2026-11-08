@@ -1,6 +1,7 @@
 using Content.Server.EUI;
 using Content.Shared;
 using Content.Shared.ADT.Language;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Xenobiology.Potions;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
@@ -45,6 +46,12 @@ public sealed partial class SlimePotionConsentSystem : EntitySystem
             return;
 
         args.Handled = true;
+
+        if (HasComp<MegafaunaComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("xeno-potion-mind-swap-megafauna"), args.User, args.User);
+            return;
+        }
 
         if (targetMindContainer.HasMind)
         {
@@ -148,7 +155,8 @@ public sealed partial class SlimePotionConsentSystem : EntitySystem
 
     public void DoMindSwap(EntityUid user, EntityUid target, EntityUid potion)
     {
-        if (Deleted(potion) || !_mind.TryGetMind(user, out var userMindId, out _) ||
+        if (Deleted(potion) || HasComp<MegafaunaComponent>(target) ||
+            !_mind.TryGetMind(user, out var userMindId, out _) ||
             !_mind.TryGetMind(target, out var targetMindId, out _))
             return;
 
