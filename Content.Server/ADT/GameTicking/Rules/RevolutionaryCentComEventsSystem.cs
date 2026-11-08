@@ -9,43 +9,51 @@ namespace Content.Server.GameTicking.Rules;
 public sealed class RevolutionaryCentComEventsSystem : EntitySystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom RobustRandom = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<GameRuleStartedEvent>(OnRuleStarted);
-        SubscribeLocalEvent<GameRuleEndedEvent>(OnRuleEnded);
+        SubscribeLocalEvent<RevolutionaryCentComEventsComponent, GameRuleStartedEvent>(OnRuleStarted);
+        SubscribeLocalEvent<RevolutionaryCentComEventsComponent, GameRuleEndedEvent>(OnRuleEnded);
     }
 
-    private void OnRuleStarted(ref GameRuleStartedEvent args)
+    private void OnRuleStarted(Entity<RevolutionaryCentComEventsComponent> entity, ref GameRuleStartedEvent args)
     {
-        if (!HasComp<RevolutionaryRuleComponent>(args.RuleEntity))
+        ScheduleNext(entity);
+    }
+
+    private void OnRuleEnded(Entity<RevolutionaryCentComEventsComponent> entity, ref GameRuleEndedEvent args)
+    {
+        entity.Comp.Token?.Cancel();
+        entity.Comp.Token = null;
+    }
+
+    private void ScheduleNext(Entity<RevolutionaryCentComEventsComponent> entity)
+    {
+        var comp = entity.Comp;
+
+        if (comp.Events.Count == 0 || comp.EventsSent >= comp.MaxEvents)
             return;
 
-        var scheduler = EnsureComp<RevolutionaryCentComEventsComponent>(args.RuleEntity);
-        scheduler.NextEvent = _timing.CurTime + scheduler.FirstDelay;
-    }
+        comp.Token ??= new System.Threading.CancellationTokenSource();
+        var token = comp.Token.Token;
 
-    private void OnRuleEnded(ref GameRuleEndedEvent args)
-    {
-        if (!HasComp<RevolutionaryRuleComponent>(args.RuleEntity))
-            return;
-
-        RemComp<RevolutionaryCentComEventsComponent>(args.RuleEntity);
-    }
-
-    public override void Update(float frameTime)
-    {
-        var query = EntityQueryEnumerator<RevolutionaryCentComEventsComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        Timer.Spawn(NextDelay(comp), () =>
         {
-            if (comp.EventsSent >= comp.MaxEvents || _timing.CurTime < comp.NextEvent)
-                continue;
+            if (token.IsCancellationRequested || Deleted(entity) || Terminating(entity))
+                return;
 
-            _gameTicker.StartGameRule(comp.EventPrototype);
+            _gameTicker.StartGameRule(RobustRandom.Pick(comp.Events));
             comp.EventsSent++;
-            comp.NextEvent = _timing.CurTime + RobustRandom.Next(comp.MinDelay, comp.MaxDelay);
-        }
+
+            ScheduleNext(entity);
+        });
+    }
+
+    private TimeSpan NextDelay(RevolutionaryCentComEventsComponent component)
+    {
+        var min = (int) component.MinDelay.TotalSeconds;
+        var max = Math.Max(min, (int) component.MaxDelay.TotalSeconds);
+        return TimeSpan.FromSeconds(RobustRandom.Next(min, max + 1));
     }
 }

@@ -1,3 +1,4 @@
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Economy;
@@ -9,5 +10,8 @@ public sealed partial class SalaryPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField("salaries")]
-    public Dictionary<string, int> Salaries = new();
+    public Dictionary<ProtoId<JobPrototype>, double> Salaries = new();
+
+    [DataField("fixedSalaries")]
+    public Dictionary<ProtoId<JobPrototype>, int> Fixed = new();
 }

@@ -31,6 +31,7 @@
   description: Grants full fire and heat protection. Has limited uses.
   components:
   - type: SlimeFireproofPotion
+    duration: 600
   - type: Sprite
     sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
     layers:
@@ -72,6 +73,7 @@
   description: Halves the speed penalty of clothing.
   components:
   - type: SlimeSpeedPotion
+    duration: 900
   - type: Sprite
     sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
     layers:
@@ -82,10 +84,11 @@
   parent: BaseItem
   id: SlimeSpeedMechPotion
   name: slime speed mech potion
-  description: Coats a mech or borg, permanently boosting its movement speed.
+  description: Coats a mech or borg, boosting its movement speed for a while.
   components:
   - type: JellyCoating
     speedMultiplier: 1.3
+    duration: 900
   - type: Sprite
     sprite: ADT/Xenobiology/Specific/Xenobiology/slime_potion.rsi
     layers:

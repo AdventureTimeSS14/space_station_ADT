@@ -164,6 +164,7 @@ public sealed partial class ServerApi
         {
             Managed = map.Managed.ToArray(),
             Players = players,
+            LegacyTiers = map.LegacyTiers.ToDictionary(x => x.Key.ToString(), x => x.Value),
         });
     }
 
@@ -175,6 +176,12 @@ public sealed partial class ServerApi
             return;
 
         var grants = await _sponsors.GetGrantHistoryAsync(userId.Value);
+
+        var legacy = await RunOnMainThreadAsync(() =>
+            _sponsors.GetLegacyGrantAsync(new Robust.Shared.Network.NetUserId(userId.Value)));
+
+        if (legacy != null)
+            grants.Insert(0, legacy);
 
         var resolved = await RunOnMainThread(() =>
         {
@@ -699,6 +706,9 @@ public sealed partial class ServerApi
 
         [JsonPropertyName("players")]
         public Dictionary<string, string[]> Players { get; set; } = new();
+
+        [JsonPropertyName("legacyTiers")]
+        public Dictionary<string, string[]> LegacyTiers { get; set; } = new();
     }
 
     private sealed class SponsorPlayerResponse

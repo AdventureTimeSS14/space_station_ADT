@@ -533,6 +533,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             EnsureComp<ProjectileIgnoreCrawlingComponent>(uid);
         }
+
+        if (user != null && HasComp<ADTPreciseProjectileTargetComponent>(user.Value))
+        {
+            EnsureComp<ADTPreciseProjectileTargetComponent>(uid);
+        }
         // ADT-Tweak end
 
         var ev = new ProjectileShotEvent();
