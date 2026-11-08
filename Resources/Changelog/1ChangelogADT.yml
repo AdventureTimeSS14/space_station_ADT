@@ -17328,3 +17328,14 @@ Entries:
     id: 2096
     pr_number: 3656
     time: '2026-11-08T14:20:20Z'
+  - author: blad‗bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Появились ограниченные термальные очки для атмосов, способные видеть
+          только изменения температуры атмосферы.', type: Add}
+    id: 2097
+    pr_number: 3652
+    time: '2026-11-08T23:23:47Z'
