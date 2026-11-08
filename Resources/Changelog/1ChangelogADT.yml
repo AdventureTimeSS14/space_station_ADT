@@ -17318,3 +17318,13 @@ Entries:
     id: 2095
     pr_number: 3653
     time: '2026-11-07T19:11:24Z'
+  - author: Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Убран спавн мага как антага., type: Remove}
+    id: 2096
+    pr_number: 3656
+    time: '2026-11-08T14:20:20Z'
