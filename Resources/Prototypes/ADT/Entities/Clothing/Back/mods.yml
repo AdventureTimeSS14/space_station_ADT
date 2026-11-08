@@ -805,6 +805,8 @@
     quickEquip: false
     slots:
     - back
+  - type: Item
+    size: Huge
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false

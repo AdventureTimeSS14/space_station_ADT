@@ -1,6 +1,6 @@
 using Content.Shared.Paper;
 using Content.Server.Station.Systems;
-using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo.Prototypes;
 
 namespace Content.Server.ADT.Economy;
 
@@ -8,6 +8,7 @@ public sealed class CommandBudgetSystem : EntitySystem
 {
     [Dependency] private PaperSystem _paper = default!;
     [Dependency] private StationSystem _station = default!;
+    [Dependency] private BankCardSystem _bankCard = default!;
 
     public override void Initialize()
     {
@@ -18,18 +19,14 @@ public sealed class CommandBudgetSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, CommandBudgetPinPaperComponent component, MapInitEvent args)
     {
-        if (!TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? stationBank))
+        if (_station.GetOwningStation(uid) is not { } station || component.CommandBudgetType == null)
             return;
 
-        if (component.CommandBudgetType == null)
+        if (!_bankCard.TryGetDepartmentAccountId(station, component.CommandBudgetType.Value, out var accountId) ||
+            !_bankCard.TryGetAccount(accountId, out var account))
             return;
 
-        stationBank.BankAccounts.TryGetValue(component.CommandBudgetType.Value, out var account);
-
-        if (account != null)
-        {
-            var pin = account.AccountPin;
-            _paper.SetContent((uid, EnsureComp<PaperComponent>(uid)), Loc.GetString("command-budget-pin-message", ("pin", pin)));
-        }
+        _paper.SetContent((uid, EnsureComp<PaperComponent>(uid)),
+            Loc.GetString("command-budget-pin-message", ("pin", account.AccountPin)));
     }
 }

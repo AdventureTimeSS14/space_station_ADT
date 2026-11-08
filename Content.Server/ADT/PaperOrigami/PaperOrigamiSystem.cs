@@ -38,7 +38,7 @@ public sealed class PaperOrigamiSystem : EntitySystem
 
     private void OnAddVerbIsPaperOrigami(EntityUid uid, PaperOrigamiComponent component, GetVerbsEvent<Verb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
             return;
 
         if (!TryComp<AppearanceComponent>(uid, out var appearance))
