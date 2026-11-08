@@ -12,12 +12,16 @@ using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Preferences;
+using Robust.Shared;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 
 namespace Content.IntegrationTests.Tests.GameRules;
 
 [TestFixture]
+// Some presets require 1000 players. Keep PVS and its entity budgets enabled so
+// round start does not send every entity in one state and exceed the deserialization allocation limit.
+[EnsureCVar(Side.Server, typeof(CVars), nameof(CVars.NetPVS), true)]
 public sealed class AllGamePresetsStartTest : AntagTest
 {
     /// <summary>
