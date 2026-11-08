@@ -30,7 +30,7 @@
     cost: 75
 
 - type: antagSpecifier
-  parent: [ CommandBlacklistedAntag, CyborgBlacklistedAntag ]
+  parent: RestrictedAntag # ADT-Tweak
   id: Changeling
   prefRoles: [ Changeling ]
   blacklist:

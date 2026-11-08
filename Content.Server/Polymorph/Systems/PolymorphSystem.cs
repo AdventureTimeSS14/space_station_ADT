@@ -45,6 +45,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
+using Content.Shared.Mindshield; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.DetailExaminable;
@@ -74,6 +75,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private FollowerSystem _follow = default!; // goob edit
     [Dependency] private SharedEyeSystem _eye = default!; // ADT-Tweak Heretic
     [Dependency] private ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
+    [Dependency] private MindShieldSystem _mindShield = default!; // ADT-Tweak
 
     private static readonly EntProtoId RevertPolymorphId = "ActionRevertPolymorph";
     private static readonly EntProtoId RevertPolymorphConfirmId = "ActionRevertPolymorphConfirm";
@@ -729,10 +731,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         var newEntityUid = Spawn(newHumanoidData.EntityPrototype.ID, targetTransformComp.Coordinates);
         var newEntityUidTransformComp = Transform(newEntityUid);
 
-        if (TryComp(source, out MindShieldComponent? mindshieldComp)) // copy over mindshield status
+        _mindShield.GetMindshieldStatus(source, out var isMindshielded, out _);
+        if (isMindshielded)
         {
-            var copiedMindshieldComp = (Component)_serialization.CreateCopy(mindshieldComp, notNullableOverride: true);
-            AddComp(newEntityUid, copiedMindshieldComp);
+            EnsureComp<MindShieldComponent>(newEntityUid);
+            _mindShield.RefreshMindshieldStatus(newEntityUid);
         }
         //ADT-tweak-start
         // if (TryComp<DetailExaminableComponent>(source, out var desc))

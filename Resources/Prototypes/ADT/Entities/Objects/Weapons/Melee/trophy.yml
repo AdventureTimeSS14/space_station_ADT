@@ -41,6 +41,44 @@
         - ADTKineticTrophyMagmaWing
 
 - type: entity
+  id: ADTKineticTrophyWatcherWing
+  name: watcher wing
+  description: Mark detonation briefly prevents fauna from using ranged attacks.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: watcher_wing
+    - type: Trophy
+      effects:
+        - !type:SuppressRangedOnDetonationEffect
+          duration: 0.5
+      examineText: adt-kinetic-trophy-watcher-wing
+      trophyTag: ADTKineticTrophyWatcherWing
+    - type: Tag
+      tags:
+        - ADTKineticTrophyWatcherWing
+
+- type: entity
+  id: ADTKineticTrophyIceWing
+  name: icewing watcher wing
+  description: Mark detonation prevents fauna from using ranged attacks.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: ice_wing
+    - type: Trophy
+      effects:
+        - !type:SuppressRangedOnDetonationEffect
+          duration: 0.8
+      examineText: adt-kinetic-trophy-ice-wing
+      trophyTag: ADTKineticTrophyWatcherWing
+    - type: Tag
+      tags:
+        - ADTKineticTrophyWatcherWing
+
+- type: entity
   id: ADTKineticTrophyPoisonFang
   name: poison fang
   description: Marked targets take increased damage for a short time.
@@ -188,6 +226,9 @@
 
 - type: Tag
   id: ADTKineticTrophyMagmaWing
+
+- type: Tag
+  id: ADTKineticTrophyWatcherWing
 
 - type: Tag
   id: ADTKineticTrophyPoisonFang

@@ -1,0 +1,85 @@
+- type: entity
+  abstract: true
+  parent: [FoodBaseTrash, FoodOpenableBase]
+  id: ADTFoodJarJamBase
+  name: jar of jam
+  description: A glass jar of homemade jam covered with a checkered cloth.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 20
+  - type: Openable
+    openableByHand: true
+  - type: Edible
+    trash:
+    - ADTFoodJarJamTrash
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ADTFoodJarJamBase
+  id: ADTFoodJarJamRaspberry
+  name: jar of raspberry jam
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_raspberry.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_raspberry.rsi
+  - type: FlavorProfile
+    flavors:
+    - adt_jam_raspberry
+
+- type: entity
+  parent: ADTFoodJarJamBase
+  id: ADTFoodJarJamStrawberry
+  name: jar of strawberry jam
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_strawberry.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_strawberry.rsi
+  - type: FlavorProfile
+    flavors:
+    - adt_jam_strawberry
+
+- type: entity
+  parent: ADTFoodJarJamBase
+  id: ADTFoodJarJamApricot
+  name: jar of apricot jam
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_apricot.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_apricot.rsi
+  - type: FlavorProfile
+    flavors:
+    - adt_jam_apricot
+
+- type: entity
+  parent: BaseItem
+  id: ADTFoodJarJamTrash
+  name: empty jam jar
+  description: An empty glass jar. Grandma will ask for it back.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_jar.rsi
+    state: trash
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Containers/ussp_jam_jar.rsi
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
+  - type: SpaceGarbage
+  - type: Tag
+    tags:
+    - Trash

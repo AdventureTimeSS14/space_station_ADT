@@ -187,7 +187,7 @@
         Slash: 4
   - type: Temperature
     temperature: 310.15
-    specificHeat: 2760
+    specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 363
     coldDamageThreshold: 250

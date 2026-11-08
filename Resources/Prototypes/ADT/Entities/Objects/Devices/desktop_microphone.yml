@@ -1,0 +1,67 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTDesktopBroadcastMicrophone
+  name: desktop broadcast microphone
+  description: A desktop microphone for radio hosts. Has to be secured and powered to go on air.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/desktop_microphone.rsi
+    drawdepth: SmallObjects
+    offset: 0, 0.1875
+    layers:
+    - state: base
+    - state: off
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      shader: unshaded
+      visible: false
+    - state: on
+      map: [ "enum.RadioDeviceVisualLayers.Broadcasting" ]
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 20
+        mask:
+        - ItemMask
+  - type: InteractionOutline
+  - type: RadioMicrophone
+    broadcastChannel: ADTOldBroadcast
+    listenRange: 1
+    powerRequired: true
+    unobstructedRequired: true
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: ExtensionCableReceiver
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RadioDeviceVisuals.Broadcasting:
+        enum.RadioDeviceVisualLayers.Broadcasting:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Structure
+    - ADTBroadcastMicrophone
+  - type: StaticPrice
+    price: 150

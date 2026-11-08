@@ -279,7 +279,7 @@ public sealed class JobTest : GameTest
             $"Client has no attached entity after round start. RunLevel: {ticker.RunLevel}");
          /// ADT-tweak end
 
-        AssertJob(pair, Captain);
+        AssertJob(pair, Engineer); // ADT-Tweak
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
     }
@@ -319,7 +319,7 @@ public sealed class JobTest : GameTest
 
         await pair.SetJobPriorities(players[0], (Passenger, JobPriority.Medium), (Captain, JobPriority.High));
         await pair.SetJobPriorities(players[1], (Passenger, JobPriority.Never), (Engineer, JobPriority.High), (Captain, JobPriority.Medium));
-        await pair.SetJobPriorities(players[2], (Passenger, JobPriority.Never), (Engineer, JobPriority.High));
+        await pair.SetJobPriorities(players[2], (Passenger, JobPriority.High), (Engineer, JobPriority.Medium)); // ADT-Tweak
 
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
@@ -328,11 +328,11 @@ public sealed class JobTest : GameTest
         var stationData = pair.Server.EntMan.EntityQuery<StationDataComponent>().Single();
         Assert.That(stationData.JobWeights, Is.EqualTo(map.JobWeights));
 
-        // Passenger's map weight of 30 takes precedence over the captain's default weight of 20,
-        // even though this player prefers captain. Engineer has no map override and keeps its default weight.
-        AssertJob(pair, Passenger, players[0]);
-        AssertJob(pair, Captain, players[1]);
-        AssertJob(pair, Engineer, players[2]);
+        // ADT-Tweak-start
+        AssertJob(pair, Captain, players[0]);
+        AssertJob(pair, Engineer, players[1]);
+        AssertJob(pair, Passenger, players[2]);
+        // ADT-Tweak-end
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
     }

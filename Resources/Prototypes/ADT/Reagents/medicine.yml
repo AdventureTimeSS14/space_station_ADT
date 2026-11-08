@@ -805,3 +805,43 @@
           guidebookComponentName: reagent-comp-condition-adt-ashwalker
         reagent: Epinephrine
         amount: 0.2
+
+- type: reagent
+  id: ADTMurderSolution
+  name: reagent-name-murder-solution
+  group: Medicine
+  desc: reagent-desc-murder-solution
+  physicalDesc: reagent-physical-desc-glowing
+  flavor: metallic
+  color: "#6fd13a"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 5
+      effects:
+      - !type:ADTMurderSolutionBurst
+        minScale: 1
+        damage:
+          types:
+            Radiation: 40
+      - !type:ADTCureCloneCellularDecay
+        minScale: 1
+
+#Ионы серебра
+- type: reagent
+  id: ADTSilverIons
+  name: reagent-name-silver-ions
+  group: Elements
+  desc: reagent-desc-silver-ions
+  physicalDesc: reagent-physical-desc-reasonably-metallic
+  flavor: metallic
+  color: "#dcdcf0"
+
+#Ионы железа
+- type: reagent
+  id: ADTIronIons
+  name: reagent-name-iron-ions
+  group: Elements
+  desc: reagent-desc-iron-ions
+  physicalDesc: reagent-physical-desc-reasonably-metallic
+  flavor: metallic
+  color: "#b0a090"

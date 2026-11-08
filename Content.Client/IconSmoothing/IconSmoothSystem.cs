@@ -176,7 +176,7 @@ namespace Content.Client.IconSmoothing
             DirtyEntities(_mapSystem.GetAnchoredEntities(entityUid, grid, pos + Vector2i.Up));
             DirtyEntities(_mapSystem.GetAnchoredEntities(entityUid, grid, pos + Vector2i.Down));
 
-            if (comp.Mode is IconSmoothingMode.Corners or IconSmoothingMode.NoSprite or IconSmoothingMode.Diagonal)
+            if (comp.Mode is IconSmoothingMode.Corners or IconSmoothingMode.NoSprite or IconSmoothingMode.Diagonal or IconSmoothingMode.Bitmask) // ADT-Tweak
             {
                 DirtyEntities(_mapSystem.GetAnchoredEntities(entityUid, grid, pos + Vector2i.UpRight));
                 DirtyEntities(_mapSystem.GetAnchoredEntities(entityUid, grid, pos + Vector2i.DownLeft));
@@ -281,6 +281,11 @@ namespace Content.Client.IconSmoothing
                 case IconSmoothingMode.Diagonal:
                     CalculateNewSpriteDiagonal(gridEntity, smooth, spriteEnt, xform);
                     break;
+                // ADT-Tweak start
+                case IconSmoothingMode.Bitmask:
+                    CalculateNewSpriteBitmask(gridEntity, smooth, spriteEnt, xform);
+                    break;
+                // ADT-Tweak end
                 default:
                     throw new ArgumentOutOfRangeException();
             }

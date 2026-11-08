@@ -1,0 +1,66 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:ui="clr-namespace:Content.Client.ADT.SpawnMenu.UI"
+               xmlns:tree="clr-namespace:Content.Client.UserInterface.Controls.FancyTree"
+               xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls"
+               Title="{Loc 'adt-decal-spawn-window-title'}"
+               SetSize="820 600"
+               MinSize="520 320">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'adt-spawn-menu-decal-search-placeholder'}" />
+            <Button Name="ClearButton" Disabled="True" Text="{Loc 'adt-spawn-menu-clear'}" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <BoxContainer Orientation="Horizontal">
+                <Button Name="ListModeButton" ToggleMode="True" Text="{Loc 'adt-spawn-menu-view-list'}" StyleClasses="OpenRight" />
+                <Button Name="GridModeButton" ToggleMode="True" Text="{Loc 'adt-spawn-menu-view-grid'}" StyleClasses="OpenLeft" />
+            </BoxContainer>
+            <CheckBox Name="GroupCheckBox" Access="Public" Text="{Loc 'adt-spawn-menu-decal-group-directions'}" ToolTip="{Loc 'adt-spawn-menu-decal-group-directions-tooltip'}" />
+            <Label Name="CountLabel" HorizontalExpand="True" Align="Right" Margin="4 0" StyleClasses="LabelSubText" />
+            <Button Name="OldWindowButton" Access="Public" Text="{Loc 'adt-spawn-menu-old-window'}" />
+        </BoxContainer>
+        <SplitContainer Name="Split" Orientation="Horizontal" VerticalExpand="True">
+            <ui:ADTClampedContainer MinWidth="150">
+                <tree:FancyTree Name="CategoryTree" />
+            </ui:ADTClampedContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="260">
+                <ui:ADTVirtualList Name="ItemsView" MinWidth="180" />
+                <ScrollContainer SetWidth="260" HScrollEnabled="False">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="4 0">
+                        <Label Name="DetailsEmpty" Text="{Loc 'adt-spawn-menu-details-empty'}" StyleClasses="LabelSubText" Align="Center" />
+                        <BoxContainer Name="DetailsContent" Orientation="Vertical" SeparationOverride="4" Visible="False">
+                            <AnimatedTextureRect Name="DetailsPreview" SetSize="96 96" HorizontalAlignment="Center" />
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                                <Label Name="DetailsId" HorizontalExpand="True" ClipText="True" StyleClasses="LabelSubText" VerticalAlignment="Center" />
+                                <Button Name="CopyIdButton" Text="{Loc 'adt-spawn-menu-details-copy-id'}" StyleClasses="ButtonSquare" />
+                            </BoxContainer>
+                            <Button Name="FavoriteButton" ToggleMode="True" HorizontalExpand="True" />
+                            <Label Name="VariantsCaption" Text="{Loc 'adt-spawn-menu-decal-directions'}" />
+                            <ui:ADTFlowContainer Name="VariantsBox" />
+                            <Label Name="DetailsInfo" StyleClasses="LabelSubText" />
+                        </BoxContainer>
+                        <Button Name="OptionsButton" ToggleMode="True" Pressed="True" Text="{Loc 'adt-spawn-menu-decal-options'}" />
+                        <BoxContainer Name="OptionsBox" Orientation="Vertical" SeparationOverride="4">
+                            <adt:LegacyColorSelectorSliders Name="ColorPicker" IsAlphaVisible="True" />
+                            <Button Name="PaletteButton" Text="{Loc 'decal-placer-window-palette'}" />
+                            <Label Text="{Loc 'adt-spawn-menu-decal-recent-colors'}" />
+                            <ui:ADTFlowContainer Name="RecentColors" />
+                            <CheckBox Name="EnableAuto" Text="{Loc 'decal-placer-window-enable-auto'}" />
+                            <CheckBox Name="EnableColor" Text="{Loc 'decal-placer-window-use-color'}" />
+                            <CheckBox Name="EnableSnap" Text="{Loc 'decal-placer-window-enable-snap'}" />
+                            <CheckBox Name="EnableCleanable" Text="{Loc 'decal-placer-window-enable-cleanable'}" />
+                            <CheckBox Name="EnableSingleErase" Text="{Loc 'decal-placer-window-single-erase'}" />
+                            <BoxContainer Name="RotationBox" Orientation="Horizontal" SeparationOverride="4">
+                                <Label Text="{Loc 'decal-placer-window-rotation'}" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                                <Label Text="{Loc 'decal-placer-window-zindex'}" />
+                                <SpinBox Name="ZIndexSpinBox" HorizontalExpand="True" />
+                            </BoxContainer>
+                        </BoxContainer>
+                    </BoxContainer>
+                </ScrollContainer>
+            </BoxContainer>
+        </SplitContainer>
+    </BoxContainer>
+</DefaultWindow>

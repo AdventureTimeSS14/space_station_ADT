@@ -72,6 +72,27 @@
     access: [["ADTAshWalker"]]
 
 - type: entity
+  id: ADTNecropolisGateLegion
+  parent: ADTNecropolisGate
+  suffix: Legion
+  description: A tall, massive gate set into a towering stone tower.
+  components:
+  - type: Door
+    clickOpen: false
+  - type: ADTLegionGate
+    legionGate: true
+
+- type: entity
+  id: ADTNecropolisGateLocked
+  parent: ADTNecropolisGate
+  suffix: Locked
+  components:
+  - type: Door
+    clickOpen: false
+  - type: ADTLegionGate
+    locked: true
+
+- type: entity
   id: ADTNecropolisArch
   parent: BaseStructure
   name: necropolis arch

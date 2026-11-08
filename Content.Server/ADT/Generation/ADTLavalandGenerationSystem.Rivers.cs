@@ -86,6 +86,7 @@ public sealed partial class ADTLavalandGenerationSystem
         PlaceBridges(comp);
 
         ReserveTileSet(ent, _lavaTiles.Concat(_shoreTiles));
+        comp.LavaTiles.UnionWith(_lavaTiles);
 
         foreach (var tile in _lavaTiles)
         {
@@ -184,6 +185,14 @@ public sealed partial class ADTLavalandGenerationSystem
         foreach (var room in comp.Placed)
         {
             if (Vector2.DistanceSquared(center, room) < clearance * clearance)
+                return true;
+        }
+
+        foreach (var (room, roomClearance) in comp.RiverExclusions)
+        {
+            var total = roomClearance + radius;
+
+            if (Vector2.DistanceSquared(center, room) < total * total)
                 return true;
         }
 
@@ -436,6 +445,12 @@ public sealed partial class ADTLavalandGenerationSystem
         foreach (var room in comp.Placed)
         {
             if (Vector2.DistanceSquared(center, room) < clearanceSq)
+                return true;
+        }
+
+        foreach (var (room, roomClearance) in comp.RiverExclusions)
+        {
+            if (Vector2.DistanceSquared(center, room) < roomClearance * roomClearance)
                 return true;
         }
 

@@ -265,9 +265,11 @@
   - type: Fingerprint
   - type: Blindable
   - type: Temperature
+    specificHeat: 42 # ADT-Tweak
+    thermalConductivity: 100 # ADT-Tweak
   - type: TemperatureDamage
-    heatDamageThreshold: 316.15
-    coldDamageThreshold: 273.15
+    heatDamageThreshold: 325 # ADT-Tweak
+    coldDamageThreshold: 260 # ADT-Tweak
     coldDamage:
       types:
         Cold: 0.1 #per second, scales with temperature & other constants

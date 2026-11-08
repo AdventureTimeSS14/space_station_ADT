@@ -681,3 +681,13 @@
   - type: Icon
     sprite: ADT/Structures/Walls/admin_wall.rsi
     state: black
+
+- type: entity
+  id: ADTWallNecropolisIndestructible
+  parent: WallNecropolis
+  name: necropolis wall
+  description: A thick, seemingly indestructible stone wall.
+  suffix: Indestructible
+  components:
+  - type: Destructible
+    thresholds: []

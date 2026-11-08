@@ -62,3 +62,5 @@ stack-adt-wet-leather =
         [few] куска мокрой кожи
        *[other] кусков мокрой кожи
     }
+
+stack-adt-ussp-carpet-tile = ковёр СССП

@@ -315,15 +315,19 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
-    # ADT-Tweak start: Ninja borg hack objective
-    - objective: BorgHackObjective
-      components:
-      - type: EmagProvider
-        emagType: "Access, Interaction"
-        whitelist:
-          components:
-          - Airlock
-          - EmagSiliconLaw
+    # ADT-Tweak start: Ninja borg
+    - components:
+      - type: NinjaBorgConvert
+        chassisByBorgType:
+          security: ADTNinjaBorgChassisSecurity
+          engineering: ADTNinjaBorgChassisEngineer
+          medical: ADTNinjaBorgChassisMedical
+          mining: ADTNinjaBorgChassisHeavy
+          janitor: ADTNinjaBorgChassisSpider
+        fallbackChassis:
+        - ADTNinjaBorgChassisBooty
+        - ADTNinjaBorgChassisBroBooty
+        - ADTNinjaBorgChassisMissM
     # ADT-Tweak end
 
 - type: entity
@@ -682,18 +686,19 @@
     attackRate: 1.5
     damage:
       types:
-        Blunt: 8
+        Blunt: 10 # ADT-Tweak 8 > 10. Бафф, так как будет использоваться инквизицией. Вещь не доступна для игроков.
+        Piercing: 10 # ADT-Tweak: добавлено
     bluntStaminaDamageFactor: 2.0
     animation: WeaponArcFist
   - type: MeleeBatteryHitsLeft
   - type: StaminaDamageOnHitRequiresToggle
   - type: StaminaDamageOnHitRequiresCharge
-    requiredCharge: 50
+    requiredCharge: 25 #ADT-Tweak 50 > 25
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 45 # ADT-Tweak: повышено с 35
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 45 # ADT-Tweak: повышено с 35
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

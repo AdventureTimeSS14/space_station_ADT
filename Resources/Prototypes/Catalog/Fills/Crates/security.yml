@@ -20,7 +20,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: ClothingHeadHelmetBasic
+        id: ADTClothingHeadHelmetAssault
         amount: 3
 # ADT-Tweak-End
 

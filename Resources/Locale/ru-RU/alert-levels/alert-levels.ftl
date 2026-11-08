@@ -1,5 +1,6 @@
 alert-level-announcement = Внимание! Уровень угрозы станции теперь { $name }! { $announcement }
-alert-level-unknown = неизвестный.
+# unknown name uses generic-unknown-title
+alert-level-unknown-announcement = Это проверка системы оповещения.
 alert-level-unknown-instructions = Неизвестно.
 alert-level-green = зелёный
 alert-level-green-announcement = Можно безопасно возвращаться на свои рабочие места.

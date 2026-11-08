@@ -1,3 +1,4 @@
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.Damage;
@@ -26,6 +27,19 @@ public sealed class BubblegumBloodAttackSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<Entity<MobStateComponent>> _mobBuffer = [];
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<BubblegumBloodAttackComponent, ADTMegafaunaChargeEndedEvent>(OnChargeEnded);
+    }
+
+    private void OnChargeEnded(Entity<BubblegumBloodAttackComponent> ent, ref ADTMegafaunaChargeEndedEvent args)
+    {
+        if (args.Reason == ADTMegafaunaChargeEndReason.Landed)
+            ent.Comp.NextAttemptAt = _timing.CurTime;
+    }
 
     public override void Update(float frameTime)
     {

@@ -261,3 +261,20 @@
     sprite: ADT/Special/Personal/honelin111_jacket.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/honelin111_jacket.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageFoldableBase
+  id: ADTClothingOuterArbitratorCapeIllumy
+  name: arbitrator cape
+  description: A long black cape, whose unusually dense fabric absorbs most of the light and barely moves without the wearer’s movement. Apparently, its main function is to make the wearer’s presence impossible to ignore.
+  suffix: Sponsor, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Illumy/arbitrator_robe.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Illumy/arbitrator_robe.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterArbitratorCapeIllumy]
+  id: ADTClothingOuterArbitratorCapeIllumyOpened
+  name: arbitrator cape

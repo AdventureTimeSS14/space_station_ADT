@@ -1,6 +1,7 @@
 using System.Linq;
 using Robust.Shared.Map.Components;
 using Content.Shared.ADT.Shadekin.Components;
+using Content.Shared.ADT.VentCrawling.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
@@ -159,7 +160,7 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (HasComp<MechPilotComponent>(uid))
+        if (HasComp<MechPilotComponent>(uid) || HasComp<BeingVentCrawlerComponent>(uid))
             return;
 
         var targetPosition = args.Target.ToMap(EntityManager, _transform).Position;
@@ -212,7 +213,8 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffable) &&
         _cuffable.IsCuffed((uid, cuffable), true) ||
-        HasComp<MechPilotComponent>(uid))
+        HasComp<MechPilotComponent>(uid) ||
+        HasComp<BeingVentCrawlerComponent>(uid))
         {
             comp.MaxedPowerAccumulator = 0f;
             return;

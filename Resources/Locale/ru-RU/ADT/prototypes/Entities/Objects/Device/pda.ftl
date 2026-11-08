@@ -229,6 +229,3 @@ ent-ADTIntendantPDA = КПК интенданта
 
 ent-XenobioPDA = КПК ксенобиолога
     .desc = { ent-SciencePDA.desc }
-
-ent-ADTCyborgPDA = КПК киборга
-    .desc = Пахнет машинным маслом.

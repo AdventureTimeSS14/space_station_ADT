@@ -297,14 +297,6 @@
 
 - type: entity
   parent: PrintedDocument
-  id: PrintedDocumentPermissionToExtendMarriage
-  name: Permission to extend marriage
-  components:
-    - type: Paper
-      content: doc-text-printer-permission-to-extend-marriage
-
-- type: entity
-  parent: PrintedDocument
   id: PrintedDocumentOrderDismissal
   name: Dismissal order
   components:

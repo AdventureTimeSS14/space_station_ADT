@@ -392,3 +392,17 @@
   - type: StorageFill
     contents:
     - id: ADTFamilyBusinessLaserPistolRed
+
+- type: entity
+  id: ADTBriefcaseBrownArbitratorCapeIllumy
+  name: arbitrator briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingShoesArbitratorBootsIllumy
+        - id: ADTClothingOuterArbitratorCapeIllumy
+        - id: ADTClothingUniformArbitratorJumpsuitIllumy

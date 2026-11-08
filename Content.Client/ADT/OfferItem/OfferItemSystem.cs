@@ -2,6 +2,7 @@ using Content.Shared.ADT.OfferItem;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Alert;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Item;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -19,6 +20,7 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IEyeManager _eye = default!;
     [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private SharedItemSystem _item = default!;
 
     private LayoutContainer? _root;
     private OfferItemIcon? _icon;
@@ -46,10 +48,7 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
     {
         if (_playerManager.LocalEntity is not { } local
             || !TryComp<OfferItemComponent>(local, out var comp)
-            || !comp.IsInReceiveMode
-            || comp.Target is not { } giver
-            || !TryComp<OfferItemComponent>(giver, out var giverComp)
-            || giverComp.Item is not { } item)
+            || !TryGetOffer(local, comp, out var giver, out var item))
         {
             ClearIcon();
             return;
@@ -58,15 +57,69 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
         if (!EnsureRoot())
             return;
 
+        var receiving = giver != local;
         if (_icon == null || _icon.Anchor != giver)
         {
             _icon?.Orphan();
             _icon = new OfferItemIcon(giver);
-            _icon.OnPressed += _ => Accept();
+            _icon.OnPressed += _ => OnIconPressed();
             _root!.AddChild(_icon);
         }
 
-        _icon.SetItem(item, Loc.GetString("offer-item-icon-tooltip", ("item", Identity.Name(item, EntityManager, local))));
+        _icon.IsGiver = !receiving;
+        _icon.SetIconSize(GetIconSize(item));
+
+        var tooltip = receiving ? "offer-item-icon-tooltip" : "offer-item-icon-tooltip-giver";
+        _icon.SetItem(item, Loc.GetString(tooltip, ("item", Identity.Name(item, EntityManager, local))));
+    }
+
+    private float GetIconSize(EntityUid item)
+    {
+        if (!TryComp<ItemComponent>(item, out var itemComp))
+            return 32f;
+
+        return _item.GetItemSizeWeight(itemComp.Size) switch
+        {
+            <= 1 => 24f,
+            <= 2 => 28f,
+            <= 4 => 32f,
+            <= 8 => 38f,
+            _ => 44f,
+        };
+    }
+
+    private bool TryGetOffer(EntityUid local, OfferItemComponent comp, out EntityUid giver, out EntityUid item)
+    {
+        giver = default;
+        item = default;
+
+        if (comp.IsInReceiveMode)
+        {
+            if (comp.Target is not { } target)
+                return false;
+
+            if (!TryComp<OfferItemComponent>(target, out var giverComp) || giverComp.Item is not { } offered)
+                return false;
+
+            giver = target;
+            item = offered;
+            return true;
+        }
+
+        if (comp.Item is not { } own || !comp.IsInOfferMode && comp.Target == null)
+            return false;
+
+        giver = local;
+        item = own;
+        return true;
+    }
+
+    private void OnIconPressed()
+    {
+        if (_icon == null || _icon.Anchor == _playerManager.LocalEntity)
+            return;
+
+        Accept();
     }
 
     private void Accept()

@@ -12,7 +12,7 @@ public sealed partial class KnockdownNearbyEffect : EntityEffectBase<KnockdownNe
     public TimeSpan Time = TimeSpan.FromSeconds(3);
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-knockdown-nearby");
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

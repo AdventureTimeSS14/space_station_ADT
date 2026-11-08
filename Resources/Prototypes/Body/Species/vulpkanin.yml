@@ -170,6 +170,11 @@
       types:
         Piercing: 2
         Slash: 3
+  # ADT-Tweak-Start
+  - type: Temperature
+    specificHeat: 44
+    thermalConductivity: 100
+  # ADT-Tweak-End
   - type: TemperatureDamage
     heatDamageThreshold: 320
     coldDamageThreshold: 230

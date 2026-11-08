@@ -35,7 +35,7 @@
     radius: 8
     softness: 2.1
     # ADT-Sound-Update-End
-    offset: "0, -0.5" # ADT-Tweak
+    offset: "0, -0.45" # ADT-Tweak
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -319,7 +319,7 @@
     enabled: false
   - type: PointLight
     enabled: false
-    offset: "0, -0.5" # ADT-Tweak
+    offset: "0, -0.45" # ADT-Tweak
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot

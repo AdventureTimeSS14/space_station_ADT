@@ -1,6 +1,6 @@
 - type: entity
   name: flippo Johan lighter
-  parent: BaseItem
+  parent: [SolutionToolWelderMini, BaseLighter]
   id: FlippoJohanLighter
   description: A zippo lighter with a red metal coating. There are two letters on the case that stand for "Johan Kresta.
   components:
@@ -54,13 +54,6 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: Solution
-    id: Welder
-    solution:
-      maxVol: 20
-      reagents:
-      - ReagentId: WeldingFuel
-        Quantity: 20
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
@@ -86,7 +79,7 @@
     energy: 2
 
 - type: entity
-  parent: BaseItem
+  parent: [SolutionToolWelder, BaseLighter]
   id: ADTLighterArcher
   name: Red gold-plated lighter
   description: A zippo lighter with a red metal coating.
@@ -142,13 +135,6 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: Solution
-    id: Welder
-    solution:
-      maxVol: 32
-      reagents:
-      - ReagentId: WeldingFuel
-        Quantity: 32
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
@@ -170,7 +156,7 @@
   - type: PointLight
     enabled: false
     netsync: false
-    radius: 1.6
+    radius: 1.8
     color: "#ef2e4b"
   - type: ItemTogglePointLight
   - type: UseDelay
@@ -182,7 +168,7 @@
 
 - type: entity
   name: flippo Johan lighter
-  parent: BaseItem
+  parent: [SolutionToolWelderMini, BaseLighter]
   id: FlippoSchrodingerLighter
   description: A zippo lighter with a red metal coating. There are two letters on the case that stand for Johan Kresta.
   components:
@@ -236,13 +222,6 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: Solution
-    id: Welder
-    solution:
-      maxVol: 20
-      reagents:
-      - ReagentId: WeldingFuel
-        Quantity: 20
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1

@@ -161,6 +161,8 @@ public sealed partial class ADTLavalandGenerationSystem : EntitySystem
         var placed = comp.Placed;
         placed.Clear();
         comp.Exclusions.Clear();
+        comp.RiverExclusions.Clear();
+        comp.LavaTiles.Clear();
 
         foreach (var group in comp.Groups)
         {
@@ -186,6 +188,9 @@ public sealed partial class ADTLavalandGenerationSystem : EntitySystem
 
                 if (group.Clearance > 0f)
                     comp.Exclusions.Add((coords.Position, group.Clearance));
+
+                if (group.RiverClearance is { } riverClearance)
+                    comp.RiverExclusions.Add((coords.Position, riverClearance));
             }
         }
 
@@ -241,6 +246,31 @@ public sealed partial class ADTLavalandGenerationSystem : EntitySystem
         return false;
     }
 
+    public bool IsNearLava(ADTLavalandGenerationComponent comp, Vector2 position, float radius)
+    {
+        if (comp.LavaTiles.Count == 0)
+            return false;
+
+        var radiusSq = radius * radius;
+        var min = new Vector2i((int) MathF.Floor(position.X - radius), (int) MathF.Floor(position.Y - radius));
+        var max = new Vector2i((int) MathF.Floor(position.X + radius), (int) MathF.Floor(position.Y + radius));
+
+        for (var x = min.X; x <= max.X; x++)
+        {
+            for (var y = min.Y; y <= max.Y; y++)
+            {
+                var tile = new Vector2i(x, y);
+                if (!comp.LavaTiles.Contains(tile))
+                    continue;
+
+                if (Vector2.DistanceSquared(position, new Vector2(x + 0.5f, y + 0.5f)) < radiusSq)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
     private bool TryFindSpot(
         Entity<ADTLavalandGenerationComponent> ent,
         LavalandScatterGroup group,
@@ -253,7 +283,9 @@ public sealed partial class ADTLavalandGenerationSystem : EntitySystem
 
         for (var attempt = 0; attempt < comp.MaxAttempts; attempt++)
         {
-            var angle = _random.NextFloat(0, MathF.PI * 2);
+            var angle = group.Angle is { } fixedAngle
+                ? MathHelper.DegreesToRadians(fixedAngle)
+                : _random.NextFloat(0, MathF.PI * 2);
             var distance = _random.NextFloat(minCenter, maxCenter);
             var offset = new Vector2(MathF.Cos(angle) * distance, MathF.Sin(angle) * distance);
 

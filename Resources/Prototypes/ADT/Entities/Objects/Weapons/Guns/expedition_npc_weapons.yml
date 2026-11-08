@@ -1,0 +1,19 @@
+- type: entity
+  parent: ADTWeaponLauncherRocket
+  id: ADTWeaponLauncherRocketFrag
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeFragRocket
+
+- type: entity
+  parent: WeaponSniperHristov
+  id: ADTWeaponSniperHristovNoScope
+  components:
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        locked: false
+        whitelist:
+          tags:
+          - ADTAttachmentMagneticHarness
+          - ADTAttachmentHristovScope

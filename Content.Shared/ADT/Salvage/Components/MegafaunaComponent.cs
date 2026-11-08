@@ -39,6 +39,15 @@ public sealed partial class MegafaunaComponent : Component
     [DataField]
     public int SpeechFontSize = 16;
 
+    [DataField]
+    public Color? SpeechColor;
+
+    [DataField]
+    public bool SpeechBold;
+
+    [DataField]
+    public bool SpeechUppercase;
+
     [DataField, AutoPausedField]
     public TimeSpan NextSpeechTime;
 }

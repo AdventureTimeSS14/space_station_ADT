@@ -9,7 +9,7 @@ ent-ADTWeaponMedbeamERT = мед-ган ОБР
 
 medbeam-mode-brute = Механические
 medbeam-mode-burn = Физические
-medbeam-mode-toxin = Токсины
+medbeam-mode-toxin = Яды
 medbeam-mode-airloss = Гипоксия
 medbeam-mode-changed = Режим лечения: { $mode }
 medbeam-mode-cooldown = Режим ещё не готов к переключению

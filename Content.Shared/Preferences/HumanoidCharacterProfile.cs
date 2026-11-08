@@ -334,6 +334,7 @@ namespace Content.Shared.Preferences
             if (ignoredSpecies != null)
             {
                 baseProfile.Species = RandomSpecies(ignoredSpecies);
+                config &= ~RandomizeCfg.Species; // ADT-Tweak
             }
             var profile = Random(config, baseProfile);
             return profile;

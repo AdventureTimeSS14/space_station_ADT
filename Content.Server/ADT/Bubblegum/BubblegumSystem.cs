@@ -1,6 +1,5 @@
 using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
-using Content.Shared.Actions;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
@@ -24,7 +23,6 @@ namespace Content.Server.ADT.Bubblegum;
 public sealed class BubblegumSystem : EntitySystem
 {
     [Dependency] private AppearanceSystem _appearance = default!;
-    [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;
@@ -41,7 +39,6 @@ public sealed class BubblegumSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BubblegumComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BubblegumComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BubblegumComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<BubblegumComponent, DamageDealtEvent>(OnDamageDealt);
         SubscribeLocalEvent<BubblegumComponent, ProjectileHitAttemptEvent>(OnProjectileHitAttempt);
@@ -70,14 +67,6 @@ public sealed class BubblegumSystem : EntitySystem
         _eye.RefreshVisibilityMask(ent.Owner);
     }
 
-    private void OnMapInit(Entity<BubblegumComponent> ent, ref MapInitEvent args)
-    {
-        foreach (var action in ent.Comp.Actions)
-        {
-            _actions.AddAction(ent.Owner, action);
-        }
-    }
-
     private void OnGetVisMask(Entity<BubblegumComponent> ent, ref GetVisMaskEvent args)
     {
         args.VisibilityMask |= (int)VisibilityFlags.Bubblegum;
@@ -91,7 +80,7 @@ public sealed class BubblegumSystem : EntitySystem
         if (args.OldPosition == args.NewPosition)
             return;
 
-        if (HasComp<BubblegumActiveChargeComponent>(ent))
+        if (HasComp<ADTMegafaunaActiveChargeComponent>(ent))
             return;
 
         if (_mobState.IsDead(ent))

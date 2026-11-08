@@ -285,6 +285,7 @@
   description: Когда на клетку наступают, где-то рядом медленно скрипит тяжёлая дверь.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/Helios/door_creak.ogg
       params:
@@ -298,6 +299,7 @@
   description: Когда на клетку наступают, перекрытия над головой протяжно стонут, а пол едва заметно вздрагивает.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/Helios/metal_groan.ogg
       params:
@@ -314,6 +316,7 @@
   description: Когда на клетку наступают, у самого уха раздаётся чьё-то тяжёлое дыхание.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/Helios/ghost_breath.ogg
       params:
@@ -327,6 +330,7 @@
   description: Когда на клетку наступают, в вентиляции над головой что-то ползёт и скребёт когтями.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/Helios/vent_crawl.ogg
       params:
@@ -340,6 +344,7 @@
   description: Когда на клетку наступают, где-то обесточивается машина, и свет вокруг долго мигает.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/Helios/power_down.ogg
       params:
@@ -355,6 +360,7 @@
   description: Когда на клетку наступают, за спиной с грохотом падает что-то металлическое.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/Helios/metal_slam.ogg
       params:
@@ -368,6 +374,7 @@
   description: Когда на клетку наступают, по соседнему коридору кто-то проходит тяжёлыми шагами.
   components:
   - type: EmitSoundOnTrigger
+    positional: true
     sound:
       path: /Audio/ADT/Helios/footsteps_metal.ogg
       params:

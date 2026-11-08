@@ -425,7 +425,7 @@
     pick: true
     amount: 2
     entities:
-    - MobGoliath
+    - ADTMobLavalandGoliath
     - MobHivelord
     - MobBasilisk
     - ADTMobLegion
@@ -464,7 +464,7 @@
     target: UsedThings
   disasterEffects:
   - !type:ADTRitualSpawnEffect
-    entities: [ MobAncientGoliath ]
+    entities: [ ADTMobLavalandGoliathAncient ]
 
 - type: adtRitual
   id: ADTRitualWarming

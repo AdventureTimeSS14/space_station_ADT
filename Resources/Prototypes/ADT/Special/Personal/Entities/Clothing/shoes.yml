@@ -113,3 +113,15 @@
     sprite: ADT/Special/Personal/Illumy/brass_shoes.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Illumy/brass_shoes.rsi
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesArbitratorBootsIllumy
+  name: arbitrator shoes
+  description: Black shoes with a small heel, made in a unified style with the rest of the outfit. Their firm sole makes a distinct sound with every step. It seems that this sound encourages you to think through your words in advance.
+  suffix: Sponsor, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Illumy/arbitrator_boots.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Illumy/arbitrator_boots.rsi

@@ -27,3 +27,11 @@ alerts-adt-xeno-sticks-name = Ксено-сетчатка
 alerts-adt-xeno-sticks-desc = Вы начинаете лучше видеть в темноте.
 alerts-adt-abu-ghosh-name = Кроветворение
 alerts-adt-abu-ghosh-desc = Вы чувствуете, что ваша кровь начала восстанавливаться быстрее.
+alerts-nicotine-craving-name = [color=#c4a574]Никотиновая зависимость[/color]
+alerts-nicotine-craving-desc = Организм требует никотин.{ "\u000A" }[color=#98FB98]Горящая[/color] сигарета — доза ещё держится, на иконке таймер до ломки.{ "\u000A" }[color=#FFD700]Потухшая[/color] — лёгкая ломка.{ "\u000A" }[color=#FF6347]Сгоревшая[/color] — средняя или тяжёлая: кашель, муть в глазах, а под конец слабость.{ "\u000A" }Затяжка снимает ломку.
+alerts-adt-kinetic-interference-name = Кинетическая интерференция
+alerts-adt-kinetic-interference-desc = Поля ПКА и крушителя сбивают друг друга, потому что вы бьёте то одним, то другим. Пока эффект держится, выстрелы, удары и способности кинетического оружия перезаряжаются дольше. Если вы будете драться чем-то одним, эффект пройдёт.
+alerts-adt-well-fed-name = [color=#7ccf6a]Сытость[/color]
+alerts-adt-well-fed-desc = Вы хорошо поели, поэтому голод подступает медленнее.
+alerts-adt-well-fed-great-name = [color=#f0c44c]Отличная сытость[/color]
+alerts-adt-well-fed-great-desc = Вы отлично поели, поэтому голод подступает заметно медленнее.

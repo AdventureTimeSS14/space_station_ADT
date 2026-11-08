@@ -53,11 +53,3 @@ ent-DoorElectronicsIAA = { ent-DoorElectronics }
 ent-DoorElectronicsMagistrate = { ent-DoorElectronics }
     .suffix = Магистрат
     .desc = { ent-DoorElectronics.desc }
-
-ent-DoorElectronicsCyborg = { ent-DoorElectronics }
-    .suffix = Киборг
-    .desc = { ent-DoorElectronics.desc }
-
-ent-DoorElectronicsAI = { ent-DoorElectronics }
-    .suffix = ИИ
-    .desc = { ent-DoorElectronics.desc }

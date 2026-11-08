@@ -206,6 +206,8 @@
   components:
   - type: AtmosExposed
   - type: Temperature
+    specificHeat: 42 # ADT-Tweak
+    thermalConductivity: 25 # ADT-Tweak
   - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0

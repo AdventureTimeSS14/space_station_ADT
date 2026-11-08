@@ -5,13 +5,13 @@
 #  - id: WeaponCrusherDagger
 #    price: 660
   - id: WeaponCrusher
-    price: 1260
+    price: 900
   - id: WeaponKineticSpear
-    price: 1260
+    price: 1800
   - id: WeaponKineticHammer
-    price: 1260
+    price: 1500
   - id: WeaponKineticClaws
-    price: 1260
+    price: 1500
   - id: WeaponKineticMachete
     price: 1260
 
@@ -195,7 +195,3 @@
     price: 360
   - id: CigarGoldCase
     price: 1200
-  - id: ADTMusicDiskDigger
-    price: 100
-  - id: ADTMusicDiskUtil
-    price: 250

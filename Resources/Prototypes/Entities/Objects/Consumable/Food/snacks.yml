@@ -120,7 +120,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodSnackBase
+  parent: [FoodSnackBase, BaseSlicingRefinableFood] # ADT-Tweak
   id: FoodSnackChocolateBar
   name: chocolate bar
   description: Tastes like cardboard.
@@ -146,6 +146,12 @@
         Quantity: 3
       - ReagentId: CocoaPowder
         Quantity: 2
+  # ADT-Tweak Start
+  - type: ToolRefinable
+    refineResult:
+    - id: ADTFoodSnackChocolateBarChunk
+      amount: 4
+  # ADT-Tweak End
 
 - type: entity
   parent: FoodSnackBase

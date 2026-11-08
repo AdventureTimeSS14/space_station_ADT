@@ -359,16 +359,6 @@
     PrinterPaper: 100
 
 - type: latheRecipe
-  id: PrintedDocumentPermissionToExtendMarriageRecipe
-  result: PrintedDocumentPermissionToExtendMarriage
-  categories:
-  - Permissions
-  completetime: 2
-  applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
-
-- type: latheRecipe
   id: PrintedDocumentOrderDismissalRecipe
   result: PrintedDocumentOrderDismissal
   categories:

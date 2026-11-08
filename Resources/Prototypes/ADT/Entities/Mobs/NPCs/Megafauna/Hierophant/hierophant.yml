@@ -74,6 +74,19 @@
     blinkBlastDamage: 38
     baseBeamRange: 6
     baseBurstRange: 4
+  - type: ADTMegafaunaAI
+    decisionInterval: 0
+    rangedWhenAdjacent: true
+    targetAggressor: false
+    handleMelee: false
+    actions:
+    - ActionADTHierophantBlink
+    - ActionADTHierophantChaserSwarm
+    - ActionADTHierophantCrossBlasts
+    - ActionADTHierophantBlinkSpam
+  - type: ADTMegafaunaSequence
+    survivesDeath: true
+    insertionOrder: true
   - type: TileMovement
   - type: NPCTileMovement
   - type: InputMover

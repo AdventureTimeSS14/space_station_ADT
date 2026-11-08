@@ -84,6 +84,17 @@
   - type: ArmorPenetration
     penetration: 0.65
   - type: Bubblegum
+  - type: ADTMegafaunaAI
+    decisionInterval: 0
+    rangedWhenAdjacent: true
+    targetAggressor: false
+    handleMelee: false
+    actions:
+    - ActionADTBubblegumTripleCharge
+    - ActionADTBubblegumHallucinationCharge
+    - ActionADTBubblegumSurround
+    - ActionADTBubblegumBloodWarp
+    - ActionADTBubblegumSummonNarsi
   - type: BubblegumTripleCharge
     delays:
     - 0.65
@@ -110,7 +121,16 @@
     dropSound:
       path: /Audio/ADT/Bubblegum/exit_blood.ogg
     randomLoot:
+    - ADTMayhemBottle
+    - ADTBloodContract
     - ADTWeaponExperimentalProtoKineticAcellerator
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
+    - ADTPosterContrabandLustTayaran
     loot:
     - proto: ADTClothingOuterHardsuitHECK
     - proto: ADTClothingHeadHelmetHardsuitHECK

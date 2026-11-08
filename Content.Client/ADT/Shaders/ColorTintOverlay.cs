@@ -10,7 +10,7 @@ namespace Content.Client.ADT.Overlays.Shaders;
 /// <summary>
 ///     A simple overlay that applies a colored tint to the screen.
 /// </summary>
-public sealed class ColorTintOverlay : Overlay
+public class ColorTintOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> ColorTintShader = "ColorTint";
 

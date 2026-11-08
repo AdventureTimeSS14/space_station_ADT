@@ -21,6 +21,7 @@ medical-assembler-custom-recipe-text = Рецепт
 medical-assembler-custom-style-text = Стиль:
 medical-assembler-custom-total = Всего: {$volume}/{$max}u
 medical-assembler-custom-create-button = Создать
+medical-assembler-custom-no-blank = Нужна заготовка медипена.
 medical-assembler-style-medipen = Стандартный
 medical-assembler-style-firstaid = Аптечка
 medical-assembler-style-hypovolemic = Гиповолемический

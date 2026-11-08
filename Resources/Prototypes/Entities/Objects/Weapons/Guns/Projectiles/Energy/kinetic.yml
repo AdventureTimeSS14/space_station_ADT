@@ -76,16 +76,16 @@
       - Fauna # ADT-Tweak
     damage:
       types:
-        Blunt: 18
-        Slash: 4
+        Blunt: 70 # ADT tweak 20 -> 70
+        Slash: 5 # ADT tweak 4 -> 5
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
         Blunt: 0
   # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.4
+#  - type: TimedDespawn ADT-Tweak
+#    lifetime: 0.4
 
 # Deals less damage, glaive has better HP recovery
 - type: entity

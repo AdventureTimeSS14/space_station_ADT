@@ -99,6 +99,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         SubscribeLocalEvent<HereticSacrificeTargetComponent, EntityTerminatingEvent>(OnTargetTerminating);
         SubscribeLocalEvent<HereticSacrificeTargetComponent, EntityEnteredCryostorageEvent>(OnTargetEnteredCryostorage);
+        SubscribeLocalEvent<SacrificedComponent, ComponentStartup>(OnSacrificedStartup);
 
         SubscribeLocalEvent<HereticComponent, MindGotRemovedEvent>(OnMindRemoved);
         SubscribeLocalEvent<HereticComponent, MindGotAddedEvent>(OnMindAdded);
@@ -473,6 +474,12 @@ public sealed partial class HereticSystem : SharedHereticSystem
         TargetLeftTheRound(ent);
     }
 
+    private void OnSacrificedStartup(Entity<SacrificedComponent> ent, ref ComponentStartup args)
+    {
+        if (TryComp<HereticSacrificeTargetComponent>(ent, out var marker))
+            TargetLeftTheRound((ent.Owner, marker));
+    }
+
     private void TargetLeftTheRound(Entity<HereticSacrificeTargetComponent> ent)
     {
         // RerollTargets edits the marker's set, so walk a copy of it.
@@ -502,7 +509,39 @@ public sealed partial class HereticSystem : SharedHereticSystem
         var pickedTargets = new List<EntityUid>();
 
         if (keepValid)
-            pickedTargets = oldTargets.Where(candidates.Contains).ToList();
+        {
+            foreach (var target in oldTargets)
+            {
+                if (target == ignore || TerminatingOrDeleted(target))
+                    continue;
+
+                if (HasComp<SacrificedComponent>(target))
+                    continue;
+
+                if (HasComp<CryostorageContainedComponent>(target))
+                    continue;
+
+                if (HasComp<GhoulComponent>(target))
+                    continue;
+
+                if (!HasComp<HumanoidProfileComponent>(target))
+                    continue;
+
+                if (!_mind.TryGetMind(target, out var mind, out var mindComp) ||
+                    mind == ent.Owner ||
+                    HasComp<HereticComponent>(mind) ||
+                    !_job.MindTryGetJobId(mind, out var jobId) ||
+                    jobId == null)
+                    continue;
+
+                if (mindComp.UserId is not { } userId ||
+                    !_playerMan.TryGetSessionById(userId, out var session) ||
+                    session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
+                    continue;
+
+                pickedTargets.Add(target);
+            }
+        }
 
         var predicates = new List<Func<EntityUid, bool>>();
 
@@ -554,16 +593,22 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         bool IsSessionValid(ICommonSession session)
         {
-            if (!HasComp<HumanoidProfileComponent>(session.AttachedEntity))
+            if (session.AttachedEntity is not { } entity)
                 return false;
 
-            if (HasComp<GhoulComponent>(session.AttachedEntity.Value))
+            if (!HasComp<HumanoidProfileComponent>(entity))
                 return false;
 
-            if (HasComp<CryostorageContainedComponent>(session.AttachedEntity.Value))
+            if (HasComp<GhoulComponent>(entity))
                 return false;
 
-            if (!_mind.TryGetMind(session.AttachedEntity.Value, out var mind, out _) ||
+            if (HasComp<CryostorageContainedComponent>(entity))
+                return false;
+
+            if (HasComp<SacrificedComponent>(entity))
+                return false;
+
+            if (!_mind.TryGetMind(entity, out var mind, out _) ||
                 mind == ent.Owner || !_job.MindTryGetJobId(mind, out _))
                 return false;
 
