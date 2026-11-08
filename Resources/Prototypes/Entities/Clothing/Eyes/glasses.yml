@@ -257,20 +257,6 @@
   - type: ThermalVisionItem # ADT-tweak
   - type: ThermalSight
 
-## ADT-tweak-start
-- type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesGlassesGasTemperature
-  name: gas temperature goggles
-  description: Highlights dangerously hot and cold gas while worn.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/thermal.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/thermal.rsi
-  - type: ThermalSight
-## ADT-tweak-end
-
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesChemical

@@ -189,7 +189,7 @@
   # - HellfireFreezerMachineCircuitBoard # ADT-Tweak
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
-  - ClothingEyesGlassesGasTemperature ## ADT-Tweak
+  - ADTClothingEyesGlassesGasTemperature ## ADT-Tweak
   technologyPrerequisites:
   - AtmosphericTech
 # ADT Research Console Rework start

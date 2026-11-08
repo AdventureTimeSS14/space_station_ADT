@@ -69,7 +69,7 @@
   id: AtmosTools
   recipes:
   - HolofanProjector
-  - ClothingEyesGlassesGasTemperature ## ADT-tweak
+  - ADTClothingEyesGlassesGasTemperature ## ADT-tweak
 
 - type: latheRecipePack
   id: EngineeringWeapons

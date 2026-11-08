@@ -194,18 +194,6 @@
     Glass: 50
     Plastic: 50
 
-## ADT-tweak-start
-- type: latheRecipe
-  parent: BaseToolRecipe
-  id: ClothingEyesGlassesGasTemperature
-  result: ClothingEyesGlassesGasTemperature
-  completetime: 4
-  materials:
-    Steel: 200
-    Plastic: 300
-    Glass: 500
-    Copper: 10
-## ADT-tweak-end
 
 - type: latheRecipe
   parent: BaseToolRecipe
