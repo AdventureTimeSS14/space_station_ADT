@@ -194,7 +194,6 @@
     Glass: 50
     Plastic: 50
 
-
 - type: latheRecipe
   parent: BaseToolRecipe
   id: WelderExperimental
