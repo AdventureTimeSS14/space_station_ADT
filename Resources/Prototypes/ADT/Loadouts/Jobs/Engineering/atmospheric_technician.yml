@@ -19,7 +19,7 @@
 - type: loadout
   id: ADTAtmosGasTemperatureGlasses
   equipment:
-    eyes: ClothingEyesGlassesGasTemperature
+    eyes: ADTClothingEyesGlassesGasTemperature
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTAtmosGasTemperatureGlasses10Hours
