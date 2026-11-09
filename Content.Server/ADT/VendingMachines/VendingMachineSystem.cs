@@ -504,32 +504,20 @@ namespace Content.Server.ADT.VendingMachines
                 }
                 else
                 {
-                    var items = _accessReader.FindPotentialAccessItems(sender.Value);
-                    foreach (var item in items)
+                    if (!_bankCard.TryGetUserAccountId(sender.Value, out var payerId) ||
+                        _bankCard.GetBalance(payerId) < price)
                     {
-                        var nextItem = item;
-                        if (TryComp(item, out PdaComponent? pda) && pda.ContainedId is { Valid: true } id)
-                            nextItem = id;
-
-                        if (!TryComp<BankCardComponent>(nextItem, out var bankCard) || !bankCard.AccountId.HasValue
-                            || !_bankCard.TryGetAccount(bankCard.AccountId.Value, out var account)
-                            || account.Balance < price)
-                            continue;
-
-                        if (TryGetRevenueTarget(uid, vendComponent, out var revenueAccountId) &&
-                            _bankCard.TryTransfer(bankCard.AccountId.Value, revenueAccountId, price,
-                                TransactionReason.VendingSale, Name(sender.Value)))
-                        {
-                            success = true;
-                        }
-                        else if (_bankCard.TryBurn(bankCard.AccountId.Value, price,
-                                     TransactionReason.VendingSale, Name(sender.Value)))
-                        {
-                            success = true;
-                        }
-
-                        if (success)
-                            break;
+                        success = false;
+                    }
+                    else if (TryGetRevenueTarget(uid, vendComponent, out var revenueAccountId) &&
+                             _bankCard.TryTransfer(payerId, revenueAccountId, price,
+                                 TransactionReason.VendingSale, Name(sender.Value)))
+                    {
+                        success = true;
+                    }
+                    else
+                    {
+                        success = _bankCard.TryBurn(payerId, price, TransactionReason.VendingSale, Name(sender.Value));
                     }
                 }
 

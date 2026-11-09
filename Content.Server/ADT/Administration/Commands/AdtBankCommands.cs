@@ -89,6 +89,8 @@ public sealed class AdtBankAdjustCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Admin)]
 public sealed class AdtBankBonusCommand : IConsoleCommand
 {
+    private const int MaxSalaryBonusPercent = 500;
+
     public string Command => "bankbonus";
     public string Description => "Надбавка к зарплате отдела в процентах (влияет на все станции).";
     public string Help => "bankbonus <отдел: Cargo/Engineering/Medical/Science/Security/Service> <проценты>";
@@ -102,13 +104,22 @@ public sealed class AdtBankBonusCommand : IConsoleCommand
         }
 
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        if (!protoMan.HasIndex<CargoAccountPrototype>(args[0]))
+
+        ProtoId<CargoAccountPrototype>? department = null;
+        foreach (var proto in protoMan.EnumeratePrototypes<CargoAccountPrototype>())
+        {
+            if (proto.ID.Equals(args[0], StringComparison.OrdinalIgnoreCase))
+            {
+                department = proto.ID;
+                break;
+            }
+        }
+
+        if (department == null)
         {
             shell.WriteLine($"Неизвестный отдел: {args[0]}.");
             return;
         }
-
-        ProtoId<CargoAccountPrototype> department = args[0];
 
         var entManager = IoCManager.Resolve<IEntityManager>();
         var logger = IoCManager.Resolve<IAdminLogManager>();
@@ -117,12 +128,12 @@ public sealed class AdtBankBonusCommand : IConsoleCommand
         var query = entManager.EntityQueryEnumerator<StationBankAccountComponent>();
         while (query.MoveNext(out var station, out var bank))
         {
-            bank.SalaryBonus[department] = Math.Clamp(percent, 0, 500) / 100.0;
+            bank.SalaryBonus[department.Value] = Math.Clamp(percent, 0, MaxSalaryBonusPercent) / 100.0;
             entManager.Dirty(station, bank);
             stations++;
 
             logger.Add(LogType.Economy, LogImpact.Medium,
-                $"[Economy] salary bonus for {department} on {entManager.ToPrettyString(station)} set to {bank.SalaryBonus[department]:P0}");
+                $"[Economy] salary bonus for {department} on {entManager.ToPrettyString(station)} set to {bank.SalaryBonus[department.Value]:P0}");
         }
 
         shell.WriteLine(stations > 0
