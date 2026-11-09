@@ -19,8 +19,6 @@
     buckleOffset: "0.1, -0.05"
     #maxBuckleDistance: 1
   - type: MovementSpeedModifier
-    acceleration: 1.2
-    friction: 1.5
     baseWalkSpeed: 1.5
     baseSprintSpeed: 6
   - type: Sprite
