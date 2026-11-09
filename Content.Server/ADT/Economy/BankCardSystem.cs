@@ -464,7 +464,8 @@ public sealed class BankCardSystem : EntitySystem
         if (!Mutate(toAccountId, amount, reason, initiator, isTransfer: true, from))
         {
             // получатель недоступен — возвращаем деньги отправителю
-            Log.Error($"[Economy] refund of {amount} to account {fromAccountId} failed after failed transfer to {toAccountId}");
+            if (!Mutate(fromAccountId, amount, reason, initiator, isTransfer: false, trackStats: false))
+                Log.Error($"[Economy] refund of {amount} to account {fromAccountId} failed after failed transfer to {toAccountId}");
 
             return false;
         }

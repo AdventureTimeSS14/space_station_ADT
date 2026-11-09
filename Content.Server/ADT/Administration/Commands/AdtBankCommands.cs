@@ -13,6 +13,24 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Administration.Commands;
 
+internal static class AdtBankCommandUtils
+{
+    internal static bool TryParseDepartment(IPrototypeManager protoMan, string arg, out ProtoId<CargoAccountPrototype> department)
+    {
+        foreach (var proto in protoMan.EnumeratePrototypes<CargoAccountPrototype>())
+        {
+            if (proto.ID.Equals(arg, StringComparison.OrdinalIgnoreCase))
+            {
+                department = proto.ID;
+                return true;
+            }
+        }
+
+        department = default;
+        return false;
+    }
+}
+
 [AdminCommand(AdminFlags.Admin)]
 public sealed class AdtBankPersonalCommand : IConsoleCommand
 {
@@ -105,17 +123,7 @@ public sealed class AdtBankBonusCommand : IConsoleCommand
 
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
 
-        ProtoId<CargoAccountPrototype>? department = null;
-        foreach (var proto in protoMan.EnumeratePrototypes<CargoAccountPrototype>())
-        {
-            if (proto.ID.Equals(args[0], StringComparison.OrdinalIgnoreCase))
-            {
-                department = proto.ID;
-                break;
-            }
-        }
-
-        if (department == null)
+        if (!AdtBankCommandUtils.TryParseDepartment(protoMan, args[0], out var department))
         {
             shell.WriteLine($"Неизвестный отдел: {args[0]}.");
             return;
@@ -128,12 +136,12 @@ public sealed class AdtBankBonusCommand : IConsoleCommand
         var query = entManager.EntityQueryEnumerator<StationBankAccountComponent>();
         while (query.MoveNext(out var station, out var bank))
         {
-            bank.SalaryBonus[department.Value] = Math.Clamp(percent, 0, MaxSalaryBonusPercent) / 100.0;
+            bank.SalaryBonus[department] = Math.Clamp(percent, 0, MaxSalaryBonusPercent) / 100.0;
             entManager.Dirty(station, bank);
             stations++;
 
             logger.Add(LogType.Economy, LogImpact.Medium,
-                $"[Economy] salary bonus for {department} on {entManager.ToPrettyString(station)} set to {bank.SalaryBonus[department.Value]:P0}");
+                $"[Economy] salary bonus for {department} on {entManager.ToPrettyString(station)} set to {bank.SalaryBonus[department]:P0}");
         }
 
         shell.WriteLine(stations > 0
@@ -181,17 +189,7 @@ public sealed class AdtBankCutCommand : IConsoleCommand
 
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
 
-        ProtoId<CargoAccountPrototype>? department = null;
-        foreach (var proto in protoMan.EnumeratePrototypes<CargoAccountPrototype>())
-        {
-            if (proto.ID.Equals(args[0], StringComparison.OrdinalIgnoreCase))
-            {
-                department = proto.ID;
-                break;
-            }
-        }
-
-        if (department == null)
+        if (!AdtBankCommandUtils.TryParseDepartment(protoMan, args[0], out var department))
         {
             shell.WriteLine($"Неизвестный отдел: {args[0]}.");
             return;
@@ -204,7 +202,7 @@ public sealed class AdtBankCutCommand : IConsoleCommand
         var query = entManager.EntityQueryEnumerator<StationBankAccountComponent>();
         while (query.MoveNext(out var station, out var bank))
         {
-            applied = cutSystem.SetCut(station, department.Value, (float) percent / 100f);
+            applied = cutSystem.SetCut(station, department, (float) percent / 100f);
             stations++;
 
             logger.Add(LogType.Economy, LogImpact.Medium,
