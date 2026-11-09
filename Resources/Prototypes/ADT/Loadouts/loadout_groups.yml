@@ -1441,6 +1441,14 @@
 # Miscellaneous
 
 - type: loadoutGroup
+  id: ADTPassengerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - ADTImprovisedGuitarInstrument
+
+- type: loadoutGroup
   id: ADTSprayPaints
   name: loadout-group-spray-paints
   minLimit: 0
