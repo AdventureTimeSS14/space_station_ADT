@@ -117,7 +117,7 @@
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerSoldier
   name: soviet soldier
-  description: Солдат из давно забытого отряда СССП.
+  description: A soldier from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -131,7 +131,7 @@
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerRifleman
   name: soviet rifleman
-  description: Автоматчик из давно забытого отряда СССП.
+  description: A rifleman from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -141,7 +141,7 @@
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerShotgunner
   name: soviet shotgunner
-  description: Штурмовик из давно забытого отряда СССП.
+  description: A shotgunner from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -181,7 +181,7 @@
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerMarksman
   name: soviet marksman
-  description: Марксман из давно забытого отряда СССП.
+  description: A marksman from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -191,7 +191,7 @@
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerRocketeer
   name: soviet rocketeer
-  description: Ракетчик из давно забытого отряда СССП.
+  description: A rocketeer from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -201,7 +201,7 @@
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerMachineGunner
   name: soviet machine gunner
-  description: Пулемётчик из давно забытого отряда СССП.
+  description: A machine gunner from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -211,7 +211,7 @@
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerMedic
   name: soviet medic
-  description: Медик из давно забытого отряда СССП.
+  description: A medic from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -326,7 +326,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmuggler
   name: smuggler
-  description: Контрабандист с базы на задворках космоса.
+  description: A smuggler from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -342,7 +342,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerRifleman
   name: smuggler rifleman
-  description: Стрелок контрабандистов с базы на задворках космоса.
+  description: A smuggler rifleman from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -352,7 +352,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerHunter
   name: smuggler hunter
-  description: Охотник контрабандистов с базы на задворках космоса.
+  description: A smuggler hunter from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -362,7 +362,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerShotgunner
   name: smuggler shotgunner
-  description: Штурмовик контрабандистов с базы на задворках космоса.
+  description: A smuggler shotgunner from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -402,7 +402,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerRaider
   name: smuggler raider
-  description: Налётчик контрабандистов с базы на задворках космоса.
+  description: A smuggler raider from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -412,7 +412,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerThug
   name: smuggler thug
-  description: Боевик контрабандистов с базы на задворках космоса.
+  description: A smuggler thug from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -422,7 +422,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerHeavy
   name: smuggler heavy
-  description: Тяжёлый стрелок контрабандистов с базы на задворках космоса.
+  description: A smuggler heavy gunner from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -432,7 +432,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerTrooper
   name: smuggler trooper
-  description: Автоматчик контрабандистов с базы на задворках космоса.
+  description: A smuggler trooper from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -442,7 +442,7 @@
   parent: ADTMobSmugglerBase
   id: ADTMobSmugglerMedic
   name: smuggler medic
-  description: Медик контрабандистов с базы на задворках космоса.
+  description: A smuggler medic from a base on the outskirts of space.
   components:
     - type: Loadout
       prototypes:
@@ -557,7 +557,7 @@
   parent: ADTMobMarauderBase
   id: ADTMobMarauder
   name: Gorlex marauder
-  description: Боец Мародёров Горлекса, ударного крыла Синдиката.
+  description: A fighter of the Gorlex Marauders, the Syndicate's strike wing.
   components:
     - type: Loadout
       prototypes:
@@ -571,7 +571,7 @@
   parent: ADTMobMarauderBase
   id: ADTMobMarauderRifleman
   name: marauder rifleman
-  description: Стрелок Мародёров Горлекса.
+  description: A Gorlex Marauders rifleman.
   components:
     - type: Loadout
       prototypes:
@@ -581,7 +581,7 @@
   parent: ADTMobMarauderBase
   id: ADTMobMarauderBreacher
   name: marauder breacher
-  description: Штурмовик Мародёров Горлекса.
+  description: A Gorlex Marauders breacher.
   components:
     - type: Loadout
       prototypes:
@@ -591,7 +591,7 @@
   parent: ADTMobMarauderBase
   id: ADTMobMarauderGunner
   name: marauder gunner
-  description: Пулемётчик Мародёров Горлекса.
+  description: A Gorlex Marauders machine gunner.
   components:
     - type: Loadout
       prototypes:
@@ -601,7 +601,7 @@
   parent: ADTMobMarauderBase
   id: ADTMobMarauderMedic
   name: marauder medic
-  description: Медик Мародёров Горлекса.
+  description: A Gorlex Marauders medic.
   components:
     - type: Loadout
       prototypes:
