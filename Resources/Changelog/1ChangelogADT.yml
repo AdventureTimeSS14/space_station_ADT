@@ -17362,3 +17362,9 @@ Entries:
     id: 2099
     pr_number: 3620
     time: '2026-11-09T10:43:42Z'
+  - author: Das1usWL
+    changes:
+      - {message: В игру был добавлен тактический комбинезон СБ, type: Add}
+    id: 2100
+    pr_number: 3488
+    time: '2026-11-09T21:14:36Z'
