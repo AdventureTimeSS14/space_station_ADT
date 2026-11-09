@@ -217,6 +217,7 @@
     shortscale: 0.9
   - type: Tag
     tags:
+    - ADTMakeupFaceVulpkanin ## adt-tweak
     - CanPilot
     - FootstepSound
     - DoorBumpOpener

@@ -104,6 +104,7 @@
   - type: Reactive
   # ADT-Tweak start
     groups:
+      ADTMakeupSkin: [Touch] ## adt-tweak
       Acidic: [ Touch, Ingestion ]
   # ADT-Tweak end
     reactions:
@@ -117,6 +118,13 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPie
+    ## adt-tweak-start
+    - reagents: [Water]
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect
+        proto: ADTMakeupClearBasic
+    ## adt-tweak-end
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

@@ -2,6 +2,15 @@
   id: AutoDrobeInventory
   startingInventory:
     ADTVendingCategoryHead: # ADT-Tweak
+        ## adt-tweak-start
+        ADTClownWigClown: 1
+        ADTClownWigBananaClown: 1
+        ADTClownWigSecurityClown: 1
+        ADTClownWigBlushingClown: 1
+        ADTClownWigAbyssClown: 1
+        ADTClownWigCluwne: 1
+        ADTClownWigBallisticClown: 1
+        ## adt-tweak-end
         ClothingHeadHatJester: 1
         ClothingHeadHatJesterAlt: 1
         ClothingHeadHatCardborg: 2
@@ -71,6 +80,10 @@
         ADTClothingOuterCoatXCoat: 1 # ADT tweak
         # ADT-Tweak-end
     ADTVendingCategoryAccessories: # ADT-Tweak
+        ## adt-tweak-start
+        ADTMakeupPaletteBasic: 3
+        ADTMakeupPaletteTheatrical: 3
+        ## adt-tweak-end
         ClothingMaskJoy: 2
         ClothingEyesBlindfold: 1
         ClothingMaskSadMime: 1
