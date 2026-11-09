@@ -278,3 +278,16 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterArbitratorCapeIllumy]
   id: ADTClothingOuterArbitratorCapeIllumyOpened
   name: arbitrator cape
+
+#Marksman
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterStorageCloakMarksman
+  name: халат "Марксман"
+  description: Синий халат, защищающий в любых лабораторных условиях и в то же время сохраняющий стиль носителя
+  suffix: Personal, Marksman, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Marksman/marksman_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Marksman/marksman_cloak.rsi
