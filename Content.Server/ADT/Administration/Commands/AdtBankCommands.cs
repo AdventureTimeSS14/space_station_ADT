@@ -141,3 +141,78 @@ public sealed class AdtBankBonusCommand : IConsoleCommand
             : "Станций с банковским счётом не найдено.");
     }
 }
+
+[AdminCommand(AdminFlags.Admin)]
+public sealed class AdtBankCutCommand : IConsoleCommand
+{
+    public string Command => "bankcut";
+    public string Description => "Удержание из зарплаты отдела в процентах. 0 - снять удержание. Без аргументов - список активных удержаний.";
+    public string Help => "bankcut <отдел: Cargo/Engineering/Medical/Science/Security/Service> <проценты 0-90> | bankcut";
+
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        var entManager = IoCManager.Resolve<IEntityManager>();
+        var cutSystem = entManager.System<StationSalaryCutSystem>();
+
+        if (args.Length == 0)
+        {
+            var any = false;
+            var cutsQuery = entManager.EntityQueryEnumerator<StationSalaryCutComponent>();
+            while (cutsQuery.MoveNext(out var station, out var cuts))
+            {
+                foreach (var (dept, cut) in cuts.Cuts)
+                {
+                    any = true;
+                    shell.WriteLine($"{entManager.ToPrettyString(station)}: {dept} — {cut:P0}");
+                }
+            }
+
+            if (!any)
+                shell.WriteLine("Активных удержаний нет.");
+
+            return;
+        }
+
+        if (args.Length != 2 || !double.TryParse(args[1], out var percent))
+        {
+            shell.WriteLine(Help);
+            return;
+        }
+
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+
+        ProtoId<CargoAccountPrototype>? department = null;
+        foreach (var proto in protoMan.EnumeratePrototypes<CargoAccountPrototype>())
+        {
+            if (proto.ID.Equals(args[0], StringComparison.OrdinalIgnoreCase))
+            {
+                department = proto.ID;
+                break;
+            }
+        }
+
+        if (department == null)
+        {
+            shell.WriteLine($"Неизвестный отдел: {args[0]}.");
+            return;
+        }
+
+        var logger = IoCManager.Resolve<IAdminLogManager>();
+        var stations = 0;
+        float applied = 0;
+
+        var query = entManager.EntityQueryEnumerator<StationBankAccountComponent>();
+        while (query.MoveNext(out var station, out var bank))
+        {
+            applied = cutSystem.SetCut(station, department.Value, (float) percent / 100f);
+            stations++;
+
+            logger.Add(LogType.Economy, LogImpact.Medium,
+                $"[Economy] salary cut for {department} on {entManager.ToPrettyString(station)} set to {applied:P0}");
+        }
+
+        shell.WriteLine(stations > 0
+            ? $"Отдел {department}: удержание {applied:P0} (станций: {stations})."
+            : "Станций с банковским счётом не найдено.");
+    }
+}
