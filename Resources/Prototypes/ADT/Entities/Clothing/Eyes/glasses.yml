@@ -210,3 +210,15 @@
     coverage: EYES
   - type: StaticPrice
     price: 30
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesGasTemperature
+  name: gas temperature goggles
+  description: Highlights dangerously hot and cold gas while worn.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/thermal.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/thermal.rsi
+  - type: ThermalSight
