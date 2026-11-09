@@ -17351,3 +17351,14 @@ Entries:
     id: 2098
     pr_number: 3658
     time: '2026-11-09T02:57:36Z'
+  - author: blad_bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Добавлен крафт Грейтары, которая также доступна теперь в лодауте
+          ассистентов за определенное время.', type: Add}
+    id: 2099
+    pr_number: 3620
+    time: '2026-11-09T10:43:42Z'
