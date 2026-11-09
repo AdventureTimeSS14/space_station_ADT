@@ -1464,6 +1464,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDSS
+  name: DSS tactical jumpsuit
+  description: Stylish and extremely comfortable tactical jumpsuit, made in the colors of the Department of Security.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dss.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dss.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ADTClothingUniformKimanoZero
   name: Kimano
   description: Kimano of some guy
@@ -1506,7 +1517,7 @@
   id: ADTClothingUniformVoxSuit
   name: vox suit
   description: vox work clothes
-  components: 
+  components:
     - type: Sprite
       sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit.rsi
     - type: Clothing
@@ -1528,11 +1539,11 @@
   id: ADTClothingUniformVoxSuitGreen
   name: vox suit green
   description: vox work clothes
-  components: 
+  components:
    - type: Sprite
      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi
    - type: Clothing
-     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi   
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -1565,7 +1576,7 @@
    - type: Sprite
      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi
    - type: Clothing
-     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi 
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi
 
 - type: entity
   parent: ClothingUniformBase
