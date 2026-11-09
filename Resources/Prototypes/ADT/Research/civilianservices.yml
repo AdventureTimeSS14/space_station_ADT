@@ -113,6 +113,8 @@
   - HeatTolerance
   - LowPressureTolerance
   - HighPressureTolerance
+  requiredTech:
+  - ADTHydroponicsAdvanced
 
 - type: technology
   id: ADTGeneticEngineeringPests
@@ -128,7 +130,7 @@
   - PestTolerance
   - WeedTolerance
   requiredTech:
-  - ADTGeneticEngineeringYield
+  - ADTHydroponicsAdvanced
 
 - type: technology
   id: ADTGeneticEngineeringReagents
@@ -178,7 +180,7 @@
   - Lifespan
   - Viable
   requiredTech:
-  - ADTHydroponicsAdvanced
+  - ADTGeneticEngineeringReagents
 
 - type: technology
   id: ADTGeneticEngineeringPotency
@@ -193,6 +195,8 @@
   unlockedGenes:
   - Potency
   - Endurance
+  requiredTech:
+  - ADTGeneticEngineeringReagents
 
 - type: technology
   id: ADTGeneticEngineeringGases
