@@ -115,7 +115,7 @@ public sealed class AdtBankBonusCommand : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 2 || !double.TryParse(args[1], out var percent))
+        if (args.Length != 2 || !double.TryParse(args[1], out var percent) || !double.IsFinite(percent))
         {
             shell.WriteLine(Help);
             return;
@@ -181,7 +181,7 @@ public sealed class AdtBankCutCommand : IConsoleCommand
             return;
         }
 
-        if (args.Length != 2 || !double.TryParse(args[1], out var percent))
+        if (args.Length != 2 || !double.TryParse(args[1], out var percent) || !double.IsFinite(percent))
         {
             shell.WriteLine(Help);
             return;

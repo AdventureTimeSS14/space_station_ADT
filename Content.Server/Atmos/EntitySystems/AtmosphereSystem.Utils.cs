@@ -33,7 +33,9 @@ public partial class AtmosphereSystem
 
             var effective = moles;
             if (saturation > 0f && moles > saturation)
-                effective = saturation * (1f + MathF.Log(moles / saturation));
+            {
+                effective = (float) (saturation * (1d + Math.Log((double) moles / saturation)));
+            }
 
             basePrice += effective * GetGas(i).PricePerMole;
             totalMoles += moles;

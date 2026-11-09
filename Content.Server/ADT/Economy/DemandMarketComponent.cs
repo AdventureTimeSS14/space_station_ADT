@@ -47,7 +47,7 @@ public sealed partial class DemandMarketComponent : Component
     public double GetSellMultiplier(string protoId, TimeSpan now)
     {
         if (!Products.TryGetValue(protoId, out var data))
-            return 1;
+            return Math.Clamp(1f, MinMultiplier, MaxMultiplier);
 
         Advance(data, now);
         return Math.Clamp(1 + data.DemandBonus - data.IdleFall, MinMultiplier, MaxMultiplier);
@@ -58,7 +58,7 @@ public sealed partial class DemandMarketComponent : Component
         var data = GetOrAdd(protoId, now);
         Advance(data, now);
 
-        data.DemandBonus = Math.Min(data.DemandBonus + DemandStep * Math.Min(units, DemandStepUnits), MaxMultiplier - 1);
+        data.DemandBonus = Math.Min(data.DemandBonus + DemandStep * Math.Min(units, Math.Max(0, DemandStepUnits)), MaxMultiplier - 1);
         data.LastTradeTime = now;
     }
 

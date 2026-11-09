@@ -29,8 +29,16 @@ public sealed class StationSalaryCutSystem : EntitySystem
     public float AddCut(EntityUid station, ProtoId<CargoAccountPrototype> department, float add)
     {
         var cuts = EnsureComp<StationSalaryCutComponent>(station);
-        cuts.Cuts[department] = Math.Min(cuts.Cuts.GetValueOrDefault(department) + add, cuts.MaxCut);
-        return cuts.Cuts[department];
+        var total = Math.Clamp(cuts.Cuts.GetValueOrDefault(department) + add, 0f, cuts.MaxCut);
+
+        if (total <= 0f)
+        {
+            cuts.Cuts.Remove(department);
+            return 0f;
+        }
+
+        cuts.Cuts[department] = total;
+        return total;
     }
 
     public float GetCut(EntityUid station, ProtoId<CargoAccountPrototype> department)

@@ -504,20 +504,33 @@ namespace Content.Server.ADT.VendingMachines
                 }
                 else
                 {
-                    if (!_bankCard.TryGetUserAccountId(sender.Value, out var payerId) ||
-                        _bankCard.GetBalance(payerId) < price)
+                    var items = _accessReader.FindPotentialAccessItems(sender.Value);
+                    foreach (var item in items)
                     {
-                        success = false;
-                    }
-                    else if (TryGetRevenueTarget(uid, vendComponent, out var revenueAccountId) &&
-                             _bankCard.TryTransfer(payerId, revenueAccountId, price,
-                                 TransactionReason.VendingSale, Name(sender.Value)))
-                    {
-                        success = true;
-                    }
-                    else
-                    {
-                        success = _bankCard.TryBurn(payerId, price, TransactionReason.VendingSale, Name(sender.Value));
+                        var nextItem = item;
+                        if (TryComp(item, out PdaComponent? pda) && pda.ContainedId is { Valid: true } id)
+                            nextItem = id;
+
+                        if (!TryComp<BankCardComponent>(nextItem, out var bankCard) || !bankCard.AccountId.HasValue)
+                            continue;
+
+                        if (_bankCard.GetBalance(bankCard.AccountId.Value) < price)
+                            continue;
+
+                        if (TryGetRevenueTarget(uid, vendComponent, out var revenueAccountId) &&
+                            _bankCard.TryTransfer(bankCard.AccountId.Value, revenueAccountId, price,
+                                TransactionReason.VendingSale, Name(sender.Value)))
+                        {
+                            success = true;
+                        }
+                        else
+                        {
+                            success = _bankCard.TryBurn(bankCard.AccountId.Value, price,
+                                TransactionReason.VendingSale, Name(sender.Value));
+                        }
+
+                        if (success)
+                            break;
                     }
                 }
 
