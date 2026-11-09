@@ -270,7 +270,7 @@ public sealed partial class AdminSystem : EntitySystem
 
         //ADT-SPONSORS
         SponsorInfo? sponsorInfo = null;
-        _sponsorsManager.TryGetInfo(data.UserId, out sponsorInfo);
+        _sponsorsManager.TryGetRawInfo(data.UserId, out sponsorInfo); // ADT-Tweak
 
         return new PlayerInfo(
             name,

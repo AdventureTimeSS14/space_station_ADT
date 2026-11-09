@@ -8,3 +8,4 @@ atm-ui-insert-card = Вставьте карту.
 atm-ui-balance = Баланс: { $balance }$
 atm-ui-nanotrasen-atm = Nanotrasen ATM
 atm-ui-name = Банкомат
+

@@ -1,0 +1,21 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectWellFed
+  name: well fed
+  components:
+  - type: ADTWellFedStatusEffect
+    rateMultipliers:
+      Hunger: 0.85
+  - type: StatusEffectAlert
+    alert: ADTWellFed
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectWellFedGreat
+  name: well fed
+  components:
+  - type: ADTWellFedStatusEffect
+    rateMultipliers:
+      Hunger: 0.7
+  - type: StatusEffectAlert
+    alert: ADTWellFedGreat

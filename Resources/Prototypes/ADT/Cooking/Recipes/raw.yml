@@ -1,0 +1,541 @@
+- type: adtCookingRecipe
+  id: ADTCookAppleCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodApple
+    count: 3
+  time: 0
+  result: FoodCakeApple
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookBirthdayCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  reagents:
+    Cream: 5
+  time: 0
+  result: FoodCakeBirthday
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookBlueberryCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodBerries
+    count: 3
+  time: 0
+  result: FoodCakeBlueberry
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookBrainCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: OrganHumanBrain
+    count: 1
+  time: 0
+  result: FoodCakeBrain
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookCaesarSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodOnionRedSlice
+    count: 1
+  - id: FoodBreadPlainSlice
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  time: 0
+  result: FoodSaladCaesar
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookCarrotCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodCarrot
+    count: 2
+  time: 0
+  result: FoodCakeCarrot
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookCheeseCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodCheeseSlice
+    count: 3
+  time: 0
+  result: FoodCakeCheese
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookChocolateCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 2
+  time: 0
+  result: FoodCakeChocolate
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookCitrusSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodOrange
+    count: 1
+  - id: FoodLemon
+    count: 1
+  - id: FoodLime
+    count: 1
+  time: 0
+  result: FoodSaladCitrus
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookClownCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: ClothingMaskClown
+    count: 1
+  - id: FoodCakePlain
+    count: 1
+  time: 0
+  result: FoodCakeClown
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookColdChili
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodSoupChiliHot
+    count: 1
+  time: 0
+  result: FoodSoupChiliCold
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookColeslaw
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodOnionRed
+    count: 2
+  - id: FoodCabbage
+    count: 2
+  time: 0
+  result: FoodSaladColeslaw
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookFoodCakeSpaceman
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodSpacemansTrumpet
+    count: 3
+  time: 0
+  result: FoodCakeSpaceman
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookFoodCakeVanillaRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  reagents:
+    Sugar: 10
+    Cream: 5
+  time: 0
+  result: FoodCakeVanilla
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookFoodCakeWaffleRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodBakedWaffle
+    count: 2
+  time: 0
+  result: ADTFoodCakeWaffle
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookFoodHerringUnderFurcoatRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCarrot
+    count: 2
+  - id: FoodEgg
+    count: 1
+  - id: FoodMeatFish
+    count: 1
+  time: 0
+  result: ADTFoodHerringUnderFurcoat
+  consumePlate: true
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookFoodJelliedMeatRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodMeat
+    count: 1
+  time: 0
+  result: ADTFoodJelliedMeat
+  consumePlate: true
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookFoodOlivierSaladRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodPotato
+    count: 2
+  - id: FoodMeat
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodEgg
+    count: 1
+  time: 0
+  result: ADTFoodOlivierSalad
+  consumePlate: true
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSaladAesirRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCabbage
+    count: 1
+  - id: FoodApple
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  time: 0
+  result: FoodSaladAesir
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSaladEdenRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodPineapple
+    count: 1
+  - id: FoodBanana
+    count: 1
+  - id: FoodApple
+    count: 1
+  time: 0
+  result: FoodSaladEden
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoftTacoRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodDoughTortillaFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodOnionSlice
+    count: 1
+  time: 0
+  result: FoodMealSoftTaco
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoupUzbekPilafRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodRiceBoiled
+    count: 1
+  - id: FoodGarlic
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodOnionSlice
+    count: 2
+  time: 0
+  result: ADTFoodSoupUzbekPilaf
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodVulpixRecipe
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodOnion
+    count: 1
+  - id: OrganVulpkaninLiver
+    count: 1
+  time: 0
+  result: ADTFoodVulpix
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookFruitSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodOrange
+    count: 1
+  - id: FoodApple
+    count: 1
+  - id: FoodGrape
+    count: 1
+  - id: FoodWatermelonSlice
+    count: 1
+  time: 0
+  result: FoodSaladFruit
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookHerbSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodAmbrosiaVulgaris
+    count: 3
+  - id: FoodApple
+    count: 1
+  time: 0
+  result: FoodSaladHerb
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookJungleSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodBanana
+    count: 1
+  - id: FoodApple
+    count: 1
+  - id: FoodGrape
+    count: 1
+  - id: FoodWatermelonSlice
+    count: 1
+  time: 0
+  result: FoodSaladJungle
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookKimchiSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCarrot
+    count: 1
+  - id: FoodCabbage
+    count: 2
+  - id: FoodGarlic
+    count: 1
+  time: 0
+  result: FoodSaladKimchi
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookLemonCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodLemon
+    count: 3
+  time: 0
+  result: FoodCakeLemon
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookLemoonCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodLemoon
+    count: 1
+  - id: FoodBerries
+    count: 1
+  time: 0
+  result: FoodCakeLemoon
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookLimeCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodLime
+    count: 3
+  time: 0
+  result: FoodCakeLime
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookOrangeCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodOrange
+    count: 3
+  time: 0
+  result: FoodCakeOrange
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookPumpkinCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  - id: FoodPumpkin
+    count: 1
+  time: 0
+  result: FoodCakePumpkin
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeBananaBoom
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodBanana
+    count: 7
+  - id: FoodSnackChocolateBar
+    count: 1
+  - id: FoodCakePlain
+    count: 1
+  time: 0
+  result: ADTFoodCakeBananaBoom
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookSashimi
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodMeatFish
+    count: 1
+  time: 0
+  result: FoodMealSashimi
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookSlimeCake
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  reagents:
+    Slime: 15
+  time: 0
+  result: FoodCakeSlime
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookValidSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodAmbrosiaVulgaris
+    count: 2
+  - id: FoodPotato
+    count: 1
+  - id: FoodMeatMeatball
+    count: 1
+  time: 0
+  result: FoodSaladValid
+  consumePlate: true
+  group: Salad
+
+- type: adtCookingRecipe
+  id: ADTCookWatermelonFruitBowlSalad
+  method: Raw
+  cookware: Plate
+  ingredients:
+  - id: FoodWatermelon
+    count: 1
+  - id: FoodApple
+    count: 1
+  - id: FoodBanana
+    count: 1
+  - id: FoodLemon
+    count: 1
+  - id: FoodOrange
+    count: 1
+  - id: FoodAmbrosiaVulgaris
+    count: 1
+  time: 0
+  result: FoodSaladWatermelonFruitBowl
+  group: Salad

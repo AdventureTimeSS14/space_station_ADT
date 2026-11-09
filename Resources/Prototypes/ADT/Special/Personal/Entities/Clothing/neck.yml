@@ -266,3 +266,28 @@
     sprite: ADT/Special/Personal/Darkiich/erich_scarf.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Darkiich/erich_scarf.rsi
+
+#NikSAN
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckNikSANCloak
+  name: scientist parade cloak
+  description: scientist parade cloak
+  suffix: Personal, NikSAN
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/niksan_cloak.rsi
+
+#IronLotus
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckCloakIronLotus
+  name: плащ "Железный лотус"
+  description: Прочный плащ огненных тонов, обрамлённый золотыми нитями. Голову прикрывает белый мех. Создан из специального материала, устойчивого к огню.
+  suffix: Personal, IronLotus, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_cloak.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_cloak.rsi
