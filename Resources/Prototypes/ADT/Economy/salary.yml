@@ -17,7 +17,7 @@
     CargoTechnician: 200
     SalvageSpecialist: 300
     # Сервис
-    Boxer: 150
+  #  Boxer: 150
     Chaplain: 150
     Clown: 150
     Librarian: 150
@@ -25,7 +25,7 @@
     Musician: 150
     Passenger: 100
     Reporter: 150
-    Zookeeper: 150
+  #  Zookeeper: 150
     ADTBarber: 150
     ServiceWorker: 150
     Janitor: 200
