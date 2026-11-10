@@ -6,6 +6,7 @@
   components:
   - type: ADTVendingMachine
     pack: PatholodrobeInventory
+    discountAccount: Medical
   - type: VendingMachineVisuals
     offState: off
     brokenState: broken
@@ -104,6 +105,8 @@
   components:
   - type: ADTVendingMachine
     pack: PillInventory
+    discountAccount: Medical
+    discountPercent: 0.5
   - type: VendingMachineVisuals
     offState: off
     brokenState: broken
@@ -256,7 +259,7 @@
   components:
   - type: ADTVendingMachine
     pack: ADTMusicomatInventory
-    allForFree: true
+    discountJobs: [Musician]
   - type: VendingMachineVisuals
     offState: off
     brokenState: broken
