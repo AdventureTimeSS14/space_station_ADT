@@ -648,6 +648,17 @@
   loadouts:
   - ADTHatBeretAtmos
 
+- type: loadoutGroup
+  id: ADTAtmosphericTechnicianGlasses
+  name: loadout-group-engineering-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTEyeWeldingOldStyle
+  - ADTEyeWelding
+  - ADTEyeMeson
+  - ADTAtmosGasTemperatureGlasses
+
 # ENGINEER
 
 - type: loadoutGroup
@@ -1428,6 +1439,14 @@
 # Alts PDA end
 
 # Miscellaneous
+
+- type: loadoutGroup
+  id: ADTPassengerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - ADTImprovisedGuitarInstrument
 
 - type: loadoutGroup
   id: ADTSprayPaints
