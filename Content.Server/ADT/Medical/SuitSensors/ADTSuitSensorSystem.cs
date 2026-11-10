@@ -135,6 +135,15 @@ public sealed class ADTSuitSensorSystem : ADTSharedSuitSensorSystem
         TransformComponent sensorXform,
         bool force)
     {
+        var now = _gameTiming.CurTime;
+        if (!force && now < sensor.NextUpdate)
+            return;
+
+        var updateRate = sensor.Mode == ADTSuitSensorMode.SensorCords
+            ? CoordinatesUpdateRate
+            : sensor.UpdateRate;
+        sensor.NextUpdate = now + updateRate;
+
         if (sensor.User == null ||
             !TryComp<TransformComponent>(sensor.User.Value, out var wearerXform) ||
             wearerXform.MapID == MapId.Nullspace)
@@ -151,22 +160,11 @@ public sealed class ADTSuitSensorSystem : ADTSharedSuitSensorSystem
         var hadPrevious = _lastReported.TryGetValue(uid, out var previous);
         var stateChanged = !hadPrevious || previous != reportState;
 
-        // Off is transmitted once per mode/wearer/mob-state change.
         if (sensor.Mode == ADTSuitSensorMode.SensorOff && !stateChanged)
             return;
 
-        var now = _gameTiming.CurTime;
         var urgent = IsUrgentMobState(mobState) ||
                      (hadPrevious && IsUrgentMobState(previous.MobState));
-
-        // Crit/dead transitions (and recovery) never wait on UpdateRate.
-        if (!force && !stateChanged && now < sensor.NextUpdate)
-            return;
-
-        var updateRate = sensor.Mode == ADTSuitSensorMode.SensorCords
-            ? CoordinatesUpdateRate
-            : sensor.UpdateRate;
-        sensor.NextUpdate = now + updateRate;
 
         var status = GetSensorState((uid, sensor, sensorXform));
         if (status == null)
