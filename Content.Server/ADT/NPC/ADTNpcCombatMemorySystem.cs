@@ -165,49 +165,6 @@ public sealed class ADTNpcCombatMemorySystem : EntitySystem
         return nearest;
     }
 
-    public EntityUid FindLeader(EntityUid owner, float range)
-    {
-        if (!TryComp<ADTNpcCombatMemoryComponent>(owner, out var memory))
-            return ScanLeader(owner, range);
-
-        var now = _timing.CurTime;
-
-        if (now < memory.NextLeaderCheck && memory.Leader is { } cached &&
-            (cached == owner || !TerminatingOrDeleted(cached) && _mobState.IsAlive(cached)))
-        {
-            return cached;
-        }
-
-        var leader = ScanLeader(owner, range);
-        memory.Leader = leader;
-        memory.NextLeaderCheck = now + memory.LeaderCheckInterval;
-        return leader;
-    }
-
-    private EntityUid ScanLeader(EntityUid owner, float range)
-    {
-        var leader = owner;
-
-        _factionMembers.Clear();
-        _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(owner), range, _factionMembers);
-
-        foreach (var found in _factionMembers)
-        {
-            var other = found.Owner;
-
-            if (other == owner || !HasComp<HTNComponent>(other))
-                continue;
-
-            if (!_mobState.IsAlive(other) || !_faction.IsEntityFriendly(owner, other))
-                continue;
-
-            if (other.CompareTo(leader) < 0)
-                leader = other;
-        }
-
-        return leader;
-    }
-
     public bool TryBeginCoverSearch(EntityUid owner, TimeSpan cooldown)
     {
         if (!TryComp<ADTNpcCombatMemoryComponent>(owner, out var memory))

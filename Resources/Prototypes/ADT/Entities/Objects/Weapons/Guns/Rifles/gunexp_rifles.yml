@@ -226,7 +226,7 @@
   name: forged rifle
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband, ADTBasePumpingGun]
   id: ADTWeaponRifleForged
-  description: A pump-action rifle forged by smuggler gunsmiths. Loads 10 rounds of .30 rifle.
+  description: A lever-action rifle forged by smuggler gunsmiths. Loads 10 rounds of .30 rifle.
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Rifles/forged_rifle.rsi

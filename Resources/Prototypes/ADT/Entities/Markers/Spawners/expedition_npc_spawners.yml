@@ -25,7 +25,7 @@
       state: equipped-MASK
     - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
       state: equipped-HELMET
-    - sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/ak_tac_inhands.rsi
       state: inhand-right
   - type: ConditionalSpawner
     prototypes:
@@ -58,7 +58,7 @@
       state: equipped-MASK
     - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
       state: equipped-HELMET
-    - sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/ak_tac_inhands.rsi
       state: inhand-right
   - type: ConditionalSpawner
     prototypes:
@@ -91,7 +91,7 @@
       state: equipped-MASK
     - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
       state: equipped-HELMET
-    - sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi
+    - sprite: ADT/Objects/Weapons/Guns/Shotguns/eger.rsi
       state: inhand-right
   - type: ConditionalSpawner
     prototypes:
@@ -165,8 +165,8 @@
 
 - type: entity
   parent: MarkerBase
-  id: ADTSpawnMobSovietBunkerSniperExpedition
-  name: Soviet Sniper Spawner
+  id: ADTSpawnMobSovietBunkerMachineGunnerExpedition
+  name: Soviet Machine Gunner Spawner
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -190,11 +190,11 @@
       state: equipped-MASK
     - sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
       state: equipped-HELMET
-    - sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    - sprite: ADT/Objects/Weapons/Guns/LMG/maxim.rsi
       state: inhand-right
   - type: ConditionalSpawner
     prototypes:
-    - ADTMobSovietBunkerSniper
+    - ADTMobSovietBunkerMachineGunner
 
 - type: entity
   parent: MarkerBase
@@ -233,8 +233,397 @@
 
 - type: entity
   parent: MarkerBase
-  id: ADTSpawnMobSmugglerPirateExpedition
-  name: Smuggler Pirate Spawner
+  id: ADTSpawnMobSovietBunkerColonelExpedition
+  name: Colonel Gromov Spawner
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/officer_army_USSP.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: ADT/Clothing/Belt/rps_ussp.rsi
+      state: equipped-BELT
+    - sprite: ADT/Clothing/OuterClothing/Coats/officer_greatcoat_USSP.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Clothing/Mask/usspgasmask.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Hats/officer_army_USSP_cap.rsi
+      state: equipped-HELMET
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/ak_tac_inhands.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSovietBunkerColonel
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerExpedition
+  name: Smuggler Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/mercenary.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/mercboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/mercbattle.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/merc.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/merc.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/merc_helmet.rsi
+      state: equipped-HELMET
+    - sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+      state: equipped-EYES
+    - sprite: ADT/Objects/Weapons/Guns/SMGs/forged_smg.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmuggler
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerRiflemanExpedition
+  name: Smuggler Rifleman Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Service/overalls.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/workboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/fingerless.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Coats/bomber.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Satchels/leather.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Head/Hats/greyflatcap.rsi
+      state: equipped-HELMET
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/forged_rifle.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerRifleman
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerHunterExpedition
+  name: Smuggler Hunter Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Service/overalls.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/workboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/fingerless.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/Back/Satchels/leather.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Head/Hats/brownflatcap.rsi
+      state: equipped-HELMET
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/improvised_rifle.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerHunter
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerShotgunnerExpedition
+  name: Smuggler Shotgunner Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Service/overalls.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/workboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/fingerless.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/Back/Satchels/leather.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Objects/Weapons/Guns/Shotguns/forged_shotgun.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerShotgunner
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerRaiderExpedition
+  name: Smuggler Raider Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/mercenary.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/mercboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/mercbattle.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/merc.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/merc.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Hats/beret_merc.rsi
+      state: equipped-HELMET
+    - sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+      state: equipped-EYES
+    - sprite: ADT/Objects/Weapons/Guns/SMGs/forged_smg.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerRaider
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerThugExpedition
+  name: Smuggler Thug Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Service/overalls.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/workboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/fingerless.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Satchels/leather.rsi
+      state: equipped-BACKPACK
+    - sprite: ADT/Objects/Weapons/Guns/SMGs/improvised_smg.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerThug
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerHeavyExpedition
+  name: Smuggler Heavy Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/mercenary.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/mercboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/mercbattle.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/merc.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/merc.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/merc_helmet.rsi
+      state: equipped-HELMET
+    - sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+      state: equipped-EYES
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/trr30.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerHeavy
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerTrooperExpedition
+  name: Smuggler Trooper Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/mercenary.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/mercboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/mercbattle.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/merc.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/merc.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/merc_helmet.rsi
+      state: equipped-HELMET
+    - sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+      state: equipped-EYES
+    - sprite: ADT/Objects/Weapons/Guns/Rifles/str55.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerTrooper
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerMedicExpedition
+  name: Smuggler Medic Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/mercenary.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/mercboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/mercbattle.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/merc.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/merc.rsi
+      state: equipped-MASK
+    - sprite: ADT/Clothing/Head/Hats/Beanie/beanie_merc.rsi
+      state: equipped-HELMET
+    - sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+      state: equipped-EYES
+    - sprite: ADT/Objects/Weapons/Guns/Pistols/forged_autopistol.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerMedic
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerBossExpedition
+  name: Smuggler Market Boss Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/mercenary.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/mercboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/mercbattle.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Coats/bomber.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/merc.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/merc.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Hats/beret_merc.rsi
+      state: equipped-HELMET
+    - sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+      state: equipped-EYES
+    - sprite: ADT/Objects/Weapons/Guns/LMG/hrc30.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerBoss
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobSmugglerTraderExpedition
+  name: Smuggler Trader Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Civilian/flannel.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Misc/leather.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Belt/mercwebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Coats/bomber.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Satchels/leather.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Head/Hats/brownflatcap.rsi
+      state: equipped-HELMET
+    - sprite: ADT/Objects/Weapons/Guns/Pistols/forged_pistol.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobSmugglerTrader
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMarauderExpedition
+  name: Gorlex Marauder Spawner
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -246,15 +635,188 @@
       state: equipped-INNERCLOTHING
     - sprite: Clothing/Shoes/Boots/combatboots.rsi
       state: equipped-FEET
-    - sprite: Clothing/Back/Backpacks/salvage.rsi
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/militarywebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/webvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/syndicate.rsi
       state: equipped-BACKPACK
     - sprite: Clothing/Mask/gassyndicate.rsi
       state: equipped-MASK
-    - sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    - sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
       state: inhand-right
   - type: ConditionalSpawner
     prototypes:
-    - ADTMobSmugglerPirate
+    - ADTMobMarauder
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMarauderRiflemanExpedition
+  name: Marauder Rifleman Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/operative.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/militarywebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/webvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/syndicate.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/gassyndicate.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMarauderRifleman
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMarauderBreacherExpedition
+  name: Marauder Breacher Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/operative.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/militarywebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/syndicate.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/gassyndicate.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMarauderBreacher
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMarauderGunnerExpedition
+  name: Marauder Gunner Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/operative.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/militarywebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/webvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/syndicate.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/gassyndicate.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMarauderGunner
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMarauderMedicExpedition
+  name: Marauder Medic Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/ShipVsShip/paramedic_syndie.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/militarywebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Vests/webvest.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/syndicate.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/gassyndicate.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMarauderMedic
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMarauderVeteranExpedition
+  name: Gorlex Marauder Veteran Spawner
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Uniforms/Jumpsuits/Special/operative.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/combat.rsi
+      state: equipped-HAND
+    - sprite: Clothing/Belt/militarywebbing.rsi
+      state: equipped-BELT
+    - sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Back/Backpacks/syndicate.rsi
+      state: equipped-BACKPACK
+    - sprite: Clothing/Mask/gassyndicate.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Hats/syndiecap.rsi
+      state: equipped-HELMET
+    - sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+      state: inhand-right
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMarauderVeteran
 
 - type: entity
   parent: MarkerBase
@@ -437,7 +999,7 @@
     - ADTMobSovietBunkerTikhonov
 
 - type: entity
-  parent: ADTSpawnMobSovietBunkerSniperExpedition
+  parent: ADTSpawnMobSovietBunkerMachineGunnerExpedition
   id: ADTSpawnMobSovietBunkerLiWeiExpedition
   name: Private Li Wei Spawner
   suffix: DO NOT MAP

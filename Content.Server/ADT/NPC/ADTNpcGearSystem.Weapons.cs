@@ -64,6 +64,13 @@ public sealed partial class ADTNpcGearSystem
 
     public void GetAmmo(EntityUid gun, out int count, out int capacity)
     {
+        if (TryComp<RevolverAmmoProviderComponent>(gun, out var revolver))
+        {
+            count = GetLiveRounds(revolver);
+            capacity = revolver.Capacity;
+            return;
+        }
+
         var ev = new GetAmmoCountEvent();
         RaiseLocalEvent(gun, ref ev);
         count = ev.Count;
@@ -82,7 +89,52 @@ public sealed partial class ADTNpcGearSystem
 
     public bool IsLooseGun(EntityUid gun)
     {
-        return !IsMagazineGun(gun, out _) && HasComp<BallisticAmmoProviderComponent>(gun);
+        return !IsMagazineGun(gun, out _) &&
+               (HasComp<BallisticAmmoProviderComponent>(gun) || HasComp<RevolverAmmoProviderComponent>(gun));
+    }
+
+    private EntityWhitelist? LooseWhitelist(EntityUid gun)
+    {
+        if (TryComp<BallisticAmmoProviderComponent>(gun, out var ballistic))
+            return ballistic.Whitelist;
+
+        return CompOrNull<RevolverAmmoProviderComponent>(gun)?.Whitelist;
+    }
+
+    private int GetLiveRounds(RevolverAmmoProviderComponent revolver)
+    {
+        var count = 0;
+
+        for (var i = 0; i < revolver.Capacity; i++)
+        {
+            if (revolver.Chambers[i] == true ||
+                TryComp<CartridgeAmmoComponent>(revolver.AmmoSlots[i], out var cartridge) && !cartridge.Spent)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private static bool HasFreeChamber(RevolverAmmoProviderComponent revolver)
+    {
+        for (var i = 0; i < revolver.Capacity; i++)
+        {
+            if (revolver.AmmoSlots[i] == null && revolver.Chambers[i] == null)
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool CanLoadRevolver(EntityUid gun, RevolverAmmoProviderComponent revolver)
+    {
+        if (HasFreeChamber(revolver))
+            return true;
+
+        GetAmmo(gun, out var count, out _);
+        return count == 0;
     }
 
     public EntityUid? FindMagazine(EntityUid owner, EntityUid gun)
@@ -119,15 +171,15 @@ public sealed partial class ADTNpcGearSystem
         return best;
     }
 
-    private bool BoxMatches(BallisticAmmoProviderComponent box, BallisticAmmoProviderComponent gun)
+    private bool BoxMatches(BallisticAmmoProviderComponent box, EntityWhitelist? gunWhitelist)
     {
-        var gunTags = gun.Whitelist?.Tags;
+        var gunTags = gunWhitelist?.Tags;
 
         if (gunTags == null)
             return true;
 
         if (box.Entities.Count > 0)
-            return _whitelist.IsWhitelistPassOrNull(gun.Whitelist, box.Entities[^1]);
+            return _whitelist.IsWhitelistPassOrNull(gunWhitelist, box.Entities[^1]);
 
         var boxTags = box.Whitelist?.Tags;
 
@@ -145,8 +197,11 @@ public sealed partial class ADTNpcGearSystem
 
     public (EntityUid Item, bool IsBox)? FindLooseAmmo(EntityUid owner, EntityUid gun)
     {
-        if (!TryComp<BallisticAmmoProviderComponent>(gun, out var gunProvider))
+        if (!IsLooseGun(gun))
             return null;
+
+        var gunWhitelist = LooseWhitelist(gun);
+        var revolver = HasComp<RevolverAmmoProviderComponent>(gun);
 
         foreach (var entry in GetReserve(owner))
         {
@@ -157,7 +212,7 @@ public sealed partial class ADTNpcGearSystem
 
             if (HasComp<CartridgeAmmoComponent>(item))
             {
-                if (_whitelist.IsWhitelistPassOrNull(gunProvider.Whitelist, item))
+                if (_whitelist.IsWhitelistPassOrNull(gunWhitelist, item))
                     return (item, false);
 
                 continue;
@@ -171,7 +226,15 @@ public sealed partial class ADTNpcGearSystem
             if (count <= 0)
                 continue;
 
-            if (BoxMatches(box, gunProvider))
+            if (revolver && HasComp<SpeedLoaderComponent>(item))
+            {
+                if (_whitelist.IsWhitelistPassOrNull(gunWhitelist, item))
+                    return (item, false);
+
+                continue;
+            }
+
+            if (BoxMatches(box, gunWhitelist))
                 return (item, true);
         }
 
@@ -182,6 +245,9 @@ public sealed partial class ADTNpcGearSystem
     {
         if (IsMagazineGun(gun, out _))
             return FindMagazine(owner, gun) != null;
+
+        if (TryComp<RevolverAmmoProviderComponent>(gun, out var revolver) && !CanLoadRevolver(gun, revolver))
+            return false;
 
         if (IsLooseGun(gun))
             return FindLooseAmmo(owner, gun) != null;
@@ -247,6 +313,9 @@ public sealed partial class ADTNpcGearSystem
 
     public bool LoadRound(EntityUid owner, EntityUid gun)
     {
+        if (TryComp<RevolverAmmoProviderComponent>(gun, out var revolver))
+            return LoadRevolver(owner, (gun, revolver));
+
         if (!TryComp<BallisticAmmoProviderComponent>(gun, out var provider))
             return false;
 
@@ -268,6 +337,48 @@ public sealed partial class ADTNpcGearSystem
         }
 
         if (_gun.TryBallisticInsert((gun, provider), cartridge, owner))
+            return true;
+
+        if (source.IsBox)
+            Stow(owner, cartridge);
+
+        return false;
+    }
+
+    private bool LoadRevolver(EntityUid owner, Entity<RevolverAmmoProviderComponent> gun)
+    {
+        if (FindLooseAmmo(owner, gun) is not { } source)
+            return false;
+
+        if (!HasFreeChamber(gun.Comp))
+        {
+            GetAmmo(gun, out var count, out _);
+
+            if (count > 0)
+                return false;
+
+            _gun.EmptyRevolver(gun, owner);
+        }
+
+        MarkDirty(owner);
+
+        if (HasComp<SpeedLoaderComponent>(source.Item))
+            return _gun.TryRevolverInsert(gun, source.Item, owner);
+
+        var cartridge = source.Item;
+
+        if (source.IsBox)
+        {
+            var ev = new TakeAmmoEvent(1, new List<(EntityUid? Entity, IShootable Shootable)>(), Transform(owner).Coordinates, owner);
+            RaiseLocalEvent(source.Item, ev);
+
+            if (ev.Ammo.Count == 0 || ev.Ammo[0].Entity is not { } taken)
+                return false;
+
+            cartridge = taken;
+        }
+
+        if (_gun.TryRevolverInsert(gun, cartridge, owner))
             return true;
 
         if (source.IsBox)

@@ -77,6 +77,12 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/LMG/maxim.rsi
   - type: GunRequiresWield
+  - type: Gun
+    minAngle: 20
+    maxAngle: 32
+    angleIncrease: 2.5
+    angleDecay: 20
+    fireRate: 6.5
   - type: ItemSlots
     slots:
       gun_magazine:
