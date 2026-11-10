@@ -333,6 +333,25 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> DepartmentDeposit =
         CVarDef.Create("economy.department_deposit", 2000, CVar.SERVERONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Интервал выплат зарплат
+    /// </summary>
+    public static readonly CVarDef<int> SalaryDelay =
+        CVarDef.Create("economy.salary_delay", 2700, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Максимальное количество записей в истории транзакций счёта
+    /// </summary>
+    public static readonly CVarDef<int> BankHistoryLimit =
+        CVarDef.Create("economy.bank_history_limit", 100, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Насыщение цены газа: до этого числа молей цена линейная, дальше -
+    /// логарифмическая убывающая отдача. Базовое значение 0 - ничего резаться не будет.
+    /// </summary>
+    public static readonly CVarDef<float> GasPriceSaturationMoles =
+        CVarDef.Create("economy.gas_price_saturation_moles", 50f, CVar.SERVERONLY);
+
 
 
     /// <summary>

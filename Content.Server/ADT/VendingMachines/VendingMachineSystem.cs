@@ -511,9 +511,10 @@ namespace Content.Server.ADT.VendingMachines
                         if (TryComp(item, out PdaComponent? pda) && pda.ContainedId is { Valid: true } id)
                             nextItem = id;
 
-                        if (!TryComp<BankCardComponent>(nextItem, out var bankCard) || !bankCard.AccountId.HasValue
-                            || !_bankCard.TryGetAccount(bankCard.AccountId.Value, out var account)
-                            || account.Balance < price)
+                        if (!TryComp<BankCardComponent>(nextItem, out var bankCard) || !bankCard.AccountId.HasValue)
+                            continue;
+
+                        if (_bankCard.GetBalance(bankCard.AccountId.Value) < price)
                             continue;
 
                         if (TryGetRevenueTarget(uid, vendComponent, out var revenueAccountId) &&
@@ -522,10 +523,10 @@ namespace Content.Server.ADT.VendingMachines
                         {
                             success = true;
                         }
-                        else if (_bankCard.TryBurn(bankCard.AccountId.Value, price,
-                                     TransactionReason.VendingSale, Name(sender.Value)))
+                        else
                         {
-                            success = true;
+                            success = _bankCard.TryBurn(bankCard.AccountId.Value, price,
+                                TransactionReason.VendingSale, Name(sender.Value));
                         }
 
                         if (success)
