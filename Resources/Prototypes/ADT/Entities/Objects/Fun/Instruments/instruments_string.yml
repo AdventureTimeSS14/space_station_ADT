@@ -49,15 +49,6 @@
     - 0,0,3,3
   - type: Clothing
     sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
-    clothingVisuals:
-      back:
-      - sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
-        state: equipped-BACKPACK
-        offset: 0.0625, -0.0625
-      suitstorage:
-      - sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
-        state: equipped-SUITSTORAGE
-        offset: 0.0625, -0.0625
   - type: Construction
     graph: ADTImprovisedGuitar
     node: guitar
