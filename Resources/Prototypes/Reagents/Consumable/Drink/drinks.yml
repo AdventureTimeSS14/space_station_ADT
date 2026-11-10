@@ -458,6 +458,7 @@
   id: Water
   name: reagent-name-water
   parent: BaseDrink
+  intensityMod: -3 # ADT-Tweak
   desc: reagent-desc-water
   evaporationSpeed: 0.3
   absorbent: true

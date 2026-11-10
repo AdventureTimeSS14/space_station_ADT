@@ -1,5 +1,6 @@
 // Ported from RMC-14 (https://github.com/RMC-14/RMC-14), MIT License
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Line;
 using Content.Shared._RMC14.Map;
@@ -44,6 +45,9 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
     [Dependency] private RMCMapSystem _rmcMap = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+
+    private const float FireHalfExtent = 0.35f;
 
     public override void Initialize()
     {
@@ -277,7 +281,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         if (user != null && IsInContainer(user.Value))
             return;
 
-        if (!CanShootFlamer(flamer, fromCoordinates, toCoordinates, out var tiles, out var solution, out var reagent, out var tank))
+        if (!CanShootFlamer(flamer, user, fromCoordinates, toCoordinates, out var tiles, out var solution, out var reagent, out var tank))
             return;
 
         _audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
@@ -305,11 +309,12 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
 
     public bool TryGetPreviewTiles(
         Entity<RMCFlamerAmmoProviderComponent> flamer,
+        EntityUid? user,
         EntityCoordinates fromCoordinates,
         EntityCoordinates toCoordinates,
         [NotNullWhen(true)] out List<LineTile>? tiles)
     {
-        return CanShootFlamer(flamer, fromCoordinates, toCoordinates, out tiles, out _, out _, out _);
+        return CanShootFlamer(flamer, user, fromCoordinates, toCoordinates, out tiles, out _, out _, out _);
     }
 
     public bool IsInContainer(EntityUid user)
@@ -329,6 +334,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
 
     private bool CanShootFlamer(
         Entity<RMCFlamerAmmoProviderComponent> flamer,
+        EntityUid? user,
         EntityCoordinates fromCoordinates,
         EntityCoordinates toCoordinates,
         [NotNullWhen(true)] out List<LineTile>? tiles,
@@ -385,6 +391,16 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         tiles.RemoveAll(tile => (_transform.ToMapCoordinates(tile.Coordinates).Position - origin).LengthSquared() < 0.25f);
 
         tiles.RemoveAll(tile => !HasFloor(tile.Coordinates));
+
+        if (user != null)
+        {
+            var userBounds = _lookup.GetWorldAABB(user.Value);
+            tiles.RemoveAll(tile =>
+            {
+                var tileBounds = Box2.CenteredAround(_transform.ToMapCoordinates(tile.Coordinates).Position, new Vector2(FireHalfExtent * 2));
+                return tileBounds.Intersects(userBounds);
+            });
+        }
 
         if (tiles.Count == 0)
         {
