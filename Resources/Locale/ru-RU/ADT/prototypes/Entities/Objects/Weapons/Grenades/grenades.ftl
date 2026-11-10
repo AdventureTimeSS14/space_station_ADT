@@ -6,6 +6,3 @@ ent-ADTTritiumGrenades = тритиевая взрывчатка
 
 ent-RMCGrenadeMolotov = коктейль Молотова
     .desc = Бутылка с зажигательной смесью. При разбитии - поджигает всё вокруг.
-ent-RMCGrenadeMolotovEmpty = коктейль Молотова
-    .desc = Бутылка, в которой еще нет зажигательной смеси.
-    .suffix = Пустой

@@ -10,6 +10,7 @@
   - type: ADTPlate
     layout: ADTPlateSmall
     maxItems: 2
+    maxWeight: 2
   - type: ContainerContainer
     containers:
       adt_plate: !type:Container
