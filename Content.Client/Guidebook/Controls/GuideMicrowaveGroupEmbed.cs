@@ -59,6 +59,12 @@ public sealed partial class GuideMicrowaveGroupEmbed : BoxContainer, IDocumentTa
             if (recipe.HideInGuidebook) // Frontier: super secret recipes
                 continue; // Frontier: super secret recipes
 
+            // ADT-Tweak-Start
+            const int activeTypes = (int) (MicrowaveRecipeType.ADTMicrowave | MicrowaveRecipeType.ADTAssembler | MicrowaveRecipeType.MedicalAssembler | MicrowaveRecipeType.TribalOven);
+            if ((recipe.RecipeType & activeTypes) == 0)
+                continue;
+            // ADT-Tweak-End
+
             var embed = new GuideMicrowaveEmbed(recipe);
             AddChild(embed);
         }

@@ -107,6 +107,7 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: ADTNoArmedExplosivesStorage # ADT-Tweak
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:

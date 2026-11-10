@@ -30,4 +30,7 @@
       collection: ADTRaven559MaskOn
     messageSentSound:
       collection: ADTRaven559MaskOff
-
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.80

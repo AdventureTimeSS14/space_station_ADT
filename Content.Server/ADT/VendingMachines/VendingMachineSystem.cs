@@ -280,13 +280,38 @@ namespace Content.Server.ADT.VendingMachines
             return price > 0 ? price : 25;
         }
 
-        private int GetPrice(VendingMachineInventoryEntry entry, ADTVendingMachineComponent comp, int count)
+        private int GetPrice(VendingMachineInventoryEntry entry, ADTVendingMachineComponent comp, int count, float discount = 0f)
         {
-            return (int)(entry.Price * count * comp.PriceMultiplier);
+            return (int) Math.Floor(entry.Price * count * comp.PriceMultiplier * (1f - discount));
+        }
+
+        private float GetUserDiscount(EntityUid? user, ADTVendingMachineComponent component)
+        {
+            if (user == null ||
+                (component.DiscountAccount == null && component.DiscountJobs.Count == 0))
+                return 0f;
+
+            var cardJob = _bankCard.GetCardJob(user.Value);
+            if (cardJob == null)
+                return 0f;
+
+            var byDepartment = component.DiscountAccount != null &&
+                               _bankCard.GetCardDepartment(user.Value) == component.DiscountAccount;
+            var byJob = component.DiscountJobs.Contains(cardJob.Value);
+
+            return byDepartment || byJob ? Math.Clamp(component.DiscountPercent, 0f, 1f) : 0f;
         }
 
         private void OnWithdrawMessage(EntityUid uid, ADTVendingMachineComponent component, VendingMachineWithdrawMessage args)
         {
+            if (TryComp<AccessReaderComponent>(uid, out var accessReader) &&
+                !_accessReader.IsAllowed(args.Actor, uid, accessReader))
+            {
+                Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-denied"), uid, args.Actor);
+                Deny((uid, component));
+                return;
+            }
+
             _stackSystem.SpawnAtPosition(component.Credits, component.CreditStackPrototype,
                 Transform(uid).Coordinates);
 
@@ -296,15 +321,37 @@ namespace Content.Server.ADT.VendingMachines
             UpdateVendingMachineInterfaceState(uid, component);
         }
 
+        private bool TryGetRevenueTarget(EntityUid uid, ADTVendingMachineComponent component, out int accountId)
+        {
+            accountId = 0;
+
+            var station = _stationSystem.GetOwningStation(uid);
+            if (station == null || !TryComp<StationBankAccountComponent>(station, out var stationBank))
+                return false;
+
+            var revenueAccount = component.RevenueAccount ?? stationBank.PrimaryAccount;
+            return _bankCard.TryGetDepartmentAccountId(station.Value, revenueAccount, out accountId);
+        }
+
+        private void ApplyPriceCreep(VendingMachineInventoryEntry entry)
+        {
+            if (entry.BasePrice <= 0)
+                entry.BasePrice = entry.Price;
+
+            var step = Math.Max(1, entry.BasePrice / 20);
+            entry.Price = Math.Min(entry.Price + step, entry.BasePrice * 3);
+        }
+
         private void OnAfterActivatableUIOpen(EntityUid uid, ADTVendingMachineComponent component, AfterActivatableUIOpenEvent args)
         {
-            SendUserInfo(uid, args.User);
+            SendUserInfo(uid, component, args.User);
             UpdateVendingMachineInterfaceState(uid, component);
         }
 
-        private void SendUserInfo(EntityUid uid, EntityUid user)
+        private void SendUserInfo(EntityUid uid, ADTVendingMachineComponent component, EntityUid user)
         {
             var balance = 0;
+            var discount = GetUserDiscount(user, component);
 
             if (IsCargoAccountUser(user) &&
                 _stationSystem.GetOwningStation(user) is { } station &&
@@ -312,26 +359,15 @@ namespace Content.Server.ADT.VendingMachines
             {
                 balance = _cargoSystem.GetBalanceFromAccount((station, stationBank), stationBank.PrimaryAccount);
                 _userInterfaceSystem.ServerSendUiMessage(uid, ADTVendingMachineUiKey.Key,
-                    new VendingMachineUserInfoMessage(balance), user);
+                    new VendingMachineUserInfoMessage(balance, ignoreBalance: false, discount), user);
                 return;
             }
 
-            var items = _accessReader.FindPotentialAccessItems(user);
-            foreach (var item in items)
-            {
-                var nextItem = item;
-                if (TryComp(item, out PdaComponent? pda) && pda.ContainedId is { Valid: true } id)
-                    nextItem = id;
-
-                if (TryComp<BankCardComponent>(nextItem, out var bankCard) && bankCard.AccountId.HasValue)
-                {
-                    balance = _bankCard.GetBalance(bankCard.AccountId.Value);
-                    break;
-                }
-            }
+            if (_bankCard.TryGetUserAccountId(user, out var accountId))
+                balance = _bankCard.GetBalance(accountId);
 
             _userInterfaceSystem.ServerSendUiMessage(uid, ADTVendingMachineUiKey.Key,
-                new VendingMachineUserInfoMessage(balance, IsBalanceExempt(user)), user);
+                new VendingMachineUserInfoMessage(balance, IsBalanceExempt(user), discount), user);
         }
 
         private bool IsBalanceExempt(EntityUid user)
@@ -450,7 +486,8 @@ namespace Content.Server.ADT.VendingMachines
                 return;
 
             var freeCount = Math.Min(returnedCount, count);
-            var price = GetPrice(entry, vendComponent, count - freeCount);
+            var discount = GetUserDiscount(sender, vendComponent);
+            var price = GetPrice(entry, vendComponent, count - freeCount, discount);
             if (price > 0 && !vendComponent.AllForFree && sender.HasValue && !IsBalanceExempt(sender.Value))
             {
                 var success = false;
@@ -461,13 +498,28 @@ namespace Content.Server.ADT.VendingMachines
                 {
                     success = _cargoSystem.GetBalanceFromAccount((station, stationBank), stationBank.PrimaryAccount) >= price;
                     if (success)
-                        _cargoSystem.UpdateBankAccount((station, stationBank), -price, stationBank.PrimaryAccount);
+                    {
+                        if (TryGetRevenueTarget(uid, vendComponent, out var cargoRevenueId) &&
+                            _bankCard.TryGetDepartmentAccountId(station, stationBank.PrimaryAccount, out var cargoPrimaryId) &&
+                            cargoRevenueId != cargoPrimaryId)
+                        {
+                            _bankCard.TryTransfer(cargoPrimaryId, cargoRevenueId, price,
+                                TransactionReason.VendingSale, Name(sender.Value));
+                        }
+                        else
+                        {
+                            _cargoSystem.UpdateBankAccount((station, stationBank), -price, stationBank.PrimaryAccount);
+                        }
+                    }
                 }
                 else
                 if (vendComponent.Credits >= price)
                 {
                     vendComponent.Credits -= price;
                     success = true;
+
+                    if (TryGetRevenueTarget(uid, vendComponent, out var cashRevenueId))
+                        _bankCard.TryDeposit(cashRevenueId, price, TransactionReason.VendingSale, Name(sender.Value));
                 }
                 else
                 {
@@ -478,14 +530,26 @@ namespace Content.Server.ADT.VendingMachines
                         if (TryComp(item, out PdaComponent? pda) && pda.ContainedId is { Valid: true } id)
                             nextItem = id;
 
-                        if (!TryComp<BankCardComponent>(nextItem, out var bankCard) || !bankCard.AccountId.HasValue
-                            || !_bankCard.TryGetAccount(bankCard.AccountId.Value, out var account)
-                            || account.Balance < price)
+                        if (!TryComp<BankCardComponent>(nextItem, out var bankCard) || !bankCard.AccountId.HasValue)
                             continue;
 
-                        _bankCard.TryChangeBalance(bankCard.AccountId.Value, -price);
-                        success = true;
-                        break;
+                        if (_bankCard.GetBalance(bankCard.AccountId.Value) < price)
+                            continue;
+
+                        if (TryGetRevenueTarget(uid, vendComponent, out var revenueAccountId) &&
+                            _bankCard.TryTransfer(bankCard.AccountId.Value, revenueAccountId, price,
+                                TransactionReason.VendingSale, Name(sender.Value)))
+                        {
+                            success = true;
+                        }
+                        else
+                        {
+                            success = _bankCard.TryBurn(bankCard.AccountId.Value, price,
+                                TransactionReason.VendingSale, Name(sender.Value));
+                        }
+
+                        if (success)
+                            break;
                     }
                 }
 
@@ -495,6 +559,8 @@ namespace Content.Server.ADT.VendingMachines
                     Deny((uid, vendComponent), ejectComponent: ejectComponent);
                     return;
                 }
+
+                ApplyPriceCreep(entry);
             }
             vendComponent.NextItemCount = count;
             vendComponent.NextItemReturnedCount = freeCount;
@@ -525,7 +591,7 @@ namespace Content.Server.ADT.VendingMachines
             Audio.PlayPvs(ejectComponent.SoundVend, uid);
 
             if (sender.HasValue)
-                SendUserInfo(uid, sender.Value);
+                SendUserInfo(uid, vendComponent, sender.Value);
         }
 
         /// <summary>
@@ -709,7 +775,7 @@ namespace Content.Server.ADT.VendingMachines
 
                 if (PrototypeManager.TryIndex(vendingInventory, out VendingMachineInventoryPrototype? inventoryPrototype))
                 {
-                    foreach (var (item, amount, _) in VendingMachineInventoryData.Flatten(inventoryPrototype.StartingInventory))
+                    foreach (var (item, amount, _, _) in VendingMachineInventoryData.Flatten(inventoryPrototype.StartingInventory))
                     {
                         if (PrototypeManager.TryIndex(item, out EntityPrototype? entity))
                             total += _pricing.GetEstimatedPrice(entity) * amount;
@@ -731,4 +797,4 @@ namespace Content.Server.ADT.VendingMachines
                 args.Cancelled = true;
         }
     }
-}
+}

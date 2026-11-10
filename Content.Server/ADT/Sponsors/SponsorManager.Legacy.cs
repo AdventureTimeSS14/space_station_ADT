@@ -140,10 +140,13 @@ public sealed partial class SponsorManager
 
         if (!expired)
         {
+            var tierHasOocColor = false;
+
             if (TryGetMappedTier(info.Tier, out var tier))
             {
                 tierId = tier.Id;
                 tierName = tier.Name;
+                tierHasOocColor = tier.Benefits.OocColor != null;
             }
 
             var markings = info.AllowedMarkings ?? Array.Empty<string>();
@@ -167,7 +170,7 @@ public sealed partial class SponsorManager
                 hasOverrides = true;
             }
 
-            if (!string.IsNullOrEmpty(info.OOCColor) && Color.TryFromHex(info.OOCColor, out var color))
+            if (!tierHasOocColor && !string.IsNullOrEmpty(info.OOCColor) && Color.TryFromHex(info.OOCColor, out var color))
             {
                 benefits.OocColor = color;
                 hasOverrides = true;

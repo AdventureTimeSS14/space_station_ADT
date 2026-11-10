@@ -36,6 +36,7 @@
     - FlashlightSeclite
     - MiningVoucher
     - MiningSuitVoucher
+    - ADTJaunter
 
 - type: chameleonOutfit
   id: ADTMinerChameleonOutfit

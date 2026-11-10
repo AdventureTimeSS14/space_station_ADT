@@ -155,7 +155,8 @@ public sealed partial class DrawingCanvasControl
                 return i;
         }
 
-        return ScreenBox(CanvasToScreen(floating.Start), CanvasToScreen(floating.End)).Contains(screen) ? MoveHandle : NoHandle;
+        var box = ScreenBox(floating.Start, floating.End);
+        return box.Contains(ScreenToCanvas(screen)) ? MoveHandle : NoHandle;
     }
 
     private Vector2 HandleScreen(CanvasFloating floating, int handle)

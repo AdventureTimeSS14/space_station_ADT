@@ -26,7 +26,7 @@ public sealed partial class ModSuitSystem
         if (!_netMan.IsServer)
             return;
 
-        var deploying = GetPartsToggleStatus(ent.Owner, ent.Comp) != ModSuitAttachedStatus.AllToggled;
+        var deploying = !IsFullyCovered(ent.Owner, ent.Comp);
 
         var slots = new List<string>(DeployOrder);
         if (!deploying)
@@ -44,6 +44,9 @@ public sealed partial class ModSuitSystem
                 var part = GetEntity(netPart);
 
                 if (!Exists(part))
+                    continue;
+
+                if (deploying && IsPartCovered(ent.Comp, part, partSlot))
                     continue;
 
                 if (ent.Comp.PartsContainer.Contains(part) == deploying)
@@ -99,7 +102,7 @@ public sealed partial class ModSuitSystem
                 _audio.PlayEntity(stepSound, user, part);
             }
 
-            if (GetPartsToggleStatus(uid, comp) == ModSuitAttachedStatus.AllToggled)
+            if (IsFullyCovered(uid, comp))
                 _audio.PlayGlobal(comp.FullyEnabledSound, user);
         }
     }

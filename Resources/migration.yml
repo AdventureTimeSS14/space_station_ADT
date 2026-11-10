@@ -1188,5 +1188,7 @@ ADTTendrilBScrab: ADTTendrilRandomThreat
 ADTBoxMusicDisksSyndicate: null
 ADTMusicDiskShanson: null
 
+ADTBarbellBenchOverlay: null # ADT-Tweak
+
 # ADT frogs 2026-11-05
 SpawnMobFrog: ADTSpawnMobFrog

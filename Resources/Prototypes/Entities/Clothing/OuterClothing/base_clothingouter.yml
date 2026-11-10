@@ -8,8 +8,6 @@
     - outerClothing
   - type: Sprite
     state: icon
-  - type: ADTAccessoryHolder
-    maxAccessories: 5
 
 - type: entity
   abstract: true
@@ -184,8 +182,10 @@
   - type: Item
 #    size: Ginormous
     size: Huge # ADT-Tweak
+    # ADT-Tweak-Start
     shape:
-    - 0,0,4,5
+    - 0,0,2,2
+    # ADT-Tweak-End
   - type: Armor
     modifiers:
       coefficients:

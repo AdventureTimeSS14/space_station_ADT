@@ -1,7 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.ADT.ModSuits;
-using Content.Shared.Inventory;
+using Content.Shared.Clothing;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
 
@@ -10,7 +10,7 @@ namespace Content.Server.ADT.Modsuit;
 public sealed class ModSuitPressureSealSystem : EntitySystem
 {
     [Dependency] private readonly BarotraumaSystem _barotrauma = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ModSuitSystem _modSuits = default!;
 
     public override void Initialize()
     {
@@ -19,6 +19,9 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
         SubscribeLocalEvent<ModPartComponent, GetPressureProtectionValuesEvent>(OnGetPressureProtection);
         SubscribeLocalEvent<ModPartComponent, GotEquippedEvent>(OnPartEquipped);
         SubscribeLocalEvent<ModPartComponent, EntGotInsertedIntoContainerMessage>(OnPartReturned);
+
+        SubscribeLocalEvent<MagbootsComponent, GotEquippedEvent>(OnMagbootsEquipped);
+        SubscribeLocalEvent<MagbootsComponent, GotUnequippedEvent>(OnMagbootsUnequipped);
     }
 
     private void OnGetPressureProtection(Entity<ModPartComponent> ent, ref GetPressureProtectionValuesEvent args)
@@ -37,6 +40,22 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
         _barotrauma.RefreshPressureResistance(args.EquipTarget);
     }
 
+    private void OnMagbootsEquipped(Entity<MagbootsComponent> ent, ref GotEquippedEvent args)
+    {
+        OnMagbootsChanged(args.EquipTarget);
+    }
+
+    private void OnMagbootsUnequipped(Entity<MagbootsComponent> ent, ref GotUnequippedEvent args)
+    {
+        OnMagbootsChanged(args.EquipTarget);
+    }
+
+    private void OnMagbootsChanged(EntityUid wearer)
+    {
+        _barotrauma.RefreshPressureResistance(wearer);
+        _modSuits.RefreshWearerSuit(wearer);
+    }
+
     private void OnPartReturned(Entity<ModPartComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != ModSuitComponent.DefaultClothingContainerId)
@@ -53,18 +72,9 @@ public sealed class ModSuitPressureSealSystem : EntitySystem
     {
         var suit = GetEntity(ent.Comp.AttachedUid);
 
-        if (!TryComp<ModSuitComponent>(suit, out var modSuit) || modSuit.TempUser is not { } wearer)
+        if (!TryComp<ModSuitComponent>(suit, out var modSuit) || modSuit.TempUser is null)
             return true;
 
-        foreach (var (netPart, slot) in modSuit.ClothingUids)
-        {
-            if (!_inventory.TryGetSlotEntity(wearer, slot, out var equipped)
-                || equipped != GetEntity(netPart))
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return _modSuits.IsFullyCovered(suit, modSuit);
     }
 }

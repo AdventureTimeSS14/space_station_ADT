@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "ladle taken from tgstation at https://github.com/tgstation/tgstation (icons/obj/service/kitchen.dmi), spatula sprited by Inconnu(discord:inconnu1337)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ladle"
+        },
+        {
+            "name": "spatula"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

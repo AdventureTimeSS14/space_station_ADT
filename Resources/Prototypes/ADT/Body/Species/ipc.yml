@@ -136,6 +136,7 @@
   - type: BatterySlotRequiresLock
     itemSlot: cell_slot
   - type: PickupHumans
+    handsRequired: 1
   - type: MobIpc
     disablePointLightOnDeath: true
   - type: InteractionPopup
