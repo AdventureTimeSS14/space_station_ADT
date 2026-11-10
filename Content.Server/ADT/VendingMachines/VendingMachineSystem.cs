@@ -282,7 +282,7 @@ namespace Content.Server.ADT.VendingMachines
 
         private int GetPrice(VendingMachineInventoryEntry entry, ADTVendingMachineComponent comp, int count, float discount = 0f)
         {
-            return (int)(entry.Price * count * comp.PriceMultiplier * (1f - discount));
+            return (int) Math.Floor(entry.Price * count * comp.PriceMultiplier * (1f - discount));
         }
 
         private float GetUserDiscount(EntityUid? user, ADTVendingMachineComponent component)

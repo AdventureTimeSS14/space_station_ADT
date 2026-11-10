@@ -123,15 +123,14 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             if (button.Children.FirstOrDefault() is not FancyVendingMachineItem item)
                 continue;
 
-            item.UpdateData(data.Name, data.Entry.Amount, data.Entry.MaxAmount, GetPrice(data.Entry), GetDiscountedPrice(data.Entry));
+            item.UpdateData(data.Name, data.Entry.Amount, data.Entry.MaxAmount, data.Entry.Price, _priceMultiplier, _discount);
             UpdateItemDisabled(data, item);
         }
     }
 
     private void UpdateItemDisabled(FancyVendingMachineData data, FancyVendingMachineItem item)
     {
-        var price = GetDiscountedPrice(data.Entry);
-        var total = price * item.SelectedAmount;
+        var total = item.CurrentTotal;
 
         item.SetBuyDisabled(!_enabled || data.Entry.Amount == 0 ||
                             total > 0 && _machineCredits < total && _userBalance < total);
@@ -308,16 +307,6 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         return proto != null && proto.TryGetComponent<ClothingComponent>(out _, _componentFactory);
     }
 
-    private int GetPrice(VendingMachineInventoryEntry entry)
-    {
-        return (int)(entry.Price * _priceMultiplier);
-    }
-
-    private int GetDiscountedPrice(VendingMachineInventoryEntry entry)
-    {
-        return (int)(entry.Price * _priceMultiplier * (1f - _discount));
-    }
-
     private void ApplyFilter()
     {
         VendingContents.PopulateList(_cachedItems.Where(FilterItem).ToList());
@@ -329,7 +318,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
         var listItem = new FancyVendingMachineItem(
             data.Proto, data.Name, data.Entry.Amount,
-            data.Entry.MaxAmount, GetPrice(data.Entry), GetDiscountedPrice(data.Entry), striped, canPaint, data.Returned);
+            data.Entry.MaxAmount, data.Entry.Price, _priceMultiplier, _discount, striped, canPaint, data.Returned);
 
         if (_paintColors.TryGetValue(data.Entry.ID, out var savedColor))
             listItem.SetPaintColor(savedColor);
