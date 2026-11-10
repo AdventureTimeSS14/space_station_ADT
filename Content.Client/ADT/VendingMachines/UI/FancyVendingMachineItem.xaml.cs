@@ -28,13 +28,14 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
     public Action? ColorPressed;
 
     private int _unitPrice;
+    private int? _discountedUnitPrice;
     private StyleBoxFlat _buyBox = default!;
 
     public Color? PaintColor { get; private set; }
 
     public int SelectedAmount => AmountSelector.SelectedId + 1;
 
-    public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int price, bool striped,
+    public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int price, int? discountedPrice, bool striped,
         bool canPaint = false, ReturnedItemDisplay? returned = null)
     {
         RobustXamlLoader.Load(this);
@@ -43,6 +44,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         ColorButton.OnPressed += _ => ColorPressed?.Invoke();
 
         _unitPrice = price;
+        _discountedUnitPrice = discountedPrice;
 
         EntryPanel.PanelOverride = striped ? StripeBox : null;
 
@@ -82,9 +84,10 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         UpdateCount(count, maxAmount);
     }
 
-    public void UpdateData(string name, uint count, uint maxAmount, int price)
+    public void UpdateData(string name, uint count, uint maxAmount, int price, int? discountedPrice)
     {
         _unitPrice = price;
+        _discountedUnitPrice = discountedPrice;
         NameLabel.Text = name;
         UpdateCount(count, maxAmount);
     }
@@ -146,10 +149,20 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
     private void UpdateCost()
     {
-        var total = _unitPrice * SelectedAmount;
+        var unit = _discountedUnitPrice ?? _unitPrice;
+        var total = unit * SelectedAmount;
         CostLabel.SetMarkup(total <= 0
             ? Loc.GetString("vending-machine-ui-price-free")
             : Loc.GetString("vending-machine-ui-price", ("price", total)));
+
+        var hasDiscount = _discountedUnitPrice is { } discounted && discounted < _unitPrice;
+        OldCostControl.Visible = hasDiscount;
+
+        if (hasDiscount)
+        {
+            var original = _unitPrice * SelectedAmount;
+            OldCostLabel.SetMarkup(Loc.GetString("vending-machine-ui-price-old", ("price", original)));
+        }
     }
 
     public void SetBuyDisabled(bool disabled)

@@ -28,10 +28,34 @@
         <RichTextLabel
             Name="CountLabel"
             VerticalAlignment="Center"/>
-        <RichTextLabel
-            Name="CostLabel"
+        <Control
+            Name="CostControl"
             MinWidth="80"
-            VerticalAlignment="Center"/>
+            VerticalAlignment="Center">
+            <BoxContainer
+                Name="CostBox"
+                Orientation="Horizontal"
+                SeparationOverride="4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Control
+                    Name="OldCostControl"
+                    Visible="False">
+                    <RichTextLabel
+                        Name="OldCostLabel"/>
+                    <PanelContainer
+                        Name="OldCostStrike"
+                        MinSize="0 1"
+                        VerticalAlignment="Center">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#8b8b93"/>
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+                </Control>
+                <RichTextLabel
+                    Name="CostLabel"/>
+            </BoxContainer>
+        </Control>
         <Button
             Name="ColorButton"
             MinSize="26 26"
