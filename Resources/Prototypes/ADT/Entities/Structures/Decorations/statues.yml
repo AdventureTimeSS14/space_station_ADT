@@ -411,3 +411,41 @@
   - type: Construction
     graph: ADTBustPompeii
     node: bust
+
+- type: entity
+  id: ADTStatueCorgi
+  parent: BaseStructure
+  name: statue of a smart dog in glasses
+  description: 'A stone figure of a mysterious corgi in a hat and stylish sunglasses. The image of the corgi definitely exceeds your coolness, probably even bruising the ego. The plaque under the statue seems to have been damaged during transportation, with some letters fallen off. The inscription reads: "Dedica#ed to Emplo...ee #1, of OOO Co..#i..orp".'
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/corgi_statue.rsi
+    state: corgi_statue
+    drawdepth: Mobs
+    offset: "0.0,0.25"
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.5,0.4,1.0"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
