@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
@@ -20,14 +21,26 @@ public partial class AtmosphereSystem
     /// <returns>The price of the gas mixture.</returns>
     public double GetPrice(GasMixture mixture)
     {
-        float basePrice = 0; // moles of gas * price/mole
+        var saturation = _cfg.GetCVar(ADTCCVars.GasPriceSaturationMoles); // ADT-Tweak
+
+        float basePrice = 0; // effective moles of gas * price/mole
         float totalMoles = 0; // total number of moles in can
         float maxComponent = 0; // moles of the dominant gas
         for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
         {
-            basePrice += mixture.Moles[i] * GetGas(i).PricePerMole;
-            totalMoles += mixture.Moles[i];
-            maxComponent = Math.Max(maxComponent, mixture.Moles[i]);
+            // ADT-Tweak start
+            var moles = mixture.Moles[i];
+
+            var effective = moles;
+            if (saturation > 0f && moles > saturation)
+            {
+                effective = (float) (saturation * (1d + Math.Log((double) moles / saturation)));
+            }
+
+            basePrice += effective * GetGas(i).PricePerMole;
+            totalMoles += moles;
+            maxComponent = Math.Max(maxComponent, moles);
+            // ADT-Tweak end
         }
 
         // Pay more for gas canisters that are purer
