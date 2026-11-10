@@ -112,3 +112,5 @@ construction-graph-tag-archimedes-central-control-module = центральны�
 construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда
 
 construction-graph-tag-microphone = микрофон
+adt-construction-graph-tag-emergency-toolbox = аварийный ящик
+adt-construction-graph-tag-emergency-crowbar = аварийный лом
