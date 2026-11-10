@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
+using Content.Server.ADT.MapRotation;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
@@ -28,6 +29,7 @@ namespace Content.Server.Voting.Managers
         [Dependency] private ILogManager _logManager = default!;
         [Dependency] private IBanManager _bans = default!;
         [Dependency] private VoteWebhooks _voteWebhooks = default!;
+        [Dependency] private MapRotationManager _mapRotation = default!; // ADT-Tweak
 
         private VotingSystem? _votingSystem;
         private RoleSystem? _roleSystem;
@@ -279,6 +281,16 @@ namespace Content.Server.Voting.Managers
 
             foreach (var (k, v) in maps)
             {
+                // ADT-Tweak-Start
+                var bonus = _mapRotation.GetBonus(k.ID);
+                if (bonus > 0)
+                {
+                    options.BonusVotes[options.Options.Count] = bonus;
+                    options.Options.Add((Loc.GetString("ui-vote-map-bonus", ("map", v), ("bonus", bonus)), k));
+                    continue;
+                }
+                // ADT-Tweak-End
+
                 options.Options.Add((v, k));
             }
 
@@ -308,6 +320,16 @@ namespace Content.Server.Voting.Managers
                 {
                     if (_gameMapManager.CheckMapExists(picked.ID))
                     {
+                        // ADT-Tweak-Start
+                        var tally = new Dictionary<string, int>();
+                        for (var i = 0; i < options.Options.Count && i < args.Votes.Count; i++)
+                        {
+                            tally[((GameMapPrototype) options.Options[i].data).ID] = args.Votes[i];
+                        }
+
+                        _mapRotation.RecordVote(tally);
+                        // ADT-Tweak-End
+
                         _gameMapManager.SelectMap(picked.ID);
                         ticker.UpdateInfoText();
                     }

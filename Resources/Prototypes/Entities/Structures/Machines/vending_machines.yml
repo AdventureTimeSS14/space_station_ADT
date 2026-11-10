@@ -259,7 +259,10 @@
   components:
   - type: ADTVendingMachine
     pack: BoozeOMatInventory
-    allForFree: true # ADT-Economy
+    # ADT-Economy start
+    allForFree: false
+    discountJobs: [Bartender]
+    # ADT-Economy end
   # ADT-Tweak start
   - type: ADTHolidayVending
     holidays:
@@ -330,6 +333,7 @@
   components:
   - type: ADTVendingMachine
     pack: PTechInventory
+    discountJobs: [Captain, HeadOfPersonnel] # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
@@ -358,7 +362,7 @@
   components:
   - type: ADTVendingMachine
     pack: ChefvendInventory
-    allForFree: true # ADT-Economy
+    discountJobs: [Chef] # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
   - type: DatasetVocalizer
@@ -784,7 +788,7 @@
   components:
   - type: ADTVendingMachine
     pack: DinnerwareInventory
-    allForFree: true # ADT-Economy
+    discountJobs: [Chef] # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
   - type: DatasetVocalizer
@@ -872,6 +876,7 @@
   components:
   - type: ADTVendingMachine
     pack: EngiVendInventory
+    discountAccount: Engineering # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
@@ -901,7 +906,8 @@
   components:
   - type: ADTVendingMachine
     pack: NanoMedCivilianInventory
-    allForFree: true # ADT-Economy
+    discountAccount: Service # ADT-Economy
+    discountPercent: 0.5 # ADT-Economy
   - type: VendingMachineEject
     ejectDelay: 0.6
   - type: VendingMachineVisuals
@@ -938,6 +944,8 @@
   components:
   - type: ADTVendingMachine
     pack: NanoMedPlusInventory
+    discountAccount: Medical
+    discountPercent: 0.8 # ADT-Economy
   - type: VendingMachineVisuals
     offState: off
   - type: Sprite
@@ -960,7 +968,7 @@
   components:
   - type: ADTVendingMachine
     pack: NutriMaxInventory
-    allForFree: true # ADT-Economy
+    discountJobs: [Botanist] # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
@@ -993,6 +1001,7 @@
   components:
   - type: ADTVendingMachine
     pack: SecTechInventory
+    discountAccount: Security # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
@@ -1065,6 +1074,12 @@
   components:
   - type: AccessReader
     access: [["Hydroponics"]]
+  # ADT-Economy start
+  - type: ADTVendingMachine
+    pack: MegaSeedServitorInventory
+    discountJobs: [Botanist]
+    allForFree: false
+  # ADT-Economy end
 
 - type: entity
   parent: VendingMachine
@@ -1245,6 +1260,7 @@
   components:
   - type: ADTVendingMachine
     pack: AutoDrobeInventory
+    discountJobs: [Clown, Mime] # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
@@ -1315,6 +1331,7 @@
   components:
   - type: ADTVendingMachine
     pack: RoboticsInventory
+    discountAccount: Science # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
@@ -1350,6 +1367,7 @@
   components:
   - type: ADTVendingMachine
     pack: YouToolInventory
+    discountAccount: Engineering # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
@@ -1495,6 +1513,7 @@
   components:
   - type: ADTVendingMachine
     pack: HyDrobeInventory
+    discountJobs: [Botanist] # ADT-Economy
   - type: DatasetVocalizer
     dataset: HyDrobeAds
   - type: SpeakOnUIClosed
@@ -1524,6 +1543,7 @@
   components:
   - type: ADTVendingMachine
     pack: LawDrobeInventory
+    discountJobs: [IAA, Magistrat] # ADT-Economy
   - type: DatasetVocalizer
     dataset: LawDrobeAds
   - type: SpeakOnUIClosed
@@ -1549,6 +1569,7 @@
   components:
   - type: ADTVendingMachine
     pack: SecDrobeInventory
+    discountAccount: Security # ADT-Economy
   - type: DatasetVocalizer
     dataset: SecDrobeAds
   - type: SpeakOnUIClosed
@@ -1578,6 +1599,7 @@
   components:
   - type: ADTVendingMachine
     pack: BarDrobeInventory
+    discountJobs: [Bartender] # ADT-Economy
   - type: DatasetVocalizer
     dataset: BarDrobeAds
   - type: SpeakOnUIClosed
@@ -1602,6 +1624,7 @@
   components:
   - type: ADTVendingMachine
     pack: PietyVendInventory
+    discountJobs: [Chaplain] # ADT-Economy
   - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: Sprite
@@ -1629,6 +1652,7 @@
   components:
   - type: ADTVendingMachine
     pack: CargoDrobeInventory
+    discountAccount: Cargo # ADT-Economy
   - type: DatasetVocalizer
     dataset: CargoDrobeAds
   - type: SpeakOnUIClosed
@@ -1658,6 +1682,7 @@
   components:
   - type: ADTVendingMachine
     pack: MediDrobeInventory
+    discountAccount: Medical # ADT-Economy
   - type: DatasetVocalizer
     dataset: MediDrobeAds
   - type: SpeakOnUIClosed
@@ -1683,6 +1708,7 @@
   components:
   - type: ADTVendingMachine
     pack: ChemDrobeInventory
+    discountJobs: [Chemist] # ADT-Economy
   - type: DatasetVocalizer
     dataset: ChemDrobeAds
   - type: SpeakOnUIClosed
@@ -1709,6 +1735,7 @@
   components:
   - type: ADTVendingMachine
     pack: CuraDrobeInventory
+    discountJobs: [Librarian] # ADT-Economy
   - type: DatasetVocalizer
     dataset: CuraDrobeAds
   - type: SpeakOnUIClosed
@@ -1734,6 +1761,7 @@
   components:
   - type: ADTVendingMachine
     pack: AtmosDrobeInventory
+    discountAccount: Engineering # ADT-Economy
   - type: DatasetVocalizer
     dataset: AtmosDrobeAds
   - type: SpeakOnUIClosed
@@ -1764,6 +1792,7 @@
   components:
   - type: ADTVendingMachine
     pack: EngiDrobeInventory
+    discountAccount: Engineering # ADT-Economy
   - type: DatasetVocalizer
     dataset: EngiDrobeAds
   - type: SpeakOnUIClosed
@@ -1794,6 +1823,7 @@
   components:
   - type: ADTVendingMachine
     pack: ChefDrobeInventory
+    discountJobs: [Chef] # ADT-Economy
   - type: DatasetVocalizer
     dataset: ChefDrobeAds
   - type: SpeakOnUIClosed
@@ -1819,6 +1849,7 @@
   components:
   - type: ADTVendingMachine
     pack: DetDrobeInventory
+    discountJobs: [Detective] # ADT-Economy
   - type: DatasetVocalizer
     dataset: DetDrobeAds
   - type: SpeakOnUIClosed
@@ -1844,6 +1875,7 @@
   components:
   - type: ADTVendingMachine
     pack: JaniDrobeInventory
+    discountJobs: [Janitor] # ADT-Economy
   - type: DatasetVocalizer
     dataset: JaniDrobeAds
   - type: SpeakOnUIClosed
@@ -1873,6 +1905,7 @@
   components:
   - type: ADTVendingMachine
     pack: SciDrobeInventory
+    discountAccount: Science # ADT-Economy
   - type: DatasetVocalizer
     dataset: SciDrobeAds
   - type: SpeakOnUIClosed
@@ -1928,6 +1961,7 @@
   components:
   - type: ADTVendingMachine
     pack: RoboDrobeInventory
+    discountAccount: Science # ADT-Economy
   - type: DatasetVocalizer
     dataset: RoboDrobeAds
   - type: SpeakOnUIClosed
@@ -1953,6 +1987,7 @@
   components:
   - type: ADTVendingMachine
     pack: GeneDrobeInventory
+    discountAccount: Medical # ADT-Economy
   - type: DatasetVocalizer
     dataset: GeneDrobeAds
   - type: SpeakOnUIClosed
@@ -1979,6 +2014,7 @@
   components:
   - type: ADTVendingMachine
     pack: ViroDrobeInventory
+    discountAccount: Medical # ADT-Economy
   - type: DatasetVocalizer
     dataset: ViroDrobeAds
   - type: SpeakOnUIClosed
@@ -2098,6 +2134,7 @@
   components:
   - type: ADTVendingMachine
     pack: TankDispenserEVAInventory
+    discountAccount: Engineering # ADT-Economy
     allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
@@ -2112,7 +2149,7 @@
   components:
   - type: ADTVendingMachine
     pack: TankDispenserEngineeringInventory
-    allForFree: true # ADT-Economy
+    discountAccount: Engineering # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     layers:
@@ -2127,7 +2164,7 @@
   components:
   - type: ADTVendingMachine
     pack: ChemVendInventory
-    allForFree: true # ADT-Economy
+    discountJobs: [Chemist, ADTSeniorPhysician, ChiefMedicalOfficer] # ADT-Economy
   - type: VendingMachineEject
     ejectDelay: 2
   - type: VendingMachineVisuals
@@ -2176,6 +2213,7 @@
   components:
   - type: ADTVendingMachine
     pack: NanoMedCivilianWallInventory
+    discountAccount: Medical # ADT-Economy
   - type: VendingMachineVisuals
     offState: off-civilian
     denyState: deny-unshaded
@@ -2204,6 +2242,7 @@
   components:
   - type: ADTVendingMachine
     pack: NanoMedInventory
+    discountAccount: Medical # ADT-Economy
   - type: VendingMachineVisuals
     offState: off
   - type: Sprite

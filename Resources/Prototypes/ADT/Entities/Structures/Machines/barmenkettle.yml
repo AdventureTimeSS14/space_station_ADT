@@ -15,6 +15,7 @@
       shader: unshaded
   - type: SolutionHeater
     heatPerSecond: 160
+    maxTemperature: 1500
   - type: ItemPlacer
     whitelist:
       components:
