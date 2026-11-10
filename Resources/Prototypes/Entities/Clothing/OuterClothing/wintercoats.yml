@@ -362,15 +362,26 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+        showEnts: False
+        occludes: True
+      toggleable-clothing: !type:ContainerSlot
+        ent: null
+        showEnts: False
+        occludes: True
   # ADT tweak start
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.55
         Slash: 0.55
-        Piercing: 0.5 # ADT tweak 0.6 > 0.5
+        Piercing: 0.65 # ADT tweak 0.6 > 0.5
         Heat: 0.6 # ADT tweak 0.7 > 0.6
         Caustic: 0.75
+  # ADT tweak end
 ##########################################################
 
 - type: entity
@@ -730,6 +741,16 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+        showEnts: False
+        occludes: True
+      toggleable-clothing: !type:ContainerSlot
+        ent: null
+        showEnts: False
+        occludes: True
   # ADT tweak start
   - type: Armor
     modifiers:
@@ -738,6 +759,7 @@
         Slash: 0.6
         Piercing: 0.7 # 0.6 > 0.7 exchange pierce on heat
         Heat: 0.6 # 0.7 > 0.6 exchange pierce on heat
+  # ADT tweak end
 ################################################################
 
 - type: entity
@@ -801,6 +823,16 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+        showEnts: False
+        occludes: True
+      toggleable-clothing: !type:ContainerSlot
+        ent: null
+        showEnts: False
+        occludes: True
 ##############################################################
 
 - type: entity
