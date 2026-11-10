@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss220-space/Paradise (master220) at icons/obj/decorations.dmi, recolored with #454545 like /obj/effect/mob_spawn/human/corpse/charredskeleton",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "charred",
+            "directions": 4
+        }
+    ]
+}
