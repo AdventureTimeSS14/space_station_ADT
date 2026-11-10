@@ -41,6 +41,7 @@
         ClothingHeadHatCowboyWhite: 1
         # ADT-Tweak-End
     ADTVendingCategoryAccessories:  # ADT-Tweak
+        ADTClothingVoucherArmbands: 10
         ClothingMaskNeckGaiterRed: 3
         ClothingHandsGlovesColorBlack: 3
         ClothingHandsGlovesFingerless: 3
