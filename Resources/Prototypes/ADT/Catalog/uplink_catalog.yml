@@ -988,7 +988,7 @@
   id: ADTUplinkMask
   name: uplink-mask-name
   description: uplink-mask-desc
-  productEntity: ADTMaskCoif
+  productEntity: ADTClothingMaskCoif
   categories:
     - UplinkPointless
   conditions:

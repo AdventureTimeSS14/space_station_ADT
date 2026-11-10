@@ -410,3 +410,13 @@ clothing-voucher-underwear-bra-america = { ent-ADTClothingUnderwearTopBraAmerica
 clothing-voucher-underwear-bra-pink = { ent-ADTClothingUnderwearTopBraPink }
 clothing-voucher-underwear-bigbra-cow = { ent-ADTClothingUnderwearTopBigbraCow }
 clothing-voucher-sock-stocking-cow = { ent-ADTClothingUnderwearSocksStockingCow }
+
+clothing-voucher-armband-white = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-black = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-blue = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-lazure = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-green = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-orange = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-purple = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-red = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-yellow = { ent-ADTClothingNeckArmbandWhite }
