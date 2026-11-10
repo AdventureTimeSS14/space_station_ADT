@@ -4,7 +4,6 @@ using Content.Shared.ADT.Cooking;
 using Content.Shared.ADT.Cooking.Components;
 using Content.Shared.ADT.Cooking.Prototypes;
 using Content.Shared.ADT.Cooking.Systems;
-using Content.Shared.DisplacementMap;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Containers;
@@ -186,35 +185,154 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         if (!_proto.TryIndex(ent.Comp.Layout, out var layoutProto))
             return;
 
-        var items = ent.Comp.Contents.ContainedEntities;
-        var layout = layoutProto.GetLayout(items.Count);
-        if (layout == null || layout.Count == 0)
+        if (layoutProto.Arrangements.Count == 0)
             return;
 
-        var order = Enumerable.Range(0, Math.Min(items.Count, layout.Count))
-            .OrderByDescending(i => layout[i].Offset.Y)
-            .ToList();
+        var entries = new List<PlateEntry>();
+        var maxRowWidth = layoutProto.Arrangements.Max(a => a.Max(r => r.Width));
 
-        foreach (var i in order)
+        foreach (var item in ent.Comp.Contents.ContainedEntities)
         {
-            if (!TryComp<SpriteComponent>(items[i], out var itemSprite))
+            if (!TryComp<SpriteComponent>(item, out var itemSprite))
                 continue;
 
-            var slot = layout[i];
-            var scale = new Vector2(slot.Scale, slot.Scale);
-            var rotation = Angle.FromDegrees(slot.Rotation);
+            var width = 16f;
+            var height = 16f;
+            var anchor = Vector2.Zero;
 
-            if (layoutProto.ShadowColor.A > 0)
+            if (_composition.TryGetVisualBounds(itemSprite, out var bounds) && bounds.Width > 0f && bounds.Height > 0f)
             {
-                _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-shadow-{i}", slot.Offset + layoutProto.ShadowOffset, scale, rotation, null, null, slot.Displacement, fill: layoutProto.ShadowColor);
+                width = bounds.Width * 32f;
+                height = bounds.Height * 32f;
+                anchor = new Vector2(bounds.Center.X, bounds.Bottom);
             }
 
-            var sauce = CreateSauceShader(items[i], slot.Displacement != null);
-            var displacement = slot.Displacement;
-            if (sauce != null && displacement != null)
-                displacement = new DisplacementData(displacement) { ShaderOverride = null };
+            var scale = MathF.Min(layoutProto.MaxScale, MathF.Min(layoutProto.MaxHeight / height, maxRowWidth / width));
+            entries.Add(new PlateEntry(item, itemSprite, anchor, width, scale));
+        }
 
-            _composition.CopyLayers(spriteEnt, itemSprite, $"adt-plate-item-{i}", slot.Offset, scale, rotation, null, null, displacement, sauce, keepOwnShaders: true, replaceOwnShader: SauceShader);
+        if (entries.Count == 0)
+            return;
+
+        var bySize = entries.OrderByDescending(e => e.Width * e.Scale).ToList();
+
+        List<PlateEntry>[]? bestRows = null;
+        List<ADTPlateRow>? bestArrangement = null;
+        var bestFit = -1f;
+
+        foreach (var arrangement in layoutProto.Arrangements)
+        {
+            if (arrangement.Count == 0)
+                continue;
+
+            var rows = new List<PlateEntry>[arrangement.Count];
+            for (var r = 0; r < rows.Length; r++)
+            {
+                rows[r] = new List<PlateEntry>();
+            }
+
+            foreach (var entry in bySize)
+            {
+                var target = 0;
+                var targetLoad = float.MaxValue;
+                for (var r = 0; r < rows.Length; r++)
+                {
+                    rows[r].Add(entry);
+                    var load = GetRowSpan(rows[r], layoutProto.Spacing) / arrangement[r].Width;
+                    rows[r].RemoveAt(rows[r].Count - 1);
+
+                    if (load < targetLoad)
+                    {
+                        target = r;
+                        targetLoad = load;
+                    }
+                }
+
+                rows[target].Add(entry);
+            }
+
+            var fit = 1f;
+            for (var r = 0; r < rows.Length; r++)
+            {
+                var span = GetRowSpan(rows[r], layoutProto.Spacing);
+                if (span > 0f)
+                    fit = MathF.Min(fit, arrangement[r].Width / span);
+            }
+
+            if (fit > bestFit)
+            {
+                bestFit = fit;
+                bestRows = rows;
+                bestArrangement = arrangement;
+            }
+        }
+
+        if (bestRows == null || bestArrangement == null)
+            return;
+
+        var order = Enumerable.Range(0, bestRows.Length)
+            .OrderByDescending(r => bestArrangement[r].Offset.Y);
+
+        var key = 0;
+        foreach (var r in order)
+        {
+            var row = bestRows[r];
+            if (row.Count == 0)
+                continue;
+
+            var cursor = -GetRowSpan(row, layoutProto.Spacing) * bestFit / 2f + row[0].Width * row[0].Scale * bestFit / 2f;
+
+            for (var j = 0; j < row.Count; j++)
+            {
+                var entry = row[j];
+                if (j > 0)
+                    cursor += (row[j - 1].Width * row[j - 1].Scale + entry.Width * entry.Scale) / 2f * bestFit * layoutProto.Spacing;
+
+                var fit = MathF.Max(layoutProto.MinScale, entry.Scale * bestFit);
+                var scale = new Vector2(fit, fit);
+                var offset = bestArrangement[r].Offset + new Vector2(cursor / 32f, 0f) - entry.Anchor * scale;
+
+                if (layoutProto.ShadowColor.A > 0)
+                {
+                    _composition.CopyLayers(spriteEnt, entry.Sprite, $"adt-plate-shadow-{key}", offset + layoutProto.ShadowOffset, scale, Angle.Zero, null, fill: layoutProto.ShadowColor);
+                }
+
+                var sauce = CreateSauceShader(entry.Uid);
+                _composition.CopyLayers(spriteEnt, entry.Sprite, $"adt-plate-item-{key}", offset, scale, Angle.Zero, null, shader: sauce, keepOwnShaders: true, replaceOwnShader: SauceShader);
+                key++;
+            }
+        }
+    }
+
+    private static float GetRowSpan(List<PlateEntry> row, float spacing)
+    {
+        if (row.Count == 0)
+            return 0f;
+
+        var span = (row[0].Width * row[0].Scale + row[row.Count - 1].Width * row[row.Count - 1].Scale) / 2f;
+        for (var j = 1; j < row.Count; j++)
+        {
+            span += (row[j - 1].Width * row[j - 1].Scale + row[j].Width * row[j].Scale) / 2f * spacing;
+        }
+
+        return span;
+    }
+
+    private readonly struct PlateEntry
+    {
+        public readonly EntityUid Uid;
+        public readonly SpriteComponent Sprite;
+        public readonly Vector2 Anchor;
+        public readonly float Width;
+        public readonly float Scale;
+
+        public PlateEntry(EntityUid uid, SpriteComponent sprite, Vector2 anchor, float width, float scale)
+        {
+            Uid = uid;
+            Sprite = sprite;
+            Anchor = anchor;
+            Width = width;
+            Scale = scale;
         }
     }
 

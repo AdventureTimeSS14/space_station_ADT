@@ -83,6 +83,7 @@
         - ItemMask
   - type: Pullable
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
