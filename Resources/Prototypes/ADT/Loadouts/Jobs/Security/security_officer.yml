@@ -98,10 +98,7 @@
 - type: loadout
   id: ADTClothingMaskCoif
   equipment:
-    head: ADTClothingMaskCoif
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTSecurity100hours
+    mask: ADTClothingMaskCoif
 
 # Eyes
 - type: loadout
