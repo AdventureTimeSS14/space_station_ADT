@@ -67,6 +67,9 @@ ent-ADTClothingVoucherKilt = автопокрасчик килта
 ent-ADTClothingVoucherNightDress = автопокрасчик ночного платья
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
+ent-ADTClothingVoucherArmbands = автопокрасчик нарукавной повязки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
 clothing-voucher-jumpsuit-turtleneck-white = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
 clothing-voucher-jumpsuit-turtleneck-aquamarine = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
 clothing-voucher-jumpsuit-turtleneck-azure = { ent-ADTClothingUniformJumpsuitTurtleneckAzure }
