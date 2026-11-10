@@ -300,16 +300,6 @@ namespace Content.Server.Voting.Managers
 
             vote.OnFinished += (_, args) =>
             {
-                // ADT-Tweak-Start
-                var tally = new Dictionary<string, int>();
-                for (var i = 0; i < options.Options.Count && i < args.Votes.Count; i++)
-                {
-                    tally[((GameMapPrototype) options.Options[i].data).ID] = args.Votes[i];
-                }
-
-                _mapRotation.RecordVote(tally);
-                // ADT-Tweak-End
-
                 GameMapPrototype picked;
                 if (args.Winner == null)
                 {
@@ -330,6 +320,16 @@ namespace Content.Server.Voting.Managers
                 {
                     if (_gameMapManager.CheckMapExists(picked.ID))
                     {
+                        // ADT-Tweak-Start
+                        var tally = new Dictionary<string, int>();
+                        for (var i = 0; i < options.Options.Count && i < args.Votes.Count; i++)
+                        {
+                            tally[((GameMapPrototype) options.Options[i].data).ID] = args.Votes[i];
+                        }
+
+                        _mapRotation.RecordVote(tally);
+                        // ADT-Tweak-End
+
                         _gameMapManager.SelectMap(picked.ID);
                         ticker.UpdateInfoText();
                     }

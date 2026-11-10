@@ -26,6 +26,12 @@ public sealed class MapRotationCommand : LocalizedCommands
             return;
         }
 
+        if (!_rotation.Loaded)
+        {
+            shell.WriteError(Loc.GetString("cmd-maprotation-not-loaded"));
+            return;
+        }
+
         switch (args[0])
         {
             case "reset":

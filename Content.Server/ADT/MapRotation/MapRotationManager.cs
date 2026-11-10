@@ -168,7 +168,7 @@ public sealed class MapRotationManager
         _bonus.Remove(mapId);
         _lastPlayed[mapId] = DateTime.UtcNow;
 
-        foreach (var old in GetRecentMaps().Skip(PlayedHistoryLength))
+        foreach (var old in GetRecentMaps().Skip(Math.Max(PlayedHistoryLength, _excludeDepth)))
         {
             _lastPlayed.Remove(old);
         }
