@@ -280,9 +280,26 @@ namespace Content.Server.ADT.VendingMachines
             return price > 0 ? price : 25;
         }
 
-        private int GetPrice(VendingMachineInventoryEntry entry, ADTVendingMachineComponent comp, int count)
+        private int GetPrice(VendingMachineInventoryEntry entry, ADTVendingMachineComponent comp, int count, float discount = 0f)
         {
-            return (int)(entry.Price * count * comp.PriceMultiplier);
+            return (int) Math.Floor(entry.Price * count * comp.PriceMultiplier * (1f - discount));
+        }
+
+        private float GetUserDiscount(EntityUid? user, ADTVendingMachineComponent component)
+        {
+            if (user == null ||
+                (component.DiscountAccount == null && component.DiscountJobs.Count == 0))
+                return 0f;
+
+            var cardJob = _bankCard.GetCardJob(user.Value);
+            if (cardJob == null)
+                return 0f;
+
+            var byDepartment = component.DiscountAccount != null &&
+                               _bankCard.GetCardDepartment(user.Value) == component.DiscountAccount;
+            var byJob = component.DiscountJobs.Contains(cardJob.Value);
+
+            return byDepartment || byJob ? Math.Clamp(component.DiscountPercent, 0f, 1f) : 0f;
         }
 
         private void OnWithdrawMessage(EntityUid uid, ADTVendingMachineComponent component, VendingMachineWithdrawMessage args)
@@ -327,13 +344,14 @@ namespace Content.Server.ADT.VendingMachines
 
         private void OnAfterActivatableUIOpen(EntityUid uid, ADTVendingMachineComponent component, AfterActivatableUIOpenEvent args)
         {
-            SendUserInfo(uid, args.User);
+            SendUserInfo(uid, component, args.User);
             UpdateVendingMachineInterfaceState(uid, component);
         }
 
-        private void SendUserInfo(EntityUid uid, EntityUid user)
+        private void SendUserInfo(EntityUid uid, ADTVendingMachineComponent component, EntityUid user)
         {
             var balance = 0;
+            var discount = GetUserDiscount(user, component);
 
             if (IsCargoAccountUser(user) &&
                 _stationSystem.GetOwningStation(user) is { } station &&
@@ -341,7 +359,7 @@ namespace Content.Server.ADT.VendingMachines
             {
                 balance = _cargoSystem.GetBalanceFromAccount((station, stationBank), stationBank.PrimaryAccount);
                 _userInterfaceSystem.ServerSendUiMessage(uid, ADTVendingMachineUiKey.Key,
-                    new VendingMachineUserInfoMessage(balance), user);
+                    new VendingMachineUserInfoMessage(balance, ignoreBalance: false, discount), user);
                 return;
             }
 
@@ -349,7 +367,7 @@ namespace Content.Server.ADT.VendingMachines
                 balance = _bankCard.GetBalance(accountId);
 
             _userInterfaceSystem.ServerSendUiMessage(uid, ADTVendingMachineUiKey.Key,
-                new VendingMachineUserInfoMessage(balance, IsBalanceExempt(user)), user);
+                new VendingMachineUserInfoMessage(balance, IsBalanceExempt(user), discount), user);
         }
 
         private bool IsBalanceExempt(EntityUid user)
@@ -468,7 +486,8 @@ namespace Content.Server.ADT.VendingMachines
                 return;
 
             var freeCount = Math.Min(returnedCount, count);
-            var price = GetPrice(entry, vendComponent, count - freeCount);
+            var discount = GetUserDiscount(sender, vendComponent);
+            var price = GetPrice(entry, vendComponent, count - freeCount, discount);
             if (price > 0 && !vendComponent.AllForFree && sender.HasValue && !IsBalanceExempt(sender.Value))
             {
                 var success = false;
@@ -572,7 +591,7 @@ namespace Content.Server.ADT.VendingMachines
             Audio.PlayPvs(ejectComponent.SoundVend, uid);
 
             if (sender.HasValue)
-                SendUserInfo(uid, sender.Value);
+                SendUserInfo(uid, vendComponent, sender.Value);
         }
 
         /// <summary>
