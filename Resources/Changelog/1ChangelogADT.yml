@@ -17368,3 +17368,9 @@ Entries:
     id: 2100
     pr_number: 3488
     time: '2026-11-09T21:14:36Z'
+  - author: Inconnu
+    changes:
+      - {message: Переработана ротация карт., type: Tweak}
+    id: 2101
+    pr_number: 3654
+    time: '2026-11-10T15:12:00Z'
