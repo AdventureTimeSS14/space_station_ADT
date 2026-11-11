@@ -159,6 +159,14 @@
       "created_at": "2026-11-09T19:53:41Z",
       "repoId": 820437988,
       "pullRequestNo": 3488
+    },
+    {
+      "name": "kerfus-owo",
+      "id": 209301307,
+      "comment_id": 6790601785,
+      "created_at": "2026-11-11T08:06:54Z",
+      "repoId": 820437988,
+      "pullRequestNo": 3670
     }
   ]
 }
