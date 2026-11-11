@@ -61040,10 +61040,6 @@ entities:
           - 317
           showEnts: False
           occludes: True
-        badge: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
         toggleable-clothing: !type:ContainerSlot
           ent: null
           showEnts: False

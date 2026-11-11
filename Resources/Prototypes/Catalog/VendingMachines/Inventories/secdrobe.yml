@@ -35,11 +35,13 @@
         # ADT-Tweak-Start
         ADTClothingHeadHelmetSecCap: 2
         ADTClothingHeadHelmetSecUshanka: 2
+        ADTClothingMaskCoif: 4
         ClothingHeadHatCowboyBrown: 1
         ClothingHeadHatCowboyBlack: 1
         ClothingHeadHatCowboyWhite: 1
         # ADT-Tweak-End
     ADTVendingCategoryAccessories:  # ADT-Tweak
+        ADTClothingVoucherArmbands: 10
         ClothingMaskNeckGaiterRed: 3
         ClothingHandsGlovesColorBlack: 3
         ClothingHandsGlovesFingerless: 3
