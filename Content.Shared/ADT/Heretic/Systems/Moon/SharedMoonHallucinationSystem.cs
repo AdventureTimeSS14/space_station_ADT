@@ -40,7 +40,6 @@ public sealed class SharedMoonHallucinationSystem : EntitySystem
             comp.Duration = TimeSpan.FromSeconds(duration);
             comp.DespawnAt = _timing.CurTime + comp.Duration;
             comp.Victim = GetNetEntity(victim);
-            Dirty(app, comp);
         }
 
         if (emote)

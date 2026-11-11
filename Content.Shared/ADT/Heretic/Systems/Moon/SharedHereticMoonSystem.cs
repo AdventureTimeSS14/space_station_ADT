@@ -13,6 +13,16 @@ public abstract class SharedHereticMoonSystem : EntitySystem
     [Dependency] protected readonly IPrototypeManager Proto = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
+    private DamageTypePrototype _cellular = default!;
+    private DamageTypePrototype _heat = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        _cellular = Proto.Index<DamageTypePrototype>("Cellular");
+        _heat = Proto.Index<DamageTypePrototype>("Heat");
+    }
+
     public void EnsureSanity(EntityUid uid)
     {
         EnsureComp<HereticSanityComponent>(uid);
@@ -34,16 +44,12 @@ public abstract class SharedHereticMoonSystem : EntitySystem
 
     public void DealCellular(EntityUid target, float amount, EntityUid? origin = null)
     {
-        Damage.TryChangeDamage(target,
-            new DamageSpecifier(Proto.Index<DamageTypePrototype>("Cellular"), amount),
-            origin: origin);
+        Damage.TryChangeDamage(target, new DamageSpecifier(_cellular, amount), origin: origin);
     }
 
     public void DealHeat(EntityUid target, float amount, EntityUid? origin = null)
     {
-        Damage.TryChangeDamage(target,
-            new DamageSpecifier(Proto.Index<DamageTypePrototype>("Heat"), amount),
-            origin: origin);
+        Damage.TryChangeDamage(target, new DamageSpecifier(_heat, amount), origin: origin);
     }
 
     public bool IsHereticOrLunatic(EntityUid uid)
@@ -51,10 +57,5 @@ public abstract class SharedHereticMoonSystem : EntitySystem
         if (HasComp<MoonLunaticComponent>(uid))
             return true;
         return _heretic.IsHereticOrGhoul(uid);
-    }
-
-    public bool IsHereticGhoulOrLunatic(EntityUid uid)
-    {
-        return IsHereticOrLunatic(uid);
     }
 }

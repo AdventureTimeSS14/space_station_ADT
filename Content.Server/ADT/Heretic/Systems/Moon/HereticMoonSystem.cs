@@ -1,4 +1,3 @@
-using Content.Server.Actions;
 using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.ADT.Heretic.Systems;
 using Robust.Shared.Audio;
@@ -53,7 +52,7 @@ public sealed class HereticMoonSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly HereticMoonAbilitySystem _moonAbility = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -67,6 +66,9 @@ public sealed class HereticMoonSystem : EntitySystem
     private static readonly ProtoId<AlertPrototype> MoonBrain = "MoonBrain";
 
     private const float ParadeLeashDistance = 1f;
+
+    private const float SanityTickInterval = 0.5f;
+    private float _sanityAccum;
 
     public override void Initialize()
     {
@@ -221,9 +223,9 @@ public sealed class HereticMoonSystem : EntitySystem
             return;
         if (_mobState.IsDead(target))
             return;
-        if (shooter != null && target == shooter)
-            return;
         if (_heretic.IsHereticOrGhoul(target) || HasComp<MoonLunaticComponent>(target))
+            return;
+        if (HasComp<MindShieldComponent>(target))
             return;
         if (shooter != null && _heretic.TryGetHereticComponent(shooter.Value, out _, out var shooterMind))
         {
@@ -238,17 +240,9 @@ public sealed class HereticMoonSystem : EntitySystem
         Dirty(target, parade);
         _blocker.UpdateCanMove(target);
         _hallucinations.CauseHallucinations(target, 1, 15f, false);
-        if (TryComp(target, out HereticSanityComponent? sanity))
-        {
-            sanity.Current = Math.Max(0f, sanity.Current - 20f);
-            Dirty(target, sanity);
-        }
-        else
-        {
-            var fresh = EnsureComp<HereticSanityComponent>(target);
-            fresh.Current = Math.Max(0f, fresh.Current - 20f);
-            Dirty(target, fresh);
-        }
+        var sanity = EnsureComp<HereticSanityComponent>(target);
+        sanity.Current = Math.Max(0f, sanity.Current - 20f);
+        Dirty(target, sanity);
     }
 
     private void OnParadeGone(Entity<LunarParadeProjectileComponent> ent, ref EntityTerminatingEvent args)
@@ -315,7 +309,6 @@ public sealed class HereticMoonSystem : EntitySystem
         _physics.SetAngularVelocity(ent, 0f, body: args.OurBody);
         _transform.SetWorldRotation(ent, reflected.ToWorldAngle());
         ent.Comp.Bounces++;
-        Dirty(ent, ent.Comp);
     }
 
     private void OnSanityRemove(Entity<HereticSanityComponent> ent, ref ComponentRemove args)
@@ -348,7 +341,7 @@ public sealed class HereticMoonSystem : EntitySystem
             if (_heretic.IsHereticOrGhoul(mob) || HasComp<MoonLunaticComponent>(mob))
                 continue;
             if (channel)
-                EntityManager.System<HereticMoonAbilitySystem>().ChannelAmulet(caster, mob);
+                _moonAbility.ChannelAmulet(caster, mob);
             _stun.TryUpdateParalyzeDuration(mob.Owner, TimeSpan.FromSeconds(1));
             _stun.TryKnockdown((mob.Owner, null), TimeSpan.FromSeconds(1), true);
             var spec = new DamageSpecifier();
@@ -364,19 +357,25 @@ public sealed class HereticMoonSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<HereticSanityComponent>();
-        while (query.MoveNext(out var uid, out var sanity))
+        _sanityAccum += frameTime;
+        if (_sanityAccum >= SanityTickInterval)
         {
-            if (sanity.Current < sanity.Max)
+            var elapsed = _sanityAccum;
+            _sanityAccum = 0f;
+            var query = EntityQueryEnumerator<HereticSanityComponent>();
+            while (query.MoveNext(out var uid, out var sanity))
             {
-                sanity.Current = Math.Min(sanity.Max, sanity.Current + sanity.RegenPerSecond * frameTime);
-                Dirty(uid, sanity);
-            }
+                if (sanity.Current < sanity.Max)
+                {
+                    sanity.Current = Math.Min(sanity.Max, sanity.Current + sanity.RegenPerSecond * elapsed);
+                    Dirty(uid, sanity);
+                }
 
-            if ((_heretic.TryGetHereticComponent(uid, out var hComp, out _) && hComp.CurrentPath == "Moon") || HasComp<MoonLunaticComponent>(uid))
-            {
-                short severity = (short) Math.Clamp(1 + (int)((sanity.Max - sanity.Current) / (sanity.Max / 5f)), 1, 6);
-                _alerts.ShowAlert(uid, MoonBrain, severity);
+                if ((_heretic.TryGetHereticComponent(uid, out var hComp, out _) && hComp.CurrentPath == "Moon") || HasComp<MoonLunaticComponent>(uid))
+                {
+                    short severity = (short) Math.Clamp(1 + (int)((sanity.Max - sanity.Current) / (sanity.Max / 5f)), 1, 6);
+                    _alerts.ShowAlert(uid, MoonBrain, severity);
+                }
             }
         }
         var paradeQuery = EntityQueryEnumerator<MoonParadeStatusComponent, TransformComponent, PhysicsComponent>();
@@ -422,8 +421,11 @@ public sealed class HereticMoonSystem : EntitySystem
             var hasAmulet = false;
             if (_inventory.TryGetSlotEntity(uid, "neck", out var neck) && HasComp<MoonAmuletComponent>(neck))
                 hasAmulet = true;
-            passive.AmuletEquipped = hasAmulet;
-            Dirty(uid, passive);
+            if (passive.AmuletEquipped != hasAmulet)
+            {
+                passive.AmuletEquipped = hasAmulet;
+                Dirty(uid, passive);
+            }
             var level = Math.Max(1, heretic.PathStage);
             passive.Accumulator += frameTime;
             if (passive.Accumulator >= 1f)
@@ -490,7 +492,7 @@ public sealed class HereticMoonSystem : EntitySystem
                         _damage.TryChangeDamage(caught.Owner, boom, true, false, origin: heretic);
                     continue;
                 }
-                EntityManager.System<HereticMoonAbilitySystem>().ConvertToLunatic(mob, heretic);
+                _moonAbility.ConvertToLunatic(mob, heretic);
             }
         }
 }

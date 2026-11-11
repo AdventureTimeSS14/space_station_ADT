@@ -28,7 +28,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using OldStatusEffectsComponent = Content.Shared.StatusEffect.StatusEffectsComponent;
@@ -340,14 +339,12 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
     private void RechargeMoonSpells(EntityUid heretic)
     {
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<ActionComponent>();
-        while (query.MoveNext(out var uid, out var action))
+        foreach (var ent in _actions.GetActions(heretic))
         {
-            if (action.AttachedEntity != heretic)
-                continue;
+            var action = ent.Comp;
             if (action.Cooldown == null)
                 continue;
-            var proto = MetaData(uid).EntityPrototype?.ID;
+            var proto = MetaData(ent).EntityPrototype?.ID;
             if (proto != "ActionHereticMindGate" && proto != "ActionHereticLunarParade" && proto != "ActionHereticRingleadersRise")
                 continue;
             var remaining = action.Cooldown.Value.End - now;
@@ -355,7 +352,7 @@ public sealed class HereticMoonAbilitySystem : SharedHereticMoonSystem
                 continue;
             var total = action.Cooldown.Value.End - action.Cooldown.Value.Start;
             var reduced = remaining - total * 0.25;
-            Entity<Content.Shared.Actions.Components.ActionComponent?> act = (uid, action);
+            Entity<Content.Shared.Actions.Components.ActionComponent?> act = (ent, action);
             if (reduced <= TimeSpan.Zero)
                 _actions.ClearCooldown(act);
             else

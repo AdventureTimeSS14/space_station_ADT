@@ -11,13 +11,13 @@ namespace Content.Server.ADT.Heretic.Systems.Moon;
 public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly HereticMoonAbilitySystem _moonAbility = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MoonAmuletComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<MoonAmuletComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<MoonAmuletComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<MoonAmuletComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<MoonAmuletComponent, AfterInteractEvent>(OnAfterInteract);
@@ -38,10 +38,6 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
         _popup.PopupEntity(Loc.GetString("heretic-amulet-victim"), wearer, wearer, PopupType.Medium);
     }
 
-    private void OnUnequipped(Entity<MoonAmuletComponent> ent, ref GotUnequippedEvent args)
-    {
-    }
-
     private void OnExamine(Entity<MoonAmuletComponent> ent, ref ExaminedEvent args)
     {
         if (!IsHereticOrLunatic(args.Examiner))
@@ -55,21 +51,8 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
         if (args.Handled)
             return;
 
-        var user = args.User;
-        var target = args.Target;
-
-        if (!IsHereticOrLunatic(user))
-            return;
-
-        if (target == user)
-            return;
-
-        if (!HasComp<MobStateComponent>(target))
-            return;
-
-        args.Handled = true;
-
-        EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
+        if (TryChannelAmulet(args.User, args.Target))
+            args.Handled = true;
     }
 
     private void OnAfterInteract(Entity<MoonAmuletComponent> ent, ref AfterInteractEvent args)
@@ -77,40 +60,17 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
         if (args.Handled || args.Target == null)
             return;
 
-        var user = args.User;
-        var target = args.Target.Value;
-
-        if (!IsHereticOrLunatic(user))
-            return;
-
-        if (target == user)
-            return;
-
-        if (!HasComp<MobStateComponent>(target))
-            return;
-
-        args.Handled = true;
-
-        EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
+        if (TryChannelAmulet(args.User, args.Target.Value))
+            args.Handled = true;
     }
 
     private void OnActivateInWorld(Entity<MoonAmuletComponent> ent, ref UserActivateInWorldEvent args)
     {
-        if (args.Handled || args.Target == args.User)
+        if (args.Handled)
             return;
 
-        var user = args.User;
-        var target = args.Target;
-
-        if (!IsHereticOrLunatic(user))
-            return;
-
-        if (!HasComp<MobStateComponent>(target))
-            return;
-
-        args.Handled = true;
-
-        EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
+        if (TryChannelAmulet(args.User, args.Target))
+            args.Handled = true;
     }
 
     public void OnMobInteractUsing(Entity<MobStateComponent> ent, ref InteractUsingEvent args)
@@ -118,20 +78,19 @@ public sealed partial class MoonAmuletSystem : SharedHereticMoonSystem
         if (args.Handled)
             return;
 
-        if (!TryComp<MoonAmuletComponent>(args.Used, out var amulet))
+        if (!HasComp<MoonAmuletComponent>(args.Used))
             return;
 
-        var user = args.User;
-        var target = ent.Owner;
+        if (TryChannelAmulet(args.User, ent.Owner))
+            args.Handled = true;
+    }
 
-        if (!IsHereticOrLunatic(user))
-            return;
+    private bool TryChannelAmulet(EntityUid user, EntityUid target)
+    {
+        if (!IsHereticOrLunatic(user) || target == user || !HasComp<MobStateComponent>(target))
+            return false;
 
-        if (target == user)
-            return;
-
-        args.Handled = true;
-
-        EntitySystem.Get<HereticMoonAbilitySystem>().ChannelAmulet(user, target);
+        _moonAbility.ChannelAmulet(user, target);
+        return true;
     }
 }

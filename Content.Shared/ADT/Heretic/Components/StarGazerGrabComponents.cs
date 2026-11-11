@@ -19,6 +19,12 @@ public sealed partial class StarGazerHeldComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool AddedItemComponent = false;
+
+    [DataField]
+    public bool AddedMeleeWeapon = false;
+
+    [DataField]
+    public float OriginalMeleeRange = 0f;
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

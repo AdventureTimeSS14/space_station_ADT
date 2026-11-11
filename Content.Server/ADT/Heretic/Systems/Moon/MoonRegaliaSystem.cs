@@ -24,11 +24,6 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Server.ADT.Heretic.Systems.Moon;
 
-[RegisterComponent]
-public sealed partial class MoonRegaliaWearerComponent : Component
-{
-}
-
 public sealed partial class MoonRegaliaSystem : EntitySystem
 {
     private static readonly ProtoId<AlertPrototype> MoonBrain = "MoonBrain";
@@ -87,8 +82,7 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
             return;
         RemCompDeferred<PacifiedComponent>(args.EquipTarget);
         RemCompDeferred<MoonRegaliaWearerComponent>(args.EquipTarget);
-        if (_brainDamage.Remove(args.EquipTarget))
-            _alerts.ClearAlert((args.EquipTarget, null), MoonBrain);
+        _alerts.ClearAlert((args.EquipTarget, null), MoonBrain);
     }
 
     private bool IsHereticOrGhoulOrLunatic(EntityUid uid)
@@ -105,8 +99,6 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
 
     private static readonly float[] BrainThresholds = { 0f, 21f, 51f, 101f, 151f, 190f };
 
-    private readonly Dictionary<EntityUid, float> _brainDamage = new();
-
     private void OnDamageChanged(Entity<MoonRegaliaWearerComponent> ent, ref DamageChangedEvent args)
     {
         if (args.DamageDelta == null)
@@ -116,12 +108,8 @@ public sealed partial class MoonRegaliaSystem : EntitySystem
             ? cellular.Float()
             : 0f;
 
-        var total = _brainDamage.GetValueOrDefault(ent.Owner) + delta;
-        if (total < 0f)
-            total = 0f;
-        _brainDamage[ent.Owner] = total;
-
-        _alerts.ShowAlert((ent.Owner, null), MoonBrain, BrainSeverity(total));
+        ent.Comp.BrainDamage = Math.Max(0f, ent.Comp.BrainDamage + delta);
+        _alerts.ShowAlert((ent.Owner, null), MoonBrain, BrainSeverity(ent.Comp.BrainDamage));
     }
 
     private static short BrainSeverity(float damage)

@@ -97,6 +97,7 @@
     lifetime: 30
   - type: Wall
     # ADT: no WideSwingIgnore
+  - type: Damageable
   - type: Physics
     bodyType: Static
   - type: Fixtures
