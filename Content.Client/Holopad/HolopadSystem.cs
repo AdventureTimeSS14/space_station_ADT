@@ -15,13 +15,22 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SpriteSystem _sprite = default!;
 
+    // Avatar layers must survive render events so their animation clocks can advance.
+    private readonly Dictionary<EntityUid, (EntityUid Target, PrototypeLayerData[] Layers)> _avatarLayers = new();
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HolopadHologramComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<HolopadHologramComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<HolopadHologramComponent, BeforePostShaderRenderEvent>(OnShaderRender);
         SubscribeAllEvent<TypingChangedEvent>(OnTypingChanged);
+    }
+
+    private void OnComponentShutdown(Entity<HolopadHologramComponent> entity, ref ComponentShutdown ev)
+    {
+        _avatarLayers.Remove(entity.Owner);
     }
 
     private void OnComponentStartup(Entity<HolopadHologramComponent> entity, ref ComponentStartup ev)
@@ -58,6 +67,22 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
             !TryComp<HolopadHologramComponent>(hologram, out var holopadhologram))
             return;
 
+        // Only rebuild a custom avatar when its source or layer data changes.
+        // Rebuilding on every shader render resets all RSI animations to frame zero.
+        if (HasComp<SpriteComponent>(target) &&
+            TryComp<HolographicAvatarComponent>(target, out var avatar) &&
+            avatar.LayerData is { Length: > 0 } layers &&
+            _avatarLayers.TryGetValue(hologram, out var cached) &&
+            cached.Target == target &&
+            ReferenceEquals(cached.Layers, layers) &&
+            hologramSprite.AllLayers.Count() == layers.Length)
+        {
+            UpdateHologramShader(hologram, hologramSprite, holopadhologram, shader);
+            return;
+        }
+
+        _avatarLayers.Remove(hologram);
+
         // Remove all sprite layers
         for (var i = hologramSprite.AllLayers.Count() - 1; i >= 0; i--)
             _sprite.RemoveLayer((hologram, hologramSprite), i);
@@ -72,6 +97,8 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
                 {
                     _sprite.AddLayer((hologram, hologramSprite), targetAvatar.LayerData[i], i);
                 }
+
+                _avatarLayers[hologram] = (target.Value, targetAvatar.LayerData);
             }
 
             // Otherwise copy the target's current physical appearance
