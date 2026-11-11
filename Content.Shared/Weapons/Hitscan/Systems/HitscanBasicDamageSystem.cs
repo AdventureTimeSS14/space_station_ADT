@@ -20,15 +20,23 @@ public sealed partial class HitscanBasicDamageSystem : EntitySystem
         if (args.Data.HitEntity == null)
             return;
 
-        var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
+// ADT-Tweak Start
+//         var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
+// ADT-Tweak End
+        var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier * GetFalloffMultiplier(ent, args.Data);
 
-        if(!_damage.TryChangeDamage(args.Data.HitEntity.Value, dmg, out var damageDealt, origin: args.Data.Gun))
+// ADT-Tweak Start
+//         if(!_damage.TryChangeDamage(args.Data.HitEntity.Value, dmg, out var damageDealt, origin: args.Data.Gun))
+// ADT-Tweak End
+        if (!_damage.TryChangeDamage(args.Data.HitEntity.Value, dmg, out var damageDealt,
+                ent.Comp.IgnoreResistances, origin: args.Data.Gun, armorPenetration: ent.Comp.ArmorPenetration))
             return;
 
         var damageEvent = new HitscanDamageDealtEvent
         {
             Target = args.Data.HitEntity.Value,
             DamageDealt = damageDealt,
+            Data = args.Data, // ADT: blood spray / follow-ups
         };
 
         RaiseLocalEvent(ent, ref damageEvent);

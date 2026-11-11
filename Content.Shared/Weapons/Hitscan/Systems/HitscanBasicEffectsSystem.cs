@@ -31,6 +31,9 @@ public sealed partial class HitscanBasicEffectsSystem : EntitySystem
                 Filter.Pvs(args.Target, entityManager: EntityManager));
         }
 
-        _gun.PlayImpactSound(args.Target, args.DamageDealt, ent.Comp.Sound, ent.Comp.ForceSound);
+// ADT-Tweak Start
+//         _gun.PlayImpactSound(args.Target, args.DamageDealt, ent.Comp.Sound, ent.Comp.ForceSound);
+// ADT-Tweak End
+        _gun.PlayImpactSound(args.Target, args.DamageDealt, ent.Comp.Sound, ent.Comp.ForceSound, args.Data.Shooter); // Starlight-edit: predict
     }
 }

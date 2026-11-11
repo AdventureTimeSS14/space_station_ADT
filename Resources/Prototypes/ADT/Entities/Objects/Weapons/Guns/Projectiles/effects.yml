@@ -1,0 +1,7 @@
+- type: displacementEffect
+  id: displacementEffect
+  displacement:
+    sizeMaps:
+      32:
+        sprite: ADT/Effects/bullet_impact.rsi
+        state: impact
