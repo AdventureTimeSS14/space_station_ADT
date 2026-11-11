@@ -1,19 +1,21 @@
 using Content.Shared.ADT.EMP;
 using Content.Shared.Power.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.Emp;
 
 public abstract partial class SharedEmpSystem
 {
+    [Dependency] private SharedContainerSystem _container = default!;
+
     private void InitializeADT()
     {
         SubscribeLocalEvent<EmpDisablingComponent, EmpPulseEvent>(OnDisablingPulse);
-        SubscribeLocalEvent<EmpProtectionComponent, EmpAttemptEvent>(OnProtectionEmp);
 
-        // SubscribeLocalEvent<EmpContainerProtectionComponent, EntInsertedIntoContainerMessage>(OnInserted);
-        // SubscribeLocalEvent<EmpContainerProtectionComponent, EntRemovedFromContainerMessage>(OnEjected);
-        // SubscribeLocalEvent<EmpContainerProtectionComponent, ComponentShutdown>(OnShutdown);
-        // SubscribeLocalEvent<EmpContainerProtectionComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<EmpContainerProtectionComponent, EntInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<EmpContainerProtectionComponent, EntRemovedFromContainerMessage>(OnEjected);
+        SubscribeLocalEvent<EmpContainerProtectionComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<EmpContainerProtectionComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnDisablingPulse(EntityUid uid, EmpDisablingComponent component, ref EmpPulseEvent args)
@@ -22,48 +24,57 @@ public abstract partial class SharedEmpSystem
         args.Duration = component.DisablingTime;
     }
 
-    private void OnProtectionEmp(EntityUid uid, EmpProtectionComponent component, ref EmpAttemptEvent args)
+    private void OnInserted(EntityUid uid, EmpContainerProtectionComponent component, ref EntInsertedIntoContainerMessage args)
     {
-        args.Cancelled = true;
+        var originalResistance = 1f;
+
+        if (TryComp<EmpResistanceComponent>(args.Entity, out var resistance))
+            originalResistance = resistance.StrengthMultiplier;
+
+        component.Batteries.TryAdd(args.Entity, originalResistance);
+
+        EnsureComp<EmpResistanceComponent>(args.Entity).StrengthMultiplier *= component.Multiplier;
     }
 
-    // private void OnInserted(EntityUid uid, EmpContainerProtectionComponent component, ref EntInsertedIntoContainerMessage args)
-    // {
-    //     if (HasComp<EmpProtectionComponent>(args.Entity))
-    //         return;
+    private void OnEjected(EntityUid uid, EmpContainerProtectionComponent component, ref EntRemovedFromContainerMessage args)
+    {
+        if (!component.Batteries.TryGetValue(args.Entity, out var original))
+            return;
 
-    //     EnsureComp<EmpProtectionComponent>(args.Entity);
-    //     component.Batteries.Add(args.Entity);
-    // }
+        component.Batteries.Remove(args.Entity);
 
-    // private void OnEjected(EntityUid uid, EmpContainerProtectionComponent component, ref EntRemovedFromContainerMessage args)
-    // {
-    //     if (!component.Batteries.Contains(args.Entity))
-    //         return;
+        if (original == 1f)
+            RemComp<EmpResistanceComponent>(args.Entity);
+        else
+            EnsureComp<EmpResistanceComponent>(args.Entity).StrengthMultiplier = original;
+    }
 
-    //     RemComp<EmpProtectionComponent>(args.Entity);
-    //     component.Batteries.Remove(args.Entity);
-    // }
+    private void OnInit(EntityUid uid, EmpContainerProtectionComponent component, MapInitEvent args)
+    {
+        if (!_container.TryGetContainer(uid, component.ContainerId, out var container))
+            return;
 
-    // private void OnShutdown(EntityUid uid, EmpContainerProtectionComponent component, ComponentShutdown args)
-    // {
-    //     foreach (var item in component.Batteries)
-    //         RemComp<EmpProtectionComponent>(item);
-    // }
+        foreach (var ent in container.ContainedEntities)
+        {
+            var originalResistance = 1f;
 
-    // private void OnInit(EntityUid uid, EmpContainerProtectionComponent component, MapInitEvent args)
-    // {
-    //     var containers = _container.GetAllContainers(uid);
-    //     foreach (var container in containers)
-    //     {
-    //         foreach (var item in container.ContainedEntities)
-    //         {
-    //             if (!HasComp<BatteryComponent>(item) || HasComp<EmpProtectionComponent>(item))
-    //                 continue;
+            if (TryComp<EmpResistanceComponent>(ent, out var resistance))
+                originalResistance = resistance.StrengthMultiplier;
 
-    //             EnsureComp<EmpProtectionComponent>(item);
-    //             component.Batteries.Add(item);
-    //         }
-    //     }
-    // }
+            component.Batteries.TryAdd(ent, originalResistance);
+
+            EnsureComp<EmpResistanceComponent>(ent).StrengthMultiplier *= component.Multiplier;
+        }
+    }
+
+    private void OnShutdown(EntityUid uid, EmpContainerProtectionComponent component, ComponentShutdown args)
+    {
+        foreach (var item in component.Batteries)
+        {
+            if (item.Value == 1f)
+                RemComp<EmpResistanceComponent>(item.Key);
+            else
+                EnsureComp<EmpResistanceComponent>(item.Key).StrengthMultiplier = item.Value;
+        }
+    }
 }
