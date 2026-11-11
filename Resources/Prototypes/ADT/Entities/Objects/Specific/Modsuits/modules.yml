@@ -508,7 +508,7 @@
     complexity: 1
     components:
       MODcore:
-      - type: EmpProtection
+      - type: EmpContainerProtection
 
 - type: entity
   parent: ADTModsuitModBase

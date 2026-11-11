@@ -207,6 +207,7 @@
         whitelist:
           tags:
             - PowerCell
+  - type: EmpContainerProtection # ADT-Tweak
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
@@ -328,4 +329,3 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCarp
   - type: StaticPrice
     price: 1500
-
