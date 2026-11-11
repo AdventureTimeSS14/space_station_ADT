@@ -61,6 +61,7 @@
   - AcousticGuitarInstrument
   - RockGuitarInstrument
   - BassGuitarInstrument
+  - FretlessBassGuitarInstrument
   - HarmonicaInstrument
   - SynthesizerInstrument
   # instrument-end
@@ -852,7 +853,10 @@
   minLimit: 0
   maxLimit: 2
   loadouts:
-  - ADTBoxJukeBoxPlayer #ADT-Tweak
+  #ADT-Tweak-Start
+  - ADTBoxJukeBoxPlayer
+  - ADTMusicianVoucher
+  #ADT-Tweak-End
   - Glockenspiel
   - MusicBox
   - Xylophone
@@ -864,6 +868,7 @@
   - BassGuitar
   - RockGuitar
   - AcousticGuitar
+  - FretlessBassGuitar #ADT-Tweak
   - Banjo
   - Violin
   - Viola

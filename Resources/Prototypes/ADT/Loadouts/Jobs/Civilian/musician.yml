@@ -190,6 +190,12 @@
     - ADTSuperSynthesizerDarkBlueInstrument
   groupBy: "supersynthesizer"
 
+- type: loadout
+  id: ADTMusicianVoucher
+  storage:
+    back:
+    - ADTMusicianVoucher
+
 # Carp Fedora
 - type: loadout
   id: ADTClothingHeadHatCarpFedora
