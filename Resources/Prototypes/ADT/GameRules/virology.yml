@@ -29,3 +29,9 @@
     - ADTDiseaseRhumbaBeat
     - ADTDiseaseLoyalty
     - ADTDiseaseFakeGbs
+
+- type: entity
+  parent: BaseGameRule
+  id: ADTDiseaseAlertRule
+  components:
+  - type: ADTDiseaseAlertRule
