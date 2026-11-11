@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.ADT.Virology;
 using Content.Shared.ADT.Virology.Components;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.ADT.Body.Allergies;
