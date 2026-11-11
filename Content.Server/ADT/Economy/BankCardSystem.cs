@@ -8,6 +8,7 @@ using Content.Shared.CartridgeLoader;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Roles.Jobs;
+using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Content.Shared.ADT.Economy;
 using Content.Shared.GameTicking;
@@ -26,9 +27,14 @@ using Robust.Shared.Timing;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Server.ADT.Traits;
+using Content.Shared.ADT.Roles;
 using Content.Shared.Database;
+using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Systems;
 
 namespace Content.Server.ADT.Economy;
 
@@ -45,17 +51,16 @@ public sealed class BankCardSystem : EntitySystem
     [Dependency] private InventorySystem _inventorySystem = default!;
     [Dependency] private BankCartridgeSystem _bankCartridge = default!;
     [Dependency] private JobSystem _job = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private CartridgeLoaderSystem _cartridgeLoader = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
     [Dependency] private AccessReaderSystem _accessReader = default!;
 
-    private const int SalaryDelay = 2700;
-    private const int HistoryLimit = 100;
-
     private SalaryPrototype _salaries = default!;
     private readonly List<BankAccount> _accounts = new();
+    private readonly Dictionary<string, ProtoId<CargoAccountPrototype>> _jobDepartments = new();
     private float _salaryTimer;
 
     private int _totalDeposited;
@@ -80,6 +85,44 @@ public sealed class BankCardSystem : EntitySystem
         SubscribeLocalEvent<BankCardComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned, after: [typeof(ADTTraitSystem)]);
+        SubscribeLocalEvent<StationPostInitEvent>(OnStationPostInit);
+
+        _protoMan.PrototypesReloaded += OnPrototypesReloaded;
+        BuildJobDepartmentMap();
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _protoMan.PrototypesReloaded -= OnPrototypesReloaded;
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        if (args.ByType.ContainsKey(typeof(DepartmentPrototype)) ||
+            args.ByType.ContainsKey(typeof(CargoAccountPrototype)))
+            BuildJobDepartmentMap();
+    }
+
+    private void BuildJobDepartmentMap()
+    {
+        _jobDepartments.Clear();
+        foreach (var department in _protoMan.EnumeratePrototypes<DepartmentPrototype>())
+        {
+            if (!_protoMan.HasIndex<CargoAccountPrototype>(department.ID) &&
+                !(department.ID == "Civilian" && _protoMan.HasIndex<CargoAccountPrototype>("Service")))
+                continue;
+
+            ProtoId<CargoAccountPrototype> account = department.ID == "Civilian"
+                ? "Service"
+                : department.ID;
+
+            foreach (var role in department.Roles)
+            {
+                if (!_jobDepartments.ContainsKey(role))
+                    _jobDepartments[role] = account;
+            }
+        }
     }
 
     public override void Update(float frameTime)
@@ -94,7 +137,8 @@ public sealed class BankCardSystem : EntitySystem
 
         _salaryTimer += frameTime;
 
-        if (_salaryTimer <= SalaryDelay)
+        var delay = Math.Max(1f, _configManager.GetCVar(ADTCCVars.SalaryDelay));
+        if (_salaryTimer <= delay)
             return;
 
         _salaryTimer = 0f;
@@ -110,61 +154,70 @@ public sealed class BankCardSystem : EntitySystem
 
         DepositDepartmentFunds();
 
-        var groups = new Dictionary<int, FundingGroup>();
+        var groups = new Dictionary<int, SalaryGroup>();
         foreach (var account in _accounts.Where(account =>
                      !account.CommandBudgetAccount &&
                      account.Mind is { Comp.UserId: not null, Comp.CurrentEntity: not null } &&
                      _playerManager.TryGetSessionById(account.Mind.Value.Comp.UserId!.Value, out _) &&
                      !_mobState.IsDead(account.Mind.Value.Comp.CurrentEntity!.Value)))
         {
+            var (isFixed, pay) = GetPay(account.Mind);
+            if (pay <= 0 || account.Mind!.Value.Comp.CurrentEntity is not { } mob)
+                continue;
+
             if (!_job.MindTryGetJob(account.Mind, out var job))
                 continue;
 
-            var (isFixed, pay) = GetPay(account.Mind);
-
             if (isFixed)
             {
-                if (pay > 0 && TryDeposit(account.AccountId, (int) pay, TransactionReason.Salary, Loc.GetString("bank-initiator-centcom")))
-                    _totalSalary += (int) pay;
+                if (TryDeposit(account.AccountId, pay, TransactionReason.Salary, Loc.GetString("bank-initiator-centcom")))
+                    _totalSalary += pay;
                 continue;
             }
 
-            if (pay <= 0 ||
-                account.Mind!.Value.Comp.CurrentEntity is not { } mob ||
-                !TryResolveFunding(mob, job.ID, out var station, out var fundingProto, out var fundingId))
+            EntityUid? homeStation = account.Station != null &&
+                                     TryComp<StationBankAccountComponent>(account.Station, out _)
+                ? account.Station
+                : _station.GetOwningStation(mob);
+
+            if (homeStation is not { } station ||
+                !TryComp<StationBankAccountComponent>(station, out var stationBank))
+            {
+                if (TryDeposit(account.AccountId, pay, TransactionReason.Salary, Loc.GetString("bank-initiator-centcom")))
+                    _totalSalary += pay;
+                continue;
+            }
+
+            var fundingProto = GetDepartmentForJob(job.ID) ?? stationBank.PrimaryAccount;
+            if (!TryGetDepartmentAccountId(station, fundingProto, out var fundingId))
                 continue;
 
             if (!groups.TryGetValue(fundingId, out var group))
             {
-                group = new FundingGroup(station, fundingProto);
+                group = new SalaryGroup(station, fundingProto);
                 groups[fundingId] = group;
             }
 
-            group.Members.Add((account.AccountId, pay, mob, job.ID));
+            group.Members.Add((account.AccountId, pay, job.ID));
         }
 
         foreach (var (fundingId, group) in groups)
         {
-            if (group.PrimaryAccountId == null &&
-                TryComp<StationBankAccountComponent>(group.Station, out var stationBank) &&
-                TryGetDepartmentAccountId(group.Station, stationBank.PrimaryAccount, out var primaryId))
-                group.PrimaryAccountId = primaryId;
-
-            var totalShare = group.Members.Sum(m => m.Share);
-            var factor = totalShare > 1 ? 1 / totalShare : 1;
+            var primaryId = 0;
+            if (TryComp<StationBankAccountComponent>(group.Station, out var stationBank) &&
+                TryGetDepartmentAccountId(group.Station, stationBank.PrimaryAccount, out var primaryAccountId))
+                primaryId = primaryAccountId;
 
             var cut = 0f;
             if (TryComp<StationSalaryCutComponent>(group.Station, out var salaryCuts) &&
                 salaryCuts.Cuts.TryGetValue(group.Funding, out var fundingCut))
-                cut = Math.Clamp(fundingCut, 0f, 0.9f);
+                cut = Math.Clamp(fundingCut, 0f, salaryCuts.MaxCut);
 
-            var balance = GetBalance(fundingId);
-            var remaining = balance;
+            var remaining = GetBalance(fundingId);
 
-            foreach (var (playerAccountId, share, mob, jobId) in group.Members)
+            foreach (var (playerAccountId, pay, jobId) in group.Members)
             {
-                var bonus = GetSalaryBonus(group.Station, jobId);
-                var gross = (int) Math.Round(balance * share * factor * (1 + bonus));
+                var gross = (int) Math.Round(pay * (1 + GetSalaryBonus(group.Station, jobId)));
                 if (gross <= 0)
                     continue;
 
@@ -182,22 +235,20 @@ public sealed class BankCardSystem : EntitySystem
 
                     if (paid > 0 && TryTransfer(fundingId, playerAccountId, paid, TransactionReason.Salary))
                         _totalSalary += paid;
-
-                    remaining -= affordable;
-                    continue;
                 }
+                else
+                {
+                    var taxPart = taxRate > 0 && primaryId != 0 && fundingId != primaryId
+                        ? (int) Math.Floor(affordable * taxRate)
+                        : 0;
+                    var payout = affordable - taxPart;
 
-                var taxPart = (taxRate > 0 && fundingId != group.PrimaryAccountId)
-                    ? (int) Math.Floor(affordable * taxRate)
-                    : 0;
-                var payout = affordable - taxPart;
+                    if (taxPart > 0 && TryTransfer(fundingId, primaryId, taxPart, TransactionReason.SalaryTax))
+                        _totalTaxes += taxPart;
 
-                if (taxPart > 0 && group.PrimaryAccountId != null &&
-                    TryTransfer(fundingId, group.PrimaryAccountId.Value, taxPart, TransactionReason.SalaryTax))
-                    _totalTaxes += taxPart;
-
-                if (payout > 0 && TryTransfer(fundingId, playerAccountId, payout, TransactionReason.Salary))
-                    _totalSalary += payout;
+                    if (payout > 0 && TryTransfer(fundingId, playerAccountId, payout, TransactionReason.Salary))
+                        _totalSalary += payout;
+                }
 
                 remaining -= affordable;
             }
@@ -205,6 +256,14 @@ public sealed class BankCardSystem : EntitySystem
 
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("salary-pay-announcement"),
             colorOverride: Color.FromHex("#18abf5"));
+    }
+
+    private sealed class SalaryGroup(EntityUid station, ProtoId<CargoAccountPrototype> funding)
+    {
+        public readonly EntityUid Station = station;
+        public readonly ProtoId<CargoAccountPrototype> Funding = funding;
+
+        public readonly List<(int PlayerAccount, int Pay, string JobId)> Members = new();
     }
 
     private void DepositDepartmentFunds()
@@ -233,41 +292,39 @@ public sealed class BankCardSystem : EntitySystem
         }
     }
 
-    private sealed class FundingGroup(EntityUid station, ProtoId<CargoAccountPrototype> funding)
-    {
-        public readonly EntityUid Station = station;
-        public readonly ProtoId<CargoAccountPrototype> Funding = funding;
-
-        public int? PrimaryAccountId;
-
-        public readonly List<(int PlayerAccount, double Share, EntityUid Mob, string JobId)> Members = new();
-    }
-
-    private bool TryResolveFunding(EntityUid mob, string jobId, out EntityUid station, out ProtoId<CargoAccountPrototype> fundingProto, out int fundingId)
-    {
-        station = default;
-        fundingProto = default!;
-        fundingId = 0;
-
-        if (_station.GetOwningStation(mob) is not { } stationUid ||
-            !TryComp<StationBankAccountComponent>(stationUid, out var stationBank))
-            return false;
-
-        var proto = GetDepartmentForJob(jobId);
-        fundingProto = proto ?? stationBank.PrimaryAccount;
-
-        return TryGetDepartmentAccountId(stationUid, fundingProto, out fundingId);
-    }
-
     private ProtoId<CargoAccountPrototype>? GetDepartmentForJob(string jobId)
     {
-        foreach (var department in _protoMan.EnumeratePrototypes<DepartmentPrototype>())
-        {
-            if (department.Roles.Contains(jobId) && _protoMan.HasIndex<CargoAccountPrototype>(department.ID))
-                return department.ID;
-        }
+        if (_jobDepartments.TryGetValue(jobId, out var department))
+            return department;
 
         return null;
+    }
+
+    public ProtoId<JobPrototype>? GetCardJob(EntityUid user)
+    {
+        if (!_idCardSystem.TryFindIdCard(user, out var card))
+            return null;
+
+        if (card.Comp.JobPrototype != null)
+            return card.Comp.JobPrototype;
+
+        if (TryComp<StationRecordKeyStorageComponent>(card, out var keyStorage) &&
+            keyStorage.Key is { } key &&
+            _records.TryGetRecord<GeneralStationRecord>(key, out var record) &&
+            record.JobPrototype.Length > 0)
+            return record.JobPrototype;
+
+        if (TryComp<RoleCacheComponent>(user, out var roleCache) &&
+            roleCache.LastJobPrototype != null)
+            return roleCache.LastJobPrototype;
+
+        return null;
+    }
+
+    public ProtoId<CargoAccountPrototype>? GetCardDepartment(EntityUid user)
+    {
+        var job = GetCardJob(user);
+        return job == null ? null : GetDepartmentForJob(job.Value);
     }
 
     // надбавка к зарплате по отделу профессии (StationBankAccountComponent.SalaryBonus)
@@ -306,7 +363,7 @@ public sealed class BankCardSystem : EntitySystem
         return false;
     }
 
-    private (bool Fixed, double Value) GetPay(EntityUid? mind)
+    private (bool Fixed, int Pay) GetPay(EntityUid? mind)
     {
         if (!_job.MindTryGetJob(mind, out var job))
             return (false, 0);
@@ -314,35 +371,21 @@ public sealed class BankCardSystem : EntitySystem
         if (_salaries.Fixed.TryGetValue(job.ID, out var fixedPay))
             return (true, fixedPay);
 
-        if (_salaries.Salaries.TryGetValue(job.ID, out var share))
-            return (false, share);
-
-        return (false, 0);
+        return (_salaries.Salaries.TryGetValue(job.ID, out var pay), pay);
     }
 
     private void OnMapInit(EntityUid uid, BankCardComponent component, MapInitEvent args)
     {
         if (component.CommandBudgetCard)
         {
-            if (TryComp<StationBankAccountComponent>(_station.GetOwningStation(uid), out var stationBank)
-                && component.CommandBudgetType != null)
+            if (_station.GetOwningStation(uid) is { } station &&
+                component.CommandBudgetType != null &&
+                TryGetDepartmentAccountId(station, component.CommandBudgetType.Value, out var accountId))
             {
-
-                var existingAccount = _accounts.FirstOrDefault(acc =>
-                    acc.CommandBudgetAccount &&
-                    acc.AccountPrototype == component.CommandBudgetType);
-
-                if (existingAccount != null)
-                {
-                    component.AccountId = existingAccount.AccountId;
-                    return;
-                }
-
-                var account = CreateDepartmentAccount(component.CommandBudgetType.Value);
-                stationBank.BankAccounts[component.CommandBudgetType.Value] = account;
-                component.AccountId = account.AccountId;
-                return;
+                component.AccountId = accountId;
             }
+
+            return;
         }
 
         if (component.AccountId.HasValue)
@@ -355,6 +398,22 @@ public sealed class BankCardSystem : EntitySystem
         component.AccountId = playerAccount.AccountId;
     }
 
+    private void OnStationPostInit(ref StationPostInitEvent ev)
+    {
+        var query = EntityQueryEnumerator<BankCardComponent>();
+        while (query.MoveNext(out var uid, out var card))
+        {
+            if (!card.CommandBudgetCard || card.AccountId.HasValue || card.CommandBudgetType == null)
+                continue;
+
+            if (_station.GetOwningStation(uid) != ev.Station)
+                continue;
+
+            if (TryGetDepartmentAccountId(ev.Station, card.CommandBudgetType.Value, out var accountId))
+                card.AccountId = accountId;
+        }
+    }
+
     public bool TryGetDepartmentAccountId(EntityUid station, ProtoId<CargoAccountPrototype> proto, out int accountId)
     {
         accountId = 0;
@@ -364,7 +423,7 @@ public sealed class BankCardSystem : EntitySystem
 
         if (!bank.BankAccounts.TryGetValue(proto, out var account))
         {
-            account = CreateDepartmentAccount(proto);
+            account = CreateDepartmentAccount(station, proto);
             bank.BankAccounts[proto] = account;
 
             _cargo.TryAdjustBankAccount((station, bank), proto, 0, true);
@@ -374,7 +433,7 @@ public sealed class BankCardSystem : EntitySystem
         return true;
     }
 
-    private BankAccount CreateDepartmentAccount(ProtoId<CargoAccountPrototype> departmentType)
+    private BankAccount CreateDepartmentAccount(EntityUid station, ProtoId<CargoAccountPrototype> departmentType)
     {
         int accountNumber;
         do
@@ -385,6 +444,7 @@ public sealed class BankCardSystem : EntitySystem
         var account = new BankAccount(accountNumber, 0, _random);
         account.AccountPrototype = departmentType;
         account.CommandBudgetAccount = true;
+        account.Station = station;
         account.Name = Loc.GetString($"command-budget-{departmentType}");
 
         _accounts.Add(account);
@@ -415,15 +475,8 @@ public sealed class BankCardSystem : EntitySystem
             if (!TryComp(mind.Mind, out MindComponent? mindComponent))
                 return;
 
-            var startingBalance = 100;
-            var (isFixed, pay) = GetPay(mind.Mind);
-
-            if (isFixed)
-                startingBalance += (int) pay;
-            else if (pay > 0 &&
-                     _job.MindTryGetJob(mind.Mind, out var job) &&
-                     TryResolveFunding(ev.Mob, job.ID, out _, out _, out var fundingId))
-                startingBalance += (int) Math.Round(GetBalance(fundingId) * pay);
+            var (_, pay) = GetPay(mind.Mind);
+            var startingBalance = 100 + pay;
 
             if (TryComp<StartingBalanceComponent>(ev.Mob, out var balanceComp))
                 startingBalance = balanceComp.Balance;
@@ -434,6 +487,7 @@ public sealed class BankCardSystem : EntitySystem
                 bankAccount.AccountId.ToString()));
             bankAccount.Mind = (mind.Mind.Value, mindComponent);
             bankAccount.Name = Name(ev.Mob);
+            bankAccount.Station = ev.Station.IsValid() ? ev.Station : null;
 
             if (!_inventorySystem.TryGetSlotEntity(ev.Mob, "id", out var pdaUid))
                 return;
@@ -484,7 +538,9 @@ public sealed class BankCardSystem : EntitySystem
         if (!Mutate(toAccountId, amount, reason, initiator, isTransfer: true, from))
         {
             // получатель недоступен — возвращаем деньги отправителю
-            Mutate(fromAccountId, amount, reason, initiator, isTransfer: false);
+            if (!Mutate(fromAccountId, amount, reason, initiator, isTransfer: false, trackStats: false))
+                Log.Error($"[Economy] refund of {amount} to account {fromAccountId} failed after failed transfer to {toAccountId}");
+
             return false;
         }
 
@@ -492,30 +548,23 @@ public sealed class BankCardSystem : EntitySystem
         return true;
     }
 
-    private bool Mutate(int accountId, int amount, TransactionReason reason, string? initiator, bool isTransfer, BankAccount? counterpart = null)
+    private bool Mutate(int accountId, int amount, TransactionReason reason, string? initiator, bool isTransfer,
+        BankAccount? counterpart = null, bool trackStats = true)
     {
         if (amount == 0 || !TryGetAccount(accountId, out var account))
             return false;
 
         if (account.CommandBudgetAccount && account.AccountPrototype != null)
         {
-            var applied = false;
-            var query = EntityQueryEnumerator<StationBankAccountComponent>();
-            while (query.MoveNext(out var stationUid, out var stationBank))
-            {
-                if (!stationBank.Accounts.ContainsKey(account.AccountPrototype.Value))
-                    continue;
-
-                if (stationBank.Accounts[account.AccountPrototype.Value] + amount < 0)
-                    return false;
-
-                _cargo.UpdateBankAccount((stationUid, stationBank), amount, account.AccountPrototype.Value);
-                applied = true;
-                break;
-            }
-
-            if (!applied)
+            if (account.Station == null ||
+                !TryComp<StationBankAccountComponent>(account.Station, out var ownBank) ||
+                !ownBank.Accounts.ContainsKey(account.AccountPrototype.Value))
                 return false;
+
+            if (ownBank.Accounts[account.AccountPrototype.Value] + amount < 0)
+                return false;
+
+            _cargo.UpdateBankAccount((account.Station.Value, ownBank), amount, account.AccountPrototype.Value);
         }
         else
         {
@@ -531,10 +580,13 @@ public sealed class BankCardSystem : EntitySystem
         }
         else
         {
-            if (amount > 0)
-                _totalDeposited += amount;
-            else
-                _totalBurned += -amount;
+            if (trackStats)
+            {
+                if (amount > 0)
+                    _totalDeposited += amount;
+                else
+                    _totalBurned += -amount;
+            }
 
             AddHistory(account, amount, reason, initiator, null);
         }
@@ -549,13 +601,16 @@ public sealed class BankCardSystem : EntitySystem
     {
         account.History ??= new List<TransactionsHistory>();
 
+        if (!Loc.TryGetString($"bank-reason-{reason.ToString().ToLowerInvariant()}", out var reasonText))
+            reasonText = reason.ToString();
+
         string type;
         string who;
         string? targetId = null;
 
         if (counterpart != null)
         {
-            type = Loc.GetString($"bank-reason-{reason.ToString().ToLowerInvariant()}");
+            type = reasonText;
             if (amount > 0)
                 who = initiator ?? counterpart.Name;
             else
@@ -576,10 +631,11 @@ public sealed class BankCardSystem : EntitySystem
             type,
             who,
             targetId,
-            Loc.GetString($"bank-reason-{reason.ToString().ToLowerInvariant()}")));
+            reasonText));
 
-        if (account.History.Count > HistoryLimit)
-            account.History.RemoveRange(0, account.History.Count - HistoryLimit);
+        var limit = Math.Max(0, _configManager.GetCVar(ADTCCVars.BankHistoryLimit));
+        if (account.History.Count > limit)
+            account.History.RemoveRange(0, account.History.Count - limit);
     }
 
     public BankAccount CreateAccount(int accountId = default, int startingBalance = 0)
@@ -629,12 +685,11 @@ public sealed class BankCardSystem : EntitySystem
 
         if (account.CommandBudgetAccount && account.AccountPrototype != null)
         {
-            var query = EntityQueryEnumerator<StationBankAccountComponent>();
-            while (query.MoveNext(out var stationUid, out var stationBank))
-            {
-                if (stationBank.Accounts.TryGetValue(account.AccountPrototype.Value, out var balance))
-                    return balance;
-            }
+            if (account.Station != null &&
+                TryComp<StationBankAccountComponent>(account.Station, out var ownBank) &&
+                ownBank.Accounts.TryGetValue(account.AccountPrototype.Value, out var ownBalance))
+                return ownBalance;
+
             return 0;
         }
 

@@ -27,14 +27,20 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
     public Action? OnAmountChanged;
     public Action? ColorPressed;
 
-    private int _unitPrice;
+    private int _rawPrice;
+    private double _priceMultiplier = 1;
+    private float _discount;
     private StyleBoxFlat _buyBox = default!;
 
     public Color? PaintColor { get; private set; }
 
     public int SelectedAmount => AmountSelector.SelectedId + 1;
 
-    public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int price, bool striped,
+    public int CurrentTotal => CalcTotal(SelectedAmount);
+
+    public int OriginalTotal => (int) Math.Floor(_rawPrice * SelectedAmount * _priceMultiplier);
+
+    public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int rawPrice, double priceMultiplier, float discount, bool striped,
         bool canPaint = false, ReturnedItemDisplay? returned = null)
     {
         RobustXamlLoader.Load(this);
@@ -42,7 +48,9 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         BuyButton.OnPressed += _ => BuyPressed?.Invoke();
         ColorButton.OnPressed += _ => ColorPressed?.Invoke();
 
-        _unitPrice = price;
+        _rawPrice = rawPrice;
+        _priceMultiplier = priceMultiplier;
+        _discount = discount;
 
         EntryPanel.PanelOverride = striped ? StripeBox : null;
 
@@ -82,9 +90,11 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         UpdateCount(count, maxAmount);
     }
 
-    public void UpdateData(string name, uint count, uint maxAmount, int price)
+    public void UpdateData(string name, uint count, uint maxAmount, int rawPrice, double priceMultiplier, float discount)
     {
-        _unitPrice = price;
+        _rawPrice = rawPrice;
+        _priceMultiplier = priceMultiplier;
+        _discount = discount;
         NameLabel.Text = name;
         UpdateCount(count, maxAmount);
     }
@@ -144,12 +154,23 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         Modulate = count <= 0 ? new Color(1f, 1f, 1f, 0.5f) : Color.White;
     }
 
+    private int CalcTotal(int amount)
+    {
+        return (int) Math.Floor(_rawPrice * amount * _priceMultiplier * (1.0 - _discount));
+    }
+
     private void UpdateCost()
     {
-        var total = _unitPrice * SelectedAmount;
+        var total = CurrentTotal;
         CostLabel.SetMarkup(total <= 0
             ? Loc.GetString("vending-machine-ui-price-free")
             : Loc.GetString("vending-machine-ui-price", ("price", total)));
+
+        var hasDiscount = _discount > 0f && total < OriginalTotal;
+        OldCostControl.Visible = hasDiscount;
+
+        if (hasDiscount)
+            OldCostLabel.SetMarkup(Loc.GetString("vending-machine-ui-price-old", ("price", OriginalTotal)));
     }
 
     public void SetBuyDisabled(bool disabled)

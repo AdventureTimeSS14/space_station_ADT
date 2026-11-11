@@ -12,5 +12,11 @@ public sealed partial class SolutionHeaterComponent : Component
     // ADT-Tweak-Start
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public float HeatMultiplier = 1f;
+
+    [DataField]
+    public float MinTemperature;
+
+    [DataField]
+    public float MaxTemperature = float.PositiveInfinity;
     // ADT-Tweak-End
 }

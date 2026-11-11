@@ -2,6 +2,7 @@ using Content.Shared.ADT.Cooking.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.EntitySystems;
@@ -15,6 +16,7 @@ public abstract partial class SharedADTCookingSystem : EntitySystem
     [Dependency] protected SharedContainerSystem Container = default!;
     [Dependency] private IngestionSystem _ingestion = default!;
     [Dependency] private IGameTiming _cookingTiming = default!;
+    [Dependency] private SharedItemSystem _cookingItem = default!;
 
     public override void Initialize()
     {
@@ -33,6 +35,33 @@ public abstract partial class SharedADTCookingSystem : EntitySystem
         SubscribeLocalEvent<ADTPlateComponent, GetUtensilsEvent>(OnPlateGetUtensils, before: new[] { typeof(IngestionSystem) });
         SubscribeLocalEvent<ADTPlateComponent, BeforeIngestedEvent>(OnPlateBeforeIngested, before: new[] { typeof(IngestionSystem) });
         SubscribeLocalEvent<ADTPlateComponent, IngestedEvent>(OnPlateIngested, before: new[] { typeof(IngestionSystem) });
+    }
+
+    public int GetPlateWeight(Entity<ADTPlateComponent> plate, EntityUid item)
+    {
+        if (!TryComp<ItemComponent>(item, out var itemComp))
+            return 1;
+
+        var weight = _cookingItem.GetItemSizeWeight(itemComp.Size);
+        if (weight >= _cookingItem.GetItemSizeWeight(plate.Comp.FullSize))
+            return plate.Comp.MaxWeight;
+
+        return weight;
+    }
+
+    public bool CanFitOnPlate(Entity<ADTPlateComponent> plate, EntityUid item)
+    {
+        var contents = plate.Comp.Contents.ContainedEntities;
+        if (contents.Count >= plate.Comp.MaxItems)
+            return false;
+
+        var weight = GetPlateWeight(plate, item);
+        foreach (var contained in contents)
+        {
+            weight += GetPlateWeight(plate, contained);
+        }
+
+        return weight <= plate.Comp.MaxWeight;
     }
 
     private void OnPlateUseInHand(Entity<ADTPlateComponent> ent, ref UseInHandEvent args)

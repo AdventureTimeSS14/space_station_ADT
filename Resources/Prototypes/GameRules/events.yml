@@ -49,7 +49,7 @@
     - id: SleeperAgents
   #  - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    # - id: WizardSpawn # ADT tweak no wizard
+  #  - id: WizardSpawn # ADT-Tweak
     - id: BlobSpawn # ADT tweak blob
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph
