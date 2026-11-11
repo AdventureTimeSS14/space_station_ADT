@@ -20,7 +20,7 @@
     zombificationResistanceCoefficient: 0.35
   # ADT-Tweak-Start
   - type: ADTVirusProtection
-    permeability: 0.01
+    permeability: 0
     zones:
     - chest
     - arms
@@ -95,6 +95,16 @@
         Piercing: 0.8
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: GroupExamine
   - type: ClothingSpeedModifier
     walkModifier: 0.95

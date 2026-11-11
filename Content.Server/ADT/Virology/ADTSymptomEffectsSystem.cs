@@ -49,6 +49,12 @@ public sealed class ADTSymptomEffectsSystem : EntitySystem
         var carrier = ent.Comp;
         var state = args.State;
 
+        if (args.Phase == ADTSymptomPhase.Start)
+        {
+            state.Counter = args.Effect.Charges;
+            return;
+        }
+
         if (args.Phase == ADTSymptomPhase.End)
         {
             if (state.Text != null)
@@ -67,6 +73,9 @@ public sealed class ADTSymptomEffectsSystem : EntitySystem
             return;
         }
 
+        if (state.Counter <= 0)
+            return;
+
         var cured = new List<string>();
         foreach (var disease in carrier.Diseases.ToList())
         {
@@ -77,18 +86,27 @@ public sealed class ADTSymptomEffectsSystem : EntitySystem
                 continue;
 
             cured.Add(disease.GetId());
-            _disease.Cure((ent.Owner, carrier), disease);
+            _disease.Cure((ent.Owner, carrier), disease, needImmunity: args.Effect.GiveImmunity);
+
+            if (--state.Counter <= 0)
+                break;
         }
 
         if (cured.Count == 0)
             return;
 
-        var known = state.Text?.Split('\n').ToList() ?? new List<string>();
-        known.AddRange(cured);
-        state.Text = string.Join('\n', known.Distinct());
+        if (args.Effect.GiveImmunity)
+        {
+            var known = state.Text?.Split('\n').ToList() ?? new List<string>();
+            known.AddRange(cured);
+            state.Text = string.Join('\n', known.Distinct());
+        }
 
         if (args.Effect.CuredPopup is { } popup)
             _popup.PopupEntity(Loc.GetString(popup), ent, ent);
+
+        if (state.Counter <= 0 && args.Effect.DepletedPopup is { } depleted)
+            _popup.PopupEntity(Loc.GetString(depleted), ent, ent);
     }
 
     private void OnLongevity(Entity<ADTDiseaseCarrierComponent> ent, ref ADTSymptomEvent<ADTSymptomLongevity> args)

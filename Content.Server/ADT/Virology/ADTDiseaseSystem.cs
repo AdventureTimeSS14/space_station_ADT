@@ -20,6 +20,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -59,6 +60,13 @@ public sealed partial class ADTDiseaseSystem : EntitySystem
         InitializeSpread();
         InitializeBlood();
         InitializeAdvance();
+
+        SubscribeLocalEvent<ADTDiseaseCarrierComponent, RejuvenateEvent>(OnRejuvenate);
+    }
+
+    private void OnRejuvenate(Entity<ADTDiseaseCarrierComponent> ent, ref RejuvenateEvent args)
+    {
+        CureAll(ent.Owner, needImmunity: false);
     }
 
     public override void Update(float frameTime)
@@ -377,7 +385,7 @@ public sealed partial class ADTDiseaseSystem : EntitySystem
     {
         if (proto.Infectable == null)
         {
-            if (HasComp<HumanoidProfileComponent>(uid))
+            if (HasComp<HumanoidProfileComponent>(uid) || HasComp<ADTVirusSusceptibleComponent>(uid))
                 return true;
         }
         else if (_whitelist.IsWhitelistPass(proto.Infectable, uid))

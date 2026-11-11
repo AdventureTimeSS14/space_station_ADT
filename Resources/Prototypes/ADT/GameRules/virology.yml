@@ -3,12 +3,13 @@
   id: ADTDiseaseOutbreak
   components:
   - type: StationEvent
-    weight: 6
-    minimumPlayers: 15
-    reoccurrenceDelay: 40
-    earliestStart: 25
+    weight: 2
+    minimumPlayers: 5
+    reoccurrenceDelay: 90
+    earliestStart: 60
     duration: 1
   - type: ADTDiseaseOutbreakRule
+    announce: false
     advanceChance: 0.25
     diseases:
     - ADTDiseaseCold
@@ -34,4 +35,5 @@
   parent: BaseGameRule
   id: ADTDiseaseAlertRule
   components:
-  - type: ADTDiseaseAlertRule
+  - type: ADTDiseaseOutbreakRule
+    infectAtStart: false

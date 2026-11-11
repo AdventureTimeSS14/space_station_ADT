@@ -109,6 +109,12 @@
   name: galoshes
   description: Specialised non-slip rubber boots, designed to reduce janitorial workplace accidents; a tider's treasure.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.05
+    zones:
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Shoes/Specific/galoshes.rsi
   - type: Clothing

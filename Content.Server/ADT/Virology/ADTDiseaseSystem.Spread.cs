@@ -8,6 +8,8 @@ using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Destructible;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -40,6 +42,8 @@ public sealed partial class ADTDiseaseSystem
     public const string ZoneLegs = "legs";
     public const string ZoneFeet = "feet";
 
+    private static readonly string[] AirborneSlots = { "mask", "head", "outerClothing" };
+
     private static readonly string[] ProtectionSlots =
     {
         "head", "mask", "eyes", "outerClothing", "jumpsuit", "gloves", "shoes", "neck",
@@ -49,6 +53,61 @@ public sealed partial class ADTDiseaseSystem
     {
         SubscribeLocalEvent<ADTDiseaseCarrierComponent, ContactInteractionEvent>(OnContactInteraction);
         SubscribeLocalEvent<ADTDiseaseCarrierComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<SolutionManagerComponent, BreakageEventArgs>(OnContainerBreak);
+        SubscribeLocalEvent<SolutionManagerComponent, DestructionEventArgs>(OnContainerDestruction);
+    }
+
+    private void OnContainerBreak(Entity<SolutionManagerComponent> ent, ref BreakageEventArgs args)
+    {
+        ReleaseContainerViruses(ent.Owner);
+    }
+
+    private void OnContainerDestruction(Entity<SolutionManagerComponent> ent, ref DestructionEventArgs args)
+    {
+        ReleaseContainerViruses(ent.Owner);
+    }
+
+    private void ReleaseContainerViruses(EntityUid uid)
+    {
+        if (HasComp<BloodstreamComponent>(uid))
+            return;
+
+        var released = new List<ADTDisease>();
+        foreach (var (_, solution) in _solution.EnumerateSolutions((uid, null)))
+        {
+            foreach (var reagent in solution.Comp.Solution.Contents)
+            {
+                var data = GetVirusData(reagent);
+                if (data == null)
+                    continue;
+
+                foreach (var disease in data.Diseases)
+                {
+                    if ((disease.Spread & ADTDiseaseSpread.Contact) == 0)
+                        continue;
+
+                    if (released.Any(d => d.IsSame(disease)))
+                        continue;
+
+                    released.Add(disease);
+                }
+            }
+        }
+
+        if (released.Count == 0)
+            return;
+
+        var xform = Transform(uid);
+        var targets = new HashSet<Entity<MobStateComponent>>();
+        _lookup.GetEntitiesInRange(xform.Coordinates, 1.5f, targets, LookupFlags.Dynamic | LookupFlags.Sundries);
+
+        foreach (var victim in targets)
+        {
+            foreach (var disease in released)
+            {
+                Contract(victim.Owner, disease, ADTDiseaseSpread.Contact, protectionCheck: true);
+            }
+        }
     }
 
     private bool CanSpread(EntityUid uid, ADTDisease disease, ADTDiseasePrototype proto, bool dead)
@@ -212,6 +271,9 @@ public sealed partial class ADTDiseaseSystem
             if (!protection.Zones.Contains(zone))
                 continue;
 
+            if (protection.Permeability <= 0f)
+                return true;
+
             if (_random.Prob(Math.Clamp(1f - protection.Permeability, 0f, 1f)))
                 return true;
         }
@@ -244,14 +306,24 @@ public sealed partial class ADTDiseaseSystem
             : 0.2f;
 
         var permeabilityMod = Math.Clamp(2f - disease.Permeability, 0.1f, 1f);
-        var maskMod = 1f;
+        var maskMod = 0.2f;
 
-        if (_inventory.TryGetSlotEntity(uid, "mask", out var mask))
+        foreach (var slot in AirborneSlots)
         {
-            if (TryComp<ADTVirusProtectionComponent>(mask, out var protection) && protection.Airborne is { } airborne)
-                maskMod = airborne;
-            else if (TryComp<IngestionBlockerComponent>(mask, out var blocker) && blocker.Enabled)
-                maskMod = 0.5f;
+            if (!_inventory.TryGetSlotEntity(uid, slot, out var item))
+                continue;
+
+            if (TryComp<ADTVirusProtectionComponent>(item, out var protection) && protection.Airborne is { } airborne)
+            {
+                if (airborne >= 1f)
+                    return true;
+
+                maskMod = MathF.Max(maskMod, airborne);
+            }
+            else if (TryComp<IngestionBlockerComponent>(item, out var blocker) && blocker.Enabled)
+            {
+                maskMod = MathF.Max(maskMod, 0.5f);
+            }
         }
 
         return _random.Prob(Math.Clamp(permeabilityMod * internalsMod * maskMod, 0f, 1f));

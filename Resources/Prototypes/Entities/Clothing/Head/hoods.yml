@@ -18,8 +18,8 @@
     zombificationResistanceCoefficient: 0.9
   # ADT-Tweak-Start
   - type: ADTVirusProtection
-    permeability: 0.01
-    airborne: 0.99
+    permeability: 0
+    airborne: 1
     zones:
     - head
   # ADT-Tweak-End

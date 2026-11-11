@@ -10,7 +10,7 @@ public sealed partial class ADTDiseaseCarrierComponent : Component
     public HashSet<string> Resistances = new();
 
     [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(2);
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(3);
 
     [ViewVariables]
     public TimeSpan NextUpdate;

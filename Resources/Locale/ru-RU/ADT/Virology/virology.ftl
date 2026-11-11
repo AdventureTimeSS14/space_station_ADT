@@ -53,3 +53,7 @@ adt-virus-protection-zone-arms = руки
 adt-virus-protection-zone-hands = кисти
 adt-virus-protection-zone-legs = ноги
 adt-virus-protection-zone-feet = ступни
+adt-uplink-viral-injector-name = Вирусный инъектор
+adt-uplink-viral-injector-desc = Модифицированный шприц, замаскированный под пипетку. Позволяет незаметно заразить жертву содержимым.
+adt-uplink-gbs-culture-name = Культура ГБС
+adt-uplink-gbs-culture-desc = Бутылка с культурой чрезвычайно смертельного вируса ГБС. В начале имитирует грипп, затем убивает носителя.

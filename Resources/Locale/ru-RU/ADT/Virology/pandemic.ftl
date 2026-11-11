@@ -47,3 +47,4 @@ adt-pandemic-form-cure = Лекарство от вируса: { $cure }
 adt-pandemic-form-none = отсутствуют
 adt-pandemic-form-responsibility = Вирусолог несёт ответственность за любые биологические угрозы, возникшие вследствие выпуска вируса.
 adt-pandemic-form-label = выпуск вируса «{ $name }»
+adt-pandemic-symptom-stats = Уровень: { $level } | Скрытность: { $stealth } | Устойчивость: { $resistance } | Скорость стадий: { $stageSpeed } | Заразность: { $transmittable } | Тяжесть: { $severity }

@@ -13,6 +13,9 @@ public sealed partial class ADTSymptomPrototype : IPrototype
     public LocId Name;
 
     [DataField]
+    public LocId? Description;
+
+    [DataField]
     public int Stealth;
 
     [DataField]
@@ -32,6 +35,9 @@ public sealed partial class ADTSymptomPrototype : IPrototype
 
     [DataField]
     public bool Generatable = true;
+
+    [DataField]
+    public bool Passive;
 
     [DataField]
     public List<ADTDiseaseStageEffects> Stages = new();

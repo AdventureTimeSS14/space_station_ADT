@@ -44,6 +44,12 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # ADT-Tweak-Start
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTVirusImmune
+        absolute: true
+  # ADT-Tweak-End
 
 - type: startingGear
   id: CMOGear

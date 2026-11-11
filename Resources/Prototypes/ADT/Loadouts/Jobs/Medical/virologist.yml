@@ -32,8 +32,3 @@
   id: ADTVirologistDuffel
   equipment:
     back: ClothingBackpackDuffelVirology
-
-- type: loadout
-  id: ADTVirologistBioBag
-  equipment:
-    belt: ADTBioBag

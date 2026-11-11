@@ -2668,9 +2668,3 @@
   - ADTVirologistSatchel
   - ADTVirologistDuffel
 
-- type: loadoutGroup
-  id: ADTVirologistBelt
-  name: loadout-group-adt-virologist-belt
-  minLimit: 0
-  loadouts:
-  - ADTVirologistBioBag

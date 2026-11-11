@@ -33,6 +33,7 @@
     - id: ClothingHeadHatHoodBioVirology
     # ADT-Tweak-Start
     - id: ADTBioBag
+    - id: ADTBoxBodyBagBiohazard
     - id: ClothingMaskBreath
     - id: OxygenTankFilled
     # ADT-Tweak-End

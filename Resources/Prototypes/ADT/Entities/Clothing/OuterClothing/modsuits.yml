@@ -511,6 +511,16 @@
   name: CMO MOD chestplate
   description: A chestplate for a MODsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/cmo.rsi
   - type: Clothing
@@ -737,6 +747,16 @@
   name: research MOD chestplate "Minerva"
   description: A chestplate for a MODsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/minerva.rsi
   - type: Clothing

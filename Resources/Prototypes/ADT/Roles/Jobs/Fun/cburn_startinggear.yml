@@ -30,6 +30,7 @@
     - SpaceCash1000
     - CombatKnife
     - ADTMedkitERTFilled
+    - ADTMedkitVirologyFilled
     - CrowbarGreen
 
 - type: startingGear
@@ -65,5 +66,6 @@
     - SpaceCash1000
     - CombatKnife
     - ADTMedkitERTFilled
+    - ADTMedkitVirologyFilled
     - BoxFolderCentCom
     - RubberStampCentcom

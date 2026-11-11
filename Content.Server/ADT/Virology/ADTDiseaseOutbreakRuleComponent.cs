@@ -11,4 +11,31 @@ public sealed partial class ADTDiseaseOutbreakRuleComponent : Component
 
     [DataField]
     public float AdvanceChance = 0.25f;
+
+    [DataField]
+    public bool InfectAtStart = true;
+
+    [DataField]
+    public bool Announce = true;
+
+    [DataField]
+    public TimeSpan CheckInterval = TimeSpan.FromSeconds(30);
+
+    [DataField]
+    public float SecondStageFraction = 0.35f;
+
+    [DataField]
+    public int SecondStageMinimum = 8;
+
+    [DataField]
+    public LocId OutbreakMessage = "adt-disease-alert-outbreak";
+
+    [DataField]
+    public LocId ConfirmedMessage = "adt-disease-alert-confirmed";
+
+    [ViewVariables]
+    public int Stage;
+
+    [ViewVariables]
+    public TimeSpan NextCheck;
 }

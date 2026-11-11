@@ -23,6 +23,15 @@ public sealed partial class ADTSymptomCureDiseases : ADTSymptomEffect<ADTSymptom
 
     [DataField]
     public LocId? EndPopup;
+
+    [DataField]
+    public LocId? DepletedPopup;
+
+    [DataField]
+    public int Charges = 4;
+
+    [DataField]
+    public bool GiveImmunity;
 }
 
 public sealed partial class ADTSymptomLongevity : ADTSymptomEffect<ADTSymptomLongevity>

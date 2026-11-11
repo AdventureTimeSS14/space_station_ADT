@@ -21,12 +21,7 @@
   equipment:
     id: MedicalPDA
     ears: ClothingHeadsetMedical
-    jumpsuit: ClothingUniformJumpsuitVirology
-    outerClothing: ClothingOuterCoatLabViro
-    shoes: ClothingShoesColorWhite
-    gloves: ClothingHandsGlovesLatex
-    mask: ClothingMaskSterile
-    back: ClothingBackpackVirology
+    eyes: ADTClothingEyesHudVirology
     belt: ADTBioBag
     pocket1: HandLabeler
     pocket2: Syringe

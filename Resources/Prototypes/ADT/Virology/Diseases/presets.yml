@@ -66,13 +66,6 @@
   - Laugh
 
 - type: adtDisease
-  id: ADTPresetMoan
-  parent: ADTAdvanceVirus
-  name: adt-preset-moan
-  symptoms:
-  - Moan
-
-- type: adtDisease
   id: ADTPresetToxification
   parent: ADTAdvanceVirus
   name: adt-preset-toxification

@@ -84,6 +84,12 @@ public sealed partial class ADTSymptomDropItem : ADTSymptomEffect<ADTSymptomDrop
 {
 }
 
+public sealed partial class ADTSymptomDisorient : ADTSymptomEffect<ADTSymptomDisorient>
+{
+    [DataField]
+    public float Time = 12f;
+}
+
 public sealed partial class ADTSymptomStamina : ADTSymptomEffect<ADTSymptomStamina>
 {
     [DataField]

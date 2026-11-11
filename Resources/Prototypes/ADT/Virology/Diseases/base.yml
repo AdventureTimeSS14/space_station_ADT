@@ -5,7 +5,7 @@
   form: adt-disease-form-disease
   agent: adt-disease-agent-default
   maxStages: 5
-  stageProb: 4
+  stageProb: 2
   cureProb: 8
 
 - type: adtDisease

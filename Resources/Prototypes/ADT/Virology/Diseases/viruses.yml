@@ -888,7 +888,9 @@
   spread: Contact
   cures:
   - Plasma
+  - ADTSpaceacillin
   severity: Biohazard
+  stageProb: 1.5
   stages:
   - minStage: 2
     maxStage: 2
@@ -896,8 +898,8 @@
     - !type:HealthChange
       damage:
         types:
-          Poison: 5
-      probability: 0.45
+          Poison: 1
+      probability: 0.2
     - !type:PopupMessage
       type: Local
       visualType: Small
@@ -927,7 +929,7 @@
     - !type:HealthChange
       damage:
         types:
-          Poison: 5
+          Poison: 2
       probability: 0.2
     - !type:Jitter
       time: 10
@@ -938,11 +940,12 @@
       type: Local
       visualType: LargeCaution
       messages: [ adt-disease-rhumba-beat-5 ]
+      probability: 0.2
     - !type:HealthChange
       damage:
         types:
-          Poison: 15
-      probability: 0.5
+          Poison: 4
+      probability: 0.3
 
 - type: adtDisease
   id: ADTDiseaseLoyalty

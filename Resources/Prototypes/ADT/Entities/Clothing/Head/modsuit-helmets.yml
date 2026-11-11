@@ -407,6 +407,13 @@
   name: CMO MOD helmet
   description: A helmet for a MODsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/Head/Modsuit/cmo.rsi
     layers:
@@ -595,6 +602,13 @@
   name: research MOD helmet "Minerva"
   description: A helmet for a MODsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/Head/Modsuit/minerva.rsi
     layers:

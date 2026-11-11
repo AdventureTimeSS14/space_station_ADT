@@ -29,7 +29,7 @@ public sealed partial class ADTDisease
     public int MaxStages = 5;
 
     [DataField]
-    public float StageProb = 4f;
+    public float StageProb = 2f;
 
     [DataField]
     public float CureProb = 8f;

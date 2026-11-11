@@ -37,7 +37,7 @@ public sealed partial class ADTDiseasePrototype : IPrototype, IInheritingPrototy
     public int MaxStages = 5;
 
     [DataField]
-    public float StageProb = 4f;
+    public float StageProb = 2f;
 
     [DataField]
     public ADTDiseaseVisibility Visibility = ADTDiseaseVisibility.Visible;

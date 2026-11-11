@@ -460,15 +460,3 @@
     type: Local
     visualType: LargeCaution
     messages: [ adt-symptom-confusion-3 ]
-  - !type:ModifyStatusEffect
-    effectProto: StatusEffectDrunk
-    type: Add
-    time: 20.0
-  - !type:ModifyStatusEffect
-    effectProto: StatusEffectWoozy
-    type: Add
-    time: 20.0
-  - !type:ModifyKnockdown
-    type: Add
-    time: 1.5
-    probability: 0.3

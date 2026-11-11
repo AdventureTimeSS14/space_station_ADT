@@ -13,6 +13,8 @@
       visible: false
     - state: tube_lid
       map: [ "enum.OpenableVisuals.Layer" ]
+  - type: FitsInDispenser
+    solution: drink
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: tube-
@@ -46,6 +48,8 @@
       visible: false
     - state: tube_lid
       map: [ "enum.OpenableVisuals.Layer" ]
+  - type: FitsInDispenser
+    solution: drink
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: tube-
@@ -326,3 +330,89 @@
   components:
   - type: ADTDiseaseCulture
     disease: ADTPresetLove
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ADTChemistryBottleSpaceacillin
+  suffix: spaceacillin
+  components:
+  - type: Label
+    localizedLabel: reagent-name-adt-spaceacillin
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: ADTSpaceacillin
+        Quantity: 30
+
+- type: entity
+  parent: Medkit
+  id: ADTMedkitVirology
+  name: virology treatment kit
+  description: A kit for treating viral infections.
+  components:
+  - type: Sprite
+    state: toxinkit
+  - type: Item
+    heldPrefix: toxinkit
+
+- type: entity
+  parent: ADTMedkitVirology
+  id: ADTMedkitVirologyFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTChemistryBottleSpaceacillin
+      amount: 2
+    - id: Syringe
+      amount: 2
+    - id: HandheldHealthAnalyzer
+    - id: ADTVaccineBottle
+      amount: 2
+
+- type: entity
+  parent: ADTBodyBagBiohazard
+  id: ADTBodyBagBiohazardFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxBodyBagBiohazard
+  name: коробка биоизоляционных мешков
+  description: Содержит биоизоляционные мешки для тел.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: ADTBodyBagBiohazardFolded
+        amount: 3
+  - type: Sprite
+    layers:
+      - state: box_medical
+      - state: bodybags
+  - type: Storage
+    whitelist:
+      tags:
+        - BodyBag
+
+- type: entity
+  parent: Syringe
+  id: ADTViralInjector
+  name: пипетка
+  description: Небольшая пипетка для точного переноса жидкостей.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/dropper.rsi
+    layers:
+      - state: dropper
+      - state: dropper1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: Objects/Specific/Chemistry/dropper.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: dropper

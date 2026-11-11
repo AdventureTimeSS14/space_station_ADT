@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Virology;
 using Robust.Shared.Random;
 
@@ -49,7 +50,19 @@ public sealed partial class ADTDiseaseSystem
 
     private void RunSymptoms(EntityUid uid, ADTDisease disease, ADTSymptomPhase phase)
     {
-        foreach (var state in disease.SymptomStates!.ToArray())
+        var states = disease.SymptomStates!.ToArray();
+
+        if (phase == ADTSymptomPhase.Activate && states.Length > 1)
+        {
+            var active = states.Where(s => !_proto.TryIndex(s.Id, out var p) || !p.Passive).ToArray();
+            if (active.Length > 1)
+            {
+                var picked = _random.Pick(active);
+                states = states.Where(s => !active.Contains(s) || s == picked).ToArray();
+            }
+        }
+
+        foreach (var state in states)
         {
             if (TerminatingOrDeleted(uid))
                 return;

@@ -107,7 +107,6 @@ adt-preset-mind-restoration = Очиститель сознания
 adt-preset-advanced-regeneration = Улучшенный неогенез
 adt-preset-stealth-necrosis = Некроэйроз
 adt-preset-laugh = Эффект неконтролируемого смеха
-adt-preset-moan = Синдром стонов
 adt-preset-toxification = Синдром токсикации
 adt-preset-confusion = Топографическая дезориентация
 adt-preset-love = Синдром пацифиста
