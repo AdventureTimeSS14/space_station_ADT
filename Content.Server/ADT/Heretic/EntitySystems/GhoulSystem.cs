@@ -329,7 +329,6 @@ public sealed class GhoulSystem : EntitySystem
         if (ent.Comp.SpawnOnDeathPrototype != null)
             Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
 
-        DeleteGhoulEquipment(ent);
         DeleteMimicGear(ent);
 
         // ADT: no shitmed BodySystem, gib via GibbingSystem
@@ -348,25 +347,5 @@ public sealed class GhoulSystem : EntitySystem
         }
 
         gear.Gear.Clear();
-    }
-
-    private void DeleteGhoulEquipment(EntityUid ghoul)
-    {
-        if (TryComp(ghoul, out InventoryComponent? inventory))
-        {
-            var slots = _inventory.GetSlotEnumerator((ghoul, inventory));
-            while (slots.NextItem(out var item, out _))
-            {
-                QueueDel(item);
-            }
-        }
-
-        if (TryComp(ghoul, out HandsComponent? hands))
-        {
-            foreach (var held in _hands.EnumerateHeld((ghoul, hands)))
-            {
-                QueueDel(held);
-            }
-        }
     }
 }
