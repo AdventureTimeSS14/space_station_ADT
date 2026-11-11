@@ -1,0 +1,474 @@
+- type: entityEffect
+  id: ADTDiseaseBeeseaseEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-beesease-sting ]
+  - !type:MovementSpeedModifier
+    walkSpeedModifier: 0.7
+    sprintSpeedModifier: 0.7
+    time: 3
+  - !type:HealthChange
+    damage:
+      types:
+        Poison: 2
+
+- type: entityEffect
+  id: ADTDiseaseBeeseaseEffect2
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-beesease-sting ]
+  - !type:MovementSpeedModifier
+    walkSpeedModifier: 0.7
+    sprintSpeedModifier: 0.7
+    time: 3
+  - !type:HealthChange
+    damage:
+      types:
+        Poison: 2
+
+- type: entityEffect
+  id: ADTDiseaseBeeseaseEffect3
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-beesease-sting ]
+  - !type:HealthChange
+    damage:
+      types:
+        Poison: 2
+
+- type: entityEffect
+  id: ADTDiseaseBeeseaseEffect4
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-beesease-swarm ]
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: 3
+  - !type:SpawnEntity
+    entity: MobBee
+    number: 3
+    predicted: false
+
+- type: entityEffect
+  id: ADTDiseaseBrainrotEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-brainrot-faint ]
+  - !type:ModifyParalysis
+    type: Add
+    time: 10.0
+
+- type: entityEffect
+  id: ADTDiseaseMagnitisEffect1
+  effects:
+  - !type:PlaySoundEffect
+    sound:
+      collection: MetalThud
+  - !type:ADTDiseaseMagnetPull
+    range: 2
+    steps: 1
+
+- type: entityEffect
+  id: ADTDiseaseMagnitisEffect2
+  effects:
+  - !type:PlaySoundEffect
+    sound:
+      collection: MetalThud
+  - !type:ADTDiseaseMagnetPull
+    range: 4
+    steps: 2
+
+- type: entityEffect
+  id: ADTDiseaseMagnitisEffect3
+  effects:
+  - !type:PlaySoundEffect
+    sound:
+      collection: MetalThud
+  - !type:ADTDiseaseMagnetPull
+    range: 6
+    steps: 3
+
+- type: entityEffect
+  id: ADTDiseaseTuberculosisEffect1
+  effects:
+  - !type:Emote
+    emote: Cough
+    showInChat: true
+  - !type:PopupMessage
+    type: Local
+    visualType: Small
+    messages: [ adt-disease-tuberculosis-1 ]
+
+- type: entityEffect
+  id: ADTDiseaseTuberculosisEffect2
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-tuberculosis-dizzy ]
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectWoozy
+    type: Add
+    time: 10.0
+
+- type: entityEffect
+  id: ADTDiseaseTuberculosisEffect3
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-tuberculosis-4 ]
+  - !type:Emote
+    emote: Gasp
+    showInChat: true
+  - !type:HealthChange
+    damage:
+      types:
+        Asphyxiation: 5
+
+- type: entityEffect
+  id: ADTDiseaseTuberculosisEffect4
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-tuberculosis-5 ]
+  - !type:Emote
+    emote: Gasp
+    showInChat: true
+  - !type:HealthChange
+    damage:
+      types:
+        Asphyxiation: 25
+
+- type: entityEffect
+  id: ADTDiseaseTuberculosisEffect5
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-tuberculosis-faint ]
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectForcedSleeping
+    type: Add
+    time: 10.0
+
+- type: entityEffect
+  id: ADTDiseaseTuberculosisEffect6
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: Small
+    messages: [ adt-disease-tuberculosis-hot ]
+  - !type:AdjustTemperature
+    amount: 8000.0
+
+- type: entityEffect
+  id: ADTDiseaseAnxietyEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-anxiety-panic ]
+  - !type:Jitter
+    time: 10
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStutter
+    type: Add
+    time: 10.0
+
+- type: entityEffect
+  id: ADTDiseaseAnxietyEffect2
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-anxiety-attack ]
+  - !type:Jitter
+    time: 30
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStutter
+    type: Add
+    time: 30.0
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectScrambled
+    type: Add
+    time: 10.0
+
+- type: entityEffect
+  id: ADTDiseaseAnxietyEffect3
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-anxiety-butterflies ]
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStunned
+    type: Add
+    time: 5.0
+  - !type:SpawnEntity
+    entity: MobButterfly
+    number: 2
+    predicted: false
+
+- type: entityEffect
+  id: ADTDiseaseLycanEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: Small
+    messages: [ adt-disease-lycan-1 ]
+  - !type:Emote
+    emote: Cough
+    showInChat: true
+
+- type: entityEffect
+  id: ADTDiseaseLycanEffect2
+  effects:
+  - !type:Emote
+    emote: Howl
+    showInChat: true
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectScrambled
+    type: Add
+    time: 14.0
+
+- type: entityEffect
+  id: ADTDiseaseLycanEffect3
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-lycan-puppy ]
+  - !type:SpawnEntity
+    entity: MobCorgiPuppy
+    number: 2
+    predicted: false
+
+- type: entityEffect
+  id: ADTDiseaseLycanEffect4
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-lycan-plushie ]
+  - !type:SpawnEntity
+    entity: PlushieVulp
+    predicted: false
+
+- type: entityEffect
+  id: ADTDiseasePierrotThroatEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: Small
+    messages: [ adt-disease-pierrot-throat-2 ]
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectSeeingRainbow
+    type: Add
+    time: 20.0
+
+- type: entityEffect
+  id: ADTDiseasePierrotThroatAdvancedEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-pierrot-throat-adv-2 ]
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectSeeingRainbow
+    type: Add
+    time: 40.0
+
+- type: entityEffect
+  id: ADTDiseasePierrotThroatAdvancedEffect2
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-pierrot-throat-3 ]
+  - !type:PlaySoundEffect
+    sound:
+      path: /Audio/Items/airhorn.ogg
+
+- type: entityEffect
+  id: ADTDiseaseKingstonsEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-kingstons-hairball ]
+  - !type:Emote
+    emote: Cough
+    showInChat: true
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStunned
+    type: Add
+    time: 4.0
+
+- type: entityEffect
+  id: ADTDiseaseKingstonsAdvancedEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-kingstons-adv-scratch ]
+  - !type:HealthChange
+    damage:
+      types:
+        Slash: 5
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStunned
+    type: Add
+    time: 3.0
+
+- type: entityEffect
+  id: ADTDiseaseWizarditisEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-wizarditis-7, adt-disease-wizarditis-8 ]
+  - !type:SpawnEntityInInventory
+    slot: head
+    entity: ClothingHeadHatWizard
+    predicted: false
+
+- type: entityEffect
+  id: ADTDiseaseWizarditisEffect2
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-wizarditis-9 ]
+  - !type:SpawnEntityInInventory
+    slot: outerClothing
+    entity: ClothingOuterWizard
+    predicted: false
+
+- type: entityEffect
+  id: ADTDiseaseWizarditisEffect3
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-wizarditis-10 ]
+  - !type:RandomTeleportNearby
+    range: 6
+    radius:
+      min: 2
+      max: 6
+
+- type: entityEffect
+  id: ADTDiseaseBabylonianFeverEffect1
+  effects:
+  - !type:ADTDiseaseSpeak
+    messages: [ adt-disease-babylon-say-1, adt-disease-babylon-say-2, adt-disease-babylon-say-3, adt-disease-babylon-say-4, adt-disease-babylon-say-5 ]
+  - !type:HealthChange
+    damage:
+      types:
+        Poison: 0.5
+
+- type: entityEffect
+  id: ADTDiseaseCadaverEffect1
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: Small
+    messages: [ adt-disease-cadaver-hot-1 ]
+  - !type:AdjustTemperature
+    amount: 6000.0
+
+- type: entityEffect
+  id: ADTDiseaseCadaverEffect2
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-cadaver-hot-2 ]
+  - !type:AdjustTemperature
+    amount: 8000.0
+
+- type: entityEffect
+  id: ADTDiseaseCadaverEffect3
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-cadaver-pain ]
+  - !type:Emote
+    emote: Whine
+    showInChat: true
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStunned
+    type: Add
+    time: 1.0
+  - !type:MovementSpeedModifier
+    walkSpeedModifier: 0.8
+    sprintSpeedModifier: 0.8
+    time: 15
+
+- type: entityEffect
+  id: ADTDiseaseCadaverEffect4
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-disease-cadaver-pain ]
+  - !type:Emote
+    emote: Whine
+    showInChat: true
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStunned
+    type: Add
+    time: 1.0
+  - !type:MovementSpeedModifier
+    walkSpeedModifier: 0.7
+    sprintSpeedModifier: 0.7
+    time: 20
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: 10
+
+- type: entityEffect
+  id: ADTDiseaseRhumbaBeatEffect1
+  effects:
+  - !type:Emote
+    emote: Gasp
+    showInChat: true
+  - !type:PopupMessage
+    type: Local
+    visualType: MediumCaution
+    messages: [ adt-disease-rhumba-beat-4 ]
+
+- type: entityEffect
+  id: ADTSymptomConfusionEffect
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ adt-symptom-confusion-3 ]
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectDrunk
+    type: Add
+    time: 20.0
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectWoozy
+    type: Add
+    time: 20.0
+  - !type:ModifyKnockdown
+    type: Add
+    time: 1.5
+    probability: 0.3

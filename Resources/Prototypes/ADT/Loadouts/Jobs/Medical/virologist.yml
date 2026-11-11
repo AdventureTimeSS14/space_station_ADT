@@ -1,0 +1,39 @@
+- type: loadout
+  id: ADTVirologistJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVirology
+
+- type: loadout
+  id: ADTVirologistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtVirology
+
+- type: loadout
+  id: ADTVirologistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabViro
+
+- type: loadout
+  id: ADTVirologistWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterViro
+
+- type: loadout
+  id: ADTVirologistBackpack
+  equipment:
+    back: ClothingBackpackVirology
+
+- type: loadout
+  id: ADTVirologistSatchel
+  equipment:
+    back: ClothingBackpackSatchelVirology
+
+- type: loadout
+  id: ADTVirologistDuffel
+  equipment:
+    back: ClothingBackpackDuffelVirology
+
+- type: loadout
+  id: ADTVirologistBioBag
+  equipment:
+    belt: ADTBioBag

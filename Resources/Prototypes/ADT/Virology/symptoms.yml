@@ -1,0 +1,1263 @@
+- type: adtSymptom
+  id: Sneeze
+  name: adt-symptom-sneeze
+  stealth: -2
+  resistance: 3
+  transmittable: 4
+  level: 1
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 3
+    effects:
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.03
+  - minStage: 4
+    effects:
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.03
+    effect: !type:ADTSymptomSpread
+      range: 5
+
+- type: adtSymptom
+  id: Cough
+  name: adt-symptom-cough
+  stealth: -1
+  resistance: 3
+  stageSpeed: 1
+  transmittable: 2
+  level: 1
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-cough-1, adt-symptom-cough-2 ]
+      probability: 0.03
+  - minStage: 4
+    effects:
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.03
+    effect: !type:ADTSymptomDropItem
+
+- type: adtSymptom
+  id: Itching
+  name: adt-symptom-itching
+  resistance: 3
+  stageSpeed: 3
+  transmittable: 1
+  level: 1
+  severity: 1
+  stages:
+  - effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-itching-1, adt-symptom-itching-2, adt-symptom-itching-3, adt-symptom-itching-4 ]
+      probability: 0.03
+
+- type: adtSymptom
+  id: Headache
+  name: adt-symptom-headache
+  stealth: -1
+  resistance: 4
+  stageSpeed: 2
+  level: 1
+  severity: 1
+  stages:
+  - effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-headache-1, adt-symptom-headache-2 ]
+      probability: 0.03
+
+- type: adtSymptom
+  id: Fever
+  name: adt-symptom-fever
+  resistance: 3
+  stageSpeed: 3
+  transmittable: 2
+  level: 2
+  severity: 2
+  stages:
+  - effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-fever-1, adt-symptom-fever-2 ]
+      probability: 0.03
+  diseaseEffects:
+  - probability: 0.03
+    effect: !type:ADTSymptomScaledTemperature
+      heat: true
+      maxTemperature: 360.0
+      scaleByStage: true
+      multiplier: 150.0
+      terms:
+      - base: 21.0
+        stat: Transmittable
+        factor: 2.0
+      - base: 20.0
+        stat: StageSpeed
+        factor: 3.0
+
+- type: adtSymptom
+  id: Shivering
+  name: adt-symptom-shivering
+  resistance: 2
+  stageSpeed: 2
+  transmittable: 2
+  level: 2
+  severity: 2
+  stages:
+  - effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-shivering-1, adt-symptom-shivering-2 ]
+      probability: 0.03
+  diseaseEffects:
+  - probability: 0.03
+    effect: !type:ADTSymptomScaledTemperature
+      heat: false
+      minTemperature: 260.0
+      scaleByStage: true
+      multiplier: 150.0
+      terms:
+      - base: 16.0
+        stat: Stealth
+        factor: 2.0
+      - base: 21.0
+        stat: Resistance
+        factor: 2.0
+
+- type: adtSymptom
+  id: Laugh
+  name: adt-symptom-laugh
+  resistance: -3
+  stageSpeed: 3
+  transmittable: -1
+  level: 2
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-laugh-1, adt-symptom-laugh-2, adt-symptom-laugh-3, adt-symptom-laugh-4 ]
+      probability: 0.06
+  - minStage: 4
+    effects:
+    - !type:Emote
+      emote: Laugh
+      showInChat: true
+      probability: 0.06
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.06
+    effect: !type:ADTSymptomDropItem
+
+- type: adtSymptom
+  id: Moan
+  name: adt-symptom-moan
+  stealth: -4
+  resistance: -3
+  stageSpeed: -1
+  transmittable: 3
+  level: 2
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-moan-1 ]
+      probability: 0.06
+  - minStage: 4
+    effects:
+    - !type:Emote
+      emote: Sigh
+      showInChat: true
+      probability: 0.06
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.06
+    effect: !type:ADTSymptomDropItem
+
+- type: adtSymptom
+  id: Dizzy
+  name: adt-symptom-dizzy
+  stealth: 2
+  resistance: -2
+  stageSpeed: -3
+  transmittable: -1
+  level: 4
+  severity: 2
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-dizzy-1, adt-symptom-dizzy-2 ]
+      probability: 0.15
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-dizzy-3 ]
+      probability: 0.15
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectWoozy
+      time: 15.0
+      probability: 0.15
+
+- type: adtSymptom
+  id: Confusion
+  name: adt-symptom-confusion
+  stealth: -1
+  resistance: 1
+  stageSpeed: -4
+  transmittable: 2
+  level: 3
+  severity: 2
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-confusion-1, adt-symptom-confusion-2 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:NestedEffect
+      proto: ADTSymptomConfusionEffect
+      probability: 0.09
+
+- type: adtSymptom
+  id: Deafness
+  name: adt-symptom-deafness
+  stealth: -1
+  resistance: -2
+  stageSpeed: -1
+  transmittable: -3
+  level: 4
+  severity: 3
+  stages:
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-deafness-1, adt-symptom-deafness-2 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-deafness-3 ]
+      probability: 0.03
+    - !type:ADTAddComponents
+      probability: 0.03
+      components:
+      - type: ADTDeafened
+        severity: 2.5
+
+- type: adtSymptom
+  id: Weakness
+  name: adt-symptom-weakness
+  stealth: -1
+  resistance: -1
+  stageSpeed: -2
+  transmittable: -2
+  level: 3
+  severity: 3
+  stages:
+  - minStage: 1
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-weakness-1, adt-symptom-weakness-2 ]
+      probability: 0.06
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-weakness-3, adt-symptom-weakness-4 ]
+      probability: 0.06
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-weakness-5, adt-symptom-weakness-6 ]
+      probability: 0.06
+  diseaseEffects:
+  - minStage: 3
+    maxStage: 4
+    probability: 0.06
+    effect: !type:ADTSymptomStamina
+      amount: 15.0
+  - minStage: 5
+    probability: 0.06
+    effect: !type:ADTSymptomStamina
+      amount: 30.0
+
+- type: adtSymptom
+  id: WeightLoss
+  name: adt-symptom-weight-loss
+  stealth: -3
+  resistance: -2
+  stageSpeed: -2
+  transmittable: -2
+  level: 3
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-weight-1, adt-symptom-weight-2 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-weight-3, adt-symptom-weight-4 ]
+      probability: 0.03
+    - !type:Satiate
+      satiationType: Hunger
+      factor: -25.0
+      probability: 0.03
+
+- type: adtSymptom
+  id: Vomit
+  name: adt-symptom-vomit
+  stealth: -2
+  resistance: -1
+  transmittable: 1
+  level: 3
+  severity: 4
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-vomit-1, adt-symptom-vomit-2 ]
+      probability: 0.015
+  - minStage: 5
+    effects:
+    - !type:Vomit
+      probability: 0.015
+
+- type: adtSymptom
+  id: VomitBlood
+  name: adt-symptom-vomit-blood
+  stealth: -2
+  resistance: -1
+  stageSpeed: -1
+  transmittable: 1
+  level: 4
+  severity: 5
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-vomit-1, adt-symptom-vomit-2 ]
+      probability: 0.015
+  - minStage: 5
+    effects:
+    - !type:Vomit
+      probability: 0.015
+    - !type:ModifyBloodLevel
+      amount: -10.0
+      probability: 0.015
+
+- type: adtSymptom
+  id: Booze
+  name: adt-symptom-booze
+  stealth: -4
+  resistance: 4
+  stageSpeed: 3
+  transmittable: -2
+  level: 3
+  stages:
+  - minStage: 1
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-booze-1, adt-symptom-booze-2, adt-symptom-booze-3 ]
+      probability: 0.15
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.06
+    effect: !type:ADTSymptomAddReagent
+      reagent: Ethanol
+      amount: 5.0
+
+- type: adtSymptom
+  id: Love
+  name: adt-symptom-love
+  stealth: 2
+  resistance: -2
+  stageSpeed: 1
+  transmittable: 1
+  level: 3
+  stages:
+  - minStage: 2
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-love-1, adt-symptom-love-2, adt-symptom-love-3 ]
+      probability: 0.09
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-love-4, adt-symptom-love-5 ]
+      probability: 0.09
+
+- type: adtSymptom
+  id: Hallucigen
+  name: adt-symptom-hallucigen
+  stealth: -2
+  resistance: -3
+  stageSpeed: -3
+  transmittable: -1
+  level: 5
+  severity: 3
+  stages:
+  - minStage: 1
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-hallucigen-1, adt-symptom-hallucigen-2, adt-symptom-hallucigen-3 ]
+      probability: 0.03
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-hallucigen-4, adt-symptom-hallucigen-5, adt-symptom-hallucigen-6 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-hallucigen-7, adt-symptom-hallucigen-8 ]
+      probability: 0.03
+
+- type: adtSymptom
+  id: Choking
+  name: adt-symptom-choking
+  stealth: -3
+  resistance: -2
+  stageSpeed: -2
+  transmittable: -4
+  level: 3
+  severity: 3
+  stages:
+  - minStage: 1
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-choking-1, adt-symptom-choking-2 ]
+      probability: 0.03
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-choking-3, adt-symptom-choking-4 ]
+      probability: 0.03
+    - !type:Emote
+      emote: Gasp
+      showInChat: true
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-choking-5, adt-symptom-choking-6 ]
+      probability: 0.03
+    - !type:Emote
+      emote: Gasp
+      showInChat: true
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 3
+    maxStage: 4
+    probability: 0.03
+    effect: !type:ADTSymptomScaledDamage
+      damage:
+        types:
+          Asphyxiation: 1
+      terms:
+      - base: 21.0
+        stat: StageSpeed
+        factor: 0.5
+      - base: 16.0
+        stat: Stealth
+        factor: 1.0
+  - minStage: 5
+    probability: 0.03
+    effect: !type:ADTSymptomScaledDamage
+      damage:
+        types:
+          Asphyxiation: 1
+      terms:
+      - base: 21.0
+        stat: StageSpeed
+        factor: 0.5
+      - base: 16.0
+        stat: Stealth
+        factor: 5.0
+
+- type: adtSymptom
+  id: FleshEating
+  name: adt-symptom-flesh-eating
+  stealth: -3
+  resistance: -4
+  transmittable: -4
+  level: 6
+  severity: 5
+  stages:
+  - minStage: 2
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-flesh-1, adt-symptom-flesh-2 ]
+      probability: 0.03
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-flesh-3, adt-symptom-flesh-4, adt-symptom-flesh-5 ]
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.03
+    effect: !type:ADTSymptomScaledDamage
+      damage:
+        types:
+          Slash: 1
+      multiplier: 5.0
+      terms:
+      - base: 16.0
+        stat: Stealth
+        factor: -1.0
+
+- type: adtSymptom
+  id: Fire
+  name: adt-symptom-fire
+  stealth: 1
+  resistance: -4
+  stageSpeed: -4
+  transmittable: -4
+  level: 6
+  severity: 5
+  stages:
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-fire-1, adt-symptom-fire-2, adt-symptom-fire-3 ]
+      probability: 0.03
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-fire-4 ]
+      probability: 0.03
+    - !type:Emote
+      emote: Scream
+      showInChat: true
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 4
+    maxStage: 4
+    probability: 0.03
+    effect: !type:ADTSymptomScaledFire
+      minimum: 1.0
+      damageRatio: 0.5
+      terms:
+      - base: 20.0
+        stat: StageSpeed
+        factor: 2.0
+      - base: 16.0
+        stat: Stealth
+        factor: 1.0
+        multiplier: -1.0
+  - minStage: 5
+    probability: 0.03
+    effect: !type:ADTSymptomScaledFire
+      minimum: 1.0
+      damageRatio: 1.0
+      terms:
+      - base: 20.0
+        stat: StageSpeed
+        factor: 3.0
+      - base: 16.0
+        stat: Stealth
+        factor: 1.0
+        multiplier: -1.0
+
+- type: adtSymptom
+  id: Toxification
+  name: adt-symptom-toxification
+  stealth: -1
+  resistance: -3
+  stageSpeed: -4
+  transmittable: -3
+  level: 5
+  severity: 5
+  stages:
+  - minStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-toxification-1, adt-symptom-toxification-2, adt-symptom-toxification-3 ]
+      probability: 0.09
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 1.5
+      probability: 0.09
+
+- type: adtSymptom
+  id: Heal
+  name: adt-symptom-heal
+  stealth: 1
+  resistance: -4
+  stageSpeed: -4
+  transmittable: -4
+  level: 6
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.3
+    effect: !type:ADTSymptomHeal
+      base: 20.0
+      damage:
+        types:
+          Poison: -1
+
+- type: adtSymptom
+  id: Metabolism
+  name: adt-symptom-metabolism
+  stealth: -1
+  resistance: -1
+  stageSpeed: -1
+  level: 3
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.3
+    effect: !type:ADTSymptomCureDiseases
+      curedPopup: adt-symptom-metabolism-cured
+      endPopup: adt-symptom-metabolism-end
+  - phase: End
+    effect: !type:ADTSymptomCureDiseases
+      curedPopup: adt-symptom-metabolism-cured
+      endPopup: adt-symptom-metabolism-end
+
+- type: adtSymptom
+  id: Longevity
+  name: adt-symptom-longevity
+  stealth: 3
+  resistance: 4
+  stageSpeed: 4
+  transmittable: 4
+  level: 3
+  diseaseEffects:
+  - phase: Start
+    effect: !type:ADTSymptomLongevity
+      longevity: 30
+      variation: 5
+  - minStage: 4
+    probability: 0.3
+    effect: !type:ADTSymptomLongevity
+      longevity: 30
+      variation: 5
+
+- type: adtSymptom
+  id: DamageConverter
+  name: adt-symptom-damage-converter
+  stealth: 1
+  resistance: -4
+  stageSpeed: -4
+  transmittable: -2
+  level: 4
+  stages:
+  - minStage: 4
+    effects:
+    - !type:HealthChange
+      damage:
+        groups:
+          Brute: -2
+        types:
+          Heat: -2
+          Poison: 2
+      probability: 0.3
+
+- type: adtSymptom
+  id: Oxygen
+  name: adt-symptom-oxygen
+  stealth: 1
+  resistance: -3
+  stageSpeed: -3
+  transmittable: -4
+  level: 6
+  stages:
+  - minStage: 1
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-oxygen-1, adt-symptom-oxygen-2, adt-symptom-oxygen-3 ]
+      probability: 0.15
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.15
+    effect: !type:ADTSymptomAddReagent
+      reagent: ADTSalbutamol
+      amount: 20.0
+      maxExisting: 20.0
+
+- type: adtSymptom
+  id: Painkiller
+  name: adt-symptom-painkiller
+  stealth: -3
+  resistance: -2
+  stageSpeed: -1
+  transmittable: -2
+  level: 6
+  stages:
+  - minStage: 2
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-painkiller-1, adt-symptom-painkiller-2, adt-symptom-painkiller-3 ]
+      probability: 0.15
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-painkiller-4, adt-symptom-painkiller-5 ]
+      probability: 0.015
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectPainNumbness
+      time: 10.0
+      probability: 0.15
+
+- type: adtSymptom
+  id: SensoryRestoration
+  name: adt-symptom-sensory-restoration
+  stealth: -1
+  resistance: -3
+  stageSpeed: -2
+  transmittable: -4
+  level: 4
+  stages:
+  - minStage: 1
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-sensory-1, adt-symptom-sensory-2, adt-symptom-sensory-3 ]
+      probability: 0.15
+  diseaseEffects:
+  - minStage: 4
+    probability: 0.15
+    effect: !type:ADTSymptomAddReagent
+      reagent: Oculine
+      amount: 20.0
+      maxExisting: 20.0
+
+- type: adtSymptom
+  id: MindRestoration
+  name: adt-symptom-mind-restoration
+  stealth: -1
+  resistance: -4
+  stageSpeed: -4
+  transmittable: -3
+  level: 5
+  stages:
+  - minStage: 3
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDrunk
+      time: 8.0
+      type: Remove
+      probability: 0.09
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectSlurred
+      time: 4.0
+      type: Remove
+      probability: 0.09
+    - !type:AdjustReagent
+      reagent: Ethanol
+      amount: -3.0
+      probability: 0.09
+  - minStage: 4
+    effects:
+    - !type:AdjustReagent
+      reagent: Histamine
+      amount: -5.0
+      probability: 0.09
+  diseaseEffects:
+  - minStage: 5
+    probability: 0.09
+    effect: !type:ADTSymptomAddReagent
+      reagent: ADTMannitol
+      amount: 10.0
+      maxExisting: 10.0
+
+- type: adtSymptom
+  id: Epinephrine
+  name: adt-symptom-epinephrine
+  stealth: -5
+  resistance: -4
+  stageSpeed: -1
+  transmittable: -2
+  level: 5
+  stages:
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-epinephrine-1, adt-symptom-epinephrine-2 ]
+      probability: 0.015
+  diseaseEffects:
+  - minStage: 5
+    probability: 0.15
+    effect: !type:ADTSymptomAddReagent
+      reagent: Epinephrine
+      amount: 0.5
+      maxExisting: 20.0
+
+- type: adtSymptom
+  id: Blood
+  name: adt-symptom-blood
+  stealth: -2
+  resistance: -2
+  stageSpeed: -4
+  transmittable: -1
+  level: 5
+  stages:
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-blood-1 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-blood-2 ]
+      probability: 0.003
+    - !type:ModifyBloodLevel
+      amount: 2.0
+      probability: 0.03
+    - !type:Satiate
+      satiationType: Hunger
+      factor: -0.5
+      probability: 0.03
+
+- type: adtSymptom
+  id: VisionLoss
+  name: adt-symptom-vision-loss
+  stealth: -1
+  resistance: -4
+  stageSpeed: -4
+  transmittable: -3
+  level: 5
+  severity: 4
+  stages:
+  - minStage: 1
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-vision-1 ]
+      probability: 0.03
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-vision-2 ]
+      probability: 0.03
+    - !type:EyeDamage
+      amount: 1
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-vision-3 ]
+      probability: 0.03
+    - !type:EyeDamage
+      amount: 3
+      probability: 0.03
+
+- type: adtSymptom
+  id: ViralAdaptation
+  name: adt-symptom-viral-adaptation
+  stealth: 3
+  resistance: 5
+  stageSpeed: -3
+  level: 3
+  stages:
+  - minStage: 1
+    maxStage: 1
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-viral-adaptation-1 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-viral-adaptation-2 ]
+      probability: 0.03
+
+- type: adtSymptom
+  id: ViralEvolution
+  name: adt-symptom-viral-evolution
+  stealth: -2
+  resistance: -3
+  stageSpeed: 5
+  transmittable: 3
+  level: 3
+  stages:
+  - minStage: 1
+    maxStage: 1
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-viral-evolution-1 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-viral-evolution-2 ]
+      probability: 0.03
+
+- type: adtSymptom
+  id: Beard
+  name: adt-symptom-beard
+  stealth: -3
+  resistance: -1
+  stageSpeed: -3
+  transmittable: -1
+  level: 4
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-beard-1 ]
+      probability: 0.03
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-beard-2 ]
+      probability: 0.03
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-beard-3 ]
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 1
+    maxStage: 2
+    probability: 0.03
+    effect: !type:ADTSymptomSetMarking
+      layer: FacialHair
+      marking: HumanFacialHairCroppedfullbeard
+      keep:
+      - HumanFacialHairFullbeard
+      - HumanFacialHairLongbeard
+      - HumanFacialHairDwarf
+  - minStage: 3
+    maxStage: 4
+    probability: 0.03
+    effect: !type:ADTSymptomSetMarking
+      layer: FacialHair
+      marking: HumanFacialHairFullbeard
+      keep:
+      - HumanFacialHairLongbeard
+      - HumanFacialHairDwarf
+  - minStage: 5
+    probability: 0.03
+    effect: !type:ADTSymptomSetMarking
+      layer: FacialHair
+      marking: HumanFacialHairDwarf
+      keep:
+      - HumanFacialHairLongbeard
+
+- type: adtSymptom
+  id: Shedding
+  name: adt-symptom-shedding
+  stealth: -1
+  resistance: -1
+  stageSpeed: -1
+  transmittable: 2
+  level: 4
+  severity: 1
+  stages:
+  - effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-shedding-1, adt-symptom-shedding-2 ]
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 3
+    maxStage: 4
+    probability: 0.03
+    effect: !type:ADTSymptomSetMarking
+      layer: Hair
+      marking: HumanHairBalding
+      keep:
+      - HumanHairBaldfade
+  - minStage: 5
+    probability: 0.03
+    effect: !type:ADTSymptomClearMarkings
+      layers:
+      - Hair
+      - FacialHair
+
+- type: adtSymptom
+  id: Vitiligo
+  name: adt-symptom-vitiligo
+  stealth: -3
+  resistance: -1
+  stageSpeed: -1
+  transmittable: -2
+  level: 4
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-vitiligo-1 ]
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 5
+    probability: 0.03
+    effect: !type:ADTSymptomSkinColor
+      color: "#f2e8e0"
+
+- type: adtSymptom
+  id: Revitiligo
+  name: adt-symptom-revitiligo
+  stealth: -3
+  resistance: -1
+  stageSpeed: -1
+  transmittable: -2
+  level: 4
+  severity: 1
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-revitiligo-1 ]
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 5
+    probability: 0.03
+    effect: !type:ADTSymptomSkinColor
+      color: "#5b3a24"
+
+- type: adtSymptom
+  id: Youth
+  name: adt-symptom-youth
+  stealth: 3
+  resistance: 4
+  stageSpeed: 4
+  transmittable: -4
+  level: 5
+  diseaseEffects:
+  - minStage: 1
+    maxStage: 1
+    probability: 0.06
+    effect: !type:ADTSymptomYouth
+      targetAge: 41
+  - minStage: 2
+    maxStage: 2
+    probability: 0.06
+    effect: !type:ADTSymptomYouth
+      targetAge: 36
+  - minStage: 3
+    maxStage: 3
+    probability: 0.06
+    effect: !type:ADTSymptomYouth
+      targetAge: 31
+  - minStage: 4
+    maxStage: 4
+    probability: 0.06
+    effect: !type:ADTSymptomYouth
+      targetAge: 26
+  - minStage: 5
+    probability: 0.06
+    effect: !type:ADTSymptomYouth
+      targetAge: 21
+
+- type: adtSymptom
+  id: VoiceChange
+  name: adt-symptom-voice-change
+  stealth: -2
+  resistance: -3
+  stageSpeed: -3
+  transmittable: -1
+  level: 6
+  severity: 2
+  stages:
+  - minStage: 1
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-symptom-voice-1, adt-symptom-voice-2 ]
+      probability: 0.03
+  diseaseEffects:
+  - minStage: 5
+    probability: 0.03
+    effect: !type:ADTSymptomVoiceChange
+  - phase: End
+    effect: !type:ADTSymptomVoiceChange
+
+- type: adtSymptom
+  id: Aggression
+  name: adt-symptom-aggression
+  stealth: -4
+  resistance: 2
+  stageSpeed: -3
+  transmittable: 1
+  level: 6
+  severity: 4
+  stages:
+  - minStage: 2
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-symptom-aggression-1, adt-symptom-aggression-2, adt-symptom-aggression-3 ]
+      probability: 0.15
+  - minStage: 4
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-aggression-4, adt-symptom-aggression-5 ]
+      probability: 0.15
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-symptom-aggression-6, adt-symptom-aggression-7 ]
+      probability: 0.15
+    - !type:ADTSetCombatMode
+      enabled: true
+      probability: 0.5
+  diseaseEffects:
+  - minStage: 5
+    probability: 0.5
+    effect: !type:ADTSymptomAggression
+      range: 1.5
+      attackChance: 0.5

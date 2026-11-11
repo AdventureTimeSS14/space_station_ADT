@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseGameRule
+  id: ADTDiseaseOutbreak
+  components:
+  - type: StationEvent
+    weight: 6
+    minimumPlayers: 15
+    reoccurrenceDelay: 40
+    earliestStart: 25
+    duration: 1
+  - type: ADTDiseaseOutbreakRule
+    advanceChance: 0.25
+    diseases:
+    - ADTDiseaseCold
+    - ADTDiseaseFlu
+    - ADTDiseaseFluSpanish
+    - ADTDiseaseBeesease
+    - ADTDiseaseBrainrot
+    - ADTDiseaseMagnitis
+    - ADTDiseaseTuberculosis
+    - ADTDiseaseAnxiety
+    - ADTDiseaseLycan
+    - ADTDiseasePierrotThroat
+    - ADTDiseasePierrotThroatAdvanced
+    - ADTDiseaseKingstons
+    - ADTDiseaseWizarditis
+    - ADTDiseaseBabylonianFever
+    - ADTDiseaseCadaver
+    - ADTDiseaseRhumbaBeat
+    - ADTDiseaseLoyalty
+    - ADTDiseaseFakeGbs

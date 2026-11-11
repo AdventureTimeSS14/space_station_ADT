@@ -123,3 +123,4 @@ job-name-syndicate-corpsman = Медик Синдиката
 job-name-syndicate-operative = Оперативник Синдиката
 job-name-pirate = Пират
 job-name-wizard = Волшебник
+job-name-ADTVirologist = вирусолог

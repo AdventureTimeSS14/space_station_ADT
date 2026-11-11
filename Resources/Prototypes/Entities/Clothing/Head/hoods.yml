@@ -16,6 +16,13 @@
     modifiers: { }
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.9
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    airborne: 0.99
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Tag
     tags:
     - WhitelistChameleon

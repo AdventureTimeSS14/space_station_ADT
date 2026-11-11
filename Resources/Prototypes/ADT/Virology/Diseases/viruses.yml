@@ -1,0 +1,1085 @@
+- type: adtDisease
+  id: ADTDiseaseCold
+  parent: ADTBaseVirus
+  name: adt-disease-cold
+  description: adt-disease-cold-desc
+  agent: adt-disease-agent-rhinovirus
+  maxStages: 3
+  spread: Blood, Airborne
+  visibility: HiddenHud
+  cures:
+  - ADTSpaceacillin
+  cureProb: 30
+  restCure: true
+  permeability: 0.5
+  severity: Nonthreat
+  possibleMutations:
+  - ADTDiseaseFlu
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.03
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.03
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-cold-1, adt-disease-cold-2, adt-disease-cold-3 ]
+      probability: 0.05
+  - minStage: 3
+    effects:
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.03
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.03
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-cold-1, adt-disease-cold-2, adt-disease-cold-3 ]
+      probability: 0.05
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: 0.5
+      probability: 0.1
+
+- type: adtDisease
+  id: ADTDiseaseFlu
+  parent: ADTBaseVirus
+  name: adt-disease-flu
+  description: adt-disease-flu-desc
+  agent: adt-disease-agent-influenza
+  maxStages: 3
+  spread: Blood, Airborne
+  visibility: HiddenHud
+  cures:
+  - ADTSpaceacillin
+  cureProb: 30
+  restCure: true
+  permeability: 0.75
+  severity: Medium
+  possibleMutations:
+  - ADTDiseaseFluSpanish
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.03
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.03
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-flu-1 ]
+      probability: 0.04
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: 1
+      probability: 0.04
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-flu-2, adt-disease-flu-3 ]
+      probability: 0.04
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 1
+      probability: 0.04
+  - minStage: 3
+    effects:
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.03
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.03
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-flu-1, adt-disease-flu-2, adt-disease-flu-3 ]
+      probability: 0.05
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: 1
+          Poison: 1
+      probability: 0.05
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDrowsiness
+      type: Add
+      time: 10.0
+      probability: 0.05
+
+- type: adtDisease
+  id: ADTDiseaseFluSpanish
+  parent: ADTBaseVirus
+  name: adt-disease-flu-spanish
+  description: adt-disease-flu-spanish-desc
+  agent: adt-disease-agent-influenza-inquisition
+  maxStages: 3
+  spread: Blood, Airborne
+  cures:
+  - ADTSpaceacillin
+  cureProb: 10
+  requiredResistances:
+  - ADTDiseaseFlu
+  missingResistanceCureProb: 1
+  permeability: 0.75
+  severity: Dangerous
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:AdjustTemperature
+      amount: 2000.0
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.05
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.05
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-flu-spanish-1 ]
+      probability: 0.01
+    - !type:HealthChange
+      damage:
+        types:
+          Heat: 5
+      probability: 0.01
+  - minStage: 3
+    effects:
+    - !type:AdjustTemperature
+      amount: 4000.0
+    - !type:Emote
+      emote: Sneeze
+      showInChat: true
+      probability: 0.05
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.05
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-disease-flu-spanish-1 ]
+      probability: 0.05
+    - !type:HealthChange
+      damage:
+        types:
+          Heat: 5
+      probability: 0.05
+
+- type: adtDisease
+  id: ADTDiseaseBeesease
+  parent: ADTBaseVirus
+  name: adt-disease-beesease
+  description: adt-disease-beesease-desc
+  agent: adt-disease-agent-bees
+  form: adt-disease-form-infection
+  maxStages: 4
+  stageProb: 2
+  discoveryThreshold: 0.9
+  canProgressInDead: true
+  spread: Blood, Contact
+  cures:
+  - Sugar
+  severity: Harmful
+  possibleMutations:
+  - ADTDiseaseLycan
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-beesease-1 ]
+      probability: 0.1
+    - !type:PlaySoundEffect
+      sound:
+        path: /Audio/Ambience/Objects/buzzing.ogg
+      probability: 0.1
+    - !type:NestedEffect
+      proto: ADTDiseaseBeeseaseEffect1
+      probability: 0.01
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-beesease-2 ]
+      probability: 0.1
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: 2
+      probability: 0.1
+    - !type:NestedEffect
+      proto: ADTDiseaseBeeseaseEffect2
+      probability: 0.07
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-disease-beesease-3, adt-disease-beesease-4 ]
+      probability: 0.12
+    - !type:NestedEffect
+      proto: ADTDiseaseBeeseaseEffect3
+      probability: 0.12
+    - !type:NestedEffect
+      proto: ADTDiseaseBeeseaseEffect4
+      probability: 0.03
+
+- type: adtDisease
+  id: ADTDiseaseBrainrot
+  parent: ADTBaseVirus
+  name: adt-disease-brainrot
+  description: adt-disease-brainrot-desc
+  agent: adt-disease-agent-cryptococcus
+  maxStages: 4
+  spread: Blood, Contact
+  cures:
+  - ADTMannitol
+  cureProb: 15
+  severity: Harmful
+  mutationReagents:
+  - UnstableMutagen
+  possibleMutations:
+  - ADTPresetMindRestoration
+  - ADTDiseaseJungleFever
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:Emote
+      emote: Blink
+      showInChat: true
+      probability: 0.03
+    - !type:Emote
+      emote: Yawn
+      showInChat: true
+      probability: 0.04
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-brainrot-1 ]
+      probability: 0.07
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 1
+      probability: 0.15
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectScrambled
+      type: Add
+      time: 10.0
+      probability: 0.15
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-brainrot-2 ]
+      probability: 0.25
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 2
+      probability: 0.25
+  - minStage: 4
+    effects:
+    - !type:Emote
+      emote: Yawn
+      showInChat: true
+      probability: 0.07
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-brainrot-3 ]
+      probability: 0.1
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectStutter
+      type: Add
+      time: 30.0
+      probability: 0.1
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 2
+      probability: 0.3
+    - !type:NestedEffect
+      proto: ADTDiseaseBrainrotEffect1
+      probability: 0.04
+
+- type: adtDisease
+  id: ADTDiseaseMagnitis
+  parent: ADTBaseVirus
+  name: adt-disease-magnitis
+  description: adt-disease-magnitis-desc
+  agent: adt-disease-agent-magnets
+  maxStages: 4
+  spread: Blood, Airborne
+  visibility: HiddenHud
+  cures:
+  - Iron
+  ignoreImmunity: true
+  permeability: 0.75
+  severity: Medium
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-magnitis-1 ]
+      probability: 0.02
+    - !type:NestedEffect
+      proto: ADTDiseaseMagnitisEffect1
+      probability: 0.02
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-magnitis-2, adt-disease-magnitis-3 ]
+      probability: 0.03
+    - !type:NestedEffect
+      proto: ADTDiseaseMagnitisEffect2
+      probability: 0.04
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-magnitis-4, adt-disease-magnitis-5 ]
+      probability: 0.05
+    - !type:NestedEffect
+      proto: ADTDiseaseMagnitisEffect3
+      probability: 0.08
+
+- type: adtDisease
+  id: ADTDiseaseTuberculosis
+  parent: ADTBaseVirus
+  name: adt-disease-tuberculosis
+  description: adt-disease-tuberculosis-desc
+  agent: adt-disease-agent-fungus
+  spread: Airborne
+  cures:
+  - ADTSpaceacillin
+  - ADTSalbutamol
+  cureProb: 5
+  ignoreImmunity: true
+  severity: Harmful
+  stages:
+  - minStage: 2
+    maxStage: 3
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseTuberculosisEffect1
+      probability: 0.02
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-tuberculosis-2, adt-disease-tuberculosis-3 ]
+      probability: 0.05
+  - minStage: 4
+    maxStage: 4
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseTuberculosisEffect2
+      probability: 0.02
+    - !type:NestedEffect
+      proto: ADTDiseaseTuberculosisEffect3
+      probability: 0.02
+    - !type:NestedEffect
+      proto: ADTDiseaseTuberculosisEffect4
+      probability: 0.1
+  - minStage: 5
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseTuberculosisEffect5
+      probability: 0.1
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-tuberculosis-mind ]
+      probability: 0.02
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectScrambled
+      type: Add
+      time: 16.0
+      probability: 0.02
+    - !type:Vomit
+      probability: 0.1
+    - !type:Satiate
+      satiationType: Hunger
+      factor: -40
+      probability: 0.03
+    - !type:NestedEffect
+      proto: ADTDiseaseTuberculosisEffect6
+      probability: 0.15
+
+- type: adtDisease
+  id: ADTDiseaseAnxiety
+  parent: ADTBaseVirus
+  name: adt-disease-anxiety
+  description: adt-disease-anxiety-desc
+  agent: adt-disease-agent-anxiety
+  form: adt-disease-form-infection
+  maxStages: 4
+  spread: Blood, Contact
+  cures:
+  - Ethanol
+  severity: Medium
+  possibleMutations:
+  - ADTDiseaseBeesease
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-anxiety-1 ]
+      probability: 0.05
+    - !type:Jitter
+      time: 5
+      probability: 0.05
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-anxiety-2, adt-disease-anxiety-3 ]
+      probability: 0.1
+    - !type:NestedEffect
+      proto: ADTDiseaseAnxietyEffect1
+      probability: 0.05
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-anxiety-4 ]
+      probability: 0.1
+    - !type:NestedEffect
+      proto: ADTDiseaseAnxietyEffect2
+      probability: 0.05
+    - !type:NestedEffect
+      proto: ADTDiseaseAnxietyEffect3
+      probability: 0.03
+
+- type: adtDisease
+  id: ADTDiseaseLycan
+  parent: ADTBaseVirus
+  name: adt-disease-lycan
+  description: adt-disease-lycan-desc
+  agent: adt-disease-agent-lycan
+  form: adt-disease-form-infection
+  maxStages: 4
+  spread: Contact
+  cures:
+  - Ethanol
+  severity: Medium
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseLycanEffect1
+      probability: 0.05
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-lycan-2, adt-disease-lycan-3 ]
+      probability: 0.1
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.05
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-lycan-4 ]
+      probability: 0.1
+    - !type:NestedEffect
+      proto: ADTDiseaseLycanEffect2
+      probability: 0.05
+    - !type:Emote
+      emote: Bark
+      showInChat: true
+      probability: 0.15
+    - !type:NestedEffect
+      proto: ADTDiseaseLycanEffect3
+      probability: 0.03
+    - !type:NestedEffect
+      proto: ADTDiseaseLycanEffect4
+      probability: 0.01
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: 5
+      probability: 0.1
+
+- type: adtDisease
+  id: ADTDiseasePierrotThroat
+  parent: ADTBaseVirus
+  name: adt-disease-pierrot-throat
+  description: adt-disease-pierrot-throat-desc
+  agent: adt-disease-agent-honk
+  maxStages: 4
+  spread: Blood, Airborne
+  cures:
+  - JuiceBanana
+  cureProb: 75
+  permeability: 0.75
+  severity: Minor
+  possibleMutations:
+  - ADTDiseasePierrotThroatAdvanced
+  - ADTDiseaseWizarditis
+  stages:
+  - minStage: 1
+    maxStage: 1
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-pierrot-throat-1 ]
+      probability: 0.1
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseasePierrotThroatEffect1
+      probability: 0.1
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-pierrot-throat-3 ]
+      probability: 0.1
+  - minStage: 4
+    effects:
+    - !type:ADTDiseaseSpeak
+      messages: [ adt-disease-honk-1, adt-disease-honk-2, adt-disease-honk-3, adt-disease-honk-4 ]
+      probability: 0.05
+    - !type:Emote
+      emote: Honk
+      showInChat: true
+      probability: 0.1
+
+- type: adtDisease
+  id: ADTDiseasePierrotThroatAdvanced
+  parent: ADTDiseasePierrotThroat
+  name: adt-disease-pierrot-throat-advanced
+  description: adt-disease-pierrot-throat-advanced-desc
+  agent: adt-disease-agent-honk-advanced
+  severity: Medium
+  possibleMutations: []
+  stages:
+  - minStage: 1
+    maxStage: 1
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-pierrot-throat-adv-1 ]
+      probability: 0.05
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseasePierrotThroatAdvancedEffect1
+      probability: 0.1
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseasePierrotThroatAdvancedEffect2
+      probability: 0.1
+  - minStage: 4
+    effects:
+    - !type:ADTDiseaseSpeak
+      messages: [ adt-disease-honk-1, adt-disease-honk-2, adt-disease-honk-3, adt-disease-honk-4 ]
+      probability: 0.05
+    - !type:Emote
+      emote: Honk
+      showInChat: true
+      probability: 0.3
+    - !type:SpawnEntityInInventory
+      slot: mask
+      entity: ClothingMaskClown
+      probability: 0.02
+      predicted: false
+
+- type: adtDisease
+  id: ADTDiseaseKingstons
+  parent: ADTBaseVirus
+  name: adt-disease-kingstons
+  description: adt-disease-kingstons-desc
+  agent: adt-disease-agent-kingstons
+  maxStages: 4
+  spread: Airborne
+  cures:
+  - Milk
+  cureProb: 50
+  permeability: 0.75
+  severity: Biohazard
+  mutationReagents:
+  - UnstableMutagen
+  possibleMutations:
+  - ADTDiseaseKingstonsAdvanced
+  stages:
+  - minStage: 1
+    maxStage: 1
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-kingstons-1 ]
+      probability: 0.1
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-kingstons-2 ]
+      probability: 0.1
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:ADTDiseaseSpeak
+      messages: [ adt-disease-kingstons-meow-1, adt-disease-kingstons-meow-2, adt-disease-kingstons-meow-3 ]
+      probability: 0.05
+    - !type:Emote
+      emote: Purr
+      showInChat: true
+      probability: 0.05
+  - minStage: 4
+    effects:
+    - !type:Emote
+      emote: Purr
+      showInChat: true
+      probability: 0.3
+    - !type:NestedEffect
+      proto: ADTDiseaseKingstonsEffect1
+      probability: 0.05
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 2
+      probability: 0.1
+
+- type: adtDisease
+  id: ADTDiseaseKingstonsAdvanced
+  parent: ADTDiseaseKingstons
+  name: adt-disease-kingstons-advanced
+  description: adt-disease-kingstons-advanced-desc
+  agent: adt-disease-agent-kingstons-advanced
+  cures:
+  - Plasma
+  possibleMutations: []
+  stages:
+  - minStage: 1
+    maxStage: 1
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-kingstons-adv-1 ]
+      probability: 0.1
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-kingstons-adv-2 ]
+      probability: 0.1
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-kingstons-adv-3 ]
+      probability: 0.1
+  - minStage: 4
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseKingstonsAdvancedEffect1
+      probability: 0.05
+
+- type: adtDisease
+  id: ADTDiseaseWizarditis
+  parent: ADTBaseVirus
+  name: adt-disease-wizarditis
+  description: adt-disease-wizarditis-desc
+  agent: adt-disease-agent-wizarditis
+  maxStages: 4
+  spread: Blood, Airborne
+  visibility: HiddenHud
+  cures:
+  - ManlyDorf
+  cureProb: 100
+  permeability: 0.75
+  severity: Harmful
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:ADTDiseaseSpeak
+      messages: [ adt-disease-wizarditis-say-1, adt-disease-wizarditis-say-2, adt-disease-wizarditis-say-3, adt-disease-wizarditis-say-4 ]
+      probability: 0.05
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-wizarditis-1, adt-disease-wizarditis-2, adt-disease-wizarditis-3 ]
+      probability: 0.03
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:ADTDiseaseSpeak
+      messages: [ adt-disease-wizarditis-spell-1, adt-disease-wizarditis-spell-2, adt-disease-wizarditis-spell-3, adt-disease-wizarditis-spell-4 ]
+      probability: 0.02
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-wizarditis-4, adt-disease-wizarditis-5, adt-disease-wizarditis-6 ]
+      probability: 0.06
+  - minStage: 4
+    effects:
+    - !type:ADTDiseaseSpeak
+      messages: [ adt-disease-wizarditis-spell-1, adt-disease-wizarditis-spell-2, adt-disease-wizarditis-spell-5, adt-disease-wizarditis-spell-6 ]
+      probability: 0.03
+    - !type:NestedEffect
+      proto: ADTDiseaseWizarditisEffect1
+      probability: 0.01
+    - !type:NestedEffect
+      proto: ADTDiseaseWizarditisEffect2
+      probability: 0.01
+    - !type:NestedEffect
+      proto: ADTDiseaseWizarditisEffect3
+      probability: 0.01
+
+- type: adtDisease
+  id: ADTDiseaseBabylonianFever
+  parent: ADTBaseVirus
+  name: adt-disease-babylonian-fever
+  description: adt-disease-babylonian-fever-desc
+  agent: adt-disease-agent-babylon
+  maxStages: 3
+  spread: Airborne
+  visibility: HiddenHud
+  cures:
+  - ADTMannitol
+  - ADTMitocholide
+  cureProb: 30
+  permeability: 0.75
+  severity: Medium
+  stages:
+  - minStage: 2
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseBabylonianFeverEffect1
+      probability: 0.03
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectScrambled
+      type: Add
+      time: 15.0
+      probability: 0.1
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-babylonian-fever-1 ]
+      probability: 0.1
+
+- type: adtDisease
+  id: ADTDiseaseCadaver
+  parent: ADTBaseVirus
+  name: adt-disease-cadaver
+  description: adt-disease-cadaver-desc
+  agent: adt-disease-agent-cadaver
+  form: adt-disease-form-sickness
+  stageProb: 0.8
+  cureProb: 6
+  discoveryThreshold: 0.3
+  spread: Blood
+  cures:
+  - ADTCalomel
+  severity: Harmful
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:Vomit
+      probability: 0.02
+    - !type:NestedEffect
+      proto: ADTDiseaseCadaverEffect1
+      probability: 0.07
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:Vomit
+      probability: 0.03
+    - !type:NestedEffect
+      proto: ADTDiseaseCadaverEffect2
+      probability: 0.07
+    - !type:NestedEffect
+      proto: ADTDiseaseCadaverEffect3
+      probability: 0.02
+    - !type:Emote
+      emote: Whine
+      showInChat: true
+      probability: 0.05
+  - minStage: 5
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseCadaverEffect4
+      probability: 0.04
+    - !type:Emote
+      emote: Whine
+      showInChat: true
+      probability: 0.04
+
+- type: adtDisease
+  id: ADTDiseaseRhumbaBeat
+  parent: ADTBaseVirus
+  name: adt-disease-rhumba-beat
+  description: adt-disease-rhumba-beat-desc
+  agent: adt-disease-agent-rhumba
+  spread: Contact
+  cures:
+  - Plasma
+  severity: Biohazard
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 5
+      probability: 0.45
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-rhumba-beat-1 ]
+      probability: 0.01
+  - minStage: 3
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-rhumba-beat-2, adt-disease-rhumba-beat-3 ]
+      probability: 0.1
+    - !type:Emote
+      emote: Gasp
+      showInChat: true
+      probability: 0.05
+    - !type:Jitter
+      time: 5
+      probability: 0.1
+  - minStage: 4
+    maxStage: 4
+    effects:
+    - !type:NestedEffect
+      proto: ADTDiseaseRhumbaBeatEffect1
+      probability: 0.1
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 5
+      probability: 0.2
+    - !type:Jitter
+      time: 10
+      probability: 0.2
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-disease-rhumba-beat-5 ]
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 15
+      probability: 0.5
+
+- type: adtDisease
+  id: ADTDiseaseLoyalty
+  parent: ADTBaseVirus
+  name: adt-disease-loyalty
+  description: adt-disease-loyalty-desc
+  agent: adt-disease-agent-loyalty
+  spread: Blood, Contact
+  visibility: HiddenHud
+  cures:
+  - Haloperidol
+  severity: Biohazard
+  noVaccine: true
+  bindsMaster: true
+  permeability: 0.8
+  stages:
+  - minStage: 2
+    maxStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: Small
+      messages: [ adt-disease-loyalty-1, adt-disease-loyalty-2 ]
+      probability: 0.15
+    - !type:ADTDiseaseSpeak
+      messages: [ adt-disease-loyalty-say-1, adt-disease-loyalty-say-2, adt-disease-loyalty-say-3 ]
+      probability: 0.03
+  - minStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-loyalty-3 ]
+      probability: 0.05
+
+- type: adtDisease
+  id: ADTDiseaseGbs
+  parent: ADTBaseVirus
+  name: adt-disease-gbs
+  description: adt-disease-gbs-desc
+  agent: adt-disease-agent-gbs
+  spread: Blood, Contact
+  cures:
+  - Diphenhydramine
+  - Sulfur
+  severity: Biohazard
+  possibleMutations:
+  - ADTDiseaseGbsNonContagious
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-gbs-1, adt-disease-gbs-2 ]
+      probability: 0.15
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 3
+      probability: 0.25
+  - minStage: 3
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-disease-gbs-3 ]
+      probability: 0.15
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 5
+      probability: 0.3
+    - !type:Vomit
+      probability: 0.1
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectScrambled
+      type: Add
+      time: 10.0
+      probability: 0.1
+  - minStage: 5
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-disease-gbs-4 ]
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 10
+          Cellular: 2
+      probability: 0.5
+    - !type:ModifyParalysis
+      type: Add
+      time: 5.0
+      probability: 0.2
+
+- type: adtDisease
+  id: ADTDiseaseGbsNonContagious
+  parent: ADTDiseaseGbs
+  name: adt-disease-gbs-non-contagious
+  spread: NonContagious
+  canImmunity: false
+  possibleMutations: []
+  cures:
+  - Cryoxadone
+
+- type: adtDisease
+  id: ADTDiseaseFakeGbs
+  parent: ADTBaseVirus
+  name: adt-disease-gbs
+  description: adt-disease-gbs-desc
+  agent: adt-disease-agent-gbs
+  spread: Blood, Contact
+  cures:
+  - Diphenhydramine
+  - Sulfur
+  severity: Biohazard
+  stages:
+  - minStage: 2
+    maxStage: 2
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-gbs-1, adt-disease-gbs-2 ]
+      probability: 0.15
+  - minStage: 3
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ adt-disease-gbs-3 ]
+      probability: 0.15
+    - !type:Emote
+      emote: Gasp
+      showInChat: true
+      probability: 0.1

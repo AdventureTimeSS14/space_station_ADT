@@ -31,6 +31,11 @@
     children:
     - id: ClothingOuterBioVirology
     - id: ClothingHeadHatHoodBioVirology
+    # ADT-Tweak-Start
+    - id: ADTBioBag
+    - id: ClothingMaskBreath
+    - id: OxygenTankFilled
+    # ADT-Tweak-End
 
 - type: entity
   id: ClosetL3SecurityFilled

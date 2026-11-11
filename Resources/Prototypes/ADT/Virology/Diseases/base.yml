@@ -1,0 +1,30 @@
+- type: adtDisease
+  id: ADTBaseDisease
+  abstract: true
+  name: adt-disease-unknown
+  form: adt-disease-form-disease
+  agent: adt-disease-agent-default
+  maxStages: 5
+  stageProb: 4
+  cureProb: 8
+
+- type: adtDisease
+  id: ADTBaseVirus
+  parent: ADTBaseDisease
+  abstract: true
+  form: adt-disease-form-virus
+  isVirus: true
+  infectivity: 65
+  spreadFromDeadProb: 25
+  carrierOnly:
+    tags:
+    - Mouse
+
+- type: adtDisease
+  id: ADTAdvanceVirus
+  parent: ADTBaseVirus
+  name: adt-disease-unknown
+  form: adt-disease-form-advance
+  agent: adt-disease-agent-advance
+  description: adt-disease-desc-advance
+  spread: Blood

@@ -1,0 +1,328 @@
+- type: entity
+  parent: BaseChemistryEmptyBottle
+  id: ADTVirusCultureBottle
+  name: культура вируса
+  description: Небольшая мензурка с синтетической кровью, заражённой вирусной культурой.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/virus_tube.rsi
+    layers:
+    - state: tube
+    - state: tube-1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+    - state: tube_lid
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: tube-
+  - type: Openable
+    openableByHand: true
+    closeable: true
+    sound:
+      collection: bottleOpenSounds
+    closeSound:
+      collection: bottleCloseSounds
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { visible: False }
+          False: { visible: True }
+  - type: Label
+
+- type: entity
+  parent: BaseChemistryEmptyBottle
+  id: ADTVaccineBottle
+  name: вакцина
+  description: Небольшая мензурка с раствором антител.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/virus_tube.rsi
+    layers:
+    - state: tube
+    - state: tube-1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+    - state: tube_lid
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: tube-
+  - type: Openable
+    openableByHand: true
+    closeable: true
+    sound:
+      collection: bottleOpenSounds
+    closeSound:
+      collection: bottleCloseSounds
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { visible: False }
+          False: { visible: True }
+  - type: Label
+
+- type: entity
+  parent: BodyBag
+  id: ADTBodyBagBiohazard
+  name: биоизоляционный мешок
+  description: Мешок для тел, который не даёт вирусам вырваться наружу.
+  components:
+  - type: ADTDiseaseContainment
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/envirobag.rsi
+    layers:
+    - state: bag
+      map: [ "unfoldedLayer", "enum.StorageVisualLayers.Base" ]
+    - state: bag_folded
+      map: [ "foldedLayer" ]
+      visible: false
+    - state: open_overlay
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: paper
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+  - type: Icon
+    sprite: ADT/Objects/Specific/Medical/envirobag.rsi
+    state: bag
+  - type: Item
+    heldPrefix: bag
+
+- type: entity
+  parent: BaseStorageItem
+  id: ADTBioBag
+  name: изолирующий мешок
+  description: Мешок для безопасной переноски и утилизации биологических отходов и других заразных материалов.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/biobag.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Objects/Specific/Medical/biobag.rsi
+    slots:
+    - belt
+  - type: Item
+    size: Normal
+    storedRotation: -90
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    maxItemSize: Small
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+      - FitsInDispenser
+      - ADTDiseaseCulture
+      tags:
+      - Bottle
+      - Syringe
+  - type: ADTDiseaseContainment
+  - type: Dumpable
+
+- type: entity
+  parent: ADTVirusCultureBottle
+  id: ADTVirusCultureBottleBase
+  abstract: true
+  components:
+  - type: Label
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleCold
+  name: культура риновируса
+  description: Бутылка с культурой риновируса. Вызывает обычную простуду.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseCold
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleFlu
+  name: культура вируса гриппа
+  description: Бутылка с культурой вируса гриппа.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseFlu
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleGbs
+  name: культура ГБС
+  description: Бутылка с культурой ГБС. Крайне опасна.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseGbs
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleBrainrot
+  name: культура мозговой гнили
+  description: Бутылка с культурой криптококка Венненбаума.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseBrainrot
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleMagnitis
+  name: культура магнитиса
+  description: Бутылка с культурой магнитных микробов.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseMagnitis
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleTuberculosis
+  name: культура грибкового туберкулёза
+  description: Бутылка с культурой грибкового туберкулёза.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseTuberculosis
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleBeesease
+  name: культура пчелоразы
+  description: Бутылка с культурой пчелоразы.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseBeesease
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleAnxiety
+  name: культура беспокойства
+  description: Бутылка с культурой тревожных микробов.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseAnxiety
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottlePierrotThroat
+  name: культура горла Пьеро
+  description: Бутылка с культурой хонк-микробов.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseasePierrotThroat
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleKingstons
+  name: культура синдрома Кингстона
+  description: Бутылка с культурой микробов Кингстона.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseKingstons
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleWizarditis
+  name: культура визардиса
+  description: Бутылка с культурой магических микробов.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseWizarditis
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleLoyalty
+  name: культура синдрома лояльности
+  description: Бутылка с культурой микробов лояльности.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTDiseaseLoyalty
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleSneezing
+  name: культура чихания
+  description: Бутылка с культурой вируса чихания.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetSneezing
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleCough
+  name: культура кашля
+  description: Бутылка с культурой вируса кашля.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetCough
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleHeal
+  name: культура усилителя печени
+  description: Бутылка с культурой вируса, который фильтрует токсины.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetHeal
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleSensoryRestoration
+  name: культура усилителя сознания
+  description: Бутылка с культурой вируса, который восстанавливает зрение и слух.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetSensoryRestoration
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleMindRestoration
+  name: культура очистителя сознания
+  description: Бутылка с культурой вируса, который очищает сознание.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetMindRestoration
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleHallucigen
+  name: культура нарушения сознания
+  description: Бутылка с культурой вируса галлюцинаций.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetHallucigen
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleAdvancedRegeneration
+  name: культура улучшенного неогенеза
+  description: Бутылка с культурой лечебного вируса.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetAdvancedRegeneration
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleStealthNecrosis
+  name: культура некроэйроза
+  description: Бутылка с культурой скрытного вируса, который пожирает плоть.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetStealthNecrosis
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleToxification
+  name: культура синдрома токсикации
+  description: Бутылка с культурой вируса, который отравляет носителя.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetToxification
+
+- type: entity
+  parent: ADTVirusCultureBottleBase
+  id: ADTVirusCultureBottleLove
+  name: культура синдрома пацифиста
+  description: Бутылка с культурой вируса, который наполняет носителя любовью.
+  components:
+  - type: ADTDiseaseCulture
+    disease: ADTPresetLove

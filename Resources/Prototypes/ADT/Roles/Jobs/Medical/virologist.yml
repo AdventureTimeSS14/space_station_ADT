@@ -1,0 +1,43 @@
+
+- type: job
+  id: ADTVirologist
+  name: job-name-ADTVirologist
+  description: job-description-ADTVirologist
+  playTimeTracker: JobADTVirologist
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 18000 # 5 часов, как у химика
+  startingGear: ADTVirologistGear
+  icon: "JobIconVirologist"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Chemistry
+  - Maintenance
+
+- type: startingGear
+  id: ADTVirologistGear
+  equipment:
+    id: MedicalPDA
+    ears: ClothingHeadsetMedical
+    jumpsuit: ClothingUniformJumpsuitVirology
+    outerClothing: ClothingOuterCoatLabViro
+    shoes: ClothingShoesColorWhite
+    gloves: ClothingHandsGlovesLatex
+    mask: ClothingMaskSterile
+    back: ClothingBackpackVirology
+    belt: ADTBioBag
+    pocket1: HandLabeler
+    pocket2: Syringe
+
+- type: chameleonOutfit
+  id: ADTVirologistChameleonOutfit
+  job: ADTVirologist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVirology
+    outerClothing: ClothingOuterCoatLabViro
+    shoes: ClothingShoesColorWhite
+    gloves: ClothingHandsGlovesLatex
+    mask: ClothingMaskSterile
+    ears: ClothingHeadsetMedical

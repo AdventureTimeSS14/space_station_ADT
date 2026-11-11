@@ -34,6 +34,7 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             MedicalDoctor: [ 5, 5 ]
             Chemist: [ 2, 2 ]
+            ADTVirologist: [ 2, 2 ]
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
             HeadOfSecurity: [ 1, 1 ]

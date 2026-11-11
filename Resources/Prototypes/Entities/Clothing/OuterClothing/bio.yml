@@ -18,6 +18,16 @@
         Caustic: 0.75
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.35
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: GroupExamine
   - type: ClothingSpeedModifier
     walkModifier: 0.95

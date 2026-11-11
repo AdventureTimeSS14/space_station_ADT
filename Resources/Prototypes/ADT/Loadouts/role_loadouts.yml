@@ -325,3 +325,26 @@
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian
   - ADTPersonalLoadoutPlushie
+
+- type: roleLoadout
+  id: JobADTVirologist
+  groups:
+  - Inventory
+  - GroupTankHarness
+  - MedicalMask
+  - ADTVirologistJumpsuit
+  - MedicalGloves
+  - ADTVirologistBackpack
+  - ADTVirologistOuterClothing
+  - ADTVirologistBelt
+  - MedicalShoes
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  - Glasses
+  - AssistiveItems
+  - SurvivalMedical
+  - Trinkets
+  - ADTSprayPaints
+  - ADTRacialItems
+  - GroupSpeciesBreathToolMedical
