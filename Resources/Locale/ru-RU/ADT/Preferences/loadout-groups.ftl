@@ -93,6 +93,7 @@ loadout-group-roboticist-outerclothing = Робототехник, верхня�
 loadout-group-roboticist-gloves = Робототехник, перчатки
 loadout-group-mechanical-assembler-id-adt = Робототехник, ID
 # Security
+loadout-group-security-masks-adt = Служба безопасности, лицо
 loadout-group-sheriff-id-adt = Глава службы безопасности, ID
 loadout-group-senior-officer-jumpsuit = Офицер-инструктор, комбинезон
 loadout-group-senior-officer-backpack = Офицер-инструктор, рюкзак
