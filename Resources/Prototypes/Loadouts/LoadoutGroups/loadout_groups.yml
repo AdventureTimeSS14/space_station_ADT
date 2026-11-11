@@ -853,10 +853,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
-  #ADT-Tweak-Start
-  - ADTBoxJukeBoxPlayer
-  - ADTMusicianVoucher
-  #ADT-Tweak-End
+  - ADTBoxJukeBoxPlayer #ADT-Tweak
   - Glockenspiel
   - MusicBox
   - Xylophone
