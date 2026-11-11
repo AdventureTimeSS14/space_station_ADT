@@ -1438,6 +1438,16 @@
 
 # Alts PDA end
 
+# Security
+
+- type: loadoutGroup
+  id: ADTSecurityMasks
+  name: loadout-group-security-masks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingMaskCoif
+
 # Miscellaneous
 
 - type: loadoutGroup
