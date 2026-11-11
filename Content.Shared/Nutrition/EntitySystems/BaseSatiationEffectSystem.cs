@@ -34,7 +34,8 @@ public abstract partial class BaseSatiationEffectSystem<TComp, T> : EntitySystem
     private static readonly TimeSpan PausedRetryDelay = TimeSpan.FromSeconds(1);
 
     private readonly SortedSet<(TimeSpan Due, EntityUid Uid)> _dueQueue = new();
-    private readonly HashSet<EntityUid> _due = new();
+    private readonly Dictionary<EntityUid, TimeSpan> _scheduled = new();
+    private readonly List<EntityUid> _due = new();
     // ADT-Tweak-End
 
     /// <summary>
@@ -55,7 +56,10 @@ public abstract partial class BaseSatiationEffectSystem<TComp, T> : EntitySystem
 
         SubscribeLocalEvent<TComp, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TComp, SatiationUpdateEvent>(OnSatiationUpdate);
-        SubscribeLocalEvent<TComp, ComponentStartup>(OnStartup); // ADT-Tweak
+        // ADT-Tweak-Start
+        SubscribeLocalEvent<TComp, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<TComp, ComponentShutdown>(OnShutdown);
+        // ADT-Tweak-End
     }
 
     /// <inheritdoc/>
@@ -90,11 +94,37 @@ public abstract partial class BaseSatiationEffectSystem<TComp, T> : EntitySystem
         if (!_net.IsServer)
             return;
 
+        Reschedule(entity);
+    }
+
+    private void OnShutdown(Entity<TComp> entity, ref ComponentShutdown args)
+    {
+        if (_net.IsServer)
+            SetDue(entity.Owner, null);
+    }
+
+    private void Reschedule(Entity<TComp> entity)
+    {
+        TimeSpan? min = null;
         foreach (var thresholds in GetThresholds(entity.Comp).Values)
         {
-            if (thresholds.ProjectedThresholdChangeTime is { } due)
-                _dueQueue.Add((due, entity.Owner));
+            if (thresholds.ProjectedThresholdChangeTime is { } due && (min == null || due < min))
+                min = due;
         }
+
+        SetDue(entity.Owner, min);
+    }
+
+    private void SetDue(EntityUid uid, TimeSpan? due)
+    {
+        if (_scheduled.Remove(uid, out var old))
+            _dueQueue.Remove((old, uid));
+
+        if (due is not { } next)
+            return;
+
+        _scheduled[uid] = next;
+        _dueQueue.Add((next, uid));
     }
 
     private void UpdateDueQueue()
@@ -105,6 +135,7 @@ public abstract partial class BaseSatiationEffectSystem<TComp, T> : EntitySystem
         {
             var first = _dueQueue.Min;
             _dueQueue.Remove(first);
+            _scheduled.Remove(first.Uid);
             _due.Add(first.Uid);
         }
 
@@ -113,20 +144,21 @@ public abstract partial class BaseSatiationEffectSystem<TComp, T> : EntitySystem
             if (!TryComp<TComp>(uid, out var comp) || !_satiationQuery.TryComp(uid, out var satiation))
                 continue;
 
-            var paused = Paused(uid);
+            if (Paused(uid))
+            {
+                SetDue(uid, now + PausedRetryDelay);
+                continue;
+            }
+
             foreach (var (type, thresholds) in GetThresholds(comp))
             {
                 if (thresholds.ProjectedThresholdChangeTime is not { } next || now < next)
                     continue;
 
-                if (paused)
-                {
-                    _dueQueue.Add((now + PausedRetryDelay, uid));
-                    break;
-                }
-
                 UpdateSatiation((uid, comp), satiation, type);
             }
+
+            Reschedule((uid, comp));
         }
     }
     // ADT-Tweak-End
@@ -179,8 +211,8 @@ public abstract partial class BaseSatiationEffectSystem<TComp, T> : EntitySystem
             nextLowerThreshold
         );
 
-        if (_net.IsServer && thresholds.ProjectedThresholdChangeTime is { } due) // ADT-Tweak
-            _dueQueue.Add((due, entity.Owner)); // ADT-Tweak
+        if (_net.IsServer) // ADT-Tweak
+            Reschedule(entity); // ADT-Tweak
 
         Dirty(entity);
 
