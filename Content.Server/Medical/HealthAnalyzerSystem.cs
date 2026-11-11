@@ -1,5 +1,6 @@
 using Content.Server.Medical.Components;
 using Content.Server.ADT.Addiction; // ADT-Tweak
+using Content.Server.ADT.Virology;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
@@ -40,6 +41,7 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popupSystem = default!;
     [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private AddictionSystem _addiction = default!; // ADT-Tweak
+    [Dependency] private ADTDiseaseSystem _disease = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -298,6 +300,7 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
 
         // ADT-Tweak-Start: список зависимостей пациента (только сформировавшиеся)
         var addictions = _addiction.GetAddictionInfo(entity);
+        var diseases = _disease.GetScannerDiseases(entity);
         // ADT-Tweak-End
 
         return new HealthAnalyzerUiState(
@@ -308,7 +311,8 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
             bleeding,
             unrevivable,
             metabolizingReagents, // ADT-Tweak
-            addictions // ADT-Tweak
+            addictions, // ADT-Tweak
+            diseases // ADT-Tweak
         );
     }
 }
