@@ -27,9 +27,14 @@ using Robust.Shared.Timing;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Server.ADT.Traits;
+using Content.Shared.ADT.Roles;
 using Content.Shared.Database;
+using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Systems;
 
 namespace Content.Server.ADT.Economy;
 
@@ -46,6 +51,7 @@ public sealed class BankCardSystem : EntitySystem
     [Dependency] private InventorySystem _inventorySystem = default!;
     [Dependency] private BankCartridgeSystem _bankCartridge = default!;
     [Dependency] private JobSystem _job = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private CartridgeLoaderSystem _cartridgeLoader = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -292,6 +298,33 @@ public sealed class BankCardSystem : EntitySystem
             return department;
 
         return null;
+    }
+
+    public ProtoId<JobPrototype>? GetCardJob(EntityUid user)
+    {
+        if (!_idCardSystem.TryFindIdCard(user, out var card))
+            return null;
+
+        if (card.Comp.JobPrototype != null)
+            return card.Comp.JobPrototype;
+
+        if (TryComp<StationRecordKeyStorageComponent>(card, out var keyStorage) &&
+            keyStorage.Key is { } key &&
+            _records.TryGetRecord<GeneralStationRecord>(key, out var record) &&
+            record.JobPrototype.Length > 0)
+            return record.JobPrototype;
+
+        if (TryComp<RoleCacheComponent>(user, out var roleCache) &&
+            roleCache.LastJobPrototype != null)
+            return roleCache.LastJobPrototype;
+
+        return null;
+    }
+
+    public ProtoId<CargoAccountPrototype>? GetCardDepartment(EntityUid user)
+    {
+        var job = GetCardJob(user);
+        return job == null ? null : GetDepartmentForJob(job.Value);
     }
 
     // надбавка к зарплате по отделу профессии (StationBankAccountComponent.SalaryBonus)
