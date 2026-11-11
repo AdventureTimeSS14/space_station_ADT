@@ -381,5 +381,3 @@
     - ADTChurchOrganInstrument
     typeDropPlace: ThisPlace
     typeDrop: Rocket
-  - type: StaticPrice
-    price: 200
