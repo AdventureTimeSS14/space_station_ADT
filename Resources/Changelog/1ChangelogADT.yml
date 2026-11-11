@@ -17438,3 +17438,13 @@ Entries:
     id: 2105
     pr_number: 3669
     time: '2026-11-11T05:01:18Z'
+  - author: blad bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Исправлен спрайт грейтары в руках и на спине., type: Fix}
+    id: 2106
+    pr_number: 3668
+    time: '2026-11-11T06:27:49Z'
