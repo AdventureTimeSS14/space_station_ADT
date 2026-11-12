@@ -42,7 +42,6 @@
   weight: -1 # ADT EDIT
   roles:
   - ADTCentralCommandOfficial
-  - ADTCentcomConsultant
   - ADTCentcomInspector
   - ADTCentcomInquisitor
   - ADTCentcomOfficer
