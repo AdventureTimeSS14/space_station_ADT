@@ -1193,3 +1193,7 @@ SpawnMobFrog: ADTSpawnMobFrog
 # ADT-Tweak 2026-11-11
 ADTMaskCoif: ADTClothingMaskCoif
 ADTClothingNeckArmband: ADTClothingNeckArmbandWhite
+
+# ADT-Tweak 2026-11-12
+Vaccinator: ADTPandemic
+VaccinatorMachineCircuitboard: ADTPandemicMachineCircuitboard
