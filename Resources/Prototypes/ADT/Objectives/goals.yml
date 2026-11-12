@@ -184,3 +184,24 @@
   text: station-goal-bluespace-artillery
   spawns:
   - BSABlueprint
+# Цели вирусологии
+
+- type: stationGoal
+  id: ADTStationGoalVirologyVaccine
+  name: adt-station-goal-virology-vaccine-name
+  text: adt-station-goal-virology-vaccine
+
+- type: stationGoal
+  id: ADTStationGoalVirologyCure
+  name: adt-station-goal-virology-cure-name
+  text: adt-station-goal-virology-cure
+
+- type: stationGoal
+  id: ADTStationGoalVirologyWeapon
+  name: adt-station-goal-virology-weapon-name
+  text: adt-station-goal-virology-weapon
+  minPlayers: 50
+  spawns:
+  - ADTVirusCultureBottleGbs
+  - ADTVirusCultureBottleStealthNecrosis
+  - ChemistryBottleUnstableMutagen

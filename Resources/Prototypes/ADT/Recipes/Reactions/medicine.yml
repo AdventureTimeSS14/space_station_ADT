@@ -304,3 +304,73 @@
       amount: 1
   products:
     ADTMurderSolution: 5
+
+- type: reaction
+  id: ADTSpaceacillin
+  impact: Medium
+  reactants:
+    Cornoil:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    ADTSpaceacillin: 2
+
+- type: reaction
+  id: ADTTeporone
+  reactants:
+    Acetone:
+      amount: 1
+    Silicon:
+      amount: 1
+    Plasma:
+      amount: 1
+  products:
+    ADTTeporone: 2
+
+- type: reaction
+  id: ADTSalbutamol
+  reactants:
+    Lithium:
+      amount: 1
+    Aluminium:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    ADTSalbutamol: 4
+
+- type: reaction
+  id: ADTMitocholide
+  reactants:
+    Cryoxadone:
+      amount: 1
+    Plasma:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTMitocholide: 3
+
+- type: reaction
+  id: ADTCalomel
+  minTemp: 373
+  reactants:
+    Mercury:
+      amount: 1
+    Chlorine:
+      amount: 1
+  products:
+    ADTCalomel: 2
+
+- type: reaction
+  id: ADTGlycerol
+  reactants:
+    Cornoil:
+      amount: 3
+    SulfuricAcid:
+      amount: 1
+  products:
+    ADTGlycerol: 1

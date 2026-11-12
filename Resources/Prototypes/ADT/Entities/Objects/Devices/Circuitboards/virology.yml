@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ADTPandemicMachineCircuitboard
+  name: PanD.E.M.I.C 220 machine board
+  components:
+  - type: Sprite
+    state: medical
+  - type: MachineBoard
+    prototype: ADTPandemic
+    stackRequirements:
+      Cable: 5
+      Glass: 2
+    tagRequirements:
+      GlassBeaker:
+        amount: 1
+        defaultPrototype: Beaker

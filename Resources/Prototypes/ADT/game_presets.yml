@@ -13,6 +13,7 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - CrewTransferScheduler
+    - ADTDiseaseAlertRule
 
 - type: gamePreset
   showInVote: false # secret
@@ -29,6 +30,7 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - CrewTransferScheduler
+    - ADTDiseaseAlertRule
 
 - type: gamePreset
   id: TraitorLight
@@ -44,6 +46,7 @@
     - TraitorLightStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
+    - ADTDiseaseAlertRule
     - CrewTransferScheduler #ADT tweak
 
 #Версия всего понемногу
@@ -58,6 +61,7 @@
     - TraitorTripleGameRule
     - HereticTripleGameRule
     - ThiefSecretGameRule
+    - ADTDiseaseAlertRule
     # - ChangelingDuo # ADT tweak
     # - TraitorDuoGameRule
     # - HereticDuoGameRule
@@ -80,6 +84,7 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
+    - ADTDiseaseAlertRule
     - CrewTransferScheduler #ADT tweak
 
 
