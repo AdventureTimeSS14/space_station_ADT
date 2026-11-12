@@ -1,6 +1,7 @@
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase, BadgeOnClothing]
   id: ADTClothingOuterArmorBasic # Без хамелеона, используйте для ивент шмоток.
+  abstract: true
   components:
   - type: Tag
     tags:
@@ -49,6 +50,17 @@
     damageCoefficient: 0.65
   - type: StaminaResistance
     damageCoefficient: 0.65
+
+- type: entity
+  parent: ADTClothingBlueshieldArmorElite
+  id: ADTClothingCentcomOfficerArmor
+  name: Centcom officer armor
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/centcom_officer_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/centcom_officer_armor.rsi
 
 - type: entity
   abstract: true
@@ -411,15 +423,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
+        Blunt: 0.65
+        Slash: 0.65
         Piercing: 0.40
-        Heat: 0.75
+        Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.70
   - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
+    walkModifier: 0.95
+    sprintModifier: 0.95
 
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -439,11 +451,11 @@
         Blunt: 0.50
         Slash: 0.50
         Piercing: 0.40
-        Heat: 0.65
+        Heat: 0.6
   - type: StaminaResistance
     damageCoefficient: 0.65
   - type: ExplosionResistance
-    damageCoefficient: 0.60
+    damageCoefficient: 0.55
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.85
+    sprintModifier: 0.85
