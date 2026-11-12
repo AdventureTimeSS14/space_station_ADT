@@ -295,20 +295,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.EmaggedInventory), InventoryType.Emagged, component, restockQuality); // ADT-Tweak
         AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.ContrabandInventory), InventoryType.Contraband, component, restockQuality); // ADT-Tweak
 
-        ResetDynamicPrices(component.Inventory);
-        ResetDynamicPrices(component.EmaggedInventory);
-        ResetDynamicPrices(component.ContrabandInventory);
-
         Dirty(uid, component);
-    }
-
-    private void ResetDynamicPrices(Dictionary<string, VendingMachineInventoryEntry> inventory)
-    {
-        foreach (var entry in inventory.Values)
-        {
-            if (entry.BasePrice > 0)
-                entry.Price = entry.BasePrice;
-        }
     }
 
     public void AddInventoryFromPack(EntityUid uid, ProtoId<VendingMachineInventoryPrototype> pack, ADTVendingMachineComponent? component = null)
