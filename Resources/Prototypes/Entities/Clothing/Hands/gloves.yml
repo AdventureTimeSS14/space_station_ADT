@@ -197,6 +197,13 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - arms
+    - hands
+  # ADT-Tweak-End
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -211,6 +218,13 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - arms
+    - hands
+  # ADT-Tweak-End
 
 - type: entity
   parent: ClothingHandsButcherable

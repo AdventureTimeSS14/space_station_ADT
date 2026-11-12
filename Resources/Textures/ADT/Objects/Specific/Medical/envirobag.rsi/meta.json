@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation, label and in-hand sprites taken from space-station-14 Resources/Textures/Objects/Specific/Medical/Morgue/bodybags.rsi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bag"
+        },
+        {
+            "name": "open_overlay"
+        },
+        {
+            "name": "bag_folded"
+        },
+        {
+            "name": "paper"
+        },
+        {
+            "name": "bag-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "bag-inhand-right",
+            "directions": 4
+        }
+    ]
+}

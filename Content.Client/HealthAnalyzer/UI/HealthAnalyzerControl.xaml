@@ -64,6 +64,17 @@
     </BoxContainer>
     <!-- ADT-Tweak end -->
 
+    <!-- ADT-Tweak-Start -->
+    <PanelContainer Name="DiseasesDivider" Visible="False" StyleClasses="LowDivider" />
+
+    <BoxContainer
+        Name="DiseasesContainer"
+        Visible="False"
+        Margin="0 5 0 5"
+        Orientation="Vertical">
+    </BoxContainer>
+    <!-- ADT-Tweak-End -->
+
     <!-- ADT-Tweak-Start - addictions section of ui -->
     <PanelContainer Name="AddictionsDivider" Visible="False" StyleClasses="LowDivider" />
 

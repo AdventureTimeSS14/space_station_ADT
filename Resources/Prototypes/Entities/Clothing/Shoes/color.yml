@@ -38,6 +38,12 @@
   name: white shoes
   description: Don't take them off at your office Christmas party.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:

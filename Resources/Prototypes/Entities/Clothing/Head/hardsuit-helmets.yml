@@ -373,6 +373,13 @@
   name: chief medical officer's hardsuit helmet
   description: Lightweight medical hardsuit helmet that doesn't restrict your head movements.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/medical.rsi
   - type: PointLight
@@ -391,6 +398,13 @@
   name: experimental research hardsuit helmet
   description: Lightweight hardsuit helmet that doesn't restrict your head movements.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/rd.rsi
   - type: Clothing
@@ -480,6 +494,13 @@
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
   - type: PointLight
@@ -529,6 +550,13 @@
   name: syndicate elite helmet
   description: An elite version of the blood-red hardsuit's helmet, with improved radiation resistance and fireproofing. Property of Gorlex Marauders.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
   - type: PointLight
@@ -557,6 +585,13 @@
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: PointLight
@@ -846,6 +881,13 @@
   name: CBURN exosuit helmet
   description: A pressure resistant and fireproof hood worn by special cleanup units.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/cburn.rsi
   - type: PointLight
@@ -871,6 +913,13 @@
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    airborne: 1
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: BreathMask
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
