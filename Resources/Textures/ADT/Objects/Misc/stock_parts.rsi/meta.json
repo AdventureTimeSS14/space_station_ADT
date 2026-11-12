@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from TG Station",
+    "copyright": "Taken from VOREStation at https://github.com/VOREStation/VOREStation/blob/9c7b643b6e8d04e75d02d5d001267a36db11869f/icons/obj/stock_parts.dmi",
     "size": {
         "x": 32,
         "y": 32
@@ -29,106 +29,61 @@
             "name": "ultra_high_micro_laser"
         },
         {
-            "name": "quadultra_micro_laser",
+            "name": "hyper_micro_laser",
             "delays": [
                 [
-                    0.3,
                     0.1,
                     0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.3
+                    0.1
                 ]
             ]
         },
         {
-            "name": "quantum_micro_laser",
-            "delays": [
-                [
-                    0.3,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.3
-                ]
-            ]
+            "name": "omni_micro_laser"
         },
         {
             "name": "capacitor"
         },
         {
-            "name": "adv_capacitor"
+            "name": "capacitor_adv"
         },
         {
-            "name": "super_capacitor"
+            "name": "capacitor_super"
         },
         {
-            "name": "quadratic_capacitor",
+            "name": "capacitor_hyper",
             "delays": [
                 [
-                    0.3,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.3
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15
                 ]
             ]
         },
         {
-            "name": "quantum_capacitor",
+            "name": "capacitor_omni"
+        },
+        {
+            "name": "micro_mani"
+        },
+        {
+            "name": "nano_mani"
+        },
+        {
+            "name": "pico_mani"
+        },
+        {
+            "name": "hyper_mani",
             "delays": [
                 [
-                    0.3,
                     0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.3
+                    0.1
                 ]
             ]
         },
         {
-            "name": "micro_servo"
-        },
-        {
-            "name": "nano_servo"
-        },
-        {
-            "name": "pico_servo"
-        },
-        {
-            "name": "femto_servo",
-            "delays": [
-                [
-                    0.3,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.3
-                ]
-            ]
-        },
-        {
-            "name": "quantum_servo",
-            "delays": [
-                [
-                    0.3,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.3
-                ]
-            ]
+            "name": "omni_mani"
         },
         {
             "name": "matter_bin"
@@ -140,13 +95,10 @@
             "name": "super_matter_bin"
         },
         {
-            "name": "bluespace_matter_bin",
+            "name": "hyper_matter_bin",
             "delays": [
                 [
-                    0.3,
-                    0.1,
-                    0.1,
-                    0.1,
+                    0.7,
                     0.1,
                     0.1,
                     0.3
@@ -154,84 +106,30 @@
             ]
         },
         {
-            "name": "quantum_matter_bin",
+            "name": "omni_matter_bin"
+        },
+        {
+            "name": "scan_module"
+        },
+        {
+            "name": "scan_module_adv"
+        },
+        {
+            "name": "scan_module_phasic"
+        },
+        {
+            "name": "scan_module_hyper",
             "delays": [
                 [
+                    0.1,
                     0.3,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.3
-                ]
-            ]
-        },
-        {
-            "name": "scan_module",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
+                    0.05,
                     0.1
                 ]
             ]
         },
         {
-            "name": "adv_scan_module",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
-        },
-        {
-            "name": "super_scan_module",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
-        },
-        {
-            "name": "triphasic_scan_module",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
-        },
-        {
-            "name": "quantum_scan_module",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
+            "name": "scan_module_omni"
         },
         {
             "name": "subspace_ansible"

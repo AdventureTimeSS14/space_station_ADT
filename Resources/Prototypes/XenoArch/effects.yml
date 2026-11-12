@@ -131,6 +131,8 @@
       weight: 4
     - id: XenoArtifactEffectCreationGasCarbonDioxide
       weight: 4
+    - id: XenoArtifactEffectOmniPartsSpawn # ADT-Tweak
+      weight: 0.5
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
@@ -783,6 +785,33 @@
         rolls: !type:ConstantNumberSelector
           value: 6
         prob: 0.7
+
+# ADT-Tweak start
+- type: entity
+  parent: BaseXenoArtifactEffect
+  id: XenoArtifactEffectOmniPartsSpawn
+  description: Create omni machine parts
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 4
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 2
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: 1
+        children:
+        - id: OmniCapacitorStockPart
+        - id: OmniScanningModuleStockPart
+        - id: OmniServoStockPart
+        - id: OmniMicroLaserStockPart
+        - id: OmniMatterBinStockPart
+# ADT-Tweak end
 
 - type: entity
   parent: BaseXenoArtifactEffect

@@ -62,19 +62,19 @@ ent-BluespaceMatterBinStockPart = блюспейс-ёмкость материи
     .suffix = Уровень 4
     .desc = { ent-MatterBinStockPart.desc }
 
-ent-QuantumCapacitorStockPart = квантовый конденсатор
+ent-OmniCapacitorStockPart = омни-конденсатор
     .suffix = Уровень 5
     .desc = { ent-CapacitorStockPart.desc }
-ent-QuantumScanningModuleStockPart = квантовый сканирующий модуль
+ent-OmniScanningModuleStockPart = омни cканирующий модуль
     .suffix = Уровень 5
     .desc = { ent-ScanningModuleStockPart.desc }
-ent-QuantumServoStockPart = квантовый серво
+ent-OmniServoStockPart = омни-серво
     .suffix = Уровень 5
     .desc = { ent-MicroServoStockPart.desc }
-ent-QuantumMicroLaserStockPart = квантовый микро-лазер
+ent-OmniMicroLaserStockPart = омни микро-лазер
     .suffix = Уровень 5
     .desc = { ent-MicroLaserStockPart.desc }
-ent-QuantumMatterBinStockPart = квантовая ёмкость материи
+ent-OmniMatterBinStockPart = омни-ёмкость материи
     .suffix = Уровень 5
     .desc = { ent-MatterBinStockPart.desc }
 

@@ -144,12 +144,14 @@ public sealed partial class ConstructionSystem
             AbsorbContainerParts(uid, component, storage);
 
         var partRatings = GetPartRatings(storage.Parts);
-        var statMultipliers = GetStatMultipliers(partRatings);
+        var nonOmniRatings = GetNonOmniRatings(storage.Parts);
+        var statMultipliers = GetStatMultipliers(partRatings, nonOmniRatings);
 
         RaiseLocalEvent(uid,
             new RefreshPartsEvent
             {
                 PartRatings = partRatings,
+                NonOmniPartRatings = nonOmniRatings,
                 StatMultipliers = statMultipliers,
             },
             broadcast: true);
@@ -164,8 +166,34 @@ public sealed partial class ConstructionSystem
         return !board.NoUpgrades;
     }
 
+    private Dictionary<ProtoId<MachinePartPrototype>, float> GetNonOmniRatings(List<MachinePartSlot> slots)
+    {
+        var quantities = new Dictionary<ProtoId<MachinePartPrototype>, float>();
+        var weightedRatings = new Dictionary<ProtoId<MachinePartPrototype>, float>();
+
+        foreach (var slot in slots)
+        {
+            if (_proto.TryIndex(slot.Part, out var partProto)
+                && partProto.OmniTier > 0
+                && slot.Tier >= partProto.OmniTier)
+                continue;
+
+            quantities[slot.Part] = quantities.GetValueOrDefault(slot.Part) + slot.Quantity;
+            weightedRatings[slot.Part] = weightedRatings.GetValueOrDefault(slot.Part) + slot.Tier * slot.Quantity;
+        }
+
+        var result = new Dictionary<ProtoId<MachinePartPrototype>, float>();
+        foreach (var (id, quantity) in quantities)
+        {
+            result[id] = quantity > 0 ? weightedRatings[id] / quantity : 1f;
+        }
+
+        return result;
+    }
+
     private Dictionary<MachineStat, float> GetStatMultipliers(
-        Dictionary<ProtoId<MachinePartPrototype>, float> partRatings)
+        Dictionary<ProtoId<MachinePartPrototype>, float> partRatings,
+        Dictionary<ProtoId<MachinePartPrototype>, float> nonOmniRatings)
     {
         var multipliers = new Dictionary<MachineStat, float>();
 
@@ -174,10 +202,23 @@ public sealed partial class ConstructionSystem
             if (!_proto.TryIndex(partId, out var partProto))
                 continue;
 
+            var hasNonOmni = nonOmniRatings.TryGetValue(partId, out var nonOmniRating);
+
             foreach (var (stat, value) in partProto.Stats)
             {
-                var partMultiplier = RefreshPartsEvent.GetTierMultiplier(rating, value);
-                multipliers[stat] = multipliers.GetValueOrDefault(stat, 1f) * partMultiplier;
+                if (RefreshPartsEvent.IsDebuffValue(stat, value))
+                {
+                    if (!hasNonOmni)
+                        continue;
+
+                    var debuffMultiplier = RefreshPartsEvent.GetTierMultiplier(nonOmniRating, value);
+                    multipliers[stat] = multipliers.GetValueOrDefault(stat, 1f) * debuffMultiplier;
+                }
+                else
+                {
+                    var partMultiplier = RefreshPartsEvent.GetTierMultiplier(rating, value);
+                    multipliers[stat] = multipliers.GetValueOrDefault(stat, 1f) * partMultiplier;
+                }
             }
         }
 

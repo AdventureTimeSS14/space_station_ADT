@@ -81,17 +81,17 @@
 - type: entity
   parent: BluespaceRapidPartExchanger
   id: BluespaceRapidPartExchangerFilledTier5
-  suffix: Tier 5
+  suffix: Tier 5, Omni
   components:
   - type: StorageFill
     contents:
-      - id: QuantumCapacitorStockPart
+      - id: OmniCapacitorStockPart
         amount: 15
-      - id: QuantumScanningModuleStockPart
+      - id: OmniScanningModuleStockPart
         amount: 15
-      - id: QuantumServoStockPart
+      - id: OmniServoStockPart
         amount: 15
-      - id: QuantumMicroLaserStockPart
+      - id: OmniMicroLaserStockPart
         amount: 15
-      - id: QuantumMatterBinStockPart
+      - id: OmniMatterBinStockPart
         amount: 15

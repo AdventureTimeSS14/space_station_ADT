@@ -34,7 +34,7 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/stock_parts.rsi
-    state: micro_servo
+    state: micro_mani
   - type: MachinePart
     part: Servo
     tier: 1
@@ -74,7 +74,7 @@
   suffix: Tier 2
   components:
   - type: Sprite
-    state: adv_capacitor
+    state: capacitor_adv
   - type: MachinePart
     part: Capacitor
     tier: 2
@@ -86,7 +86,7 @@
   suffix: Tier 2
   components:
   - type: Sprite
-    state: adv_scan_module
+    state: scan_module_adv
   - type: MachinePart
     part: ScanningModule
     tier: 2
@@ -98,7 +98,7 @@
   suffix: Tier 2
   components:
   - type: Sprite
-    state: nano_servo
+    state: nano_mani
   - type: MachinePart
     part: Servo
     tier: 2
@@ -136,7 +136,7 @@
   suffix: Tier 3
   components:
   - type: Sprite
-    state: super_capacitor
+    state: capacitor_super
   - type: MachinePart
     part: Capacitor
     tier: 3
@@ -148,7 +148,7 @@
   suffix: Tier 3
   components:
   - type: Sprite
-    state: super_scan_module
+    state: scan_module_phasic
   - type: MachinePart
     part: ScanningModule
     tier: 3
@@ -160,7 +160,7 @@
   suffix: Tier 3
   components:
   - type: Sprite
-    state: pico_servo
+    state: pico_mani
   - type: MachinePart
     part: Servo
     tier: 3
@@ -201,7 +201,7 @@
   suffix: Tier 4
   components:
   - type: Sprite
-    state: quadratic_capacitor
+    state: capacitor_hyper
   - type: MachinePart
     part: Capacitor
     tier: 4
@@ -213,7 +213,7 @@
   suffix: Tier 4
   components:
   - type: Sprite
-    state: triphasic_scan_module
+    state: scan_module_hyper
   - type: MachinePart
     part: ScanningModule
     tier: 4
@@ -225,7 +225,7 @@
   suffix: Tier 4
   components:
   - type: Sprite
-    state: femto_servo
+    state: hyper_mani
   - type: MachinePart
     part: Servo
     tier: 4
@@ -237,7 +237,7 @@
   suffix: Tier 4
   components:
   - type: Sprite
-    state: quadultra_micro_laser
+    state: hyper_micro_laser
   - type: MachinePart
     part: MicroLaser
     tier: 4
@@ -249,7 +249,7 @@
   suffix: Tier 4
   components:
   - type: Sprite
-    state: bluespace_matter_bin
+    state: hyper_matter_bin
   - type: MachinePart
     part: MatterBin
     tier: 4
@@ -258,60 +258,60 @@
 
 - type: entity
   parent: CapacitorStockPart
-  id: QuantumCapacitorStockPart
-  name: quantum capacitor
+  id: OmniCapacitorStockPart
+  name: omni capacitor
   suffix: Tier 5
   components:
   - type: Sprite
-    state: quantum_capacitor
+    state: capacitor_omni
   - type: MachinePart
     part: Capacitor
     tier: 5
 
 - type: entity
   parent: ScanningModuleStockPart
-  id: QuantumScanningModuleStockPart
-  name: quantum scanning module
+  id: OmniScanningModuleStockPart
+  name: omni scanning module
   suffix: Tier 5
   components:
   - type: Sprite
-    state: quantum_scan_module
+    state: scan_module_omni
   - type: MachinePart
     part: ScanningModule
     tier: 5
 
 - type: entity
   parent: MicroServoStockPart
-  id: QuantumServoStockPart
-  name: quantum servo
+  id: OmniServoStockPart
+  name: omni servo
   suffix: Tier 5
   components:
   - type: Sprite
-    state: quantum_servo
+    state: omni_mani
   - type: MachinePart
     part: Servo
     tier: 5
 
 - type: entity
   parent: MicroLaserStockPart
-  id: QuantumMicroLaserStockPart
-  name: quantum micro-laser
+  id: OmniMicroLaserStockPart
+  name: omni micro-laser
   suffix: Tier 5
   components:
   - type: Sprite
-    state: quantum_micro_laser
+    state: omni_micro_laser
   - type: MachinePart
     part: MicroLaser
     tier: 5
 
 - type: entity
   parent: MatterBinStockPart
-  id: QuantumMatterBinStockPart
-  name: quantum matter bin
+  id: OmniMatterBinStockPart
+  name: omni matter bin
   suffix: Tier 5
   components:
   - type: Sprite
-    state: quantum_matter_bin
+    state: omni_matter_bin
   - type: MachinePart
     part: MatterBin
     tier: 5

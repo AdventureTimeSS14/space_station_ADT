@@ -203,6 +203,16 @@
     - id: ResearchDisk10000
       weight: 0.5
     - id: ArabianLamp
+    # ADT-Tweak start
+    - !type:GroupSelector
+      weight: 0.2
+      children:
+      - id: OmniCapacitorStockPart
+      - id: OmniScanningModuleStockPart
+      - id: OmniServoStockPart
+      - id: OmniMicroLaserStockPart
+      - id: OmniMatterBinStockPart
+    # ADT-Tweak end
     - !type:NestedSelector
       tableId: TreasureCoinPileRare
       rolls: !type:RangeNumberSelector

@@ -2,7 +2,8 @@
   id: Capacitor
   name: machine-part-name-capacitor
   stockPartPrototype: CapacitorStockPart
-  tierPrototypes: [CapacitorStockPart, AdvancedCapacitorStockPart, SuperCapacitorStockPart, BluespaceCapacitorStockPart, QuantumCapacitorStockPart]
+  tierPrototypes: [CapacitorStockPart, AdvancedCapacitorStockPart, SuperCapacitorStockPart, BluespaceCapacitorStockPart, OmniCapacitorStockPart]
+  omniTier: 5
   sortPriority: 0
   stats:
     ChargeRate: 0.25
@@ -13,7 +14,8 @@
   id: Servo
   name: machine-part-name-servo
   stockPartPrototype: MicroServoStockPart
-  tierPrototypes: [MicroServoStockPart, NanoServoStockPart, PicoServoStockPart, FemtoServoStockPart, QuantumServoStockPart]
+  tierPrototypes: [MicroServoStockPart, NanoServoStockPart, PicoServoStockPart, FemtoServoStockPart, OmniServoStockPart]
+  omniTier: 5
   sortPriority: 1
   stats:
     Speed: 0.20
@@ -23,7 +25,8 @@
   id: MatterBin
   name: machine-part-name-matter-bin
   stockPartPrototype: MatterBinStockPart
-  tierPrototypes: [MatterBinStockPart, AdvancedMatterBinStockPart, SuperMatterBinStockPart, BluespaceMatterBinStockPart, QuantumMatterBinStockPart]
+  tierPrototypes: [MatterBinStockPart, AdvancedMatterBinStockPart, SuperMatterBinStockPart, BluespaceMatterBinStockPart, OmniMatterBinStockPart]
+  omniTier: 5
   sortPriority: 2
   stats:
     Speed: -0.10
@@ -35,7 +38,8 @@
   id: ScanningModule
   name: machine-part-name-scanning-module
   stockPartPrototype: ScanningModuleStockPart
-  tierPrototypes: [ScanningModuleStockPart, AdvancedScanningModuleStockPart, PhasicScanningModuleStockPart, TriphasicScanningModuleStockPart, QuantumScanningModuleStockPart]
+  tierPrototypes: [ScanningModuleStockPart, AdvancedScanningModuleStockPart, PhasicScanningModuleStockPart, TriphasicScanningModuleStockPart, OmniScanningModuleStockPart]
+  omniTier: 5
   sortPriority: 3
   stats:
     Speed: -0.10
@@ -45,7 +49,8 @@
   id: MicroLaser
   name: machine-part-name-micro-laser
   stockPartPrototype: MicroLaserStockPart
-  tierPrototypes: [MicroLaserStockPart, HighPowerMicroLaserStockPart, UltraHighPowerMicroLaserStockPart, QuadUltraMicroLaserStockPart, QuantumMicroLaserStockPart]
+  tierPrototypes: [MicroLaserStockPart, HighPowerMicroLaserStockPart, UltraHighPowerMicroLaserStockPart, QuadUltraMicroLaserStockPart, OmniMicroLaserStockPart]
+  omniTier: 5
   sortPriority: 4
   stats:
     Speed: 0.25
@@ -70,7 +75,7 @@
     ChargeRate: 0.25
     Capacity: 0.25
 
-# ADT tier 1 — для будущих улучшений машин и крафта
+# ADT tier 1 - для будущих улучшений машин и крафта
 - type: machinePart
   id: SubspaceAnsible
   name: machine-part-name-subspace-ansible
