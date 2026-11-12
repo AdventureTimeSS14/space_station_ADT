@@ -270,6 +270,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
         // ADT-Tweak-Start
         _markingHider.SetHiddenByOrgan(target.Owner, ent.Owner, applied);
+        _limbLossVisuals.ApplyMarkings((target.Owner, target.Comp), applied);
         // ADT-Tweak-End
     }
 
@@ -280,6 +281,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
         // ADT-Tweak-Start
         _markingHider.SetHiddenByOrgan(target.Owner, ent.Owner, new());
+        _limbLossVisuals.RemoveMarkings((target.Owner, target.Comp), ent.Comp.AppliedMarkings);
         // ADT-Tweak-End
 
         foreach (var marking in ent.Comp.AppliedMarkings)

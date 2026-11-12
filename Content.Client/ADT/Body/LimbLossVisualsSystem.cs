@@ -1,8 +1,12 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.Body;
+using Content.Client.Clothing;
 using Content.Shared.ADT.Body.Limbs;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
+using Content.Shared.Inventory;
 using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.GameObjects;
@@ -14,9 +18,12 @@ namespace Content.Client.ADT.Body;
 public sealed partial class LimbLossVisualsSystem : EntitySystem
 {
     private const string ClipState = "regions";
+    private const string ClipSuffix = "-adt-limb-clip";
+    private const string NoLegsSuffix = "_nolegs";
     private const int ClipSize = 32;
     private const string GlovesSlot = "gloves";
     private const string ShoesSlot = "shoes";
+    private const LimbParts AllParts = LimbParts.Hands | LimbParts.Legs;
 
     private static readonly ResPath ClipRsi = new("ADT/Mobs/Effects/limb_clip.rsi");
 
@@ -31,14 +38,96 @@ public sealed partial class LimbLossVisualsSystem : EntitySystem
         ShoesSlot,
     ];
 
+    private static readonly Dictionary<HumanoidVisualLayers, LimbParts> MarkingClipParts = new()
+    {
+        { HumanoidVisualLayers.Chest, AllParts },
+        { HumanoidVisualLayers.Special, AllParts },
+        { HumanoidVisualLayers.Overlay, AllParts },
+        { HumanoidVisualLayers.UndergarmentTop, AllParts },
+        { HumanoidVisualLayers.UndergarmentBottom, AllParts },
+        { HumanoidVisualLayers.LArm, LimbParts.HandLeft },
+        { HumanoidVisualLayers.RArm, LimbParts.HandRight },
+        { HumanoidVisualLayers.LLeg, LimbParts.FootLeft },
+        { HumanoidVisualLayers.RLeg, LimbParts.FootRight },
+    };
+
     [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private ClientClothingSystem _clothing = default!;
+    [Dependency] private MarkingManager _marking = default!;
     [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private VisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
+        SubscribeLocalEvent<LimbLossComponent, AfterAutoHandleStateEvent>(OnLimbLossState);
+    }
+
+    private void OnLimbLossState(Entity<LimbLossComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        _visualBody.RefreshMarkings(ent);
+
+        if (TryComp<InventoryComponent>(ent, out var inventory))
+            _clothing.InitClothing(ent, inventory);
+    }
+
+    public void ApplyMarkings(Entity<SpriteComponent> body, List<Marking> markings)
+    {
+        if (!TryComp<LimbLossComponent>(body, out var loss) || loss.Missing == LimbParts.None)
+            return;
+
+        var legsMissing = (loss.Missing & LimbParts.Legs) != 0;
+        var clipState = GetClipState(CompOrNull<HumanoidProfileComponent>(body)?.Species.Id);
+
+        foreach (var marking in markings)
+        {
+            if (!_marking.TryGetMarking(marking, out var proto))
+                continue;
+
+            var parts = MarkingClipParts.GetValueOrDefault(proto.BodyPart) & loss.Missing;
+
+            foreach (var specifier in proto.Sprites)
+            {
+                if (specifier is not SpriteSpecifier.Rsi rsi)
+                    continue;
+
+                var key = $"{proto.ID}-{rsi.RsiState}";
+
+                if (legsMissing)
+                    TrySetNoLegsState(body, key, rsi.RsiState);
+
+                if (parts != LimbParts.None)
+                    AddClip(body, key, parts, clipState);
+            }
+        }
+    }
+
+    public void RemoveMarkings(Entity<SpriteComponent> body, List<Marking> markings)
+    {
+        foreach (var marking in markings)
+        {
+            if (!_marking.TryGetMarking(marking, out var proto))
+                continue;
+
+            foreach (var specifier in proto.Sprites)
+            {
+                if (specifier is SpriteSpecifier.Rsi rsi)
+                    _sprite.RemoveLayer(body.AsNullable(), $"{proto.ID}-{rsi.RsiState}{ClipSuffix}", false);
+            }
+        }
+    }
+
+    private void TrySetNoLegsState(Entity<SpriteComponent> body, string key, string state)
+    {
+        if (!_sprite.LayerMapTryGet(body.AsNullable(), key, out var index, false)
+            || _sprite.LayerGetEffectiveRsi(body.AsNullable(), index) is not { } rsi)
+            return;
+
+        var noLegs = state + NoLegsSuffix;
+        if (rsi.TryGetState(noLegs, out _))
+            _sprite.LayerSetRsiState(body.AsNullable(), index, noLegs);
     }
 
     private string GetClipState(string? species)
@@ -64,41 +153,51 @@ public sealed partial class LimbLossVisualsSystem : EntitySystem
 
         foreach (var key in args.RevealedLayers.ToArray())
         {
-            if (!_sprite.LayerMapTryGet(body, key, out var index, false)
-                || sprite[index] is not SpriteComponent.Layer layer
-                || layer.CopyToShaderParameters != null
-                || layer.ActualRsi is { } rsi && rsi.Size.X != ClipSize
-                || GetClipShader(layer) is not { } clipShader)
-                continue;
-
-            sprite.LayerSetShader(key, clipShader);
-
-            if (layer.Shader is not { } shader)
-                continue;
-
-            if (!shader.Mutable)
-                layer.Shader = shader = shader.Duplicate();
-
-            shader.SetParameter("clipArms", ToParameter(missing, LimbParts.ArmLeft, LimbParts.ArmRight, LimbParts.HandLeft, LimbParts.HandRight));
-            shader.SetParameter("clipLegs", ToParameter(missing, LimbParts.LegLeft, LimbParts.LegRight, LimbParts.FootLeft, LimbParts.FootRight));
-
-            var clipKey = $"{key}-adt-limb-clip";
-            _sprite.AddLayer(body,
-                new PrototypeLayerData
-                {
-                    RsiPath = ClipRsi.ToString(),
-                    State = clipState,
-                    CopyToShaderParameters = new PrototypeCopyToShaderParameters
-                    {
-                        LayerKey = key,
-                        ParameterTexture = "clipMap",
-                        ParameterUV = "clipUV",
-                    },
-                },
-                index);
-            _sprite.LayerMapSet(body, clipKey, index);
-            args.RevealedLayers.Add(clipKey);
+            if (AddClip(body, key, missing, clipState) is { } clipKey)
+                args.RevealedLayers.Add(clipKey);
         }
+    }
+
+    private string? AddClip(Entity<SpriteComponent> body, string key, LimbParts missing, string clipState)
+    {
+        var sprite = body.Comp;
+        var clipKey = key + ClipSuffix;
+
+        if (_sprite.LayerMapTryGet(body.AsNullable(), clipKey, out _, false)
+            || !_sprite.LayerMapTryGet(body.AsNullable(), key, out var index, false)
+            || sprite[index] is not SpriteComponent.Layer layer
+            || layer.CopyToShaderParameters != null
+            || layer.ActualRsi is { } rsi && rsi.Size.X != ClipSize
+            || GetClipShader(layer) is not { } clipShader)
+            return null;
+
+        sprite.LayerSetShader(key, clipShader);
+
+        if (layer.Shader is not { } shader)
+            return null;
+
+        if (!shader.Mutable)
+            layer.Shader = shader = shader.Duplicate();
+
+        shader.SetParameter("clipArms", ToParameter(missing, LimbParts.ArmLeft, LimbParts.ArmRight, LimbParts.HandLeft, LimbParts.HandRight));
+        shader.SetParameter("clipLegs", ToParameter(missing, LimbParts.LegLeft, LimbParts.LegRight, LimbParts.FootLeft, LimbParts.FootRight));
+
+        _sprite.AddLayer(body.AsNullable(),
+            new PrototypeLayerData
+            {
+                RsiPath = ClipRsi.ToString(),
+                State = clipState,
+                CopyToShaderParameters = new PrototypeCopyToShaderParameters
+                {
+                    LayerKey = key,
+                    ParameterTexture = "clipMap",
+                    ParameterUV = "clipUV",
+                },
+            },
+            index);
+        _sprite.LayerMapSet(body.AsNullable(), clipKey, index);
+
+        return clipKey;
     }
 
     private static LimbParts GetClippedParts(LimbParts missing, string slot)
