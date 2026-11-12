@@ -85,8 +85,12 @@
   - type: Solution
     solution:
       reagents:
+      # ADT-Tweak-Start
       - ReagentId: Plasma
-        Quantity: 10
+        Quantity: 5
+      - ReagentId: ADTPlasmaDust
+        Quantity: 5
+      # ADT-Tweak-End
   - type: Tag
     tags:
     - Sheet

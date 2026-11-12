@@ -200,6 +200,13 @@
   - type: Tag # ADT-Tweak
     tags:
     - MedicalGloves
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - arms
+    - hands
+  # ADT-Tweak-End
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -217,6 +224,13 @@
   - type: Tag # ADT-Tweak
     tags:
     - MedicalGloves
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - arms
+    - hands
+  # ADT-Tweak-End
 
 - type: entity
   parent: ClothingHandsButcherable

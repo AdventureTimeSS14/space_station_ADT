@@ -17,7 +17,7 @@
   - type: ADTAllergySwab # ADT-Tweak
   - type: GuideHelp
     guides:
-  # - Virology (when it's back)
+    - ADTVirology # ADT-Tweak
     - Botany
     - Chemicals
 
@@ -39,7 +39,7 @@
     capacity: 30
   - type: GuideHelp
     guides:
-  # - Virology (when it's back)
+    - ADTVirology # ADT-Tweak
     - Botany
     - Chemicals
 

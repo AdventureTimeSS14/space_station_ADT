@@ -153,6 +153,13 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.5
+    zones:
+    - chest
+    - arms
+  # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
@@ -193,6 +200,13 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.25
+    zones:
+    - chest
+    - arms
+  # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViro]
