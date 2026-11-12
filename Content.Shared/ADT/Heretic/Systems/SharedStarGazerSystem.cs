@@ -62,9 +62,12 @@ public abstract class SharedStarGazerSystem : EntitySystem
         args.Cancel();
     }
 
-    private void OnGetPosition(LaserBeamEndpointPositionEvent ev)
+    private void OnGetPosition(LaserBeamEndpointPositionEvent ev, EntitySessionEventArgs args)
     {
-        if (!TryGetEntity(ev.Uid, out var uid))
+        if (args.SenderSession.AttachedEntity is not { Valid: true } user)
+            return;
+
+        if (!TryGetEntity(ev.Uid, out var uid) || uid != user)
             return;
 
         if (!TryComp(uid.Value, out StarGazeComponent? starGaze) || !TryComp(uid.Value, out TransformComponent? xform))
