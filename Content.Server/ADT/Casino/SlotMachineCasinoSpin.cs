@@ -377,6 +377,8 @@ public sealed partial class SlotMachineCasinoSystem
             var payline = SlotMachineCasinoComponent.Paylines[lineIdx];
             string? targetSym = null;
             var run = 0;
+            var wildRun = 0;
+            var bestRun = 0;
             for (var pos = 0; pos < 5; pos++)
             {
                 var sym = comp.Reels[pos][payline[pos]];
@@ -384,27 +386,32 @@ public sealed partial class SlotMachineCasinoSystem
                 {
                     targetSym = null;
                     run = 0;
-                    continue;
+                    wildRun = 0;
                 }
-                if (sym == SymWild)
+                else if (sym == SymWild)
+                {
+                    wildRun++;
+                    run++;
+                }
+                else if (sym == targetSym)
                 {
                     run++;
-                    continue;
-                }
-                if (sym == targetSym)
-                {
-                    run++;
+                    wildRun = 0;
                 }
                 else
                 {
                     targetSym = sym;
-                    run = 1;
+                    run = wildRun + 1;
+                    wildRun = 0;
                 }
+
+                if (run > bestRun)
+                    bestRun = run;
             }
 
-            if (run >= 3 && run > best)
+            if (bestRun >= 3 && bestRun > best)
             {
-                best = run;
+                best = bestRun;
                 bestLine = lineIdx + 1;
             }
         }
