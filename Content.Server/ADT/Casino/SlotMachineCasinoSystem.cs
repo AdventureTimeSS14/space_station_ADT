@@ -10,6 +10,7 @@ using Content.Shared.Stacks;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Log;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -54,6 +55,18 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
     private void OnMapInit(Entity<SlotMachineCasinoComponent> ent, ref MapInitEvent args)
     {
         var comp = ent.Comp;
+
+        var unknownSymbols = new List<string>();
+        foreach (var key in comp.SymbolWeights.Keys)
+        {
+            if (Array.IndexOf(SlotMachineCasinoComponent.SymbolIds, key) < 0)
+                unknownSymbols.Add(key);
+        }
+        foreach (var key in unknownSymbols)
+        {
+            comp.SymbolWeights.Remove(key);
+            Logger.WarningS("slotmachine", $"Removed unknown symbol weight '{key}' from slot machine (no such client symbol)");
+        }
 
         if (!_statsInitialized)
         {

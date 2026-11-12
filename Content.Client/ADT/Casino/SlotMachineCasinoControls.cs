@@ -199,11 +199,12 @@ public sealed class ReelsControl : Control
                 for (var r = -1; r <= Rows; r++)
                 {
                     var sym = Symbols.GetValueOrDefault(SymbolAt(step + r));
-                    if (sym == null)
-                        continue;
-                    var iconW = IconSize * sym.Width / (float) sym.Height;
+                    var iconW = sym != null ? IconSize * sym.Width / (float) sym.Height : IconSize;
                     var pos = new Vector2(x + (ReelW - iconW) / 2f, PadY + r * CellH - pixelOffset + (CellH - IconSize) / 2f);
-                    DrawClipped(handle, sym, pos, reelWindow);
+                    if (sym != null)
+                        DrawClipped(handle, sym, pos, reelWindow);
+                    else
+                        DrawPlaceholder(handle, pos, reelWindow);
                 }
             }
             else if (land != null && _landT[i] < 1f)
@@ -213,11 +214,12 @@ public sealed class ReelsControl : Control
                 for (var k = 0; k < land.Count; k++)
                 {
                     var sym = Symbols.GetValueOrDefault(land[k]);
-                    if (sym == null)
-                        continue;
-                    var iconW = IconSize * sym.Width / (float) sym.Height;
+                    var iconW = sym != null ? IconSize * sym.Width / (float) sym.Height : IconSize;
                     var pos = new Vector2(x + (ReelW - iconW) / 2f, PadY + (k - 1) * CellH - l + (CellH - IconSize) / 2f);
-                    DrawClipped(handle, sym, pos, reelWindow);
+                    if (sym != null)
+                        DrawClipped(handle, sym, pos, reelWindow);
+                    else
+                        DrawPlaceholder(handle, pos, reelWindow);
                 }
             }
             else if (Reels.Length > i && Reels[i]!.Length == Rows)
@@ -225,11 +227,12 @@ public sealed class ReelsControl : Control
                 for (var r = 0; r < Rows; r++)
                 {
                     var sym = Symbols.GetValueOrDefault(Reels[i][r]);
-                    if (sym == null)
-                        continue;
-                    var iconW = IconSize * sym.Width / (float) sym.Height;
+                    var iconW = sym != null ? IconSize * sym.Width / (float) sym.Height : IconSize;
                     var pos = new Vector2(x + (ReelW - iconW) / 2f, PadY + r * CellH + (CellH - IconSize) / 2f);
-                    DrawClipped(handle, sym, pos, reelWindow);
+                    if (sym != null)
+                        DrawClipped(handle, sym, pos, reelWindow);
+                    else
+                        DrawPlaceholder(handle, pos, reelWindow);
                 }
 
                 handle.DrawRect(UIBox2.FromDimensions(x + 1, PadY + CellH, ReelW - 2, CellH), Color.FromHex("#ffd70026"));
@@ -258,6 +261,23 @@ public sealed class ReelsControl : Control
                 prev = point;
             }
         }
+    }
+
+    private static void DrawPlaceholder(DrawingHandleScreen handle, Vector2 pos, UIBox2 clip)
+    {
+        var dest = UIBox2.FromDimensions(pos.X, pos.Y, IconSize, IconSize);
+        var left = MathF.Max(dest.Left, clip.Left);
+        var top = MathF.Max(dest.Top, clip.Top);
+        var right = MathF.Min(dest.Right, clip.Right);
+        var bottom = MathF.Min(dest.Bottom, clip.Bottom);
+        if (right <= left || bottom <= top)
+            return;
+        var inter = new UIBox2(left, top, right, bottom);
+        handle.DrawRect(inter, Color.FromHex("#301030"));
+        handle.DrawRect(UIBox2.FromDimensions(inter.Left, inter.Top, inter.Width, 1), Color.FromHex("#804080"));
+        handle.DrawRect(UIBox2.FromDimensions(inter.Left, inter.Bottom - 1, inter.Width, 1), Color.FromHex("#804080"));
+        handle.DrawRect(UIBox2.FromDimensions(inter.Left, inter.Top, 1, inter.Height), Color.FromHex("#804080"));
+        handle.DrawRect(UIBox2.FromDimensions(inter.Right - 1, inter.Top, 1, inter.Height), Color.FromHex("#804080"));
     }
 
     private static void DrawClipped(DrawingHandleScreen handle, Texture tex, Vector2 pos, UIBox2 clip)
@@ -338,6 +358,19 @@ public sealed class ConfettiControl : Control
 
 public sealed class IntroControl : Control
 {
+    private static readonly Color GradTop = Color.FromHex("#0a0a1a");
+    private static readonly Color GradBottom = Color.FromHex("#1a1a3e");
+
+    private static readonly Color[] Gradient = BuildGradient();
+
+    private static Color[] BuildGradient()
+    {
+        var colors = new Color[24];
+        for (var i = 0; i < colors.Length; i++)
+            colors[i] = Color.InterpolateBetween(GradTop, GradBottom, i / (float) colors.Length);
+        return colors;
+    }
+
     private readonly Texture? _machine;
 
     public Label? ClickLabel;
@@ -355,14 +388,12 @@ public sealed class IntroControl : Control
 
         // vertical gradient: #0a0a1a - #1a1a3e - #0a0a1a
         var bandH = size.Y / 2f;
-        handle.DrawRect(UIBox2.FromDimensions(0, 0, size.X, bandH), Color.FromHex("#0a0a1a"));
-        handle.DrawRect(UIBox2.FromDimensions(0, bandH, size.X, bandH), Color.FromHex("#1a1a3e"));
-        var steps = 24;
-        for (var i = 0; i < steps; i++)
+        handle.DrawRect(UIBox2.FromDimensions(0, 0, size.X, bandH), GradTop);
+        handle.DrawRect(UIBox2.FromDimensions(0, bandH, size.X, bandH), GradBottom);
+        for (var i = 0; i < Gradient.Length; i++)
         {
-            var t = i / (float)steps;
-            var c = Color.InterpolateBetween(Color.FromHex("#0a0a1a"), Color.FromHex("#1a1a3e"), t);
-            handle.DrawRect(UIBox2.FromDimensions(0, size.Y / 2f - bandH / 2f + t * bandH, size.X, bandH / steps + 1), c);
+            var t = i / (float) Gradient.Length;
+            handle.DrawRect(UIBox2.FromDimensions(0, size.Y / 2f - bandH / 2f + t * bandH, size.X, bandH / Gradient.Length + 1), Gradient[i]);
         }
 
         if (_machine == null)

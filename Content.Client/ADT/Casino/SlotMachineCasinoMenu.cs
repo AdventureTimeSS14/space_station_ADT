@@ -58,32 +58,20 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
     private readonly Dictionary<Label, (string Text, int Size, int Width, bool Bold)> _fitCache = new();
     private readonly Dictionary<Label, int> _fitLines = new();
 
-    private static readonly (string Symbol, string Rsi, string State)[] SymbolSources =
-    {
-        ("seven", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "seven"),
-        ("cherry", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "cherry"),
-        ("banana", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "banana"),
-        ("strawberry", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "strawberry"),
-        ("grape", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "grape"),
-        ("watermelon", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "watermelon"),
-        ("diamond", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "diamond"),
-        ("star", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "star"),
-        ("wild", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "wild"),
-        ("scatter", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "scatter"),
-    };
+    private const string SymbolsRsiPath = "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi";
 
-    private static readonly Dictionary<string, Color> SymbolTextColors = new()
+    private static readonly (string Id, string State, Color TextColor)[] SymbolData =
     {
-        { "seven", SlotMachineUiColors.Gold },
-        { "cherry", SlotMachineUiColors.LineRed },
-        { "banana", Color.FromHex("#ffe066") },
-        { "strawberry", Color.FromHex("#ff8899") },
-        { "grape", Color.FromHex("#c090ff") },
-        { "watermelon", SlotMachineUiColors.LineGreen },
-        { "diamond", SlotMachineUiColors.BlueText },
-        { "star", SlotMachineUiColors.OrangeHot },
-        { "wild", SlotMachineUiColors.GreenWin },
-        { "scatter", SlotMachineUiColors.PinkBonus },
+        ("seven", "seven", SlotMachineUiColors.Gold),
+        ("cherry", "cherry", SlotMachineUiColors.LineRed),
+        ("banana", "banana", Color.FromHex("#ffe066")),
+        ("strawberry", "strawberry", Color.FromHex("#ff8899")),
+        ("grape", "grape", Color.FromHex("#c090ff")),
+        ("watermelon", "watermelon", SlotMachineUiColors.LineGreen),
+        ("diamond", "diamond", SlotMachineUiColors.BlueText),
+        ("star", "star", SlotMachineUiColors.OrangeHot),
+        ("wild", "wild", SlotMachineUiColors.GreenWin),
+        ("scatter", "scatter", SlotMachineUiColors.PinkBonus),
     };
 
     private readonly Texture? _sevenIcon;
@@ -98,10 +86,10 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         Title = Loc.GetString("slotmachine-casino-title");
         SetSize = new Vector2(540, 545);
 
-        foreach (var (sym, rsi, state) in SymbolSources)
+        foreach (var (id, state, _) in SymbolData)
         {
-            if (GetRsiTexture(rsi, state) is { } tex)
-                _reels.Symbols[sym] = tex;
+            if (GetRsiTexture(SymbolsRsiPath, state) is { } tex)
+                _reels.Symbols[id] = tex;
         }
 
         _sevenIcon = _reels.Symbols.GetValueOrDefault("seven");
@@ -654,15 +642,15 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         foreach (var (_, weight) in weights)
             total += weight;
 
-        foreach (var sym in SlotMachineCasinoComponent.SymbolIds)
+        foreach (var (id, _, color) in SymbolData)
         {
-            if (!_oddsLabels.TryGetValue(sym, out var label))
+            if (!_oddsLabels.TryGetValue(id, out var label))
                 continue;
-            var weight = weights.GetValueOrDefault(sym);
+            var weight = weights.GetValueOrDefault(id);
             var percent = total > 0 ? (int) MathF.Round(weight * 100f / total) : 0;
             label.Text = Loc.GetString("slotmachine-casino-agreement-odds-line",
-                ("name", Loc.GetString($"slotmachine-casino-sym-{sym}")), ("percent", percent));
-            label.FontColorOverride = SymbolTextColors.GetValueOrDefault(sym, Color.White);
+                ("name", Loc.GetString($"slotmachine-casino-sym-{id}")), ("percent", percent));
+            label.FontColorOverride = color;
         }
     }
 
