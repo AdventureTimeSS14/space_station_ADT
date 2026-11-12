@@ -56,7 +56,6 @@
   - !type:SpawnEntity
     entity: MobBee
     number: 3
-    predicted: false
 
 - type: entityEffect
   id: ADTDiseaseBrainrotEffect1
@@ -220,7 +219,6 @@
   - !type:SpawnEntity
     entity: MobButterfly
     number: 2
-    predicted: false
 
 - type: entityEffect
   id: ADTDiseaseLycanEffect1
@@ -254,7 +252,6 @@
   - !type:SpawnEntity
     entity: MobCorgiPuppy
     number: 2
-    predicted: false
 
 - type: entityEffect
   id: ADTDiseaseLycanEffect4
@@ -265,7 +262,6 @@
     messages: [ adt-disease-lycan-plushie ]
   - !type:SpawnEntity
     entity: PlushieVulp
-    predicted: false
 
 - type: entityEffect
   id: ADTDiseasePierrotThroatEffect1
@@ -354,7 +350,6 @@
   - !type:SpawnEntityInInventory
     slot: outerClothing
     entity: ClothingOuterWizard
-    predicted: false
 
 - type: entityEffect
   id: ADTDiseaseWizarditisEffect3
