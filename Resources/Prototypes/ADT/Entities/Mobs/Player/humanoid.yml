@@ -600,6 +600,188 @@
       nameFormat: name-format-standard
 # end Капитан РХБЗЗ
 
+# Роли для ЦК
+- type: randomHumanoidSettings
+  id: ADTCentcomInspectorSettings
+  parent: EventHumanoidMindShielded
+  speciesBlacklist:
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - CelecernSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies
+  components:
+    - type: Loadout
+      prototypes: [ ADTCentComInspectorGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  name: CentComm Inspector
+  id: ADTRandomHumanoidSpawnerCentcomInspector
+  components:
+    - type: Sprite
+      sprite: ADT/Markers/jobs.rsi
+      state: inspector_cc
+    - type: RandomHumanoidSpawner
+      settings: ADTCentcomInspectorSettings
+
+- type: randomHumanoidSettings
+  id: ADTCentcomInquisitorSettings
+  parent: EventHumanoidMindShielded
+  speciesBlacklist:
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - CelecernSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies
+  components:
+    - type: Loadout
+      prototypes: [ ADTInquisitorGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstInquisitor
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+
+- type: entity
+  name: CentComm Inquisitor
+  id: ADTRandomHumanoidSpawnerCentcomInquisitor
+  components:
+    - type: Sprite
+      sprite: ADT/Markers/jobs.rsi
+      state: inquisitor_cc
+    - type: RandomHumanoidSpawner
+      settings: ADTCentcomInquisitorSettings
+
+- type: randomHumanoidSettings
+  id: ADTCentcomOfficerSettings
+  parent: ADTCentcomInspectorSettings
+  components:
+    - type: Loadout
+      prototypes: [ ADTCentcomOfficerGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  name: CentComm Officer
+  id: ADTRandomHumanoidSpawnerCentcomOfficer
+  components:
+    - type: Sprite
+      sprite: ADT/Markers/jobs.rsi
+      state: officer_cc
+    - type: RandomHumanoidSpawner
+      settings: ADTCentcomOfficerSettings
+
+- type: entity
+  name: CentComm official
+  id: ADTRandomHumanoidSpawnerCentcomOfficial
+  components:
+    - type: Sprite
+      sprite: ADT/Markers/jobs.rsi
+      state: inspector_cc
+    - type: RandomHumanoidSpawner
+      settings: ADTCentcomOfficial
+
+- type: randomHumanoidSettings
+  id: ADTCentcomOfficial
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - CelecernSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies
+  parent: EventHumanoidMindShielded
+  components: # ADT-Remove-Ghostrole
+    - type: Loadout
+      prototypes: [ ADTCentcommGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  name: Dso officer
+  id: ADTRandomHumanoidSpawnerSODOfficer
+  components:
+    - type: Sprite
+      sprite: ADT/Markers/jobs.rsi
+      state: officer_sod
+    - type: RandomHumanoidSpawner
+      settings: ADTSODOfficerSettings
+
+- type: randomHumanoidSettings
+  id: ADTSODOfficerSettings
+  parent: EventHumanoidMindShielded
+  speciesBlacklist:
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - CelecernSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies
+  components:
+    - type: Loadout
+      prototypes: [ ADTSODOfficerGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstSODOfficer
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+# Роли для ЦК конец
+
 # SPACE SEC
 
 - type: entity
@@ -885,7 +1067,7 @@
     - BoxSurvivalNitrogen
     - ChemistryBottleNocturine
     - ChemistryBottleNocturine
-  
+
 - type: entity
   name: ADTMobIanHero-name
   parent: MobHuman
@@ -941,3 +1123,4 @@
     jumpsuit: ClothingUniformJumpsuitColorWhite
     gloves: ClothingHandsGlovesColorWhite
     outerClothing: ADTOuterClothingCoatsCrazyScientist
+

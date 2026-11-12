@@ -1,0 +1,47 @@
+- type: job
+  id: ADTCentcomInquisitor
+  name: job-name-ADTCentcomInquisitor
+  description: job-description-ADTCentcomInquisitor
+  playTimeTracker: JobADTCentcomInquisitor
+  setPreference: false
+  startingGear: ADTInquisitorGear
+  icon: "JobIconADTCentcomInquisitor"
+  supervisors: job-supervisors-centcom # Corvax-JobSupervisors
+  accessGroups:
+  - AllAccess
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ADTInquisitorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackERTChaplain
+    shoes: ClothingShoesBootsMag
+    mask: ADTClothingCentcomSwatMask
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterHardsuitInquisitory
+    id: ADTCentcomInquisitorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ADTClothingBeltMedicalSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksCentcom
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
+    - BoxFolderCentComClipboardThreePapers
+    - PenCentcom
+    - Flash #ADT-CustomADTLoadout
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
+    - ClothingHandsKnuckleDustersStun

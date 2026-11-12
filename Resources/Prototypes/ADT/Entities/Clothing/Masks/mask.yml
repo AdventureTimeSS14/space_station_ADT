@@ -544,3 +544,31 @@
     slots:
     - Snout
   - type: BreathMask
+
+- type: entity
+  parent: ClothingMaskGasSwat
+  id: ADTClothingCentcomSwatMask
+  name: Centcom SWAT mask
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/centcom_swat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/centcom_swat.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: ShowJobIcons
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
