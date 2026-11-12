@@ -17448,3 +17448,14 @@ Entries:
     id: 2106
     pr_number: 3668
     time: '2026-11-11T06:27:49Z'
+  - author: Filo
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Часть арканьих рогов теперь доступна также расе людей, если у вас
+          есть спонсорство', type: Add}
+    id: 2107
+    pr_number: 3674
+    time: '2026-11-12T08:55:11Z'
