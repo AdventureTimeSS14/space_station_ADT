@@ -6,3 +6,5 @@ ent-ADTMedkitVirologyFilled = { ent-ADTMedkitVirology }
     .desc = { ent-ADTMedkitVirology.desc }
 ent-ADTSyndicateAntiviralMedipen = антивирусный медипен
     .desc = Одноразовый медипен Синдиката, который уничтожает в организме все вирусы.
+ent-ADTCrateVirologyCultures = ящик вирусных культур
+    .desc = Набор культур вирусов для вирусологической лаборатории. Требует медицинский доступ.

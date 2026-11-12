@@ -94,7 +94,7 @@ public sealed class ADTDiseaseOutbreakRule : StationEventSystem<ADTDiseaseOutbre
             crew++;
             station ??= owning;
 
-            if (TryComp<ADTDiseaseCarrierComponent>(mobUid, out var carrier) && IsContagious(carrier))
+            if (TryComp<ADTDiseaseCarrierComponent>(mobUid, out var carrier) && IsContagious(carrier, rule.MinAnnounceSeverity))
                 infected++;
         }
 
@@ -122,9 +122,6 @@ public sealed class ADTDiseaseOutbreakRule : StationEventSystem<ADTDiseaseOutbre
         if (!HasComp<MindContainerComponent>(ent) || _mobState.IsDead(ent))
             return;
 
-        if (!IsContagious(ent.Comp))
-            return;
-
         if (_station.GetOwningStation(ent) is not { } station)
             return;
 
@@ -134,16 +131,22 @@ public sealed class ADTDiseaseOutbreakRule : StationEventSystem<ADTDiseaseOutbre
             if (!rule.Announce || !GameTicker.IsGameRuleActive(ruleUid, gameRule) || rule.Stage >= 1)
                 continue;
 
+            if (!IsContagious(ent.Comp, rule.MinAnnounceSeverity))
+                continue;
+
             rule.Stage = 1;
             Announce(station, rule.OutbreakMessage, 1);
         }
     }
 
-    private bool IsContagious(ADTDiseaseCarrierComponent carrier)
+    private bool IsContagious(ADTDiseaseCarrierComponent carrier, ADTDiseaseSeverity minSeverity)
     {
         foreach (var disease in carrier.Diseases)
         {
             if (!_proto.TryIndex(disease.Prototype, out var proto) || !proto.IsVirus)
+                continue;
+
+            if (disease.Severity < minSeverity)
                 continue;
 
             if ((disease.Spread & (ADTDiseaseSpread.Contact | ADTDiseaseSpread.Airborne | ADTDiseaseSpread.Bites)) != 0)

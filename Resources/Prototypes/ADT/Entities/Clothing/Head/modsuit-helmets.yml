@@ -149,6 +149,11 @@
   name: medical MOD helmet
   description: A helmet for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
   - type: Sprite
     sprite: ADT/Clothing/Head/Modsuit/medical.rsi
     layers:
@@ -539,6 +544,11 @@
   name: Brigmedic MOD helmet
   description: A helmet for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
   - type: Sprite
     sprite: ADT/Clothing/Head/Modsuit/brigmedic.rsi
     layers:
@@ -717,6 +727,11 @@
   name: ERT MOD helmet "Vega"
   description: A helmet for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
   - type: Sprite
     sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
     layers:
@@ -735,6 +750,11 @@
   id: ADTClothingHeadHelmetModsuitSyndicateMedic
   name: syndicate medic MOD helmet
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
   - type: Sprite
     sprite: ADT/Clothing/Head/Modsuit/syndicate_medic.rsi
   - type: Clothing

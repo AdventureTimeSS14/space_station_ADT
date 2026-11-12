@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Virology;
 using Content.Shared.ADT.Virology.Prototypes;
 using Robust.Shared.Prototypes;
 
@@ -32,6 +33,9 @@ public sealed partial class ADTDiseaseOutbreakRuleComponent : Component
 
     [DataField]
     public LocId ConfirmedMessage = "adt-disease-alert-confirmed";
+
+    [DataField]
+    public ADTDiseaseSeverity MinAnnounceSeverity = ADTDiseaseSeverity.Minor;
 
     [ViewVariables]
     public int Stage;

@@ -185,6 +185,13 @@
   name: brigmedic hardsuit helmet
   description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/brigmedic-praz.rsi # ADT Tweak
     # ADT-Tweak start
@@ -527,6 +534,13 @@
   name: blood-red medic hardsuit helmet
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
   - type: PointLight
