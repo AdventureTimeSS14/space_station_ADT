@@ -596,9 +596,16 @@
     - IPC
     - DraskSpecies # ADT-Tweak-end
   parent: EventHumanoidMindShielded
-  components: # ADT-Remove-Ghostrole
+  components:
+    # - type: GhostRole # ADT tweak start
+    #   name: ghost-role-information-centcom-official-name
+    #   description: ghost-role-information-centcom-official-description
+    #   rules: ghost-role-information-nonantagonist-rules
+    #   raffle:
+    #     settings: default
+    #   job: CentralCommandOfficial # ADT tweak end
     - type: Loadout
-      prototypes: [ ADTCentcommGear ]
+      prototypes: [ ADTCentcommGear ] # ADT tweak
       roleLoadout: [ RoleSurvivalStandard ]
 
 ## Syndicate
