@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Particles;
 using Content.Shared.DoAfter;
+using Content.Shared.Tools;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Prototypes;
 
@@ -8,8 +9,10 @@ namespace Content.Server.ADT.Particles;
 public sealed class WelderParticleMarkerSystem : EntitySystem
 {
     private static readonly EntProtoId MarkerProto = "OverlayWeldSparksEffect";
+    private static readonly ProtoId<ToolQualityPrototype> WeldingQuality = "Welding";
 
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
 
     private readonly Dictionary<DoAfterId, EntityUid> _markers = new();
     private readonly List<DoAfterId> _toRemove = new();
@@ -34,6 +37,9 @@ public sealed class WelderParticleMarkerSystem : EntitySystem
                     continue;
 
                 if (doAfter.Args.Event is not SharedToolSystem.ToolDoAfterEvent { Fuel: > 0f })
+                    continue;
+
+                if (doAfter.Args.Used is not { } used || !_tool.HasQuality(used, WeldingQuality))
                     continue;
 
                 if (doAfter.Args.Target is not { } target)

@@ -86,7 +86,23 @@ public sealed partial class SolutionHeaterSystem : EntitySystem
                 var energy = heater.HeatPerSecond * heater.HeatMultiplier * frameTime; // ADT-Tweak
                 foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(heatingEntity))
                 {
+                    // ADT-Tweak-Start
+                    var temperature = soln.Comp.Solution.Temperature;
+
+                    if (energy > 0 && temperature >= heater.MaxTemperature)
+                        continue;
+
+                    if (energy < 0 && temperature <= heater.MinTemperature)
+                        continue;
+
                     _solutionContainer.AddThermalEnergy(soln, energy);
+
+                    if (energy > 0 && soln.Comp.Solution.Temperature > heater.MaxTemperature)
+                        _solutionContainer.SetTemperature(soln, heater.MaxTemperature);
+
+                    if (energy < 0 && soln.Comp.Solution.Temperature < heater.MinTemperature)
+                        _solutionContainer.SetTemperature(soln, heater.MinTemperature);
+                    // ADT-Tweak-End
                 }
             }
         }

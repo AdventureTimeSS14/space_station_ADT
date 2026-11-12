@@ -65,10 +65,6 @@
         showEnts: False
         occludes: True
         ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
       toggleable-clothing: !type:ContainerSlot {}
 
 - type: entity

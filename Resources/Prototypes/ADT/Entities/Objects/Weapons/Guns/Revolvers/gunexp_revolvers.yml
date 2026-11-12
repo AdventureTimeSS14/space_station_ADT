@@ -1,0 +1,36 @@
+- type: entity
+  name: forged revolver
+  parent: [BaseWeaponRevolver, BaseMajorContraband]
+  id: ADTWeaponRevolverForged
+  description: A seven-shot revolver forged by smuggler gunsmiths. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/forged_revolver.rsi
+    state: base
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/forged_revolver.rsi
+  - type: Gun
+    fireRate: 2.5
+    angleIncrease: 0.3
+  - type: RevolverAmmoProvider
+    capacity: 7
+    chambers: [ True, True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null, null ]
+  - type: StaticPrice
+    price: 900
+
+- type: entity
+  name: improvised revolver
+  parent: [BaseWeaponRevolver, BaseMajorContraband]
+  id: ADTWeaponRevolverImprovised
+  description: A crude but sturdy revolver made by smuggler gunsmiths. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/improvised_revolver.rsi
+    state: base
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/improvised_revolver.rsi
+  - type: Gun
+    fireRate: 2
+  - type: StaticPrice
+    price: 500

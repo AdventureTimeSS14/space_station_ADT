@@ -21,3 +21,12 @@
   targetNode: bowl
   category: construction-category-misc
   objectType: Item
+
+- type: construction
+  id: ADTImprovisedGuitar
+  graph: ADTImprovisedGuitar
+  startNode: start
+  targetNode: guitar
+  category: construction-category-misc
+  objectType: Item
+

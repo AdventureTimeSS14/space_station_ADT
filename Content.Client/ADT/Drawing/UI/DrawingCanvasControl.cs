@@ -21,9 +21,13 @@ public enum DrawingTool : byte
     Rectangle,
     Ellipse,
     Fill,
+    Blur,
+    Lasso,
+    Transform,
+    Liquify,
 }
 
-public sealed class DrawingCanvasControl : Control
+public sealed partial class DrawingCanvasControl : Control
 {
     public const float MinBrushSize = 1f;
     public const float MaxBrushSize = 400f;
@@ -35,6 +39,8 @@ public sealed class DrawingCanvasControl : Control
     private const float MaxTaperFloor = 24f;
     private const float MaxTaperPerSize = 6f;
     private const int MaxUploadsPerFrame = 16;
+    private const float RightClickSlop = 4f;
+    private const float RotationStep = MathF.PI / 12f;
 
     private static readonly Color BackdropColor = Color.FromHex("#2a2a2e");
     private static readonly Color PaperColor = Color.White;
@@ -47,6 +53,8 @@ public sealed class DrawingCanvasControl : Control
     private Font? _font;
 
     private bool _panning;
+    private bool _panMoved;
+    private bool _mirrored;
     private Vector2 _panStart;
     private Vector2 _panOrigin;
     private Vector2? _hover;
@@ -59,6 +67,12 @@ public sealed class DrawingCanvasControl : Control
     private Vector2 _shapeStart;
     private Vector2 _shapeEnd;
     private readonly List<Vector2> _shapePoints = new();
+    private float _rotation;
+    private bool _rotateHeld;
+    private bool _rotating;
+    private float _rotateStartAngle;
+    private float _rotateOrigin;
+    private bool _rawView;
 
     public DrawingCanvasControl(CanvasDocument document, PenInputSystem penSystem,
         IGameTiming timing, IClyde clyde, IInputManager inputManager)
@@ -90,12 +104,35 @@ public sealed class DrawingCanvasControl : Control
         get => _tool;
         set
         {
+            if (value != DrawingTool.Transform)
+                CommitFloating();
+
             _tool = value;
             _shaping = false;
+            _lassoing = false;
+            Brush.Blur = value == DrawingTool.Blur;
+            Brush.Liquify = value == DrawingTool.Liquify;
+
+            if (value == DrawingTool.Transform && CanDrawActive)
+                BeginFloating();
+
+            OnToolSelected?.Invoke(value);
         }
     }
 
     public bool ShapeFill { get; set; }
+
+    public bool RightClickPicker { get; set; }
+
+    public bool Mirrored
+    {
+        get => _mirrored;
+        set
+        {
+            _mirrored = value;
+            OnViewChanged?.Invoke();
+        }
+    }
 
     public float FillTolerance { get; set; } = 0.1f;
 
@@ -112,7 +149,10 @@ public sealed class DrawingCanvasControl : Control
         {
             _baseLocked = value;
             if (value && Document.Layers.Active == null)
+            {
                 _input.Cancel();
+                CancelFloating();
+            }
         }
     }
 
@@ -125,13 +165,31 @@ public sealed class DrawingCanvasControl : Control
         {
             _locked = value;
             if (value)
+            {
                 _input.Cancel();
+                CancelFloating();
+            }
         }
     }
 
     public CanvasCollaboration? Collaboration { get; set; }
 
     public float Zoom { get; private set; } = 1f;
+
+    public DrawingHotkeyMap Hotkeys { get; set; } = new();
+
+    public float Rotation
+    {
+        get => _rotation;
+        set
+        {
+            var pivot = (Vector2) PixelSize / 2f;
+            var canvasPivot = ScreenToCanvas(pivot);
+            _rotation = NormalizeAngle(value);
+            Offset += Unrotate(pivot - CanvasToScreen(canvasPivot));
+            OnViewChanged?.Invoke();
+        }
+    }
 
     public Vector2 Offset { get; private set; }
 
@@ -147,12 +205,58 @@ public sealed class DrawingCanvasControl : Control
 
     public Vector2 ScreenToCanvas(Vector2 controlPixels)
     {
-        return (controlPixels - Offset) / Zoom;
+        if (!_rawView && _rotation != 0f)
+            controlPixels = RotateAroundPivot(controlPixels, -_rotation);
+
+        var canvas = (controlPixels - Offset) / Zoom;
+        return Mirrored ? new Vector2(Surface.Width - canvas.X, canvas.Y) : canvas;
     }
 
     public Vector2 CanvasToScreen(Vector2 canvas)
     {
-        return Offset + canvas * Zoom;
+        if (Mirrored)
+            canvas = new Vector2(Surface.Width - canvas.X, canvas.Y);
+
+        var screen = Offset + canvas * Zoom;
+        if (!_rawView && _rotation != 0f)
+            screen = RotateAroundPivot(screen, _rotation);
+
+        return screen;
+    }
+
+    private Vector2 RotateAroundPivot(Vector2 point, float angle)
+    {
+        var pivot = (Vector2) PixelSize / 2f;
+        return pivot + RotateVector(point - pivot, angle);
+    }
+
+    private Vector2 Unrotate(Vector2 vector)
+    {
+        return _rotation == 0f ? vector : RotateVector(vector, -_rotation);
+    }
+
+    private static Vector2 RotateVector(Vector2 vector, float angle)
+    {
+        var sin = MathF.Sin(angle);
+        var cos = MathF.Cos(angle);
+        return new Vector2(vector.X * cos - vector.Y * sin, vector.X * sin + vector.Y * cos);
+    }
+
+    private static float NormalizeAngle(float angle)
+    {
+        angle %= MathF.Tau;
+        if (angle > MathF.PI)
+            angle -= MathF.Tau;
+        else if (angle < -MathF.PI)
+            angle += MathF.Tau;
+
+        return MathF.Abs(angle) < 0.0001f ? 0f : angle;
+    }
+
+    private float PointerAngle(Vector2 screen)
+    {
+        var dir = screen - (Vector2) PixelSize / 2f;
+        return MathF.Atan2(dir.Y, dir.X);
     }
 
     public void FitToView()
@@ -165,6 +269,7 @@ public sealed class DrawingCanvasControl : Control
         var zy = (PixelSize.Y - margin * 2) / Surface.Height;
         Zoom = Math.Clamp(MathF.Min(zx, zy), MinZoom, MaxZoom);
         Offset = ((Vector2) PixelSize - new Vector2(Surface.Width, Surface.Height) * Zoom) / 2f;
+        _rotation = 0f;
         _fitted = true;
         OnViewChanged?.Invoke();
     }
@@ -176,7 +281,7 @@ public sealed class DrawingCanvasControl : Control
 
         var canvasAnchor = ScreenToCanvas(anchorControlPixels);
         Zoom = Math.Clamp(zoom, MinZoom, MaxZoom);
-        Offset = anchorControlPixels - canvasAnchor * Zoom;
+        Offset += Unrotate(anchorControlPixels - CanvasToScreen(canvasAnchor));
         OnViewChanged?.Invoke();
     }
 
@@ -193,6 +298,23 @@ public sealed class DrawingCanvasControl : Control
         OnBrushSizeChanged?.Invoke(Brush.Size);
     }
 
+    public void Undo()
+    {
+        if (_floating != null)
+        {
+            CancelFloating();
+            return;
+        }
+
+        Document.Undo();
+    }
+
+    public void Redo()
+    {
+        if (_floating == null)
+            Document.Redo();
+    }
+
     #endregion
 
     #region Ввод
@@ -204,6 +326,7 @@ public sealed class DrawingCanvasControl : Control
         if (args.Function == EngineKeyFunctions.UIRightClick)
         {
             _panning = true;
+            _panMoved = false;
             _panStart = args.RelativePixelPosition;
             _panOrigin = Offset;
             args.Handle();
@@ -214,6 +337,15 @@ public sealed class DrawingCanvasControl : Control
             return;
 
         args.Handle();
+
+        if (_rotateHeld)
+        {
+            _rotating = true;
+            _rotateStartAngle = PointerAngle(args.RelativePixelPosition);
+            _rotateOrigin = _rotation;
+            return;
+        }
+
         if (_locked)
             return;
 
@@ -221,20 +353,26 @@ public sealed class DrawingCanvasControl : Control
 
         if (Tool == DrawingTool.Picker)
         {
-            var c = ScreenToCanvas(screen);
-            var x = (int) MathF.Floor(c.X);
-            var y = (int) MathF.Floor(c.Y);
-            if (x < 0 || y < 0 || x >= Surface.Width || y >= Surface.Height)
-                return;
+            if (PickColor(screen))
+                Tool = DrawingTool.Brush;
 
-            var p = Document.ComposedPixel(x, y);
-            if (p.A > 0)
-                OnColorPicked?.Invoke(new Color(p.R, p.G, p.B, (byte) 255));
             return;
         }
 
         if (!CanDrawActive)
             return;
+
+        if (Tool == DrawingTool.Lasso)
+        {
+            BeginLasso(screen);
+            return;
+        }
+
+        if (Tool == DrawingTool.Transform)
+        {
+            PressTransform(screen);
+            return;
+        }
 
         if (IsShapeTool(Tool))
         {
@@ -265,7 +403,28 @@ public sealed class DrawingCanvasControl : Control
 
         if (args.Function == EngineKeyFunctions.UIRightClick)
         {
+            if (_panning && !_panMoved && RightClickPicker && !_locked)
+                PickColor(_hover ?? args.RelativePixelPosition);
+
             _panning = false;
+            return;
+        }
+
+        if (IsDrawFunction(args.Function) && _rotating)
+        {
+            _rotating = false;
+            return;
+        }
+
+        if (IsDrawFunction(args.Function) && _lassoing)
+        {
+            FinishLasso();
+            return;
+        }
+
+        if (IsDrawFunction(args.Function) && _dragHandle != NoHandle)
+        {
+            _dragHandle = NoHandle;
             return;
         }
 
@@ -293,6 +452,8 @@ public sealed class DrawingCanvasControl : Control
     {
         base.KeyboardFocusExited();
         SetHotkeys(false);
+        _rotateHeld = false;
+        _rotating = false;
     }
 
     private void SetHotkeys(bool enabled)
@@ -310,59 +471,180 @@ public sealed class DrawingCanvasControl : Control
     private void OnKeyEvent(KeyEventArgs args, KeyEventType type)
     {
         if (type == KeyEventType.Up)
-            return;
+        {
+            if (_rotateHeld && Hotkeys.UsesKey(DrawingAction.RotateCanvas, args.Key))
+            {
+                _rotateHeld = false;
+                _rotating = false;
+                args.Handle();
+            }
 
+            return;
+        }
+
+        if (!TryHandleFloatingKeys(args) && Hotkeys.TryMatch(args, out var action) && RunAction(action, args.IsRepeat))
+            args.Handle();
+    }
+
+    private bool TryHandleFloatingKeys(KeyEventArgs args)
+    {
         switch (args.Key)
         {
-            case Keyboard.Key.Z when args.Control && args.Shift:
-            case Keyboard.Key.Y when args.Control:
-                if (!_input.IsDown && CanDrawActive)
-                    Document.Redo();
+            case Keyboard.Key.Return when _floating != null:
+            case Keyboard.Key.NumpadEnter when _floating != null:
+                if (!IsPointerBusy)
+                    CommitFloating();
                 break;
 
-            case Keyboard.Key.Z when args.Control:
-                if (!_input.IsDown && CanDrawActive)
-                    Document.Undo();
+            case Keyboard.Key.Escape when _floating != null:
+                CancelFloating();
                 break;
 
-            case Keyboard.Key.LBracket:
-                ChangeBrushSize(1f / BrushSizeStep);
-                break;
-
-            case Keyboard.Key.RBracket:
-                ChangeBrushSize(BrushSizeStep);
-                break;
-
-            case Keyboard.Key.L when !args.Control && !args.Alt:
-                SelectTool(DrawingTool.Line);
-                break;
-
-            case Keyboard.Key.R when !args.Control && !args.Alt:
-                SelectTool(DrawingTool.Rectangle);
-                break;
-
-            case Keyboard.Key.O when !args.Control && !args.Alt:
-                SelectTool(DrawingTool.Ellipse);
-                break;
-
-            case Keyboard.Key.G when !args.Control && !args.Alt:
-                SelectTool(DrawingTool.Fill);
+            case Keyboard.Key.Escape when Document.Selection != null:
+                if (!IsPointerBusy)
+                    Document.Selection = null;
                 break;
 
             default:
-                return;
+                return false;
         }
 
         args.Handle();
+        return true;
     }
+
+    private bool RunAction(DrawingAction action, bool repeat)
+    {
+        switch (action)
+        {
+            case DrawingAction.Undo:
+                if (!_input.IsDown && CanDrawActive)
+                    Undo();
+                break;
+
+            case DrawingAction.Redo:
+                if (!_input.IsDown && CanDrawActive)
+                    Redo();
+                break;
+
+            case DrawingAction.BrushSmaller:
+                ChangeBrushSize(1f / BrushSizeStep);
+                break;
+
+            case DrawingAction.BrushBigger:
+                ChangeBrushSize(BrushSizeStep);
+                break;
+
+            case DrawingAction.Brush:
+                SelectTool(DrawingTool.Brush);
+                break;
+
+            case DrawingAction.Eraser:
+                SelectTool(DrawingTool.Eraser);
+                break;
+
+            case DrawingAction.Picker:
+                SelectTool(DrawingTool.Picker);
+                break;
+
+            case DrawingAction.Line:
+                SelectTool(DrawingTool.Line);
+                break;
+
+            case DrawingAction.Rectangle:
+                SelectTool(DrawingTool.Rectangle);
+                break;
+
+            case DrawingAction.Ellipse:
+                SelectTool(DrawingTool.Ellipse);
+                break;
+
+            case DrawingAction.Fill:
+                SelectTool(DrawingTool.Fill);
+                break;
+
+            case DrawingAction.Blur:
+                SelectTool(DrawingTool.Blur);
+                break;
+
+            case DrawingAction.Lasso:
+                SelectTool(DrawingTool.Lasso);
+                break;
+
+            case DrawingAction.Transform:
+                SelectTool(DrawingTool.Transform);
+                break;
+
+            case DrawingAction.Liquify:
+                SelectTool(DrawingTool.Liquify);
+                break;
+
+            case DrawingAction.Mirror:
+                if (!repeat && !IsPointerBusy)
+                    Mirrored = !Mirrored;
+                break;
+
+            case DrawingAction.SelectAll:
+                if (!IsPointerBusy && CanDrawActive)
+                    SelectAll();
+                break;
+
+            case DrawingAction.Deselect:
+                if (!IsPointerBusy)
+                    ClearSelection();
+                break;
+
+            case DrawingAction.RotateCanvas:
+                if (!IsPointerBusy)
+                    _rotateHeld = true;
+                break;
+
+            case DrawingAction.RotateLeft:
+                if (!IsPointerBusy)
+                    Rotation -= RotationStep;
+                break;
+
+            case DrawingAction.RotateRight:
+                if (!IsPointerBusy)
+                    Rotation += RotationStep;
+                break;
+
+            case DrawingAction.ResetRotation:
+                if (!IsPointerBusy)
+                    Rotation = 0f;
+                break;
+
+            default:
+                return false;
+        }
+
+        return true;
+    }
+
+    private bool IsPointerBusy => _input.IsDown || _shaping || _lassoing || _dragHandle != NoHandle;
 
     private void SelectTool(DrawingTool tool)
     {
-        if (_input.IsDown || _shaping)
+        if (IsPointerBusy)
             return;
 
         Tool = tool;
-        OnToolSelected?.Invoke(tool);
+    }
+
+    private bool PickColor(Vector2 screen)
+    {
+        var c = ScreenToCanvas(screen);
+        var x = (int) MathF.Floor(c.X);
+        var y = (int) MathF.Floor(c.Y);
+        if (x < 0 || y < 0 || x >= Surface.Width || y >= Surface.Height)
+            return false;
+
+        var p = Document.ComposedPixel(x, y);
+        if (p.A == 0)
+            return false;
+
+        OnColorPicked?.Invoke(new Color(p.R, p.G, p.B, (byte) 255));
+        return true;
     }
 
     private static bool IsShapeTool(DrawingTool tool)
@@ -481,8 +763,30 @@ public sealed class DrawingCanvasControl : Control
 
         if (_panning)
         {
-            Offset = _panOrigin + (screen - _panStart);
+            if (RightClickPicker && !_panMoved && Vector2.Distance(screen, _panStart) < RightClickSlop)
+                return;
+
+            _panMoved = true;
+            Offset = _panOrigin + Unrotate(screen - _panStart);
             OnViewChanged?.Invoke();
+            return;
+        }
+
+        if (_rotating)
+        {
+            if (!_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
+            {
+                _rotating = false;
+            }
+            else
+            {
+                var angle = _rotateOrigin + PointerAngle(screen) - _rotateStartAngle;
+                if (_inputManager.IsKeyDown(Keyboard.Key.Shift))
+                    angle = MathF.Round(angle / RotationStep) * RotationStep;
+
+                Rotation = angle;
+            }
+
             return;
         }
 
@@ -492,6 +796,22 @@ public sealed class DrawingCanvasControl : Control
                 _shapeEnd = ScreenToCanvas(screen);
             else
                 _shaping = false;
+        }
+
+        if (_lassoing)
+        {
+            if (_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
+                AddLassoPoint(screen);
+            else
+                _lassoing = false;
+        }
+
+        if (_dragHandle != NoHandle)
+        {
+            if (_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
+                DragFloating(screen);
+            else
+                _dragHandle = NoHandle;
         }
 
         if (_input.IsDown && !_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
@@ -505,6 +825,7 @@ public sealed class DrawingCanvasControl : Control
     {
         base.EnteredTree();
         _clyde.OnWindowFocused += OnWindowFocused;
+        Document.Layers.Changed += OnLayersChanged;
     }
 
     private void OnWindowFocused(WindowFocusedEventArgs args)
@@ -514,6 +835,8 @@ public sealed class DrawingCanvasControl : Control
 
         _input.Cancel();
         _shaping = false;
+        _lassoing = false;
+        _dragHandle = NoHandle;
     }
 
     private void ReportCursor()
@@ -530,7 +853,7 @@ public sealed class DrawingCanvasControl : Control
         var flags = Tool switch
         {
             DrawingTool.Eraser => CanvasCursorFlags.Eraser,
-            DrawingTool.Picker => CanvasCursorFlags.Picker,
+            DrawingTool.Picker or DrawingTool.Lasso or DrawingTool.Transform => CanvasCursorFlags.Picker,
             _ => CanvasCursorFlags.None,
         };
 
@@ -565,7 +888,10 @@ public sealed class DrawingCanvasControl : Control
     {
         base.ControlFocusExited();
         _panning = false;
+        _rotating = false;
         _shaping = false;
+        _lassoing = false;
+        _dragHandle = NoHandle;
         _input.Cancel();
     }
 
@@ -573,8 +899,10 @@ public sealed class DrawingCanvasControl : Control
     {
         base.ExitedTree();
         _clyde.OnWindowFocused -= OnWindowFocused;
+        Document.Layers.Changed -= OnLayersChanged;
         SetHotkeys(false);
         _input.Cancel();
+        CancelFloating();
         _hover = null;
         ReportCursor();
     }
@@ -605,6 +933,12 @@ public sealed class DrawingCanvasControl : Control
             layer.Surface.Flush(_clyde, MaxUploadsPerFrame);
         }
 
+        if (_floating is { } floating)
+        {
+            floating.Upload(_clyde);
+            floating.Hole.Flush(_clyde, MaxUploadsPerFrame);
+        }
+
         if (Collaboration != null)
         {
             Collaboration.Advance();
@@ -618,10 +952,19 @@ public sealed class DrawingCanvasControl : Control
 
         handle.DrawRect(new UIBox2(Vector2.Zero, PixelSize), BackdropColor);
 
-        var canvasRect = new UIBox2(Offset, CanvasToScreen(new Vector2(Surface.Width, Surface.Height)));
+        var screenTransform = handle.GetTransform();
+        if (_rotation != 0f)
+        {
+            var rotation = Matrix3x2.CreateRotation(_rotation, (Vector2) PixelSize / 2f);
+            handle.SetTransform(rotation * screenTransform);
+        }
+
+        _rawView = true;
+
+        var canvasRect = new UIBox2(Offset, Offset + new Vector2(Surface.Width, Surface.Height) * Zoom);
         DrawPaper(handle, canvasRect);
 
-        DrawSurface(handle, Surface);
+        DrawTarget(handle, Surface);
 
         if (Collaboration != null)
         {
@@ -635,7 +978,7 @@ public sealed class DrawingCanvasControl : Control
         foreach (var layer in Document.Layers.Layers)
         {
             if (layer.Visible && layer.Opacity > 0f)
-                DrawSurface(handle, layer.Surface, Color.White.WithAlpha(layer.Opacity));
+                DrawTarget(handle, layer.Surface, Color.White.WithAlpha(layer.Opacity));
         }
 
         if (Brush.Pixel && Zoom >= PixelGridZoom)
@@ -645,29 +988,42 @@ public sealed class DrawingCanvasControl : Control
             DrawShapePreview(handle);
 
         handle.DrawRect(canvasRect, Color.Black.WithAlpha(0.6f), filled: false);
+        DrawSelection(handle);
+
+        if (Brush.Pixel && !Brush.LocalOnly && _hover is { } pixelHover && ShowBrushCursor())
+        {
+            var size = Brush.PixelSize;
+            _rawView = false;
+            var cell = ScreenToCanvas(pixelHover);
+            _rawView = true;
+            var left = MathF.Floor(cell.X) - (size - 1) / 2;
+            var top = MathF.Floor(cell.Y) - (size - 1) / 2;
+            var box = ScreenBox(CanvasToScreen(new Vector2(left, top)), CanvasToScreen(new Vector2(left + size, top + size)));
+            handle.DrawRect(new UIBox2(box.TopLeft - Vector2.One, box.BottomRight + Vector2.One), Color.Black.WithAlpha(0.5f), filled: false);
+            handle.DrawRect(box, Color.White.WithAlpha(0.8f), filled: false);
+        }
+
+        _rawView = false;
+        handle.SetTransform(screenTransform);
 
         if (Collaboration != null)
             DrawCursors(handle, Collaboration);
 
-        if (_hover is not { } hover || Tool is DrawingTool.Picker or DrawingTool.Fill || _panning || !CanDrawActive)
+        if (_hover is not { } hover || !ShowBrushCursor() || Brush.Pixel && !Brush.LocalOnly)
             return;
-
-        if (Brush.Pixel)
-        {
-            var size = Brush.PixelSize;
-            var cell = ScreenToCanvas(hover);
-            var left = MathF.Floor(cell.X) - (size - 1) / 2;
-            var top = MathF.Floor(cell.Y) - (size - 1) / 2;
-            var box = new UIBox2(CanvasToScreen(new Vector2(left, top)), CanvasToScreen(new Vector2(left + size, top + size)));
-            handle.DrawRect(new UIBox2(box.TopLeft - Vector2.One, box.BottomRight + Vector2.One), Color.Black.WithAlpha(0.5f), filled: false);
-            handle.DrawRect(box, Color.White.WithAlpha(0.8f), filled: false);
-            return;
-        }
 
         var pressure = _input.IsDown ? _input.Last.Pressure : 1f;
         var radius = MathF.Max(1f, Brush.DiameterAt(pressure) * 0.5f * Zoom);
         handle.DrawCircle(hover, radius + 1f, Color.Black.WithAlpha(0.5f), filled: false);
         handle.DrawCircle(hover, radius, Color.White.WithAlpha(0.8f), filled: false);
+    }
+
+    private bool ShowBrushCursor()
+    {
+        return Tool is not (DrawingTool.Picker or DrawingTool.Fill or DrawingTool.Lasso or DrawingTool.Transform) &&
+               !_panning &&
+               !_rotateHeld &&
+               CanDrawActive;
     }
 
     private void DrawShapePreview(DrawingHandleScreen handle)
@@ -686,31 +1042,82 @@ public sealed class DrawingCanvasControl : Control
         for (var x = 1; x < Surface.Width; x++)
         {
             var sx = Offset.X + x * Zoom;
-            if (sx >= 0f && sx <= PixelSize.X)
+            if (_rotation != 0f || sx >= 0f && sx <= PixelSize.X)
                 handle.DrawLine(new Vector2(sx, rect.Top), new Vector2(sx, rect.Bottom), color);
         }
 
         for (var y = 1; y < Surface.Height; y++)
         {
             var sy = Offset.Y + y * Zoom;
-            if (sy >= 0f && sy <= PixelSize.Y)
+            if (_rotation != 0f || sy >= 0f && sy <= PixelSize.Y)
                 handle.DrawLine(new Vector2(rect.Left, sy), new Vector2(rect.Right, sy), color);
         }
     }
 
-    private void DrawSurface(DrawingHandleScreen handle, PaintSurface surface, Color? modulate = null)
+    private void DrawSurface(DrawingHandleScreen handle, PaintSurface surface, Color? modulate = null, PaintSurface? replacement = null)
     {
-        foreach (var (rect, texture) in surface.EnumerateTiles())
+        foreach (var (index, rect, tileTexture) in surface.EnumerateTiles())
         {
+            var texture = tileTexture;
+            if (replacement != null && replacement.IsAllocated(index))
+                texture = replacement.TileTexture(index) ?? texture;
+
             if (texture == null)
                 continue;
 
-            var screenRect = new UIBox2(CanvasToScreen(rect.TopLeft), CanvasToScreen(rect.BottomRight));
-            if (screenRect.Right < 0 || screenRect.Bottom < 0 || screenRect.Left > PixelSize.X || screenRect.Top > PixelSize.Y)
+            var topLeft = CanvasToScreen(rect.TopLeft);
+            var bottomRight = CanvasToScreen(rect.BottomRight);
+            var screenRect = ScreenBox(topLeft, bottomRight);
+            if (!IsOnScreen(screenRect))
                 continue;
 
-            handle.DrawTextureRect(texture, screenRect, modulate);
+            DrawTextureBetween(handle, texture, topLeft, bottomRight, modulate);
         }
+    }
+
+    private bool IsOnScreen(UIBox2 rect)
+    {
+        if (_rotation != 0f)
+        {
+            var a = RotateAroundPivot(rect.TopLeft, _rotation);
+            var b = RotateAroundPivot(rect.TopRight, _rotation);
+            var c = RotateAroundPivot(rect.BottomLeft, _rotation);
+            var d = RotateAroundPivot(rect.BottomRight, _rotation);
+            rect = new UIBox2(Vector2.Min(Vector2.Min(a, b), Vector2.Min(c, d)), Vector2.Max(Vector2.Max(a, b), Vector2.Max(c, d)));
+        }
+
+        return rect.Right >= 0 && rect.Bottom >= 0 && rect.Left <= PixelSize.X && rect.Top <= PixelSize.Y;
+    }
+
+    private static UIBox2 ScreenBox(Vector2 a, Vector2 b)
+    {
+        return new UIBox2(Vector2.Min(a, b), Vector2.Max(a, b));
+    }
+
+    private static void DrawTextureBetween(DrawingHandleScreen handle, Texture texture, Vector2 topLeft, Vector2 bottomRight, Color? modulate)
+    {
+        var box = ScreenBox(topLeft, bottomRight);
+        var flipX = topLeft.X > bottomRight.X;
+        var flipY = topLeft.Y > bottomRight.Y;
+        if (!flipX && !flipY)
+        {
+            handle.DrawTextureRect(texture, box, modulate);
+            return;
+        }
+
+        var center = box.Center;
+        var current = handle.GetTransform();
+        var mirror = new Matrix3x2(
+            flipX ? -1f : 1f,
+            0f,
+            0f,
+            flipY ? -1f : 1f,
+            flipX ? center.X * 2f : 0f,
+            flipY ? center.Y * 2f : 0f);
+
+        handle.SetTransform(mirror * current);
+        handle.DrawTextureRect(texture, box, modulate);
+        handle.SetTransform(current);
     }
 
     private void DrawCursors(DrawingHandleScreen handle, CanvasCollaboration collaboration)
@@ -762,6 +1169,12 @@ public sealed class DrawingCanvasControl : Control
 
     private void DrawPaper(DrawingHandleScreen handle, UIBox2 rect)
     {
+        if (_rotation != 0f)
+        {
+            handle.DrawRect(rect, PaperColor);
+            return;
+        }
+
         if (Clip(rect, new UIBox2(Vector2.Zero, PixelSize)) is { } box)
             handle.DrawRect(box, PaperColor);
     }

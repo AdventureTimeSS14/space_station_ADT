@@ -20,8 +20,8 @@
   - Trinkets
   #- CaptainJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCapitan # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCapitan # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -47,8 +47,8 @@
   - ADTRacialItems # ADT-Tweak
   #- HoPJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutHeadOfPersonnel # ADT-Tweak personals
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutHeadOfPersonnel # ADT-Tweak personals
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Silicons
 - type: roleLoadout
@@ -94,10 +94,10 @@
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
-  #- PassengerJobTrinkets
+  - ADTPassengerJobTrinkets # ADT-Tweak
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobBartender
@@ -124,8 +124,8 @@
   - ADTRacialItems # ADT-Tweak
   # - BartenderJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -151,8 +151,8 @@
   - ADTRacialItems # ADT tweak
   #- ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobChef
@@ -184,8 +184,8 @@
   - ADTRacialItems # ADT-Tweak
   #- ChefJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobLibrarian
@@ -208,8 +208,8 @@
   - ADTRacialItems # ADT-Tweak
   #- LibrarianJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobLawyer
@@ -235,8 +235,8 @@
   - ADTRacialItems # ADT-Tweak
   #- LawyerJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutLawyer # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutLawyer # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobChaplain
@@ -268,8 +268,8 @@
   - GroupSpeciesBreathTool
   # ADT chaplain update
   - ADTChaplainBelt
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobJanitor
@@ -295,8 +295,8 @@
   - ADTRacialItems # ADT-Tweak
   # - JanitorJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobBotanist
@@ -322,8 +322,8 @@
   - ADTRacialItems # ADT-Tweak
   #- BotanistJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobClown
@@ -353,8 +353,8 @@
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
   # - ClownJobTrinkets
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobMime
@@ -382,8 +382,8 @@
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
   #- MimeJobTrinkets
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobMusician
@@ -412,8 +412,8 @@
   - Instruments
   - ADTSuperInstruments #ADT-Tweak
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Cargo
 
@@ -442,8 +442,8 @@
   - ADTRacialItems # ADT-Tweak
   #- QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutQuarterMaster # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutQuarterMaster # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -470,8 +470,8 @@
   - ADTRacialItems # ADT-Tweak
   #- CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -500,8 +500,8 @@
   - ADTRacialItems # ADT-Tweak
   #- SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Engineering
 - type: roleLoadout
@@ -529,8 +529,8 @@
   - ADTRacialItems # ADT-Tweak
   #- ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -552,8 +552,8 @@
   - ADTRacialItems # ADT-Tweak
   #- TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -580,8 +580,8 @@
   - ADTRacialItems # ADT-Tweak
   #- StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -594,7 +594,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - ADTEngineeringBelt # ADT-TWEAK
-  - ADTEngineeringGlasses # ADT-TWEAK
+  - ADTAtmosphericTechnicianGlasses # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   - ADTAtmosPDA # ADT tweak
@@ -610,8 +610,8 @@
   - ADTRacialItems # ADT-Tweak
   #- AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Science
 - type: roleLoadout
@@ -640,8 +640,8 @@
   - ADTRacialItems # ADT-Tweak
   #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutResearchDirector # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutResearchDirector # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobScientist
@@ -669,8 +669,8 @@
   - ADTRacialItems # ADT-Tweak
   #- ScientistJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -692,8 +692,8 @@
   - ADTRacialItems # ADT-Tweak
   #- ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Security
 - type: roleLoadout
@@ -701,6 +701,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - HeadofSecurityHead
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT #ADT-Tweak
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -720,8 +721,8 @@
   - ADTRacialItems # ADT-Tweak
   #- HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobWarden
@@ -729,6 +730,7 @@
   - Inventory # Corvax-Loadouts
   - WardenHead
   #ADT-Tweak-Start
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT
   - WardenNeckADT
   #ADT-Tweak-End
@@ -748,8 +750,8 @@
   - ADTRacialItems # ADT-Tweak
   #- WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -757,6 +759,7 @@
   - Inventory # Corvax-Loadouts
   - SecurityHead
   #ADT-Tweak-Start
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT
   - SecurityOfficerNeckADT
     #ADT-Tweak-End
@@ -777,14 +780,15 @@
   - ADTRacialItems # ADT-Tweak
   #- SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobDetective
   groups:
   - Inventory # Corvax-Loadouts
   - DetectiveHead
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT #ADT-Tweak
   - DetectiveNeck
   - DetectiveJumpsuit
@@ -804,8 +808,8 @@
   - ADTRacialItems # ADT-Tweak
   #- DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -823,8 +827,8 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
-  # - ADTPersonalLoadoutSecurity # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutSecurity # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Wildcards
 - type: roleLoadout
@@ -847,8 +851,8 @@
   - GroupSpeciesBreathTool
   #- SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 # Wildcards
 - type: roleLoadout
@@ -875,8 +879,8 @@
   - ADTRacialItems # ADT-Tweak
   #- ReporterJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobPsychologist
@@ -898,8 +902,8 @@
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
   # - PsychologistJobTrinkets
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobBoxer
@@ -925,8 +929,8 @@
   # - BoxerJobTrinkets
   #- PsychologistJobTrinkets
   - GroupSpeciesBreathTool
-  # - ADTPersonalLoadoutCivilian # ADT-Tweak personal
-  # - ADTPersonalLoadoutPlushie # ADT-Tweak personal
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobTramDriver

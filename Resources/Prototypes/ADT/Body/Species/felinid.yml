@@ -97,7 +97,7 @@
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
+      Heart: ADTOrganFelinidHeart
       Stomach: ADTOrganFelinidStomach
       Liver: OrganHumanLiver
       Kidneys: OrganHumanKidneys
@@ -248,7 +248,7 @@
   abstract: true
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Human, Felinid ]
 
 - type: entity
   id: ADTOrganFelinidVisual
@@ -293,6 +293,11 @@
   - type: VisualOrganMarkings
     markingData:
       group: Felinid
+
+- type: entity
+  parent: [ ADTOrganFelinidMetabolizer, OrganHumanHeart ]
+  id: ADTOrganFelinidHeart
+  suffix: felinid
 
 - type: entity
   parent: OrganHumanStomach

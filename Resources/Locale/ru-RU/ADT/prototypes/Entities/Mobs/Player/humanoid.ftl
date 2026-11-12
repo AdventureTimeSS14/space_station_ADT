@@ -72,3 +72,18 @@ ent-ADTSpaceSecService = сотрудник SPACE SEC
 ent-ADTRandomHumanoidSpawnerSpaceSecService = сотрудник SPACE SEC
     .suffix = Space Sec, Случайный
     .desc = { "" }
+
+ent-ADTRandomHumanoidSpawnerCentcomInspector = Ревизор Центком
+    .desc = { "" }
+
+ent-ADTRandomHumanoidSpawnerCentcomInquisitor = Инквизитор Центком
+    .desc = { "" }
+
+ent-ADTRandomHumanoidSpawnerCentcomOfficer = Офицер Центком
+    .desc = { "" }
+
+ent-ADTRandomHumanoidSpawnerCentcomOfficial = Представитель Центком
+    .desc = { "" }
+
+ent-ADTRandomHumanoidSpawnerSODOfficer = Офицер ДСО
+    .desc = { "" }

@@ -156,7 +156,7 @@ public sealed partial class ModSuitSystem
         module.Comp.Active = true;
         Dirty(module);
 
-        if (!module.Comp.RequiresFullEquip || GetPartsToggleStatus(suit.Owner, suit.Comp) == ModSuitAttachedStatus.AllToggled)
+        if (!module.Comp.RequiresFullEquip || IsFullyCovered(suit.Owner, suit.Comp))
             ApplyModuleComponents(suit, module);
 
         if (_netMan.IsServer)
@@ -321,8 +321,7 @@ public sealed partial class ModSuitSystem
     /// </summary>
     private void ReconcileFullEquip(Entity<ModSuitComponent> suit, Entity<ModSuitModComponent> module)
     {
-        var shouldApply = module.Comp.Active
-            && GetPartsToggleStatus(suit.Owner, suit.Comp) == ModSuitAttachedStatus.AllToggled;
+        var shouldApply = module.Comp.Active && IsFullyCovered(suit.Owner, suit.Comp);
 
         if (shouldApply)
             ApplyModuleComponents(suit, module);

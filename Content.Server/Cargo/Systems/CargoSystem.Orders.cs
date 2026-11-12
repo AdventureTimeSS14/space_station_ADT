@@ -200,7 +200,7 @@ namespace Content.Server.Cargo.Systems
                 PlayDenySound(uid, component);
             }
 
-            var cost = product.Cost * order.OrderQuantity;
+            var cost = AdtOrderCost(station.Value, product, order.OrderQuantity); // ADT-Tweak
             var accountBalance = GetBalanceFromAccount((station.Value, bank), order.Account);
 
             // Not enough balance
@@ -259,6 +259,7 @@ namespace Content.Server.Cargo.Systems
 
             orderDatabase.Orders[component.Account].Remove(order);
             UpdateBankAccount((station.Value, bank), -cost, order.Account);
+            AdtRecordPurchase(station.Value, product, order.OrderQuantity); // ADT-Tweak
             UpdateOrders(station.Value);
         }
 
@@ -427,6 +428,8 @@ namespace Content.Server.Cargo.Systems
 
             if (_uiSystem.HasUi(consoleUid, CargoConsoleUiKey.Orders))
             {
+                var products = GetAvailableProducts((consoleUid, console)); // ADT-Tweak
+
                 _uiSystem.SetUiState(consoleUid,
                     CargoConsoleUiKey.Orders,
                     new CargoConsoleInterfaceState(
@@ -435,7 +438,10 @@ namespace Content.Server.Cargo.Systems
                     orderDatabase.Capacity,
                     GetNetEntity(station.Value),
                     RelevantOrders((station!.Value, orderDatabase), (consoleUid, console)),
-                    GetAvailableProducts((consoleUid, console))
+                    // ADT-Tweak start
+                    products,
+                    AdtProductCosts(station.Value, products)
+                    // ADT-Tweak end
                 ));
             }
         }

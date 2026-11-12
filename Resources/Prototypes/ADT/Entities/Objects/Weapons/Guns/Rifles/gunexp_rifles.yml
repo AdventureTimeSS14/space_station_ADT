@@ -1,0 +1,282 @@
+- type: entity
+  name: AKM tactical
+  parent: [BaseWeaponRifle, BaseMajorContraband]
+  id: ADTWeaponRifleAKTac
+  description: A tactical AKM with integrated suppressor and modules. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ak_tac.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ak_tac_inhands.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ak_tac_inhands.rsi
+  - type: Gun
+    fireRate: 6.5
+    minAngle: 16
+    maxAngle: 26
+    angleIncrease: 0.3
+    angleDecay: 6
+    soundGunshot:
+      collection: ADTSilencedShoot
+      params:
+        maxDistance: 6
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -25
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLightRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 900
+
+- type: entity
+  name: StR-55
+  parent: [BaseWeaponRifle, BaseMajorContraband, ADTBaseAttachableHolder]
+  id: ADTWeaponRifleSTR55
+  description: A reliable assault rifle of the Elysium army. Uses 6.5 mm TSF ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifles/str55.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/str55.rsi
+  - type: Gun
+    fireRate: 5
+    burstFireRate: 8
+    shotsPerBurst: 3
+    burstCooldown: 0.4
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeRifle
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - ADTAttachmentMagneticHarness
+          - ADTAttachmentReflexSight
+          - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - ADTAttachmentSuppressor
+          - ADTAttachmentAntiLyingWarrior
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.25, -0.125
+      rmc-aslot-rail: 0, 0
+      rmc-aslot-barrel: 0.96875, 0
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  name: TRR-30
+  parent: [BaseWeaponRifle, BaseMajorContraband, ADTBaseAttachableHolder]
+  id: ADTWeaponRifleTRR30
+  description: A heavy reactive assault rifle by DV-MILITECH Co. Uses .30 reactive ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifles/trr30.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["mag-0"]
+      visible: false
+    - state: d_mag-0
+      map: ["d_mag-0"]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/trr30.rsi
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/trr30.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Empty/trr30_empty.ogg
+  - type: HeldSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+    mirrorClothingModifier: false
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineReactive30
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazineReactive30
+          - ADTMagazineReactive30Drum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - ADTCartridgeReactive30
+  - type: Appearance
+  - type: ItemMapper
+    sprite: ADT/Objects/Weapons/Guns/Rifles/trr30.rsi
+    containerWhitelist: [gun_magazine]
+    mapLayers:
+      mag-0:
+        whitelist:
+          tags:
+          - ADTMagazineReactive30
+      d_mag-0:
+        whitelist:
+          tags:
+          - ADTMagazineReactive30Drum
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - ADTAttachmentMagneticHarness
+          - ADTAttachmentReflexSight
+          - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-rail: 0, 0
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  name: forged rifle
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband, ADTBasePumpingGun]
+  id: ADTWeaponRifleForged
+  description: A pump-action rifle forged by smuggler gunsmiths. Loads 10 rounds of .30 rifle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifles/forged_rifle.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/forged_rifle.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1.5
+  - type: PumpAction
+    sound:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: CartridgeLightRifle
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: StaticPrice
+    price: 900
+
+- type: entity
+  name: improvised rifle
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
+  id: ADTWeaponRifleImprovised
+  description: A crude bolt-action rifle made by smuggler gunsmiths. Loads 10 rounds of .30 rifle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifles/improvised_rifle.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/improvised_rifle.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: StaticPrice
+    price: 500

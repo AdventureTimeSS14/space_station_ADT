@@ -220,7 +220,7 @@
   - type: MiningVoucher
     kits:
     - ADTClothingEliteHardsuitBackSyndicateMedic
-    - ADTClothingModsuitBackSyndicate
+    - ADTSyndicateMedicModSet
     typeDropPlace: ThisPlace
     typeDrop: Rocket
 

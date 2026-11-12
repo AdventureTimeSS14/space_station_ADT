@@ -3173,7 +3173,97 @@
   content:
   - ADTClothingUniformDressNightWhite
 
+#region Armbands
 
+- type: thiefBackpackSet
+  id: ArmbandWhite
+  name: clothing-voucher-armband-white
+  description: clothing-voucher-armband-white
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: white-icon
+  content:
+  - ADTClothingNeckArmbandWhite
+
+- type: thiefBackpackSet
+  id: ArmbandBlue
+  name: clothing-voucher-armband-blue
+  description: clothing-voucher-armband-blue
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: blue-icon
+  content:
+  - ADTClothingNeckArmbandBlue
+
+- type: thiefBackpackSet
+  id: ArmbandBlack
+  name: clothing-voucher-armband-black
+  description: clothing-voucher-armband-black
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: black-icon
+  content:
+  - ADTClothingNeckArmbandBlack
+
+- type: thiefBackpackSet
+  id: ArmbandLazure
+  name: clothing-voucher-armband-lazure
+  description: clothing-voucher-armband-lazure
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: lazure-icon
+  content:
+  - ADTClothingNeckArmbandLazure
+
+- type: thiefBackpackSet
+  id: ArmbandGreen
+  name: clothing-voucher-armband-green
+  description: clothing-voucher-armband-green
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: green-icon
+  content:
+  - ADTClothingNeckArmbandGreen
+
+- type: thiefBackpackSet
+  id: ArmbandOrange
+  name: clothing-voucher-armband-orange
+  description: clothing-voucher-armband-orange
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: orange-icon
+  content:
+  - ADTClothingNeckArmbandOrange
+
+- type: thiefBackpackSet
+  id: ArmbandPurple
+  name: clothing-voucher-armband-purple
+  description: clothing-voucher-armband-purple
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: purple-icon
+  content:
+  - ADTClothingNeckArmbandPurple
+
+- type: thiefBackpackSet
+  id: ArmbandRed
+  name: clothing-voucher-armband-red
+  description: clothing-voucher-armband-red
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: red-icon
+  content:
+  - ADTClothingNeckArmbandRed
+
+- type: thiefBackpackSet
+  id: ArmbandYellow
+  name: clothing-voucher-armband-yellow
+  description: clothing-voucher-armband-yellow
+  sprite:
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: yellow-icon
+  content:
+  - ADTClothingNeckArmbandYellow
 
 #region NewUnderwear
 

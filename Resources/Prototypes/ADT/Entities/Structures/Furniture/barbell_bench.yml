@@ -1,7 +1,7 @@
 ﻿- type: entity
   abstract: true
   id: ADTBarbellBenchBase
-  parent: [BaseStructure, ADTBaseAttachableHolder]
+  parent: BaseStructure
   components:
   - type: Sprite
     noRot: true
@@ -13,14 +13,25 @@
     overlayBaseState: barbell-overlay-up
     overlayRepFlickState: barbell-up
   - type: Appearance
-  - type: AttachableHolder
+  - type: ItemSlots
     slots:
       adt-aslot-barbell:
-        locked: false
+        name: adt-aslot-barbell
         whitelist:
           tags:
           - ADTBarbellAttachment
+        insertSound:
+          path: /Audio/ADT/Furniture/barbell/sound_for_barbell_3.ogg
+          params:
+            maxDistance: 6
+        ejectSound:
+          path: /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
+          params:
+            maxDistance: 6
   # Визуализация штанги на скамье управляется BarbellBenchVisualizerSystem (низ + оверлей).
+  - type: ContainerContainer
+    containers:
+      adt-aslot-barbell: !type:ContainerSlot
   - type: Strap
     position: Down
     rotation: -90
@@ -84,9 +95,10 @@
     node: barbellbench
 
 - type: entity
-  id: ADTBarbellBenchOverlay
+  id: ADTBarbellBenchOverlayVisual
   name: barbell bench overlay
   description: Visual overlay for barbell bench.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Objects/Fun/barbell.rsi
@@ -125,26 +137,24 @@
         density: 20
         mask:
         - ItemMask
-  - type: Attachable
-    attachDoAfter: 2.0
-    attachSound:
-      path: /Audio/ADT/Furniture/barbell/sound_for_barbell_3.ogg
-      params:
-        maxDistance: 6
-    detachSound:
-      path: /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
-      params:
-        maxDistance: 6
-  - type: AttachableVisuals
-    rsi: ADT/Objects/Fun/barbell.rsi
-    prefix: barbell-overlay-up
-    suffix: ""
   - type: Tag
     tags:
     - ADTBarbellAttachment
   - type: BarbellLift
     staminaCost: 15
     overlayRsi: ADT/Objects/Fun/barbell.rsi
+  - type: TrainingEquipment
+    maxCreditPerAction: 10
+    firstActionCredit: 3
+    tiers:
+    - time: 900
+      staminaBonus: 0.1
+      unarmedDamageBonus: 0.05
+      pullDensityReduction: 0.4
+    - time: 1800
+      staminaBonus: 0.2
+      unarmedDamageBonus: 0.1
+      pullDensityReduction: 0.7
   - type: MultiHandedItem
     handsNeeded: 2
   - type: HeldSpeedModifier

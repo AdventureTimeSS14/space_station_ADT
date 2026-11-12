@@ -32,6 +32,7 @@ public sealed class MidroundCustomizationSystem : EntitySystem
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedPointLightSystem _pointLight = default!;
     [Dependency] private SponsorsManager _sponsors = default!;
+    [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     public override void Initialize()
     {
@@ -163,6 +164,9 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
         if (!TryComp<ActorComponent>(player, out var actor))
             return false;
+
+        if (_adtSponsors.IsTtsVoiceAllowed(actor.PlayerSession, voice.ID))
+            return true;
 
         if (!_sponsors.TryGetInfo(actor.PlayerSession.UserId, out var sponsor))
             return false;

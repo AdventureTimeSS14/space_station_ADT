@@ -7,6 +7,23 @@
       role: JobAtmosphericTechnician
       time: 180000 #50 часов
 
+- type: loadoutEffectGroup
+  id: ADTAtmosGasTemperatureGlasses10Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 36000 # 10 hours
+
+- type: loadout
+  id: ADTAtmosGasTemperatureGlasses
+  equipment:
+    eyes: ADTClothingEyesGlassesGasTemperature
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTAtmosGasTemperatureGlasses10Hours
+
 # OuterClothing
 - type: loadout
   id: ADTOuterAtmosianBomberJacket

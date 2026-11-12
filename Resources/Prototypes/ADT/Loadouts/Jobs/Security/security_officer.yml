@@ -52,6 +52,11 @@
     jumpsuit: ClothingUniformJumpsuitSecBlue
 
 - type: loadout
+  id: ADTUniformJumpsuitDSS
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitDSS
+
+- type: loadout
   id: ADTSecurityOfficerMogesBrown
   equipment:
     jumpsuit: ADTClothingJumpsuitSecOffMogesBrown
@@ -81,6 +86,7 @@
   equipment:
     outerClothing: ADTClothingOuterArmorVestHidden
 
+# Head
 - type: loadout
   id: ADTPilotSecurityBeret
   equipment:
@@ -89,6 +95,12 @@
   - !type:GroupLoadoutEffect
     proto: ADTSecurity100hours
 
+- type: loadout
+  id: ADTClothingMaskCoif
+  equipment:
+    mask: ADTClothingMaskCoif
+
+# Eyes
 - type: loadout
   id: ADTClothingEyesGlassesSecurity
   equipment:

@@ -224,10 +224,7 @@ public abstract partial class SharedMoverController : VirtualController
         var inAirHelpless = false;
 
         // ADT-Tweak start: Block vehicles from moving in space
-        var hasGravity = _gravity.EntityGridOrMapHaveGravity(uid);
-        var isVehicle = HasComp<ADTVehicleComponent>(uid);
-
-        if (!hasGravity && isVehicle)
+        if (HasComp<ADTVehicleComponent>(uid) && !_gravity.EntityGridOrMapHaveGravity(uid))
         {
             UsedMobMovement[uid] = false;
             return;
@@ -282,6 +279,15 @@ public abstract partial class SharedMoverController : VirtualController
                 tileMovement.SlideActive = false;
                 tileMovement.FailureSlideActive = false;
             }
+        }
+
+        if ((mover.HeldMoveButtons & MoveButtons.AnyDirection) == MoveButtons.None
+            && Timing.CurTick > mover.LastInputTick
+            && mover.WishDir == Vector2.Zero
+            && velocity == Vector2.Zero
+            && physicsComponent.AngularVelocity == 0f)
+        {
+            return;
         }
         // ADT-Tweak-End
 

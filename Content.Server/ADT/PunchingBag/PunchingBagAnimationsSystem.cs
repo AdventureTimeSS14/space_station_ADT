@@ -17,6 +17,6 @@ public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSys
 
         RaiseNetworkEvent(new PunchingBagAnimationEvent(GetNetEntity(uid), animationState), filter);
 
-        _training.AddTrainingProgress(attacker);
+        _training.AddTrainingProgress(attacker, uid);
     }
 }

@@ -39,6 +39,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
     private bool _closed;
 
     private double _priceMultiplier = 1;
+    private float _discount;
     private int _machineCredits;
     private int _userBalance;
     private string? _selectedCategory;
@@ -77,12 +78,13 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         button.AddChild(CreateItem(itemData, button.Index % 2 == 1));
     }
 
-    public void SetUserInfo(int balance, bool ignoreBalance = false)
+    public void SetUserInfo(int balance, bool ignoreBalance = false, float discount = 0f)
     {
         if (_closed || Disposed)
             return;
 
         _userBalance = ignoreBalance ? int.MaxValue : balance;
+        _discount = Math.Clamp(discount, 0f, 1f);
         UserBalanceLabel.Text = ignoreBalance
             ? Loc.GetString("vending-user-balance-admin")
             : Loc.GetString("vending-user-balance", ("balance", balance));
@@ -121,15 +123,14 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             if (button.Children.FirstOrDefault() is not FancyVendingMachineItem item)
                 continue;
 
-            item.UpdateData(data.Name, data.Entry.Amount, data.Entry.MaxAmount, GetPrice(data.Entry));
+            item.UpdateData(data.Name, data.Entry.Amount, data.Entry.MaxAmount, data.Entry.Price, _priceMultiplier, _discount);
             UpdateItemDisabled(data, item);
         }
     }
 
     private void UpdateItemDisabled(FancyVendingMachineData data, FancyVendingMachineItem item)
     {
-        var price = GetPrice(data.Entry);
-        var total = price * item.SelectedAmount;
+        var total = item.CurrentTotal;
 
         item.SetBuyDisabled(!_enabled || data.Entry.Amount == 0 ||
                             total > 0 && _machineCredits < total && _userBalance < total);
@@ -306,11 +307,6 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         return proto != null && proto.TryGetComponent<ClothingComponent>(out _, _componentFactory);
     }
 
-    private int GetPrice(VendingMachineInventoryEntry entry)
-    {
-        return (int)(entry.Price * _priceMultiplier);
-    }
-
     private void ApplyFilter()
     {
         VendingContents.PopulateList(_cachedItems.Where(FilterItem).ToList());
@@ -322,7 +318,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
         var listItem = new FancyVendingMachineItem(
             data.Proto, data.Name, data.Entry.Amount,
-            data.Entry.MaxAmount, GetPrice(data.Entry), striped, canPaint, data.Returned);
+            data.Entry.MaxAmount, data.Entry.Price, _priceMultiplier, _discount, striped, canPaint, data.Returned);
 
         if (_paintColors.TryGetValue(data.Entry.ID, out var savedColor))
             listItem.SetPaintColor(savedColor);

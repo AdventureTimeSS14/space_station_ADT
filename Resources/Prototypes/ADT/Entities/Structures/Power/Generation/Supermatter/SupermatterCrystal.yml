@@ -85,6 +85,10 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
+      - sprite: ADT/Season/Structures/Power/Supermatter/newyearhat.rsi
+        state: newyearhat
+        map: ["newYearHat"]
+        visible: false
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter }
@@ -103,6 +107,15 @@
   - type: SinguloFood
     energy: 10000
   - type: Appearance
+  - type: HolidayVisuals
+    holidays:
+      newYear:
+      - ADTNewYearSeason
+  - type: GenericVisualizer
+    visuals:
+      enum.HolidayVisuals.Holiday:
+        newYearHat:
+          newYear: { visible: true }
   - type: Supermatter
   - type: AtmosDevice
     requireAnchored: false
@@ -135,6 +148,10 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
+      - sprite: ADT/Season/Structures/Power/Supermatter/newyearhat.rsi
+        state: newyearhat
+        map: ["newYearHat"]
+        visible: false
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter }

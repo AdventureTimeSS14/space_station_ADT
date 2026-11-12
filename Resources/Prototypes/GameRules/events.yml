@@ -27,6 +27,7 @@
     - id: VentClog
     - id: WormholesSpawn # ADT-Tweak Wormholes Spawns now correctly without admin abuse
     - id: SpaceEmperorSpawn # ADT Tweak
+    - id: CargoCategorySurgeEvent # ADT Tweak
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -48,7 +49,7 @@
     - id: SleeperAgents
   #  - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    - id: WizardSpawn
+  #  - id: WizardSpawn # ADT-Tweak
     - id: BlobSpawn # ADT tweak blob
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph

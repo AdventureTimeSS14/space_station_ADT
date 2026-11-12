@@ -962,3 +962,15 @@
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodySyndicate
+  id: ADTClothingOuterModsuitBodySyndicateMedic
+  name: syndicate medic MOD chestplate
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_medic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_medic.rsi
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.2

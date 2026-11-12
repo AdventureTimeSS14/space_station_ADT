@@ -715,3 +715,13 @@
       - state: equipped-head-unshaded
         shader: unshaded
         color: "#17c9d4"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitSyndicate
+  id: ADTClothingHeadHelmetModsuitSyndicateMedic
+  name: syndicate medic MOD helmet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_medic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_medic.rsi

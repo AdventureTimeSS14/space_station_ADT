@@ -1,0 +1,289 @@
+- type: adtCookingRecipe
+  id: ADTCookFryADTFishCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: ADTFoodFishCutlet
+  time: 15
+  result: ADTFoodFishCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryADTMeatFish
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: ADTFoodMeatFish
+  time: 15
+  result: ADTFoodFishCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryADTMeatShadekin
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: ADTFoodMeatShadekin
+  time: 15
+  result: ADTFoodMeatShadekinCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryADTMeatShadekinCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: ADTFoodMeatShadekinCutlet
+  time: 15
+  result: ADTFoodMeatShadekinCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeat
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeat
+  time: 15
+  result: FoodMeatCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatAnomaly
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatAnomaly
+  time: 15
+  result: FoodMeatAnomalyCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatBacon
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatBacon
+  time: 15
+  result: FoodMeatBaconCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatBear
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatBear
+  time: 15
+  result: FoodMeatBearCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatBearCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatBearCutlet
+  time: 15
+  result: FoodMeatBearCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatChicken
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatChicken
+  time: 15
+  result: FoodMeatChickenCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatChickenCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatChickenCutlet
+  time: 15
+  result: FoodMeatChickenCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatCrab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatCrab
+  time: 15
+  result: FoodMeatCrabCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatCutlet
+  time: 15
+  result: FoodMeatCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatDragon
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatDragon
+  time: 15
+  result: FoodMeatDragonCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatDragonCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatDragonCutlet
+  time: 15
+  result: FoodMeatDragonCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatDuck
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatDuck
+  time: 15
+  result: FoodMeatDuckCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatDuckCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatDuckCutlet
+  time: 15
+  result: FoodMeatDuckCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatGoliath
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatGoliath
+  time: 15
+  result: FoodMeatGoliathCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatGondola
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatGondola
+  time: 15
+  result: FoodMeatGondolaCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatLizard
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatLizard
+  time: 15
+  result: FoodMeatLizardCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatLizardCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatLizardCutlet
+  time: 15
+  result: FoodMeatLizardCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatMeatball
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatMeatball
+  time: 15
+  result: FoodMeatMeatballCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatPatty
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatPatty
+  time: 15
+  result: FoodMeatPattyCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatPenguin
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatPenguin
+  time: 15
+  result: FoodMeatPenguinCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatPenguinCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatPenguinCutlet
+  time: 15
+  result: FoodMeatPenguinCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatRouny
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatRouny
+  time: 15
+  result: FoodMeatRounyCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatSpiderCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatSpiderCutlet
+  time: 15
+  result: FoodMeatSpiderCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFryMeatXenoCutlet
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatXenoCutlet
+  time: 15
+  result: FoodMeatXenoCutletCooked
+  group: Basics
+
+- type: adtCookingRecipe
+  id: ADTCookFrySpaceshroom
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodSpaceshroom
+  time: 15
+  result: FoodSpaceshroomCooked
+  group: Basics

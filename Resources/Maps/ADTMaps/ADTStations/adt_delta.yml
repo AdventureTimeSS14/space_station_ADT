@@ -194209,7 +194209,7 @@ entities:
           Telecrystal: 2
         costModifiersBySourceId: {}
       - id: ADTUplinkMask
-        productEntity: ADTMaskCoif
+        productEntity: ADTClothingMaskCoif
         name: uplink-mask-name
         description: uplink-mask-desc
         categories:

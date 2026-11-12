@@ -624,7 +624,6 @@
   # ADT-Loadouts-End
   # ADT tweak start
   - ADTClothingUniformJumpsuitTurtleneckPurple
-  - ADTClothingUniformJumpsuitScientistHL
   - ADTClothingUniformJumpskirtTurtleneckPurple
   # ADT tweak end
 
@@ -1536,6 +1535,7 @@
   - SecurityJumpskirtGrey
   - TrooperUniform
   # ADT-Loadouts-Start
+  - ADTUniformJumpsuitDSS
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray

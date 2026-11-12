@@ -26,6 +26,11 @@ public sealed partial class SolutionSpikerSystem : EntitySystem
 
     private void OnInteractUsing(Entity<RefillableSolutionComponent> entity, ref InteractUsingEvent args)
     {
+        // ADT-Tweak-Start
+        if (args.Handled)
+            return;
+        // ADT-Tweak-End
+
         if (TrySpike(args.Used, (args.Target, entity.Comp), args.User))
             args.Handled = true;
     }

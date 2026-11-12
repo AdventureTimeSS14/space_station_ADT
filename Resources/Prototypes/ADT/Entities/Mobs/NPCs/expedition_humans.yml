@@ -10,10 +10,24 @@
     - type: MobMover
     - type: ADTNpcGear
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -90,13 +104,6 @@
       - ADTNamesSovietRank
       - ADTNamesSovietSurnameFemale
       language: NeoRusskiya
-    - type: GhostTakeoverAvailable
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-soldier-name
-      description: ghost-role-information-adt-soviet-soldier-description
-      rules: ghost-role-information-freeagent-rules
-      raffle:
-        settings: default
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -121,9 +128,6 @@
     - type: Loadout
       prototypes:
         - ADTSovietBunkerRiflemanGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-rifleman-name
-      description: ghost-role-information-adt-soviet-rifleman-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -138,6 +142,16 @@
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -152,9 +166,6 @@
           8
         ADTSafeReloadRangeLoose: !type:Single
           8
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-shotgunner-name
-      description: ghost-role-information-adt-soviet-shotgunner-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -165,9 +176,6 @@
     - type: Loadout
       prototypes:
         - ADTSovietBunkerMarksmanGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-marksman-name
-      description: ghost-role-information-adt-soviet-marksman-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -178,9 +186,6 @@
     - type: Loadout
       prototypes:
         - ADTSovietBunkerRocketeerGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-rocketeer-name
-      description: ghost-role-information-adt-soviet-rocketeer-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -191,9 +196,6 @@
     - type: Loadout
       prototypes:
         - ADTSovietBunkerSniperGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-sniper-name
-      description: ghost-role-information-adt-soviet-sniper-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
@@ -208,6 +210,16 @@
       rootTask:
         task: ADTExpeditionMedicCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -222,9 +234,6 @@
           6
         ADTSafeReloadRangeLoose: !type:Single
           10
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-medic-name
-      description: ghost-role-information-adt-soviet-medic-description
 
 - type: entity
   parent: MobHuman
@@ -246,6 +255,14 @@
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -280,13 +297,6 @@
       femaleNameSegments:
       - NamesFirstFemale
       - ADTNamesSmugglerNickname
-    - type: GhostTakeoverAvailable
-    - type: GhostRole
-      name: ghost-role-information-adt-smuggler-pirate-name
-      description: ghost-role-information-adt-smuggler-pirate-description
-      rules: ghost-role-information-freeagent-rules
-      raffle:
-        settings: default
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -299,9 +309,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-ostapenko-name
-      description: ghost-role-information-adt-ussp-ostapenko-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -314,9 +321,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Female
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-lisitsyna-name
-      description: ghost-role-information-adt-ussp-lisitsyna-description
 
 - type: entity
   parent: ADTMobSovietBunkerMedic
@@ -329,9 +333,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Female
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-yusupova-name
-      description: ghost-role-information-adt-ussp-yusupova-description
 
 - type: entity
   parent: ADTMobSovietBunkerShotgunner
@@ -344,9 +345,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-zaitsev-name
-      description: ghost-role-information-adt-ussp-zaitsev-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -359,9 +357,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-gavrilov-name
-      description: ghost-role-information-adt-ussp-gavrilov-description
 
 - type: entity
   parent: [ MobUrsus, ADTMobSovietBunkerRocketeer ]
@@ -381,9 +376,6 @@
       hairStyles: []
       femaleHairStyles: []
       hairColors: []
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-burogriv-name
-      description: ghost-role-information-adt-ussp-burogriv-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -396,9 +388,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-kovalchuk-name
-      description: ghost-role-information-adt-ussp-kovalchuk-description
 
 - type: entity
   parent: ADTMobSovietBunkerShotgunner
@@ -411,9 +400,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-mamedov-name
-      description: ghost-role-information-adt-ussp-mamedov-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -426,9 +412,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-somov-name
-      description: ghost-role-information-adt-ussp-somov-description
 
 - type: entity
   parent: ADTMobSovietBunkerMarksman
@@ -441,9 +424,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-galiev-name
-      description: ghost-role-information-adt-ussp-galiev-description
 
 - type: entity
   parent: ADTMobSovietBunkerRocketeer
@@ -456,9 +436,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-kvyatkovsky-name
-      description: ghost-role-information-adt-ussp-kvyatkovsky-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -471,9 +448,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-tikhonov-name
-      description: ghost-role-information-adt-ussp-tikhonov-description
 
 - type: entity
   parent: ADTMobSovietBunkerSniper
@@ -486,9 +460,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-li-wei-name
-      description: ghost-role-information-adt-ussp-li-wei-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -501,6 +472,3 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-belov-name
-      description: ghost-role-information-adt-ussp-belov-description
