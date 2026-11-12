@@ -902,23 +902,6 @@
             Asphyxiation: -3.0
 
 - type: reagent
-  id: ADTMitocholide
-  name: reagent-name-adt-mitocholide
-  group: Medicine
-  desc: reagent-desc-adt-mitocholide
-  physicalDesc: reagent-physical-desc-viscous
-  flavor: medicine
-  color: "#c8a5dc"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: -1.0
-            Cellular: -0.5
-
-- type: reagent
   id: ADTCalomel
   name: reagent-name-adt-calomel
   group: Medicine

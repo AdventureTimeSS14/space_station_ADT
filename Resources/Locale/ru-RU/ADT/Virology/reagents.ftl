@@ -7,9 +7,6 @@ reagent-desc-adt-teporone = Экспериментальное соединен�
 reagent-name-adt-salbutamol = сальбутамол
 reagent-desc-adt-salbutamol = Бронхорасширяющее средство, которое помогает при проблемах с дыханием.
 
-reagent-name-adt-mitocholide = митоколид
-reagent-desc-adt-mitocholide = Специализированный препарат, который стимулирует митохондрии клеток, чтобы заживить повреждённые ткани.
-
 reagent-name-adt-calomel = каломель
 reagent-desc-adt-calomel = Мощное чистящее средство, которое выводит из организма все вещества, но при этом само очень токсично.
 
