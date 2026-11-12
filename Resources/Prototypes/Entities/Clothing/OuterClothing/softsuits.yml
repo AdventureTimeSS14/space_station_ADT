@@ -100,6 +100,16 @@
   name: paramedic void suit
   description: A void suit made for paramedics.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi # ADT tweak респрайт от празата
     layers:

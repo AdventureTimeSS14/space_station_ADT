@@ -32,7 +32,7 @@ public sealed partial class ADTDiseaseSystem
         var query = EntityQueryEnumerator<RottingComponent, PerishableComponent>();
         while (query.MoveNext(out var uid, out var rotting, out var perishable))
         {
-            if (!HasComp<HumanoidProfileComponent>(uid))
+            if (!HasComp<HumanoidProfileComponent>(uid) && !HasComp<ADTVirusSusceptibleComponent>(uid))
                 continue;
 
             var level = _rotting.RotStage(uid, rotting, perishable);
