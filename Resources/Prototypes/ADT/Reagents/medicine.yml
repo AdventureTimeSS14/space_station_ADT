@@ -845,3 +845,118 @@
   physicalDesc: reagent-physical-desc-reasonably-metallic
   flavor: metallic
   color: "#b0a090"
+
+- type: reagent
+  id: ADTSpaceacillin
+  name: reagent-name-adt-spaceacillin
+  group: Medicine
+  desc: reagent-desc-adt-spaceacillin
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#0ab478"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.5
+
+- type: reagent
+  id: ADTTeporone
+  name: reagent-name-adt-teporone
+  group: Medicine
+  desc: reagent-desc-adt-teporone
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#d782e6"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:AdjustTemperature
+        amount: 2000.0
+        conditions:
+        - !type:TemperatureCondition
+          max: 293.0
+      - !type:AdjustTemperature
+        amount: -2000.0
+        conditions:
+        - !type:TemperatureCondition
+          min: 316.0
+
+- type: reagent
+  id: ADTSalbutamol
+  name: reagent-name-adt-salbutamol
+  group: Medicine
+  desc: reagent-desc-adt-salbutamol
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#00ffff"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -3.0
+
+- type: reagent
+  id: ADTMitocholide
+  name: reagent-name-adt-mitocholide
+  group: Medicine
+  desc: reagent-desc-adt-mitocholide
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#c8a5dc"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1.0
+            Cellular: -0.5
+
+- type: reagent
+  id: ADTCalomel
+  name: reagent-name-adt-calomel
+  group: Medicine
+  desc: reagent-desc-adt-calomel
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#22ab35"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 1.0
+      effects:
+      - !type:CleanBloodstream
+        cleanseRate: 5.0
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2.5
+      - !type:Vomit
+        probability: 0.06
+
+- type: reagent
+  id: ADTGlycerol
+  name: reagent-name-adt-glycerol
+  group: Toxins
+  desc: reagent-desc-adt-glycerol
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: sweet
+  color: "#808080"
+- type: reagent
+  id: ADTSyndicateAntiviral
+  name: reagent-name-adt-syndicate-antiviral
+  group: Medicine
+  desc: reagent-desc-adt-syndicate-antiviral
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#8c1c2c"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ADTCureDiseases
+        virusesOnly: true

@@ -123,6 +123,8 @@
   - BaseSpeciesMobOrganic
   id: MobNovakid
   components:
+  - type: ADTVirusImmune
+    absolute: true
   - type: Satiation
     satiations:
       Hunger:

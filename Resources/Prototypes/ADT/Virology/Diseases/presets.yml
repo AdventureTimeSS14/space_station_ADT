@@ -1,0 +1,87 @@
+- type: adtDisease
+  id: ADTPresetSneezing
+  parent: ADTAdvanceVirus
+  name: adt-preset-sneezing
+  symptoms:
+  - Sneeze
+
+- type: adtDisease
+  id: ADTPresetCough
+  parent: ADTAdvanceVirus
+  name: adt-preset-cough
+  symptoms:
+  - Cough
+
+- type: adtDisease
+  id: ADTPresetHeal
+  parent: ADTAdvanceVirus
+  name: adt-preset-heal
+  symptoms:
+  - Heal
+
+- type: adtDisease
+  id: ADTPresetHallucigen
+  parent: ADTAdvanceVirus
+  name: adt-preset-hallucigen
+  symptoms:
+  - Hallucigen
+
+- type: adtDisease
+  id: ADTPresetSensoryRestoration
+  parent: ADTAdvanceVirus
+  name: adt-preset-sensory-restoration
+  symptoms:
+  - SensoryRestoration
+
+- type: adtDisease
+  id: ADTPresetMindRestoration
+  parent: ADTAdvanceVirus
+  name: adt-preset-mind-restoration
+  symptoms:
+  - MindRestoration
+
+- type: adtDisease
+  id: ADTPresetAdvancedRegeneration
+  parent: ADTAdvanceVirus
+  name: adt-preset-advanced-regeneration
+  symptoms:
+  - Heal
+  - DamageConverter
+  - ViralEvolution
+
+- type: adtDisease
+  id: ADTPresetStealthNecrosis
+  parent: ADTAdvanceVirus
+  name: adt-preset-stealth-necrosis
+  symptoms:
+  - FleshEating
+  - ViralAdaptation
+  - Dizzy
+
+- type: adtDisease
+  id: ADTPresetLaugh
+  parent: ADTAdvanceVirus
+  name: adt-preset-laugh
+  symptoms:
+  - Laugh
+
+- type: adtDisease
+  id: ADTPresetToxification
+  parent: ADTAdvanceVirus
+  name: adt-preset-toxification
+  symptoms:
+  - Toxification
+
+- type: adtDisease
+  id: ADTPresetConfusion
+  parent: ADTAdvanceVirus
+  name: adt-preset-confusion
+  symptoms:
+  - Confusion
+
+- type: adtDisease
+  id: ADTPresetLove
+  parent: ADTAdvanceVirus
+  name: adt-preset-love
+  symptoms:
+  - Love

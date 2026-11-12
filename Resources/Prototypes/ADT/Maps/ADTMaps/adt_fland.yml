@@ -42,6 +42,7 @@
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 3, 3 ]
+            ADTVirologist: [ 2, 2 ]
             MedicalDoctor: [ 6, 6 ]
             Paramedic: [ 2, 2 ]
             MedicalIntern: [ 4, 4 ]
