@@ -15,23 +15,27 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SpriteSystem _sprite = default!;
 
+    //ADT-tweak-start
     // Avatar layers must survive render events so their animation clocks can advance.
     private readonly Dictionary<EntityUid, (EntityUid Target, PrototypeLayerData[] Layers)> _avatarLayers = new();
+    //ADT-tweak-end
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HolopadHologramComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<HolopadHologramComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<HolopadHologramComponent, ComponentShutdown>(OnComponentShutdown); //ADT-tweak
         SubscribeLocalEvent<HolopadHologramComponent, BeforePostShaderRenderEvent>(OnShaderRender);
         SubscribeAllEvent<TypingChangedEvent>(OnTypingChanged);
     }
 
+    //ADT-tweak-start
     private void OnComponentShutdown(Entity<HolopadHologramComponent> entity, ref ComponentShutdown ev)
     {
         _avatarLayers.Remove(entity.Owner);
     }
+    //ADT-tweak-end
 
     private void OnComponentStartup(Entity<HolopadHologramComponent> entity, ref ComponentStartup ev)
     {
@@ -67,6 +71,7 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
             !TryComp<HolopadHologramComponent>(hologram, out var holopadhologram))
             return;
 
+        //ADT-tweak-start
         // Only rebuild a custom avatar when its source or layer data changes.
         // Rebuilding on every shader render resets all RSI animations to frame zero.
         if (HasComp<SpriteComponent>(target) &&
@@ -82,6 +87,7 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
         }
 
         _avatarLayers.Remove(hologram);
+        //ADT-tweak-end
 
         // Remove all sprite layers
         for (var i = hologramSprite.AllLayers.Count() - 1; i >= 0; i--)
@@ -98,7 +104,7 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
                     _sprite.AddLayer((hologram, hologramSprite), targetAvatar.LayerData[i], i);
                 }
 
-                _avatarLayers[hologram] = (target.Value, targetAvatar.LayerData);
+                _avatarLayers[hologram] = (target.Value, targetAvatar.LayerData); //ADT-tweak
             }
 
             // Otherwise copy the target's current physical appearance

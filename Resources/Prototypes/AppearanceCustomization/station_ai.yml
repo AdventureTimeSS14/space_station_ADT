@@ -67,7 +67,7 @@
   - StationAiHologramFace
   - StationAiHologramCat
   - StationAiHologramDog
-  - ADTStationAiHologramCapri # ADT
+  - ADTStationAiHologramCapri ##ADT-tweak
 
 # Iconography
 - type: stationAiCustomization
