@@ -45,6 +45,9 @@ public sealed class OverdoseLiverSystem : EntitySystem
             var overdosed = 0;
             foreach (var (reagent, _) in solution.Comp.Solution.GetReagentPrototypes(_prototype))
             {
+                if (IsBloodReagent(blood, reagent.ID))
+                    continue;
+
                 if (GetThreshold(reagent) is not { } threshold)
                     continue;
 
@@ -55,6 +58,17 @@ public sealed class OverdoseLiverSystem : EntitySystem
             if (overdosed > 0)
                 _organHealth.ChangeDamage(uid, Liver, DamagePerReagent * overdosed, OrganKind.Organic);
         }
+    }
+
+    private static bool IsBloodReagent(BloodstreamComponent blood, string reagent)
+    {
+        foreach (var (id, _) in blood.BloodReferenceSolution)
+        {
+            if (id.Prototype == reagent)
+                return true;
+        }
+
+        return false;
     }
 
     private FixedPoint2? GetThreshold(ReagentPrototype reagent)

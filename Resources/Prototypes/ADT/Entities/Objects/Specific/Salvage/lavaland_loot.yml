@@ -10,6 +10,8 @@
     - state: cursed_heart
   - type: Item
     size: Small
+  - type: OrganHealth
+    decayRate: 0
   - type: OrganGrantComponents
     components:
     - type: CursedHeart

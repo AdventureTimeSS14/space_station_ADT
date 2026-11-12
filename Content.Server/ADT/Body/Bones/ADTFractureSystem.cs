@@ -181,10 +181,16 @@ public sealed partial class ADTFractureSystem : SharedADTBoneSystem
         if (silent)
             return true;
 
-        _audio.PlayPvs(BreakSound, body);
-        _popup.PopupEntity(Loc.GetString("adt-fracture-self", ("limb", bone.Owner)), body, body, PopupType.LargeCaution);
-        _popup.PopupEntity(Loc.GetString("adt-fracture-others", ("target", body)), body, Filter.PvsExcept(body), true, PopupType.MediumCaution);
-        TryScream(body);
+        if (bones == null || Timing.CurTime >= bones.NextBreakFeedback)
+        {
+            if (bones != null)
+                bones.NextBreakFeedback = Timing.CurTime + bones.FeedbackCooldown;
+
+            _audio.PlayPvs(BreakSound, body);
+            _popup.PopupEntity(Loc.GetString("adt-fracture-self", ("limb", bone.Owner)), body, body, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("adt-fracture-others", ("target", body)), body, Filter.PvsExcept(body), true, PopupType.MediumCaution);
+            TryScream(body);
+        }
 
         if (bones != null && _random.Prob(bones.ReleaseRestraintsChance) && _cuffable.TryGetLastCuff(body, out var cuff))
             _cuffable.Uncuff(body, null, cuff.Value);
@@ -286,7 +292,17 @@ public sealed partial class ADTFractureSystem : SharedADTBoneSystem
 
     public void TryScream(EntityUid body)
     {
-        if (CanFeelPain(body))
-            _chat.TryEmoteWithChat(body, ScreamEmote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
+        if (!CanFeelPain(body))
+            return;
+
+        if (TryComp<ADTBonesComponent>(body, out var bones))
+        {
+            if (Timing.CurTime < bones.NextScream)
+                return;
+
+            bones.NextScream = Timing.CurTime + bones.FeedbackCooldown;
+        }
+
+        _chat.TryEmoteWithChat(body, ScreamEmote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
     }
 }

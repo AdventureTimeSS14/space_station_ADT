@@ -38,6 +38,15 @@ public sealed partial class ADTBonesComponent : Component
     public TimeSpan SplintBreakStun = TimeSpan.FromSeconds(4);
 
     [DataField]
+    public TimeSpan FeedbackCooldown = TimeSpan.FromSeconds(2);
+
+    [ViewVariables]
+    public TimeSpan NextBreakFeedback;
+
+    [ViewVariables]
+    public TimeSpan NextScream;
+
+    [DataField]
     public Dictionary<ProtoId<OrganCategoryPrototype>, SlotFlags> Coverage = new()
     {
         ["Head"] = SlotFlags.HEAD,
