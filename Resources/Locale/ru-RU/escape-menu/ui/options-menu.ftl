@@ -161,6 +161,7 @@ ui-options-function-alt-activate-item-in-hand = Альтернативно ис�
 ui-options-function-activate-item-in-world = Использовать предмет в мире
 ui-options-function-alt-activate-item-in-world = Альтернативно использовать предмет в мире
 ui-options-function-drop = Положить предмет
+ui-options-function-unbuckle = Отстегнуться
 ui-options-function-examine-entity = Осмотреть
 ui-options-function-swap-hands = Поменять руки
 ui-options-function-swap-hands-reverse = Сменить руку (в обратную сторону)

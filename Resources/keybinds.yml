@@ -670,6 +670,10 @@ binds:
 - function: Resist
   type: State
   key: B
+- function: Unbuckle
+  type: State
+  key: Q
+  priority: 1
 - function: ADTDoorEmergencyAccess # Нужно для ИИ и боргов.
   type: State
   key: MouseLeft

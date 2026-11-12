@@ -207,6 +207,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.OfferItem); // ADT-Tweak
             AddButton(ContentKeyFunctions.PickupHumans); // ADT-Tweak
             AddButton(ContentKeyFunctions.Resist); // ADT-Tweak
+            AddButton(ContentKeyFunctions.Unbuckle); // ADT-Tweak
             AddButton(ContentKeyFunctions.DrawBackItem); // ADT-Tweak
             AddButton(ContentKeyFunctions.TogglePosing); // ADT-Tweak
             AddButton(ContentKeyFunctions.PosingOffsetLeft); // ADT-Tweak
