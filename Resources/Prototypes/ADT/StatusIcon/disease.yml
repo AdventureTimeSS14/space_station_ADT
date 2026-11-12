@@ -1,0 +1,62 @@
+- type: adtDiseaseIcon
+  id: ADTDiseaseIcon
+  abstract: true
+  priority: 2
+  locationPreference: Right
+  isShaded: true
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconPositive
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: positive
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconNonthreat
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: nonthreat
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconMinor
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: minor
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconMedium
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: medium
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconHarmful
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: harmful
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconDangerous
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: dangerous
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconBiohazard
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: biohazard
+
+- type: adtDiseaseIcon
+  parent: ADTDiseaseIcon
+  id: ADTDiseaseIconUncurable
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/disease_icons.rsi
+    state: uncurable

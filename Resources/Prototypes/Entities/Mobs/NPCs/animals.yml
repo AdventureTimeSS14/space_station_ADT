@@ -1810,6 +1810,9 @@
   parent: MobBaseAncestor
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   components:
+  # ADT-Tweak start
+  - type: ADTVirusSusceptible
+  # ADT-Tweak end
   - type: NameIdentifier
     group: Monkey
   - type: Speech
@@ -2015,6 +2018,7 @@
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
   # ADT-Tweak start
+  - type: ADTVirusSusceptible
   - type: VentCrawler
     allowInventory: false
   # ADT-Tweak end

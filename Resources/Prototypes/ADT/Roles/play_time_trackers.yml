@@ -47,6 +47,9 @@
   id: JobADTMiner
 
 - type: playTimeTracker
+  id: JobADTVirologist
+
+- type: playTimeTracker
   id: JobADTCentcomInspector
 
 - type: playTimeTracker

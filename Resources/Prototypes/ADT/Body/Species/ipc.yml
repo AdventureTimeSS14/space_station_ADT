@@ -111,6 +111,8 @@
   components:
   - type: ADTBones
     canBreak: false
+  - type: ADTVirusImmune
+    absolute: true
   - type: VisualBody
   - type: PowerCellSlot
     cellSlotId: cell_slot

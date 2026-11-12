@@ -1,0 +1,44 @@
+- type: polymorph
+  id: ADTVirusMonkey
+  configuration:
+    entity: MobMonkey
+    forced: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: ADTVirusCorgi
+  configuration:
+    entity: MobCorgi
+    forced: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: ADTVirusPig
+  configuration:
+    entity: MobPig
+    forced: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: ADTVirusXeno
+  configuration:
+    entity: MobXeno
+    forced: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: ADTVirusSlime
+  configuration:
+    entity: MobAdultSlimes
+    forced: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false

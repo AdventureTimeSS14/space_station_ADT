@@ -155,3 +155,8 @@ loadout-group-ccc-socks = консультант Центком, носки
 loadout-group-service-worker-head-adt = Сервисный работник, голова
 loadout-group-musician-head-adt = Музыкант, голова
 loadout-group-medical-doctor-neck-adt = Врач, шея
+
+loadout-group-adt-virologist-jumpsuit = Вирусолог, комбинезон
+loadout-group-adt-virologist-outerclothing = Вирусолог, верхняя одежда
+loadout-group-adt-virologist-backpack = Вирусолог, сумка
+loadout-group-adt-virologist-belt = Вирусолог, пояс

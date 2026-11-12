@@ -434,6 +434,21 @@
 #UplinkChemicals
 
 - type: listing
+  id: ADTUplinkAntiviralMedipen
+  name: uplink-adt-antiviral-medipen-name
+  description: uplink-adt-antiviral-medipen-desc
+  productEntity: ADTSyndicateAntiviralMedipen
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: ADTUplinkAdvancedChemistBundle
   name: uplink-advanced-chemist-bundle-name
   description: uplink-advanced-chemist-bundle-desc

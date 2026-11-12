@@ -1,3 +1,4 @@
+
 reagent-effect-guidebook-embalm =
     { $chance ->
         [1] Предотвращает
@@ -76,3 +77,11 @@ reagent-effect-guidebook-suppress-heart-attack =
         [1] Сдерживает
        *[other] сдерживает
     } развитие остановки сердца
+reagent-effect-guidebook-adt-cure-diseases =
+    { $chance ->
+        [1] Излечивает
+       *[other] излечивают
+    } { $viruses ->
+        [true] все вирусы
+       *[false] все болезни
+    }
