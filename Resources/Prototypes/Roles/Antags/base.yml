@@ -2,7 +2,7 @@
   abstract: true
   id: BaseAntagSpecifier
   jobBlacklist:
-  - CentralCommandOfficial
+  - ADTCentralCommandOfficial # ADT-Tweak
   - DeathSquad
   - ERTLeader
   - ERTChaplain
@@ -36,6 +36,11 @@
   - ADTBattleShipPilotTSF
   - ADTBlueShieldOfficer
   - ADTCentcomConsultant
+  - ADTCentcomInspector
+  - ADTCentcomInquisitor
+  - ADTCentcomOfficer
+  - ADTSODOfficer
+  - ADTCentcomOperator
   - ADTCorrectionsOfficer
   - ADTJobTimePatrol
   - ADTJobUSSPArmyOfficer
