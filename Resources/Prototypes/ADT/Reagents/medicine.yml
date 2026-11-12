@@ -963,3 +963,16 @@
   physicalDesc: reagent-physical-desc-sweet
   flavor: sweet
   color: "#808080"
+- type: reagent
+  id: ADTSyndicateAntiviral
+  name: reagent-name-adt-syndicate-antiviral
+  group: Medicine
+  desc: reagent-desc-adt-syndicate-antiviral
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#8c1c2c"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ADTCureDiseases
+        virusesOnly: true

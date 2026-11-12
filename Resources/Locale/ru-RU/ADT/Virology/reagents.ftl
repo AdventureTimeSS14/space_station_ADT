@@ -42,3 +42,5 @@ reagent-desc-adt-vaccine = Раствор антител, который леч�
 
 reagent-name-adt-plasma-dust = плазменная пыль
 reagent-desc-adt-plasma-dust = Тонкая пыль из плазмы. Обладает необычными мутагенными свойствами как для вирусов, так и для слаймов.
+reagent-name-adt-syndicate-antiviral = антивирусная сыворотка Синдиката
+reagent-desc-adt-syndicate-antiviral = Экспериментальная сыворотка Синдиката, которая уничтожает в организме все вирусы разом и оставляет к ним иммунитет.

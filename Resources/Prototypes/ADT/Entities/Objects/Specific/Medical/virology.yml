@@ -416,3 +416,41 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: dropper
+- type: entity
+  parent: SyndicateMedipen
+  id: ADTSyndicateAntiviralMedipen
+  name: antiviral medipen
+  description: A single-dose syndicate medipen that wipes out every virus in the body.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#8c1c2c"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#8c1c2c"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: penacid
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: penacid_empty
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: ADTSyndicateAntiviral
+        Quantity: 5
+  - type: StaticPrice
+    price: 100
+  - type: Tag
+    tags:
+    - ADTMedipen
