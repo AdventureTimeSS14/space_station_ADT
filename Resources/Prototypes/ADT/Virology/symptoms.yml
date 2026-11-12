@@ -772,9 +772,10 @@
     effects:
     - !type:HealthChange
       damage:
-        groups:
-          Brute: -2
         types:
+          Blunt: -0.67
+          Slash: -0.67
+          Piercing: -0.66
           Heat: -2
           Poison: 2
       probability: 0.3

@@ -343,7 +343,6 @@
   - !type:SpawnEntityInInventory
     slot: head
     entity: ClothingHeadHatWizard
-    predicted: false
 
 - type: entityEffect
   id: ADTDiseaseWizarditisEffect2

@@ -646,7 +646,6 @@
       slot: mask
       entity: ClothingMaskClown
       probability: 0.02
-      predicted: false
 
 - type: adtDisease
   id: ADTDiseaseKingstons
