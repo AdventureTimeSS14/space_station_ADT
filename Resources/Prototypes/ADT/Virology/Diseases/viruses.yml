@@ -264,7 +264,7 @@
   maxStages: 4
   spread: Blood, Contact
   cures:
-  - ADTMannitol
+  - Mannitol
   cureProb: 15
   severity: Harmful
   mutationReagents:
@@ -808,7 +808,7 @@
   spread: Airborne
   visibility: HiddenHud
   cures:
-  - ADTMannitol
+  - Mannitol
   - ADTMitocholide
   cureProb: 30
   permeability: 0.75

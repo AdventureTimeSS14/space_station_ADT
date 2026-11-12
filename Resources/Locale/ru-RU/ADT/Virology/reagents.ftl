@@ -4,9 +4,6 @@ reagent-desc-adt-spaceacillin = Универсальный антибиотик,
 reagent-name-adt-teporone = тепорон
 reagent-desc-adt-teporone = Экспериментальное соединение на основе плазмы, которое приводит температуру тела к норме.
 
-reagent-name-adt-mannitol = маннитол
-reagent-desc-adt-mannitol = Сахарный спирт, который помогает восстановить мозг после повреждений.
-
 reagent-name-adt-salbutamol = сальбутамол
 reagent-desc-adt-salbutamol = Бронхорасширяющее средство, которое помогает при проблемах с дыханием.
 

@@ -902,7 +902,7 @@
   - minStage: 5
     probability: 0.09
     effect: !type:ADTSymptomAddReagent
-      reagent: ADTMannitol
+      reagent: Mannitol
       amount: 10.0
       maxExisting: 10.0
 

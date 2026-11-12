@@ -329,18 +329,6 @@
     ADTTeporone: 2
 
 - type: reaction
-  id: ADTMannitol
-  reactants:
-    Sugar:
-      amount: 1
-    Hydrogen:
-      amount: 1
-    Water:
-      amount: 1
-  products:
-    ADTMannitol: 3
-
-- type: reaction
   id: ADTSalbutamol
   reactants:
     Lithium:

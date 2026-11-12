@@ -886,22 +886,6 @@
           min: 316.0
 
 - type: reagent
-  id: ADTMannitol
-  name: reagent-name-adt-mannitol
-  group: Medicine
-  desc: reagent-desc-adt-mannitol
-  physicalDesc: reagent-physical-desc-sweet
-  flavor: sweet
-  color: "#cfcfcf"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: -0.5
-
-- type: reagent
   id: ADTSalbutamol
   name: reagent-name-adt-salbutamol
   group: Medicine
