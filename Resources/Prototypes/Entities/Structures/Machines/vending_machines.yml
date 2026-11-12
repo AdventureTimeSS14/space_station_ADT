@@ -945,6 +945,7 @@
   - type: ADTVendingMachine
     pack: NanoMedPlusInventory
     discountAccount: Medical
+    discountJobs: [Brigmedic] # ADT-Economy
     discountPercent: 0.8 # ADT-Economy
   - type: VendingMachineVisuals
     offState: off
@@ -2214,6 +2215,7 @@
   - type: ADTVendingMachine
     pack: NanoMedCivilianWallInventory
     discountAccount: Medical # ADT-Economy
+    discountJobs: [Brigmedic] # ADT-Economy
   - type: VendingMachineVisuals
     offState: off-civilian
     denyState: deny-unshaded
@@ -2243,6 +2245,7 @@
   - type: ADTVendingMachine
     pack: NanoMedInventory
     discountAccount: Medical # ADT-Economy
+    discountJobs: [Brigmedic] # ADT-Economy
   - type: VendingMachineVisuals
     offState: off
   - type: Sprite
