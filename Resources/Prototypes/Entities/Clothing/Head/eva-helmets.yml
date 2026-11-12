@@ -81,7 +81,7 @@
   # ADT-Tweak-Start
   - type: ADTVirusProtection
     permeability: 0.6
-    airborne: 0.4
+    airborne: 0.5
     zones:
     - head
   # ADT-Tweak-End
