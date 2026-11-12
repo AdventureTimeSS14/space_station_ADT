@@ -34,7 +34,7 @@
     pocket2: DoubleEmergencyOxygenTankFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
-    socks: ADTClothingUnderwearSocksComfyGrey
+    socks: ADTClothingUnderwearSocksCentcom
   storage:
     back:
     - Flash #ADT-CustomADTLoadout

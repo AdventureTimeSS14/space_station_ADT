@@ -41,7 +41,11 @@
   color: "#0c344d"
   weight: -1 # ADT EDIT
   roles:
-  - CentralCommandOfficial
+  - ADTCentralCommandOfficial
+  - ADTCentcomConsultant
+  - ADTCentcomInspector
+  - ADTCentcomInquisitor
+  - ADTCentcomOfficer
   - CBURN
   - ERTLeader
   - ERTChaplain

@@ -4,20 +4,18 @@
   description: job-description-ADTCentcomInspector
   playTimeTracker: JobADTCentcomInspector
   setPreference: false
-  startingGear: ADTInspectorGear
+  startingGear: ADTCentComInspectorGear
   icon: "JobIconADTCentcomInspector"
   supervisors: job-supervisors-centcom # Corvax-JobSupervisors
   accessGroups:
   - AllAccess
-  # Start ADT Tweak
   - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  # End ADT Tweak
 
 - type: startingGear
-  id: ADTInspectorGear
+  id: ADTCentComInspectorGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     back: ADTClothingModsuitBackCentcom
@@ -25,23 +23,20 @@
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCentcomcap
     eyes: ClothingEyesGlassesCommand
-    gloves: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesHop
     outerClothing: ADTClothingOuterCoatCentCom
     mask: ClothingMaskGasCentcom
     id: ADTCentcomInspectorPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ADTClothingBeltSheathOCK
-    pocket1: BoxFolderCentComClipboardThreePapers
+    belt: BoxFolderCentComClipboardThreePapers
+    pocket1: WeaponPistolN1984
     pocket2: DoubleEmergencyOxygenTankFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
-    socks: ADTClothingUnderwearSocksComfyGrey
+    socks: ADTClothingUnderwearSocksCentcom
   storage:
     back:
     - Flash #ADT-CustomADTLoadout
     - ADTtelescopicBaton #ADT-CustomADTLoadout
-    - WeaponPistolN1984
     - MagazineMagnum
     - MagazineMagnum
-    belt:
-    - CaptainSabre

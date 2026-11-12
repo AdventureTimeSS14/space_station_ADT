@@ -55,12 +55,3 @@ ent-RandomHumanoidSpawnerNukeOp = Ядерный оперативник
 ent-RandomHumanoidSpawnerCluwne = Клувень
     .suffix = Спавнит клувеня
     .desc = { "" }
-
-ent-ADTRandomHumanoidSpawnerCentcomInspector = Ревизор Центком
-    .desc = { "" }
-
-ent-ADTRandomHumanoidSpawnerCentcomInquisitor = Инквизитор Центком
-    .desc = { "" }
-
-ent-ADTRandomHumanoidSpawnerCentcomOfficer = Офицер Центком
-    .desc = { "" }

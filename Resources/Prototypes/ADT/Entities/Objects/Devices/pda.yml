@@ -234,6 +234,16 @@
   components:
     - type: Pda
       id: ADTSODOfficerIDCard
+    - type: Appearance
+      appearanceDataInit:
+       enum.PdaVisuals.PdaType:
+         !type:String
+         pda-boxer
+    - type: PdaBorderColor
+      borderColor: "#333333"
+      accentVColor: "#390504"
+    - type: Icon
+      state: pda-boxer
 
 - type: entity
   parent: CentcomPDA

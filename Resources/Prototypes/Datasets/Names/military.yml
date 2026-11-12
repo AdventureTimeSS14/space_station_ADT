@@ -21,11 +21,3 @@
   values:
     prefix: names-military-deadsquad-first-dataset-
     count: 1 # Corvax-MRP-Edit
-
-#ADT-Tweak-Start
-- type: localizedDataset
-  id: NamesFirstInquisitor
-  values:
-    prefix: names-inquisitor-first-dataset-
-    count: 1 # Corvax-MRP-Edit
-    #ADT-Tweak-End

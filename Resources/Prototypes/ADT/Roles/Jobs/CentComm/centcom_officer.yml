@@ -9,12 +9,10 @@
   supervisors: job-supervisors-centcom # Corvax-JobSupervisors
   accessGroups:
   - AllAccess
-  # Start ADT Tweak
   - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  # End ADT Tweak
 
 - type: startingGear
   id: ADTCentcomOfficerGear
@@ -35,7 +33,7 @@
     pocket2: WeaponEnergyMagnum
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
-    socks: ADTClothingUnderwearSocksComfyGrey
+    socks: ADTClothingUnderwearSocksCentcom
   storage:
     back:
     - Flash #ADT-CustomADTLoadout

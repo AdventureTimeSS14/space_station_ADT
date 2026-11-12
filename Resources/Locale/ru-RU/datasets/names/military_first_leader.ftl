@@ -5,5 +5,3 @@ names-military-leader-first-dataset-4 = Майор
 names-military-leader-first-dataset-5 = Лейтенант
 
 names-military-deadsquad-first-dataset-1 = Эскадроновец
-
-names-inquisitor-first-dataset-1 = Инквизитор

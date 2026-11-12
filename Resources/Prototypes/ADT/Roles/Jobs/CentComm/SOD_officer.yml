@@ -22,15 +22,16 @@
     jumpsuit: ClothingUniformJumpsuitCentcomOfficerBlack
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadCapCentcomBlack
+    mask: ClothingMaskGasERT
+    neck: ClothingNeckCloakCentcomBlack
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ADTClothingOuterArmorVestHidden
+    outerClothing: ADTClothingOuterArmorBulletproofHeavy
     id: ADTSODOfficerPDA
     ears: ClothingHeadsetAltCentCom
-    belt: WeaponPistolN1984
-    pocket1: BoxFolderCentComClipboardThreePapers
-    pocket2: PenCentcom
-  storage:
-    back:
-    - Flash #ADT-CustomADTLoadout
-    - ADTtelescopicBaton #ADT-CustomADTLoadout
+    belt: ADTClothingWarBeltSODOfficerFilled
+    pocket1: WeaponRevolverMateba
+    pocket2: BoxFolderCentComClipboardThreePapers
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksCentcom
