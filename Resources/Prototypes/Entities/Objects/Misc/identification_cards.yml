@@ -1235,7 +1235,7 @@
   - type: Item
     heldPrefix: blue
   - type: PresetIdCard
-    job: CentralCommandOfficial
+    job: ADTCentralCommandOfficial # ADT-tweak
   - type: NanoChatCard # ADT-tweak: Наночат
     listNumber: false # ADT-tweak
 
