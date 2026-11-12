@@ -41,10 +41,13 @@
   color: "#0c344d"
   weight: -1 # ADT EDIT
   roles:
+  # ADT-Tweak start
   - ADTCentralCommandOfficial
   - ADTCentcomInspector
   - ADTCentcomInquisitor
   - ADTCentcomOfficer
+  - ADTSODOfficer
+  # ADT-Tweak end
   - CBURN
   - ERTLeader
   - ERTChaplain

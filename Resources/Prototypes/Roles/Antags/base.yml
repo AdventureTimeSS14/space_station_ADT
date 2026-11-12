@@ -2,7 +2,7 @@
   abstract: true
   id: BaseAntagSpecifier
   jobBlacklist:
-  - ADTCentralCommandOfficial
+  - ADTCentralCommandOfficial # ADT-Tweak
   - DeathSquad
   - ERTLeader
   - ERTChaplain
