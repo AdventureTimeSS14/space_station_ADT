@@ -72,6 +72,82 @@
 
 - type: entity
   parent: IDCardStandard
+  id: ADTCentcomInspectorIDCard
+  name: Centcom Inspector ID card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: centcom
+        - state: idcardinspector
+    - type: IdCard
+      jobTitle: job-name-ADTCentcomInspector
+    - type: PresetIdCard
+      job: ADTCentcomInspector
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTCentcomInquisitorIDCard
+  name: Inquisitor ID card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: centcom
+        - state: idcardinquisitor
+    - type: IdCard
+      jobTitle: job-name-ADTInquisition
+    - type: PresetIdCard
+      job: ADTCentcomInquisitor
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTCentcomOperatorIDCard
+  name: Operator ID card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: centcom
+        - state: idcentcomoperator
+    - type: IdCard
+      jobTitle: job-name-ADTCentcomOperator
+    - type: PresetIdCard
+      job: ADTCentcomOperator
+
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTCentcomOfficerIDCard
+  name: centcom officer ID card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: centcom
+        - state: idcentcomofficer
+    - type: IdCard
+      jobTitle: job-name-ADTCentcomOfficer
+    - type: PresetIdCard
+      job: ADTCentcomOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTSODOfficerIDCard
+  name: SOD Officer ID card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: centcom
+        - state: idsodofficer
+    - type: IdCard
+      jobTitle: job-name-ADTSODOfficer
+    - type: PresetIdCard
+      job: ADTSODOfficer
+
+- type: entity
+  parent: IDCardStandard
   id: ADTSpaceSecCadetIDCard
   name: space sec cadet ID card
   components:

@@ -61,7 +61,7 @@
     Lawyer: 150
   # ЦК
   fixedSalaries:
-    CentralCommandOfficial: 800
+    ADTCentralCommandOfficial: 800
     ADTCentcomConsultant: 1000
     ADTBlueShieldOfficer: 600
     # ОБР
