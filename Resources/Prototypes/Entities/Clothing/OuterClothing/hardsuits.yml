@@ -276,6 +276,16 @@
   name: brigmedic hardsuit
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: Clothing

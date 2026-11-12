@@ -146,6 +146,14 @@
   name: medical MOD chestplate
   description: A chestplate for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/medical.rsi
   - type: Clothing
@@ -668,6 +676,14 @@
   name: Brigmedic MOD chestplate
   description: A chestplate for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/brigmedic.rsi
   - type: Clothing
@@ -949,6 +965,14 @@
   name: ERT MOD chestplate "Vega"
   description: A chestplate for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
   - type: Clothing
@@ -988,6 +1012,14 @@
   id: ADTClothingOuterModsuitBodySyndicateMedic
   name: syndicate medic MOD chestplate
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_medic.rsi
   - type: Clothing
