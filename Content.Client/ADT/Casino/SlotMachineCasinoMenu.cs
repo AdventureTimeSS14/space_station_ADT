@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Linq;
 using Robust.Shared.Graphics.RSI;
 using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;
@@ -38,8 +39,6 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
     private readonly Label _statsPlays = new();
     private readonly Label _statsJackpots = new();
     private readonly Label _statsStreak = new();
-    private readonly Label _paytableFive = new();
-    private readonly Label _paytableFour = new();
     private readonly Button[] _betButtons = new Button[5];
     private readonly PanelContainer _gamblePanel = new() { Visible = false };
     private readonly Label _gambleTitle = new();
@@ -49,6 +48,43 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
     private SlotMachineCasinoBoundUserInterfaceState? _state;
     private int _lastSpinCount = -1;
     private (string Text, Color Color, int Size)? _pendingResult;
+
+    private readonly PanelContainer _agreementPanel;
+    private readonly BoxContainer _oddsList = new() { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 1 };
+    private readonly Dictionary<string, Label> _oddsLabels = new();
+    private readonly TextureButton _rulesButton = new();
+    private Dictionary<string, int>? _lastWeights;
+    private bool _agreementOpen;
+    private readonly Dictionary<Label, (string Text, int Size, int Width, bool Bold)> _fitCache = new();
+    private readonly Dictionary<Label, int> _fitLines = new();
+
+    private static readonly (string Symbol, string Rsi, string State)[] SymbolSources =
+    {
+        ("seven", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "seven"),
+        ("cherry", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "cherry"),
+        ("banana", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "banana"),
+        ("strawberry", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "strawberry"),
+        ("grape", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "grape"),
+        ("watermelon", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "watermelon"),
+        ("diamond", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "diamond"),
+        ("star", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "star"),
+        ("wild", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "wild"),
+        ("scatter", "/Textures/ADT/Structures/Machines/slotmachines/casino_symbols.rsi", "scatter"),
+    };
+
+    private static readonly Dictionary<string, Color> SymbolTextColors = new()
+    {
+        { "seven", SlotMachineUiColors.Gold },
+        { "cherry", SlotMachineUiColors.LineRed },
+        { "banana", Color.FromHex("#ffe066") },
+        { "strawberry", Color.FromHex("#ff8899") },
+        { "grape", Color.FromHex("#c090ff") },
+        { "watermelon", SlotMachineUiColors.LineGreen },
+        { "diamond", SlotMachineUiColors.BlueText },
+        { "star", SlotMachineUiColors.OrangeHot },
+        { "wild", SlotMachineUiColors.GreenWin },
+        { "scatter", SlotMachineUiColors.PinkBonus },
+    };
 
     private readonly Texture? _sevenIcon;
 
@@ -60,19 +96,31 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         _fonts = new SlotMachineFonts(_resCache);
 
         Title = Loc.GetString("slotmachine-casino-title");
-        SetSize = new Vector2(540, 680);
+        SetSize = new Vector2(540, 545);
 
-        foreach (var sym in SlotMachineCasinoComponent.SymbolIds)
+        foreach (var (sym, rsi, state) in SymbolSources)
         {
-            if (GetRsiTexture(SymbolsRsiPath, sym) is { } tex)
+            if (GetRsiTexture(rsi, state) is { } tex)
                 _reels.Symbols[sym] = tex;
         }
 
-        _sevenIcon = GetRsiTexture(SymbolsRsiPath, "seven");
+        _sevenIcon = _reels.Symbols.GetValueOrDefault("seven");
 
+        AddRulesButton();
 
         _mainContent = BuildMainUi();
-        ContentsContainer.AddChild(_mainContent);
+        _agreementPanel = BuildAgreement();
+
+        var root = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
+            VerticalExpand = true,
+            SeparationOverride = 8,
+        };
+        root.AddChild(_mainContent);
+        root.AddChild(_agreementPanel);
+        ContentsContainer.AddChild(root);
 
         var intro = BuildIntro();
         _intro = intro;
@@ -130,12 +178,6 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
             Align = BoxContainer.AlignMode.Center,
             SeparationOverride = 8,
         };
-        titleRow.AddChild(new TextureRect
-        {
-            Texture = _sevenIcon,
-            Stretch = TextureRect.StretchMode.Scale,
-            MinSize = new Vector2(16, 16),
-        });
         var headerTitle = new Label
         {
             Text = Loc.GetString("slotmachine-casino-jackpot-header"),
@@ -144,12 +186,6 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         };
         headerTitle.FontOverride = _fonts.Get(16, bold: true);
         titleRow.AddChild(headerTitle);
-        titleRow.AddChild(new TextureRect
-        {
-            Texture = _sevenIcon,
-            Stretch = TextureRect.StretchMode.Scale,
-            MinSize = new Vector2(16, 16),
-        });
         headerBox.AddChild(titleRow);
 
         var amountRow = new BoxContainer
@@ -382,41 +418,6 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         controlsRow.AddChild(statsBox);
         root.AddChild(controlsSection);
 
-        var paytableSection = MakeSection(string.Empty, out var payBox);
-        var payColumns = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            SeparationOverride = 12,
-        };
-        payBox.AddChild(payColumns);
-
-        var leftCol = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, SizeFlagsStretchRatio = 1 };
-        leftCol.AddChild(PayRow(Loc.GetString("slotmachine-casino-pay-jackpot-symbols"), Loc.GetString("slotmachine-casino-pay-jackpot-prize"), SlotMachineUiColors.Gold));
-        leftCol.AddChild(PayRow(Loc.GetString("slotmachine-casino-pay-five-symbols"), string.Empty, SlotMachineUiColors.BlueText, _paytableFive));
-        leftCol.AddChild(PayRow(Loc.GetString("slotmachine-casino-pay-four-symbols"), string.Empty, SlotMachineUiColors.BlueText, _paytableFour));
-        leftCol.AddChild(PayRow(Loc.GetString("slotmachine-casino-pay-three-symbols"), Loc.GetString("slotmachine-casino-pay-three-prize"), SlotMachineUiColors.BlueText));
-        payColumns.AddChild(leftCol);
-
-        var rightCol = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, SizeFlagsStretchRatio = 1 };
-        rightCol.AddChild(PayRow(Loc.GetString("slotmachine-casino-pay-wild-symbols"), Loc.GetString("slotmachine-casino-pay-wild-prize"), Color.FromHex("#88ff88")));
-        rightCol.AddChild(PayRow(Loc.GetString("slotmachine-casino-pay-scatter-symbols"), Loc.GetString("slotmachine-casino-pay-scatter-prize"), SlotMachineUiColors.PinkBonus));
-        rightCol.AddChild(PayRow(Loc.GetString("slotmachine-casino-pay-bonus-symbols"), Loc.GetString("slotmachine-casino-pay-bonus-prize"), SlotMachineUiColors.PinkBonus));
-        rightCol.AddChild(new Label
-        {
-            Text = Loc.GetString("slotmachine-casino-pay-note"),
-            FontColorOverride = Color.Gray,
-            FontOverride = _fonts.Get(9),
-        });
-        rightCol.AddChild(new Label
-        {
-            Text = Loc.GetString("slotmachine-casino-pay-lines-legend"),
-            FontColorOverride = Color.Gray,
-            FontOverride = _fonts.Get(9),
-        });
-        payColumns.AddChild(rightCol);
-        root.AddChild(paytableSection);
-
         return scroll;
     }
 
@@ -467,8 +468,8 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
             symbolsRow.AddChild(new TextureRect
             {
                 Texture = _reels.Symbols.GetValueOrDefault(sym),
-                Stretch = TextureRect.StretchMode.Scale,
-                MinSize = new Vector2(26, 26),
+                Stretch = TextureRect.StretchMode.KeepAspect,
+                MinSize = new Vector2(32, 32),
             });
         }
         layout.AddChild(symbolsRow);
@@ -496,7 +497,242 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         return intro;
     }
 
+    private void AddRulesButton()
+    {
+        var texture = _resCache.GetResource<TextureResource>("/Textures/Interface/VerbIcons/information.svg.192dpi.png").Texture;
+        _rulesButton.TextureNormal = texture;
+        _rulesButton.ToolTip = Loc.GetString("slotmachine-casino-agreement-tooltip");
+        _rulesButton.VerticalAlignment = Control.VAlignment.Center;
+        _rulesButton.SetSize = new Vector2(16, 16);
+        _rulesButton.Margin = new Thickness(0, 0, 4, 0);
+        _rulesButton.OnPressed += _ => ToggleAgreement();
+
+        var header = (Control) CloseButton.Parent!;
+        header.RemoveChild(CloseButton);
+        header.AddChild(_rulesButton);
+        header.AddChild(CloseButton);
+    }
+
+    private void ToggleAgreement()
+    {
+        _agreementOpen = !_agreementOpen;
+        _agreementPanel.Visible = _agreementOpen;
+    }
+
+    private PanelContainer BuildAgreement()
+    {
+        var panel = new PanelContainer
+        {
+            HorizontalExpand = true,
+            VerticalExpand = true,
+            Visible = false,
+            PanelOverride = new StyleBoxFlat
+            {
+                BackgroundColor = Color.FromHex("#161629"),
+                BorderColor = Color.FromHex("#ffd70066"),
+                BorderThickness = new Thickness(2),
+                ContentMarginTopOverride = 10,
+                ContentMarginBottomOverride = 10,
+                ContentMarginLeftOverride = 12,
+                ContentMarginRightOverride = 12,
+            },
+        };
+
+        var layout = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            SeparationOverride = 4,
+        };
+        panel.AddChild(layout);
+
+        layout.AddChild(new Label
+        {
+            Text = Loc.GetString("slotmachine-casino-agreement-company"),
+            Align = Label.AlignMode.Center,
+            FontColorOverride = Color.FromHex("#8a8aa0"),
+            FontOverride = _fonts.Get(10),
+        });
+        layout.AddChild(new Label
+        {
+            Text = Loc.GetString("slotmachine-casino-agreement-title"),
+            Align = Label.AlignMode.Center,
+            FontColorOverride = SlotMachineUiColors.Gold,
+            FontOverride = _fonts.Get(15, bold: true),
+        });
+        layout.AddChild(new Label
+        {
+            Text = Loc.GetString("slotmachine-casino-agreement-subtitle"),
+            Align = Label.AlignMode.Center,
+            FontColorOverride = Color.FromHex("#8080cc"),
+            FontOverride = _fonts.ItalicFont(10),
+        });
+
+        var scroll = new ScrollContainer
+        {
+            HorizontalExpand = true,
+            VerticalExpand = true,
+            HScrollEnabled = false,
+        };
+        var body = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            SeparationOverride = 8,
+        };
+        scroll.AddChild(body);
+        layout.AddChild(scroll);
+
+        AgreementSection(body, SlotMachineUiColors.LineRed, "slotmachine-casino-agreement-notice-header",
+            new[] { "slotmachine-casino-agreement-notice" });
+        AgreementSection(body, SlotMachineUiColors.Gold, "slotmachine-casino-agreement-howto-header",
+            new[] { "slotmachine-casino-agreement-howto" });
+        AgreementSection(body, SlotMachineUiColors.GreenWin, "slotmachine-casino-agreement-payout-header",
+            new[]
+            {
+                "slotmachine-casino-agreement-payout-5",
+                "slotmachine-casino-agreement-payout-4",
+                "slotmachine-casino-agreement-payout-3",
+                "slotmachine-casino-agreement-payout-scatter",
+                "slotmachine-casino-agreement-payout-bonus",
+                "slotmachine-casino-agreement-payout-gamble",
+                "slotmachine-casino-agreement-payout-jackpot",
+            });
+
+        body.AddChild(new Label
+        {
+            Text = Loc.GetString("slotmachine-casino-agreement-odds-header"),
+            FontColorOverride = SlotMachineUiColors.BlueText,
+            FontOverride = _fonts.Get(12, bold: true),
+        });
+        foreach (var sym in SlotMachineCasinoComponent.SymbolIds)
+        {
+            var label = new Label { FontOverride = _fonts.Get(11) };
+            _oddsLabels[sym] = label;
+            _oddsList.AddChild(label);
+        }
+        body.AddChild(_oddsList);
+        body.AddChild(new Label
+        {
+            Text = Loc.GetString("slotmachine-casino-agreement-odds-note"),
+            FontColorOverride = Color.FromHex("#8a8aa0"),
+            FontOverride = _fonts.Get(9),
+        });
+
+        return panel;
+    }
+
+    private void AgreementSection(
+        BoxContainer body, Color headerColor, string header,
+        string[] lines, bool fine = false)
+    {
+        body.AddChild(new Label
+        {
+            Text = Loc.GetString(header),
+            FontColorOverride = headerColor,
+            FontOverride = _fonts.Get(12, bold: true),
+        });
+        foreach (var line in lines)
+        {
+            // RichTextLabel wraps text to the panel width; plain Labels would overflow and get clipped.
+            var rtl = new RichTextLabel { HorizontalExpand = true };
+            rtl.SetMessage(
+                FormattedMessage.FromMarkupPermissive(Loc.GetString(line)),
+                fine ? Color.FromHex("#9a9aa8") : Color.FromHex("#c8c8d8"));
+            body.AddChild(rtl);
+        }
+    }
+
+    private void UpdateOdds(Dictionary<string, int> weights)
+    {
+        if (_lastWeights != null && _lastWeights.Count == weights.Count &&
+            _lastWeights.All(kv => weights.TryGetValue(kv.Key, out var w) && w == kv.Value))
+            return;
+        _lastWeights = new Dictionary<string, int>(weights);
+
+        var total = 0;
+        foreach (var (_, weight) in weights)
+            total += weight;
+
+        foreach (var sym in SlotMachineCasinoComponent.SymbolIds)
+        {
+            if (!_oddsLabels.TryGetValue(sym, out var label))
+                continue;
+            var weight = weights.GetValueOrDefault(sym);
+            var percent = total > 0 ? (int) MathF.Round(weight * 100f / total) : 0;
+            label.Text = Loc.GetString("slotmachine-casino-agreement-odds-line",
+                ("name", Loc.GetString($"slotmachine-casino-sym-{sym}")), ("percent", percent));
+            label.FontColorOverride = SymbolTextColors.GetValueOrDefault(sym, Color.White);
+        }
+    }
+
     // ============================ helpers ============================
+
+    private float BannerMaxWidth() => MathF.Max(160f, Size.X - 44f);
+
+    private int BannerLines(Label label) => _fitLines.GetValueOrDefault(label, 1);
+
+    private static float MeasureText(Font font, string text)
+    {
+        var width = 0f;
+        foreach (var rune in text.EnumerateRunes())
+        {
+            var metrics = font.GetCharMetrics(rune, 1f);
+            if (metrics != null)
+                width += metrics.Value.Advance;
+        }
+        return width;
+    }
+
+    private static List<string> WrapLines(Font font, string text, float maxWidth)
+    {
+        var lines = new List<string>();
+        var current = string.Empty;
+        foreach (var word in text.Split(' '))
+        {
+            var candidate = current.Length == 0 ? word : current + " " + word;
+            if (current.Length > 0 && MeasureText(font, candidate) > maxWidth)
+            {
+                lines.Add(current);
+                current = word;
+            }
+            else
+            {
+                current = candidate;
+            }
+        }
+        if (current.Length > 0)
+            lines.Add(current);
+        return lines;
+    }
+
+    private int SetFittedText(Label label, string text, int size, bool bold, float maxWidth, int maxLines = 2)
+    {
+        var key = (text, size, (int) maxWidth, bold);
+        if (_fitCache.TryGetValue(label, out var cached) && cached == key)
+            return _fitLines.GetValueOrDefault(label, 1);
+        _fitCache[label] = key;
+
+        for (var s = size; s >= 9; s--)
+        {
+            var font = _fonts.Get(s, bold);
+            var lines = WrapLines(font, text, maxWidth);
+            if (lines.Count <= maxLines)
+            {
+                label.FontOverride = font;
+                label.Text = string.Join('\n', lines);
+                _fitLines[label] = lines.Count;
+                return lines.Count;
+            }
+        }
+
+        var fallback = _fonts.Get(9, bold);
+        var fallbackLines = WrapLines(fallback, text, maxWidth);
+        label.FontOverride = fallback;
+        label.Text = string.Join('\n', fallbackLines);
+        _fitLines[label] = fallbackLines.Count;
+        return fallbackLines.Count;
+    }
 
     private PanelContainer MakeBanner(Label label, Color textColor, int fontSize)
     {
@@ -556,23 +792,6 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         return panel;
     }
 
-    private BoxContainer PayRow(string symbols, string prize, Color color, Label? prizeLabel = null)
-    {
-        var row = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalExpand = true };
-        row.AddChild(new Label
-        {
-            Text = symbols,
-            FontColorOverride = SlotMachineUiColors.GreyText,
-            HorizontalExpand = true,
-        });
-        var label = prizeLabel ?? new Label();
-        label.Text = prize;
-        label.FontColorOverride = color;
-        label.FontOverride = _fonts.Get(11, bold: true);
-        row.AddChild(label);
-        return row;
-    }
-
     private Button MakeActionButton(string text, Color bg)
     {
         var btn = new Button
@@ -606,9 +825,9 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         _reels.WinningLine = state.WinningLine;
 
         _bonusBanner.Visible = state.BonusActive && !state.Working;
-        _bonusBanner.Text = Loc.GetString("slotmachine-casino-banner-bonus", ("multiplier", state.BonusMultiplier));
+        SetFittedText(_bonusBanner, Loc.GetString("slotmachine-casino-banner-bonus", ("multiplier", state.BonusMultiplier)), 14, true, BannerMaxWidth());
         _streakBanner.Visible = state.WinStreak >= 2;
-        _streakBanner.Text = Loc.GetString("slotmachine-casino-banner-streak", ("count", state.WinStreak));
+        SetFittedText(_streakBanner, Loc.GetString("slotmachine-casino-banner-streak", ("count", state.WinStreak)), 12, true, BannerMaxWidth());
 
         if (_lastSpinCount == -1)
         {
@@ -626,15 +845,16 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
 
 
         _nearMissBanner.Visible = state.NearMiss && !state.Working;
-        _nearMissBanner.Text = Loc.GetString("slotmachine-casino-nearmiss", ("message", state.NearMissMessage));
+        SetFittedText(_nearMissBanner, Loc.GetString("slotmachine-casino-nearmiss", ("message", state.NearMissMessage)), 13, true, BannerMaxWidth());
         _freeSpinsBanner.Visible = state.FreeSpinsRemaining > 0;
-        _freeSpinsBanner.Text = Loc.GetString("slotmachine-casino-banner-freespins", ("count", state.FreeSpinsRemaining));
+        SetFittedText(_freeSpinsBanner, Loc.GetString("slotmachine-casino-banner-freespins", ("count", state.FreeSpinsRemaining)), 13, true, BannerMaxWidth());
         _hotBanner.Visible = state.LossStreak >= 5 && !state.Working;
-        _hotBanner.Text = Loc.GetString("slotmachine-casino-banner-hot", ("count", state.LossStreak));
+        SetFittedText(_hotBanner, Loc.GetString("slotmachine-casino-banner-hot", ("count", state.LossStreak)), 11, true, BannerMaxWidth());
 
         _gambleTitle.Text = Loc.GetString("slotmachine-casino-gamble-title", ("amount", state.GambleAmount));
 
-        var betMultiplier = state.BetAmount / Math.Max(1, state.SpinPriceMin);
+        UpdateOdds(state.SymbolWeights);
+
         if (_lastBet != state.BetAmount)
         {
             _lastBet = state.BetAmount;
@@ -650,9 +870,6 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
 
         foreach (var btn in _betButtons)
             btn.Disabled = state.Working;
-
-        _paytableFive.Text = Loc.GetString("slotmachine-casino-bet-amount", ("amount", state.BigPrizeBase * betMultiplier));
-        _paytableFour.Text = Loc.GetString("slotmachine-casino-bet-amount", ("amount", state.SmallPrizeBase * betMultiplier));
 
         var canSpin = state.FreeSpinsRemaining > 0 || state.Balance >= state.BetAmount;
         _balanceLabel.Text = Loc.GetString("slotmachine-casino-balance-amount", ("amount", state.Balance));
@@ -734,7 +951,7 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         var canSpin = uiReady &&
             (_state.FreeSpinsRemaining > 0 || _state.Balance >= _state.BetAmount);
         _spinButton.Disabled = !canSpin;
-        _cashOutButton.Visible = uiReady && _state.Balance > 0 && !_state.AutoSpin;
+        _cashOutButton.Disabled = !uiReady || _state.Balance <= 0;
         foreach (var child in _autoRow.Children)
         {
             if (child is Button b && b != _stopAutoButton)
@@ -749,15 +966,39 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         else if (_pendingResult != null && uiReady)
         {
             var (text, color, size) = _pendingResult.Value;
-            _resultOverlay.Show(text, color, _fonts.Get(size, bold: true));
+            SetFittedText(_resultOverlay.Label, text, size, true,
+                MathF.Max(220f, _reels.Width - 16f), maxLines: 3);
+            _resultOverlay.Show(_resultOverlay.Label.Text ?? text, color, _resultOverlay.Label.FontOverride!);
             _pendingResult = null;
+        }
+
+        var extra = 0f;
+        if (_bonusBanner.Visible)
+            extra += 6 + 20 * BannerLines(_bonusBanner);
+        if (_streakBanner.Visible)
+            extra += 6 + 20 * BannerLines(_streakBanner);
+        if (_nearMissBanner.Visible)
+            extra += 6 + 20 * BannerLines(_nearMissBanner);
+        if (_freeSpinsBanner.Visible)
+            extra += 6 + 20 * BannerLines(_freeSpinsBanner);
+        if (_hotBanner.Visible)
+            extra += 6 + 20 * BannerLines(_hotBanner);
+        if (_gamblePanel.Visible)
+            extra += 74;
+
+        var targetW = _agreementOpen ? 980f : 540f;
+        var targetH = 545f + extra;
+        if (MathF.Abs(Size.X - targetW) > 1f || MathF.Abs(Size.Y - targetH) > 1f)
+        {
+            var center = Position + Size / 2f;
+            SetSize = new Vector2(targetW, targetH);
+            LayoutContainer.SetPosition(this, center - Size / 2f);
         }
     }
 
     private float _time;
 
 
-    private const string SymbolsRsiPath = "/Textures/ADT/Structures/Machines/slotmachines/slot_symbols.rsi";
     private const string MachineRsiPath = "/Textures/ADT/Structures/Machines/slotmachines/kazino.rsi";
     private Texture? GetRsiTexture(string rsiPath, string state)
     {

@@ -78,6 +78,8 @@ public sealed class SlotMachineCasinoBoundUserInterfaceState : BoundUserInterfac
     public string[][] Reels = System.Array.Empty<string[]>();
     public bool[] ReelsStopped = System.Array.Empty<bool>();
 
+    public Dictionary<string, int> SymbolWeights = new();
+
     public int SpinCount;
 
     public List<SlotSpinHistoryEntry> History = new();

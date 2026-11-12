@@ -80,7 +80,8 @@ public sealed class ReelsControl : Control
     private const int PadY = 10;
     private const int ReelW = 60;
     private const int Gap = 6;
-    private const int CellH = 50;
+    private const int CellH = 62;
+    private const int IconSize = 52;
     private const int Rows = 3;
     private const float ScrollSpeed = 260f;
     private const int LandingWindows = 2;
@@ -200,7 +201,8 @@ public sealed class ReelsControl : Control
                     var sym = Symbols.GetValueOrDefault(SymbolAt(step + r));
                     if (sym == null)
                         continue;
-                    var pos = new Vector2(x + (ReelW - 36) / 2f, PadY + r * CellH - pixelOffset + (CellH - 36) / 2f);
+                    var iconW = IconSize * sym.Width / (float) sym.Height;
+                    var pos = new Vector2(x + (ReelW - iconW) / 2f, PadY + r * CellH - pixelOffset + (CellH - IconSize) / 2f);
                     DrawClipped(handle, sym, pos, reelWindow);
                 }
             }
@@ -213,7 +215,8 @@ public sealed class ReelsControl : Control
                     var sym = Symbols.GetValueOrDefault(land[k]);
                     if (sym == null)
                         continue;
-                    var pos = new Vector2(x + (ReelW - 36) / 2f, PadY + (k - 1) * CellH - l + (CellH - 36) / 2f);
+                    var iconW = IconSize * sym.Width / (float) sym.Height;
+                    var pos = new Vector2(x + (ReelW - iconW) / 2f, PadY + (k - 1) * CellH - l + (CellH - IconSize) / 2f);
                     DrawClipped(handle, sym, pos, reelWindow);
                 }
             }
@@ -224,7 +227,8 @@ public sealed class ReelsControl : Control
                     var sym = Symbols.GetValueOrDefault(Reels[i][r]);
                     if (sym == null)
                         continue;
-                    var pos = new Vector2(x + (ReelW - 36) / 2f, PadY + r * CellH + (CellH - 36) / 2f);
+                    var iconW = IconSize * sym.Width / (float) sym.Height;
+                    var pos = new Vector2(x + (ReelW - iconW) / 2f, PadY + r * CellH + (CellH - IconSize) / 2f);
                     DrawClipped(handle, sym, pos, reelWindow);
                 }
 
@@ -258,7 +262,8 @@ public sealed class ReelsControl : Control
 
     private static void DrawClipped(DrawingHandleScreen handle, Texture tex, Vector2 pos, UIBox2 clip)
     {
-        var dest = UIBox2.FromDimensions(pos.X, pos.Y, 36, 36);
+        var destW = IconSize * tex.Width / (float) tex.Height;
+        var dest = UIBox2.FromDimensions(pos.X, pos.Y, destW, IconSize);
         var left = MathF.Max(dest.Left, clip.Left);
         var top = MathF.Max(dest.Top, clip.Top);
         var right = MathF.Min(dest.Right, clip.Right);
@@ -387,7 +392,7 @@ public sealed class ResultOverlayControl : Control
     private const float HoldTime = 2.0f;
     private const float FadeTime = 0.3f;
 
-    private readonly Label _label = new();
+    public readonly Label Label = new();
     private float _time;
     private float _fadeAlpha = 1f;
 
@@ -398,18 +403,18 @@ public sealed class ResultOverlayControl : Control
         HorizontalExpand = true;
         VerticalExpand = true;
 
-        _label.Align = Label.AlignMode.Center;
-        _label.VAlign = Label.VAlignMode.Center;
-        _label.HorizontalExpand = true;
-        _label.VerticalExpand = true;
-        AddChild(_label);
+        Label.Align = Label.AlignMode.Center;
+        Label.VAlign = Label.VAlignMode.Center;
+        Label.HorizontalExpand = true;
+        Label.VerticalExpand = true;
+        AddChild(Label);
     }
 
     public void Show(string text, Color color, Font font)
     {
-        _label.Text = text;
-        _label.FontColorOverride = color;
-        _label.FontOverride = font;
+        Label.Text = text;
+        Label.FontColorOverride = color;
+        Label.FontOverride = font;
         _time = 0f;
         _fadeAlpha = 1f;
         Visible = true;
@@ -429,7 +434,7 @@ public sealed class ResultOverlayControl : Control
             : MathF.Max(0f, 1f - (_time - HoldTime) / FadeTime);
 
         var pulse = 0.85f + 0.15f * MathF.Sin(_time * 6f);
-        _label.ModulateSelfOverride = Color.White * new Color(1, 1, 1, pulse * _fadeAlpha);
+        Label.ModulateSelfOverride = Color.White * new Color(1, 1, 1, pulse * _fadeAlpha);
 
         if (_time >= HoldTime + FadeTime)
             Visible = false;

@@ -358,6 +358,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
             ShowConfetti = comp.ShowConfetti,
             Reels = reels,
             ReelsStopped = stopped,
+            SymbolWeights = new Dictionary<string, int>(comp.SymbolWeights),
             History = new List<SlotSpinHistoryEntry>(comp.SpinHistory),
         };
     }

@@ -381,24 +381,24 @@ public sealed partial class SlotMachineCasinoSystem
             {
                 var sym = comp.Reels[pos][payline[pos]];
                 if (sym == SymScatter)
-                    break;
+                {
+                    targetSym = null;
+                    run = 0;
+                    continue;
+                }
                 if (sym == SymWild)
                 {
                     run++;
                     continue;
                 }
-                if (targetSym == null)
-                {
-                    targetSym = sym;
-                    run++;
-                }
-                else if (sym == targetSym)
+                if (sym == targetSym)
                 {
                     run++;
                 }
                 else
                 {
-                    break;
+                    targetSym = sym;
+                    run = 1;
                 }
             }
 
