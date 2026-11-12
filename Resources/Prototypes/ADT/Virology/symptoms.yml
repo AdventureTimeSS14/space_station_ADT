@@ -714,6 +714,7 @@
   stealth: -1
   resistance: -1
   stageSpeed: -1
+  transmittable: -2 # TEST
   level: 3
   diseaseEffects:
   - phase: Start
