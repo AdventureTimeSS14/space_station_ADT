@@ -18,6 +18,7 @@ public sealed class ADTBiomeNPCSleepSystem : EntitySystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private NPCSystem _npc = default!;
     [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     private readonly HashSet<Entity<ActiveNPCComponent>> _active = new();
     private readonly HashSet<Entity<ADTChunkSleepingNPCComponent>> _sleeping = new();
@@ -30,6 +31,7 @@ public sealed class ADTBiomeNPCSleepSystem : EntitySystem
         SubscribeLocalEvent<ADTLavalandMapComponent, ADTBiomeChunkLoadedEvent>(OnChunkLoaded);
         SubscribeLocalEvent<ADTLavalandMapComponent, ADTBiomeChunkUnloadedEvent>(OnChunkUnloaded);
         SubscribeLocalEvent<ActiveNPCComponent, ComponentStartup>(OnNPCWoken);
+        SubscribeLocalEvent<ADTChunkSleepingNPCComponent, MindAddedMessage>(OnMindAdded);
     }
 
     public override void Update(float frameTime)
@@ -77,6 +79,8 @@ public sealed class ADTBiomeNPCSleepSystem : EntitySystem
 
         foreach (var npc in _sleeping)
         {
+            Unfreeze(npc);
+
             if (_mobState.IsIncapacitated(npc))
                 continue;
 
@@ -84,17 +88,41 @@ public sealed class ADTBiomeNPCSleepSystem : EntitySystem
                 continue;
 
             if (TryComp<HTNComponent>(npc, out var htn))
-            {
-                RemComp<ADTChunkSleepingNPCComponent>(npc);
                 _npc.WakeNPC(npc, htn);
-            }
         }
+    }
+
+    private void OnMindAdded(Entity<ADTChunkSleepingNPCComponent> ent, ref MindAddedMessage args)
+    {
+        Unfreeze(ent);
     }
 
     private void Sleep(EntityUid uid)
     {
         _npc.SleepNPC(uid);
         EnsureComp<ADTChunkSleepingNPCComponent>(uid);
+        SetPausedRecursive(uid, true);
+    }
+
+    private void Unfreeze(EntityUid uid)
+    {
+        RemComp<ADTChunkSleepingNPCComponent>(uid);
+
+        if (Transform(uid).MapUid is { } map && Paused(map))
+            return;
+
+        SetPausedRecursive(uid, false);
+    }
+
+    private void SetPausedRecursive(EntityUid uid, bool paused)
+    {
+        _metaData.SetEntityPaused(uid, paused);
+
+        var children = Transform(uid).ChildEnumerator;
+        while (children.MoveNext(out var child))
+        {
+            SetPausedRecursive(child, paused);
+        }
     }
 
     private bool IsInUnloadedChunk(EntityUid uid)

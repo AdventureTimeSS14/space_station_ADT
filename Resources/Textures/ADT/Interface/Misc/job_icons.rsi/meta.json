@@ -61,6 +61,24 @@
         },
         {
             "name": "Taumaturg"
+        },
+        {
+            "name": "ADTCentcomInspector"
+        },
+        {
+            "name": "ADTCentcomOperator"
+        },
+        {
+            "name": "ADTCentcomOfficer"
+        },
+        {
+            "name": "ADTCentcomОfficer"
+        },
+        {
+            "name": "ADTInquisition"
+        },
+        {
+            "name": "ADTSODOfficer"
         }
     ]
 }

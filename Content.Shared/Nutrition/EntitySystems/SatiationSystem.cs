@@ -31,21 +31,29 @@ public abstract partial class SatiationSystem : EntitySystem
     /// <inheritdoc/>
     public override void Update(float frameTime)
     {
+        var curTime = _timing.CurTime; // ADT-Tweak
         var query = EntityQueryEnumerator<SatiationComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
             var entity = new Entity<SatiationComponent>(uid, component);
             foreach (var satiation in component.Satiations.Values)
             {
+                // ADT-Tweak-Start
+                var alertDue = curTime >= satiation.NextAlertUpdateTime;
+                var rateDue = curTime >= satiation.NextChangeRateModUpdateTime;
+                if (!alertDue && !rateDue)
+                    continue;
+                // ADT-Tweak-End
+
                 if (!ProtoMan.Resolve(satiation.Prototype, out var proto))
                     continue;
 
-                if (_timing.CurTime >= satiation.NextAlertUpdateTime)
+                if (alertDue) // ADT-Tweak
                 {
                     UpdateAlerts(entity, satiation, proto);
                 }
 
-                if (_timing.CurTime >= satiation.NextChangeRateModUpdateTime)
+                if (rateDue) // ADT-Tweak
                 {
                     SetAuthoritativeValue(entity, satiation, proto, CalculateCurrentValue(satiation, proto));
                 }
