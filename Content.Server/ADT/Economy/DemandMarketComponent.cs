@@ -27,6 +27,9 @@ public sealed partial class DemandMarketComponent : Component
     public float MaxMultiplier = 1.6f;
 
     [DataField]
+    public int DemandStepUnits = 8;
+
+    [DataField]
     public float MinMultiplier = 0.6f;
 
     [DataField]
@@ -43,7 +46,9 @@ public sealed partial class DemandMarketComponent : Component
 
     public double GetSellMultiplier(string protoId, TimeSpan now)
     {
-        var data = GetOrAdd(protoId, now);
+        if (!Products.TryGetValue(protoId, out var data))
+            return Math.Clamp(1f, MinMultiplier, MaxMultiplier);
+
         Advance(data, now);
         return Math.Clamp(1 + data.DemandBonus - data.IdleFall, MinMultiplier, MaxMultiplier);
     }
@@ -53,7 +58,7 @@ public sealed partial class DemandMarketComponent : Component
         var data = GetOrAdd(protoId, now);
         Advance(data, now);
 
-        data.DemandBonus = Math.Min(data.DemandBonus + DemandStep * Math.Min(units, 3), MaxMultiplier - 1);
+        data.DemandBonus = Math.Min(data.DemandBonus + DemandStep * Math.Min(units, Math.Max(0, DemandStepUnits)), MaxMultiplier - 1);
         data.LastTradeTime = now;
     }
 

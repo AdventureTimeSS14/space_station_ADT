@@ -1,0 +1,9 @@
+- type: shader
+  id: ADTCookingProgress
+  kind: source
+  path: "/Textures/ADT/Shaders/cooking_progress.swsl"
+
+- type: shader
+  id: ADTFoodSauce
+  kind: source
+  path: "/Textures/ADT/Shaders/food_sauce.swsl"

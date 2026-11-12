@@ -225,7 +225,7 @@
     - Snout
 
 - type: entity
-  id: ADTMaskCoif
+  id: ADTClothingMaskCoif
   parent: BaseItem
   name: heat absorbent coif
   description: A close-fitting cap that covers the top, back, and sides of the head. Can also be adjusted to cover the lower part of the face so it keeps the user warm in harsh conditions.
@@ -240,6 +240,10 @@
     price: 25
   - type: IdentityBlocker
     coverage: MOUTH
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
   - type: Item
     storedRotation: -90
     size: Small

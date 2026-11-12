@@ -34,5 +34,9 @@
   - [color=#a4885c]Брусок козьего сыра[/color] - смешайте 10 козье молоко и 5 универсальный фермент.
   - [color=#a4885c]Брусок сливочного масла[/color] - смешайте 15 молоко и 5 столовая соль.
 
+<GuideADTCookingGroupEmbed Group="Basics"/>
+
+<GuideADTCookingGroupEmbed Group="Base"/>
+
 <GuideMicrowaveGroupEmbed Group="Base"/>
 </Document>

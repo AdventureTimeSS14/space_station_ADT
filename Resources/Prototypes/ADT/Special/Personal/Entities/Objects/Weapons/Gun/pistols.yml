@@ -180,3 +180,97 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: ADT/Special/Personal/uma_pistol.rsi
+
+#DerTropischeInsel
+- type: entity
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
+  id: ADTWeaponPistolMagnumClimber
+  name: .357 SWL «Climber»
+  description: A gun
+  suffix: Sponsor, DerTropischeInsel
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/climber_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Special/Personal/climber_pistol.rsi
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentLaserSight
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          # - ADTAttachmentMagneticHarness
+          - ADTAttachmentReflexSight
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - ADTAttachmentSuppressor
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.3, -0.125
+      rmc-aslot-barrel: 0.96, 0.14
+      rmc-aslot-rail: -0.3, 0.035
+  - type: Gun
+    minAngle: 5
+    maxAngle: 30
+    angleIncrease: 20
+    angleDecay: 15
+    fireRate: 1.7
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: ADTWeaponPistolMagnumClimberGunshot
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_cock.ogg
+    soundBoltOpened:
+      path: /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_bolt_open.ogg
+    soundBoltClosed:
+      path: /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_bolt_closed.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineMagnumLesser
+        insertSound: /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_mag_in.ogg
+        ejectSound: /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_mag_out.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazineMagnumLesser
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+            - ADTCartridgeMagnumLesser
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -25
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui
+  - type: ActivatableUI
+    verbText: rmc-verb-strip-attachables
+    verbOnly: true
+    key:
+      enum.AttachmentUI.StripKey

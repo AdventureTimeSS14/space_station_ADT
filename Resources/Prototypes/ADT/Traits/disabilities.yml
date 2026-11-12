@@ -289,6 +289,8 @@
   description: trait-monochromacy-desc
   category: Disabilities
   cost: -1
+  conflicts:
+    - ADTNoirVision
   effects:
     - !type:AddCompsEffect
       components:
@@ -371,3 +373,16 @@
     - Security
   jobBlacklist:
     - ADTBlueShieldOfficer
+
+- type: trait
+  id: ADTNoirVision
+  name: trait-adt-noir-vision-name
+  description: trait-adt-noir-vision-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: NoirOverlay
+  conflicts:
+    - Monochromacy

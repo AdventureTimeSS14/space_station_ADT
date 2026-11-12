@@ -451,9 +451,9 @@ namespace Content.Server.GameTicking
 
             // MapInitialize *before* spawning players, our codebase is too shit to do it afterwards...
             _map.InitializeMap(DefaultMap);
-            // ADT-Tweak-start: ReWork Vote Map
+            // ADT-Tweak-Start
             if (_gameMapManager.GetSelectedMap() is { } selectedMap)
-                _gameMapManager.RegisterPlayedMap(selectedMap.ID);
+                _mapRotation.RoundStarted(selectedMap.ID);
             // ADT-Tweak-End
             // ADT-Tweak-start: Register Played Preset
             foreach (var key in PlayedPresets.Keys.ToList())
@@ -873,14 +873,7 @@ namespace Content.Server.GameTicking
                 UpdateInfoText();
 
                 ReqWindowAttentionAll();
-                // Запуск голосования за Мапу и Режим в лобби
-                // ADT-Tweak-start
-                if (_cfg.GetCVar(ADTCCVars.LobbyAutoVote))
-                {
-                    _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Map);
-                    _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Preset);
-                }
-                // ADT-Tweak-end
+                BeginLobby(_playerManager.PlayerCount == 0); // ADT-Tweak
             }
         }
 

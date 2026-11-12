@@ -94,7 +94,7 @@
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
-  #- PassengerJobTrinkets
+  - ADTPassengerJobTrinkets # ADT-Tweak
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
   - ADTPersonalLoadoutPlushie # ADT-Tweak personal
@@ -594,7 +594,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - ADTEngineeringBelt # ADT-TWEAK
-  - ADTEngineeringGlasses # ADT-TWEAK
+  - ADTAtmosphericTechnicianGlasses # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   - ADTAtmosPDA # ADT tweak
@@ -701,6 +701,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - HeadofSecurityHead
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT #ADT-Tweak
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -729,6 +730,7 @@
   - Inventory # Corvax-Loadouts
   - WardenHead
   #ADT-Tweak-Start
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT
   - WardenNeckADT
   #ADT-Tweak-End
@@ -757,6 +759,7 @@
   - Inventory # Corvax-Loadouts
   - SecurityHead
   #ADT-Tweak-Start
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT
   - SecurityOfficerNeckADT
     #ADT-Tweak-End
@@ -785,6 +788,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - DetectiveHead
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT #ADT-Tweak
   - DetectiveNeck
   - DetectiveJumpsuit

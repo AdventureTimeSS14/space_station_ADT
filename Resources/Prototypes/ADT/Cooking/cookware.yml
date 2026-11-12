@@ -1,0 +1,284 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTBaseCookware
+  components:
+  - type: Item
+    size: Normal
+  - type: Appearance
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 50
+      canReact: false
+  - type: RefillableSolution
+    solution: cookware
+  - type: DrainableSolution
+    solution: cookware
+  - type: ExaminableSolution
+    solution: cookware
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+    soundHit:
+      collection: MetalThud
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 150
+  - type: ContainerContainer
+    containers:
+      adt_cookware: !type:Container
+
+- type: entity
+  parent: ADTBaseCookware
+  id: ADTCookwarePan
+  name: frying pan
+  description: A heavy frying pan. Pour some oil, put it on a burner and do not forget to flip.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/cookware.rsi
+    layers:
+    - state: pan
+    - state: medium-pan-1
+      map: ["enum.ADTCookwareVisualLayers.Medium"]
+      visible: false
+    - state: batter-pan
+      map: ["enum.ADTCookwareVisualLayers.Batter"]
+      visible: false
+  - type: ADTCookware
+    cookwareType: Pan
+    maxItems: 10
+    mediumState: medium-pan
+    contentScale: 0.45, 0.45
+    stoveScale: 0.85, 0.85
+    stoveOffset: 0.015625, 0.0625
+    contentCenter: -0.015625, -0.046875
+    contentArea: 0.34, 0.22
+    contentOffsets:
+    - -0.09, -0.03
+    - 0.06, -0.03
+    - -0.05, -0.07
+    - 0.05, -0.075
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 40
+  - type: Spillable
+    solution: cookware
+
+- type: entity
+  parent: ADTBaseCookware
+  id: ADTCookwarePot
+  name: cooking pot
+  description: A deep pot for soups and stews. Pour in water, throw in everything you have and stir now and then.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/cookware.rsi
+    layers:
+    - state: pot
+    - state: medium-pot-1
+      map: ["enum.ADTCookwareVisualLayers.Medium"]
+      visible: false
+  - type: ADTCookware
+    cookwareType: Pot
+    maxItems: 10
+    mediumState: medium-pot
+    maxAddons: 4
+    contentScale: 0.35, 0.35
+    stoveScale: 0.85, 0.85
+    stoveOffset: 0, 0.140625
+    contentCenter: 0, 0.1
+    contentArea: 0.3, 0.12
+    contentOffsets:
+    - -0.08, 0.1
+    - 0.06, 0.11
+    - 0.0, 0.08
+    - -0.03, 0.12
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 80
+  - type: Spillable
+    solution: cookware
+  - type: Item
+    size: Large
+
+- type: entity
+  parent: ADTBaseCookware
+  id: ADTCookwareTray
+  name: baking tray
+  description: A metal baking tray for the oven.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/cookware.rsi
+    layers:
+    - state: tray
+    - state: batter-tray
+      map: ["enum.ADTCookwareVisualLayers.Batter"]
+      visible: false
+  - type: ADTCookware
+    cookwareType: Tray
+    maxItems: 12
+    ovenState: tray-oven
+    ovenBatterState: batter-tray-oven
+    contentScale: 0.4, 0.4
+    contentCenter: 0, 0.015625
+    contentArea: 0.56, 0.4
+    contentOffsets:
+    - -0.16, 0.07
+    - 0.0, 0.07
+    - 0.16, 0.07
+    - -0.16, -0.07
+    - 0.0, -0.07
+    - 0.16, -0.07
+    - -0.08, 0.0
+    - 0.08, 0.0
+    - -0.2, 0.0
+    - 0.2, 0.0
+    - 0.0, 0.1
+    - 0.0, -0.1
+  - type: Solution
+    id: cookware
+    solution:
+      maxVol: 80
+
+- type: entity
+  parent: FoodBadRecipe
+  id: ADTFoodFreeformFry
+  name: stir-fry
+  description: Whatever was in the pan, now fried together.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/freeform.rsi
+    state: fry
+  - type: FlavorProfile
+    flavors:
+    - terrible
+
+- type: entity
+  parent: FoodBadRecipe
+  id: ADTFoodFreeformBake
+  name: casserole
+  description: Whatever was on the tray, now baked together.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/freeform.rsi
+    state: bake
+  - type: FlavorProfile
+    flavors:
+    - terrible
+
+- type: entity
+  parent: FoodBowlBase
+  id: ADTFoodFreeformSoup
+  name: soup
+  description: Whatever was in the pot, now a soup.
+  components:
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: mystery
+  - type: FlavorProfile
+    flavors:
+    - terrible
+
+- type: entity
+  parent: BaseItem
+  id: ADTSpatula
+  name: spatula
+  description: A flat kitchen spatula. Use it on a sizzling frying pan to flip the food.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Kitchen/utensils.rsi
+    state: spatula
+  - type: Item
+    sprite: ADT/Objects/Specific/Kitchen/utensils.rsi
+    size: Small
+  - type: Tag
+    tags:
+    - ADTSpatula
+    - Metal
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      collection: MetalThud
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+
+- type: entity
+  parent: ADTSpatula
+  id: ADTLadle
+  name: ladle
+  description: A deep ladle. Use it on a cooking pot to stir the soup.
+  components:
+  - type: Sprite
+    state: ladle
+  - type: Tag
+    tags:
+    - ADTLadle
+    - Metal
+
+- type: entity
+  parent: BaseItem
+  id: ADTFoodBurntMess
+  name: burnt mess
+  description: Charred remains of what used to be food. Nobody is going to eat this.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/ingredients.rsi
+    state: badrecipe
+    color: "#6a5a50"
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  parent: [SolutionVeryTiny, FoodInjectableBase]
+  id: ADTFoodEggRaw
+  name: raw egg
+  description: A cracked egg, white and yolk. Better fry it before it runs everywhere.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/eggs.rsi
+    state: raw
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/eggs.rsi
+    size: Tiny
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Egg
+        Quantity: 6
+  - type: FlavorProfile
+    flavors:
+    - egg
+
+- type: entity
+  parent: FoodMealFriedegg
+  id: ADTFoodMealFriedEgg
+  name: fried egg
+  description: A sunny-side up egg, straight from the pan.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/eggs.rsi
+    state: fried
+  - type: Item
+    storedOffset: 0,0
+    shape:
+    - 0,0,0,0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: EggCooked
+        Quantity: 6
+      - ReagentId: Nutriment
+        Quantity: 4

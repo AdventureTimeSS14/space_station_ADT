@@ -61,11 +61,13 @@ namespace Content.Shared.ADT.VendingMachines
     {
         public readonly int Balance;
         public readonly bool IgnoreBalance;
+        public readonly float Discount;
 
-        public VendingMachineUserInfoMessage(int balance, bool ignoreBalance = false)
+        public VendingMachineUserInfoMessage(int balance, bool ignoreBalance = false, float discount = 0f)
         {
             Balance = balance;
             IgnoreBalance = ignoreBalance;
+            Discount = discount;
         }
     }
 
