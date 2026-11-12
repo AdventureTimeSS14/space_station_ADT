@@ -20,7 +20,7 @@ public sealed partial class CargoSystem
     {
         var market = AdtDemandMarket(station);
 
-        var cost = (double) product.Cost * quantity;
+        var cost = (double) AdtProductCost(product) * quantity;
 
         if (market != null)
             cost *= market.GetSellMultiplier(product.ID, Timing.CurTime);
@@ -95,7 +95,7 @@ public sealed partial class CargoSystem
             if (!ProtoMan.TryIndex(id, out var product))
                 continue;
 
-            var cost = (double) product.Cost;
+            var cost = (double) AdtProductCost(product);
 
             if (market != null)
                 cost *= market.GetSellMultiplier(id, now);
