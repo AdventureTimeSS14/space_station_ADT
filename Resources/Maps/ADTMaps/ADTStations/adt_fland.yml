@@ -1,115 +1,115 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 289.0.3
-  forkId: SS14_DEV
-  forkVersion: d408ec2385f06a5bbeac92c86537e4c936c1da2e
-  time: 10/20/2026 11:13:34
-  entityCount: 37516
+  engineVersion: 294.0.3
+  forkId: ""
+  forkVersion: ""
+  time: 11/13/2026 06:06:37
+  entityCount: 37320
 maps:
 - 1
 grids:
 - 2
 orphans: []
 nullspace:
-- 37414
-- 37415
-- 37416
-- 37417
-- 37418
-- 37419
-- 37420
-- 37421
-- 37422
-- 37423
-- 37424
-- 37425
-- 37426
-- 37427
-- 37428
-- 37429
-- 37430
-- 37431
-- 37432
-- 37433
-- 37434
-- 37435
-- 37436
-- 37437
-- 37438
-- 37439
-- 37440
-- 37441
-- 37442
-- 37443
-- 37444
-- 37445
-- 37446
-- 37447
-- 37448
-- 37449
-- 37450
-- 37451
-- 37452
-- 37453
-- 37454
-- 37455
-- 37456
-- 37457
-- 37458
-- 37459
-- 37460
-- 37461
-- 37462
-- 37463
-- 37464
-- 37465
-- 37466
-- 37467
-- 37468
-- 37469
-- 37470
-- 37471
-- 37472
-- 37473
-- 37474
-- 37475
-- 37476
-- 37477
-- 37478
-- 37479
-- 37480
-- 37481
-- 37482
-- 37483
-- 37484
-- 37485
-- 37486
-- 37487
-- 37488
-- 37489
-- 37490
-- 37491
-- 37492
-- 37493
-- 37494
-- 37495
-- 37496
-- 37497
-- 37498
-- 37499
-- 37500
-- 37501
-- 37502
-- 37503
-- 37504
-- 37505
-- 37506
-- 37507
-- 37508
-- 37509
-- 37510
-- 37511
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+- 49
+- 50
+- 51
+- 52
+- 53
+- 54
+- 55
+- 56
+- 58
+- 60
+- 61
+- 62
+- 63
+- 64
+- 65
+- 66
+- 67
+- 68
+- 69
+- 70
+- 71
+- 72
+- 73
+- 74
+- 75
+- 76
+- 77
+- 78
+- 79
+- 80
+- 81
+- 82
+- 83
+- 84
+- 85
+- 87
+- 89
+- 90
+- 91
+- 92
+- 93
+- 94
+- 95
+- 96
+- 97
+- 98
+- 99
+- 100
+- 101
+- 102
+- 103
+- 104
+- 105
+- 106
+- 107
+- 108
+- 109
+- 110
+- 111
+- 112
+- 113
+- 114
+- 116
+- 118
+- 119
+- 120
+- 121
+- 122
+- 123
+- 124
+- 125
+- 126
+- 127
+- 128
+- 129
+- 130
+- 131
+- 132
+- 133
+- 134
+- 135
+- 136
+- 137
+- 138
+- 139
+- 140
+- 141
+- 142
+- 143
 tilemap:
   0: Space
   18: ADTFloorDarkWoodBroken
@@ -4524,104 +4524,104 @@ entities:
     - type: GridSplitNode
     - type: ChunkContainer
       chunkEntities:
-      - 37414
-      - 37415
-      - 37416
-      - 37417
-      - 37418
-      - 37419
-      - 37420
-      - 37421
-      - 37422
-      - 37423
-      - 37424
-      - 37425
-      - 37426
-      - 37427
-      - 37428
-      - 37429
-      - 37430
-      - 37431
-      - 37432
-      - 37433
-      - 37434
-      - 37435
-      - 37436
-      - 37437
-      - 37438
-      - 37439
-      - 37440
-      - 37441
-      - 37442
-      - 37443
-      - 37444
-      - 37445
-      - 37446
-      - 37447
-      - 37448
-      - 37449
-      - 37450
-      - 37451
-      - 37452
-      - 37453
-      - 37454
-      - 37455
-      - 37456
-      - 37457
-      - 37458
-      - 37459
-      - 37460
-      - 37461
-      - 37462
-      - 37463
-      - 37464
-      - 37465
-      - 37466
-      - 37467
-      - 37468
-      - 37469
-      - 37470
-      - 37471
-      - 37472
-      - 37473
-      - 37474
-      - 37475
-      - 37476
-      - 37477
-      - 37478
-      - 37479
-      - 37480
-      - 37481
-      - 37482
-      - 37483
-      - 37484
-      - 37485
-      - 37486
-      - 37487
-      - 37488
-      - 37489
-      - 37490
-      - 37491
-      - 37492
-      - 37493
-      - 37494
-      - 37495
-      - 37496
-      - 37497
-      - 37498
-      - 37499
-      - 37500
-      - 37501
-      - 37502
-      - 37503
-      - 37504
-      - 37505
-      - 37506
-      - 37507
-      - 37508
-      - 37509
-      - 37510
-      - 37511
+      - 40
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+      - 54
+      - 55
+      - 56
+      - 58
+      - 60
+      - 61
+      - 62
+      - 63
+      - 64
+      - 65
+      - 66
+      - 67
+      - 68
+      - 69
+      - 70
+      - 71
+      - 72
+      - 73
+      - 74
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      - 85
+      - 87
+      - 89
+      - 90
+      - 91
+      - 92
+      - 93
+      - 94
+      - 95
+      - 96
+      - 97
+      - 98
+      - 99
+      - 100
+      - 101
+      - 102
+      - 103
+      - 104
+      - 105
+      - 106
+      - 107
+      - 108
+      - 109
+      - 110
+      - 111
+      - 112
+      - 113
+      - 114
+      - 116
+      - 118
+      - 119
+      - 120
+      - 121
+      - 122
+      - 123
+      - 124
+      - 125
+      - 126
+      - 127
+      - 128
+      - 129
+      - 130
+      - 131
+      - 132
+      - 133
+      - 134
+      - 135
+      - 136
+      - 137
+      - 138
+      - 139
+      - 140
+      - 141
+      - 142
+      - 143
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -4820,6 +4820,7 @@ entities:
       containers:
         adt-aslot-barbell: !type:ContainerSlot
           ent: 59
+          showEnts: False
           occludes: False
   - uid: 86
     components:
@@ -4832,6 +4833,7 @@ entities:
       containers:
         adt-aslot-barbell: !type:ContainerSlot
           ent: 88
+          showEnts: False
           occludes: False
   - uid: 115
     components:
@@ -4842,807 +4844,8 @@ entities:
       containers:
         adt-aslot-barbell: !type:ContainerSlot
           ent: 117
+          showEnts: False
           occludes: False
-- proto: ADTBarbellBenchOverlay
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 31
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 32
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 33
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 34
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 35
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 36
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 37
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 38
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 39
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 40
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 28
-  - uid: 41
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 42
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 28
-  - uid: 43
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 44
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 45
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 46
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 47
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 48
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 49
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 50
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 51
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 52
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 53
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 54
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 55
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 56
-    components:
-    - type: Transform
-      parent: 28
-  - uid: 58
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 60
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 61
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 62
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 63
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 64
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 65
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 66
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 67
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 68
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 69
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 57
-  - uid: 70
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 71
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 57
-  - uid: 72
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 73
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 74
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 75
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 76
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 77
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 78
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 79
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 80
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 81
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 82
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 83
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 84
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 85
-    components:
-    - type: Transform
-      parent: 57
-  - uid: 87
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 89
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 90
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 91
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 92
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 93
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 94
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 95
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 96
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 97
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 98
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 86
-  - uid: 99
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 100
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 86
-  - uid: 101
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 102
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 103
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 104
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 105
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 106
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 107
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 108
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 109
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 110
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 111
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 112
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 113
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 114
-    components:
-    - type: Transform
-      parent: 86
-  - uid: 116
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 118
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 119
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 120
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 121
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 122
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 123
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 124
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 125
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 126
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 127
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 115
-  - uid: 128
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 129
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 115
-  - uid: 130
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 131
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 132
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 133
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 134
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 135
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 136
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 137
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 138
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 139
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 140
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 141
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 142
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 143
-    components:
-    - type: Transform
-      parent: 115
-  - uid: 145
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 147
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 148
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 149
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 150
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 151
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 152
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 153
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 154
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 155
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 156
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 144
-  - uid: 157
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 158
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 144
-  - uid: 159
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 160
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 161
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 162
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 163
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 164
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 165
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 166
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 167
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 168
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 169
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 170
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 171
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 172
-    components:
-    - type: Transform
-      parent: 144
-  - uid: 174
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 176
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 177
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 178
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 179
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 180
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 181
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 182
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 183
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 184
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 185
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 173
-  - uid: 186
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 187
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 173
-  - uid: 188
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 189
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 190
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 191
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 192
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 193
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 194
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 195
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 196
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 197
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 198
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 199
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 200
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 201
-    components:
-    - type: Transform
-      parent: 173
-  - uid: 203
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 205
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 206
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 207
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 208
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 209
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 210
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 211
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 212
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 213
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 214
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 202
-  - uid: 215
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 216
-    components:
-    - type: MetaData
-      name: штанга
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-    - type: Transform
-      parent: 202
-  - uid: 217
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 218
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 219
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 220
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 221
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 222
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 223
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 224
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 225
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 226
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 227
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 228
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 229
-    components:
-    - type: Transform
-      parent: 202
-  - uid: 230
-    components:
-    - type: Transform
-      parent: 202
 - proto: ADTBarbellChair
   entities:
   - uid: 28
@@ -5654,6 +4857,7 @@ entities:
       containers:
         adt-aslot-barbell: !type:ContainerSlot
           ent: 30
+          showEnts: False
           occludes: False
   - uid: 144
     components:
@@ -5664,6 +4868,7 @@ entities:
       containers:
         adt-aslot-barbell: !type:ContainerSlot
           ent: 146
+          showEnts: False
           occludes: False
   - uid: 173
     components:
@@ -5674,6 +4879,7 @@ entities:
       containers:
         adt-aslot-barbell: !type:ContainerSlot
           ent: 175
+          showEnts: False
           occludes: False
   - uid: 202
     components:
@@ -5684,6 +4890,7 @@ entities:
       containers:
         adt-aslot-barbell: !type:ContainerSlot
           ent: 204
+          showEnts: False
           occludes: False
 - proto: ADTBarberAirlockGlass
   entities:
@@ -5854,6 +5061,18 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -14.5,62.5
+- proto: ADTBloodPackLidocaine
+  entities:
+  - uid: 29
+    components:
+    - type: Transform
+      parent: 2
+      pos: 8.975036,56.70902
+  - uid: 33
+    components:
+    - type: Transform
+      parent: 2
+      pos: 9.06882,56.58402
 - proto: ADTBlueShieldAirlockLocked
   entities:
   - uid: 258
@@ -7011,6 +6230,41 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 14.5,-38.5
+- proto: ADTComputerSurgeryConsole
+  entities:
+  - uid: 15870
+    components:
+    - type: Transform
+      parent: 2
+      pos: 11.5,56.5
+  - uid: 15871
+    components:
+    - type: Transform
+      parent: 2
+      pos: 6.5,56.5
+  - uid: 15872
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 8.5,36.5
+  - uid: 15873
+    components:
+    - type: Transform
+      parent: 2
+      rot: 3.141592653589793 rad
+      pos: 35.5,-26.5
+  - uid: 15874
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 88.5,30.5
+  - uid: 15875
+    components:
+    - type: Transform
+      parent: 2
+      pos: 62.5,-52.5
 - proto: ADTComputerXenobiologyControl
   entities:
   - uid: 486
@@ -7377,6 +6631,13 @@ entities:
     - type: Transform
       parent: 2
       pos: -22.5,59.5
+- proto: ADTLockerAnesthesiaFilled
+  entities:
+  - uid: 37
+    components:
+    - type: Transform
+      parent: 2
+      pos: 6.5,52.5
 - proto: ADTLockerBlueshieldFilled
   entities:
   - uid: 547
@@ -7879,6 +7140,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 103.5,-38.5
+- proto: ADTSurgicalDrapes
+  entities:
+  - uid: 31
+    components:
+    - type: Transform
+      parent: 2
+      pos: 8.374861,56.597736
 - proto: ADTTablePlastic
   entities:
   - uid: 624
@@ -8052,6 +7320,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 67.5,16.5
+- proto: ADTWardrobeSurgeonFilled
+  entities:
+  - uid: 36
+    components:
+    - type: Transform
+      parent: 2
+      pos: 7.5,52.5
 - proto: ADTWeaponIonRifle
   entities:
   - uid: 651
@@ -10558,7 +9833,7 @@ entities:
       pos: 98.5,49.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -111981.25
+      secondsUntilStateChange: -112070.81
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -11091,7 +10366,7 @@ entities:
       pos: 27.5,-59.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -7233.1763
+      secondsUntilStateChange: -7322.7417
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -11964,7 +11239,7 @@ entities:
       pos: -14.5,54.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -96971.016
+      secondsUntilStateChange: -97060.58
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -84149,7 +83424,7 @@ entities:
       pos: 46.518105,20.451113
 - proto: ChunkEntity
   entities:
-  - uid: 37414
+  - uid: 40
     components:
     - type: ChunkEntity
       root: 2
@@ -84399,7 +83674,7 @@ entities:
             3537: 52,-35
             3538: 53,-35
             3539: 54,-35
-  - uid: 37415
+  - uid: 41
     components:
     - type: ChunkEntity
       root: 2
@@ -84797,7 +84072,7 @@ entities:
             3709: 53,-19
             3710: 52,-19
             9436: 60,-30
-  - uid: 37416
+  - uid: 42
     components:
     - type: ChunkEntity
       root: 2
@@ -85001,7 +84276,7 @@ entities:
             4219: -6,49
             4220: -5,49
             4221: -4,49
-  - uid: 37417
+  - uid: 43
     components:
     - type: ChunkEntity
       root: 2
@@ -85372,7 +84647,7 @@ entities:
             cleanable: True
           decals:
             8086: 47.713184,52.07934
-  - uid: 37418
+  - uid: 44
     components:
     - type: ChunkEntity
       root: 2
@@ -85631,7 +84906,7 @@ entities:
           decals:
             8084: 48.35381,52.438717
             8085: 48.47881,52.23559
-  - uid: 37419
+  - uid: 45
     components:
     - type: ChunkEntity
       root: 2
@@ -85917,7 +85192,7 @@ entities:
             418: -2,-1
             467: -4,-2
             468: -4,-1
-  - uid: 37420
+  - uid: 46
     components:
     - type: ChunkEntity
       root: 2
@@ -86197,7 +85472,7 @@ entities:
             469: -4,0
             8591: -11,9
             9214: -10,0
-  - uid: 37421
+  - uid: 47
     components:
     - type: ChunkEntity
       root: 2
@@ -86369,7 +85644,7 @@ entities:
             975: -25,55
             976: -25,56
             977: -25,57
-  - uid: 37422
+  - uid: 48
     components:
     - type: ChunkEntity
       root: 2
@@ -86481,7 +85756,7 @@ entities:
             544: -41,8
             545: -42,10
             546: -41,13
-  - uid: 37423
+  - uid: 49
     components:
     - type: ChunkEntity
       root: 2
@@ -86925,7 +86200,7 @@ entities:
             2247: 11,-19
             2248: 8,-20
             2249: 6,-20
-  - uid: 37424
+  - uid: 50
     components:
     - type: ChunkEntity
       root: 2
@@ -87349,7 +86624,7 @@ entities:
             4090: 24,46
             4091: 23,46
             4092: 22,46
-  - uid: 37425
+  - uid: 51
     components:
     - type: ChunkEntity
       root: 2
@@ -87781,7 +87056,7 @@ entities:
             1596: 39,12
             1597: 38,12
             1880: 46,7
-  - uid: 37426
+  - uid: 52
     components:
     - type: ChunkEntity
       root: 2
@@ -88084,7 +87359,7 @@ entities:
             4024: 17,56
             4025: 18,56
             4026: 19,56
-  - uid: 37427
+  - uid: 53
     components:
     - type: ChunkEntity
       root: 2
@@ -88270,7 +87545,7 @@ entities:
             6093: 86,13
             6094: 86,14
             6095: 86,15
-  - uid: 37428
+  - uid: 54
     components:
     - type: ChunkEntity
       root: 2
@@ -88434,7 +87709,7 @@ entities:
             cleanable: True
           decals:
             8102: 118.01247,-7.299263
-  - uid: 37429
+  - uid: 55
     components:
     - type: ChunkEntity
       root: 2
@@ -88770,7 +88045,7 @@ entities:
             6412: 80,43
             6413: 80,44
             6414: 80,45
-  - uid: 37430
+  - uid: 56
     components:
     - type: ChunkEntity
       root: 2
@@ -88796,7 +88071,7 @@ entities:
             8633: 89,-44
             8634: 89,-40
             8635: 89,-36
-  - uid: 37431
+  - uid: 58
     components:
     - type: ChunkEntity
       root: 2
@@ -88946,7 +88221,7 @@ entities:
             5948: 90,-32
             5949: 90,-31
             5950: 90,-30
-  - uid: 37432
+  - uid: 60
     components:
     - type: ChunkEntity
       root: 2
@@ -89003,7 +88278,7 @@ entities:
             color: '#EFB34196'
           decals:
             3038: -31,-44
-  - uid: 37433
+  - uid: 61
     components:
     - type: ChunkEntity
       root: 2
@@ -89219,7 +88494,7 @@ entities:
             5002: 69,-28
             5003: 68,-28
             5004: 67,-28
-  - uid: 37434
+  - uid: 62
     components:
     - type: ChunkEntity
       root: 2
@@ -89551,7 +88826,7 @@ entities:
             cleanable: True
           decals:
             9231: 76,8
-  - uid: 37435
+  - uid: 63
     components:
     - type: ChunkEntity
       root: 2
@@ -89574,7 +88849,7 @@ entities:
             5031: 76,-34
             5032: 75,-34
             5033: 74,-34
-  - uid: 37436
+  - uid: 64
     components:
     - type: ChunkEntity
       root: 2
@@ -89726,7 +89001,7 @@ entities:
           decals:
             8416: 99,30
             8417: 99,31
-  - uid: 37437
+  - uid: 65
     components:
     - type: ChunkEntity
       root: 2
@@ -89944,7 +89219,7 @@ entities:
             8413: 96,32
             8414: 97,32
             8415: 98,32
-  - uid: 37438
+  - uid: 66
     components:
     - type: ChunkEntity
       root: 2
@@ -89975,7 +89250,7 @@ entities:
           decals:
             780: -44,80
             781: -41,87
-  - uid: 37439
+  - uid: 67
     components:
     - type: ChunkEntity
       root: 2
@@ -90204,7 +89479,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             7490: 81.67046,-59.001415
-  - uid: 37440
+  - uid: 68
     components:
     - type: ChunkEntity
       root: 2
@@ -90357,7 +89632,7 @@ entities:
             833: -37.386135,78.09183
             834: -37.636135,77.81058
             835: -38.104885,77.73245
-  - uid: 37441
+  - uid: 69
     components:
     - type: ChunkEntity
       root: 2
@@ -90378,7 +89653,7 @@ entities:
           decals:
             2839: -22,-65
             2841: -20,-74
-  - uid: 37442
+  - uid: 70
     components:
     - type: ChunkEntity
       root: 2
@@ -90398,7 +89673,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             2840: -28,-64
-  - uid: 37443
+  - uid: 71
     components:
     - type: ChunkEntity
       root: 2
@@ -90413,7 +89688,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             797: -49,71
-  - uid: 37444
+  - uid: 72
     components:
     - type: ChunkEntity
       root: 2
@@ -90532,7 +89807,7 @@ entities:
             970: -29,72
             971: -29,73
             972: -29,74
-  - uid: 37445
+  - uid: 73
     components:
     - type: ChunkEntity
       root: 2
@@ -90587,7 +89862,7 @@ entities:
             color: '#52B4E996'
           decals:
             7501: 64,-54
-  - uid: 37446
+  - uid: 74
     components:
     - type: ChunkEntity
       root: 2
@@ -90859,7 +90134,7 @@ entities:
             4804: 107,-17
             4805: 108,-17
             4806: 109,-17
-  - uid: 37447
+  - uid: 75
     components:
     - type: ChunkEntity
       root: 2
@@ -91054,7 +90329,7 @@ entities:
             2022: 39,26
             2023: 38,26
             2024: 37,26
-  - uid: 37448
+  - uid: 76
     components:
     - type: ChunkEntity
       root: 2
@@ -91352,7 +90627,7 @@ entities:
           decals:
             417: 0,0
             466: 2,0
-  - uid: 37449
+  - uid: 77
     components:
     - type: ChunkEntity
       root: 2
@@ -91504,7 +90779,7 @@ entities:
           decals:
             5231: 97,-8
             5232: 96,-8
-  - uid: 37450
+  - uid: 78
     components:
     - type: ChunkEntity
       root: 2
@@ -91686,7 +90961,7 @@ entities:
             142: -19,22
             143: -20,22
             174: -17,30
-  - uid: 37451
+  - uid: 79
     components:
     - type: ChunkEntity
       root: 2
@@ -91914,7 +91189,7 @@ entities:
             133: -11,20
             134: -11,21
             169: -13,29
-  - uid: 37452
+  - uid: 80
     components:
     - type: ChunkEntity
       root: 2
@@ -92297,7 +91572,7 @@ entities:
           decals:
             2146: -2,40
             2147: -1,40
-  - uid: 37453
+  - uid: 81
     components:
     - type: ChunkEntity
       root: 2
@@ -92610,7 +91885,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             566: -28,47
-  - uid: 37454
+  - uid: 82
     components:
     - type: ChunkEntity
       root: 2
@@ -92694,7 +91969,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             869: -38,31
-  - uid: 37455
+  - uid: 83
     components:
     - type: ChunkEntity
       root: 2
@@ -92891,7 +92166,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             2158: 0,25
-  - uid: 37456
+  - uid: 84
     components:
     - type: ChunkEntity
       root: 2
@@ -93254,7 +92529,7 @@ entities:
             1574: 25,8
             1575: 24,8
             1576: 23,8
-  - uid: 37457
+  - uid: 85
     components:
     - type: ChunkEntity
       root: 2
@@ -93466,7 +92741,7 @@ entities:
             5957: 56,25
             5958: 55,25
             5959: 54,25
-  - uid: 37458
+  - uid: 87
     components:
     - type: ChunkEntity
       root: 2
@@ -93844,7 +93119,7 @@ entities:
             5103: 56,9
             5104: 55,9
             5105: 54,9
-  - uid: 37459
+  - uid: 89
     components:
     - type: ChunkEntity
       root: 2
@@ -94262,7 +93537,7 @@ entities:
           decals:
             459: 0,-3
             463: 1,-3
-  - uid: 37460
+  - uid: 90
     components:
     - type: ChunkEntity
       root: 2
@@ -94406,7 +93681,7 @@ entities:
             cleanable: True
           decals:
             2505: 5,-36
-  - uid: 37461
+  - uid: 91
     components:
     - type: ChunkEntity
       root: 2
@@ -94554,7 +93829,7 @@ entities:
             4664: 31,-34
             4665: 30,-34
             4666: 29,-34
-  - uid: 37462
+  - uid: 92
     components:
     - type: ChunkEntity
       root: 2
@@ -94915,7 +94190,7 @@ entities:
             cleanable: True
           decals:
             8707: 17.5303,-26.841047
-  - uid: 37463
+  - uid: 93
     components:
     - type: ChunkEntity
       root: 2
@@ -95331,7 +94606,7 @@ entities:
             2794: 25,-4
             2795: 17,-4
             2796: 16,-4
-  - uid: 37464
+  - uid: 94
     components:
     - type: ChunkEntity
       root: 2
@@ -95499,7 +94774,7 @@ entities:
             3220: -41,-41
             3221: -41,-40
             3222: -41,-33
-  - uid: 37465
+  - uid: 95
     components:
     - type: ChunkEntity
       root: 2
@@ -95604,7 +94879,7 @@ entities:
             3290: -46,-10
             8579: -38,-7
             8580: -40,-10
-  - uid: 37466
+  - uid: 96
     components:
     - type: ChunkEntity
       root: 2
@@ -95925,7 +95200,7 @@ entities:
             3414: 38,-29
             3415: 39,-29
             3416: 47,-29
-  - uid: 37467
+  - uid: 97
     components:
     - type: ChunkEntity
       root: 2
@@ -96140,7 +95415,7 @@ entities:
           decals:
             9187: 0,73
             9188: 0,72
-  - uid: 37468
+  - uid: 98
     components:
     - type: ChunkEntity
       root: 2
@@ -96445,7 +95720,7 @@ entities:
           decals:
             4662: 33,-34
             4663: 32,-34
-  - uid: 37469
+  - uid: 99
     components:
     - type: ChunkEntity
       root: 2
@@ -96817,7 +96092,7 @@ entities:
             5234: 94,-8
             5704: 94,-11
             5739: 87,-2
-  - uid: 37470
+  - uid: 100
     components:
     - type: ChunkEntity
       root: 2
@@ -97264,7 +96539,7 @@ entities:
             5481: 79,-9
             5482: 78,-9
             8958: 77,-9
-  - uid: 37471
+  - uid: 101
     components:
     - type: ChunkEntity
       root: 2
@@ -97402,7 +96677,7 @@ entities:
             6120: 83,18
             6121: 82,18
             6122: 81,18
-  - uid: 37472
+  - uid: 102
     components:
     - type: ChunkEntity
       root: 2
@@ -97717,7 +96992,7 @@ entities:
             6681: 64,45
             6682: 64,46
             6683: 64,47
-  - uid: 37473
+  - uid: 103
     components:
     - type: ChunkEntity
       root: 2
@@ -97974,7 +97249,7 @@ entities:
             6694: 61,44
             6695: 60,44
             6696: 59,44
-  - uid: 37474
+  - uid: 104
     components:
     - type: ChunkEntity
       root: 2
@@ -98400,7 +97675,7 @@ entities:
             6668: 65,57
             6669: 65,58
             6670: 65,59
-  - uid: 37475
+  - uid: 105
     components:
     - type: ChunkEntity
       root: 2
@@ -98613,7 +97888,7 @@ entities:
             125: -17,10
             126: -17,11
             127: -17,12
-  - uid: 37476
+  - uid: 106
     components:
     - type: ChunkEntity
       root: 2
@@ -98857,7 +98132,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             5590: 47,-8
-  - uid: 37477
+  - uid: 107
     components:
     - type: ChunkEntity
       root: 2
@@ -99038,7 +98313,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             7191: 47,42
-  - uid: 37478
+  - uid: 108
     components:
     - type: ChunkEntity
       root: 2
@@ -99161,7 +98436,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             6102: 79,16
-  - uid: 37479
+  - uid: 109
     components:
     - type: ChunkEntity
       root: 2
@@ -99608,7 +98883,7 @@ entities:
             3883: 14,35
             3884: 13,35
             3885: 12,35
-  - uid: 37480
+  - uid: 110
     components:
     - type: ChunkEntity
       root: 2
@@ -99814,7 +99089,7 @@ entities:
           decals:
             8886: 96,53
             8887: 97,53
-  - uid: 37481
+  - uid: 111
     components:
     - type: ChunkEntity
       root: 2
@@ -100061,7 +99336,7 @@ entities:
             1583: 23,20
             1584: 24,20
             1585: 25,20
-  - uid: 37482
+  - uid: 112
     components:
     - type: ChunkEntity
       root: 2
@@ -100242,7 +99517,7 @@ entities:
             5159: 119,-23
             5160: 120,-23
             5161: 121,-23
-  - uid: 37483
+  - uid: 113
     components:
     - type: ChunkEntity
       root: 2
@@ -100443,7 +99718,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             7893: 111,4
-  - uid: 37484
+  - uid: 114
     components:
     - type: ChunkEntity
       root: 2
@@ -100464,7 +99739,7 @@ entities:
             color: '#334E6DC8'
           decals:
             7934: 96,-48
-  - uid: 37485
+  - uid: 116
     components:
     - type: ChunkEntity
       root: 2
@@ -100670,7 +99945,7 @@ entities:
             8891: 118,51
             8892: 119,51
             8893: 127,51
-  - uid: 37486
+  - uid: 118
     components:
     - type: ChunkEntity
       root: 2
@@ -101004,7 +100279,7 @@ entities:
             5591: 48,-8
             5592: 49,-8
             5593: 50,-8
-  - uid: 37487
+  - uid: 119
     components:
     - type: ChunkEntity
       root: 2
@@ -101244,7 +100519,7 @@ entities:
           decals:
             9189: -2,72
             9190: -2,73
-  - uid: 37488
+  - uid: 120
     components:
     - type: ChunkEntity
       root: 2
@@ -101357,7 +100632,7 @@ entities:
             color: '#D4D4D428'
           decals:
             1762: -4,-17
-  - uid: 37489
+  - uid: 121
     components:
     - type: ChunkEntity
       root: 2
@@ -101502,7 +100777,7 @@ entities:
             909: -33,51
             965: -34,48
             966: -34,49
-  - uid: 37490
+  - uid: 122
     components:
     - type: ChunkEntity
       root: 2
@@ -101782,7 +101057,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             3227: -31,-25
-  - uid: 37491
+  - uid: 123
     components:
     - type: ChunkEntity
       root: 2
@@ -101838,7 +101113,7 @@ entities:
             4371: 27,64
             4372: 26,64
             4373: 25,64
-  - uid: 37492
+  - uid: 124
     components:
     - type: ChunkEntity
       root: 2
@@ -102059,7 +101334,7 @@ entities:
             4264: 12,61
             4265: 12,62
             4266: 12,63
-  - uid: 37493
+  - uid: 125
     components:
     - type: ChunkEntity
       root: 2
@@ -102313,7 +101588,7 @@ entities:
             866: -38,33
             867: -38,34
             871: -38,40
-  - uid: 37494
+  - uid: 126
     components:
     - type: ChunkEntity
       root: 2
@@ -102603,7 +101878,7 @@ entities:
             3191: -22,-16
             3192: -23,-16
             3193: -24,-16
-  - uid: 37495
+  - uid: 127
     components:
     - type: ChunkEntity
       root: 2
@@ -102776,7 +102051,7 @@ entities:
             9657: 23,-55
             9658: 24,-55
             9659: 25,-55
-  - uid: 37496
+  - uid: 128
     components:
     - type: ChunkEntity
       root: 2
@@ -102860,7 +102135,7 @@ entities:
             8110: 118,2
             8111: 118,4
             8112: 113,4
-  - uid: 37497
+  - uid: 129
     components:
     - type: ChunkEntity
       root: 2
@@ -102993,7 +102268,7 @@ entities:
           decals:
             9707: 33,-52
             9729: 39,-52
-  - uid: 37498
+  - uid: 130
     components:
     - type: ChunkEntity
       root: 2
@@ -103182,7 +102457,7 @@ entities:
             2931: -39,-49
             2932: -40,-49
             2933: -41,-49
-  - uid: 37499
+  - uid: 131
     components:
     - type: ChunkEntity
       root: 2
@@ -103295,7 +102570,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             6423: 81,50
-  - uid: 37500
+  - uid: 132
     components:
     - type: ChunkEntity
       root: 2
@@ -103318,7 +102593,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             7488: 53,64
-  - uid: 37501
+  - uid: 133
     components:
     - type: ChunkEntity
       root: 2
@@ -103338,7 +102613,7 @@ entities:
             8151: 35,65
             8152: 34,65
             8153: 33,67
-  - uid: 37502
+  - uid: 134
     components:
     - type: ChunkEntity
       root: 2
@@ -103401,7 +102676,7 @@ entities:
             color: '#9FED5860'
           decals:
             7160: 114,18
-  - uid: 37503
+  - uid: 135
     components:
     - type: ChunkEntity
       root: 2
@@ -103467,7 +102742,7 @@ entities:
           decals:
             7013: 48,-50
             7014: 51,-54
-  - uid: 37504
+  - uid: 136
     components:
     - type: ChunkEntity
       root: 2
@@ -103555,7 +102830,7 @@ entities:
             color: '#334E6DC8'
           decals:
             7933: 96,-49
-  - uid: 37505
+  - uid: 137
     components:
     - type: ChunkEntity
       root: 2
@@ -103576,7 +102851,7 @@ entities:
             6791: 91,68
             6792: 91,69
             6793: 91,70
-  - uid: 37506
+  - uid: 138
     components:
     - type: ChunkEntity
       root: 2
@@ -103693,7 +102968,7 @@ entities:
           decals:
             8897: 120,45
             8898: 120,46
-  - uid: 37507
+  - uid: 139
     components:
     - type: ChunkEntity
       root: 2
@@ -103728,7 +103003,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8829: 128,49
-  - uid: 37508
+  - uid: 140
     components:
     - type: ChunkEntity
       root: 2
@@ -103748,7 +103023,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8823: 128,46
-  - uid: 37509
+  - uid: 141
     components:
     - type: ChunkEntity
       root: 2
@@ -103860,7 +103135,7 @@ entities:
             3296: -45,-22
             8581: -40,-22
             8582: -38,-25
-  - uid: 37510
+  - uid: 142
     components:
     - type: ChunkEntity
       root: 2
@@ -103875,7 +103150,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             2837: -52,-48
-  - uid: 37511
+  - uid: 143
     components:
     - type: ChunkEntity
       root: 2
@@ -106192,6 +105467,16 @@ entities:
       pos: 45.449657,-5.549359
 - proto: ClothingBackpackDuffelSurgeryFilled
   entities:
+  - uid: 38
+    components:
+    - type: Transform
+      parent: 2
+      pos: 9.350925,55.903606
+  - uid: 39
+    components:
+    - type: Transform
+      parent: 2
+      pos: 9.548913,55.664024
   - uid: 15466
     components:
     - type: Transform
@@ -106678,11 +105963,6 @@ entities:
       pos: -16.487217,37.46712
 - proto: ClothingHandsGlovesNitrile
   entities:
-  - uid: 15540
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.5903225,52.522694
   - uid: 15541
     components:
     - type: Transform
@@ -106969,11 +106249,6 @@ entities:
       pos: -11.686735,-29.622452
 - proto: ClothingHeadHatSurgcapBlue
   entities:
-  - uid: 15590
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.4340725,52.72582
   - uid: 15591
     components:
     - type: Transform
@@ -107206,16 +106481,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -40.619015,61.518986
-  - uid: 15631
-    components:
-    - type: Transform
-      parent: 2
-      pos: 9.680183,56.28865
-  - uid: 15632
-    components:
-    - type: Transform
-      parent: 2
-      pos: 9.680183,56.28865
 - proto: ClothingMaskClown
   entities:
   - uid: 15633
@@ -107295,11 +106560,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -19.485485,68.55882
-  - uid: 15646
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.5434475,52.678944
   - uid: 15647
     components:
     - type: Transform
@@ -107752,18 +107012,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 100.53695,19.164818
-- proto: ClothingShoesColorWhite
-  entities:
-  - uid: 15717
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.4028225,52.397694
-  - uid: 15718
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.6371975,52.366444
 - proto: ClothingShoesFlippers
   entities:
   - uid: 15719
@@ -108741,41 +107989,6 @@ entities:
         26067:
         - - ArtifactAnalyzerSender
           - ArtifactAnalyzerReceiver
-- proto: computerBodyScanner
-  entities:
-  - uid: 15870
-    components:
-    - type: Transform
-      parent: 2
-      pos: 11.5,56.5
-  - uid: 15871
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.5,56.5
-  - uid: 15872
-    components:
-    - type: Transform
-      parent: 2
-      rot: -1.5707963267948966 rad
-      pos: 8.5,36.5
-  - uid: 15873
-    components:
-    - type: Transform
-      parent: 2
-      rot: 3.141592653589793 rad
-      pos: 35.5,-26.5
-  - uid: 15874
-    components:
-    - type: Transform
-      parent: 2
-      rot: -1.5707963267948966 rad
-      pos: 88.5,30.5
-  - uid: 15875
-    components:
-    - type: Transform
-      parent: 2
-      pos: 62.5,-52.5
 - proto: ComputerBroken
   entities:
   - uid: 15876
@@ -110447,11 +109660,6 @@ entities:
           Oxygen: 3.0981817
           Nitrogen: 11.655066
         immutable: False
-  - uid: 16136
-    components:
-    - type: Transform
-      parent: 2
-      pos: 11.5,54.5
 - proto: CrateFunLizardPlushieBulk
   entities:
   - uid: 16137
@@ -110767,6 +109975,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 59.5,48.5
+- proto: CrateSurgery
+  entities:
+  - uid: 35
+    components:
+    - type: Transform
+      parent: 2
+      pos: 11.5,54.5
 - proto: CrateTrashCart
   entities:
   - uid: 16176
@@ -110991,7 +110206,7 @@ entities:
       pos: 109.5,38.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -41734.754
+      secondsUntilStateChange: -41824.32
 - proto: CurtainsGreen
   entities:
   - uid: 16211
@@ -111016,7 +110231,7 @@ entities:
       pos: -7.5,-0.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -49449.758
+      secondsUntilStateChange: -49539.324
   - uid: 16215
     components:
     - type: Transform
@@ -126241,7 +125456,7 @@ entities:
       pos: 56.5,25.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -127038.77
+      secondsUntilStateChange: -127128.336
   - uid: 18740
     components:
     - type: Transform
@@ -177158,19 +176373,6 @@ entities:
         immutable: False
 - proto: LockerMedicalFilled
   entities:
-  - uid: 26003
-    components:
-    - type: Transform
-      parent: 2
-      pos: 7.5,52.5
-    - type: EntityStorage
-      air:
-        temperature: 293.1495
-        volume: 200
-        moles:
-          Oxygen: 3.0981817
-          Nitrogen: 11.655066
-        immutable: False
   - uid: 26004
     components:
     - type: Transform
@@ -179415,16 +178617,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -40.35339,61.37836
-  - uid: 26306
-    components:
-    - type: Transform
-      parent: 2
-      pos: 9.5,56.5
-  - uid: 26307
-    components:
-    - type: Transform
-      parent: 2
-      pos: 9.5,56.5
 - proto: NoticeBoard
   entities:
   - uid: 26308
@@ -180653,34 +179845,6 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 0.7339115,53.080456
-- proto: PillCanisterBicaridine
-  entities:
-  - uid: 26519
-    components:
-    - type: Transform
-      parent: 2
-      pos: 9.383519,55.914066
-- proto: PillCanisterDermaline
-  entities:
-  - uid: 26520
-    components:
-    - type: Transform
-      parent: 2
-      pos: 9.620642,55.645504
-- proto: PillCanisterHyronalin
-  entities:
-  - uid: 26521
-    components:
-    - type: Transform
-      parent: 2
-      pos: 8.472646,56.69347
-- proto: PillCanisterTricordrazine
-  entities:
-  - uid: 26522
-    components:
-    - type: Transform
-      parent: 2
-      pos: 8.852042,56.582882
 - proto: PinpointerNuclear
   entities:
   - uid: 26523
@@ -196415,6 +195579,11 @@ entities:
       pos: 66.42659,-53.458813
 - proto: ScalpelLaser
   entities:
+  - uid: 34
+    components:
+    - type: Transform
+      parent: 2
+      pos: 9.516898,56.36527
   - uid: 29171
     components:
     - type: Transform
@@ -203241,6 +202410,33 @@ entities:
     - type: Transform
       parent: 2
       pos: 4.5,40.5
+- proto: SpawnPointADTVirologist
+  entities:
+  - uid: 37512
+    components:
+    - type: Transform
+      parent: 2
+      pos: 18.5,68.5
+  - uid: 37513
+    components:
+    - type: Transform
+      parent: 2
+      pos: 14.5,66.5
+  - uid: 37514
+    components:
+    - type: Transform
+      parent: 2
+      pos: 6.5,67.5
+  - uid: 37515
+    components:
+    - type: Transform
+      parent: 2
+      pos: 5.5,71.5
+  - uid: 37516
+    components:
+    - type: Transform
+      parent: 2
+      pos: 6.5,71.5
 - proto: SpawnPointAtmos
   entities:
   - uid: 30315
@@ -203516,33 +202712,6 @@ entities:
       parent: 2
       pos: 5.5,71.5
   - uid: 30361
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.5,71.5
-- proto: SpawnPointADTVirologist
-  entities:
-  - uid: 37512
-    components:
-    - type: Transform
-      parent: 2
-      pos: 18.5,68.5
-  - uid: 37513
-    components:
-    - type: Transform
-      parent: 2
-      pos: 14.5,66.5
-  - uid: 37514
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.5,67.5
-  - uid: 37515
-    components:
-    - type: Transform
-      parent: 2
-      pos: 5.5,71.5
-  - uid: 37516
     components:
     - type: Transform
       parent: 2
@@ -207992,6 +207161,11 @@ entities:
       pos: 115.1027,10.623565
 - proto: Syringe
   entities:
+  - uid: 32
+    components:
+    - type: Transform
+      parent: 2
+      pos: 9.639753,56.624447
   - uid: 31003
     components:
     - type: Transform
@@ -208996,11 +208170,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 2.5,59.5
-  - uid: 31198
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.5,52.5
   - uid: 31199
     components:
     - type: Transform
@@ -213866,17 +213035,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 58.5,-1.5
-- proto: UniformScrubsColorBlue
-  entities:
-  - uid: 32024
-    components:
-    - type: Transform
-      parent: 2
-      pos: 6.5590725,52.553944
-    - type: ContainerContainer
-      containers:
-        adt-accessories: !type:Container
-          ents: []
 - proto: UtilityKnife
   entities:
   - uid: 32025
