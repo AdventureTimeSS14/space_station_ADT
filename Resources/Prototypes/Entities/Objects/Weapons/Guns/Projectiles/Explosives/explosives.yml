@@ -107,6 +107,9 @@
     layers:
     - state: grenade
   - type: ExplodeOnTrigger
+  - type: ADTShrapnelOnTrigger # ADT-Tweak
+    range: 4
+    maxShrapnel: 4
   - type: Explosive
     explosionType: Default
     totalIntensity: 50

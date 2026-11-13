@@ -1,0 +1,15 @@
+- type: soundCollection
+  id: ADTSurgeryHacksaw
+  files:
+  - /Audio/ADT/Medical/Surgery/hacksaw1.ogg
+  - /Audio/ADT/Medical/Surgery/hacksaw2.ogg
+
+- type: soundCollection
+  id: ADTBoneBreak
+  files:
+  - /Audio/ADT/Medical/Bones/bone_break_1.ogg
+  - /Audio/ADT/Medical/Bones/bone_break_2.ogg
+  - /Audio/ADT/Medical/Bones/bone_break_3.ogg
+  - /Audio/ADT/Medical/Bones/bone_break_4.ogg
+  - /Audio/ADT/Medical/Bones/bone_break_5.ogg
+  - /Audio/ADT/Medical/Bones/bone_break_6.ogg

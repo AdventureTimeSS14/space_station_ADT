@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseItem
+  id: ADTShrapnel
+  name: shrapnel
+  description: A jagged piece of metal. Better outside of you than inside.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Weapons/shrapnel.rsi
+      state: shrapnel1
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        shrapnel1: ""
+        shrapnel2: ""
+        shrapnel3: ""
+  - type: Appearance
+  - type: Item
+    size: Tiny
+  - type: ADTEmbeddableShrapnel
+  - type: StaticPrice
+    price: 0

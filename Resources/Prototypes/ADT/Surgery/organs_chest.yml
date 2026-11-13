@@ -1,0 +1,368 @@
+- type: surgeryGraph
+  id: SurgeryChestOrgans
+  category: SurgeryCategoryOrganManipulation
+  name: surgery-graph-chest-organs-name
+  location: surgery-location-chest
+  startNode: ChestClosed
+  nodes:
+    - name: ChestClosed
+      label: surgery-node-chest-closed-label
+      edges:
+        - id: Cut
+          label: surgery-edge-chest-cut-label
+          target: ChestIncised
+          conditions:
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-chest-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 2
+                      Bloodloss: 1
+
+    - name: ChestIncised
+      label: surgery-node-chest-incised-label
+      packages:
+        - SurgeryPackageChestCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-chest-clamp-bleeders-label
+          target: ChestBleedersClamped
+          steps:
+            - name: surgery-edge-chest-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: ChestBleedersClamped
+      label: surgery-node-chest-bleeders-clamped-label
+      packages:
+        - SurgeryPackageChestCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-chest-retract-skin-label
+          target: ChestSkinRetracted
+          steps:
+            - name: surgery-edge-chest-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: ChestSkinRetracted
+      label: surgery-node-chest-skin-retracted-label
+      packages:
+        - SurgeryPackageChestCauterize
+      edges:
+        - id: ExtractImplant
+          label: surgery-edge-chest-extract-implant-label
+          perImplant: true
+          target: ChestSkinRetracted
+          conditions:
+            - !type:HasImplantCondition
+              exclude: [ MindShieldImplant, FakeMindShieldImplant ]
+          steps:
+            - name: surgery-edge-chest-extract-implant-label
+              quality: OrganManipulation
+              successChance: 0.65
+              duration: 6.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:ExtractImplantEffect
+              exclude: [ MindShieldImplant, FakeMindShieldImplant ]
+
+        - id: SawRibcage
+          label: surgery-edge-chest-saw-ribcage-label
+          target: ChestBoneSawed
+          steps:
+            - name: surgery-edge-chest-saw-ribcage-label
+              quality: Sawing
+              successChance: 0.7
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+
+    - name: ChestBoneSawed
+      label: surgery-node-chest-bone-sawed-label
+      edges:
+        - id: RetractRibcage
+          target: ChestOpen
+          label: surgery-edge-chest-retract-ribcage-label
+          steps:
+            - name: surgery-edge-chest-retract-ribcage-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: ApplyBoneGelFirst
+          target: ChestBoneGelled
+          label: surgery-edge-chest-apply-bone-gel-first-label
+          steps:
+            - name: surgery-edge-chest-apply-bone-gel-first-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: ChestOpen
+      label: surgery-node-chest-open-label
+      packages:
+        - SurgeryPackageRepairChestOrgans
+      edges:
+        - id: OpenChestCavity
+          label: surgery-edge-cavity-open-label
+          target: ChestCavityOpen
+          steps:
+            - name: surgery-edge-cavity-incise-label
+              quality: Incision
+              successChance: 0.95
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 1
+                      Bloodloss: 1
+            - name: surgery-edge-cavity-clamp-label
+              quality: Clamping
+              successChance: 0.95
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+        - id: UnretractRibcage
+          target: ChestBoneSawed
+          label: surgery-edge-chest-unretract-ribcage-label
+          steps:
+            - name: surgery-edge-chest-unretract-ribcage-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: RemoveHeart
+          target: ChestOpen
+          label: surgery-edge-chest-remove-heart-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Heart
+          steps:
+            - name: surgery-edge-chest-remove-heart-label
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Heart
+                  amount: 10
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Heart
+
+        - id: InsertHeart
+          target: ChestOpen
+          label: surgery-edge-chest-insert-heart-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Heart
+              inverted: true
+          steps:
+            - name: surgery-edge-chest-insert-heart-label
+              organ: Heart
+              successChance: 0.75
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Heart
+
+        - id: RemoveLungs
+          target: ChestOpen
+          label: surgery-edge-chest-remove-lungs-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Lungs
+          steps:
+            - name: surgery-edge-chest-remove-lungs-label
+              quality: OrganManipulation
+              successChance: 0.65
+              failureEffects:
+                - !type:DamageOrganEffect
+                  organId: Lungs
+                  amount: 10
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Lungs
+
+        - id: InsertLungs
+          target: ChestOpen
+          label: surgery-edge-chest-insert-lungs-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Lungs
+              inverted: true
+          steps:
+            - name: surgery-edge-chest-insert-lungs-label
+              organ: Lungs
+              successChance: 0.75
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Lungs
+
+    - name: ChestCavityOpen
+      label: surgery-node-cavity-open-label
+      edges:
+        - id: StoreChestItem
+          label: surgery-edge-cavity-store-label
+          target: ChestCavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-chest
+              max: 2
+          steps:
+            - name: surgery-edge-cavity-store-label
+              anyItem: true
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:StoreItemEffect
+              cavityId: adt-surgery-cavity-chest
+
+        - id: RetrieveChestItems
+          label: surgery-edge-cavity-retrieve-label
+          target: ChestCavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-chest
+              min: 1
+          steps:
+            - name: surgery-edge-cavity-retrieve-label
+              quality: Retraction
+              successChance: 0.9
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+                      Bloodloss: 1
+          effects:
+            - !type:RetrieveItemsEffect
+              cavityId: adt-surgery-cavity-chest
+
+        - id: CloseChestCavity
+          label: surgery-edge-cavity-close-label
+          target: ChestOpen
+          steps:
+            - name: surgery-edge-cavity-close-label
+              quality: Cautery
+              successChance: 0.85
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+                - !type:CauterizeEffect
+
+    - name: ChestBoneGelled
+      label: surgery-node-chest-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-chest-set-bone-label
+          target: ChestBoneSet
+          steps:
+            - name: surgery-edge-chest-set-bone-label
+              quality: BoneSetting
+              successChance: 0.75
+              duration: 3
+
+    - name: ChestBoneSet
+      label: surgery-node-chest-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-chest-apply-bone-gel-second-label
+          target: ChestBoneGelledTwice
+          steps:
+            - name: surgery-edge-chest-apply-bone-gel-second-label
+              quality: BoneMending
+              successChance: 0.9
+              duration: 2
+
+    - name: ChestBoneGelledTwice
+      label: surgery-node-chest-bone-gelled-twice-label
+      packages:
+        - SurgeryPackageChestCauterize

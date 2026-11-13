@@ -87,25 +87,16 @@
   - type: Item
     heldPrefix: splint
     sprite: ADT/Objects/Specific/Lavaland/Tribal/tribal_splint.rsi
-  - type: Healing
-    damageContainers:
-    - Biological
-    - ADTBiologicalShadekin
-    - ADTBiologicalDrask
-    damage:
-      types:
-        Blunt: -8
-        Slash: -6
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: ADTSplint
+    selfDelay: 10
+    otherDelay: 5
   - type: Stack
     stackType: ADTBoneSplint
     count: 5
   - type: Tag
     tags:
     - Brutepack
+    - BoneSplint
 
 - type: entity
   id: ADTBoneSplint1

@@ -1,0 +1,51 @@
+- type: adtFractureType
+  id: ADTFractureCrack
+  name: adt-fracture-type-crack
+  power: 1
+  minDamage: 10
+  spreadDegrees: 12
+  doAfterModifier: 0.2
+  fallChance: 0.01
+  fallDamage:
+    types:
+      Blunt: 5
+  speedModifier: 0.9
+  lockedDamage: 5
+
+- type: adtFractureType
+  id: ADTFractureClosed
+  name: adt-fracture-type-closed
+  power: 2
+  minDamage: 20
+  dropChance: 0.05
+  spreadDegrees: 23
+  doAfterModifier: 0.4
+  fallChance: 0.05
+  fallDamage:
+    types:
+      Blunt: 10
+  speedModifier: 0.8
+  lockedDamage: 10
+
+- type: adtFractureType
+  id: ADTFractureOpen
+  name: adt-fracture-type-open
+  power: 3
+  minDamage: 40
+  dropChance: 0.3
+  spreadDegrees: 45
+  doAfterModifier: 0.8
+  fallChance: 0.1
+  fallDamage:
+    types:
+      Blunt: 10
+  speedModifier: 0.65
+  canSplint: false
+  open: true
+  reattachChance: 0.3
+  reattachInto: ADTFractureClosed
+  reattachFailDamage:
+    types:
+      Blunt: 12
+  bleedAmount: 2
+  lockedDamage: 15

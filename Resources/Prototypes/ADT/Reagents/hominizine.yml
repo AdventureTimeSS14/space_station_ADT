@@ -1,0 +1,28 @@
+- type: reagent
+  id: ADTHominizine
+  name: reagent-name-adt-hominizine
+  desc: reagent-desc-adt-hominizine
+  group: Toxins
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#d9a58b"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: ADTHominizedMonkey
+        conditions:
+        - !type:TagCondition
+          tag: ADTHominizable
+        - !type:ReagentCondition
+          reagent: ADTHominizine
+          min: 15
+      - !type:HealthChange
+        conditions:
+        - !type:TagCondition
+          tag: ADTHominizable
+          inverted: true
+        damage:
+          types:
+            Cellular: 0.5

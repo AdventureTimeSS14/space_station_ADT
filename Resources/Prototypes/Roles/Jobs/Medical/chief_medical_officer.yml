@@ -45,6 +45,7 @@
     components:
       - type: CommandStaff
   # ADT-Tweak-Start
+      - type: SurgerySkill
   - !type:AddComponentSpecial
     components:
       - type: ADTVirusImmune

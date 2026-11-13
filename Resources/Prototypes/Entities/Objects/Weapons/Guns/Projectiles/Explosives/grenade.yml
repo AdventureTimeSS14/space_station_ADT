@@ -36,7 +36,9 @@
     deleteOnCollide: false
     damage:
       types:
-        Piercing: 45
+        Piercing: 10
+  - type: ADTShrapnelOnHit # ADT-Tweak
+    embedChance: 0.35
   - type: TimedDespawn
     lifetime: 0.25
 

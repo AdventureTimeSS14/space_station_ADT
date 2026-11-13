@@ -7,6 +7,7 @@ using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Inventory;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
@@ -85,13 +86,73 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         comp.EmpLastPulse = _timing.CurTime - comp.EmpCooldown;
         _action.AddAction(uid, ref comp.ActionEntity, "ActionToggleMantisDaggers");
         comp.Container = _container.EnsureContainer<Container>(uid, "MantisDaggersContainer");
-        comp.InnateWeapon = Spawn("ADTMantisDaggers", Transform(uid).Coordinates);
-        _container.Insert(comp.InnateWeapon.Value, comp.Container, force: true);
         Dirty(uid, comp);
+    }
+
+    public void SetDaggerSides(EntityUid uid, MantisDaggerSide sides)
+    {
+        if (TerminatingOrDeleted(uid) || !HasComp<MobStateComponent>(uid))
+            return;
+
+        if (sides == MantisDaggerSide.None)
+        {
+            RemComp<MantisDaggersComponent>(uid);
+            return;
+        }
+
+        var comp = EnsureComp<MantisDaggersComponent>(uid);
+        if (comp.Sides == sides)
+            return;
+
+        comp.Sides = sides;
+        UpdateDaggerWeapon(uid, comp);
+    }
+
+    private void UpdateDaggerWeapon(EntityUid uid, MantisDaggersComponent comp)
+    {
+        QueueDel(comp.InnateWeapon);
+
+        comp.Container = _container.EnsureContainer<Container>(uid, "MantisDaggersContainer");
+        var proto = comp.Sides == (MantisDaggerSide.Left | MantisDaggerSide.Right) ? comp.PairWeapon : comp.SingleWeapon;
+        comp.InnateWeapon = Spawn(proto, Transform(uid).Coordinates);
+        _container.Insert(comp.InnateWeapon.Value, comp.Container, force: true);
+
+        if (comp.Active)
+            SetDaggersActive(uid, comp, true);
+
+        Dirty(uid, comp);
+    }
+
+    private void SetDaggersActive(EntityUid uid, MantisDaggersComponent comp, bool active)
+    {
+        comp.Active = active;
+
+        _appearance.SetData(uid, MantisDaggersVisuals.Left, active && (comp.Sides & MantisDaggerSide.Left) != 0);
+        _appearance.SetData(uid, MantisDaggersVisuals.Right, active && (comp.Sides & MantisDaggerSide.Right) != 0);
+
+        if (!active)
+        {
+            RemComp<ReflectComponent>(uid);
+            RemComp<CantShootComponent>(uid);
+            return;
+        }
+
+        var cantshoot = EnsureComp<CantShootComponent>(uid);
+        cantshoot.Popup = "mantis-daggers-cantshoot";
+
+        if (TryComp<ReflectComponent>(comp.InnateWeapon, out var weaponReflect))
+        {
+            var reflect = EnsureComp<ReflectComponent>(uid);
+            reflect.ReflectProb = weaponReflect.ReflectProb;
+            Dirty(uid, reflect);
+        }
     }
 
     private void ShutdownDaggers(EntityUid uid, MantisDaggersComponent comp, ComponentShutdown args)
     {
+        if (comp.Active && !TerminatingOrDeleted(uid))
+            SetDaggersActive(uid, comp, false);
+
         _action.RemoveAction(uid, comp.ActionEntity);
         QueueDel(comp.InnateWeapon);
         _container.ShutdownContainer(comp.Container);
@@ -108,34 +169,14 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         if (args.Handled)
             return;
 
+        if (comp.Sides == MantisDaggerSide.None)
+            return;
+
         if (!TryComp<MeleeWeaponComponent>(uid, out var melee))
             return;
 
-        if (!comp.Active)
-        {
-            var cantshoot = EnsureComp<CantShootComponent>(uid);
-            cantshoot.Popup = "mantis-daggers-cantshoot";
-            _appearance.SetData(uid, MantisDaggersVisuals.Active, true);
-            _appearance.SetData(uid, MantisDaggersVisuals.Inactive, false);
-            var reflect = EnsureComp<ReflectComponent>(uid);
-            reflect.ReflectProb = 0.3f;
-            _action.SetCooldown(comp.ActionEntity, TimeSpan.FromSeconds(2));
-        }
-        else
-        {
-            _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
-            _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
-            _action.SetCooldown(comp.ActionEntity, TimeSpan.FromSeconds(1));
-            if (TryComp<ReflectComponent>(uid, out var reflect))
-            {
-                RemComp<ReflectComponent>(uid);
-            }
-            if (TryComp<CantShootComponent>(uid, out var cantshoot))
-            {
-                RemComp<CantShootComponent>(uid);
-            }
-        }
-        comp.Active = !comp.Active;
+        _action.SetCooldown(comp.ActionEntity, TimeSpan.FromSeconds(comp.Active ? 1 : 2));
+        SetDaggersActive(uid, comp, !comp.Active);
         _audio.PlayEntity(comp.Sound, Filter.Pvs(uid), uid, true);
         Dirty(uid, comp);
     }
@@ -149,15 +190,9 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 
         if (ent.Comp.Active)
         {
-            if (TryComp<ReflectComponent>(uid, out var reflect))
-            {
-                RemComp<ReflectComponent>(uid);
-            }
-            _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
-            _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
+            SetDaggersActive(uid, ent.Comp, false);
             _jittering.DoJitter(uid, TimeSpan.FromSeconds(10f), true);
             Spawn("EffectSparks", Transform(uid).Coordinates);
-            ent.Comp.Active = false;
             _audio.PlayEntity(ent.Comp.Sound, Filter.Pvs(uid), uid, true);
             Dirty(uid, ent.Comp);
         }

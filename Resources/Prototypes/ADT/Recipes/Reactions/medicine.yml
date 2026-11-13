@@ -343,18 +343,6 @@
     ADTSalbutamol: 4
 
 - type: reaction
-  id: ADTMitocholide
-  reactants:
-    Cryoxadone:
-      amount: 1
-    Plasma:
-      amount: 1
-    Carbon:
-      amount: 1
-  products:
-    ADTMitocholide: 3
-
-- type: reaction
   id: ADTCalomel
   minTemp: 373
   reactants:

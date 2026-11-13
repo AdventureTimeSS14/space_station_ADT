@@ -57795,14 +57795,6 @@ entities:
     - type: Transform
       pos: 31.5,74.5
       parent: 1
-- proto: Implanter
-  entities:
-  - uid: 7098
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 18.750734,61.614082
-      parent: 1
 - proto: IngotGold
   entities:
   - uid: 7099

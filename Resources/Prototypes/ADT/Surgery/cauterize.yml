@@ -1,0 +1,99 @@
+- type: surgeryEdgePackage
+  id: SurgeryPackageLimbCauterize
+  edges:
+  - id: Cauterize
+    label: surgery-edge-limb-cauterize-label
+    target: Attached
+    steps:
+      - name: surgery-edge-limb-cauterize-label
+        quality: Cautery
+        successChance: 0.85
+        duration: 3
+        sound:
+          path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+        effects:
+          - !type:DamageEffect
+            damage:
+              types:
+                Heat: 1
+          - !type:CauterizeEffect
+
+- type: surgeryEdgePackage
+  id: SurgeryPackageLimbStumpCauterize
+  edges:
+  - id: Cauterize
+    label: surgery-edge-limb-cauterize-label
+    target: Cauterized
+    steps:
+      - name: surgery-edge-limb-cauterize-label
+        quality: Cautery
+        successChance: 0.85
+        duration: 3
+        sound:
+          path: /Audio/Effects/lightburn.ogg
+        effects:
+          - !type:DamageEffect
+            damage:
+              types:
+                Heat: 1
+          - !type:CauterizeEffect
+
+- type: surgeryEdgePackage
+  id: SurgeryPackageAbdomenCauterize
+  edges:
+  - id: Cauterize
+    target: AbdomenClosed
+    label: surgery-edge-abdomen-cauterize-label
+    steps:
+      - name: surgery-edge-abdomen-cauterize-label
+        quality: Cautery
+        successChance: 0.85
+        duration: 3
+        sound:
+          path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+        effects:
+          - !type:DamageEffect
+            damage:
+              types:
+                Heat: 1
+          - !type:CauterizeEffect
+
+- type: surgeryEdgePackage
+  id: SurgeryPackageChestCauterize
+  edges:
+  - id: Cauterize
+    label: surgery-edge-chest-cauterize-label
+    target: ChestClosed
+    steps:
+      - name: surgery-edge-chest-cauterize-label
+        quality: Cautery
+        successChance: 0.85
+        duration: 3
+        sound:
+          path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+        effects:
+          - !type:DamageEffect
+            damage:
+              types:
+                Heat: 1
+          - !type:CauterizeEffect
+
+- type: surgeryEdgePackage
+  id: SurgeryPackageScalpCauterize
+  edges:
+  - id: Cauterize
+    label: surgery-edge-head-cauterize-label
+    target: ScalpClosed
+    steps:
+      - name: surgery-edge-head-cauterize-label
+        quality: Cautery
+        successChance: 0.85
+        duration: 3
+        sound:
+          path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+        effects:
+          - !type:DamageEffect
+            damage:
+              types:
+                Heat: 5
+          - !type:CauterizeEffect

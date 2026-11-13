@@ -539,6 +539,16 @@
     revertOnCrit: false
 
 - type: polymorph
+  id: ADTHominizedMonkey
+  configuration:
+    entity: MobArtificialHuman
+    forced: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+
+- type: polymorph
   id: SlimeMorphGeras
   configuration:
     entity: ADTMobSlimesGeras

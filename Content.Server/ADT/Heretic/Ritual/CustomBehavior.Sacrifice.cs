@@ -1,19 +1,13 @@
 //
 
 using System.Linq;
-using System.Numerics;
 using Content.Shared.ADT.Heretic;
-using Content.Server.ADT.Medical.SuitSensors;
-using Content.Shared.ADT.Medical.SuitSensors;
 using Content.Server.ADT.Objectives.Components;
 using Content.Server.Heretic.Components;
-using Content.Server.Body.Systems;
-using Content.Server.Chat.Managers;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Components;
-using Content.Shared.Chat;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mobs.Components;
@@ -23,24 +17,13 @@ using Content.Server.Revolutionary.Components;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Store.Components;
-using Content.Server.Atmos.EntitySystems;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
 ///     Checks for a nearest dead body,
-///     teleports it away and gives the heretic knowledge points.
+///     gibs it and gives the heretic knowledge points.
 /// </summary>
-/// <remarks>
-///     ADT: no gib, teleport away instead + coord sensors
-/// </remarks>
 // these classes should be lead out and shot
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
@@ -162,8 +145,8 @@ namespace Content.Server.Heretic.Ritual;
 
             try
             {
-                // ADT: no gib, teleport + coord sensors instead
-                SafeSacrifice(args, uid);
+                args.EntityManager.EnsureComponent<SacrificedComponent>(uid);
+                args.EntityManager.System<GibbingSystem>().Gib(uid, true);
             }
             catch (Exception e)
             {
@@ -193,95 +176,5 @@ namespace Content.Server.Heretic.Ritual;
         // reset it because it refuses to work otherwise.
         uids = new();
         args.EntityManager.EventBus.RaiseLocalEvent(args.Mind, new EventHereticUpdateTargets());
-    }
-
-    /// <summary>
-    ///     ADT: teleports the corpse away instead of gibbing it.
-    /// </summary>
-    private void SafeSacrifice(RitualData args, EntityUid uid)
-    {
-        var entMan = args.EntityManager;
-        var suitSensorSystem = entMan.System<ADTSuitSensorSystem>();
-        var sharedMindSystem = entMan.System<SharedMindSystem>();
-        var chatManager = IoCManager.Resolve<IChatManager>();
-        var player = IoCManager.Resolve<ISharedPlayerManager>();
-        var mobStateSystem = entMan.System<MobStateSystem>();
-
-        if (!entMan.TryGetComponent<MobStateComponent>(uid, out var mobstate))
-            return;
-
-        if (mobstate.CurrentState != MobState.Dead)
-            mobStateSystem.ChangeMobState(uid, MobState.Dead, mobstate);
-
-        TeleportRandomly(args, uid);
-
-        // notify the victim
-        var message = Loc.GetString("sacrificed-description");
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-
-        if (sharedMindSystem.TryGetMind(uid, out _, out _) &&
-            player.TryGetSessionByEntity(uid, out var session))
-        {
-            chatManager.ChatMessageToOne(ChatChannel.Server,
-                message,
-                wrappedMessage,
-                default,
-                false,
-                session.Channel,
-                Color.FromSrgb(new Color(255, 100, 255)));
-        }
-
-        entMan.EnsureComponent<SacrificedComponent>(uid);
-
-        // coord sensors so the body can be found
-        suitSensorSystem.SetAllSensors(uid, ADTSuitSensorMode.SensorCords);
-    }
-
-    /// <summary>
-    ///     ADT: picks a random tile with atmosphere and no walls.
-    /// </summary>
-    private void TeleportRandomly(RitualData args, EntityUid uid)
-    {
-        var entMan = args.EntityManager;
-        var xformSystem = entMan.System<SharedTransformSystem>();
-        var lookupSystem = entMan.System<EntityLookupSystem>();
-        var atmosSystem = entMan.System<AtmosphereSystem>();
-        var pullSystem = entMan.System<PullingSystem>();
-        var randomSystem = IoCManager.Resolve<IRobustRandom>();
-
-        const int maxRandomTp = 50; // attempts to find a spot
-        const int maxRandomRadius = 40; // max scatter radius
-
-        if (!entMan.TryGetComponent<TransformComponent>(uid, out var transformComponent))
-            return;
-
-        // stop pull or the heretic gets dragged along
-        if (entMan.TryGetComponent<PullableComponent>(uid, out var pull))
-            pullSystem.TryStopPull(uid, pull);
-
-        var coords = transformComponent.Coordinates;
-
-        for (var i = 0; i < maxRandomTp; i++)
-        {
-            var randVector = randomSystem.NextVector2(maxRandomRadius);
-            var newCoords = coords.Offset(randVector);
-
-            // move first so we can check for walls
-            xformSystem.SetCoordinates(uid, newCoords);
-
-            // no atmosphere = space/solar, keep looking
-            var air = atmosSystem.GetContainingMixture((uid, transformComponent));
-
-            if (transformComponent.GridUid != null
-                && air != null
-                && !lookupSystem.GetEntitiesIntersecting(xformSystem.ToMapCoordinates(newCoords), LookupFlags.Static).Any())
-                break;
-        }
-
-        if (transformComponent.GridUid != null && transformComponent.MapUid is { } mapUid)
-        {
-            xformSystem.SetCoordinates(uid, new EntityCoordinates(mapUid, xformSystem.ToWorldPosition(transformComponent.Coordinates)));
-            xformSystem.AttachToGridOrMap(uid);
-        }
     }
 }

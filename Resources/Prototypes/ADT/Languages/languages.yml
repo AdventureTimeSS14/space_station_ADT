@@ -2,6 +2,8 @@
 # Do not use otherwise. Try to use the respective component instead of this language.
 - type: language
   id: Universal
+  conditions:
+  - !type:CanSpeak
   speech: !type:Generic
     replacement:
     - "*incomprehensible*"

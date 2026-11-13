@@ -8,7 +8,14 @@
   - ADTPillPack
   - ADTPlasticBottle
   - ADTMedicalSprayBottle
-  - ADTAutoSurgeon
+  - ADTProsthesisCheapArmLeft
+  - ADTOrganProsthesisCheapHandLeft
+  - ADTProsthesisCheapLegLeft
+  - ADTOrganProsthesisCheapFootLeft
+  - ADTProsthesisCheapArmRight
+  - ADTOrganProsthesisCheapHandRight
+  - ADTProsthesisCheapLegRight
+  - ADTOrganProsthesisCheapFootRight
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalMiscPack
@@ -16,6 +23,20 @@
   - ADTHighVoltageDefibrillator
   - ADTReagentAnalyzer
   - ClothingEyesGlassesChemical
+  - ADTOrganCyberHeart
+  - ADTOrganCyberLungs
+  - ADTOrganCyberLiver
+  - ADTOrganCyberKidneys
+  - ADTOrganCyberStomach
+  - ADTOrganCyberEyes
+  - ADTProsthesisRegularArmLeft
+  - ADTOrganProsthesisRegularHandLeft
+  - ADTProsthesisRegularLegLeft
+  - ADTOrganProsthesisRegularFootLeft
+  - ADTProsthesisRegularArmRight
+  - ADTOrganProsthesisRegularHandRight
+  - ADTProsthesisRegularLegRight
+  - ADTOrganProsthesisRegularFootRight
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalCarePack
@@ -29,6 +50,8 @@
   id: ADTAdvancedMedical
   recipes:
   - ADTAdvancedMedicalBedCircuitboard
+  - ADTOperatingTableMachineCircuitboard
+  - ADTSurgeryConsoleComputerCircuitboard
 
 - type: latheRecipePack
   id: ADTCryoPodMachineCircuitboard
@@ -59,3 +82,23 @@
   id: ADTMedbeamPack
   recipes:
   - ADTWeaponMedbeamCivil
+
+- type: latheRecipePack
+  id: ADTAdvancedSurgeryPack
+  recipes:
+  - ADTBoneSetter
+  - ADTBoneGel
+  - ADTMedicalSplint1
+  - ADTSurgicalTape
+  - ADTBloodFilter
+  - ADTSurgicalDrapes
+  - SawElectric
+  - ScalpelLaser
+
+- type: latheRecipePack
+  id: ADTLaserSurgeryPack
+  recipes:
+  - ADTLaserScalpel
+  - ADTMechanicalPinches
+  - ADTSearingTool
+  - SawAdvanced

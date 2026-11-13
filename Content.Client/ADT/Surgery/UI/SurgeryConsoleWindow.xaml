@@ -1,0 +1,118 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+   xmlns:crew="clr-namespace:Content.Client.ADT.Medical.CrewMonitoring"
+   xmlns:ui="clr-namespace:Content.Client.ADT.Surgery.UI"
+   Title="{Loc 'surgery-console-window-title'}"
+   MinSize="660 500"
+   SetSize="780 680">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+        <BoxContainer Name="EmptyView" Orientation="Vertical" VerticalExpand="True"
+                      HorizontalAlignment="Center" VerticalAlignment="Center" SeparationOverride="4">
+            <Label Name="EmptyTitleLabel" HorizontalAlignment="Center"/>
+            <Label Name="EmptyHintLabel" HorizontalAlignment="Center" FontColorOverride="#9A9AA6"/>
+        </BoxContainer>
+
+        <BoxContainer Name="PatientView" Orientation="Vertical" VerticalExpand="True" SeparationOverride="6" Visible="False">
+            <ui:SurgeryConsolePanel>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="12">
+                    <SpriteView Name="PatientSprite" OverrideDirection="South" Scale="3 3" SetSize="96 96"/>
+                    <BoxContainer Orientation="Vertical" SetWidth="200" VerticalAlignment="Center">
+                        <Label Name="PatientNameLabel" ClipText="True"/>
+                        <Label Name="SpeciesLabel" FontColorOverride="#9A9AA6"/>
+                        <Label Name="MobStatusLabel" Margin="0 6 0 0"/>
+                    </BoxContainer>
+                    <BoxContainer Name="MonitorBox" Orientation="Vertical" HorizontalExpand="True" SeparationOverride="2">
+                        <Control VerticalExpand="True" MinHeight="72" RectClipContent="True">
+                            <crew:CrtScanlineBackground LightLine="#222227" DarkLine="#141417"/>
+                            <ui:SurgeryHeartMonitor Name="HeartMonitor"/>
+                        </Control>
+                        <Label Name="RhythmLabel" HorizontalAlignment="Right"/>
+                    </BoxContainer>
+                </BoxContainer>
+            </ui:SurgeryConsolePanel>
+
+            <BoxContainer Name="BannersBox" Orientation="Vertical" SeparationOverride="2" Visible="False"/>
+
+            <ui:SurgeryConsolePanel Name="VitalsPanel">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="24">
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="2" SeparationOverride="2">
+                        <Label Text="{Loc 'surgery-console-vital-blood'}" FontColorOverride="#9A9AA6"/>
+                        <Label Name="BloodValueLabel"/>
+                        <ProgressBar Name="BloodBar" MinValue="0" MaxValue="1" MinHeight="6"/>
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="2">
+                        <Label Text="{Loc 'surgery-console-vital-temperature'}" FontColorOverride="#9A9AA6"/>
+                        <Label Name="TemperatureValueLabel"/>
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="2">
+                        <Label Text="{Loc 'surgery-console-vital-damage'}" FontColorOverride="#9A9AA6"/>
+                        <Label Name="DamageValueLabel"/>
+                    </BoxContainer>
+                </BoxContainer>
+            </ui:SurgeryConsolePanel>
+
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
+                        <ui:SurgeryConsolePanel>
+                            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                <Label Name="OperationLocationLabel" FontColorOverride="#9A9AA6"/>
+                                <BoxContainer Name="OperationNameBox" Orientation="Vertical"/>
+                                <BoxContainer Name="OperationDetails" Orientation="Vertical" SeparationOverride="4">
+                                    <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                                        <Label Text="{Loc 'surgery-console-state'}" FontColorOverride="#9A9AA6" VerticalAlignment="Top"/>
+                                        <BoxContainer Name="OperationStateBox" Orientation="Vertical" HorizontalExpand="True"/>
+                                    </BoxContainer>
+                                    <Label Text="{Loc 'surgery-console-next-step'}" FontColorOverride="#9A9AA6" Margin="0 4 0 0"/>
+                                    <BoxContainer Name="NextStepsBox" Orientation="Vertical" SeparationOverride="2"/>
+                                </BoxContainer>
+                            </BoxContainer>
+                        </ui:SurgeryConsolePanel>
+
+                        <ui:SurgeryConsolePanel Name="DamagePanel">
+                            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                <Label Text="{Loc 'surgery-console-section-damage'}" StyleClasses="LabelHeading"/>
+                                <Label Name="DamageEmptyLabel" Text="{Loc 'surgery-console-damage-none'}" FontColorOverride="#9A9AA6"/>
+                                <BoxContainer Name="DamageBox" Orientation="Vertical" SeparationOverride="2"/>
+                            </BoxContainer>
+                        </ui:SurgeryConsolePanel>
+
+                        <ui:SurgeryConsolePanel Name="ChemicalsPanel" Visible="False">
+                            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                <Label Text="{Loc 'health-analyzer-window-chemicals-title'}" StyleClasses="LabelHeading"/>
+                                <BoxContainer Name="ChemicalsBox" Orientation="Vertical" SeparationOverride="2"/>
+                            </BoxContainer>
+                        </ui:SurgeryConsolePanel>
+
+                        <ui:SurgeryConsolePanel Name="AddictionsPanel" Visible="False">
+                            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                <Label Text="{Loc 'health-analyzer-window-addictions-title'}" StyleClasses="LabelHeading"/>
+                                <BoxContainer Name="AddictionsBox" Orientation="Vertical" SeparationOverride="2"/>
+                            </BoxContainer>
+                        </ui:SurgeryConsolePanel>
+                    </BoxContainer>
+
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
+                        <ui:SurgeryConsolePanel>
+                            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                <Label Text="{Loc 'surgery-console-section-organs'}" StyleClasses="LabelHeading"/>
+                                <Label Name="OrgansEmptyLabel" Text="{Loc 'surgery-console-organs-none'}" FontColorOverride="#9A9AA6"/>
+                                <BoxContainer Name="OrgansBox" Orientation="Vertical" SeparationOverride="2"/>
+                            </BoxContainer>
+                        </ui:SurgeryConsolePanel>
+
+                        <ui:SurgeryConsolePanel Name="ProsthesesPanel" Visible="False">
+                            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                <Label Text="{Loc 'surgery-console-section-prostheses'}" StyleClasses="LabelHeading"/>
+                                <BoxContainer Name="ProsthesesBox" Orientation="Vertical" SeparationOverride="2"/>
+                            </BoxContainer>
+                        </ui:SurgeryConsolePanel>
+                    </BoxContainer>
+                </BoxContainer>
+            </ScrollContainer>
+        </BoxContainer>
+
+        <CheckBox Name="AlertsCheckBox" Text="{Loc 'surgery-console-alerts-toggle'}"/>
+    </BoxContainer>
+</controls:FancyWindow>

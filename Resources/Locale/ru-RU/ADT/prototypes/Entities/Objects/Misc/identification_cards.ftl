@@ -239,6 +239,9 @@ ent-ADTCMOIDCard = ID карта старшего медицинского оф�
 ent-ADTTraumatologistIDCard = ID карта травматолога
     .desc = ID карта травматолога.
 
+ent-ADTSurgeonIDCard = ID карта хирурга
+    .desc = ID карта хирурга.
+
 ent-ADTIntendantIDCard = ID карта интенданта
     .desc = ID карта интенданта.
 

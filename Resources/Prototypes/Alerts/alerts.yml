@@ -22,6 +22,7 @@
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
+    - alertType: ADTEmbeddedShrapnel # ADT-Tweak
     - category: Temperature
     - category: Hunger
     - category: Thirst

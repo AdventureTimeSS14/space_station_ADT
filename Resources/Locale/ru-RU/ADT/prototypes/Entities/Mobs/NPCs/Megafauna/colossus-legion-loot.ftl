@@ -95,12 +95,8 @@ adt-storm-staff-target = Вы целитесь в это место!
 adt-storm-staff-strike = Молния ударяет в землю!
 adt-storm-staff-hit = Вас поразила молния!
 
-adt-voice-of-god-no-body = Вам некуда это вживить.
-adt-voice-of-god-insert-start-self = Вы начинаете вживлять в себя { $organ }...
-adt-voice-of-god-insert-start-others = { CAPITALIZE($user) } начинает вживлять в себя { $organ }...
 adt-voice-of-god-insert-done = Связки прирастают к вашему горлу. Ваш голос теперь несёт силу древнего бога.
 adt-voice-of-god-cooldown = Связки ещё не восстановились, Слово будет доступно через { $seconds } с.
-adt-voice-of-god-already-have = В вас уже вживлены божественные связки.
 adt-voice-of-god-enabled = Ваши слова теперь несут силу древнего бога.
 adt-voice-of-god-disabled = Вы сдерживаете силу своего голоса.
 adt-voice-of-god-whos-there = Кто там?

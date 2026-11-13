@@ -13,6 +13,19 @@
         - id: DnaScramblerImplanter
 - type: entity
   parent: BoxCardboard
+  id: ADTBoxMantisDaggers
+  name: mantis daggers box
+  description: A pair of mantis dagger implants, one for each arm.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMantisDaggerLeftImplant
+        - id: ADTMantisDaggerRightImplant
+
+- type: entity
+  parent: BoxCardboard
   id: ADTBoxSyndicateCyberpsycho
   name: cyberpsycho bundle
   description: Have you realized that the flesh is weak? Then this bundle is for you!
@@ -29,6 +42,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ADTSandevistanAutoSurgeon
-        - id: ADTMantisDaggersAutoSurgeon
+        - id: ADTSyndicateAutoSurgeonFlatpack
+        - id: ADTSandevistanImplant
+        - id: ADTMantisDaggerLeftImplant
+        - id: ADTMantisDaggerRightImplant
         - id: ADTClothingOuterDavidsJacketValid

@@ -23,6 +23,12 @@
   - type: PermanentStatusEffects
     statusEffects:
     - StatusEffectClumsyMonkey
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTHominizable
   - type: GrabIntent
   - type: Body
   - type: Hands

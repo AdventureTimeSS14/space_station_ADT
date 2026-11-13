@@ -1,0 +1,562 @@
+- type: surgeryEdgePackage
+  id: SurgeryPackageCyberClose
+  edges:
+    - id: Close
+      label: surgery-edge-cyber-close-label
+      target: Closed
+      steps:
+        - name: surgery-edge-cyber-close-label
+          quality: Screwdriving
+          successChance: 0.95
+          duration: 2
+          sound:
+            path: /Audio/Items/screwdriver2.ogg
+          failureEffects:
+            - !type:DamageEffect
+              damage:
+                types:
+                  Blunt: 2
+
+- type: surgeryGraph
+  id: SurgeryCyberHead
+  category: SurgeryCategoryCyberInternals
+  patientKind: Robotic
+  kindPart: Head
+  name: surgery-graph-cyber-head-name
+  location: surgery-location-head
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Head
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ head ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: PrepareElectronics
+          label: surgery-edge-cyber-prepare-electronics-label
+          target: ElectronicsReady
+          steps:
+            - name: surgery-edge-cyber-prepare-electronics-label
+              quality: Pulsing
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Machines/button.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: ElectronicsReady
+      label: surgery-node-cyber-electronics-ready-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: Unbolt
+          label: surgery-edge-cyber-unbolt-label
+          target: Open
+          steps:
+            - name: surgery-edge-cyber-unbolt-label
+              quality: Wrenching
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/ratchet.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Open
+      label: surgery-node-cyber-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveBrain
+          label: surgery-edge-cyber-remove-brain-label
+          target: Open
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Brain
+          steps:
+            - name: surgery-edge-cyber-remove-brain-label
+              quality: OrganManipulation
+              successChance: 0.85
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Brain
+
+        - id: InsertBrain
+          label: surgery-edge-cyber-insert-brain-label
+          target: Open
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Brain
+              inverted: true
+          steps:
+            - name: surgery-edge-cyber-insert-brain-label
+              organ: Brain
+              robotic: true
+              successChance: 0.85
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Brain
+
+        - id: RemoveEyes
+          label: surgery-edge-cyber-remove-eyes-label
+          target: Open
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Eyes
+          steps:
+            - name: surgery-edge-cyber-remove-eyes-label
+              quality: OrganManipulation
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Eyes
+
+        - id: InsertEyes
+          label: surgery-edge-cyber-insert-eyes-label
+          target: Open
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Eyes
+              inverted: true
+          steps:
+            - name: surgery-edge-cyber-insert-eyes-label
+              organ: Eyes
+              robotic: true
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Eyes
+
+        - id: RemoveShadowTumor
+          label: surgery-edge-head-remove-shadow-tumor-label
+          target: Open
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ADTShadowTumor
+          steps:
+            - name: surgery-edge-head-remove-shadow-tumor-label
+              quality: OrganManipulation
+              successChance: 0.85
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:RemoveShadowTumorEffect
+
+        - id: OpenCavity
+          label: surgery-edge-cyber-open-cavity-label
+          target: CavityOpen
+          steps:
+            - name: surgery-edge-cyber-open-cavity-label
+              quality: Prying
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: CavityOpen
+      label: surgery-node-cyber-cavity-open-label
+      edges:
+        - id: StoreItem
+          label: surgery-edge-cavity-store-label
+          target: CavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-head
+              max: 0
+          steps:
+            - name: surgery-edge-cavity-store-label
+              anyItem: true
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:StoreItemEffect
+              cavityId: adt-surgery-cavity-head
+
+        - id: RetrieveItems
+          label: surgery-edge-cavity-retrieve-label
+          target: CavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-head
+              min: 1
+          steps:
+            - name: surgery-edge-cavity-retrieve-label
+              quality: OrganManipulation
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:RetrieveItemsEffect
+              cavityId: adt-surgery-cavity-head
+
+        - id: CloseCavity
+          label: surgery-edge-cyber-close-cavity-label
+          target: Open
+          steps:
+            - name: surgery-edge-cyber-close-cavity-label
+              quality: Prying
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+- type: surgeryGraph
+  id: SurgeryCyberChest
+  category: SurgeryCategoryCyberInternals
+  patientKind: Robotic
+  name: surgery-graph-cyber-chest-name
+  location: surgery-location-chest
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: Open
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Open
+      label: surgery-node-cyber-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenCavity
+          label: surgery-edge-cyber-open-cavity-label
+          target: CavityOpen
+          steps:
+            - name: surgery-edge-cyber-open-cavity-label
+              quality: Prying
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: CavityOpen
+      label: surgery-node-cyber-cavity-open-label
+      edges:
+        - id: StoreItem
+          label: surgery-edge-cavity-store-label
+          target: CavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-chest
+              max: 2
+          steps:
+            - name: surgery-edge-cavity-store-label
+              anyItem: true
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:StoreItemEffect
+              cavityId: adt-surgery-cavity-chest
+
+        - id: RetrieveItems
+          label: surgery-edge-cavity-retrieve-label
+          target: CavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-chest
+              min: 1
+          steps:
+            - name: surgery-edge-cavity-retrieve-label
+              quality: OrganManipulation
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:RetrieveItemsEffect
+              cavityId: adt-surgery-cavity-chest
+
+        - id: CloseCavity
+          label: surgery-edge-cyber-close-cavity-label
+          target: Open
+          steps:
+            - name: surgery-edge-cyber-close-cavity-label
+              quality: Prying
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+- type: surgeryGraph
+  id: SurgeryCyberAbdomen
+  category: SurgeryCategoryCyberInternals
+  patientKind: Robotic
+  name: surgery-graph-cyber-abdomen-name
+  location: surgery-location-abdomen
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: Open
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Open
+      label: surgery-node-cyber-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenCavity
+          label: surgery-edge-cyber-open-cavity-label
+          target: CavityOpen
+          steps:
+            - name: surgery-edge-cyber-open-cavity-label
+              quality: Prying
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: CavityOpen
+      label: surgery-node-cyber-cavity-open-label
+      edges:
+        - id: StoreItem
+          label: surgery-edge-cavity-store-label
+          target: CavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-abdomen
+              max: 2
+          steps:
+            - name: surgery-edge-cavity-store-label
+              anyItem: true
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:StoreItemEffect
+              cavityId: adt-surgery-cavity-abdomen
+
+        - id: RetrieveItems
+          label: surgery-edge-cavity-retrieve-label
+          target: CavityOpen
+          conditions:
+            - !type:CavityItemsCondition
+              cavityId: adt-surgery-cavity-abdomen
+              min: 1
+          steps:
+            - name: surgery-edge-cavity-retrieve-label
+              quality: OrganManipulation
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:RetrieveItemsEffect
+              cavityId: adt-surgery-cavity-abdomen
+
+        - id: CloseCavity
+          label: surgery-edge-cyber-close-cavity-label
+          target: Open
+          steps:
+            - name: surgery-edge-cyber-close-cavity-label
+              quality: Prying
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2

@@ -89,6 +89,7 @@ public sealed partial class StethoscopeSystem : EntitySystem
         }
 
         ExamineWithStethoscope(ent, args.Args.User, target.Value);
+        RaiseLocalEvent(target.Value, new ADTStethoscopeListenedEvent(args.Args.User)); // ADT-Tweak
 
         args.Repeat = true;
     }

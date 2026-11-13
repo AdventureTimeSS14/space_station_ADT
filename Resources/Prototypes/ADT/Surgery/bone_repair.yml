@@ -1,0 +1,1449 @@
+- type: surgeryGraph
+  id: SurgeryBoneRepairHead
+  category: SurgeryCategoryBoneRepair
+  kindPart: Head
+  name: surgery-graph-bone-repair-head-name
+  location: surgery-location-head
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: Head
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ head ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: Head
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 10
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: Head
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairTorso
+  category: SurgeryCategoryBoneRepair
+  kindPart: Torso
+  name: surgery-graph-bone-repair-chest-name
+  location: surgery-location-chest
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: Torso
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: Torso
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: Torso
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairArmLeft
+  category: SurgeryCategoryBoneRepair
+  kindPart: ArmLeft
+  name: surgery-graph-bone-repair-arm-left-name
+  location: surgery-location-arm-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: ArmLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: ArmLeft
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: ArmLeft
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairArmRight
+  category: SurgeryCategoryBoneRepair
+  kindPart: ArmRight
+  name: surgery-graph-bone-repair-arm-right-name
+  location: surgery-location-arm-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: ArmRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: ArmRight
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: ArmRight
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairHandLeft
+  category: SurgeryCategoryBoneRepair
+  kindPart: HandLeft
+  name: surgery-graph-bone-repair-hand-left-name
+  location: surgery-location-hand-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: HandLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: HandLeft
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: HandLeft
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairHandRight
+  category: SurgeryCategoryBoneRepair
+  kindPart: HandRight
+  name: surgery-graph-bone-repair-hand-right-name
+  location: surgery-location-hand-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: HandRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: HandRight
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: HandRight
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairLegLeft
+  category: SurgeryCategoryBoneRepair
+  kindPart: LegLeft
+  name: surgery-graph-bone-repair-leg-left-name
+  location: surgery-location-leg-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: LegLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: LegLeft
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: LegLeft
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairLegRight
+  category: SurgeryCategoryBoneRepair
+  kindPart: LegRight
+  name: surgery-graph-bone-repair-leg-right-name
+  location: surgery-location-leg-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: LegRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: LegRight
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: LegRight
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairFootLeft
+  category: SurgeryCategoryBoneRepair
+  kindPart: FootLeft
+  name: surgery-graph-bone-repair-foot-left-name
+  location: surgery-location-foot-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: FootLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: FootLeft
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: FootLeft
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryBoneRepairFootRight
+  category: SurgeryCategoryBoneRepair
+  kindPart: FootRight
+  name: surgery-graph-bone-repair-foot-right-name
+  location: surgery-location-foot-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:FractureCondition
+              organId: FootRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: GlueBone
+          label: surgery-edge-bone-glue-label
+          target: BoneGlued
+          conditions:
+            - !type:FractureCondition
+              organId: FootRight
+          steps:
+            - name: surgery-edge-bone-glue-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+
+    - name: BoneGlued
+      label: surgery-node-bone-glued-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: SetBone
+          label: surgery-edge-bone-set-label
+          target: BoneSet
+          steps:
+            - name: surgery-edge-bone-set-label
+              quality: BoneSetting
+              successChance: 0.8
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonesetter.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+
+    - name: BoneSet
+      label: surgery-node-bone-set-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: FinishBone
+          label: surgery-edge-bone-finish-label
+          target: BoneMended
+          steps:
+            - name: surgery-edge-bone-finish-label
+              quality: BoneMending
+              successChance: 0.85
+              duration: 2.4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/bonegel.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+          effects:
+            - !type:MendFractureEffect
+              organId: FootRight
+
+    - name: BoneMended
+      label: surgery-node-bone-mended-label
+      packages:
+        - SurgeryPackageLimbCauterize

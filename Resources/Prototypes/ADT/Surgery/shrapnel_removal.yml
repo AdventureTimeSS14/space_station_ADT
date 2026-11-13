@@ -1,0 +1,1899 @@
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalHead
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: Head
+  name: surgery-graph-shrapnel-head-name
+  location: surgery-location-head
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Head
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ head ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Head
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: Head
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticHead
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: Head
+  name: surgery-graph-shrapnel-head-name
+  location: surgery-location-head
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Head
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ head ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Head
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: Head
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalTorso
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: Torso
+  name: surgery-graph-shrapnel-chest-name
+  location: surgery-location-chest
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Torso
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Torso
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: Torso
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticTorso
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: Torso
+  name: surgery-graph-shrapnel-chest-name
+  location: surgery-location-chest
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Torso
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: Torso
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: Torso
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalArmLeft
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: ArmLeft
+  name: surgery-graph-shrapnel-arm-left-name
+  location: surgery-location-arm-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: ArmLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticArmLeft
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: ArmLeft
+  name: surgery-graph-shrapnel-arm-left-name
+  location: surgery-location-arm-left
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: ArmLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalArmRight
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: ArmRight
+  name: surgery-graph-shrapnel-arm-right-name
+  location: surgery-location-arm-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: ArmRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticArmRight
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: ArmRight
+  name: surgery-graph-shrapnel-arm-right-name
+  location: surgery-location-arm-right
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: ArmRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: ArmRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalHandLeft
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: HandLeft
+  name: surgery-graph-shrapnel-hand-left-name
+  location: surgery-location-hand-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: HandLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticHandLeft
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: HandLeft
+  name: surgery-graph-shrapnel-hand-left-name
+  location: surgery-location-hand-left
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: HandLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalHandRight
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: HandRight
+  name: surgery-graph-shrapnel-hand-right-name
+  location: surgery-location-hand-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: HandRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticHandRight
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: HandRight
+  name: surgery-graph-shrapnel-hand-right-name
+  location: surgery-location-hand-right
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ gloves ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: HandRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: HandRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalLegLeft
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: LegLeft
+  name: surgery-graph-shrapnel-leg-left-name
+  location: surgery-location-leg-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: LegLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticLegLeft
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: LegLeft
+  name: surgery-graph-shrapnel-leg-left-name
+  location: surgery-location-leg-left
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: LegLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalLegRight
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: LegRight
+  name: surgery-graph-shrapnel-leg-right-name
+  location: surgery-location-leg-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: LegRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticLegRight
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: LegRight
+  name: surgery-graph-shrapnel-leg-right-name
+  location: surgery-location-leg-right
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ jumpsuit, outerClothing ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: LegRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: LegRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalFootLeft
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: FootLeft
+  name: surgery-graph-shrapnel-foot-left-name
+  location: surgery-location-foot-left
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: FootLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticFootLeft
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: FootLeft
+  name: surgery-graph-shrapnel-foot-left-name
+  location: surgery-location-foot-left
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootLeft
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootLeft
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: FootLeft
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalFootRight
+  category: SurgeryCategoryShrapnelRemoval
+  kindPart: FootRight
+  name: surgery-graph-shrapnel-foot-right-name
+  location: surgery-location-foot-right
+  startNode: Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
+          steps:
+            - name: surgery-edge-limb-cut-label
+              quality: Incision
+              successChance: 0.85
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 4
+
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-limb-clamp-bleeders-label
+          target: BleedersClamped
+          steps:
+            - name: surgery-edge-limb-clamp-bleeders-label
+              quality: Clamping
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: BleedersClamped
+      label: surgery-node-limb-bleeders-clamped-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-limb-retract-skin-label
+          target: SkinRetracted
+          steps:
+            - name: surgery-edge-limb-retract-skin-label
+              quality: Retraction
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: SkinRetracted
+      label: surgery-node-limb-skin-retracted-label
+      packages:
+        - SurgeryPackageLimbCauterize
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: FootRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageLimbCauterize
+
+- type: surgeryGraph
+  id: SurgeryShrapnelRemovalRoboticFootRight
+  category: SurgeryCategoryShrapnelRemoval
+  patientKind: Robotic
+  kindPart: FootRight
+  name: surgery-graph-shrapnel-foot-right-name
+  location: surgery-location-foot-right
+  startNode: Closed
+  nodes:
+    - name: Closed
+      label: surgery-node-cyber-closed-label
+      edges:
+        - id: Unscrew
+          label: surgery-edge-cyber-unscrew-label
+          target: Unscrewed
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootRight
+            - !type:ClothingCondition
+              inverted: true
+              slots: [ shoes, socks ]
+          steps:
+            - name: surgery-edge-cyber-unscrew-label
+              quality: Screwdriving
+              successChance: 0.9
+              duration: 2.4
+              sound:
+                path: /Audio/Items/screwdriver.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: Unscrewed
+      label: surgery-node-cyber-unscrewed-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: OpenHatch
+          label: surgery-edge-cyber-open-hatch-label
+          target: HatchOpen
+          steps:
+            - name: surgery-edge-cyber-open-hatch-label
+              quality: Prying
+              successChance: 0.9
+              duration: 1.5
+              sound:
+                path: /Audio/Items/crowbar.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+
+    - name: HatchOpen
+      label: surgery-node-cyber-hatch-open-label
+      packages:
+        - SurgeryPackageCyberClose
+      edges:
+        - id: RemoveObjects
+          label: surgery-edge-shrapnel-remove-label
+          target: ObjectsRemoved
+          conditions:
+            - !type:EmbeddedObjectsCondition
+              organId: FootRight
+          steps:
+            - name: surgery-edge-shrapnel-remove-label
+              quality: Clamping
+              successChance: 0.9
+              duration: 3.2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              failureEffects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Blunt: 2
+          effects:
+            - !type:ExtractEmbeddedEffect
+              organId: FootRight
+
+    - name: ObjectsRemoved
+      label: surgery-node-shrapnel-removed-label
+      packages:
+        - SurgeryPackageCyberClose

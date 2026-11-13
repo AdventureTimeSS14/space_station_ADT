@@ -1,0 +1,11 @@
+- type: reaction
+  id: ADTMitocholide
+  reactants:
+    Cryoxadone:
+      amount: 1
+    Plasma:
+      amount: 1
+    Bicaridine:
+      amount: 1
+  products:
+    ADTMitocholide: 1

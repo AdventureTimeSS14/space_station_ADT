@@ -48,6 +48,7 @@ public sealed partial class RespiratorSystem : EntitySystem
     [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     private static readonly ProtoId<MetabolismStagePrototype> RespirationStage = new("Respiration");
+    private static readonly ProtoId<OrganCategoryPrototype> LungsCategory = "Lungs"; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -96,17 +97,22 @@ public sealed partial class RespiratorSystem : EntitySystem
                 continue;
 
             // ADT tweak start
-            if (!_body.TryGetOrgansWithComponent<LungComponent>((uid, body), out var organs))
-                continue;
-
             var multiplier = -1f;
-            foreach (var organ in organs)
+            if (_body.TryGetOrgansWithComponent<LungComponent>((uid, body), out var organs))
             {
-                multiplier *= organ.Comp.SaturationLoss;
+                foreach (var organ in organs)
+                {
+                    multiplier *= organ.Comp.SaturationLoss;
+                }
             }
-            // ADT tweak end
-            UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
+            else if (!TryComp<Content.Shared.ADT.Body.OrganHealth.OrganFunctionsComponent>(uid, out var functions)
+                     || !functions.ExpectedCategories.Contains(LungsCategory))
+            {
+                continue;
+            }
 
+            UpdateSaturation(uid, (float)respirator.UpdateInterval.TotalSeconds * multiplier, respirator);
+            // ADT tweak end
             if (!_mobState.IsIncapacitated(uid) && !(TryComp<PullableComponent>(uid, out var pullable) && TryComp<GrabIntentComponent>(pullable.Puller, out var grabIntent) && grabIntent.GrabStage == GrabStage.Suffocate)) // cannot breathe in crit. // ADT grab tweak
             {
                 switch (respirator.Status)

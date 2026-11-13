@@ -1,9 +1,7 @@
 using Content.Shared.Actions;
-using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.VoiceOfGod;
 
@@ -15,9 +13,6 @@ public sealed partial class ADTVoiceOfGodComponent : Component
 
     [ViewVariables]
     public EntityUid? ActionUid;
-
-    [DataField]
-    public TimeSpan InsertDelay = TimeSpan.FromSeconds(5);
 
     [DataField]
     public float Range = 8f;
@@ -61,6 +56,3 @@ public sealed partial class ADTVoiceOfGodSpeakerComponent : Component
 }
 
 public sealed partial class ADTVoiceOfGodActionEvent : InstantActionEvent;
-
-[Serializable, NetSerializable]
-public sealed partial class ADTVoiceOfGodInsertDoAfterEvent : SimpleDoAfterEvent;

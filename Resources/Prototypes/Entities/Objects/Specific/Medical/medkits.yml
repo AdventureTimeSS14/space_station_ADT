@@ -118,6 +118,15 @@
   components:
   - type: Sprite
     state: blackkit
+  # ADT-Tweak-Start
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,4,1
+    storageInsertSound:
+      path: /Audio/ADT/Entities/medkit_rustle.ogg
+    storageOpenSound: /Audio/ADT/Entities/medkit_open.ogg
+  # ADT-Tweak-End
   - type: Item
     heldPrefix: blackkit
     size: Normal

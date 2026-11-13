@@ -1,0 +1,11 @@
+- type: reaction
+  id: ADTHominizine
+  reactants:
+    Siderlac:
+      amount: 1
+    UnstableMutagen:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    ADTHominizine: 3

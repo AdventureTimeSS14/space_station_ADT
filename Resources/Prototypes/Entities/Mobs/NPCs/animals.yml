@@ -1832,6 +1832,12 @@
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTHominizable
   # ADT-Tweak end
   - type: PermanentStatusEffects
     statusEffects:

@@ -1,50 +1,426 @@
 - type: marking
   id: DemonChestCowSpots
-  bodyPart: Special
+  bodyPart: Chest
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: cow_spots
+    state: cow_spots_torso
+
+- type: marking
+  id: DemonChestCowSpotsHead
+  bodyPart: Head
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_head
+
+- type: marking
+  id: DemonChestCowSpotsLArm
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_l_arm
+
+- type: marking
+  id: DemonChestCowSpotsRArm
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_r_arm
+
+- type: marking
+  id: DemonChestCowSpotsLHand
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_l_hand
+
+- type: marking
+  id: DemonChestCowSpotsRHand
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_r_hand
+
+- type: marking
+  id: DemonChestCowSpotsRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_r_leg
+
+- type: marking
+  id: DemonChestCowSpotsLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_l_foot
+
+- type: marking
+  id: DemonChestCowSpotsRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots_r_foot
 
 - type: marking
   id: DemonChestGuard
-  bodyPart: Special
+  bodyPart: Chest
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: guards_stripes
+    state: guards_stripes_torso
+
+- type: marking
+  id: DemonChestGuardHead
+  bodyPart: Head
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_head
+
+- type: marking
+  id: DemonChestGuardLArm
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_l_arm
+
+- type: marking
+  id: DemonChestGuardRArm
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_r_arm
+
+- type: marking
+  id: DemonChestGuardLHand
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_l_hand
+
+- type: marking
+  id: DemonChestGuardRHand
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_r_hand
+
+- type: marking
+  id: DemonChestGuardLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_l_leg
+
+- type: marking
+  id: DemonChestGuardRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_r_leg
+
+- type: marking
+  id: DemonChestGuardLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_l_foot
+
+- type: marking
+  id: DemonChestGuardRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes_r_foot
 
 - type: marking
   id: DemonChestLinesEmperos
-  bodyPart: Special
+  bodyPart: Chest
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: lines_emperos
+    state: lines_emperos_torso
+
+- type: marking
+  id: DemonChestLinesEmperosHead
+  bodyPart: Head
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_head
+
+- type: marking
+  id: DemonChestLinesEmperosLArm
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_l_arm
+
+- type: marking
+  id: DemonChestLinesEmperosRArm
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_r_arm
+
+- type: marking
+  id: DemonChestLinesEmperosLHand
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_l_hand
+
+- type: marking
+  id: DemonChestLinesEmperosRHand
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_r_hand
+
+- type: marking
+  id: DemonChestLinesEmperosLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_l_leg
+
+- type: marking
+  id: DemonChestLinesEmperosRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_r_leg
+
+- type: marking
+  id: DemonChestLinesEmperosLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_l_foot
+
+- type: marking
+  id: DemonChestLinesEmperosRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos_r_foot
 
 - type: marking
   id: DemonChestQueenLines
-  bodyPart: Special
+  bodyPart: Chest
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: queen_lines
+    state: queen_lines_torso
+
+- type: marking
+  id: DemonChestQueenLinesHead
+  bodyPart: Head
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines_head
+
+- type: marking
+  id: DemonChestQueenLinesLArm
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines_l_arm
+
+- type: marking
+  id: DemonChestQueenLinesRArm
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines_r_arm
+
+- type: marking
+  id: DemonChestQueenLinesLHand
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines_l_hand
+
+- type: marking
+  id: DemonChestQueenLinesRHand
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines_r_hand
+
+- type: marking
+  id: DemonChestQueenLinesLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines_l_leg
+
+- type: marking
+  id: DemonChestQueenLinesRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines_r_leg
 
 - type: marking
   id: DemonChestTreeLines
-  bodyPart: Special
+  bodyPart: Chest
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: tree_lines
+    state: tree_lines_torso
+
+- type: marking
+  id: DemonChestTreeLinesHead
+  bodyPart: Head
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_head
+
+- type: marking
+  id: DemonChestTreeLinesLArm
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_l_arm
+
+- type: marking
+  id: DemonChestTreeLinesRArm
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_r_arm
+
+- type: marking
+  id: DemonChestTreeLinesLHand
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_l_hand
+
+- type: marking
+  id: DemonChestTreeLinesRHand
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_r_hand
+
+- type: marking
+  id: DemonChestTreeLinesLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_l_leg
+
+- type: marking
+  id: DemonChestTreeLinesRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_r_leg
+
+- type: marking
+  id: DemonChestTreeLinesLFoot
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_l_foot
+
+- type: marking
+  id: DemonChestTreeLinesRFoot
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines_r_foot
 
 - type: marking
   id: DemonChestTrinitySpots
-  bodyPart: Special
+  bodyPart: Chest
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: trinity_spots
+    state: trinity_spots_torso
+
+- type: marking
+  id: DemonChestTrinitySpotsHead
+  bodyPart: Head
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: trinity_spots_head
+
+- type: marking
+  id: DemonChestTrinitySpotsLArm
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: trinity_spots_l_arm
+
+- type: marking
+  id: DemonChestTrinitySpotsRArm
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: trinity_spots_r_arm
+
+- type: marking
+  id: DemonChestTrinitySpotsLLeg
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: trinity_spots_l_leg
+
+- type: marking
+  id: DemonChestTrinitySpotsRLeg
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: trinity_spots_r_leg
 
 #Бороды
 - type: marking

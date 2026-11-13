@@ -351,6 +351,8 @@
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Resomi/parts.rsi
+  - type: OrganOrigin
+    species: Resomi
 
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganResomiExternal ]

@@ -95,6 +95,35 @@
     - ADTMedipen
 
 - type: entity
+  name: nanocalcium auto-injector
+  parent: ChemicalMedipen
+  id: ADTNanocalciumAutoInjector
+  description: Experimental bone-mending nanites. The first minute is going to be very unpleasant. Do not mix with stimulants.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: bruizpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: bruizpen_empty
+  - type: Injector
+    currentTransferAmount: 30
+    activeModeProtoId: HyposprayInjectMode
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTNanocalcium
+        Quantity: 30
+  - type: Tag
+    tags:
+    - ADTMedipen
+  - type: GuideHelp
+    guides:
+    - ADTSurgeryReagents
+
+- type: entity
   name: crisis auto-injector
   parent: ChemicalMedipen
   id: ADTCrisisAutoInjector

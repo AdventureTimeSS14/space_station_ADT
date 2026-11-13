@@ -19,6 +19,9 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: DoctorDay
     prototype: WehMedipen
+  - !type:AddComponentSpecial # ADT-Tweak
+    components:
+    - type: SurgerySkill
 
 - type: startingGear
   id: DoctorGear

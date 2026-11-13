@@ -1,0 +1,23 @@
+- type: constructionGraph
+  id: ADTMakeshiftSplintCraft
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: splint
+      steps:
+      - material: WoodPlank
+        amount: 2
+      - material: Cloth
+        amount: 3
+        doAfter: 5
+  - node: splint
+    entity: ADTMakeshiftSplint1
+
+- type: construction
+  id: ADTMakeshiftSplintCraft
+  graph: ADTMakeshiftSplintCraft
+  startNode: start
+  targetNode: splint
+  category: construction-category-misc
+  objectType: Item

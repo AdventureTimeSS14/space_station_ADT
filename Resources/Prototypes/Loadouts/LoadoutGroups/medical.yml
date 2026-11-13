@@ -118,6 +118,7 @@
   - ADTDoctorPDA # ADT
   - ADTTherapistPDA # ADT
   - ADTTraumatologistPDA # ADT
+  - ADTSurgeonPDA # ADT
 
 - type: loadoutGroup
   id: MedicalGloves

@@ -218,6 +218,9 @@
         damage:
           types:
             Caustic: 8
+      - !type:AdjustOrganDamage # ADT-Tweak
+        category: Stomach
+        amount: 1
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -267,6 +270,9 @@
         damage:
           types:
             Caustic: 5
+      - !type:AdjustOrganDamage # ADT-Tweak
+        category: Stomach
+        amount: 0.5
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -328,6 +334,9 @@
           types:
             Poison: 3
             Cold: 1
+      - !type:AdjustOrganDamage
+        category: Heart
+        amount: 1
       # End ADT tweak
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -364,6 +373,9 @@
             Bloodloss: 3
             Poison: 3.5
             Cold: 2
+      - !type:AdjustOrganDamage
+        category: Lungs
+        amount: 1
       # End ADT tweak
 
 - type: reagent
@@ -384,6 +396,9 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
+      - !type:AdjustOrganDamage # ADT-Tweak
+        category: Brain
+        amount: 0.2
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -487,6 +502,9 @@
         damage:
           types:
             Poison: 3
+      - !type:AdjustOrganDamage # ADT-Tweak
+        category: Liver
+        amount: 0.5
 
 - type: reagent
   id: VentCrud

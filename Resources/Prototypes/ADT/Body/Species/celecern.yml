@@ -164,11 +164,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.6
     baseSprintSpeed : 4.7
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: ADTCelecernFootstep
-      params:
-        variation: 0.125
   - type: Tag
     tags:
     - CanPilot
@@ -295,11 +290,23 @@
   id: ADTOrganCelecernLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernHoof
+  abstract: true
+  components:
+  - type: OrganGrantComponents
+    components:
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: ADTCelecernFootstep
+        params:
+          variation: 0.125
+
+- type: entity
+  parent: [ OrganBaseFootLeft, ADTOrganCelecernExternal, ADTOrganCelecernHoof ]
   id: ADTOrganCelecernFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, ADTOrganCelecernExternal ]
+  parent: [ OrganBaseFootRight, ADTOrganCelecernExternal, ADTOrganCelecernHoof ]
   id: ADTOrganCelecernFootRight
 
 - type: entity

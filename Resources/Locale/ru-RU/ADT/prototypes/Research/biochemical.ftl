@@ -15,3 +15,11 @@ research-technology-chemistry-misc = Химические принадлежно
 research-technology-thermo = Термогеника
 
 research-technology-syringe-gun = Шприцемёт
+
+research-technology-cybernetic-organs = Кибернетика
+
+research-technology-advanced-surgery = Продвинутая хирургия
+
+research-technology-laser-surgery = Лазерная хирургия
+
+research-technology-basic-surgery = Основы хирургии

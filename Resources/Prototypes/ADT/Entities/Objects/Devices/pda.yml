@@ -605,6 +605,14 @@
   - type: Pda
     id: ADTTraumatologistIDCard
 
+- type: entity
+  parent: MedicalPDA
+  id: ADTSurgeonPDA
+  name: surgeon PDA
+  components:
+  - type: Pda
+    id: ADTSurgeonIDCard
+
 # Atmospherics Technician
 
 - type: entity

@@ -118,6 +118,8 @@
   id: MobDrask
   name: Urist McDrask
   components:
+  - type: ADTBones
+    fragility: 0.8
   - type: Sprite
     scale: 1.07, 1.07
   - type: MobThresholds

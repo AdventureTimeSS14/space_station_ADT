@@ -72,6 +72,8 @@
   id: MobDiona
   name: Urist McPlants
   components:
+  - type: ADTBones # ADT-Tweak
+    canBreak: false
   # ADT-Tweak start
   - type: MobThresholds
     thresholds:

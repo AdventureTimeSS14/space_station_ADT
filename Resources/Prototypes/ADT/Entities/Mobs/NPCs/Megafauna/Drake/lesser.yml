@@ -78,6 +78,7 @@
     factions:
     - NanoTrasen
   - type: Fauna
+  - type: ADTFractureSource
   - type: AshStormImmune
   - type: ActionsContainer
   - type: ActionGrant

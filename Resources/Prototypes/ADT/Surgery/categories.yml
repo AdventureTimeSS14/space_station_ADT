@@ -1,0 +1,44 @@
+- type: surgeryCategory
+  id: SurgeryCategoryOrganManipulation
+  name: surgery-category-organ-manipulation-name
+
+- type: surgeryCategory
+  id: SurgeryCategoryLimbManipulation
+  name: surgery-category-limb-manipulation-name
+
+- type: surgeryCategory
+  id: SurgeryCategoryAmputation
+  name: surgery-category-amputation-name
+  parent: SurgeryCategoryLimbManipulation
+
+- type: surgeryCategory
+  id: SurgeryCategoryLimbReattachment
+  name: surgery-category-limb-reattachment-name
+  parent: SurgeryCategoryLimbManipulation
+
+- type: surgeryCategory
+  id: SurgeryCategoryCyber
+  name: surgery-category-cyber-name
+
+- type: surgeryCategory
+  id: SurgeryCategoryCyberInternals
+  name: surgery-category-cyber-internals-name
+  parent: SurgeryCategoryCyber
+
+- type: surgeryCategory
+  id: SurgeryCategoryCyberDisassembly
+  name: surgery-category-cyber-disassembly-name
+  parent: SurgeryCategoryCyber
+
+- type: surgeryCategory
+  id: SurgeryCategoryCyberAssembly
+  name: surgery-category-cyber-assembly-name
+  parent: SurgeryCategoryCyber
+
+- type: surgeryCategory
+  id: SurgeryCategoryBoneRepair
+  name: surgery-category-bone-repair-name
+
+- type: surgeryCategory
+  id: SurgeryCategoryShrapnelRemoval
+  name: surgery-category-shrapnel-removal-name

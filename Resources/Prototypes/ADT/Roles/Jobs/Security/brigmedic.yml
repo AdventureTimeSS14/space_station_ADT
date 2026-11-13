@@ -37,6 +37,7 @@
   - !type:AddComponentSpecial
     components:
       - type: ADTTenCodeKnowledge
+      - type: SurgerySkill
 
 - type: startingGear
   id: BrigmedicGear

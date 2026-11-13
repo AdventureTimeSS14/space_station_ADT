@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
+using Content.Client.ADT.Body.Bones;
 using Content.Shared.ADT.Addiction;
 using Content.Shared.ADT.Virology;
 using Content.Shared.ADT.Body.Allergies;
@@ -146,7 +147,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         // Alerts
 
-        var showAlerts = state.Unrevivable == true || state.Bleeding == true;
+        var injuries = ADTInjuryReport.GetLines(_entityManager, _prototypes, target.Value); // ADT-Tweak
+        var showAlerts = state.Unrevivable == true || state.Bleeding == true || injuries.Count > 0; // ADT-Tweak
 
         AlertsDivider.Visible = showAlerts;
         AlertsContainer.Visible = showAlerts;
@@ -169,6 +171,18 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
                 Margin = new Thickness(0, 4),
                 MaxWidth = 300
             });
+
+        // ADT-Tweak start
+        foreach (var injury in injuries)
+        {
+            AlertsContainer.AddChild(new RichTextLabel
+            {
+                Text = injury,
+                Margin = new Thickness(0, 4),
+                MaxWidth = 300
+            });
+        }
+        // ADT-Tweak end
 
         // Damage Groups
 

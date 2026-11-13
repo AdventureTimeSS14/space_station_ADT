@@ -1,0 +1,101 @@
+- type: latheRecipe
+  id: ADTOrganCyberHeart
+  result: ADTOrganCyberHeart
+  completetime: 14
+  materials:
+    Steel: 600
+    Glass: 200
+    Plastic: 300
+    Silver: 250
+    Gold: 150
+    Plasma: 100
+
+- type: latheRecipe
+  id: ADTOrganCyberLungs
+  result: ADTOrganCyberLungs
+  completetime: 14
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 400
+    Silver: 150
+    Gold: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: ADTOrganCyberLiver
+  result: ADTOrganCyberLiver
+  completetime: 14
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Silver: 150
+    Gold: 100
+    Plasma: 50
+
+- type: latheRecipe
+  id: ADTOrganCyberKidneys
+  result: ADTOrganCyberKidneys
+  completetime: 14
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Silver: 150
+    Gold: 100
+    Plasma: 50
+
+- type: latheRecipe
+  id: ADTOrganCyberStomach
+  result: ADTOrganCyberStomach
+  completetime: 14
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Silver: 150
+    Gold: 100
+    Plasma: 50
+
+- type: latheRecipe
+  id: ADTOrganCyberEyes
+  result: ADTOrganCyberEyes
+  completetime: 14
+  materials:
+    Steel: 300
+    Glass: 500
+    Plastic: 200
+    Silver: 200
+    Gold: 150
+    Uranium: 50
+
+- type: latheRecipe
+  id: ADTLaserScalpel
+  result: ADTLaserScalpel
+  completetime: 4
+  materials:
+    Steel: 500
+    Glass: 300
+    Plastic: 200
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTMechanicalPinches
+  result: ADTMechanicalPinches
+  completetime: 4
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 200
+    Silver: 100
+
+- type: latheRecipe
+  id: ADTSearingTool
+  result: ADTSearingTool
+  completetime: 4
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 200
+    Plasma: 200
