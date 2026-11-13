@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Vehicle.Components; // ADT-Tweak
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
@@ -386,8 +385,7 @@ public abstract partial class SharedBuckleSystem
         else if (user != null)
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} buckled {ToPrettyString(buckle)} to {ToPrettyString(strap)}");
 
-        if (!(HasComp<HallucinationsRemoveMobsComponent>(_playerManager.LocalEntity) && user != _playerManager.LocalEntity))    // ADT-Tweak: Hallucinations
-            _audio.PlayPredicted(strap.Comp.BuckleSound, strap, user);
+        _audio.PlayPredicted(strap.Comp.BuckleSound, strap, user);
 
         SetBuckledTo(buckle, strap!);
         Appearance.SetData(strap, StrapVisuals.State, true);
@@ -478,8 +476,7 @@ public abstract partial class SharedBuckleSystem
         else if (user != null)
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} unbuckled {ToPrettyString(buckle):target} from {ToPrettyString(strap):strap}");
 
-        if (!(HasComp<HallucinationsRemoveMobsComponent>(_playerManager.LocalEntity) && user != _playerManager.LocalEntity))    // ADT-Tweak: Hallucinations
-            _audio.PlayPredicted(strap.Comp.UnbuckleSound, strap, user);
+        _audio.PlayPredicted(strap.Comp.UnbuckleSound, strap, user);
 
         SetBuckledTo(buckle, null);
 

@@ -159,18 +159,18 @@ public sealed partial class SchizophreniaSystem
 
     private void OverrideEmoteSound(Entity<HallucinationComponent> ent, ref OverrideEmoteSoundEvent args)
     {
+        args.Cancelled = true;
+
         var filter = Filter.Entities(ent.Owner, ent.Comp.Ent);
-        var sound = _audio.PlayEntity(args.Sound, filter, ent.Owner, false);
+        var sound = _audio.PlayEntity(args.Sound, filter, ent.Owner, false, args.Params);
 
         if (!sound.HasValue)
             return;
 
-        foreach (var recipient in filter.Recipients)
-        {
-            _pvsOverride.AddForceSend(sound.Value.Entity, recipient);
+        AddAsHallucination(ent.Comp.Ent, sound.Value.Entity, false);
 
-            AddAsHallucination(ent.Comp.Ent, sound.Value.Entity, false);   // to avoid error spam
-        }
+        foreach (var recipient in filter.Recipients)
+            _pvsOverride.AddForceSend(sound.Value.Entity, recipient);
     }
 
     private void OnSetupPointer(Entity<HallucinationComponent> ent, ref SetupPointingArrowEvent args)

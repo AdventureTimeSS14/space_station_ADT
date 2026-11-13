@@ -19,8 +19,8 @@ public sealed partial class HueShiftSystem : EntitySystem
         SubscribeLocalEvent<HueShiftComponent, ComponentStartup>(OnMonochromacyStartup);
         SubscribeLocalEvent<HueShiftComponent, ComponentShutdown>(OnMonochromacyShutdown);
 
-        SubscribeLocalEvent<HueShiftComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<HueShiftComponent, PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<HueShiftComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<HueShiftComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         _overlay = new();
     }
@@ -39,12 +39,12 @@ public sealed partial class HueShiftSystem : EntitySystem
         }
     }
 
-    private void OnPlayerAttached(EntityUid uid, HueShiftComponent component, PlayerAttachedEvent args)
+    private void OnPlayerAttached(EntityUid uid, HueShiftComponent component, LocalPlayerAttachedEvent args)
     {
         _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(EntityUid uid, HueShiftComponent component, PlayerDetachedEvent args)
+    private void OnPlayerDetached(EntityUid uid, HueShiftComponent component, LocalPlayerDetachedEvent args)
     {
         _overlayMan.RemoveOverlay(_overlay);
     }

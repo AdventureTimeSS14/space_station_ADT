@@ -69,7 +69,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
             {
                 comp.Hallucinations.Remove(item.Key);
                 comp.Removes.Remove(item.Key);
-                EntityManager.RemoveComponents(uid, _proto.Index<HallucinationsPackPrototype>(item.Key).Components);
+                RemovePackComponents(uid, comp, item.Key);
 
                 if (!TryComp<HallucinationsMusicComponent>(uid, out var musicComp) ||
                     !musicComp.Music.ContainsKey(item.Key))
@@ -92,6 +92,25 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         }
 
         return true;
+    }
+
+    private void RemovePackComponents(EntityUid uid, HallucinatingComponent comp, string packId)
+    {
+        foreach (var (name, _) in _proto.Index<HallucinationsPackPrototype>(packId).Components)
+        {
+            var usedByOther = false;
+            foreach (var otherId in comp.Hallucinations.Keys)
+            {
+                if (_proto.Index<HallucinationsPackPrototype>(otherId).Components.ContainsKey(name))
+                {
+                    usedByOther = true;
+                    break;
+                }
+            }
+
+            if (!usedByOther)
+                EntityManager.RemoveComponent(uid, EntityManager.ComponentFactory.GetRegistration(name).Type);
+        }
     }
 
     private void UpdateEffects(EntityUid uid, HallucinatingComponent comp)

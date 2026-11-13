@@ -48,7 +48,7 @@ public sealed partial class SchizophreniaSystem
 
     private void OnRemove(Entity<HallucinatingComponent> ent, ref RemoveHallucinationsEvent args)
     {
-        AdjustAllHallucinations(ent.Owner, args.Time);
+        AdjustAllHallucinations(ent.Owner, -args.Time);
     }
 
     private void OnHallucinatingShutdown(Entity<HallucinatingComponent> ent, ref ComponentShutdown args)
@@ -246,13 +246,12 @@ public sealed partial class SchizophreniaSystem
 
     public void AdjustAllHallucinations(EntityUid uid, float duration)
     {
-        var comp = EnsureComp<HallucinatingComponent>(uid);
+        if (!TryComp<HallucinatingComponent>(uid, out var comp))
+            return;
 
-        for (var i = 0; i < comp.Removes.Count; i++)
+        foreach (var key in comp.Removes.Keys.ToList())
         {
-            var item = comp.Removes.ElementAt(i);
-
-            comp.Removes[item.Key] = item.Value + TimeSpan.FromSeconds(duration);
+            comp.Removes[key] += TimeSpan.FromSeconds(duration);
         }
     }
     #endregion

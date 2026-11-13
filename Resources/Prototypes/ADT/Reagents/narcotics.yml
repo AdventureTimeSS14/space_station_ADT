@@ -189,9 +189,8 @@
       - !type:Jitter
       - !type:Hallucinate
         hallucinations: [ Liminal ]
-        type: Add
+        type: Update
         time: 300
-        refresh: false
 
 - type: reagent
   id: ADTKetamine

@@ -121,9 +121,3 @@ hallucinate-command-success = Применён пак галлюцинаций {
 add-as-hallucination-command-description = Добавляет указанной сущности другую сущность как галлюцинацию.
 add-as-hallucination-command-help-text = Использование: { $command } <uid цели> <uid галлюцинации>
 add-as-hallucination-command-success = Сущность { $added } теперь является галлюцинацией сущности { $target }.
-
-# Команда: screamer
-screamer-command-description = Пугает указанного игрока скримером
-screamer-command-help-text = Использование: { $command } <uid> <прототип скримера> <время> <звук> <непрозрачность> <плавное появление> <плавное затухание> <x> <y>
-screamer-command-success = Скример успешно отправлен.
-screamer-command-no-player = { $uid } не управляется игроком, показывать скример некому.

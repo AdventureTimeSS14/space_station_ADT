@@ -1,8 +1,0 @@
-- type: entity
-  parent: BaseItem
-  id: ADTBaseScreamer
-  abstract: true
-  categories: [ Screamers ]
-  components:
-  - type: Sprite
-    noRot: true

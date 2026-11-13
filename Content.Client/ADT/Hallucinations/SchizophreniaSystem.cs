@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Numerics;
 using Content.Client.Audio;
 using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.ADT.Hallucinations.Events;
@@ -11,7 +10,6 @@ using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Audio;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -27,10 +25,11 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private SpriteSystem _sprite = default!;
-    [Dependency] private TransformSystem _transform = default!;
     [Dependency] private ContentAudioSystem _contentAudio = default!;
 
     private Dictionary<NetEntity, TimeSpan> _layers = new();
+    private readonly List<NetEntity> _expiredLayers = new();
+    private readonly HashSet<EntityUid> _hiddenMobs = new();
 
     public override void Initialize()
     {
@@ -46,6 +45,14 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         SubscribeLocalEvent<HallucinationsMusicComponent, LocalPlayerAttachedEvent>(OnMusicAttach);
         SubscribeLocalEvent<HallucinationsMusicComponent, LocalPlayerDetachedEvent>(OnMusicDetach);
         SubscribeLocalEvent<HallucinationsMusicComponent, AfterAutoHandleStateEvent>(OnMusicHandleState);
+
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, ComponentStartup>(OnRemoveMobsStartup);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, ComponentShutdown>(OnRemoveMobsShutdown);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, LocalPlayerAttachedEvent>(OnRemoveMobsAttached);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, LocalPlayerDetachedEvent>(OnRemoveMobsDetached);
+        SubscribeLocalEvent<MobStateComponent, ComponentStartup>(OnMobStartup);
+        SubscribeLocalEvent<MobStateComponent, ComponentShutdown>(OnMobShutdown);
+        SubscribeLocalEvent<HallucinationComponent, ComponentStartup>(OnHallucinationStartup);
     }
 
     private void OnAppearanceMessage(SetHallucinationAppearanceMessage args)
@@ -191,7 +198,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         if (!HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
             return true;
 
-        if (target == _player.LocalEntity)
+        if (target == _player.LocalEntity || !HasComp<MobStateComponent>(target))
             return true;
 
         if (HasComp<HallucinationComponent>(target))
@@ -240,43 +247,95 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     {
         base.FrameUpdate(frameTime);
 
-        FrameUpdateExtraLayers();
-        FrameUpdateMobs();
-    }
+        if (_layers.Count == 0)
+            return;
 
-    private void FrameUpdateExtraLayers()
-    {
-        foreach (var item in _layers.ToDictionary())
+        foreach (var (netEnt, endTime) in _layers)
         {
-            if (item.Value > _timing.CurTime)
-                continue;
-
-            if (!TryGetEntity(item.Key, out var ent))
-                continue;
-
-            _sprite.RemoveLayer(ent.Value, "hallucination", false);
-            _layers.Remove(item.Key);
+            if (endTime <= _timing.CurTime)
+                _expiredLayers.Add(netEnt);
         }
+
+        foreach (var netEnt in _expiredLayers)
+        {
+            _layers.Remove(netEnt);
+
+            if (TryGetEntity(netEnt, out var ent))
+                _sprite.RemoveLayer(ent.Value, "hallucination", false);
+        }
+
+        _expiredLayers.Clear();
     }
 
-    private void FrameUpdateMobs()
+    private void OnRemoveMobsStartup(Entity<HallucinationsRemoveMobsComponent> ent, ref ComponentStartup args)
     {
-        // Так как невозможно просто изолировать сущности по компоненту, это является лучшим вариантом для их сокрытия.
-        // Сущность существует, но она убирается из поля зрения до отрисовки, при этом сохраняя всю функциональность. После
-        // удаления компонента у клиента, он просто перестанет перемещать сущности в нуллспейс, не ломая ничего при этом.
+        if (_player.LocalEntity == ent.Owner)
+            HideMobs();
+    }
 
-        // В паре систем пришлось внести правки для работы с этим подходом, но это всё ещё не так плохо, как могло бы быть.
+    private void OnRemoveMobsShutdown(Entity<HallucinationsRemoveMobsComponent> ent, ref ComponentShutdown args)
+    {
+        if (_player.LocalEntity == ent.Owner)
+            RestoreMobs();
+    }
 
+    private void OnRemoveMobsAttached(Entity<HallucinationsRemoveMobsComponent> ent, ref LocalPlayerAttachedEvent args)
+    {
+        HideMobs();
+    }
+
+    private void OnRemoveMobsDetached(Entity<HallucinationsRemoveMobsComponent> ent, ref LocalPlayerDetachedEvent args)
+    {
+        RestoreMobs();
+    }
+
+    private void OnMobStartup(Entity<MobStateComponent> ent, ref ComponentStartup args)
+    {
         if (!HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
             return;
 
-        var ents = EntityManager.AllEntities<MobStateComponent>().Where(x => !HasComp<HallucinationComponent>(x)).ToList();
-        foreach (var item in ents)
-        {
-            if (item.Owner == _player.LocalEntity || Transform(item.Owner).ParentUid == _player.LocalEntity)
-                continue;
+        TryHideMob(ent.Owner);
+    }
 
-            _transform.SetCoordinates(item.Owner, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
+    private void OnMobShutdown(Entity<MobStateComponent> ent, ref ComponentShutdown args)
+    {
+        _hiddenMobs.Remove(ent.Owner);
+    }
+
+    private void OnHallucinationStartup(Entity<HallucinationComponent> ent, ref ComponentStartup args)
+    {
+        if (!_hiddenMobs.Remove(ent.Owner))
+            return;
+
+        _sprite.SetVisible(ent.Owner, true);
+    }
+
+    private void HideMobs()
+    {
+        var query = AllEntityQuery<MobStateComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            TryHideMob(uid);
         }
+    }
+
+    private void TryHideMob(EntityUid uid)
+    {
+        if (CanSee(uid) || !TryComp<SpriteComponent>(uid, out var sprite) || !sprite.Visible)
+            return;
+
+        _sprite.SetVisible((uid, sprite), false);
+        _hiddenMobs.Add(uid);
+    }
+
+    private void RestoreMobs()
+    {
+        foreach (var uid in _hiddenMobs)
+        {
+            if (TryComp<SpriteComponent>(uid, out var sprite))
+                _sprite.SetVisible((uid, sprite), true);
+        }
+
+        _hiddenMobs.Clear();
     }
 }

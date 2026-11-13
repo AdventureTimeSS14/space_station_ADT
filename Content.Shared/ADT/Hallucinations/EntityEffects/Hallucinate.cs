@@ -13,9 +13,6 @@ public sealed partial class Hallucinate : EntityEffectBase<Hallucinate>
     public float Time = 2.0f;
 
     [DataField]
-    public bool Refresh = true;
-
-    [DataField]
     public StatusEffectMetabolismType Type = StatusEffectMetabolismType.Update;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
