@@ -10,7 +10,7 @@
     Bloodstream:
       effects:
       - !type:AdjustOrganDamage
-        amount: -0.1
+        amount: -0.5
         conditions:
         - !type:ReagentCondition
           reagent: ADTMitocholide

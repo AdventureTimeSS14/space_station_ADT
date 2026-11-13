@@ -1,0 +1,116 @@
+<Document>
+# Травмы
+
+Чаще всего хирург лечит переломы костей, извлекает инородные объекты из тканей и восстанавливает повреждённые внутренние органы. Перелом лечат операцией, а осколки извлекают через разрез. Если осколок застрял в роботизированной части тела, его достают через люк. Повреждённые органы восстанавливают или заменяют.
+
+## Откуда берутся переломы
+
+Перелом может вызвать только механический урон, то есть тупой, режущий или колющий. Однако обычные пули и удары кости не ломают, потому что для этого у источника урона должна быть способность ломать кости. Сейчас такой способностью обладают следующие источники:
+
+- вся фауна Лаваленда и малый пепельный дрейк ломают кости, когда бьют в ближнем бою;
+- взрывы проверяют сразу все кости, а не одну случайную зону, если механическая часть взрыва достаточно велика, то есть примерно от 30 единиц.
+
+### Виды переломов
+
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Тип[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]С какого урона начинается[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микротрещина</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">от 10</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Закрытый перелом</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">от 20</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Открытый перелом</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">от 40</Box></ColorBox>
+</Table>
+
+Чем сильнее удар, тем выше шанс перелома, и каждая единица урона добавляет примерно 1%. Если зона закрыта бронёй, броня уменьшает урон до того, как считается шанс перелома. Если тело уже получило механический урон, сломать кость становится проще. Зона попадания выбирается случайно, но в руки, кисти, ноги и ступни удар попадает втрое чаще, чем в голову и торс. Кибернетические конечности не ломаются.
+
+Шина удерживает микротрещину и закрытый перелом, но открытый перелом она не фиксирует, поэтому кость придётся вправить, а затем срастить операцией или [textlink="нано-кальцием" link="ADTSurgeryReagents"].
+
+## Откуда берутся осколки
+
+Осколками называют зазубренные куски металла, которые застревают в органах. Их оставляют взрывы и боеприпасы с поражающими элементами, перечисленные в таблице.
+
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Источник[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Особенности[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Разрывная граната</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">оставляет до 4 осколков в радиусе 4 клеток, и чем дальше цель от взрыва, тем меньше осколков</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Осколочная граната</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">выпускает 30 поражающих элементов, и каждый застревает с шансом 35%</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Осколочный снаряд</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">оставляет до 4 осколков в радиусе 4 клеток</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Мини-бомба Синдиката</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">оставляет до 6 осколков в радиусе 6 клеток</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Патрон «.30 реактивный дробовой»</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">выпускает 6 дробин, и каждая застревает с шансом 25%</Box></ColorBox>
+</Table>
+
+Базовый шанс застревания равен 70%, но если зона закрыта бронёй, шанс снижается. Чаще всего осколки попадают в торс, а в голову и конечности они попадают реже. Застрявший осколок периодически наносит колющий урон и может сам выпасть, повредив при этом ткани. Если орган с осколком извлечь или пересадить, осколок останется в этом органе.
+
+Мелкие осколки можно вытащить без операции, если выбрать действие [bold]«Осмотреть травмы»[/bold]. Если вытаскивать осколок руками, это займёт больше времени и сильнее травмирует пациента, а если использовать инструмент с подходящим качеством, например гемостат или скальпель, это будет быстрее и безопаснее. Если осколков много, проведите операцию, которая описана ниже.
+
+## Восстановление костей
+
+Если у пациента перелом, проведите эту операцию. Её этапы одинаковы для черепа, груди, рук, кистей, ног и ступней.
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="4. Гель"/>
+<GuideEntityEmbed Entity="ADTBoneSetter" Scale="1" Caption="5. Костоправ"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="6. Гель"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="7. Прижечь"/>
+</Box>
+
+Чтобы временно зафиксировать перелом, наложите шину. Если вы хотите полностью срастить кость без операции, используйте [textlink="нано-кальций" link="ADTSurgeryReagents"], но вводите его в малых дозах и только тогда, когда в крови нет стимуляторов.
+
+## Извлечение осколков
+
+### Органическая часть тела
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="4. Извлечь"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="5. Прижечь"/>
+</Box>
+
+### Роботизированная часть тела
+
+<Box>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="1. Отвинтить"/>
+<GuideEntityEmbed Entity="Crowbar" Scale="1" Caption="2. Люк"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="3. Извлечь"/>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="4. Закрутить"/>
+</Box>
+
+## Повреждения органов
+
+Органы изнашиваются не только от прямых ранений, потому что, пока пациент жив, некоторые состояния тела постепенно наносят урон конкретным органам. Если пациент мёртв или стал зомби, его органы так не повреждаются.
+
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Причина[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Какие органы повреждаются[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Электрошок (кроме дефибриллятора)</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">сердце</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Разряд дефибриллятора</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">сердце, особенно при частых разрядах</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Вдыхание очень горячего или очень холодного газа</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">лёгкие</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Длительная асфиксия</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">мозг</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Отравление</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">печень и почки</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Радиация</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">случайный орган: сердце, лёгкие, печень, почки, желудок, мозг или глаза</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Перепад давления (баротравма)</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">лёгкие и уши</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Вспышка света</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">глаза</Box></ColorBox>
+</Table>
+
+Когда орган получает урон, он проходит стадии ушиба, повреждения и отказа. Больной орган хуже выполняет свою работу, поэтому, например, отказавшее сердце вызывает сердечный приступ, а отказавшие лёгкие перестают насыщать кровь кислородом. Состояние органов показывает хирургическая консоль, а восстановить их можно операцией или [textlink="нано-кальцием и митохолидом" link="ADTSurgeryReagents"]. Если вы хотите узнать больше об органических и кибернетических органах, откройте раздел [textlink="Органы и кибернетика" link="ADTSurgeryOrgans"].
+</Document>

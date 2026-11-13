@@ -24,6 +24,9 @@
   - type: Tag # ADT-Tweak
     tags:
     - Trash
+  - type: GuideHelp
+    guides:
+    - ADTSurgeryOrgans
 
 - type: entity
   id: OrganBaseOrganic

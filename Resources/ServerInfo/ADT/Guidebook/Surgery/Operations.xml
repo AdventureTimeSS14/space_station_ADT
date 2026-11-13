@@ -1,0 +1,198 @@
+<Document>
+# Операции
+
+В этом разделе собраны все операции, в том числе доступ к полостям тела, работа с головой и конечностями и обслуживание кибернетических частей тела. Если вы хотите узнать, как подготовить пациента и какие нужны инструменты, откройте раздел [textlink="Хирургия" link="ADTSurgery"].
+
+## Грудная полость
+
+### Манипуляции в грудной полости
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Saw" Scale="1" Caption="4. Распил"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="5. Отведение"/>
+</Box>
+
+### В открытой груди
+
+Когда грудная клетка вскрыта, хирург может сделать следующее:
+
+- извлечь или установить сердце и лёгкие;
+- восстановить повреждённое сердце или лёгкие;
+- извлечь импланты, кроме импланта защиты разума;
+- открыть грудную полость, чтобы спрятать в неё небольшой предмет или достать его оттуда.
+
+### Завершение операции
+
+<Box>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="1. Опустить"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="2. Гель"/>
+<GuideEntityEmbed Entity="ADTBoneSetter" Scale="1" Caption="3. Вправить"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="4. Гель"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="5. Прижечь"/>
+</Box>
+
+## Брюшная полость
+
+### Манипуляции в брюшной полости
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="4. Мышцы"/>
+</Box>
+
+### В открытом животе
+
+Когда брюшная полость вскрыта, хирург может сделать следующее:
+
+- обработать механические повреждения, для чего сначала используйте гемостат, а затем прижигатель;
+- обработать ожоги, для чего сначала используйте скальпель, а затем гемостат;
+- извлечь или установить желудок, печень, почки и аппендикс;
+- восстановить повреждённые желудок, печень или почки;
+- открыть брюшную полость, чтобы спрятать в неё небольшой предмет или достать его оттуда.
+
+### Завершение операции
+
+<Box>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="1. Опустить"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="2. Прижечь"/>
+</Box>
+
+## Голова
+
+Операция «Манипуляции на голове» позволяет получить несколько отдельных доступов, и каждый из них открывается своими этапами.
+
+### Доступ к черепу
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Скальп"/>
+<GuideEntityEmbed Entity="Saw" Scale="1" Caption="4. Распил"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="5. Кость"/>
+</Box>
+
+### В открытом черепе
+
+Когда череп вскрыт, хирург может сделать следующее:
+
+- извлечь или установить мозг и глаза;
+- восстановить повреждённый мозг;
+- извлечь имплант защиты разума;
+- удалить чёрную опухоль;
+- провести лоботомию, во время которой кость просверливают, а доли мозга рассекают;
+- открыть полость черепа, чтобы поместить в неё предмет или достать его оттуда.
+
+### Доступ к глотке
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Вскрытие"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Рот"/>
+</Box>
+
+Когда доступ к глотке открыт, через рот можно извлечь или установить язык и голосовые связки.
+
+### Доступ к ушам
+
+<Box>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="1. Отведение"/>
+</Box>
+
+Когда доступ к ушам открыт, уши можно извлечь, установить или восстановить, если они повреждены.
+
+### Завершение операции на черепе
+
+<Box>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="1. Опустить"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="2. Гель"/>
+<GuideEntityEmbed Entity="ADTBoneSetter" Scale="1" Caption="3. Вправить"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="4. Гель"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="5. Прижечь"/>
+</Box>
+
+### Пришивание головы
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Культя"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="4. Подготовка"/>
+<GuideEntityEmbed Entity="OrganHumanHead" Scale="1" Caption="5. Голова"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="6. Прижечь"/>
+</Box>
+
+## Конечности
+
+### Ампутация
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Saw" Scale="1" Caption="4. Распил"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="5. Культя"/>
+</Box>
+
+Если вы хотите сразу установить протез вместо распила, возьмите роботизированную конечность в руку и выберите этап «Заменить протезом».
+
+### Пришивание конечности
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Культя"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="4. Подготовка"/>
+<GuideEntityEmbed Entity="OrganHumanArmLeft" Scale="1" Caption="5. Конечность"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="6. Гель"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="7. Прижечь"/>
+</Box>
+
+Перед тем как ампутировать руку или ногу, снимите с пациента комбинезон и верхнюю одежду. Если вы ампутируете кисть, снимите перчатки, а если ступню, снимите обувь и носки.
+
+## Кибернетические операции
+
+### Обслуживание головы
+
+<Box>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="1. Отвинтить"/>
+<GuideEntityEmbed Entity="Crowbar" Scale="1" Caption="2. Люк"/>
+<GuideEntityEmbed Entity="Multitool" Scale="1" Caption="3. Пульсация"/>
+<GuideEntityEmbed Entity="Wrench" Scale="1" Caption="4. Эндоскелет"/>
+<GuideEntityEmbed Entity="ADTOrganIPCBrain" Scale="1" Caption="5. Мозг"/>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="6. Закрутить"/>
+</Box>
+
+### Обслуживание груди и живота
+
+<Box>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="1. Отвинтить"/>
+<GuideEntityEmbed Entity="Crowbar" Scale="1" Caption="2. Люк"/>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="3. Закрутить"/>
+</Box>
+
+### Отсоединение конечности
+
+<Box>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="1. Отвинтить"/>
+<GuideEntityEmbed Entity="Crowbar" Scale="1" Caption="2. Люк"/>
+<GuideEntityEmbed Entity="Wrench" Scale="1" Caption="3. Отсоединить"/>
+</Box>
+
+### Подключение конечности
+
+<Box>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="1. Вскрыть"/>
+<GuideEntityEmbed Entity="ADTOrganProsthesisRegularArmLeft" Scale="1" Caption="2. Конечность"/>
+</Box>
+
+## Импланты
+
+- Чтобы извлечь имплант из груди, отведите кожу и используйте гемостат. Имплант защиты разума таким способом извлечь нельзя.
+- Имплант защиты разума можно извлечь гемостатом только тогда, когда череп пациента вскрыт.
+- Чтобы извлечь имплант из конечности, отведите кожу и используйте гемостат.
+</Document>

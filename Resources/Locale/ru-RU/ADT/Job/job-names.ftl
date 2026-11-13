@@ -71,6 +71,7 @@ job-name-practical-nurse = фельдшер
 job-name-resident = ординатор
 job-name-clinician = медик
 job-name-traumatologist = травматолог
+job-name-surgeon = хирург
 job-name-adt-doctor = доктор
 job-name-therapist = терапевт
 job-name-psychiatrist = психиатр

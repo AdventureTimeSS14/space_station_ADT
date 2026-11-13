@@ -477,6 +477,14 @@
   - type: IdCard
     jobTitle: job-name-traumatologist
 
+- type: entity
+  parent: MedicalIDCard
+  id: ADTSurgeonIDCard
+  name: surgeon ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-surgeon
+
 # Atmospheric Technician
 
 - type: entity

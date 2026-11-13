@@ -104,6 +104,9 @@
     - SurgicalDrapes
   - type: StaticPrice
     price: 15
+  - type: GuideHelp
+    guides:
+    - ADTSurgery
 
 - type: entity
   abstract: true

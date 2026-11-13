@@ -17,3 +17,6 @@
     board: ADTOperatingTableMachineCircuitboard
   # ADT-Tweak end
   - type: AmbientMusicMarkerMedical
+  - type: GuideHelp
+    guides:
+    - ADTSurgery
