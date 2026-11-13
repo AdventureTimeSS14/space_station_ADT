@@ -17499,3 +17499,13 @@ Entries:
     id: 2112
     pr_number: 3594
     time: '2026-11-13T14:16:39Z'
+  - author: blad bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Добавлена капри как голограма для ции, type: Add}
+    id: 2113
+    pr_number: 3671
+    time: '2026-11-13T15:01:45Z'
