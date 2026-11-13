@@ -19,11 +19,80 @@ public sealed partial class ADTDiseaseSystem
 
     private bool _scanningFluids;
 
+    private bool _regulatingBlood;
+
     private void InitializeBlood()
     {
         SubscribeLocalEvent<BloodstreamComponent, ReactionEntityEvent>(OnReactionEntity);
         SubscribeLocalEvent<BloodstreamComponent, GetReagentEffectsEvent>(OnGetReagentEffects);
         SubscribeLocalEvent<StomachComponent, SolutionChangedEvent>(OnStomachSolutionChanged);
+        SubscribeLocalEvent<BloodstreamComponent, SolutionChangedEvent>(OnBloodstreamSolutionChanged);
+    }
+
+    private void OnBloodstreamSolutionChanged(Entity<BloodstreamComponent> ent, ref SolutionChangedEvent args)
+    {
+        if (_regulatingBlood)
+            return;
+
+        var sample = args.Solution.Comp.Id == ent.Comp.BloodSolutionName
+            ? GetForeignVirusVolume(ent.Comp, args.Solution.Comp.Solution)
+            : FixedPoint2.Zero;
+
+        ScanFluids(ent.Owner, args.Solution, allowVaccine: true);
+
+        if (sample <= FixedPoint2.Zero)
+            return;
+
+        if (!TrimExcessBlood(ent.Comp, args.Solution.Comp.Solution, sample))
+            return;
+
+        _regulatingBlood = true;
+        try
+        {
+            _solution.UpdateChemicals(args.Solution, needsReactionsProcessing: false);
+        }
+        finally
+        {
+            _regulatingBlood = false;
+        }
+    }
+
+    private static bool TrimExcessBlood(BloodstreamComponent blood, Solution solution, FixedPoint2 limit)
+    {
+        var reference = blood.BloodReferenceSolution;
+        if (reference.Volume <= FixedPoint2.Zero)
+            return false;
+
+        var trimmed = false;
+        foreach (var (reagent, quantity) in reference.Contents)
+        {
+            var excess = solution.GetTotalPrototypeQuantity(reagent.Prototype) - quantity;
+            if (excess <= FixedPoint2.Zero)
+                continue;
+
+            var amount = FixedPoint2.Min(excess, limit * quantity / reference.Volume);
+            if (solution.RemoveReagent(reagent.Prototype, amount, ignoreReagentData: true) > FixedPoint2.Zero)
+                trimmed = true;
+        }
+
+        return trimmed;
+    }
+
+    private static FixedPoint2 GetForeignVirusVolume(BloodstreamComponent blood, Solution solution)
+    {
+        var total = FixedPoint2.Zero;
+        foreach (var reagent in solution.Contents)
+        {
+            if (GetVirusData(reagent) == null)
+                continue;
+
+            if (reagent.Reagent == new ReagentId(reagent.Reagent.Prototype, blood.BloodData))
+                continue;
+
+            total += reagent.Quantity;
+        }
+
+        return total;
     }
 
     private void OnStomachSolutionChanged(Entity<StomachComponent> ent, ref SolutionChangedEvent args)
