@@ -30,16 +30,15 @@ public sealed partial class ADTNpcBreathingSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<ActiveNPCComponent, InternalsComponent, RespiratorComponent>();
-        while (query.MoveNext(out var uid, out _, out var internals, out var respirator))
+        var query = EntityQueryEnumerator<ADTNpcBreathingComponent, InternalsComponent, RespiratorComponent>();
+        while (query.MoveNext(out var uid, out var breathing, out var internals, out var respirator))
         {
-            var breathing = EnsureComp<ADTNpcBreathingComponent>(uid);
             if (now < breathing.NextCheck)
                 continue;
 
             breathing.NextCheck = now + breathing.CheckInterval;
 
-            if (HasComp<ActorComponent>(uid) || _mobState.IsDead(uid))
+            if (!HasComp<ActiveNPCComponent>(uid) || HasComp<ActorComponent>(uid) || _mobState.IsDead(uid))
                 continue;
 
             if (!_inventory.TryGetSlotEntity(uid, "mask", out var mask) || !HasComp<BreathToolComponent>(mask))

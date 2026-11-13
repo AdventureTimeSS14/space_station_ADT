@@ -3,6 +3,7 @@
   parent: MobHuman
   id: ADTMobSovietBunkerBase
   components:
+    - type: ADTNpcBreathing
     - type: Satiation
       satiations:
         Hunger:
@@ -252,6 +253,7 @@
   parent: MobHuman
   id: ADTMobSmugglerBase
   components:
+    - type: ADTNpcBreathing
     - type: Satiation
       satiations:
         Hunger:
@@ -483,6 +485,7 @@
   parent: MobHuman
   id: ADTMobMarauderBase
   components:
+    - type: ADTNpcBreathing
     - type: Satiation
       satiations:
         Hunger:
@@ -710,6 +713,7 @@
   suffix: DO NOT MAP
   description: Driver-mechanic of the USSP outpost, an ursus from Ursam (Urodelus II).
   components:
+    - type: ADTNpcBreathing
     - type: Satiation
       satiations:
         Hunger:
