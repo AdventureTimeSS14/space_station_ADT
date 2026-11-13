@@ -11,8 +11,8 @@ namespace Content.Client.Chat.UI;
 [CommonSheetlet]
 public sealed class RunechatSheetlet : Sheetlet<NanotrasenStylesheet>
 {
-    public const string FontPath = "/Fonts/_ES/Grand9KPixelRegular.ttf";
-    public const string WhisperFontPath = "/Fonts/_ES/Wormtown9k-Small.ttf";
+    public const string FontPath = "/Fonts/ADT/SMALLER.ttf";
+    public const string WhisperFontPath = "/Fonts/ADT/SMALLER.ttf";
 
     public override StyleRule[] GetRules(NanotrasenStylesheet sheet, object config)
     {
