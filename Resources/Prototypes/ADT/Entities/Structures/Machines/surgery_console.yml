@@ -29,3 +29,6 @@
     interfaces:
       enum.SurgeryConsoleUiKey.Key:
         type: SurgeryConsoleBoundUserInterface
+  - type: GuideHelp
+    guides:
+    - ADTSurgery

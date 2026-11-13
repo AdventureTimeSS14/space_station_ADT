@@ -12,6 +12,9 @@
   - type: Tag
     tags:
     - SurgeryTool
+  - type: GuideHelp
+    guides:
+    - ADTSurgery
 
 # Cautery
 

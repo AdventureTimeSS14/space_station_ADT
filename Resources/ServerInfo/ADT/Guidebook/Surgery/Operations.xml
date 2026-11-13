@@ -109,6 +109,17 @@
 <GuideEntityEmbed Entity="Cautery" Scale="1" Caption="5. Прижечь"/>
 </Box>
 
+### Пришивание головы
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Культя"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="4. Подготовка"/>
+<GuideEntityEmbed Entity="OrganHumanHead" Scale="1" Caption="5. Голова"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="6. Прижечь"/>
+</Box>
+
 ## Конечности
 
 ### Ампутация
@@ -146,7 +157,7 @@
 <GuideEntityEmbed Entity="Crowbar" Scale="1" Caption="2. Люк"/>
 <GuideEntityEmbed Entity="Multitool" Scale="1" Caption="3. Пульсация"/>
 <GuideEntityEmbed Entity="Wrench" Scale="1" Caption="4. Эндоскелет"/>
-<GuideEntityEmbed Entity="PositronicBrain" Scale="1" Caption="5. Мозг"/>
+<GuideEntityEmbed Entity="ADTOrganIPCBrain" Scale="1" Caption="5. Мозг"/>
 <GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="6. Закрутить"/>
 </Box>
 

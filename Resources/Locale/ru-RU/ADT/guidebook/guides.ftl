@@ -22,6 +22,7 @@ guide-entry-medication = Медицина
 guide-entry-adt-surgery = Хирургия
 guide-entry-adt-surgery-operations = Операции
 guide-entry-adt-surgery-trauma = Травмы
+guide-entry-adt-surgery-organs = Органы и кибернетика
 guide-entry-adt-surgery-skill = Навык хирургии
 guide-entry-adt-surgery-reagents = Хирургические реагенты
 guide-entry-chaplain = Священник

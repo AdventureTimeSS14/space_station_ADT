@@ -5,6 +5,7 @@
   children:
   - ADTSurgeryOperations
   - ADTSurgeryTrauma
+  - ADTSurgeryOrgans
   - ADTSurgerySkill
   - ADTSurgeryReagents
 
@@ -17,6 +18,11 @@
   id: ADTSurgeryTrauma
   name: guide-entry-adt-surgery-trauma
   text: "/ServerInfo/ADT/Guidebook/Surgery/Trauma.xml"
+
+- type: guideEntry
+  id: ADTSurgeryOrgans
+  name: guide-entry-adt-surgery-organs
+  text: "/ServerInfo/ADT/Guidebook/Surgery/Organs.xml"
 
 - type: guideEntry
   id: ADTSurgerySkill

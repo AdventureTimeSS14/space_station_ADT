@@ -119,6 +119,9 @@
   - type: Tag
     tags:
     - ADTMedipen
+  - type: GuideHelp
+    guides:
+    - ADTSurgeryReagents
 
 - type: entity
   name: crisis auto-injector
