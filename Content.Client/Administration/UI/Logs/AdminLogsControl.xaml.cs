@@ -30,6 +30,8 @@ public sealed partial class AdminLogsControl : Control
 
     private readonly List<SharedAdminLog> _logs = new();
     private readonly List<FormattedMessage> _messages = new();
+
+    public event Action? FiltersChanged;
     // ADT-Tweak-End
 
     public AdminLogsControl()
@@ -68,7 +70,7 @@ public sealed partial class AdminLogsControl : Control
 
     public HashSet<LogType> SelectedTypes { get; } = new();
 
-    public HashSet<Guid> SelectedPlayers { get; set; } = new(); // ADT-Tweak
+    public HashSet<Guid> SelectedPlayers { get; } = new();
 
     public HashSet<LogImpact> SelectedImpacts { get; } = new();
 
@@ -90,6 +92,7 @@ public sealed partial class AdminLogsControl : Control
     private void RoundSpinBoxChanged(ValueChangedEventArgs args)
     {
         UpdateResetButton();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void UpdateResetButton()
@@ -115,6 +118,7 @@ public sealed partial class AdminLogsControl : Control
     private void LogSearchChanged(LineEditEventArgs args)
     {
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void SelectAllTypes(ButtonEventArgs args)
@@ -133,6 +137,7 @@ public sealed partial class AdminLogsControl : Control
         }
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void SelectNoTypes(ButtonEventArgs args)
@@ -151,6 +156,7 @@ public sealed partial class AdminLogsControl : Control
         }
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void IncludeNonPlayers(ButtonEventArgs args)
@@ -158,6 +164,7 @@ public sealed partial class AdminLogsControl : Control
         IncludeNonPlayerLogs = args.Button.Pressed;
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void SelectAllPlayers(ButtonEventArgs args)
@@ -176,6 +183,7 @@ public sealed partial class AdminLogsControl : Control
         }
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void SelectNoPlayers(ButtonEventArgs args)
@@ -193,6 +201,7 @@ public sealed partial class AdminLogsControl : Control
         }
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     public void SelectPlayers(List<Guid> players)
@@ -236,13 +245,6 @@ public sealed partial class AdminLogsControl : Control
 
         UpdateLogs();
     }
-
-    // ADT-Tweak-Start
-    public void SetPlayersSelection(HashSet<Guid> selectedPlayers)
-    {
-        SelectedPlayers = selectedPlayers;
-    }
-    // ADT-Tweak-End
 
     public void UpdateTypes()
     {
@@ -345,6 +347,7 @@ public sealed partial class AdminLogsControl : Control
         }
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void PlayerButtonPressed(ButtonEventArgs args)
@@ -360,6 +363,7 @@ public sealed partial class AdminLogsControl : Control
         }
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void ImpactButtonPressed(ButtonEventArgs args)
@@ -375,6 +379,7 @@ public sealed partial class AdminLogsControl : Control
         }
 
         UpdateLogs();
+        FiltersChanged?.Invoke(); // ADT-Tweak
     }
 
     private void SetImpacts(LogImpact[] impacts)
@@ -457,6 +462,13 @@ public sealed partial class AdminLogsControl : Control
         // we retrieve everything if we open this window for the first time and the selected player list is empty
         var allSelected = firstTimeOpened && SelectedPlayers.Count == 0;
 
+        // ADT-Tweak-Start
+        var existing = PlayersContainer.Children.OfType<AdminLogPlayerButton>().ToArray();
+
+        if (existing.Length > 0 && existing.All(player => SelectedPlayers.Contains(player.Id)))
+            allSelected = true;
+        // ADT-Tweak-End
+
         foreach (var control in PlayersContainer.Children.ToArray())
         {
             if (control is not AdminLogPlayerButton player)
@@ -492,6 +504,11 @@ public sealed partial class AdminLogsControl : Control
 
             player.Pressed = SelectedPlayers.Contains(player.Id);
         }
+
+        // ADT-Tweak-Start
+        if (buttons.Count > 0)
+            firstTimeOpened = false;
+        // ADT-Tweak-End
 
         UpdateLogs();
     }
@@ -554,7 +571,7 @@ public sealed partial class AdminLogsControl : Control
         if (color != null)
             message.PushColor(color.Value);
 
-        message.AddText($"{log.Date:HH:mm:ss}: ");
+        message.AddText($"{log.Date.ToLocalTime():HH:mm:ss}: ");
 
         if (color != null)
             message.Pop();

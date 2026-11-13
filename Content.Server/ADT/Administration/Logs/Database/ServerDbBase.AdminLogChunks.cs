@@ -8,7 +8,7 @@ namespace Content.Server.Database;
 
 public abstract partial class ServerDbBase
 {
-    public async Task AddAdminLogChunks(List<AdtAdminLogChunk> chunks)
+    public async Task<bool> AddAdminLogChunks(List<AdtAdminLogChunk> chunks)
     {
         const int maxRetryAttempts = 5;
 
@@ -22,7 +22,7 @@ public abstract partial class ServerDbBase
                 await using var db = await GetDb();
                 db.DbContext.AdtAdminLogChunk.AddRange(chunks);
                 await db.DbContext.SaveChangesAsync();
-                return;
+                return true;
             }
             catch (Exception ex)
             {
@@ -32,13 +32,15 @@ public abstract partial class ServerDbBase
                 if (attempt >= maxRetryAttempts)
                 {
                     _opsLog.Error($"Max retry attempts reached. Failed to save {chunks.Count} admin log chunks.");
-                    return;
+                    return false;
                 }
 
                 await Task.Delay(retryDelay);
                 retryDelay *= 2;
             }
         }
+
+        return false;
     }
 
     public async Task<List<AdtLogChunkHeader>> GetAdminLogChunkHeaders(int round, CancellationToken cancel = default)

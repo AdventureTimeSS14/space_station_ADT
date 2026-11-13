@@ -6,7 +6,7 @@ namespace Content.Server.Database;
 
 public partial interface IServerDbManager
 {
-    Task AddAdminLogChunks(List<AdtAdminLogChunk> chunks);
+    Task<bool> AddAdminLogChunks(List<AdtAdminLogChunk> chunks);
     Task<List<AdtLogChunkHeader>> GetAdminLogChunkHeaders(int round, CancellationToken cancel = default);
     Task<Dictionary<int, byte[]>> GetAdminLogChunkPayloads(int round, int[] indices, CancellationToken cancel = default);
     Task<int> GetLastAdminLogChunkIndex(int round);
@@ -14,7 +14,7 @@ public partial interface IServerDbManager
 
 public sealed partial class ServerDbManager
 {
-    public Task AddAdminLogChunks(List<AdtAdminLogChunk> chunks)
+    public Task<bool> AddAdminLogChunks(List<AdtAdminLogChunk> chunks)
     {
         DbWriteOpsMetric.Inc();
         return RunDbCommand(() => _db.AddAdminLogChunks(chunks));

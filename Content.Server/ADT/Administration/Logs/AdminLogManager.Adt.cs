@@ -18,7 +18,16 @@ public sealed partial class AdminLogManager
     {
         await AdtStore.Save(logs);
 
-        if (AdtStore.WriteLegacy)
+        if (!AdtStore.WriteLegacy)
+            return;
+
+        try
+        {
             await _db.AddAdminLogs(logs);
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Failed to duplicate {logs.Count} admin logs into the legacy table: {e}");
+        }
     }
 }

@@ -34,6 +34,8 @@ public sealed class AdtAdminLogStore
     private int _currentRound;
     private int _cachedBytes;
 
+    private bool _enabledCVar;
+
     public bool Enabled { get; private set; }
     public bool WriteLegacy { get; private set; }
 
@@ -48,7 +50,8 @@ public sealed class AdtAdminLogStore
     {
         _sawmill = _logManager.GetSawmill("admin.logs.chunks");
 
-        _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsChunksEnabled, value => Enabled = value, true);
+        _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsChunksEnabled, value => _enabledCVar = value, true);
+        Enabled = _enabledCVar;
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsWriteLegacy, value => WriteLegacy = value, true);
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsChunkMaxLogs, value => _chunkMaxLogs = value, true);
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsChunkMaxBytes, value => _chunkMaxBytes = value, true);
@@ -58,8 +61,13 @@ public sealed class AdtAdminLogStore
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsFetchBatch, value => _fetchBatch = value, true);
     }
 
-    public void StartRound(int roundId)
+    public bool StartRound(int roundId)
     {
+        Enabled = _enabledCVar;
+
+        if (!Enabled)
+            return false;
+
         lock (_lock)
         {
             _currentRound = roundId;
@@ -67,6 +75,8 @@ public sealed class AdtAdminLogStore
             GetOrCreateRound(roundId, true);
             TrimRounds();
         }
+
+        return true;
     }
 
     public void AppendLive(int roundId, SharedAdminLog log)
@@ -136,22 +146,35 @@ public sealed class AdtAdminLogStore
             _legacyRounds.Remove(roundId);
         }
 
-        try
-        {
-            await _db.AddAdminLogChunks(chunks);
-        }
-        finally
-        {
-            lock (_lock)
-            {
-                foreach (var cached in packed)
-                {
-                    cached.Persisted = true;
-                }
+        var saved = await _db.AddAdminLogChunks(chunks);
 
-                DropTail(roundId, logs);
-                TrimCache();
+        lock (_lock)
+        {
+            if (!saved)
+            {
+                ForgetChunks(roundId, packed);
+                throw new InvalidOperationException($"Не удалось сохранить {chunks.Count} чанков админ-логов раунда {roundId}.");
             }
+
+            foreach (var cached in packed)
+            {
+                cached.Persisted = true;
+            }
+
+            DropTail(roundId, logs);
+            TrimCache();
+        }
+    }
+
+    private void ForgetChunks(int roundId, List<CachedChunk> packed)
+    {
+        if (!_rounds.TryGetValue(roundId, out var round))
+            return;
+
+        foreach (var cached in packed)
+        {
+            if (round.Chunks.Remove(cached))
+                _cachedBytes -= cached.Payload?.Length ?? 0;
         }
     }
 
@@ -243,7 +266,7 @@ public sealed class AdtAdminLogStore
 
             foreach (var chunk in round.Chunks)
             {
-                if (!MatchesHeader(chunk.Header, filter))
+                if (!chunk.Persisted || !MatchesHeader(chunk.Header, filter))
                     continue;
 
                 candidates.Add(chunk.Header);
@@ -289,7 +312,8 @@ public sealed class AdtAdminLogStore
 
             foreach (var chunk in round.Chunks)
             {
-                count += chunk.Header.LogCount;
+                if (chunk.Persisted)
+                    count += chunk.Header.LogCount;
             }
 
             return count;

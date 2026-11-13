@@ -30,11 +30,8 @@ public sealed partial class AdminLogManager
     public void CacheNewRound()
     {
         // ADT-Tweak-Start
-        if (AdtStore.Enabled)
-        {
-            AdtStore.StartRound(_currentRoundId);
+        if (AdtStore.StartRound(_currentRoundId))
             return;
-        }
         // ADT-Tweak-End
 
         List<SharedAdminLog>? list = null;

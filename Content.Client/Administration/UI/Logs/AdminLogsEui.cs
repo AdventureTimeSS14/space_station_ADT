@@ -31,11 +31,13 @@ public sealed partial class AdminLogsEui : BaseEui
 
     // ADT-Tweak-Start
     private static readonly TimeSpan RequestTimeout = TimeSpan.FromSeconds(15);
+    private static readonly TimeSpan FilterDelay = TimeSpan.FromMilliseconds(400);
 
     private bool _requestPending;
     private bool _hasNext;
     private bool _closed;
     private int _requestToken;
+    private int _filterToken;
     // ADT-Tweak-End
 
     public AdminLogsEui()
@@ -49,7 +51,10 @@ public sealed partial class AdminLogsEui : BaseEui
         LogsControl.NextButton.OnPressed += _ => NextLogs();
         LogsControl.PopOutButton.OnPressed += _ => PopOut();
         LogsControl.ExportLogs.OnPressed += _ => ExportLogs();
-        LogsControl.RetryButton.OnPressed += _ => RequestLogs(); // ADT-Tweak
+        // ADT-Tweak-Start
+        LogsControl.RetryButton.OnPressed += _ => RequestLogs();
+        LogsControl.FiltersChanged += ScheduleRequest;
+        // ADT-Tweak-End
 
         _sawmill = _log.GetSawmill("admin.logs.ui");
     }
@@ -77,11 +82,13 @@ public sealed partial class AdminLogsEui : BaseEui
 
     private void RequestLogs()
     {
+        _filterToken++; // ADT-Tweak
+
         var request = new LogsRequest(
             LogsControl.SelectedRoundId,
             LogsControl.Search,
             LogsControl.SelectedTypes.ToHashSet(),
-            null,
+            LogsControl.SelectedImpacts.ToHashSet(), // ADT-Tweak
             null,
             null,
             LogsControl.SelectedPlayers.Count != 0,
@@ -103,6 +110,22 @@ public sealed partial class AdminLogsEui : BaseEui
     }
 
     // ADT-Tweak-Start
+    private void ScheduleRequest()
+    {
+        if (FirstState || _closed)
+            return;
+
+        var token = ++_filterToken;
+
+        Timer.Spawn(FilterDelay, () =>
+        {
+            if (_closed || token != _filterToken)
+                return;
+
+            RequestLogs();
+        });
+    }
+
     private void BeginRequest(string status)
     {
         _requestPending = true;
@@ -242,23 +265,16 @@ public sealed partial class AdminLogsEui : BaseEui
 
         if (s.IsLoading)
         {
-            
             LogsControl.SetStatus(Loc.GetString("adt-admin-logs-loading-round", ("round", s.RoundId))); // ADT-Tweak
             return;
         }
 
-        var oldSelection = new HashSet<Guid>(LogsControl.SelectedPlayers); // ADT-Tweak
         LogsControl.SetCurrentRound(s.RoundId);
         LogsControl.SetPlayers(s.Players);
         LogsControl.UpdateCount(round: s.RoundLogs);
 
-        // ADT-Tweak-Start
         if (!FirstState)
             return;
-
-        if (oldSelection.Count() > 0)
-            LogsControl.SetPlayersSelection(oldSelection);
-        // ADT-Tweak-End
 
         FirstState = false;
         LogsControl.SetRoundSpinBox(s.RoundId);
@@ -299,6 +315,7 @@ public sealed partial class AdminLogsEui : BaseEui
                 if (setLogFilter.Types != null)
                     LogsControl.SetTypesSelection(setLogFilter.Types, setLogFilter.InvertTypes);
 
+                ScheduleRequest(); // ADT-Tweak
                 break;
         }
     }
