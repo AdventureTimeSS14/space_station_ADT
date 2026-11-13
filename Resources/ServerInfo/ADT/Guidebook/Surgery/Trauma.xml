@@ -1,0 +1,69 @@
+<Document>
+# Травмы
+
+Частые травмы, с которыми работает хирург: переломы костей, инородные объекты в тканях и повреждения внутренних органов. Перелом лечится операцией, осколки извлекают через разрез - или через люк, если повреждена роботизированная часть тела, а органы восстанавливают или заменяют.
+
+## Восстановление костей
+
+Операция нужна при переломе. Порядок одинаков для черепа, груди, рук, кистей, ног и ступней:
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="4. Гель"/>
+<GuideEntityEmbed Entity="ADTBoneSetter" Scale="1" Caption="5. Костоправ"/>
+<GuideEntityEmbed Entity="ADTBoneGel" Scale="1" Caption="6. Гель"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="7. Прижечь"/>
+</Box>
+
+Временно зафиксировать перелом можно шиной, но полностью срастить кость без операции способен только [textlink="нано-кальций" link="ADTSurgeryReagents"] - в малых дозах и без стимуляторов в крови, либо операцией.
+
+## Извлечение осколков
+
+### Органическая часть тела
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Scale="1" Caption="1. Надрез"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="2. Зажим"/>
+<GuideEntityEmbed Entity="Retractor" Scale="1" Caption="3. Кожа"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="4. Извлечь"/>
+<GuideEntityEmbed Entity="Cautery" Scale="1" Caption="5. Прижечь"/>
+</Box>
+
+### Роботизированная часть тела
+
+<Box>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="1. Отвинтить"/>
+<GuideEntityEmbed Entity="Crowbar" Scale="1" Caption="2. Люк"/>
+<GuideEntityEmbed Entity="Hemostat" Scale="1" Caption="3. Извлечь"/>
+<GuideEntityEmbed Entity="Screwdriver" Scale="1" Caption="4. Закрутить"/>
+</Box>
+
+## Повреждения органов
+
+Органы изнашиваются не только от прямых ранений: пока пациент жив, некоторые состояния тела постепенно наносят урон конкретным органам. У мёртвых и у зомби органы так не повреждаются.
+
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Причина[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Какие органы повреждаются[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Электрошок (кроме дефибриллятора)</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">сердце</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Разряд дефибриллятора</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">сердце, особенно при частых разрядах</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Вдыхание очень горячего или очень холодного газа</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">лёгкие</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Длительная асфиксия</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">мозг</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Отравление</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">печень и почки</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Радиация</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">случайный орган: сердце, лёгкие, печень, почки, желудок, мозг или глаза</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Перепад давления (баротравма)</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">лёгкие и уши</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Вспышка света</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">глаза</Box></ColorBox>
+</Table>
+
+Урон органа проходит стадии: ушиб, повреждение и отказ. Больной орган хуже выполняет свою работу - например, отказавшее сердце вызывает сердечный приступ, а отказавшие лёгкие перестают насыщать кровь кислородом. Состояние органов показывает хирургическая консоль, а восстанавливают их операцией или [textlink="нано-кальцием и митохолидом" link="ADTSurgeryReagents"].
+</Document>

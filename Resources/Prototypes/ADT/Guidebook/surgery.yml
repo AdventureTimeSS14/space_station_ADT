@@ -1,0 +1,29 @@
+- type: guideEntry
+  id: ADTSurgery
+  name: guide-entry-adt-surgery
+  text: "/ServerInfo/ADT/Guidebook/Surgery/Surgery.xml"
+  children:
+  - ADTSurgeryOperations
+  - ADTSurgeryTrauma
+  - ADTSurgerySkill
+  - ADTSurgeryReagents
+
+- type: guideEntry
+  id: ADTSurgeryOperations
+  name: guide-entry-adt-surgery-operations
+  text: "/ServerInfo/ADT/Guidebook/Surgery/Operations.xml"
+
+- type: guideEntry
+  id: ADTSurgeryTrauma
+  name: guide-entry-adt-surgery-trauma
+  text: "/ServerInfo/ADT/Guidebook/Surgery/Trauma.xml"
+
+- type: guideEntry
+  id: ADTSurgerySkill
+  name: guide-entry-adt-surgery-skill
+  text: "/ServerInfo/ADT/Guidebook/Surgery/Skill.xml"
+
+- type: guideEntry
+  id: ADTSurgeryReagents
+  name: guide-entry-adt-surgery-reagents
+  text: "/ServerInfo/ADT/Guidebook/Surgery/Reagents.xml"

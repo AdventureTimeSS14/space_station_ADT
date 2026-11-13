@@ -1,0 +1,36 @@
+<Document>
+# Навык хирургии
+
+Навык хирургии - это не предмет и не имплант, а подготовка, которую выдаёт роль. С ним хирург выполняет этапы операций со 100% базовым шансом, но итоговый шанс всё равно зависит от инструмента, анестезии и состояния пациента. Без навыка каждый этап опирается на собственный базовый шанс, который ниже.
+
+## У кого есть навык
+
+### Медицина
+
+- [icon src="JobIconChiefMedicalOfficer" tooltip="Главный врач" size=20] Главный врач
+- [icon src="JobIconSeniorPhysician" tooltip="Ведущий врач" size=20] Ведущий врач
+- [icon src="JobIconMedicalDoctor" tooltip="Врач" size=20] Врач
+- [icon src="JobIconMedicalIntern" tooltip="Интерн" size=20] Интерн
+- [icon src="JobIconParamedic" tooltip="Парамедик" size=20] Парамедик
+- [icon src="JobIconChemist" tooltip="Химик" size=20] Химик
+- [icon src="JobIconADTPathologist" tooltip="Патологоанатом" size=20] Патологоанатом
+- [icon src="JobIconPsychologist" tooltip="Психолог" size=20] Психолог
+- [icon src="JobIconBrigmedic" tooltip="Бригмедик" size=20] Бригмедик
+
+### Другие отделы
+
+- [icon src="JobIconCaptain" tooltip="Капитан" size=20] Капитан
+- [icon src="JobIconADTBlueShieldOfficer" tooltip="Офицер «Синий щит»" size=20] Офицер «Синий щит»
+- [icon src="JobIconShaftMiner" tooltip="Утилизатор" size=20] Утилизатор
+- [icon src="JobIconShaftMiner" tooltip="Шахтёр" size=20] Шахтёр
+
+### Антагонисты
+
+Все антагонисты получают навык хирургии автоматически при получении роли.
+
+## Что это даёт
+
+- Базовый шанс каждого этапа операции становится 100%.
+- Итоговый шанс всё равно умножается на качество инструмента и анестезию.
+- Провал этапа по-прежнему возможен из-за плохого инструмента или отсутствия анестезии.
+</Document>

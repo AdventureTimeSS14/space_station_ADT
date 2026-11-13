@@ -55,11 +55,6 @@
 
 # ADT-Tweak-Start
 - type: guideEntry
-  id: ADTSurgery
-  name: guide-entry-adt-surgery
-  text: "/ServerInfo/Guidebook/Medical/ADTSurgery.xml"
-
-- type: guideEntry
   id: ADTVirology
   name: guide-entry-adt-virology
   text: "/ServerInfo/Guidebook/Medical/ADTVirology.xml"
