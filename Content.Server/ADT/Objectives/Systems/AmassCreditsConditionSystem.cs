@@ -51,8 +51,6 @@ public sealed class AmassCreditsConditionSystem : EntitySystem
         return total + CountCash(body);
     }
 
-    private const int MaxContainerDepth = 10;
-
     private int CountCash(EntityUid body)
     {
         var total = 0;
@@ -62,9 +60,6 @@ public sealed class AmassCreditsConditionSystem : EntitySystem
 
         while (toVisit.TryPop(out var current))
         {
-            if (current.Depth > MaxContainerDepth)
-                continue;
-
             if (!TryComp<ContainerManagerComponent>(current.Entity, out var manager))
                 continue;
 

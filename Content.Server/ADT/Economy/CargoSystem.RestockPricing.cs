@@ -2,6 +2,7 @@ using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Containers;
 using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared.EntityTable.ValueSelector;
 using Content.Shared.VendingMachines.Components;
 using Robust.Shared.Log;
 using Robust.Shared.Prototypes;
@@ -16,7 +17,7 @@ public sealed partial class CargoSystem
 
     private readonly Dictionary<ProtoId<CargoProductPrototype>, int> AdtRestockCosts = new();
 
-    private readonly HashSet<ProtoId<VendingMachineInventoryPrototype>> AdtRestockPacks = new();
+    private readonly Dictionary<ProtoId<VendingMachineInventoryPrototype>, int> AdtRestockPacks = new();
 
     private ISawmill _restockSawmill = default!;
 
@@ -43,8 +44,8 @@ public sealed partial class CargoSystem
                 continue;
 
             var total = 0;
-            foreach (var pack in AdtRestockPacks)
-                total += AdtGetPackPrice(pack);
+            foreach (var (pack, count) in AdtRestockPacks)
+                total += AdtGetPackPrice(pack) * count;
 
             if (total <= 0)
                 continue;
@@ -56,7 +57,7 @@ public sealed partial class CargoSystem
         }
     }
 
-    private void AdtCollectRestockPacks(EntityPrototype proto, string context, HashSet<ProtoId<VendingMachineInventoryPrototype>> packs, int depth)
+    private void AdtCollectRestockPacks(EntityPrototype proto, string context, Dictionary<ProtoId<VendingMachineInventoryPrototype>, int> packs, int depth)
     {
         if (depth > AdtMaxTableDepth)
         {
@@ -67,7 +68,9 @@ public sealed partial class CargoSystem
         if (proto.Components.TryGetValue(Factory.GetComponentName<VendingMachineRestockComponent>(), out var restock) &&
             restock.Component is VendingMachineRestockComponent vRestock)
         {
-            packs.UnionWith(vRestock.CanRestock);
+            foreach (var pack in vRestock.CanRestock)
+                packs[pack] = packs.GetValueOrDefault(pack) + 1;
+
             return;
         }
 
@@ -79,7 +82,7 @@ public sealed partial class CargoSystem
         }
     }
 
-    private void AdtCollectRestockPacks(EntityTableSelector selector, string context, HashSet<ProtoId<VendingMachineInventoryPrototype>> packs, int depth)
+    private void AdtCollectRestockPacks(EntityTableSelector selector, string context, Dictionary<ProtoId<VendingMachineInventoryPrototype>, int> packs, int depth)
     {
         if (depth > AdtMaxTableDepth)
         {
@@ -90,8 +93,22 @@ public sealed partial class CargoSystem
         switch (selector)
         {
             case EntSelector ent:
-                if (ProtoMan.TryIndex(ent.Id, out var entityProto))
-                    AdtCollectRestockPacks(entityProto, context, packs, depth + 1);
+            {
+                if (!ProtoMan.TryIndex(ent.Id, out var entityProto))
+                    break;
+
+                var amount = AdtGetStaticAmount(ent.Amount);
+                var local = new Dictionary<ProtoId<VendingMachineInventoryPrototype>, int>();
+                AdtCollectRestockPacks(entityProto, context, local, depth + 1);
+
+                foreach (var (pack, count) in local)
+                    packs[pack] = packs.GetValueOrDefault(pack) + count * amount;
+
+                break;
+            }
+            case AllSelector all:
+                foreach (var child in all.Children)
+                    AdtCollectRestockPacks(child, context, packs, depth + 1);
                 break;
             case GroupSelector group:
                 foreach (var child in group.Children)
@@ -108,6 +125,14 @@ public sealed partial class CargoSystem
                 break;
         }
     }
+
+    private int AdtGetStaticAmount(NumberSelector amount) => amount switch
+    {
+        ConstantNumberSelector constant => Math.Max(1, constant.Value),
+        RangeNumberSelector range => Math.Max(1, (range.Range.X + range.Range.Y) / 2),
+        BinomialNumberSelector binomial => Math.Max(1, (int) Math.Round(binomial.Trials * binomial.Chance)),
+        _ => 1,
+    };
 
     private int AdtGetPackPrice(ProtoId<VendingMachineInventoryPrototype> packId)
     {

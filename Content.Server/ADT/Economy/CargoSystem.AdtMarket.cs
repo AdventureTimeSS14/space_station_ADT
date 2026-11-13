@@ -140,13 +140,8 @@ public sealed partial class CargoSystem
         }
     }
 
-    private const int AdtMaxContainerDepth = 10;
-
-    private void AdtCountGoods(EntityUid ent, Dictionary<string, int> batch, HashSet<EntityUid> topLevel, int depth = 0)
+    private void AdtCountGoods(EntityUid ent, Dictionary<string, int> batch, HashSet<EntityUid> topLevel)
     {
-        if (depth > AdtMaxContainerDepth)
-            return;
-
         if (MetaData(ent).EntityPrototype?.ID is { } protoId)
         {
             var units = TryComp<StackComponent>(ent, out var stack) ? Math.Max(1, (int) stack.Count) : 1;
@@ -163,16 +158,13 @@ public sealed partial class CargoSystem
                 if (topLevel.Contains(child))
                     continue;
 
-                AdtCountGoods(child, batch, topLevel, depth + 1);
+                AdtCountGoods(child, batch, topLevel);
             }
         }
     }
 
-    private double AdtDeflatePrice(EntityUid ent, Dictionary<string, double> mults, HashSet<EntityUid> topLevel, int depth = 0)
+    private double AdtDeflatePrice(EntityUid ent, Dictionary<string, double> mults, HashSet<EntityUid> topLevel)
     {
-        if (depth > AdtMaxContainerDepth)
-            return _pricing.GetPrice(ent);
-
         var price = _pricing.GetPrice(ent, includeContents: false);
 
         if (MetaData(ent).EntityPrototype?.ID is { } protoId)
@@ -188,7 +180,7 @@ public sealed partial class CargoSystem
                 if (topLevel.Contains(child))
                     continue;
 
-                price += AdtDeflatePrice(child, mults, topLevel, depth + 1);
+                price += AdtDeflatePrice(child, mults, topLevel);
             }
         }
 
