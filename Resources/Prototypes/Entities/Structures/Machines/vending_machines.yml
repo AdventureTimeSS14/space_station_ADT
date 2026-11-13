@@ -1080,6 +1080,7 @@
   - type: ADTVendingMachine
     pack: MegaSeedServitorInventory
     discountJobs: [Botanist]
+    discountPercent: 0.9
     allForFree: false
   # ADT-Economy end
 
