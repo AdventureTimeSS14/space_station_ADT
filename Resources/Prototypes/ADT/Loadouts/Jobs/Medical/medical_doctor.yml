@@ -19,6 +19,11 @@
   equipment:
     id: ADTTraumatologistPDA
 
+- type: loadout
+  id: ADTSurgeonPDA
+  equipment:
+    id: ADTSurgeonPDA
+
 # Jumpsuit
 - type: loadout
   id: ADTClothingUniformJumpsuitTurtleneckAzure
