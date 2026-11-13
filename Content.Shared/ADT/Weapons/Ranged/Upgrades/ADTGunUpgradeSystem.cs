@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Weapons.KineticCooldown;
+using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -7,6 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
@@ -19,16 +21,17 @@ namespace Content.Shared.ADT.Weapons.Ranged.Upgrades;
 
 public sealed class ADTGunUpgradeSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private RMCSelectiveFireSystem _selectiveFire = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
 
     private const float MinUpgradeMultiplier = 0.4f;
 
@@ -62,6 +65,7 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
     private void OnMapInit(Entity<ADTUpgradeableGunComponent> ent, ref MapInitEvent args)
     {
         RefreshRecharge(ent);
+        RefreshAutoFire(ent);
     }
 
     private void OnAfterInteractUsing(Entity<ADTUpgradeableGunComponent> ent, ref AfterInteractUsingEvent args)
@@ -141,7 +145,7 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
             args.User,
             ent,
             ent.Comp.RemoveDelay,
-            new[] { ent.Comp.RemoveTool.Id },
+            new[] { ent.Comp.RemoveTool },
             new ADTGunUpgradeRemoveDoAfterEvent());
     }
 
@@ -172,6 +176,7 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
     {
         _gun.RefreshModifiers(ent.Owner);
         RefreshRecharge(ent);
+        RefreshAutoFire(ent);
 
         if (!_net.IsServer)
             return;
@@ -193,15 +198,43 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
                 rangedModifier *= fireRate.RechargeCoefficient;
 
             if (TryComp<ADTGunUpgradeRepeaterComponent>(upgrade, out var repeater))
-            {
                 rangedModifier *= repeater.RechargeCoefficient;
-                meleeModifier *= repeater.RechargeCoefficient;
-            }
         }
 
         cooldown.UpgradeRangedMultiplier = MathF.Max(rangedModifier, MinUpgradeMultiplier);
         cooldown.UpgradeMeleeMultiplier = MathF.Max(meleeModifier, MinUpgradeMultiplier);
         Dirty(ent, cooldown);
+    }
+
+    private void RefreshAutoFire(Entity<ADTUpgradeableGunComponent> ent)
+    {
+        if (!TryComp<GunComponent>(ent, out var gun))
+            return;
+
+        var wantsAuto = false;
+        foreach (var upgrade in GetUpgrades(ent))
+        {
+            if (HasComp<ADTGunUpgradeRepeaterComponent>(upgrade))
+            {
+                wantsAuto = true;
+                break;
+            }
+        }
+
+        if (wantsAuto && !ent.Comp.RepeaterAutoFire && (gun.AvailableModes & SelectiveFire.FullAuto) == 0)
+        {
+            _selectiveFire.AddFireMode((ent.Owner, gun), SelectiveFire.FullAuto);
+            ent.Comp.RepeaterAutoFire = true;
+            Dirty(ent);
+            return;
+        }
+
+        if (!wantsAuto && ent.Comp.RepeaterAutoFire)
+        {
+            _selectiveFire.SetFireModes((ent.Owner, gun), gun.AvailableModes & ~SelectiveFire.FullAuto);
+            ent.Comp.RepeaterAutoFire = false;
+            Dirty(ent);
+        }
     }
 
     private void RefreshChassis(Entity<ADTUpgradeableGunComponent> ent)

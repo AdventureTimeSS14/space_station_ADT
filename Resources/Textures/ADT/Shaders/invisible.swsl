@@ -15,12 +15,16 @@ void fragment() {
         discard;
     }
 
-    lowp float alpha;
-    if (visibility>0.0)
-      alpha = sprite.a * visibility;
-    else
-      alpha = 0.0;
+    highp vec2 screenCoord = SCREEN_UV / SCREEN_PIXEL_SIZE;
+    highp vec2 coords = (screenCoord + reference) * distance_scale;
+    highp float w = sin(TIME + (coords.x + coords.y + 2.0 * sin(TIME * time_scale) * sin(TIME * time_scale + coords.x - coords.y)));
 
-    COLOR.xyz = sprite.xyz;
-    COLOR.a = alpha;
+    w *= 0.8;
+
+    highp vec4 background = zTextureSpec(SCREEN_TEXTURE, SCREEN_UV + vec2(w) * SCREEN_PIXEL_SIZE);
+
+    lowp float alpha = sprite.a * max(visibility, 0.0);
+
+    COLOR.xyz = mix(background.xyz, sprite.xyz, alpha);
+    COLOR.a = 1.0;
 }

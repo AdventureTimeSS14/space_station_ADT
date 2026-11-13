@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Shared.ADT.CCVar; // ADT-Tweak
 using Content.Shared.Popups;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
+using Robust.Shared.Configuration; // ADT-Tweak
 
 namespace Content.Client.Popups;
 
@@ -14,7 +16,9 @@ namespace Content.Client.Popups;
 public sealed class PopupUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
 {
     [UISystemDependency] private readonly PopupSystem? _popup = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // ADT-Tweak
 
+    private bool _outline; // ADT-Tweak
     private Font _smallFont = default!;
     private Font _mediumFont = default!;
     private Font _largeFont = default!;
@@ -29,6 +33,8 @@ public sealed class PopupUIController : UIController, IOnStateEntered<GameplaySt
         _smallFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 10);
         _mediumFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 12);
         _largeFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-BoldItalic.ttf"), 14);
+
+        _cfg.OnValueChanged(ADTCCVars.EnableTextOutline, value => _outline = value, true); // ADT-Tweak
     }
 
     public void OnStateEntered(GameplayState state)
@@ -82,7 +88,9 @@ public sealed class PopupUIController : UIController, IOnStateEntered<GameplaySt
         }
 
         var dimensions = handle.GetDimensions(font, popup.Text, scale);
-        handle.DrawString(font, updatedPosition - dimensions / 2f, popup.Text, scale, color.WithAlpha(alpha));
+        var drawPosition = updatedPosition - dimensions / 2f;
+        TextOutline? outline = _outline ? TextOutline.Default with { Color = TextOutline.Default.Color.WithAlpha(alpha) } : null; // ADT-Tweak
+        handle.DrawString(font, drawPosition, popup.Text, scale, color.WithAlpha(alpha), outline);
     }
 
     /// <summary>

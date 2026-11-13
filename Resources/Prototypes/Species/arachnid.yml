@@ -32,3 +32,9 @@
   - GalacticCommon
   - Arachnid
   # ADT end
+  defaultSoundsBySex:
+  - UnisexArachnid
+  - UnisexArachnid
+  - UnisexArachnid
+  voices:
+  - UnisexArachnid

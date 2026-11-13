@@ -28,7 +28,7 @@ public sealed partial class TemperatureSystem
     [Dependency] private EntityQuery<TemperatureDamageComponent> _tempDamageQuery = default!;
     [Dependency] private EntityQuery<ContainerTemperatureComponent> _containerTemperatureQuery = default!;
     [Dependency] private EntityQuery<ThermalRegulatorComponent> _thermalRegulatorQuery = default!;
-    [Dependency] private TagSystem _tagSystem = default!; // ADT tweak
+    [Dependency] private TagSystem _tagSystem = default!; // ADT-Tweak
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.
@@ -54,9 +54,9 @@ public sealed partial class TemperatureSystem
 
     private void InitializeDamage()
     {
-        SubscribeLocalEvent<AlertsComponent, OnTemperatureChangeEvent>(ServerAlert);
+        SubscribeLocalEvent<AlertsComponent, TemperatureChangedEvent>(ServerAlert);
 
-        SubscribeLocalEvent<TemperatureDamageComponent, OnTemperatureChangeEvent>(EnqueueDamage);
+        SubscribeLocalEvent<TemperatureDamageComponent, TemperatureChangedEvent>(EnqueueDamage);
         SubscribeLocalEvent<TemperatureDamageComponent, EntityUnpausedEvent>(OnUnpaused);
 
         // Allows overriding thresholds based on the parent's thresholds.
@@ -100,8 +100,8 @@ public sealed partial class TemperatureSystem
         var heatDamageThreshold = entity.Comp.ParentHeatDamageThreshold ?? entity.Comp.HeatDamageThreshold;
         var coldDamageThreshold = entity.Comp.ParentColdDamageThreshold ?? entity.Comp.ColdDamageThreshold;
 
-        if (temperature.CurrentTemperature >= heatDamageThreshold &&
-            !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialHighTempImmunityComponent>(entity)) // ADT Heretic
+        if (temperature.Temperature >= heatDamageThreshold &&
+            !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialHighTempImmunityComponent>(entity)) // ADT-Tweak
         {
             if (!entity.Comp.TakingDamage)
             {
@@ -109,12 +109,12 @@ public sealed partial class TemperatureSystem
                 entity.Comp.TakingDamage = true;
             }
 
-            var diff = Math.Abs(temperature.CurrentTemperature - heatDamageThreshold);
+            var diff = Math.Abs(temperature.Temperature - heatDamageThreshold);
             var tempDamage = c / (1 + a * Math.Pow(Math.E, -heatK * diff)) - y;
             _damageable.TryChangeDamage(entity.Owner, entity.Comp.HeatDamage * tempDamage * deltaTime.TotalSeconds, ignoreResistances: true, interruptsDoAfters: false);
         }
-        else if (temperature.CurrentTemperature <= coldDamageThreshold &&
-                 !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialLowTempImmunityComponent>(entity)) // ADT Heretic
+        else if (temperature.Temperature <= coldDamageThreshold &&
+                 !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialLowTempImmunityComponent>(entity)) // ADT-Tweak
         {
             if (!entity.Comp.TakingDamage)
             {
@@ -122,7 +122,7 @@ public sealed partial class TemperatureSystem
                 entity.Comp.TakingDamage = true;
             }
 
-            var diff = Math.Abs(temperature.CurrentTemperature - coldDamageThreshold);
+            var diff = Math.Abs(temperature.Temperature - coldDamageThreshold);
             var tempDamage =
                 Math.Sqrt(diff * (Math.Pow(entity.Comp.DamageCap.Double(), 2) / coldDamageThreshold));
             _damageable.TryChangeDamage(entity.Owner, entity.Comp.ColdDamage * tempDamage * deltaTime.TotalSeconds, ignoreResistances: true, interruptsDoAfters: false);
@@ -134,7 +134,7 @@ public sealed partial class TemperatureSystem
         }
     }
 
-    private void ServerAlert(Entity<AlertsComponent> entity, ref OnTemperatureChangeEvent args)
+    private void ServerAlert(Entity<AlertsComponent> entity, ref TemperatureChangedEvent args)
     {
         ProtoId<AlertPrototype> type;
         float threshold;
@@ -179,7 +179,7 @@ public sealed partial class TemperatureSystem
             _alerts.ClearAlertCategory(entity.AsNullable(), TemperatureAlertCategory);
     }
 
-    private void EnqueueDamage(Entity<TemperatureDamageComponent> ent, ref OnTemperatureChangeEvent args)
+    private void EnqueueDamage(Entity<TemperatureDamageComponent> ent, ref TemperatureChangedEvent args)
     {
         if (ShouldUpdateDamage.Add(ent) && !ent.Comp.TakingDamage)
             ent.Comp.LastUpdate = _gameTiming.CurTime;

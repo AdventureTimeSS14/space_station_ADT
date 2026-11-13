@@ -62,7 +62,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       # End ADT tweak
 
@@ -89,7 +90,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       # End ADT tweak
 
@@ -293,7 +295,8 @@
       metabolites:
         Ethanol: 0.1
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       - !type:HealthChange
         damage:
@@ -448,7 +451,8 @@
       metabolites:
         Ethanol: 0.6
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
   fizziness: 0.8
 
@@ -891,9 +895,11 @@
       metabolites:
         Ethanol: 0.1
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -2
       - !type:EvenHealthChange
         damage:
@@ -1368,32 +1374,6 @@
         Ethanol: 0.5
 
 - type: reagent
-  id: Neurotoxin
-  name: reagent-name-neurotoxin
-  parent: BaseAlcohol
-  desc: reagent-desc-neurotoxin
-  physicalDesc: reagent-physical-desc-pungent
-  flavor: neurotoxin
-  color: "#2E2E61"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/neurotoxinglass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-  metabolisms:
-    Digestion:
-      metabolites:
-        Ethanol: 0.5
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 1
-
-- type: reagent
   id: Painkiller
   name: reagent-name-painkiller
   parent: BaseAlcohol
@@ -1537,11 +1517,11 @@
       metabolites:
         Ethanol: 0.3
       effects:
-        - !type:GenericStatusEffect
-          key: RatvarianLanguage
-          component: RatvarianLanguage
-        - !type:SatiateThirst
-          factor: 2
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectRatvarianLanguage
+      - !type:Satiate
+        satiationType: Thirst
+        factor: 2
 
 - type: reagent
   id: Silencer
@@ -1560,10 +1540,10 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:GenericStatusEffect
-        key: Muted
-        component: Muted
-      - !type:SatiateThirst
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectMuted
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
 
 - type: reagent
@@ -1846,7 +1826,8 @@
         Ethanol: 0.2
         Theobromine: 0.1
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 1
         - !type:ModifyStatusEffect
           effectProto: StatusEffectDrowsiness
@@ -1874,7 +1855,8 @@
         Ethanol: 0.3
         Theobromine: 0.1
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 1
         - !type:ModifyStatusEffect
           effectProto: StatusEffectDrowsiness
@@ -1902,7 +1884,8 @@
         Ethanol: 0.2
         Theobromine: 0.1
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 1
         - !type:ModifyStatusEffect
           effectProto: StatusEffectDrowsiness
@@ -1930,7 +1913,8 @@
         Ethanol: 0.3
         Theobromine: 0.1
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 1
         - !type:ModifyStatusEffect
           effectProto: StatusEffectDrowsiness
@@ -1958,7 +1942,8 @@
         Ethanol: 0.14
         Theobromine: 0.1
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 1
         - !type:ModifyStatusEffect
           effectProto: StatusEffectDrowsiness
@@ -1986,7 +1971,8 @@
         Ethanol: 0.3
         Theobromine: 0.1
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 1
         - !type:ModifyStatusEffect
           effectProto: StatusEffectDrowsiness
@@ -2071,10 +2057,10 @@
       metabolites:
         Ethanol: 0.14
       effects:
-      - !type:GenericStatusEffect
-        key: Muted
-        component: Muted
-      - !type:SatiateThirst
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectMuted
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
 
 - type: reagent
@@ -2125,7 +2111,8 @@
         damage:
           types:
             Poison: .5
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 1
 
 - type: reagent
@@ -2280,7 +2267,8 @@
       metabolites:
         Ethanol: 0.9
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
       - !type:Drunk
         boozePower: 10

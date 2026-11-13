@@ -16,14 +16,14 @@ namespace Content.Server.ADT.Shadowling;
 
 public sealed class ADTShadowlingRuleSystem : GameRuleSystem<ADTShadowlingRuleComponent>
 {
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly ADTShadowlingAbilitySystem _abilities = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private ADTShadowlingAbilitySystem _abilities = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private CodeConditionSystem _codeCondition = default!;
 
     public override void Initialize()
     {
@@ -56,7 +56,9 @@ public sealed class ADTShadowlingRuleSystem : GameRuleSystem<ADTShadowlingRuleCo
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, rule.Comp.MindRole.Id, mind, true);
+        if (!_role.MindHasRole<ADTShadowlingRoleComponent>(mindId))
+            _role.MindAddRole(mindId, rule.Comp.MindRole.Id, mind, true);
+
         rule.Comp.Minds.Add(mindId);
         _mind.TryAddObjective(mindId, mind, rule.Comp.AscendObjective.Id);
 

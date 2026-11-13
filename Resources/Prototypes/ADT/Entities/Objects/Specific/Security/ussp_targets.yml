@@ -1,0 +1,43 @@
+- type: entity
+  parent: BaseTarget
+  id: ADTTargetUSSPStake
+  name: target stake
+  description: A wooden stake for training targets.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Security/ussp_target.rsi
+    state: target_stake
+
+- type: entity
+  parent: TargetHuman
+  id: ADTTargetUSSPChest
+  name: army chest target
+  description: A green silhouette target used at USSP shooting ranges.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Security/ussp_target.rsi
+    state: target_chest
+
+- type: entity
+  parent: BaseTarget
+  id: ADTTargetUSSPRound
+  name: round target
+  description: A paper bullseye on a wooden easel.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Security/ussp_target.rsi
+    state: target_round
+
+- type: entity
+  parent: BaseTarget
+  id: ADTTargetUSSPGong
+  name: steel target
+  description: A steel plate hanging on chains. Rings nicely when hit.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Security/ussp_target.rsi
+    state: target_gong

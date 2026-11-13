@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.ADT.MapRotation;
 using Content.Server.GameTicking;
-using Content.Shared.ADT.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared.Maps;
 using Robust.Server.Player;
@@ -14,14 +14,15 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Maps;
 
-public sealed class GameMapManager : IGameMapManager
+public sealed partial class GameMapManager : IGameMapManager
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IResourceManager _resMan = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IResourceManager _resMan = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MapRotationManager _mapRotation = default!; // ADT-Tweak
 
     [ViewVariables(VVAccess.ReadOnly)]
     private readonly Queue<string> _previousMaps = new();
@@ -34,8 +35,6 @@ public sealed class GameMapManager : IGameMapManager
     [ViewVariables(VVAccess.ReadOnly)]
     private int _mapQueueDepth = 1;
 
-    private readonly Queue<string> _recentlyPlayedMaps = new(); // ADT-Tweak: ReWork Vote Map
-    private int RecentMapBanDepth => _configurationManager.GetCVar(ADTCCVars.MapVoteRecentBanDepth); // ADT-Tweak: ReWork Vote Map.
     private ISawmill _log = default!;
 
     public void Initialize()
@@ -99,13 +98,15 @@ public sealed class GameMapManager : IGameMapManager
 
     public IEnumerable<GameMapPrototype> CurrentlyEligibleMaps()
     {
-        var maps = AllVotableMaps()
-            .Where(map => IsMapEligible(map) && !_recentlyPlayedMaps.Contains(map.ID))
-            .ToArray(); // ADT-Tweak: ReWork Vote Map
+        var maps = AllVotableMaps().Where(IsMapEligible).ToArray();
 
-        return maps.Length == 0
-            ? AllMaps().Where(x => x.Fallback && !_recentlyPlayedMaps.Contains(x.ID))
-            : maps; // ADT-Tweak: ReWork Vote Map
+        // ADT-Tweak-Start
+        var rotated = maps.Where(map => !_mapRotation.IsExcluded(map.ID)).ToArray();
+        if (rotated.Length != 0)
+            return rotated;
+        // ADT-Tweak-End
+
+        return maps.Length == 0 ? AllMaps().Where(x => x.Fallback) : maps;
     }
 
     public IEnumerable<GameMapPrototype> AllVotableMaps()
@@ -142,17 +143,6 @@ public sealed class GameMapManager : IGameMapManager
         return _configSelectedMap ?? _selectedMap;
     }
 
-    // ADT-Tweak-start: Добавлена функция для фильтрации последних карт
-    public void RegisterPlayedMap(string mapId)
-    {
-        _recentlyPlayedMaps.Enqueue(mapId);
-
-        while (_recentlyPlayedMaps.Count > RecentMapBanDepth)
-        {
-            _recentlyPlayedMaps.Dequeue();
-        }
-    }
-    // ADT-Tweak-end
     public void ClearSelectedMap()
     {
         _selectedMap = default!;

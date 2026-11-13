@@ -5,7 +5,9 @@
   description: The sickly blade used by sinister individuals for rituals and sacrifices.
   components:
   - type: HereticBlade
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Heretic/Blades/blade_blade.rsi
     state: icon

@@ -1,0 +1,82 @@
+- type: entity
+  id: ADTActionIgnite
+  name: Ignite
+  description: You form a small clot of flame in your maw, just enough to... light a bonfire.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 40
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/small_blaze.rsi
+    layers:
+    - state: icon
+  - type: InstantAction
+    event: !type:ADTIgniteActionEvent
+
+- type: entity
+  id: ADTActionHealTouch
+  name: Shaman's touch
+  description: Charges your hand with the energy of the Necropolis, letting you heal wounds and interact with certain objects.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 20
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: heal_touch
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: true
+    event: !type:ADTHealTouchActionEvent
+
+- type: entity
+  id: ADTActionNecropolisCompass
+  name: Necropolis guidance
+  description: You use the power of the Necropolis to learn the approximate location of points of interest.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: necropolis_compass
+  - type: InstantAction
+    event: !type:ADTNecropolisCompassActionEvent
+
+- type: entity
+  id: ADTActionEmpath
+  name: Mind reading
+  description: Peer into the victim's mind and learn what they live for.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 18
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: empath
+  - type: TargetAction
+    range: 10
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:ADTEmpathActionEvent
+
+- type: entity
+  id: ADTActionTailSweep
+  name: Tail sweep
+  description: Swing your tail around, knocking the wind out of everyone nearby.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+  - type: Sprite
+    sprite: ADT/Interface/Actions/ashwalker.rsi
+    layers:
+    - state: tail_cut
+  - type: InstantAction
+    event: !type:ADTTailSweepActionEvent

@@ -8,10 +8,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.ADT.NightVision;
 public sealed class NightVisionSystem : SharedNightVisionSystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     private NightVisionOverlay? _overlay;
     private EntityUid? _effect;

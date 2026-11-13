@@ -9,12 +9,12 @@ using Robust.Shared.Animations;
 
 namespace Content.Client._RMC14.Atmos;
 
-public sealed class RMCFlammableSystem : EntitySystem
+public sealed class RMCFlammableSystem : SharedRMCFlammableSystem
 {
     private const string RollKey = "StopDropRollAnimation";
     private const float QuarterTurnTime = 0.25f;
 
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
 
     public override void Initialize()
     {

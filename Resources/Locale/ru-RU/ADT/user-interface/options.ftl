@@ -1,5 +1,6 @@
 ui-options-center-radial-menu = Центрировать радиальные меню
 ui-options-language-fonts = Шрифты языков
+ui-options-text-outline = Обводка текста в попапах и облачках речи
 
 ui-options-barks-or-tts = Вид озвучки
 ui-options-barks-speech = Барки

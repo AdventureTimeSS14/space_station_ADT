@@ -21,13 +21,13 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 {
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly GhostRoleSystem _ghost = default!;
-    [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private GhostRoleSystem _ghost = default!;
+    [Dependency] private GibbingSystem _gibbingSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -43,10 +43,8 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         SubscribeLocalEvent<BlobCarrierComponent, MindRemovedMessage>(OnMindRemove);
     }
 
-    [ValidatePrototypeId<EntityPrototype>]
     private const string ActionTransformToBlob = "ADTActionTransformToBlob";
 
-    [ValidatePrototypeId<LanguagePrototype>]
     private const string BlobLang = "ADTBlob";
 
     private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)

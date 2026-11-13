@@ -1,0 +1,12 @@
+ent-ADTAnomalyRockBS = { ent-AnomalyRockBase }
+    .suffix = Камень, блюспейс
+    .desc = { ent-AnomalyRockBase.desc }
+ent-ADTAnomalyRockCopper = { ent-AnomalyRockBase }
+    .suffix = Камень, медь
+    .desc = { ent-AnomalyRockBase.desc }
+ent-ADTAnomalyRockLead = { ent-AnomalyRockBase }
+    .suffix = Камень, свинец
+    .desc = { ent-AnomalyRockBase.desc }
+ent-ADTAnomalyRockZinc = { ent-AnomalyRockBase }
+    .suffix = Камень, цинк
+    .desc = { ent-AnomalyRockBase.desc }

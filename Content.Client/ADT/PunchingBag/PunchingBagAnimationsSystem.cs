@@ -7,9 +7,9 @@ namespace Content.Client.ADT.PunchingBag;
 
 public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private AnimationPlayerSystem _animationSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const string BaseLayerKey = "base";
     private const string AnimationKey = "punching-bag-animation";

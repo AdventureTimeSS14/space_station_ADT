@@ -7,7 +7,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
   reactiveEffects:
     Extinguish:
@@ -28,7 +29,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -45,6 +47,7 @@
   id: BaseAlcohol
   group: Drinks
   abstract: true
+  intensityMod: 0.2 # ADT-Tweak
   slipData:
     requiredSlipSpeed: 3.5
   friction: 0.4
@@ -53,7 +56,8 @@
       metabolites:
         Ethanol: 0.12
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
   reactiveEffects:
     Flammable:

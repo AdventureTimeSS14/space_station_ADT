@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Sponsors;
 
 public abstract class SharedSponsorManager : ISharedSponsorManager
 {
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
+    [Dependency] protected IPrototypeManager PrototypeManager = default!;
 
     private FrozenDictionary<string, string[]>? _jobDepartments;
 

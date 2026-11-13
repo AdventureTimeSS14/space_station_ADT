@@ -1,0 +1,44 @@
+- type: entity
+  parent: [ ClothingEyesBase, ShowMedicalIcons ]
+  id: ADTClothingEyesGodEye
+  name: eye of god
+  description: A strange eye, said to have been torn from an omniscient creature that used to roam the wastes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/godeye.rsi
+    layers:
+    - state: icon
+      map: [ "icon" ]
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/godeye.rsi
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTGodEyeVisuals.Double:
+        icon:
+          True: { state: icon-double }
+          False: { state: icon }
+  - type: ADTGodEye
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+
+- type: entity
+  id: ADTEffectGodEyeLight
+  categories: [ HideSpawnMenu ]
+  name: eye of god sight
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.8
+    radius: 8
+    softness: 1
+    castShadows: false

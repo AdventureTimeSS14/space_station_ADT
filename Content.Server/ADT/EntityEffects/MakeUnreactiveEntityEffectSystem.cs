@@ -7,7 +7,7 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class MakeUnreactiveEntityEffectSystem : EntityEffectSystem<ReactiveComponent, MakeUnreactiveEntityEffect>
 {
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<MakeUnreactiveEntityEffect> args)
     {

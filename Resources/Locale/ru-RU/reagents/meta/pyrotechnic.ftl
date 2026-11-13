@@ -1,6 +1,6 @@
 reagent-name-thermite = термит
 reagent-desc-thermite = Смесь, которая становится крайне горячей при воспламенении.
-reagent-name-napalm = напалм
+reagent-name-napalm = самодельный напалм
 reagent-desc-napalm = Немножко огнеопасен.
 reagent-name-phlogiston = флогистон
 reagent-desc-phlogiston = Подожжёт и заставит вас гореть.
@@ -12,3 +12,5 @@ reagent-name-welding-fuel = сварочное топливо
 reagent-desc-welding-fuel = Используется сварщиками для сварки.
 reagent-name-fluorosurfactant = фторсурфактант
 reagent-desc-fluorosurfactant = Перфторированная сульфоновая кислота, образующая пену при смешивании с водой.
+reagent-name-xenoborg-oil = масло ксеноборгов
+reagent-desc-xenoborg-oil = Лёгкое масло, на котором органики поскальзываются и горят.

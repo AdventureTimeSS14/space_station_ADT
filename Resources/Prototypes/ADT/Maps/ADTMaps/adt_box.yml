@@ -2,8 +2,7 @@
   id: ADT_Box
   mapName: 'Cyberiada'
   mapPath: /Maps/ADTMaps/ADTStations/adt_cyberiada.yml
-  minPlayers: 35
-  maxPlayers: 60
+  minPlayers: 60
   stations:
     ADT_Boxstation:
       stationProto: StandardNanotrasenStation
@@ -42,6 +41,7 @@
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
+            ADTVirologist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
             Paramedic: [ 1, 1 ]
             MedicalIntern: [ 4, 4 ]

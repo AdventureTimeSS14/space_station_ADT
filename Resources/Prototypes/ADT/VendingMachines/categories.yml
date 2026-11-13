@@ -124,3 +124,10 @@
   icon: Defibrillator
   accentColor: "#38bdf8"
   priority: 2
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryBooks
+  name: vending-category-books
+  icon: BookBase
+  accentColor: "#1e5a2b"
+  priority: 9 # На будущее, всегда должно быть ниже всех.

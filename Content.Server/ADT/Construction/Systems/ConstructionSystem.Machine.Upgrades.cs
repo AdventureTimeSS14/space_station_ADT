@@ -16,8 +16,8 @@ namespace Content.Server.Construction;
 
 public sealed partial class ConstructionSystem
 {
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private ExamineSystemShared _examineSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private void InitializeMachineUpgrades()
     {
@@ -139,7 +139,9 @@ public sealed partial class ConstructionSystem
     public void RefreshParts(EntityUid uid, MachineComponent component)
     {
         var storage = EnsureComp<MachinePartStorageComponent>(uid);
-        AbsorbContainerParts(uid, component, storage);
+
+        if (IsUpgradeable(component))
+            AbsorbContainerParts(uid, component, storage);
 
         var partRatings = GetPartRatings(storage.Parts);
         var statMultipliers = GetStatMultipliers(partRatings);
@@ -151,6 +153,15 @@ public sealed partial class ConstructionSystem
                 StatMultipliers = statMultipliers,
             },
             broadcast: true);
+    }
+
+    private bool IsUpgradeable(MachineComponent component)
+    {
+        if (component.BoardContainer.ContainedEntities.Count == 0
+            || !TryComp<MachineBoardComponent>(component.BoardContainer.ContainedEntities[0], out var board))
+            return true;
+
+        return !board.NoUpgrades;
     }
 
     private Dictionary<MachineStat, float> GetStatMultipliers(

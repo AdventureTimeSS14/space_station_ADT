@@ -15,13 +15,12 @@
   - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
+  - type: Solution
+    solution:
+      maxVol: 26
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
 
 # Tastes like egg, cheese.
 - type: entity
@@ -38,15 +37,14 @@
       - cheesy
   - type: Sprite
     state: khachapuri
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 13
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: TableSalt
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 13
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: TableSalt
+        Quantity: 3
 
 
 - type: entity
@@ -102,15 +100,14 @@
     state: cloth
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7.5
-        - ReagentId: Fiber
-          Quantity: 7.5
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Fiber
+        Quantity: 7.5
   - type: Tag
     tags:
     - ClothMade
@@ -222,17 +219,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
     state: shawerma
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 3
   - type: Item
     sprite: ADT/Objects/Consumable/Food/meals.rsi
   - type: Tag
@@ -256,17 +252,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
     state: shawerma
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 3
 
 - type: entity
   name: shawerma-cheese-name
@@ -285,17 +280,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
     state: cheese_shawerma
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 16
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 4
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 16
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 4
 
 # Сыр косичка
 - type: entity
@@ -313,17 +307,16 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
     state: string-cheese
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 3
 
 # Чак-чак
 - type: entity
@@ -342,14 +335,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/chak-chak.rsi
     state: chak-chak
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Protein
+        Quantity: 3

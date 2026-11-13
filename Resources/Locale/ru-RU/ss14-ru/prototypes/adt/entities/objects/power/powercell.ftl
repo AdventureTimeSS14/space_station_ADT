@@ -1,0 +1,1 @@
+ent-ADTPowerCellLasgunRevolverSolution = { ent-Solution }

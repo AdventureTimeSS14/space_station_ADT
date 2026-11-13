@@ -44,18 +44,17 @@ using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 
 namespace Content.Client.UserInterface.Systems.Actions;
 
-public sealed class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
+public sealed partial class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
+    [Dependency] private IOverlayManager _overlays = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private IStateManager _stateManager = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
-    [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly ADT.Heretic.StopTargetingSystem? _stopTargeting = default;
     [UISystemDependency] private readonly ADTActionOrderSystem? _orderSystem = default;
 
@@ -283,12 +282,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // ADT-Tweak-Start
         if (ActionOrder is { } order && GetActionKey(actionId) is { } key)
         {
-            if (order.Removed.Contains(key))
+            if (order.IsRemoved(key))
                 return;
 
-            if (order.Order.TryGetValue(key, out var place))
+            if (order.HasPlace(key))
             {
-                _actions.Insert(GetInsertIndex(order, place), actionId);
+                _actions.Insert(order.GetInsertIndex(GetActionKeys(), key), actionId);
                 StoreOrder();
                 return;
             }
@@ -402,7 +401,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 continue;
             }
 
-            var button = new ActionButton(EntityManager, _spriteSystem, this) {Locked = true};
+            var button = new ActionButton(EntityManager, this) {Locked = true};
             button.ActionPressed += OnWindowActionPressed;
             button.ActionUnpressed += OnWindowActionUnPressed;
             button.ActionFocusExited += OnWindowActionFocusExisted;
@@ -682,14 +681,15 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // and a small item/provider sprite, then the dragged icon should be the big texture, not the provider.
         if (_menuDragHelper.Dragged?.Action is {} action)
         {
-            if (EntityManager.TryGetComponent(action.Comp.EntityIcon, out SpriteComponent? sprite)
-                && sprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
+            if (EntityManager.TryGetComponent(action.Comp.EntityIcon, out SpriteComponent? itemSprite)
+                && itemSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} itemFrame)
             {
-                _dragShadow.Texture = frame;
+                _dragShadow.Texture = itemFrame;
             }
-            else if (action.Comp.Icon is {} icon)
+            else if (EntityManager.TryGetComponent(action.Owner, out SpriteComponent? actionSprite)
+                && actionSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} actionFrame)
             {
-                _dragShadow.Texture = _spriteSystem.Frame0(icon);
+                _dragShadow.Texture = actionFrame;
             }
             else
             {
@@ -712,6 +712,18 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         _dragShadow.Texture = null;
         _dragShadow.Visible = false;
+        UpdateActionBarBackgrounds();
+    }
+
+    private void UpdateActionBarBackgrounds()
+    {
+        if (_container == null)
+            return;
+
+        foreach (var button in _container.GetButtons())
+        {
+            button.UpdateBackground();
+        }
     }
 
     private void UnloadGui()
@@ -819,7 +831,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     public override void FrameUpdate(FrameEventArgs args)
     {
+        var wasDragging = IsDragging;
         _menuDragHelper.Update(args.DeltaSeconds);
+
+        if (wasDragging != IsDragging)
+            UpdateActionBarBackgrounds();
         if (_window is {UpdateNeeded: true})
             SearchAndDisplay();
     }
@@ -872,67 +888,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (ActionOrder is not { } order)
             return;
 
-        var known = new List<(int Place, EntityUid Action)>();
-        var fresh = new List<EntityUid>();
-
-        foreach (var action in _actions)
-        {
-            if (action is not { } actionId)
-                continue;
-
-            if (GetActionKey(actionId) is { } key)
-            {
-                if (order.Removed.Contains(key))
-                    continue;
-
-                if (order.Order.TryGetValue(key, out var place))
-                {
-                    known.Add((place, actionId));
-                    continue;
-                }
-            }
-
-            fresh.Add(actionId);
-        }
+        var arranged = order.Arrange(_actions.OfType<EntityUid>(), GetActionKey);
 
         _actions.Clear();
-
-        foreach (var (_, actionId) in known.OrderBy(entry => entry.Place))
+        foreach (var actionId in arranged)
         {
             _actions.Add(actionId);
         }
-
-        foreach (var actionId in fresh)
-        {
-            _actions.Add(actionId);
-        }
-    }
-
-    private int GetInsertIndex(ADTActionOrderSystem order, int place)
-    {
-        for (var i = 0; i < _actions.Count; i++)
-        {
-            if (_actions[i] is not { } actionId)
-                continue;
-
-            if (GetActionKey(actionId) is not { } key || !order.Order.TryGetValue(key, out var existing))
-                return i;
-
-            if (existing > place)
-                return i;
-        }
-
-        return _actions.Count;
-    }
-
-    public void ReloadActionOrder()
-    {
-        if (_actionsSystem == null || IsMapping)
-            return;
-
-        LoadDefaultActions();
-        _container?.SetActionData(_actionsSystem, _actions.ToArray());
-        QueueWindowUpdate();
     }
 
     private void StoreOrder()
@@ -943,7 +905,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!_actionsSystem.GetClientActions().Any())
             return;
 
-        order.Store(_actions);
+        order.Store(GetActionKeys());
     }
 
     private void MarkRemovedFromHotbar(EntityUid? actionId)
@@ -959,14 +921,19 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         return ActionOrder is { } order &&
                GetActionKey(actionId) is { } key &&
-               order.Removed.Contains(key);
+               order.IsRemoved(key);
     }
 
     private bool HasSavedPlace(EntityUid actionId)
     {
         return ActionOrder is { } order &&
                GetActionKey(actionId) is { } key &&
-               order.Order.ContainsKey(key);
+               order.HasPlace(key);
+    }
+
+    private List<EntProtoId?> GetActionKeys()
+    {
+        return _actions.Select(action => action is { } actionId ? GetActionKey(actionId) : null).ToList();
     }
 
     private EntProtoId? GetActionKey(EntityUid actionId)
@@ -1023,10 +990,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             {
                 handOverlay.EntityOverride = provider;
             }
-            else if (action.Toggled && action.IconOn != null)
-                handOverlay.IconOverride = _spriteSystem.Frame0(action.IconOn);
-            else if (action.Icon != null)
-                handOverlay.IconOverride = _spriteSystem.Frame0(action.Icon);
+            else if (EntityManager.TryGetComponent(uid, out SpriteComponent? actionSprite)
+                && actionSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
+            {
+                handOverlay.IconOverride = frame;
+            }
         }
 
         if (_container != null)

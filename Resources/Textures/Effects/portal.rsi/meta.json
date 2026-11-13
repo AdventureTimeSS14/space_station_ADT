@@ -1,13 +1,13 @@
 {
-    "version": 2,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by kazne (Discord) & Estkemran (Github), added green github.com/fqqf",
-    "size": {
-        "x": 32,
-        "y": 32
-    },
-    "states": [
-        {
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by kazne (Discord) & Estkemran (Github), added green github.com/fqqf",
+  "states": [
+    {
             "name": "portal-blue",
             "delays": [
                 [
@@ -16,7 +16,7 @@
                 ]
             ]
         },
-        {
+    {
             "name": "portal-red",
             "delays": [
                 [
@@ -25,16 +25,7 @@
                 ]
             ]
         },
-        {
-            "name": "portal-green",
-            "delays": [
-                [
-                    0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
-                    0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1
-                ]
-            ]
-        },
-        {
+    {
             "name": "portal-artifact",
             "delays": [
                 [
@@ -42,6 +33,36 @@
                     0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1
                 ]
             ]
+        },
+    {
+      "name": "portal-gray",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+            "name": "portal-green",
+            "delays": [
+                [
+                    0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
+                    0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1
+                ]
+            ]
         }
-    ]
+  ]
 }

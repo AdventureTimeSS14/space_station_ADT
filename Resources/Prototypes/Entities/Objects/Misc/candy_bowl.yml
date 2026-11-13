@@ -17,6 +17,7 @@
         - Pill
       tags:
         - FoodSnack
+        - ADTGummy # ADT-Tweak
   - type: ContainerContainer
     containers:
       bin-container: !type:Container
@@ -71,3 +72,4 @@
           - Pill
           tags:
           - FoodSnack
+          - ADTGummy # ADT-Tweak

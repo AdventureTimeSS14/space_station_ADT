@@ -82,13 +82,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/kmt_heavywindow.rsi
     state: full
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1600
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 800

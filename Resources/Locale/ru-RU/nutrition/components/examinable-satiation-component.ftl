@@ -1,0 +1,10 @@
+examinable-satiation-component-examine-hunger-full = { CAPITALIZE($entity) } выглядит объевшимся!
+examinable-satiation-component-examine-hunger-okay = { CAPITALIZE($entity) } выглядит сытым.
+examinable-satiation-component-examine-hunger-concerned = { CAPITALIZE($entity) } выглядит голодным.
+examinable-satiation-component-examine-hunger-desperate = { CAPITALIZE($entity) } выглядит изголодавшимся!
+examinable-satiation-component-examine-hunger-none = Похоже, { $entity } не испытывает голода.
+examinable-satiation-component-examine-thirst-full = { CAPITALIZE($entity) } выглядит напившимся!
+examinable-satiation-component-examine-thirst-okay = { CAPITALIZE($entity) } не испытывает жажды.
+examinable-satiation-component-examine-thirst-concerned = { CAPITALIZE($entity) } выглядит так, будто хочет пить.
+examinable-satiation-component-examine-thirst-desperate = { CAPITALIZE($entity) } изнывает от жажды!
+examinable-satiation-component-examine-thirst-none = Похоже, { $entity } не испытывает жажды.

@@ -5,3 +5,5 @@ osay-command-arg-type = type
 osay-command-arg-message = message
 osay-command-error-args = Недопустимое число аргументов.
 osay-command-error-euid = { $arg } не является допустимым entity uid.
+cmd-osay-desc = Заставляет другую сущность попытаться отправить сообщение
+cmd-osay-help = Использование: { $command } <uid> <type> <message>

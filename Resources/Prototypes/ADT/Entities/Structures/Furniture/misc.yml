@@ -94,6 +94,18 @@
   - type: Pullable
   - type: PunchingBagAnimations
     animationState: swinging
+  - type: TrainingEquipment
+    maxCreditPerAction: 10
+    firstActionCredit: 3
+    tiers:
+    - time: 900
+      staminaBonus: 0.1
+      unarmedDamageBonus: 0.05
+      pullDensityReduction: 0.4
+    - time: 1800
+      staminaBonus: 0.2
+      unarmedDamageBonus: 0.1
+      pullDensityReduction: 0.7
 
 # Часовой шкаф
 
@@ -330,13 +342,9 @@
   - type: Icon
     sprite: ADT/Structures/Furniture/pit.rsi
     state: pit
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      tank:
-        maxVol: 10000
-        reagents:
-        - ReagentId: Water
-          Quantity: 10000
+    - SolutionPitWater
   - type: DrainableSolution
     solution: tank
   - type: Edible
@@ -532,20 +540,11 @@
   name: poisoned well
   description: A source of poisoned water. Drinking from this is not recommended.
   components:
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      tank:
-        maxVol: 10000
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 10000
-  - type: SolutionRegeneration
+    - SolutionPitPoison
+  - type: DrainableSolution
     solution: tank
-    duration: 0.1
-    generated:
-      reagents:
-      - ReagentId: Toxin
-        Quantity: 100
 
 - type: entity
   id: ADTPitDried
@@ -553,10 +552,9 @@
   name: dried well
   description: A dried up well. No water left.
   components:
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      tank:
-        maxVol: 10000
+    - ADTPitDriedSolution
   - type: DrainableSolution
     solution: tank
   - type: Edible
@@ -671,7 +669,6 @@
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 16.0, 16.0, 16.0, 16.0
     backgroundModulate: "#202421"
-    fontAccentColor: "#ffffff"
     fontDefaultColor: "#ffffff"
   - type: Appearance
   - type: InteractionOutline
@@ -699,3 +696,43 @@
   - type: Construction
     graph: ADTChalkboard
     node: adtchalkboard
+
+- type: entity
+  parent: SolutionTank
+  id: SolutionPitWater
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 10000
+      reagents:
+      - ReagentId: Water
+        Quantity: 10000
+
+- type: entity
+  parent: SolutionTank
+  id: SolutionPitPoison
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 10000
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 10000
+  - type: SolutionRegeneration
+    duration: 0.1
+    generated:
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 100
+
+- type: entity
+  parent: SolutionTank
+  id: ADTPitDriedSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 10000
+      reagents: []

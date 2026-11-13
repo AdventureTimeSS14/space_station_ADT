@@ -1,0 +1,29 @@
+# - type: constructionGraph
+#   id: ADTComplexTransformItemPersonal
+#   start: start
+#   graph:
+#   - node: start
+#     entity: WeaponPistolMk58
+#     edges:
+#     - to: adtpersonalitem1
+#       completed:
+#       - !type:AdminLog
+#         message: "Construction"
+#         impact: High
+#       steps:
+#       - tag: ADTTAG1
+#         doAfter: 1
+#     - to: adtpersonalitem2
+#       completed:
+#       - !type:AdminLog
+#         message: "Construction"
+#         impact: High
+#       steps:
+#       - tag: ADTTAG2
+#         doAfter: 1
+#   - node: adtpersonalitem1
+#     entity: ADTPersonalItem1
+#   - node: adtpersonalitem2
+#     entity: ADTPersonalItem2
+
+# ЭТО Я ПРИКИНУЛ ПРИМЕРНО КАК ПО ИДЕЕ ДОЛЖНО ВЫГЛЯДЕТЬ ЭТО

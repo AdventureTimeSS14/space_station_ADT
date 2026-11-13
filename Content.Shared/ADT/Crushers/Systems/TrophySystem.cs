@@ -12,8 +12,8 @@ namespace Content.Shared.ADT.Crushers.Systems;
 
 public sealed class TrophySystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly TrophyHolderSystem _trophyHolder = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private TrophyHolderSystem _trophyHolder = default!;
 
     public override void Initialize()
     {
@@ -92,6 +92,9 @@ public sealed class TrophySystem : EntitySystem
                     effect.OnMarkDetonation(trophy, ent, args.User, target, EntityManager, ref args);
                 }
             }
+
+            var ev = new CrusherMarkDetonatedEvent(args.User, target);
+            RaiseLocalEvent(ent.Owner, ref ev);
         }
     }
 

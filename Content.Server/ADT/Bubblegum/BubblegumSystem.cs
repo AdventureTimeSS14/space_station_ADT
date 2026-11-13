@@ -1,6 +1,5 @@
 using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
-using Content.Shared.Actions;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
@@ -23,25 +22,23 @@ namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private MegafaunaSystem _megafauna = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BubblegumComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BubblegumComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BubblegumComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<BubblegumComponent, DamageDealtEvent>(OnDamageDealt);
         SubscribeLocalEvent<BubblegumComponent, ProjectileHitAttemptEvent>(OnProjectileHitAttempt);
@@ -70,14 +67,6 @@ public sealed class BubblegumSystem : EntitySystem
         _eye.RefreshVisibilityMask(ent.Owner);
     }
 
-    private void OnMapInit(Entity<BubblegumComponent> ent, ref MapInitEvent args)
-    {
-        foreach (var action in ent.Comp.Actions)
-        {
-            _actions.AddAction(ent.Owner, action);
-        }
-    }
-
     private void OnGetVisMask(Entity<BubblegumComponent> ent, ref GetVisMaskEvent args)
     {
         args.VisibilityMask |= (int)VisibilityFlags.Bubblegum;
@@ -91,7 +80,7 @@ public sealed class BubblegumSystem : EntitySystem
         if (args.OldPosition == args.NewPosition)
             return;
 
-        if (HasComp<BubblegumActiveChargeComponent>(ent))
+        if (HasComp<ADTMegafaunaActiveChargeComponent>(ent))
             return;
 
         if (_mobState.IsDead(ent))
@@ -221,7 +210,7 @@ public sealed class BubblegumSystem : EntitySystem
 
         _megafauna.Say(ent, "bubblegum-enrage", 3);
         _appearance.SetData(ent, BubblegumVisuals.Enraged, true);
-        _speed.RefreshMovementSpeedModifiers(ent);
+        _speed.RefreshMovementSpeedModifiers(ent.Owner);
 
         Dirty(ent);
         return true;
@@ -231,7 +220,7 @@ public sealed class BubblegumSystem : EntitySystem
     {
         ent.Comp.EnrageEndsAt = TimeSpan.Zero;
         _appearance.SetData(ent, BubblegumVisuals.Enraged, false);
-        _speed.RefreshMovementSpeedModifiers(ent);
+        _speed.RefreshMovementSpeedModifiers(ent.Owner);
         Dirty(ent);
     }
 

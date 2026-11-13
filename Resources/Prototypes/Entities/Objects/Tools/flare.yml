@@ -1,6 +1,6 @@
 - type: entity
   name: emergency flare
-  parent: BaseItem
+  parent: [SolutionComposite, SolutionTiny, BaseItem]
   id: Flare
   description: A flare that produces a very bright light for a short while. Point the flame away from yourself.
   components:
@@ -53,7 +53,7 @@
     radius: 1.0
     energy: 12.0 # ADT tweak 9.0 > 12.0
     netsync: false
-    mask: /Textures/ADT/Effects/Lightmasks/smoke.png # ADT tweak
+    lightMask: ADTLightMaskSmoke # ADT tweak
   - type: IgnitionSource
     temperature: 1000
   - type: LightBehaviour
@@ -78,24 +78,22 @@
         startValue: 10.0
         endValue: 1.0
   - type: Extractable
-    grindableSolutionName: flare
-  - type: SolutionContainerManager
-    solutions:
-      flare:
-        maxVol: 20
-        reagents:
-        # flare casing
-        - ReagentId: Iron
-          Quantity: 10
-        # red phosphorus = red flare trust
-        - ReagentId: Phosphorus
-          Quantity: 3
-        - ReagentId: Carbon
-          Quantity: 1
-        - ReagentId: Oxygen
-          Quantity: 2
-        # fuel or something
-        - ReagentId: Charcoal
-          Quantity: 2
-        - ReagentId: Sulfur
-          Quantity: 2
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      reagents:
+      # flare casing
+      - ReagentId: Iron
+        Quantity: 10
+      # red phosphorus = red flare trust
+      - ReagentId: Phosphorus
+        Quantity: 6
+      - ReagentId: Carbon
+        Quantity: 2
+      - ReagentId: Oxygen
+        Quantity: 4
+      # fuel or something
+      - ReagentId: Charcoal
+        Quantity: 4
+      - ReagentId: Sulfur
+        Quantity: 4

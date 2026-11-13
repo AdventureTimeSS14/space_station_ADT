@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ADTActionLinkedBodySwap
+  name: Move to linked body
+  description: Instantly move into the linked body.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+    checkCanInteract: false
+    checkConsciousness: false
+  - type: InstantAction
+    event: !type:ADTLinkedBodySwapActionEvent

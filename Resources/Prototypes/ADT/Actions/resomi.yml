@@ -4,8 +4,13 @@
   description: Switching agility
   components:
   - type: Action
-    icon: ADT/Mobs/Species/Resomi/Abilities/AgilityOff.png
-    iconOn: ADT/Mobs/Species/Resomi/Abilities/AgilityOn.png
     useDelay: 20  # Появляется только при выключении
+  - type: Sprite
+    layers:
+    - texture: ADT/Mobs/Species/Resomi/Abilities/AgilityOff.png
+      map: ["enum.ActionVisuals.Icon"]
+    - texture: ADT/Mobs/Species/Resomi/Abilities/AgilityOn.png
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: InstantAction
     event: !type:SwitchAgillityActionEvent

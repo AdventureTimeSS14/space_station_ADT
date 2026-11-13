@@ -37,8 +37,11 @@
         cleanseRate: 1
         conditions:
         - !type:HereticOrGhoulCondition
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
+      - !type:ADTCureDiseases
+        conditions:
+        - !type:HereticOrGhoulCondition
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 15.0
         type: Remove
         conditions:

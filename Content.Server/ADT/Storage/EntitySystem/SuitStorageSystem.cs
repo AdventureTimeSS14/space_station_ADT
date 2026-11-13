@@ -15,8 +15,8 @@ namespace Content.Server.ADT.Storage.System;
 /// </summary>
 public sealed class SuitStorageSystem : EntitySystem
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

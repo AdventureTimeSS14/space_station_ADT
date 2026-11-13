@@ -184,7 +184,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         JobIconGrid.RemoveAllChildren();
 
         var jobIconButtonGroup = new ButtonGroup();
-        var icons = _prototypeManager.EnumeratePrototypes<JobIconPrototype>().Where(icon => icon.AllowSelection).ToList();
+        var icons = _prototypeManager.EnumeratePrototypes<JobIconPrototype>().Where(icon => !icon.Abstract).ToList(); // ADT-Tweak
         icons.Sort((x, y) => string.Compare(x.LocalizedJobName, y.LocalizedJobName, StringComparison.CurrentCulture));
 
         _jobIconPrototypes = new List<JobIconPrototype>(icons.Count);
@@ -245,7 +245,6 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         _verb = verb;
         ToggleButton.Pressed = active;
         ToggleAccentButton.Pressed = accentHide;
-
         for (int id = 0; id < SpeechVerbSelector.ItemCount; id++)
         {
             if (string.Equals(verb, SpeechVerbSelector.GetItemMetadata(id)))

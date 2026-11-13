@@ -11,8 +11,8 @@ namespace Content.Server.ADT.NPC.HTN;
 
 public sealed partial class ADTPickFleeCoordinatesOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private PathfindingSystem _pathfinding = default!;
     private SharedTransformSystem _transform = default!;

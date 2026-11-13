@@ -13,12 +13,12 @@
   - type: FlavorProfile
     flavors:
       - ADTNigiriFlavor
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: CarpoToxin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5
 
 
 - type: entity

@@ -1217,7 +1217,7 @@ entities:
     - type: Transform
       pos: 5.458567,3.3996565
       parent: 1
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 2
     components:

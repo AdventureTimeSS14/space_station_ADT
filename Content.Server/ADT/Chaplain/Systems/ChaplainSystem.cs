@@ -14,8 +14,10 @@ using Content.Shared.Body;
 using Content.Shared.FixedPoint;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
+using System.Linq;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Body.Components;
@@ -31,23 +33,23 @@ namespace Content.Server.Bible;
 
 public sealed class ChaplainSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly InventorySystem _invSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly EuiManager _euiManager = null!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private InventorySystem _invSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private EuiManager _euiManager = null!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -339,31 +341,29 @@ public sealed class ChaplainSystem : EntitySystem
             }
         }
 
-        if (TryComp<SolutionContainerManagerComponent>(target, out var solutionContainer) && solutionContainer.Containers != null && !HasComp<BodyComponent>(target))
+        if ((HasComp<SolutionComponent>(target) || HasComp<SolutionManagerComponent>(target)) && !HasComp<BodyComponent>(target))
         {
             bool success = false;
-            foreach (var sol in solutionContainer.Containers)
+            foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(target).ToList())
             {
-                if (_solutionContainer.TryGetSolution((target, solutionContainer), sol, out var soln, out var solution))
+                var solution = soln.Comp.Solution;
+                var water = component.WaterSolution;
+                var blood = component.BloodSolution;
+                var waterQuantity = solution.GetTotalPrototypeQuantity(water);
+                var bloodQuantity = solution.GetTotalPrototypeQuantity(blood);
+                if (waterQuantity != FixedPoint2.Zero)
                 {
-                    var water = component.WaterSolution;
-                    var blood = component.BloodSolution;
-                    var waterQuantity = solution.GetTotalPrototypeQuantity(water);
-                    var bloodQuantity = solution.GetTotalPrototypeQuantity(blood);
-                    if (waterQuantity != FixedPoint2.Zero)
-                    {
-                        solution.RemoveReagent(water, waterQuantity);
-                        solution.AddReagent(component.WaterReplaceSolution, waterQuantity);
-                        success = true;
-                    }
-                    if (bloodQuantity != FixedPoint2.Zero)
-                    {
-                        solution.RemoveReagent(blood, bloodQuantity);
-                        solution.AddReagent(component.BloodReplaceSolution, bloodQuantity);
-                        success = true;
-                    }
-                    _solutionContainer.UpdateChemicals(soln.Value, false);
+                    solution.RemoveReagent(water, waterQuantity);
+                    solution.AddReagent(component.WaterReplaceSolution, waterQuantity);
+                    success = true;
                 }
+                if (bloodQuantity != FixedPoint2.Zero)
+                {
+                    solution.RemoveReagent(blood, bloodQuantity);
+                    solution.AddReagent(component.BloodReplaceSolution, bloodQuantity);
+                    success = true;
+                }
+                _solutionContainer.UpdateChemicals(soln, false);
             }
 
             if (success)

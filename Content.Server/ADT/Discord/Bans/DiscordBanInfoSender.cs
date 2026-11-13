@@ -13,10 +13,10 @@ namespace Content.Server.ADT.Discord.Bans;
 
 public sealed class DiscordBanInfoSender : IDiscordBanInfoSender
 {
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly DiscordWebhook _discord = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private DiscordWebhook _discord = default!;
 
     public async Task SendBanInfoAsync<TGenerator>(BanInfo info)
         where TGenerator : IDiscordBanPayloadGenerator, new()

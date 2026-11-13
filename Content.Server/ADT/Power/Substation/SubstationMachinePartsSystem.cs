@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Power.Substation;
 
 public sealed class SubstationMachinePartsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
 
     public override void Initialize()
     {

@@ -107,7 +107,7 @@
   - type: StarGazer
   - type: WarpPoint
     follow: true
-    location: star gazer
+    location: location-adt-star-gazer
   # ADT: NightVision has different fields
   - type: NightVision
     innate: true

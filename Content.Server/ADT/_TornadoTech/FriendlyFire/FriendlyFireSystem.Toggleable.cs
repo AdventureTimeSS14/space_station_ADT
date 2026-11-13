@@ -6,7 +6,7 @@ namespace Content.Server._TornadoTech.FriendlyFire;
 
 public sealed partial class FriendlyFireSystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private ActionsSystem _actions = default!;
 
     private void ToggleableInitialize()
     {

@@ -15,11 +15,11 @@ namespace Content.Server.ADT.Fuel;
 
 public sealed class FuelableSystem : EntitySystem
 {
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StackSystem _stacks = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StackSystem _stacks = default!;
 
     public override void Initialize()
     {

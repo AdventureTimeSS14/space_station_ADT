@@ -19,6 +19,9 @@ public sealed partial class ADTUpgradeableGunComponent : Component
     [DataField, AutoNetworkedField]
     public int MaxModCapacity = 100;
 
+    [ViewVariables, AutoNetworkedField]
+    public bool RepeaterAutoFire;
+
     [DataField]
     public float RemoveDelay = 1f;
 

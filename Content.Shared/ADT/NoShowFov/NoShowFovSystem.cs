@@ -5,7 +5,7 @@ namespace Content.Client.ADT.NoShowFov;
 
 public sealed class NoShowFovSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -16,12 +16,12 @@ public sealed class NoShowFovSystem : EntitySystem
 
     private void OnEquipped(EntityUid uid, NoShowFovComponent component, ref GotEquippedEvent args)
     {
-        ToggleFov(args.Equipee, false);
+        ToggleFov(args.EquipTarget, false);
     }
 
     private void OnUnequipped(EntityUid uid, NoShowFovComponent component, ref GotUnequippedEvent args)
     {
-        ToggleFov(args.Equipee, true);
+        ToggleFov(args.EquipTarget, true);
     }
 
     private void ToggleFov(EntityUid entity, bool drawFov)

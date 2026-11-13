@@ -26,7 +26,10 @@ public partial class SharedMartialArtsSystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+            {
                 comp.CurrentTarget = null;
+                Dirty(uid, comp);
+            }
 
             if (comp.LastAttacks.Count == 0 || _timing.CurTime < comp.ResetTime)
                 continue;
@@ -151,6 +154,9 @@ public partial class SharedMartialArtsSystem
 
         comp.BeingPerformed = match.ID;
         RaiseLocalEvent(weapon.Owner, ev);
+
+        comp.LastAttacks.Clear();
+        Dirty(weapon);
     }
 
     public void ResetWeaponCombo(Entity<WeaponMartialArtComponent> weapon, bool popup, EntityUid? user = null)

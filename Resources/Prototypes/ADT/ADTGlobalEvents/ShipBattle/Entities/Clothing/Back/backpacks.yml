@@ -18,7 +18,7 @@
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet.rsi
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 4 minutes of thrust
       volume: 1.5

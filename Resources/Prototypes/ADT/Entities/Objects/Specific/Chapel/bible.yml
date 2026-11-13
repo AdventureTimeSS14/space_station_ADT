@@ -5,7 +5,7 @@
   id: ADTBibleQuaran
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRahima
+    summonEntity: ADTSpawnPointGhostRahima
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/quaran.rsi
@@ -20,7 +20,7 @@
   id: ADTBibleTanakh
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRafael
+    summonEntity: ADTSpawnPointGhostRafael
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
@@ -35,7 +35,7 @@
   id: ADTBibleTripitaka
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRatha
+    summonEntity: ADTSpawnPointGhostRatha
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
@@ -50,7 +50,7 @@
   id: ADTBibleVedas
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRagha
+    summonEntity: ADTSpawnPointGhostRagha
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/vedas.rsi
@@ -66,7 +66,7 @@
   components:
   - type: Bible
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRanikha
+    summonEntity: ADTSpawnPointGhostRanikha
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/scroll.rsi
@@ -81,7 +81,7 @@
   id: ADTBibleTajaran
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRonia
+    summonEntity: ADTSpawnPointGhostRonia
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
@@ -113,7 +113,7 @@
           True: {visible: true}
           False: {visible: false}
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRosie
+    summonEntity: ADTSpawnPointGhostRosie
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/mothbible.rsi
@@ -143,7 +143,7 @@
   id: ADTBibleLeatherCodex
   components:
   - type: Summonable
-    specialItem: ADTSpawnPointGhostRebecca
+    summonEntity: ADTSpawnPointGhostRebecca
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi

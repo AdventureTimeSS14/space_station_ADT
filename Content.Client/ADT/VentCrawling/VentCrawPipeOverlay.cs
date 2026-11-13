@@ -11,9 +11,9 @@ namespace Content.Client.ADT.VentCrawling;
 
 public sealed partial class VentCrawPipeOverlay : Overlay
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     private readonly SpriteSystem _spriteSystem;
     private readonly EntityLookupSystem _lookup;

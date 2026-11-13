@@ -166,3 +166,5 @@ ent-CutterMachineCircuitboard = резательный станок (машин�
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-SmartFridgeCircuitboard = умный холодильник (машинная плата)
     .desc = Печатная плата для умного холодильника.
+ent-StationTeleporterMachineCircuitboard = плата телепортера
+    .desc = Печатная плата для блюспейс-телепортера.

@@ -73,7 +73,7 @@
   - type: Icon
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
     state: vehicle_tsf
-  - type: Vehicle
+  - type: ADTVehicle
     southOver: true
     northOver: true
     northOverride: -0.1

@@ -9,7 +9,7 @@ namespace Content.Server.ADT.StationEvents.Events;
 public sealed class HeroEvent : StationEventSystem<HeroEventComponent>
 {
 
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
 
     protected override void Added(EntityUid uid, HeroEventComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {

@@ -9,7 +9,7 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class VoidCloakSystem : SharedVoidCloakSystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

@@ -1,0 +1,22 @@
+- type: entity
+  id: ADTBaseSegment
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Kinematic
+  - type: Fixtures
+    fixtures:
+      hitbox:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 1
+        hard: true
+        layer:
+        - BulletImpassable
+  - type: Damageable
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: ADTSegment

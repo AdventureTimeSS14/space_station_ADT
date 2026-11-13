@@ -4,6 +4,16 @@
   name: CBURN commander exosuit
   description: A lightweight yet strong exosuit used for special cleanup operations.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/hardsuits/cburncommander.rsi
   - type: Clothing
@@ -15,8 +25,7 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: Armor
     modifiers:
       coefficients:

@@ -4,8 +4,8 @@ namespace Content.Shared.ADT.EyeControl;
 
 public sealed class SharedEyeControlSystem : EntitySystem
 {
-    [Dependency] private readonly AreaSystem _area = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private AreaSystem _area = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     public override void Initialize()
     {

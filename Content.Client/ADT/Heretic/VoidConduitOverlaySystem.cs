@@ -7,7 +7,7 @@ namespace Content.Client.ADT.Heretic;
 
 public sealed class VoidConduitOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
 
     public override void Initialize()
     {

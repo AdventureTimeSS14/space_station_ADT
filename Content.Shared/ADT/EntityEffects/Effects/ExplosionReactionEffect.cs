@@ -1,15 +1,13 @@
 using Content.Shared.EntityEffects;
 using Content.Shared.Explosion;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.ADT.EntityEffects.Effects;
 
 [ImplicitDataDefinitionForInheritors]
 public sealed partial class ExplosionReactionEffect : EntityEffect
 {
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<ExplosionPrototype>))]
-    public string ExplosionType = default!;
+    [DataField(required: true)]
+    public ProtoId<ExplosionPrototype> ExplosionType = default!;
 
     [DataField]
     public float MaxIntensity = 5;

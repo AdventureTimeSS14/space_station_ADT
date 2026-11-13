@@ -1,0 +1,11 @@
+- type: vendingMachineInventory
+  id: ADTHolidayBoozeOMatNewYearInventory
+  startingInventory:
+    ADTVendingCategoryNonAlcohol:
+        ADTCarnationPack: 10
+        ADTCinnamonPack: 5
+
+- type: vendingMachineInventory
+  id: ADTHolidayMegaSeedNewYearInventory
+  startingInventory:
+    ADTMandarinSeeds: 5

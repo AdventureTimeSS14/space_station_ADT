@@ -3,6 +3,7 @@ chat-emote-name-laugh-apathy = выдавить из себя смех
 chat-emote-name-scream-apathy = наигранно закричать
 chat-emote-name-sigh-apathy = театрально вздохнуть
 chat-emote-name-crying-apathy = фальшиво заплакать
+chat-emote-name-blink = моргнуть
 chat-emote-name-hiss = зашипеть
 chat-emote-name-meow = замяукать
 chat-emote-name-mew = мякнуть
@@ -42,3 +43,9 @@ chat-emote-name-flap-wings = Хлопать крыльями
 # Novakid
 chat-emote-msg-fiery-sounds = издаёт пламенные звуки
 chat-emote-name-fiery-sounds = Издать пламенные звуки
+# Celecern
+chat-emote-name-adt-celecern-snort = фыркнуть
+chat-emote-name-adt-celecern-clop = стукнуть копытом
+chat-emote-name-adt-celecern-ear-flick = дёрнуть ухом
+# Reptilian
+chat-emote-name-adt-rumble = Урчать

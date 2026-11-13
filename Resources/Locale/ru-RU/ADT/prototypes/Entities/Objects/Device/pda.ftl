@@ -12,6 +12,21 @@ ent-ADTBlueshieldOfficerPDA = КПК офицера синего щита
 
 ent-ADTCentcomConsultantPDA = КПК консультанта Центком
 
+ent-ADTCentcomInspectorPDA = КПК Ревизора Центком
+    .desc = { ent-CentcomPDA.desc }
+
+ent-ADTCentcomInquisitorPDA = КПК Инквизитора
+    .desc = { ent-CentcomPDA.desc }
+
+ent-ADTCentcomOperatorPDA = КПК Оператора Центком
+    .desc = { ent-CentcomPDA.desc }
+
+ent-ADTCentcomOfficerPDA = КПК Офицера Центком
+    .desc = { ent-CentcomPDA.desc }
+
+ent-ADTSODOfficerPDA = КПК Офицера ДСО
+    .desc = { ent-CentcomPDA.desc }
+
 ent-ADTGhostPDA = КПК призрака
     .desc = Скажи станции Бу!
 

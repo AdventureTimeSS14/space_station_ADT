@@ -1,11 +1,14 @@
-//
-
+using Content.Server.Chat.Managers;
 using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Ritual;
+using Content.Shared.ADT.Heretic.Prototypes;
+using Content.Shared.Chat;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -21,15 +24,17 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticRitualSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly GhoulSystem _ghoul = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private GhoulSystem _ghoul = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/ADT/Heretic/castsummon.ogg");
 
@@ -145,7 +150,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             for (int i = 0; i < missingList.Keys.Count; i++)
             {
                 var key = missingList.Keys.ToList()[i];
-                var missing = $"{key} x{missingList[key]}";
+                var missing = $"{GetRitualItemName(key)} x{missingList[key]}";
 
                 // makes a nice, list, of, missing, items.
                 if (i != missingList.Count - 1)
@@ -244,6 +249,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
+
+        SendRitualRequirements(user, GetRitual(heretic.ChosenRitual.Value));
     }
 
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
@@ -287,5 +294,127 @@ public sealed partial class HereticRitualSystem : EntitySystem
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
         _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
         Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+    }
+
+    private void SendRitualRequirements(EntityUid user, HereticRitualPrototype ritual)
+    {
+        if (ritual.RequiredTags == null || ritual.RequiredTags.Count == 0)
+        {
+            if (ritual.CustomBehaviors?.Any(x => x is RitualKnowledgeBehavior) == true
+                && _heretic.TryGetHereticComponent(user, out var heretic, out _))
+            {
+                var tags = _heretic.TryGetRequiredKnowledgeTags((user, heretic));
+                if (tags is { Count: > 0 })
+                {
+                    var sb = new StringBuilder();
+                    sb.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
+
+                    foreach (var tag in tags)
+                    {
+                        AppendRequirementLine(sb, tag, 1);
+                    }
+
+                    if (sb.Length > 0)
+                        SendRequirementsMessage(user, Loc.GetString("heretic-ritual-info-requirements", ("requirements", sb.ToString())));
+                }
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ritual.LocDesc))
+                return;
+
+            var desc = new StringBuilder();
+            desc.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
+            desc.AppendLine(Loc.GetString(ritual.LocDesc));
+
+            SendRequirementsMessage(user, Loc.GetString("heretic-ritual-info-requirements", ("requirements", desc.ToString())));
+            return;
+        }
+
+        var requirements = new StringBuilder();
+        requirements.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
+
+        foreach (var (tag, amount) in ritual.RequiredTags)
+        {
+            AppendRequirementLine(requirements, tag, amount);
+        }
+
+        if (requirements.Length == 0)
+            return;
+
+        SendRequirementsMessage(user, Loc.GetString("heretic-ritual-info-requirements", ("requirements", requirements.ToString())));
+    }
+
+    private void AppendRequirementLine(StringBuilder sb, string tag, float amount)
+    {
+        var itemName = GetRitualItemName(tag);
+
+        if (_proto.TryIndex<HereticRitualItemPrototype>(tag, out var icon))
+        {
+            sb.AppendLine(Loc.GetString("heretic-ritual-info-item",
+                ("item", itemName),
+                ("amount", amount),
+                ("icon", icon.ID),
+                ("tooltip", itemName)));
+        }
+        else
+        {
+            sb.AppendLine(Loc.GetString("heretic-ritual-info-item-plain", ("item", itemName), ("amount", amount)));
+        }
+    }
+
+    private void SendRequirementsMessage(EntityUid user, string message)
+    {
+        var wrapped = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+        if (_player.TryGetSessionByEntity(user, out var session))
+            _chatManager.ChatMessageToOne(ChatChannel.Server,
+                message,
+                wrapped,
+                default,
+                false,
+                session.Channel,
+                Color.FromSrgb(new Color(186, 85, 211)));
+    }
+
+    public string GetRitualItemName(string tag)
+    {
+        if (_proto.TryIndex<HereticRitualItemPrototype>(tag, out var icon))
+            return Loc.GetString(icon.Name);
+
+        if (Loc.TryGetString($"heretic-guide-tag-{tag}", out var name))
+            return name;
+
+        if (TagToEntity.TryGetValue(tag, out var entityProtoId)
+            && _proto.TryIndex<EntityPrototype>(entityProtoId, out var entityProto)
+            && !string.IsNullOrEmpty(entityProto.Name))
+            return entityProto.Name;
+
+        return tag;
+    }
+
+    private Dictionary<string, string>? _tagToEntity;
+
+
+    private Dictionary<string, string> TagToEntity => _tagToEntity ??= BuildTagToEntityMap();
+
+    private Dictionary<string, string> BuildTagToEntityMap()
+    {
+        var map = new Dictionary<string, string>();
+
+        foreach (var proto in _proto.EnumeratePrototypes<EntityPrototype>())
+        {
+            if (proto.Abstract || !proto.TryGetComponent<TagComponent>(out var tags))
+                continue;
+
+            foreach (var tag in tags.Tags)
+            {
+                if (!map.ContainsKey(tag.Id))
+                    map.Add(tag.Id, proto.ID);
+            }
+        }
+
+        return map;
     }
 }

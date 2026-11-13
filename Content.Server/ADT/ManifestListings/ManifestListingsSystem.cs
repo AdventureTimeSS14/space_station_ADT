@@ -12,7 +12,7 @@ namespace Content.Server.ADT.ManifestListings;
 
 public sealed class ManifestListingsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -170,10 +170,9 @@ public sealed class ManifestListingsSystem : EntitySystem
             return;
         }
 
-        if (data.ProductAction != null && TryGetActionIcon(data.ProductAction.Value, out var actionSprite, out var actionState))
+        if (data.ProductAction != null)
         {
-            sprite = actionSprite;
-            state = actionState;
+            sprite = data.ProductAction.Value;
             return;
         }
 
@@ -198,31 +197,5 @@ public sealed class ManifestListingsSystem : EntitySystem
         }
 
         return sb.Length > 0 ? sb.ToString() : Loc.GetString("manifest-listing-free");
-    }
-
-    private bool TryGetActionIcon(EntProtoId proto, out string sprite, out string state)
-    {
-        sprite = string.Empty;
-        state = string.Empty;
-
-        if (!_proto.Index(proto).TryGetComponent("Action", out ActionComponent? actionComp) || actionComp.Icon == null)
-            return false;
-
-        switch (actionComp.Icon)
-        {
-            case SpriteSpecifier.Texture tex:
-                sprite = tex.TexturePath.ToString();
-                if (!sprite.StartsWith("/Textures/"))
-                    sprite = $"/Textures/{sprite}";
-                return true;
-
-            case SpriteSpecifier.Rsi rsi:
-                sprite = rsi.RsiPath.ToString();
-                state = rsi.RsiState;
-                return true;
-
-            default:
-                return false;
-        }
     }
 }

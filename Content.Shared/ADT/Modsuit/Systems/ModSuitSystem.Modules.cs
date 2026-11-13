@@ -1,4 +1,6 @@
 using System;
+using Content.Shared.Armor;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Robust.Shared.Containers;
@@ -12,7 +14,8 @@ namespace Content.Shared.ADT.ModSuits;
 
 public sealed partial class ModSuitSystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedArmorSystem _armor = default!;
 
     private void InitializeModules()
     {
@@ -96,6 +99,15 @@ public sealed partial class ModSuitSystem
         if (!TryComp<WiresPanelComponent>(args.Target, out var panel) || !panel.Open)
             return;
 
+        if (GetIncompatibleModule(ent, modsuit) is { } conflict)
+        {
+            _popupSystem.PopupPredicted(
+                Loc.GetString("modsuit-module-incompatible", ("module", conflict)),
+                args.Target.Value,
+                args.User);
+            return;
+        }
+
         if (modsuit.CurrentComplexity + ent.Comp.Complexity > modsuit.MaxComplexity)
             return;
 
@@ -116,12 +128,35 @@ public sealed partial class ModSuitSystem
         args.States.Add(GetNetEntity(uid), null);
     }
 
+    private EntityUid? GetIncompatibleModule(Entity<ModSuitModComponent> ent, ModSuitComponent modsuit)
+    {
+        if (MetaData(ent.Owner).EntityPrototype?.ID is not { } newProto)
+            return null;
+
+        foreach (var installed in modsuit.ModuleContainer.ContainedEntities)
+        {
+            if (MetaData(installed).EntityPrototype?.ID is not { } installedProto)
+                continue;
+
+            if (ent.Comp.IncompatibleModules.Contains(installedProto))
+                return installed;
+
+            if (TryComp<ModSuitModComponent>(installed, out var installedComp)
+                && installedComp.IncompatibleModules.Contains(newProto))
+            {
+                return installed;
+            }
+        }
+
+        return null;
+    }
+
     public void ActivateModule(Entity<ModSuitComponent> suit, Entity<ModSuitModComponent> module)
     {
         module.Comp.Active = true;
         Dirty(module);
 
-        if (!module.Comp.RequiresFullEquip || GetPartsToggleStatus(suit.Owner, suit.Comp) == ModSuitAttachedStatus.AllToggled)
+        if (!module.Comp.RequiresFullEquip || IsFullyCovered(suit.Owner, suit.Comp))
             ApplyModuleComponents(suit, module);
 
         if (_netMan.IsServer)
@@ -179,9 +214,23 @@ public sealed partial class ModSuitSystem
                 }
             }
 
+            if (module.Comp.ArmorReplacement is { } armorReplace && armorReplace.TryGetValue(attached.Value, out var armorModifiers))
+                ApplyArmorReplacement(part, armorModifiers);
+
             if (suit.Comp.TempUser != null)
                 UpdateActions(part, suit.Comp.TempUser.Value);
         }
+
+        RefreshWearerCaches(suit);
+    }
+
+    private void RefreshWearerCaches(Entity<ModSuitComponent> suit)
+    {
+        if (suit.Comp.TempUser is not { } wearer || !Exists(wearer))
+            return;
+
+        _gravity.RefreshWeightless(wearer);
+        _movementSpeed.RefreshMovementSpeedModifiers(wearer);
     }
 
     private void RemoveModuleComponents(Entity<ModSuitComponent> suit, Entity<ModSuitModComponent> module)
@@ -227,9 +276,43 @@ public sealed partial class ModSuitSystem
             if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
                 AddComponentsSafe(part, remComps, ToPrettyString(part));
 
+            if (module.Comp.ArmorReplacement != null && module.Comp.ArmorReplacement.ContainsKey(attached.Value))
+                RemoveArmorReplacement(part);
+
             if (suit.Comp.TempUser != null)
                 UpdateActions(part, suit.Comp.TempUser.Value);
         }
+
+        RefreshWearerCaches(suit);
+    }
+
+    private void ApplyArmorReplacement(EntityUid part, DamageModifierSet modifiers)
+    {
+        var replacement = EnsureComp<ModSuitArmorReplacementComponent>(part);
+
+        if (replacement.OriginalModifiers == null && TryComp<ArmorComponent>(part, out var existingArmor))
+            replacement.OriginalModifiers = existingArmor.Modifiers;
+
+        var armorComp = EnsureComp<ArmorComponent>(part);
+        _armor.SetArmorModifiers(part, modifiers, armorComp);
+    }
+
+    private void RemoveArmorReplacement(EntityUid part)
+    {
+        if (!TryComp<ModSuitArmorReplacementComponent>(part, out var replacement))
+            return;
+
+        if (replacement.OriginalModifiers != null)
+        {
+            if (TryComp<ArmorComponent>(part, out var armor))
+                _armor.SetArmorModifiers(part, replacement.OriginalModifiers, armor);
+        }
+        else if (HasComp<ArmorComponent>(part))
+        {
+            RemComp<ArmorComponent>(part);
+        }
+
+        RemComp<ModSuitArmorReplacementComponent>(part);
     }
 
     /// <summary>
@@ -238,8 +321,7 @@ public sealed partial class ModSuitSystem
     /// </summary>
     private void ReconcileFullEquip(Entity<ModSuitComponent> suit, Entity<ModSuitModComponent> module)
     {
-        var shouldApply = module.Comp.Active
-            && GetPartsToggleStatus(suit.Owner, suit.Comp) == ModSuitAttachedStatus.AllToggled;
+        var shouldApply = module.Comp.Active && IsFullyCovered(suit.Owner, suit.Comp);
 
         if (shouldApply)
             ApplyModuleComponents(suit, module);

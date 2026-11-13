@@ -1,0 +1,1 @@
+multishot-component-examine = [color=#E0C068]Из этого оружия можно стрелять из двух рук.[/color]

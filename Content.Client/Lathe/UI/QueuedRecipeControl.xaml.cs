@@ -53,4 +53,13 @@ public sealed partial class QueuedRecipeControl : Control
     {
         _index = index;
     }
+
+    // ADT-Tweak start
+    public void SetEnabled(bool enabled)
+    {
+        MoveUp.Disabled = !enabled;
+        MoveDown.Disabled = !enabled;
+        Delete.Disabled = !enabled;
+    }
+    // ADT-Tweak end
 }

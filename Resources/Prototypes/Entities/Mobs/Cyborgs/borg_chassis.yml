@@ -162,7 +162,7 @@
       baseWalkSpeed : 2
       baseSprintSpeed : 3.5
     - type: Destructible
-      thresholds:
+      thresholdsOverride: # ADT-Tweak
       - trigger:
           !type:DamageTrigger
           damage: 225

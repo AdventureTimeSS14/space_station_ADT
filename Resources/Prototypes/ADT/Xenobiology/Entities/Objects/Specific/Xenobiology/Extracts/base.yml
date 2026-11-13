@@ -14,10 +14,9 @@
       color: "#828282"
   - type: Appearance
   - type: Solution
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      extract:
-        maxVol: 50
+    - BaseSlimeExtractSolution
   - type: InjectableSolution
     solution: extract
   - type: DrawableSolution
@@ -25,10 +24,21 @@
   - type: ExaminableSolution
     solution: extract
   - type: SlimeExtract
-  - type: Reactive
+    containerName: extract
   - type: StatusEffects # used for jittering and stuff
     allowed:
     - Jitter
   - type: GuideHelp
     guides:
     - Xenobiology
+
+- type: entity
+  parent: Solution
+  id: BaseSlimeExtractSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: extract
+    solution:
+      maxVol: 50
+      reagents: []

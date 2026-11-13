@@ -60,6 +60,7 @@
     - id: DrinkWaterBottleFull
     - id: DrinkWaterCup
     - id: DrinkWineCan
+    - id: ADTDrinkDrGibbBottleFull #ADT-Tweak
 
 - type: entityTable
   id: RandomRareSodaTable

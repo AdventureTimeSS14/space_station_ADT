@@ -5,9 +5,11 @@
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: false
+      weight: 0 # ADT-Tweak
     enum.HumanoidVisualLayers.Hair:
       limit: 3 #ADT-tweak 1>3
       required: false
+      weight: 1
     enum.HumanoidVisualLayers.FacialHair:
       limit: 2 #ADT-tweak 1>2
       required: false
@@ -17,6 +19,7 @@
     enum.HumanoidVisualLayers.Snout:
       limit: 1
       required: false
+      weight: 0 # ADT-Tweak
     enum.HumanoidVisualLayers.LArm:
       limit: 3 #ADT-tweak 1>3
       required: false
@@ -44,6 +47,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: false
+      weight: 0 # ADT-Tweak
     enum.HumanoidVisualLayers.Special:
       limit: 1
       required: false

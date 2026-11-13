@@ -6,6 +6,8 @@
         Brutepack: 3
         Ointment: 3
 #        Bloodpack: 3 # ADT Tweak
+        ADTSprayBottleStypticPowder: 3 # ADT-Tweak
+        ADTSprayBottleSilverSulfadiazine: 3 # ADT-Tweak
         ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
         ChemistryBottleEpinephrine: 3
         PillCanisterTricordrazine: 2
@@ -24,6 +26,8 @@
         Brutepack: 3
         AloeCream: 3 # Currently just a reskin of Ointment but it's something
 #        Bloodpack: 3 # ADT Tweak
+        ADTSprayBottleStypticPowder: 3 # ADT-Tweak
+        ADTSprayBottleSilverSulfadiazine: 3 # ADT-Tweak
         ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
         ChemistryBottleInaprovaline: 3
         PillTricordrazine: 10
@@ -43,6 +47,8 @@
         ADTPatchPackFilled: 3
         ADTAntibioticOintment: 4
         ADTBloodPackTransfusionFull: 5
+        ADTSprayBottleStypticPowder: 5
+        ADTSprayBottleSilverSulfadiazine: 5
         # ADT tweak end
         Brutepack: 4
         Ointment: 4
@@ -84,6 +90,8 @@
         AloeCream: 5
 #        Bloodpack: 5 # ADT Tweak
         ADTBloodPackTransfusionFull: 5 # ADT Tweak: Blood IV
+        ADTSprayBottleStypticPowder: 3 # ADT-Tweak
+        ADTSprayBottleSilverSulfadiazine: 3 # ADT-Tweak
         ChemistryBottleInaprovaline: 5
         PillTricordrazine: 10
         PillIron: 5

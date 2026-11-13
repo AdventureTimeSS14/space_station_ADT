@@ -33,7 +33,7 @@ public sealed partial class ADTShadowlingGlareActionComponent : Component
     public TimeSpan FarMute = TimeSpan.FromSeconds(10);
 
     [DataField]
-    public ProtoId<StatusEffectPrototype> MuteEffect = "Muted";
+    public EntProtoId MuteEffect = "StatusEffectMuted";
 
     [DataField]
     public EntProtoId SlowEffect = "ADTShadowlingGlareSlowdownStatusEffect";

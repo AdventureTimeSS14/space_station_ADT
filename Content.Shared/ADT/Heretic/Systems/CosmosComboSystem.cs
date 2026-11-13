@@ -12,10 +12,10 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed class CosmosComboSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -48,7 +48,7 @@ public sealed class CosmosComboSystem : EntitySystem
     }
 
     // Hell
-    public void ComboProgress(EntityUid uid, HereticComponent heretic, IReadOnlyList<EntityUid> hitEntities)
+    public void ComboProgress(EntityUid uid, HereticComponent heretic, IReadOnlyCollection<EntityUid> hitEntities)
     {
         if (_net.IsClient)
             return;

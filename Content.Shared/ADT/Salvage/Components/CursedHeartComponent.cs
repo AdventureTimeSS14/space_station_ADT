@@ -21,6 +21,8 @@ public sealed partial class CursedHeartComponent : Component
     public bool IsStopped = false;
     [DataField]
     public FixedPoint2? OriginalCritThreshold;
+    [DataField]
+    public FixedPoint2? OriginalSoftCritThreshold;
 }
 
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;

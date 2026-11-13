@@ -9,8 +9,8 @@ namespace Content.Shared.ADT.MobLoot;
 
 public sealed class ADTMobLootSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

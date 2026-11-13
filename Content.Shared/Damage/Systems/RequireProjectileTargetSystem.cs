@@ -10,11 +10,11 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed class RequireProjectileTargetSystem : EntitySystem
+public sealed partial class RequireProjectileTargetSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!; // ADT Anti-Lying-Warrior
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mobState = default!; // ADT Anti-Lying-Warrior
 
     public override void Initialize()
     {
@@ -37,6 +37,20 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
         if (TryComp(other, out ProjectileComponent? projectile))
         {
+            // ADT-Tweak start
+            if (HasComp<ADTPreciseProjectileTargetComponent>(other) &&
+                TryComp<TargetedProjectileComponent>(other, out var precise))
+            {
+                if (precise.Target != ent.Owner &&
+                    (!_container.TryGetContainingContainer(precise.Target, out var holder) || holder.Owner != ent.Owner))
+                {
+                    args.Cancelled = true;
+                }
+
+                return;
+            }
+            // ADT-Tweak end
+
             // ADT Crawling abuse fix start
             if (TryComp<TargetedProjectileComponent>(other, out var targeted) &&
                 targeted.TargetCoords != null)

@@ -19,3 +19,4 @@ breed-OilMutation = масляный слайм
 breed-LightPinkMutation = светло-розовый слайм
 breed-BlackMutation = чёрный слайм
 breed-AdamantineMutation = адамантиевый слайм
+breed-RainbowMutation = радужный слайм

@@ -14,3 +14,5 @@ crew-monitoring-user-interface-no-department = Неизвестно
 crew-monitoring-user-interface-flavor-left = В случае экстренной ситуации, немедленно свяжитесь с мед. персоналом станции.
 crew-monitoring-user-interface-flavor-right = v1.8
 crew-monitoring-user-interface-need-help = Нуждается в помощи
+crew-monitoring-ui-job-label = Должность:
+crew-monitoring-ui-flavor-left-label = В экстренной ситуации немедленно свяжитесь с медперсоналом станции

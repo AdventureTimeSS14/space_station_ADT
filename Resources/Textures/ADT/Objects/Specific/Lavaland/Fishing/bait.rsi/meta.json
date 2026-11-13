@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi; inhand sprites taken from Paradise SS220 fork at icons/mob/inhands",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ash_eater"
+        },
+        {
+            "name": "bloody_leach"
+        },
+        {
+            "name": "goldgrub_larva"
+        },
+        {
+            "name": "charred_krill"
+        },
+        {
+            "name": "ash_eater-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "ash_eater-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "bloody_leach-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "bloody_leach-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "goldgrub_larva-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "goldgrub_larva-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "charred_krill-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "charred_krill-inhand-right",
+            "directions": 4
+        }
+    ]
+}

@@ -1,14 +1,12 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.ADT.EntityEffects.Effects;
 
 [ImplicitDataDefinitionForInheritors]
 public sealed partial class CreateEntityReactionEffect : EntityEffect
 {
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Entity = default!;
+    [DataField(required: true)]
+    public EntProtoId Entity = default!;
 
     [DataField]
     public uint Number = 1;

@@ -6,8 +6,8 @@ namespace Content.Server.ADT.EntityEffects.Effects;
 
 public sealed partial class CreateEntityReactionEffectSystem : EntityEffectSystem<TransformComponent, CreateEntityEvent>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<CreateEntityEvent> args)
     {

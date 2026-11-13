@@ -16,12 +16,12 @@ namespace Content.Client.ADT.BossMusic;
 
 public sealed class ADTBossMusicSystem : EntitySystem
 {
-    [Dependency] private readonly ContentAudioSystem _contentAudio = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IStateManager _state = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private ContentAudioSystem _contentAudio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IStateManager _state = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public const float VolumeMultiplier = 3f;
 

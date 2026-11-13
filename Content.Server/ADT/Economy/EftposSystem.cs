@@ -11,11 +11,11 @@ namespace Content.Server.ADT.Economy;
 
 public sealed class EftposSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly BankCardSystem _bankCardSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private BankCardSystem _bankCardSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {
@@ -31,8 +31,8 @@ public sealed class EftposSystem : EntitySystem
             bankCard.AccountId == component.BankAccountId || component.Amount <= 0 || bankCard.CommandBudgetCard)
             return;
 
-        if (_bankCardSystem.TryChangeBalance(bankCard.AccountId!.Value, -component.Amount) &&
-            _bankCardSystem.TryChangeBalance(component.BankAccountId.Value, component.Amount))
+        if (_bankCardSystem.TryTransfer(bankCard.AccountId!.Value, component.BankAccountId.Value, component.Amount,
+                TransactionReason.EftposPayment, Name(args.User)))
         {
             _popupSystem.PopupEntity(Loc.GetString("eftpos-transaction-success"), uid);
             _audioSystem.PlayPvs(component.SoundApply, uid);

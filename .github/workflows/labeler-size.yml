@@ -1,5 +1,9 @@
 name: "Labels: Size"
-on: pull_request_target
+# ADT-Tweak-start
+on:
+  workflow_dispatch:
+#on: pull_request_target
+# ADT-Tweak-end
 jobs:
   size-label:
     runs-on: ubuntu-latest

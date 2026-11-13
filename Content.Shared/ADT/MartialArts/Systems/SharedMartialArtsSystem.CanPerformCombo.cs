@@ -70,6 +70,9 @@ public partial class SharedMartialArtsSystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
 
+        if (_timing.CurTime < component.NextComboPerform)
+            return;
+
         if (component.CurrentTarget != null && args.Target != component.CurrentTarget.Value)
         {
             component.LastAttacks.Clear();
@@ -127,6 +130,10 @@ public partial class SharedMartialArtsSystem
 
             RaiseLocalEvent(uid, beingPerformedEv);
             RaiseLocalEvent(uid, ev);
+
+            comp.NextComboPerform = _timing.CurTime + comp.ComboCooldown;
+            comp.LastAttacks.Clear();
+            success = true;
         }
     }
     private void OnComboBeingPerformed(Entity<CanPerformComboComponent> ent, ref ComboBeingPerformedEvent args)

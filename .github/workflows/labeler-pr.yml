@@ -1,7 +1,11 @@
 name: "Labels: PR"
 
+# ADT-Tweak-start
 on:
-- pull_request_target
+  workflow_dispatch:
+#on:
+#- pull_request_target
+# ADT-Tweak-end
 
 jobs:
   labeler:

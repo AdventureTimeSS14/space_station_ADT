@@ -1,7 +1,7 @@
 ﻿using Content.Server.GameTicking;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Corvax.CCCVars;
-using Content.Shared.Mindshield.Components;
+using Content.Shared.Mindshield;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -12,6 +12,7 @@ public sealed class PeacefulRoundEndSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly MindShieldSystem _mindShield = default!;
 
     private bool _isEnabled = false;
 
@@ -30,7 +31,8 @@ public sealed class PeacefulRoundEndSystem : EntitySystem
             if (!session.AttachedEntity.HasValue) continue;
 
             var entityId = session.AttachedEntity.Value;
-            if (HasComp<MindShieldComponent>(entityId)
+            _mindShield.GetMindshieldStatus(entityId, out var isMindshielded, out _);
+            if (isMindshielded
                 || HasComp<SiliconLawBoundComponent>(entityId))
             {
                 continue;

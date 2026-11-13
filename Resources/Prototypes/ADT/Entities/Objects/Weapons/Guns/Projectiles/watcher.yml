@@ -1,0 +1,77 @@
+- type: entity
+  parent: WatcherBolt
+  id: ADTWatcherBolt
+  categories: [ HideSpawnMenu ]
+  name: stunning blast
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: red
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 10
+  - type: ChangeTemperatureOnCollide
+    heat: 0
+  - type: StunOnCollide
+    stunAmount: 0
+    knockdownAmount: 1
+    slowdownAmount: 3
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+
+- type: entity
+  parent: WatcherBolt
+  id: ADTWatcherBoltMagmawing
+  categories: [ HideSpawnMenu ]
+  name: scorching blast
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: orangered
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectHeavyLaser
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 5
+  - type: ChangeTemperatureOnCollide
+    heat: 30000
+  - type: IgniteOnCollide
+    fireStacks: 3
+    count: 1
+  - type: StunOnCollide
+    stunAmount: 0
+    knockdownAmount: 0
+
+- type: entity
+  parent: WatcherBolt
+  id: ADTWatcherBoltIcewing
+  categories: [ HideSpawnMenu ]
+  name: freezing blast
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: ice
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Cold: 5
+  - type: ChangeTemperatureOnCollide
+    heat: -50000
+  - type: StunOnCollide
+    stunAmount: 1.5
+    knockdownAmount: 0
+    autoStand: false
+    drop: false

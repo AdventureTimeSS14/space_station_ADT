@@ -44,6 +44,5 @@ public sealed partial class HallucinationsComponent : Component
 
     public HallucinationsPrototype? Proto;
 
-    [ValidatePrototypeId<HallucinationsPrototype>]
-    public string? HallucinationsPreset;
+    public ProtoId<HallucinationsPrototype>? HallucinationsPreset;
 }

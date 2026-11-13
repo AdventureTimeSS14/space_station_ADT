@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.Addiction;
+using Content.Shared.ADT.Virology;
 using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
@@ -61,10 +62,12 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             || !_entityManager.TryGetComponent<DamageableComponent>(target, out var damageable))
         {
             NoPatientDataText.Visible = true;
+            SetPatientSectionsVisible(false); // ADT-Tweak
             return;
         }
 
         NoPatientDataText.Visible = false;
+        SetPatientSectionsVisible(true); // ADT-Tweak
 
         // Scan Mode
 
@@ -174,7 +177,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         var groupOrder = new List<ProtoId<DamageGroupPrototype>> { "Burn", "Brute", "Airloss", "Toxin", "Genetic" };
         var sortedGroups = _damageable.GetDamagePerGroup(target.Value)
             .Where(g => g.Value > 0)
-            .OrderBy(g => groupOrder.IndexOf(g.Key))
+            .OrderBy(g => groupOrder.Contains(g.Key) ? groupOrder.IndexOf(g.Key) : groupOrder.Count)
             .ToDictionary(g => g.Key, g => g.Value);
 
         DrawDiagnosticGroups(sortedGroups, damagePerType);
@@ -182,6 +185,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         DrawMetabolizingChemicals(state.MetabolizingReagents);
 
         DrawAddictions(state.Addictions);
+        DrawDiseases(state.Diseases); // ADT-Tweak
         // ADT-Tweak end
     }
 
@@ -190,6 +194,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         return mobState switch
         {
             MobState.Alive => Loc.GetString("health-analyzer-window-entity-alive-text"),
+            MobState.SoftCritical => Loc.GetString("health-analyzer-window-entity-soft-critical-text"), // ADT-Tweak
             MobState.Critical => Loc.GetString("health-analyzer-window-entity-critical-text"),
             MobState.Dead => Loc.GetString("health-analyzer-window-entity-dead-text"),
             _ => Loc.GetString("health-analyzer-window-entity-unknown-text"),
@@ -197,11 +202,39 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
 
     // ADT-Tweak start
+    private void SetPatientSectionsVisible(bool visible)
+    {
+        PatientDataContainer.Visible = visible;
+        GroupsDivider.Visible = visible;
+        GroupsContainer.Visible = visible;
+
+        if (visible)
+            return;
+
+        AlertsDivider.Visible = false;
+        AlertsContainer.Visible = false;
+        ChemicalsDivider.Visible = false;
+        ChemicalsContainer.Visible = false;
+        AddictionsDivider.Visible = false;
+        AddictionsContainer.Visible = false;
+        // ADT-Tweak-Start
+        DiseasesDivider.Visible = false;
+        DiseasesContainer.Visible = false;
+        // ADT-Tweak-End
+    }
+
     private void DrawDiagnosticGroups(
         Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
         IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
     {
         GroupsContainer.RemoveAllChildren();
+
+        var hasGroups = groups.Count > 0;
+        GroupsDivider.Visible = hasGroups;
+        GroupsContainer.Visible = hasGroups;
+
+        if (!hasGroups)
+            return;
 
         var gridContainer = new GridContainer
         {
@@ -315,6 +348,13 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         if (!hasChemicals || reagents == null)
             return;
+
+        ChemicalsContainer.AddChild(new Label
+        {
+            Text = Loc.GetString("health-analyzer-window-chemicals-title"),
+            Margin = new Thickness(0, 0, 0, 4),
+            FontColorOverride = Color.LightSkyBlue,
+        });
 
         var sortedReagents = reagents.OrderByDescending(r => r.Quantity).ToList();
 
@@ -432,7 +472,77 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
     // ADT-Tweak end
 
-    // ADT-Tweak-Start: секция зависимостей (по паттерну DrawMetabolizingChemicals)
+    // ADT-Tweak-Start
+    private void DrawDiseases(List<ADTDiseaseInfo>? diseases)
+    {
+        DiseasesContainer.RemoveAllChildren();
+
+        var hasDiseases = diseases != null && diseases.Count > 0;
+
+        DiseasesDivider.Visible = hasDiseases;
+        DiseasesContainer.Visible = hasDiseases;
+
+        if (!hasDiseases || diseases == null)
+            return;
+
+        DiseasesContainer.AddChild(CreateSectionTitle(
+            Loc.GetString("health-analyzer-window-diseases-title"),
+            Color.FromHex("#d98e36")));
+
+        foreach (var disease in diseases)
+        {
+            var color = GetSeverityColor(disease.Severity);
+            var card = CreateInfoCard(color, out var content);
+
+            var header = new BoxContainer
+            {
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                HorizontalExpand = true,
+            };
+
+            header.AddChild(new Label
+            {
+                Text = disease.Name,
+                HorizontalExpand = true,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+
+            header.AddChild(new Label
+            {
+                Text = Loc.GetString("health-analyzer-window-disease-stage",
+                    ("stage", disease.Stage),
+                    ("maxStage", disease.MaxStages)),
+                HorizontalAlignment = HAlignment.Right,
+                StyleClasses = { "LabelSubText" },
+            });
+
+            content.AddChild(header);
+
+            content.AddChild(new Label
+            {
+                Text = Loc.GetString("health-analyzer-window-disease-form",
+                    ("form", disease.Form),
+                    ("severity", Loc.GetString($"adt-disease-severity-{disease.Severity.ToString().ToLower()}"))),
+                StyleClasses = { "LabelSubText" },
+            });
+
+            content.AddChild(new Label
+            {
+                Text = Loc.GetString("health-analyzer-window-disease-route", ("route", disease.Route)),
+                StyleClasses = { "LabelSubText" },
+            });
+
+            content.AddChild(new Label
+            {
+                Text = Loc.GetString("health-analyzer-window-disease-cure", ("cure", disease.Cure)),
+                StyleClasses = { "LabelSubText" },
+            });
+
+            DiseasesContainer.AddChild(card);
+        }
+    }
+
     private void DrawAddictions(List<AddictionInfo>? addictions)
     {
         AddictionsContainer.RemoveAllChildren();
@@ -445,31 +555,61 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         if (!hasAddictions || addictions == null)
             return;
 
-        var titleLabel = new Label
-        {
-            Text = Loc.GetString("health-analyzer-window-addictions-title"),
-            Margin = new Thickness(0, 0, 0, 4),
-            FontColorOverride = Color.Orange,
-        };
-        AddictionsContainer.AddChild(titleLabel);
+        AddictionsContainer.AddChild(CreateSectionTitle(
+            Loc.GetString("health-analyzer-window-addictions-title"),
+            Color.FromHex("#b06cc4")));
 
         var anyTreatable = false;
         foreach (var addiction in addictions)
         {
-            var kindName = Loc.GetString($"health-analyzer-addiction-{KindLoc(addiction.Kind)}");
-            var stageName = Loc.GetString($"health-analyzer-addiction-stage-{addiction.Stage}");
-            var line = addiction.Permanent
-                ? Loc.GetString("health-analyzer-window-addiction-permanent", ("kind", kindName), ("stage", addiction.Stage), ("stageName", stageName))
-                : Loc.GetString("health-analyzer-window-addiction-line", ("kind", kindName), ("stage", addiction.Stage), ("stageName", stageName));
+            if (!_prototypes.TryIndex<AddictionPrototype>(addiction.Kind, out var kindProto))
+                continue;
 
-            AddictionsContainer.AddChild(new Label
+            var color = addiction.Permanent ? Color.FromHex("#9a3b3b") : Color.FromHex("#b06cc4");
+            var card = CreateInfoCard(color, out var content);
+
+            var header = new BoxContainer
             {
-                Text = line,
-                Margin = new Thickness(0, 2),
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                HorizontalExpand = true,
+            };
+
+            header.AddChild(new Label
+            {
+                Text = Loc.GetString(kindProto.Name),
+                HorizontalExpand = true,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+
+            header.AddChild(new Label
+            {
+                Text = Loc.GetString("health-analyzer-window-addiction-stage-short", ("stage", addiction.Stage)),
+                HorizontalAlignment = HAlignment.Right,
+                StyleClasses = { "LabelSubText" },
+            });
+
+            content.AddChild(header);
+
+            content.AddChild(new Label
+            {
+                Text = Loc.GetString($"health-analyzer-addiction-stage-{addiction.Stage}"),
+                StyleClasses = { "LabelSubText" },
+            });
+
+            content.AddChild(new Label
+            {
+                Text = addiction.Permanent
+                    ? Loc.GetString("health-analyzer-window-addiction-permanent-note")
+                    : Loc.GetString("health-analyzer-window-addiction-treatable-note"),
+                StyleClasses = { "LabelSubText" },
+                FontColorOverride = addiction.Permanent ? Color.FromHex("#cf6a6a") : Color.FromHex("#7cc47c"),
             });
 
             if (!addiction.Permanent)
                 anyTreatable = true;
+
+            AddictionsContainer.AddChild(card);
         }
 
         AddictionsContainer.AddChild(new Label
@@ -477,20 +617,64 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             Text = anyTreatable
                 ? Loc.GetString("health-analyzer-window-addictions-treatment")
                 : Loc.GetString("health-analyzer-window-addictions-untreatable"),
-            Margin = new Thickness(0, 4, 0, 0),
-            FontColorOverride = anyTreatable ? Color.Green : Color.Red,
+            Margin = new Thickness(2, 4, 2, 0),
+            StyleClasses = { "LabelSubText" },
+            FontColorOverride = anyTreatable ? Color.FromHex("#7cc47c") : Color.FromHex("#cf6a6a"),
         });
     }
 
-    private static string KindLoc(AddictionKind kind) => kind switch
+    private static Label CreateSectionTitle(string text, Color color)
     {
-        AddictionKind.Alcohol => "alcohol",
-        AddictionKind.Nicotine => "nicotine",
-        AddictionKind.Drug => "drug",
-        AddictionKind.Medicine => "medicine",
-        AddictionKind.Omnizine => "omnizine",
-        _ => "alcohol",
-    };
+        return new Label
+        {
+            Text = text,
+            Margin = new Thickness(0, 0, 0, 4),
+            FontColorOverride = color,
+        };
+    }
+
+    private static PanelContainer CreateInfoCard(Color accent, out BoxContainer content)
+    {
+        var card = new PanelContainer
+        {
+            Margin = new Thickness(2, 2),
+            HorizontalExpand = true,
+            PanelOverride = new StyleBoxFlat
+            {
+                BorderColor = accent.WithAlpha(0.6f),
+                BorderThickness = new Thickness(1),
+                BackgroundColor = accent.WithAlpha(0.08f),
+                ContentMarginLeftOverride = 6,
+                ContentMarginRightOverride = 6,
+                ContentMarginTopOverride = 4,
+                ContentMarginBottomOverride = 4,
+            },
+        };
+
+        content = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+        };
+
+        card.AddChild(content);
+        return card;
+    }
+
+    private static Color GetSeverityColor(ADTDiseaseSeverity severity)
+    {
+        return severity switch
+        {
+            ADTDiseaseSeverity.Positive => Color.FromHex("#4fb286"),
+            ADTDiseaseSeverity.Nonthreat => Color.FromHex("#9aa0a6"),
+            ADTDiseaseSeverity.Minor => Color.FromHex("#c9b037"),
+            ADTDiseaseSeverity.Medium => Color.FromHex("#d98e36"),
+            ADTDiseaseSeverity.Harmful => Color.FromHex("#cf6a3a"),
+            ADTDiseaseSeverity.Dangerous => Color.FromHex("#cf4040"),
+            ADTDiseaseSeverity.Biohazard => Color.FromHex("#9a3b8f"),
+            ADTDiseaseSeverity.Uncurable => Color.FromHex("#6f6f6f"),
+            _ => Color.FromHex("#9aa0a6"),
+        };
+    }
     // ADT-Tweak-End
 }
-

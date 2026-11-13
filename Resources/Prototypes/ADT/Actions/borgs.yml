@@ -5,9 +5,10 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Interface/Actions/actions_borg.rsi
-      state: state-info
     useDelay: 0.5
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_borg.rsi
+    layers:
+    - state: state-info
   - type: InstantAction
     event: !type:BorgInfoActionEvent

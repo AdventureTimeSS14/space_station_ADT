@@ -24,14 +24,14 @@ namespace Content.Server.ADT.MindSlave;
 /// </summary>
 public sealed class MindSlaveSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly ISharedChatManager _chat = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RoleSystem _roleSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private ISharedChatManager _chat = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RoleSystem _roleSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     /// <summary>
     /// Subscribes to <see cref="ComponentStartup"/>, <see cref="ComponentShutdown"/>, and <see cref="EntGotInsertedIntoContainerMessage"/> for mindshield detection.

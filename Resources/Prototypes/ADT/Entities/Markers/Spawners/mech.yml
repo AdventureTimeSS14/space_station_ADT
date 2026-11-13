@@ -81,3 +81,87 @@
   - type: ConditionalSpawner
     prototypes:
       - ADTMechSeraphBattery
+
+- type: entity
+  name: Durand Spawner
+  id: ADTSpawnMechDurand
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Specific/Mech/mecha.rsi
+        state: durand
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechDurandBattery
+
+- type: entity
+  name: Clarke Spawner
+  id: ADTSpawnMechClarke
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Specific/Mech/mecha.rsi
+        state: clarke
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechClarkeBattery
+
+- type: entity
+  name: Odysseus Spawner
+  id: ADTSpawnMechOdysseus
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Specific/Mech/mecha.rsi
+        state: odysseus
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechOdysseusBattery
+
+- type: entity
+  name: Phazon Spawner
+  id: ADTSpawnMechPhazon
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Specific/Mech/mecha.rsi
+        state: phazon
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechPhazonBattery
+
+- type: entity
+  name: Ert Gygax Spawner
+  id: ADTSpawnMechErtGygax
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Specific/Mech/mecha.rsi
+        state: ntgygax
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechErtGygaxBattery
+
+- type: entity
+  name: Archimedes Spawner
+  id: ADTSpawnMechArchimedes
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Specific/Mech/mecha.rsi
+        state: archimedes
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechArchimedesBattery

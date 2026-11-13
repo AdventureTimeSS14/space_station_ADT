@@ -12,3 +12,5 @@ ent-ActionPolymorphJauntII = Эфирная прогулка II
     .desc = Растворитесь в Эфирном плане, чтобы сбежать ещё быстрее!
 ent-ActionPolymorphJauntIII = Эфирная прогулка III
     .desc = Вы вообще осязаемы?
+ent-ActionRevertPolymorphConfirm = { ent-ActionRevertPolymorph }
+    .desc = { ent-ActionRevertPolymorph.desc }

@@ -1,5 +1,4 @@
 using Content.Shared.ADT.Systems.PickupHumans;
-using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Construction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
@@ -24,12 +23,12 @@ namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 
 public sealed class BsCrystalTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly StackSystem _stacks = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedPickupHumansSystem _pickupsys = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private StackSystem _stacks = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private PickupHumansSystem _pickupsys = default!;
 
     private float CountToRadius;
 
@@ -70,11 +69,8 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     }
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius)
     {
-        if (HasComp<TakenHumansComponent>(uid)
-        && TryComp<PickupHumansComponent>(uid, out var pickupComp))
-        {
-             _pickupsys.DropFromHands(pickupComp.User, pickupComp.Target);
-        }
+        _pickupsys.DropCarried(uid);
+        _pickupsys.DropCarriedBy(uid);
         EntityCoordinates coords = Transform(uid).Coordinates;
         var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-radius, +radius), coords.Y + _random.NextFloat(-radius, +radius));
 

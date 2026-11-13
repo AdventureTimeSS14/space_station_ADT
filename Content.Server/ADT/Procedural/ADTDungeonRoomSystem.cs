@@ -1,12 +1,15 @@
 using System.Numerics;
 using Content.Server.Decals;
+using Content.Server.Parallax;
 using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Procedural;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
+using Content.Shared.Parallax.Biomes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -18,16 +21,19 @@ namespace Content.Server.ADT.Procedural;
 
 public sealed class ADTDungeonRoomSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly AreaSystem _areas = default!;
-    [Dependency] private readonly DecalSystem _decals = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private AreaSystem _areas = default!;
+    [Dependency] private DecalSystem _decals = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private BiomeSystem _biome = default!;
 
     private readonly List<(Vector2i, Tile)> _tiles = new();
+    private readonly List<(Vector2i, Tile)> _biomeReserveBuffer = new();
+    private readonly List<Vector2i> _reserveIndices = new();
     private readonly List<ADTDungeonRoomPrototype> _availableRooms = new();
     private readonly Dictionary<ADTComponentOverrides, ComponentRegistry> _registryCache = new();
 
@@ -83,6 +89,18 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         return Angle.Zero;
     }
 
+    public Angle GetFixedRotation(ADTDungeonRoomPrototype room)
+    {
+        if (room.Rotate == 0)
+            return Angle.Zero;
+
+        if (room.Rotate % 90 != 0)
+            Log.Warning($"Комната {room.ID} развёрнута на {room.Rotate} градусов, округляю до четверти оборота.");
+
+        var quarters = (int) Math.Round(room.Rotate / 90f) & 3;
+        return quarters * Math.PI / 2;
+    }
+
     public void SpawnRoom(
         EntityUid gridUid,
         MapGridComponent grid,
@@ -94,6 +112,9 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
     {
         var originTransform = Matrix3Helpers.CreateTranslation(origin.X, origin.Y);
         var roomRotation = rotation ? GetRoomRotation(room, random) : Angle.Zero;
+
+        roomRotation += GetFixedRotation(room);
+
         var roomTransform = Matrix3Helpers.CreateTransform((Vector2)room.Size / 2f, roomRotation);
         var finalTransform = Matrix3x2.Multiply(roomTransform, originTransform);
 
@@ -242,6 +263,79 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         }
 
         _maps.SetTiles(gridUid, grid, _tiles);
+
+        if (room.ReserveBounds)
+            ReserveBiomeArea(gridUid, room, roomTransform, tileOffset);
+        else
+            ReserveBiomeTiles(gridUid);
+    }
+
+    private void ReserveBiomeTiles(EntityUid gridUid)
+    {
+        if (!HasComp<BiomeComponent>(gridUid))
+            return;
+
+        _reserveIndices.Clear();
+
+        foreach (var (index, _) in _tiles)
+        {
+            _reserveIndices.Add(index);
+        }
+
+        _reserveIndices.Sort((a, b) => a.Y != b.Y ? a.Y.CompareTo(b.Y) : a.X.CompareTo(b.X));
+
+        var runStart = 0;
+
+        for (var i = 1; i <= _reserveIndices.Count; i++)
+        {
+            if (i < _reserveIndices.Count
+                && _reserveIndices[i].Y == _reserveIndices[i - 1].Y
+                && _reserveIndices[i].X <= _reserveIndices[i - 1].X + 1)
+            {
+                continue;
+            }
+
+            var from = _reserveIndices[runStart];
+            var to = _reserveIndices[i - 1];
+            var bounds = new Box2(from.X + 0.1f, from.Y + 0.1f, to.X + 0.9f, to.Y + 0.9f);
+
+            _biomeReserveBuffer.Clear();
+            _biome.ReserveTiles(gridUid, bounds, _biomeReserveBuffer);
+
+            runStart = i;
+        }
+    }
+
+    private void ReserveBiomeArea(
+        EntityUid gridUid,
+        ADTDungeonRoomPrototype room,
+        Matrix3x2 roomTransform,
+        Vector2 tileOffset)
+    {
+        if (!HasComp<BiomeComponent>(gridUid))
+            return;
+
+        var corners = new[]
+        {
+            Vector2.Transform(tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(room.Size.X, 0) + tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(0, room.Size.Y) + tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(room.Size.X, room.Size.Y) + tileOffset, roomTransform),
+        };
+
+        var min = corners[0];
+        var max = corners[0];
+
+        foreach (var corner in corners)
+        {
+            min = Vector2.Min(min, corner);
+            max = Vector2.Max(max, corner);
+        }
+
+        var bounds = new Box2(min, max).Enlarged(0.5f);
+
+        _biomeReserveBuffer.Clear();
+        _biome.ReserveTiles(gridUid, bounds, _biomeReserveBuffer);
     }
 
     private static int GetQuarterTurns(Angle rotation)
@@ -280,6 +374,7 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
                     group.Rotation + finalRoomRotation);
 
                 _transform.AttachToGridOrMap(ent);
+                RemoveMissing(ent, group);
 
                 if (group.Anchored == null)
                     continue;
@@ -291,6 +386,20 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
                 else if (!group.Anchored.Value && xform.Anchored)
                     _transform.Unanchor(ent, xform);
             }
+        }
+    }
+
+    private void RemoveMissing(EntityUid uid, ADTDungeonRoomEntities group)
+    {
+        foreach (var name in group.MissingComponents)
+        {
+            if (!_factory.TryGetRegistration(name, out var registration))
+            {
+                Log.Error($"Комната ссылается на неизвестный компонент {name} у {group.Proto}");
+                continue;
+            }
+
+            EntityManager.RemoveComponent(uid, registration.Type);
         }
     }
 
@@ -329,12 +438,12 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
             data.Remove("type");
 
             if (entityProto != null && entityProto.Components.TryGetValue(name, out var protoData))
-                data = _serialization.CombineMappings(data, protoData.Mapping);
+                data = _serialization.CombineMappings(data, _serialization.WriteValueAs<MappingDataNode>(registration.Type, protoData.Component));
 
             try
             {
                 var component = (IComponent) _serialization.Read(registration.Type, data)!;
-                registry[name] = new EntityPrototype.ComponentRegistryEntry(component, data);
+                registry[name] = new EntityPrototype.ComponentRegistryEntry(component);
             }
             catch (Exception exception)
             {

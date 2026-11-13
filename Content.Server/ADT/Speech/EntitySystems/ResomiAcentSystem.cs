@@ -8,7 +8,7 @@ namespace Content.Server._CorvaxNext.Speech.EntitySystems;
 public sealed class ResomiAccentSystem : EntitySystem
 {
 
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -16,7 +16,7 @@ public sealed class ResomiAccentSystem : EntitySystem
         SubscribeLocalEvent<ResomiAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, ResomiAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, ResomiAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 

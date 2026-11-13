@@ -1,0 +1,19 @@
+- type: entity
+  id: ADTLegionNecropolisSpawner
+  parent: ADTBaseRoomMarker
+  name: legion necropolis spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Mobs/Aliens/Lavaland/legion.rsi
+      state: legion_skull
+  - type: ADTRoomFill
+    clearExisting: true
+    rotation: false
+    roomWhitelist:
+      tags:
+      - ADTLavaDungeonNecropolis
+
+- type: Tag
+  id: ADTLavaDungeonNecropolis

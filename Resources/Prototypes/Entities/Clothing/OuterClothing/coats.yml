@@ -10,10 +10,10 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband, BadgeOnClothingWithContainer ] # ADT-Tweak - BadgeOnClothingWithContainer
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband, BadgeOnClothing ] # ADT-Tweak - BadgeOnClothing
   id: ClothingOuterCoatDetective
-  name: detective armored trenchcoat
-  description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
+  name: detective's armored trenchcoat
+  description: An 20th-century trenchcoat with an armored underlay. Someone who wears this means serious business.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/detective.rsi
@@ -25,18 +25,6 @@
         children:
         - id: SmokingPipeFilledTobacco
         - id: FlippoEngravedLighter
-  # ADT-Tweak start
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-  # ADT-Tweak end
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
@@ -103,7 +91,7 @@
         Caustic: 0.9
 
 - type: entity
-  parent: [BaseSecurityCommandContraband, ClothingOuterArmorHoS, BadgeOnClothingWithContainer] # ADT-Tweak - BadgeOnClothingWithContainer
+  parent: [BaseSecurityCommandContraband, ClothingOuterArmorHoS, BadgeOnClothing] # ADT-Tweak - BadgeOnClothing
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -112,21 +100,9 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
-  # ADT tweak start
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-  # ADT tweak end
 
 - type: entity
-  parent: ClothingOuterStorageToggleableBase
+  parent: ClothingOuterJacketToggleableBase
   id: ClothingOuterCoatJensen
   name: jensen coat
   description: A jensen coat.
@@ -149,7 +125,7 @@
         id: SyndieHandyFlag
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterJacketBase
   id: ClothingOuterCoatTrench
   name: trench coat
   description: A comfy trench coat.
@@ -158,22 +134,10 @@
     sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
         Slash: 0.95
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 20
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -189,6 +153,13 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.5
+    zones:
+    - chest
+    - arms
+  # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
@@ -229,6 +200,13 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.25
+    zones:
+    - chest
+    - arms
+  # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViro]
@@ -350,7 +328,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, BaseSecurityContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
+  parent: [ClothingOuterArmorWarden, BaseSecurityContraband, BadgeOnClothing] # ADT add BadgeOnClothing
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
@@ -359,18 +337,6 @@
     sprite: Clothing/OuterClothing/Coats/warden.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/warden.rsi
-  # ADT tweak start
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-  # ADT tweak end
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -443,18 +409,6 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
-  # ADT tweak start
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      badge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-  # ADT tweak end
 
 - type: entity
   parent: ClothingOuterStorageBase

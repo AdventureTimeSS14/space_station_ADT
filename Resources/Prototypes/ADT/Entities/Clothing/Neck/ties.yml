@@ -231,3 +231,52 @@
       sprite: ADT/Clothing/Neck/Ties/maline_tie.rsi
     - type: StaticPrice
       price: 18
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBowtieBlack
+  name: black bowtie
+  description: A regular bowtie, ideal for office workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Bowtie/black_bowtie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Bowtie/black_bowtie.rsi
+  - type: StaticPrice
+    price: 20
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBowtieBlue
+  name: blue bowtie
+  description: A regular bowtie, ideal for office workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Bowtie/blue_bowtie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Bowtie/blue_bowtie.rsi
+  - type: StaticPrice
+    price: 20
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBowtieRed
+  name: red bowtie
+  description: A regular bowtie, ideal for office workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Bowtie/red_bowtie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Bowtie/red_bowtie.rsi
+  - type: StaticPrice
+    price: 20
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBowtieWhite
+  name: white bowtie
+  description: A regular bowtie, ideal for office workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Bowtie/white_bowtie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Bowtie/white_bowtie.rsi
+  - type: StaticPrice
+    price: 20

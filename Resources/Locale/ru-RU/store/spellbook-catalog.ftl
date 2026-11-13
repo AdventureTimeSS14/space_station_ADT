@@ -62,3 +62,5 @@ spellbook-upgrade-fireball-name = Улучшение Огненного шара
 spellbook-upgrade-fireball-description = Позволяет улучшить Огненный шар до максимального 3-го уровня!
 spellbook-upgrade-jaunt-name = Улучшение Эфирной прогулки
 spellbook-upgrade-jaunt-description = Позволяет улучшить Эфирную прогулку до максимального 3-го уровня!
+spellbook-guardian-deck-name = Колода таро
+spellbook-guardian-deck-description = Странная колода карт, которая при использовании даёт вам призрачного стража.

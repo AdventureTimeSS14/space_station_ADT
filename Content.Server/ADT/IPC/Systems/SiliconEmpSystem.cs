@@ -20,13 +20,15 @@ namespace Content.Server.ADT.Silicon.Systems;
 
 public sealed class SiliconEmpSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
-    [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+
+    private static readonly EntProtoId MuteEffect = "StatusEffectMuted";
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StutteringSystem _stuttering = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -56,7 +58,7 @@ public sealed class SiliconEmpSystem : EntitySystem
         _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SharedSeeingStaticSystem.StaticKey, duration, true, statusComp);
 
         if (_random.Prob(0.8f))
-            _slurredSystem.DoSlur(uid, duration * 2, statusComp);
+            _statusNew.TryAddStatusEffectDuration(uid, SlurredSystem.Stutter, duration * 2);
 
         if (_random.Prob(0.6f))
             _stuttering.DoStutter(uid, duration * 2, false);
@@ -65,10 +67,10 @@ public sealed class SiliconEmpSystem : EntitySystem
             _status.TryAddStatusEffect<PacifiedComponent>(uid, "Pacified", duration * 0.5, true, statusComp);
 
         if (_random.Prob(0.4f)) // Какие-то неадекватно низкие шансы тут, буквально 2-8 процентов. Ребят, это слишком мало для ЭМИ
-            _status.TryAddStatusEffect<MutedComponent>(uid, "Muted", duration * 0.5, true, statusComp);
+            _statusNew.TryUpdateStatusEffectDuration(uid, MuteEffect, duration * 0.5);
 
         if (_random.Prob(0.3f))
-            _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(uid, BlindnessSystem.BlindingStatusEffect, duration * 0.5, true, statusComp);
+            _statusNew.TryUpdateStatusEffectDuration(uid, BlindnessSystem.BlindingStatusEffect, duration * 0.5);
 
         _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), _random.Next(20, 40)));
 

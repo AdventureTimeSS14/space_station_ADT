@@ -129,8 +129,6 @@
   parent: BaseToolSurgery
   description: A surgical tool used to make incisions into flesh.
   components:
-  - type: Sharp
-    butcherDelayModifier: 1.5
   - type: Tool
     qualities:
     - Slicing

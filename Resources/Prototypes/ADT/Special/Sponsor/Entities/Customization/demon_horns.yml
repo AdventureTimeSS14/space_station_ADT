@@ -1,0 +1,109 @@
+# рога аркан но для людей, спонсорский контент
+- type: marking
+  id: ADTAlldurakSponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: durak
+
+- type: marking
+  id: ADTAllhorn1Sponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: horn1
+
+- type: marking
+  id: ADTAllhorn2Sponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: horn2
+
+- type: marking
+  id: ADTAllhorn3Sponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: horn3
+
+- type: marking
+  id: ADTAllhorn4Sponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: horn4
+
+- type: marking
+  id: ADTAllhorn5Sponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: horn5
+
+- type: marking
+  id: ADTAllhorn6Sponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: horn6
+
+- type: marking
+  id: ADTAlllordSponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: lord
+
+- type: marking
+  id: ADTAlloldpainSponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: oldpain
+
+- type: marking
+  id: ADTAlltavrhornSponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: tavrhorn
+
+- type: marking
+  id: ADTAlltelehornSponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: telehorn
+
+- type: marking
+  id: ADTAllvampirehornSponsor
+  bodyPart: HeadTop
+  groupWhitelist: [ Human ]
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/Demon/horns.rsi
+      state: vampirehorn
+# рога аркан но для людей, спонсорский контент

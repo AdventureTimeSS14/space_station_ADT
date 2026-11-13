@@ -1,0 +1,17 @@
+- type: entity
+  parent: ADTSponsorClothing
+  id: ADTClothingEarSponsorEarring
+  name: gold earring
+  description: Minimalist black round earrings. You can barely feel them when you wear them.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Sponsor/earring.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Special/Sponsor/earring.rsi
+    slots:
+    - ears
+    - ears2

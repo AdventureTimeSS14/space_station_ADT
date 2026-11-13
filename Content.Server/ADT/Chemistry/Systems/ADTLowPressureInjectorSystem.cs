@@ -10,7 +10,7 @@ namespace Content.Server.ADT.Chemistry.Systems;
 
 public sealed class ADTLowPressureInjectorSystem : ADTSharedLowPressureInjectorSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
 
     public override void Initialize()
     {

@@ -884,6 +884,7 @@
   group: Savory
   solids:
     FoodMeatChickenCutlet: 1
+    FoodMushroom: 1
   reagents:
     Egg: 3
     TableSalt: 5

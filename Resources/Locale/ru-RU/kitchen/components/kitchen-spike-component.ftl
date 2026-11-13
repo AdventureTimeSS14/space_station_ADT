@@ -45,3 +45,6 @@ comp-kitchen-spike-victim-examine = [color=orange]{ CAPITALIZE(SUBJECT($target))
         [epicene] худыми
        *[neuter] худым
     }.[/color]
+comp-kitchen-spike-butcher-empty = На { $victim } не осталось мяса для разделки!
+comp-kitchen-spike-need-tool-quality = Чтобы разделать { $target }, нужен инструмент с качеством { $quality }.
+comp-kitchen-spike-deconstruct-occupied = Затем [color=red]снимите тело с крюка[/color].

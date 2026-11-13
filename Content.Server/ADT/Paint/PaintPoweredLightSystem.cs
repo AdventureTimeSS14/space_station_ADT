@@ -5,7 +5,7 @@ using Robust.Shared.GameObjects;
 namespace Content.Server.ADT.Paint;
 public sealed class PaintPoweredLightSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
 
     public void TryUpdateLightColor(EntityUid uid, ColorPaintedComponent painted)
     {

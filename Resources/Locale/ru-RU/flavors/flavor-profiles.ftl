@@ -354,3 +354,4 @@ flavor-complex-punishment = как наказание
 flavor-complex-artifact-glue = как дроблённые артефакты
 flavor-weh = как вех
 flavor-hew = как хев
+flavor-complex-bacchus-blessing = как кирпичная стена

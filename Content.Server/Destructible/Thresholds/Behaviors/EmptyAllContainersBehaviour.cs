@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Containers;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
@@ -15,6 +16,11 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
 
             foreach (var container in system.EntityManager.System<SharedContainerSystem>().GetAllContainers(owner, containerManager))
             {
+                // ADT-Tweak-Start
+                if (ADTInternalContainers.IsInternal(container))
+                    continue;
+                // ADT-Tweak-End
+
                 system.ContainerSystem.EmptyContainer(container, true, system.EntityManager.GetComponent<TransformComponent>(owner).Coordinates);
             }
         }

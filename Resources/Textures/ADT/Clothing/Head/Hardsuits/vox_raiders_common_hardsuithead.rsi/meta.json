@@ -11,11 +11,15 @@
       "name": "icon"
     },
     {
-      "name": "equipped-HELMET",
+      "name": "equipped-head",
       "directions": 4
     },
     {
-      "name": "equipped-HELMET-vox",
+      "name": "equipped-head-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded",
       "directions": 4
     }
   ]

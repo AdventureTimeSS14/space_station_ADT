@@ -16,10 +16,10 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed class CrewTransferSchedulerSystem : GameRuleSystem<CrewTransferSchedulerComponent>
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
-    [Dependency] private readonly IVoteManager _voteManager = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private RoundEndSystem _roundEndSystem = default!;
+    [Dependency] private IVoteManager _voteManager = default!;
     public override void Initialize()
     {
         base.Initialize();

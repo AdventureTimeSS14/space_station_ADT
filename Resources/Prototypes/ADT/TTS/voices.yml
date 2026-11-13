@@ -269,7 +269,7 @@
 - type: ttsVoice
   name: Рома Пятифанов
   description: Голос персонажа Рома Пятифанов из игры Tiny Bunny
-  sex: Male
+  sex: Unsexed
   speaker: romka
   id: romka
 

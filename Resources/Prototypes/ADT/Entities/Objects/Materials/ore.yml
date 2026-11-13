@@ -17,7 +17,7 @@
     materialComposition:
       ADTRawBSore: 300
   - type: Extractable
-    grindableSolutionName: ADTBSore
+    grindableSolutionName: composite
   - type: Item
     heldPrefix: ADTBSore
   - type: Tag
@@ -35,36 +35,54 @@
   - type: Stack
     count: 1
 
-## NewBFUU by M&B (еблан какой-то)
 - type: entity
   parent: BaseStructureDynamic
   id: ADTGibtonite
   suffix: Full
-  name: Gibtonite ore
-  description: Rock with pieces of gibtonite.
+  name: gibtonite ore
+  description: Extremely explosive if struck with mining equipment, gibtonite is often used by miners to speed up their work by using it as a mining charge. This material is illegal to possess by unauthorized personnel under space law.
   components:
   - type: Appearance
   - type: Sprite
-    sprite: ADT/Objects/Materials/gibtonite.rsi
+    sprite: ADT/Objects/Materials/gibtonite_ore.rsi
     layers:
-      - state: gibtonite
-        visible: true
-      - map: ["enum.GibtoniteVisuals.State"]
-        state: normal
-        visible: true
-      - state: active
-        visible: false
-        map: ["enum.GibtoniteVisuals.Active"]
+    - state: ore_low
+      map: [ "enum.ADTGibtoniteVisuals.Quality" ]
+    - state: active
+      map: [ "enum.ADTGibtoniteVisuals.Primed" ]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTGibtoniteVisuals.Quality:
+        enum.ADTGibtoniteVisuals.Quality:
+          Low: { state: ore_low }
+          Medium: { state: ore_medium }
+          High: { state: ore_high }
+      enum.ADTGibtoniteVisuals.Primed:
+        enum.ADTGibtoniteVisuals.Primed:
+          True: { visible: true }
+          False: { visible: false }
   - type: Item
     size: Ginormous
-    heldPrefix: ADTBSore
+    sprite: ADT/Objects/Materials/gibtonite_ore.rsi
   - type: MultiHandedItem
   - type: Damageable
   - type: Injurable
   - type: RequireProjectileTarget
-  - type: Gibtonite
-    extracted: true
-    elapsedTime: 0
+  - type: ADTGibtoniteOre
+    detonationDelay: 10
+    lowExplosion:
+      devastation: -1
+      heavy: 1
+      light: 3
+    mediumExplosion:
+      devastation: 1
+      heavy: 2
+      light: 5
+    highExplosion:
+      devastation: 2
+      heavy: 4
+      light: 9
   - type: InteractionOutline
   - type: Fixtures
     fixtures:
@@ -77,7 +95,7 @@
         - CrateMask
         layer:
         - MachineLayer
-  - type: SupermatterImmune #На будущее.
+  - type: SupermatterImmune
 
 - type: entity
   parent: BaseItem
@@ -92,7 +110,9 @@
     layers:
       - sprite:  ADT/Objects/Materials/gibtonite.rsi
         state: gibtonite-shard
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: SupermatterImmune
 
 - type: entity
@@ -114,13 +134,13 @@
   - type: Item
     heldPrefix: copper
   - type: Extractable
-    grindableSolutionName: copper
-  - type: SolutionContainerManager
-    solutions:
-      copper:
-        reagents:
-        - ReagentId: Copper
-          Quantity: 20
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Copper
+        Quantity: 20
   - type: Tag
     tags:
     - Ore
@@ -152,13 +172,13 @@
   - type: Item
     heldPrefix: zinc
   - type: Extractable
-    grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Zinc
-          Quantity: 20
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Zinc
+        Quantity: 20
   - type: Tag
     tags:
     - Ore
@@ -191,13 +211,13 @@
   - type: Item
     heldPrefix: lead
   - type: Extractable
-    grindableSolutionName: lead
-  - type: SolutionContainerManager
-    solutions:
-      lead:
-        reagents:
-        - ReagentId: Lead
-          Quantity: 20
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Lead
+        Quantity: 20
   - type: Tag
     tags:
     - Ore

@@ -6,7 +6,10 @@
   components:
   - type: Action
     useDelay: 5
-    icon: { sprite: Actions/Implants/implants.rsi, state: explosive }
+  - type: Sprite
+    sprite: Actions/Implants/implants.rsi
+    layers:
+    - state: explosive
   - type: InstantAction
     event: !type:ThunderdomeLeaveActionEvent
 
@@ -18,6 +21,9 @@
   components:
   - type: Action
     useDelay: 3
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: manifest }
+  - type: Sprite
+    sprite: Interface/Actions/actions_ai.rsi
+    layers:
+    - state: manifest
   - type: InstantAction
     event: !type:ThunderdomeLeaderboardActionEvent

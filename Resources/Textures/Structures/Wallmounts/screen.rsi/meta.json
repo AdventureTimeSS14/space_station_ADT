@@ -3,12 +3,15 @@
     "license": "CC-BY-SA-3.0",
     "copyright": "From tgstation: https://github.com/tgstation/tgstation/blob/master/icons/obj/machines/status_display.dmi",
     "size": {
-      "x": 32,
-      "y": 32
+        "x": 32,
+        "y": 32
     },
     "states": [
-      {
-        "name": "screen"
-      }
+        {
+            "name": "outer_frame"
+        },
+        {
+            "name": "screen"
+        }
     ]
 }

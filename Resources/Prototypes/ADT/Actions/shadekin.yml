@@ -3,11 +3,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/shadekin.rsi
-      state: teleport
     itemIconStyle: BigAction
     useDelay: 12
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadekin.rsi
+    layers:
+    - state: teleport
   - type: TargetAction
     range: 7
     deselectOnMiss: false

@@ -1,0 +1,257 @@
+- type: entity
+  parent: ADTCassetteTape
+  id: ADTHeliosTapeBase
+  abstract: true
+  suffix: Гелиос, лор
+  components:
+  - type: TapeCassette
+    maxCapacity: 180
+    corruptionChance: 0
+    repairWhitelist:
+      tags:
+      - Screwdriver
+  - type: ADTIndestructible
+  - type: ADTHeliosSecretText
+
+- type: entity
+  parent: ADTHeliosTapeBase
+  id: ADTHeliosTapeOrientation
+  name: кассета «Инструктаж для новых сотрудников»
+  description: На наклейке напечатано солнце проекта, а ниже от руки приписано «прослушать в первый день».
+  components:
+  - type: Label
+    localizedLabel: helios-tape-label-orientation
+  - type: TapeCassette
+    recordedData:
+    - timestamp: 1
+      name: Грегори МакБернс
+      tTS: briman
+      message: Добро пожаловать в «Гелиос». Если вы слушаете эту запись, значит, НаноТрейзен доверила вам будущее человечества.
+    - timestamp: 10
+      name: Грегори МакБернс
+      tTS: briman
+      message: Под нами находится источник энергии, которого хватит на тысячу лет. Мы называем его Ядром, и мы здесь, чтобы научиться с ним разговаривать.
+    - timestamp: 22
+      name: Грегори МакБернс
+      tTS: briman
+      message: Вы услышите стук. Это насосы. Если вам кажется, что стук похож на пульс, сообщите об этом в медблок, потому что это первый признак переутомления.
+    - timestamp: 35
+      name: Грегори МакБернс
+      tTS: briman
+      message: Не обсуждайте работу в жилом блоке, не задавайте вопросов о камере содержания и не выходите на смену без пропуска.
+    - timestamp: 45
+      name: Грегори МакБернс
+      tTS: briman
+      message: Помните, что ваш труд становится нашим светом. Отдыхать мы будем после запуска.
+    - timestamp: 50
+      name: Неизвестный
+      tTS: romka
+      message: Он сам-то в это верит?
+    - timestamp: 53
+      name: Неизвестный
+      tTS: windranger_dota_2
+      message: Тише. Выключи, пока никто не услышал.
+
+- type: entity
+  parent: ADTHeliosTapeBase
+  id: ADTHeliosTapeJoule
+  name: кассета «Беседа с М. Джоулом»
+  description: На наклейке выведено «ОБС, не для протокола», а уголок кассеты прожжён сигаретой.
+  components:
+  - type: Label
+    localizedLabel: helios-tape-label-joule
+  - type: TapeCassette
+    recordedData:
+    - timestamp: 1
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Запись идёт. Майк, ты понимаешь, где находишься?
+    - timestamp: 5
+      name: Майк Джоул
+      tTS: kleiner
+      message: Оно не спит. Мы думали, что оно спит, а оно просто ждало, пока мы подойдём ближе.
+    - timestamp: 11
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Сато говорит, что ты отключил датчики в камере. Зачем?
+    - timestamp: 16
+      name: Майк Джоул
+      tTS: kleiner
+      message: Потому что оно смотрело на меня через них. Каждая лампа там это глаз, Артур.
+    - timestamp: 23
+      name: Майк Джоул
+      tTS: kleiner
+      message: Я сменил код камеры, чтобы туда никто больше не ходил. Никто. Даже вы.
+    - timestamp: 29
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Назови код, Майк. Это приказ.
+    - timestamp: 33
+      name: Майк Джоул
+      tTS: kleiner
+      message: Я буду повторять его до последней минуты, а потом он станет моей последней минутой. Смешно, правда?
+    - timestamp: 40
+      name: Майк Джоул
+      tTS: kleiner
+      message: Последняя минута, последняя минута, последняя минута...
+    - timestamp: 46
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Он бредит. Выключай. Доктора ко мне, и подготовьте бумаги для руководства.
+
+- type: entity
+  parent: ADTHeliosTapeBase
+  id: ADTHeliosTapeSato
+  name: кассета «Наблюдения, серия Г-7»
+  description: Аккуратная наклейка подписана мелким почерком доктора Сато.
+  components:
+  - type: Label
+    localizedLabel: helios-tape-label-sato
+  - type: TapeCassette
+    recordedData:
+    - timestamp: 1
+      name: Ирма Сато
+      tTS: mossman
+      message: Наблюдение сорок два. Объект снова реагирует на присутствие персонала, и частота пульса растёт, когда к камере подходит больше трёх человек.
+    - timestamp: 9
+      name: Ирма Сато
+      tTS: mossman
+      message: Глифы на стенах раскопа складываются в один и тот же узор. Я назвала его печатью, потому что он, по всей видимости, удерживает объект.
+    - timestamp: 17
+      name: Ирма Сато
+      tTS: mossman
+      message: Если печать будет нарушена, объект проснётся полностью. Я передала это МакБернсу трижды, и трижды он ответил, что запуск по графику.
+    - timestamp: 26
+      name: Ирма Сато
+      tTS: mossman
+      message: Образцы глифов «солнце», «око», «пламя» и «волна» хранятся раздельно. Если их сложить вместе, у сотрудников начинаются одинаковые сны.
+    - timestamp: 34
+      name: Ирма Сато
+      tTS: mossman
+      message: Мне снится тёплый пол, который дышит. Я перестала записывать сны в журнал, потому что охрана их читает.
+
+- type: entity
+  parent: ADTHeliosTapeBase
+  id: ADTHeliosTapeLaunch
+  name: кассета «Запуск, 09.11.2568»
+  description: Кассета оплавилась с одного края, но лента внутри уцелела.
+  components:
+  - type: Label
+    localizedLabel: helios-tape-label-launch
+  - type: TapeCassette
+    recordedData:
+    - timestamp: 1
+      name: Диспетчер
+      tTS: threedog_radio
+      message: Всем постам. Начинаем первичный отбор энергии от объекта «Ядро». Операторы, доложите готовность.
+    - timestamp: 10
+      name: Элиза Ворн
+      tTS: alyx
+      message: Пульт энергосекции готов. Основная линия держит нагрузку.
+    - timestamp: 15
+      name: Диспетчер
+      tTS: threedog_radio
+      message: Отбор пошёл. Десять процентов, двадцать, сорок...
+    - timestamp: 21
+      name: Элиза Ворн
+      tTS: alyx
+      message: Перегрузка на основной линии! Табло красное. Перекидываю на резерв, включаю линию {BRK_BAD}!
+    - timestamp: 27
+      name: Ирма Сато
+      tTS: mossman
+      message: Нет! Только не эту линию, она идёт через камеру!
+    - timestamp: 31
+      name: Диспетчер
+      tTS: threedog_radio
+      message: Сейсмика зашкаливает. Всем покинуть нижние секторы, повторяю, всем покинуть...
+    - timestamp: 37
+      name: Неизвестный
+      tTS: romka
+      message: Пол... пол бьётся. Вы это чувствуете? Оно бьётся!
+    - timestamp: 42
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Охране перекрыть подъём. Никого не выпускать до распоряжения Совета.
+
+- type: entity
+  parent: ADTHeliosTapeBase
+  id: ADTHeliosTapeKane
+  name: кассета «Для Совета директоров»
+  description: На наклейке выведено «вскрыть после эвакуации», но эвакуации так и не было.
+  components:
+  - type: Label
+    localizedLabel: helios-tape-label-kane
+  - type: TapeCassette
+    recordedData:
+    - timestamp: 1
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Говорит начальник отдела безопасности Кейн. Комплекс изолирован по приказу Совета, и подъём заварен.
+    - timestamp: 8
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Наверху стоят солдаты. Тех, кто выбрался, расстреляли как заражённых. Я сам передал им списки.
+    - timestamp: 15
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Спуск к ядру по-прежнему требует двух ключей. Ворн просила меня повернуть второй, но я отказался.
+    - timestamp: 22
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Если кто-то это слушает, значит, вы пришли вдвоём или втроём. Одному туда не пройти, и это единственное правильное решение, которое мы здесь приняли.
+    - timestamp: 34
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Простите нас. Мы охраняли не его от людей, а людей от него.
+
+- type: entity
+  parent: ADTHeliosTapeBase
+  id: ADTHeliosTapeEvac
+  name: кассета «Аварийное оповещение»
+  description: Кассета вытащена из системы оповещения КПП. На наклейке выведено «крутить по кругу».
+  components:
+  - type: Label
+    localizedLabel: helios-tape-label-evac
+  - type: TapeCassette
+    recordedData:
+    - timestamp: 0
+      name: Система оповещения
+      tTS: john_henry_eden_fl3
+      message: Внимание всему персоналу. Объявлена эвакуация нижних секторов. Сохраняйте спокойствие и следуйте к подъёмнику.
+    - timestamp: 12
+      name: Система оповещения
+      tTS: john_henry_eden_fl3
+      message: Подъёмник закрыт по распоряжению Совета директоров. Вернитесь на свои рабочие места.
+    - timestamp: 22
+      name: Грегори МакБернс
+      tTS: briman
+      message: Это временная мера. Никто не пострадает, если все будут выполнять инструкции.
+    - timestamp: 30
+      name: Неизвестный
+      tTS: romka
+      message: Откройте! Там внизу люди, откройте подъём!
+    - timestamp: 35
+      name: Артур Кейн
+      tTS: tihonov_tb
+      message: Отойти от створки. Повторяю, отойти от створки, иначе охрана откроет огонь.
+    - timestamp: 46
+      name: Система оповещения
+      tTS: john_henry_eden_fl3
+      message: Внимание всему персоналу. Объявлена эвакуация нижних секторов. Сохраняйте спокойствие...
+
+- type: entity
+  parent: ADTTapeRecorder
+  id: ADTHeliosTapeRecorder
+  name: служебный диктофон «Гелиоса»
+  description: Это старый служебный диктофон. Если вставить в него кассету, он воспроизведёт запись.
+  suffix: Гелиос
+
+- type: entity
+  parent: ADTHeliosTapeRecorder
+  id: ADTHeliosTapeRecorderEvac
+  suffix: Гелиос, с оповещением
+  components:
+  - type: ItemSlots
+    slots:
+      cassette_tape:
+        startingItem: ADTHeliosTapeEvac

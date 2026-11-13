@@ -8,7 +8,6 @@
   startingGear: ADTERTLeaderGearEVA
   icon: "JobIconERTLeader"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 50h # ADT-tweak
@@ -112,7 +111,6 @@
   startingGear: ERTChaplainGear
   icon: "JobIconERTChaplain"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 50h # ADT-tweak
@@ -196,7 +194,6 @@
   startingGear: ADTERTEngineerGearEVA # ADT-Tweak
   icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 50h # ADT-tweak
@@ -285,7 +282,6 @@
   startingGear: ADTERTSecurityGearEVA # ADT-Tweak
   icon: "JobIconERTSecurity"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 50h # ADT-tweak
@@ -392,7 +388,6 @@
   startingGear: ADTERTMedicalGearEVA # ADT-Tweak
   icon: "JobIconERTMedic"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 50h # ADT-tweak
@@ -473,7 +468,6 @@
   startingGear: ADTERTJanitorGearEVA # ADT-Tweak
   icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 50h # ADT-tweak

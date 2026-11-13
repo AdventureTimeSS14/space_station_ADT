@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Kitchen.Components;
 
 namespace Content.Server.GuideGenerator;
@@ -50,25 +50,25 @@ public sealed class GrindRecipeEntry
 
         // Now, to become a recipe, entity must:
         // A) Have "Extractable" component on it.
-        // B) Have "SolutionContainerManager" component on it.
-        // C) Have "GrindableSolution" declared in "SolutionContainerManager" component.
-        // D) Have solution with name declared in "SolutionContainerManager.GrindableSolution" inside its "SolutionContainerManager" component.
+        // B) Have a solution with the name declared in "Extractable.GrindableSolutionName".
         // F) Have "Food" in its name (see Content.Server/Corvax/GuideGenerator/MealsRecipesJsonGenerator.cs)
-        if (proto.Components.TryGetComponent("Extractable", out var extractableComp) && proto.Components.TryGetComponent("SolutionContainerManager", out var solutionCompRaw))
+        if (proto.Components.TryGetComponent("Extractable", out var extractableComp))
         {
             var extractable = (ExtractableComponent) extractableComp;
-            var solutionComp = (SolutionContainerManagerComponent) solutionCompRaw;
             foodSolutionName = extractable.GrindableSolutionName;
+            var solutionSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedSolutionContainerSystem>();
 
-            if (solutionComp.Solutions != null && foodSolutionName != null)
+            if (foodSolutionName != null && solutionSystem.TryGetSolution(proto, foodSolutionName, out var solution))
             {
-                foreach (ReagentQuantity reagent in solutionComp.Solutions[(string) foodSolutionName].Contents)
+                foreach (ReagentQuantity reagent in solution.Contents)
                 {
                     Result[reagent.Reagent.Prototype] = reagent.Quantity.Int();
                 }
             }
             else
+            {
                 Result = null;
+            }
         }
     }
 }

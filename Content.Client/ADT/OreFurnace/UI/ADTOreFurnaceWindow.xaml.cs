@@ -15,8 +15,8 @@ namespace Content.Client.ADT.OreFurnace.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ADTOreFurnaceWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private readonly ADTSharedOreFurnaceSystem _furnace;
     private readonly SharedMaterialStorageSystem _materialStorage;

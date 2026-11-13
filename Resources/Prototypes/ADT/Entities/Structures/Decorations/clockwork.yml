@@ -1,0 +1,62 @@
+- type: entity
+  id: ADTClockworkGear
+  parent: BaseStructure
+  name: massive gear
+  description: A massive brass gear. You could probably secure or unsecure it with a wrench, or just climb over it.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decorations/clockwork_gear.rsi
+    state: gear
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Anchorable
+    delay: 1
+  - type: Climbable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 100
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTClockworkGear
+    node: gear
+
+- type: entity
+  id: ADTNecropolisRune
+  name: rune
+  description: An odd collection of symbols drawn in what seems to be blood.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: ADT/Effects/necropolis_rune.rsi
+    state: rune
+    drawdepth: FloorObjects
+  - type: Tag
+    tags:
+    - HideContextMenu

@@ -21,9 +21,9 @@ namespace Content.Client.ADT.MedicalAssembler;
 [GenerateTypedNameReferences]
 public sealed partial class MedicalAssemblerMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
 
     private readonly SpriteSystem _spriteSystem;
     private readonly Texture _lockTexture;

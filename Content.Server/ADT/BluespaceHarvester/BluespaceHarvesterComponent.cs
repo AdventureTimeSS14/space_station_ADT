@@ -148,8 +148,8 @@ public sealed partial class BluespaceHarvesterComponent : Component
     public SoundSpecifier SpawnSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
 }
 
-[Serializable]
-public sealed class BluespaceHarvesterTap
+[Serializable, DataDefinition]
+public sealed partial class BluespaceHarvesterTap
 {
     /// <summary>
     /// The minimum level from which Visual is enabled.

@@ -33,3 +33,10 @@
   maxAge: 80
   oldAge: 51
   youngAge: 36
+  defaultSoundsBySex:
+  - MaleUrsus
+  - FemaleUrsus
+  - MaleUrsus
+  voices:
+  - MaleUrsus
+  - FemaleUrsus

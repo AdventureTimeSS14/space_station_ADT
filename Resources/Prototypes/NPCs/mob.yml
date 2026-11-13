@@ -106,15 +106,3 @@
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
-
-# ADT-Tweak start
-- type: htnCompound
-  id: MonkeyCompound
-  branches:
-    - tasks:
-        - !type:HTNCompoundTask
-          task: MeleeCombatCompound
-    - tasks:
-        - !type:HTNCompoundTask
-          task: IdleCompound
-# ADT-Tweak end

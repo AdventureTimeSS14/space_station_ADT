@@ -1,6 +1,7 @@
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Blocking.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Components; // ADT-Tweak
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -9,22 +10,23 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power;
+using Content.Shared.PowerCell;
 using Content.Shared.Examine;
 
 namespace Content.Shared.Blocking;
 
 public sealed partial class BlockingSystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBatterySystem _batterySystem = default!; //ADT-Tweak
-    [Dependency] private readonly ItemToggleSystem _itemToggleSystem = default!; //ADT-Tweak
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    // ADT-Tweak-Start
+    [Dependency] private SharedBatterySystem _batterySystem = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    // ADT-Tweak-End
 
     private void InitializeUser()
     {
         SubscribeLocalEvent<BlockingUserComponent, DamageModifyEvent>(OnUserDamageModified);
-        SubscribeLocalEvent<BlockingComponent, DamageModifyEvent>(OnDamageModified);
-
         SubscribeLocalEvent<BlockingUserComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<BlockingUserComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<BlockingUserComponent, AnchorStateChangedEvent>(OnAnchorChanged);
@@ -33,29 +35,30 @@ public sealed partial class BlockingSystem
         SubscribeLocalEvent<BlockingComponent, ItemToggleActivateAttemptEvent>(OnItemToggleAttempt); //ADT-Tweak
         SubscribeLocalEvent<BlockingComponent, ChargeChangedEvent>(OnChargeChanged); //ADT-Tweak
         SubscribeLocalEvent<BlockingComponent, ExaminedEvent>(OnBatteryExamined); //ADT-Tweak
+        SubscribeLocalEvent<BlockingComponent, PowerCellSlotEmptyEvent>(OnCellSlotEmpty); //ADT-Tweak
     }
 
-    private void OnParentChanged(EntityUid uid, BlockingUserComponent component, ref EntParentChangedMessage args)
+    private void OnParentChanged(Entity<BlockingUserComponent> entity, ref EntParentChangedMessage args)
     {
-        UserStopBlocking(uid, component);
+        UserStopBlocking(entity);
     }
 
-    private void OnInsertAttempt(EntityUid uid, BlockingUserComponent component, ContainerGettingInsertedAttemptEvent args)
+    private void OnInsertAttempt(Entity<BlockingUserComponent> entity, ref ContainerGettingInsertedAttemptEvent args)
     {
-        UserStopBlocking(uid, component);
+        UserStopBlocking(entity);
     }
 
-    private void OnAnchorChanged(EntityUid uid, BlockingUserComponent component, ref AnchorStateChangedEvent args)
+    private void OnAnchorChanged(Entity<BlockingUserComponent> entity, ref AnchorStateChangedEvent args)
     {
         if (args.Anchored)
             return;
 
-        UserStopBlocking(uid, component);
+        UserStopBlocking(entity);
     }
 
-    private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, DamageModifyEvent args)
+    private void OnUserDamageModified(Entity<BlockingUserComponent> entity, ref DamageModifyEvent args)
     {
-        if (component.BlockingItem is not { } item || !TryComp<BlockingComponent>(item, out var blocking))
+        if (entity.Comp.BlockingItem is not { } item || !_blockQuery.TryComp(item, out var blocking))
             return;
 
         if (args.Damage.GetTotal() <= 0)
@@ -73,8 +76,7 @@ public sealed partial class BlockingSystem
         }
         //ADT-Tweak-End
 
-        var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
-        var modifier = blocking.IsBlocking ? blocking.ActiveBlockDamageModifier : blocking.PassiveBlockDamageModifer;
+        var blockFraction = blocking.IsRaised ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
         blockFraction = Math.Clamp(blockFraction, 0, 1);
 
         //ADT-Tweak-Start
@@ -84,57 +86,37 @@ public sealed partial class BlockingSystem
             return;
         //ADT-Tweak-End
 
-        _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
-
-        var modify = new DamageModifierSet();
-        foreach (var key in modifier.Coefficients.Keys.Concat(modifier.FlatReduction.Keys))
-        {
-            modify.Coefficients.TryAdd(key, 1 - blockFraction);
-        }
+        // This is how much damage the shield is attempting to block
+        var split = args.OriginalDamage * blockFraction;
+        var damage = _damageable.ChangeDamage(item, split);
 
         //ADT-Tweak-Start
         if (blocking.IsCharging && HasEnoughBatteryCharge(item, blocking))
         {
-            UserStopBlocking(uid, component);
+            UserStopBlocking(entity);
             return;
         }
         //ADT-Tweak-End
 
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modify);
+        // Of the damage that went through, reduce by the appropriate blocking modifiers.
+        var modifier = GetBlockingModifier((item, blocking));
+        var blowthrough = DamageSpecifier.ApplyModifierSet(split, modifier);
 
-        if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage))
-        {
-            _audio.PlayPvs(blocking.BlockSound, uid);
-        }
+        args.Damage *= 1f - blockFraction;
+        args.Damage += blowthrough;
+
+        ConsumeBatteryCharge(item, blocking, (float)(split.GetTotal() - blowthrough.GetTotal())); //ADT-Tweak
+
+        if (blocking.IsRaised && damage.AnyPositive())
+            _audio.PlayPvs(blocking.BlockSound, entity);
     }
 
-    private void OnDamageModified(EntityUid uid, BlockingComponent component, DamageModifyEvent args)
+    private void OnEntityTerminating(Entity<BlockingUserComponent> entity, ref EntityTerminatingEvent args)
     {
-        //ADT-Tweak-Start
-        if (component.IsToggle)
-        {
-            if (TryComp<ItemToggleComponent>(uid, out var itemToggle) && !itemToggle.Activated)
-                return;
-        }
-        //ADT-Tweak-End
-
-        var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
-        if (modifier == null)
-        {
-            return;
-        }
-
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
-        ConsumeBatteryCharge(uid, component, (float)args.Damage.GetTotal()); //ADT-Tweak
-    }
-
-    private void OnEntityTerminating(EntityUid uid, BlockingUserComponent component, ref EntityTerminatingEvent args)
-    {
-        if (!TryComp<BlockingComponent>(component.BlockingItem, out var blockingComponent))
+        if (!_blockQuery.TryComp(entity.Comp.BlockingItem, out var blockComponent))
             return;
 
-        StopBlockingHelper(component.BlockingItem.Value, blockingComponent, uid);
-
+        StopBlocking((entity.Comp.BlockingItem.Value, blockComponent), entity);
     }
 
     //ADT-Tweak-Start
@@ -143,10 +125,14 @@ public sealed partial class BlockingSystem
         if (!entity.Comp.IsCharging)
             return;
 
-        if (!TryComp<BatteryComponent>(entity, out var battery))
+        if (!TryGetShieldBattery(entity, out var battery))
+        {
+            args.Cancelled = true;
+            args.Popup = Loc.GetString("handheld-light-component-cell-missing-message");
             return;
+        }
 
-        if (_batterySystem.GetCharge((entity, battery)) <= 0.1f)
+        if (_batterySystem.GetCharge(battery.Value.AsNullable()) <= 0.1f)
         {
             args.Cancelled = true;
             args.Popup = Loc.GetString("handheld-light-component-cell-dead-message");
@@ -161,14 +147,32 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(entity, out var battery) || _batterySystem.GetCharge((entity, battery)) > 0.1f)
             return;
 
-        if (TryComp<ItemToggleComponent>(entity, out var itemToggle))
-            _itemToggleSystem.TryDeactivate((entity, itemToggle), null);
+        DeactivateEmptyShield(entity);
+    }
 
-        _popupSystem.PopupPredicted(Loc.GetString("inducer-empty"), entity, entity);
+    private void OnCellSlotEmpty(Entity<BlockingComponent> entity, ref PowerCellSlotEmptyEvent args)
+    {
+        if (!entity.Comp.IsCharging)
+            return;
+
+        DeactivateEmptyShield(entity);
+    }
+
+    private void DeactivateEmptyShield(Entity<BlockingComponent> entity)
+    {
+        if (TryComp<ItemToggleComponent>(entity, out var itemToggle) && itemToggle.Activated)
+        {
+            _toggle.TryDeactivate((entity, itemToggle), null);
+            _popupSystem.PopupPredicted(Loc.GetString("inducer-empty"), entity, entity);
+        }
 
         if (entity.Comp.User != null)
-            StopBlockingHelper(entity, entity.Comp, entity.Comp.User.Value);
+            StopBlocking(entity, entity.Comp.User.Value);
+    }
 
+    private bool TryGetShieldBattery(EntityUid uid, [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
+    {
+        return _powerCell.TryGetBatteryFromSlotOrEntity(uid, out battery);
     }
 
     private float ApplyBatteryLimitToBlockFraction(EntityUid uid, BlockingComponent component, float blockFraction, DamageSpecifier originalDamage)
@@ -176,12 +180,12 @@ public sealed partial class BlockingSystem
         if (!component.IsCharging)
             return blockFraction;
 
-        if (!TryComp<BatteryComponent>(uid, out var battery))
-            return blockFraction;
+        if (!TryGetShieldBattery(uid, out var battery))
+            return 0f;
 
         var originalTotalDamage = (float)originalDamage.GetTotal();
         var desiredShieldDamage = blockFraction * originalTotalDamage;
-        var maxBlockableDamage = (float)(_batterySystem.GetCharge((uid, battery)) / component.EnergyCostPerHit);
+        var maxBlockableDamage = (float)(_batterySystem.GetCharge(battery.Value.AsNullable()) / component.EnergyCostPerHit);
 
         if (desiredShieldDamage <= maxBlockableDamage)
             return blockFraction;
@@ -197,20 +201,23 @@ public sealed partial class BlockingSystem
         if (!component.IsCharging)
             return true;
 
-        if (!TryComp<BatteryComponent>(uid, out var battery))
+        if (!TryGetShieldBattery(uid, out var battery))
             return true;
 
-        return _batterySystem.GetCharge((uid, battery)) <= 0.1f;
+        return _batterySystem.GetCharge(battery.Value.AsNullable()) <= 0.1f;
     }
 
     private void ConsumeBatteryCharge(EntityUid uid, BlockingComponent component, float damage)
     {
-        if (component.IsCharging && TryComp<BatteryComponent>(uid, out var battery))
+        if (damage <= 0)
+            return;
+
+        if (component.IsCharging && TryGetShieldBattery(uid, out var battery))
         {
             var chargeToConsume = component.EnergyCostPerHit * damage;
-            var newCharge = Math.Max(0, _batterySystem.GetCharge((uid, battery)) - chargeToConsume);
+            var newCharge = Math.Max(0, _batterySystem.GetCharge(battery.Value.AsNullable()) - chargeToConsume);
 
-            _batterySystem.SetCharge(uid, newCharge);
+            _batterySystem.SetCharge(battery.Value.AsNullable(), newCharge);
         }
     }
 
@@ -231,11 +238,12 @@ public sealed partial class BlockingSystem
     /// Check for the shield and has the user stop blocking
     /// Used where you'd like the user to stop blocking, but also don't want to remove the <see cref="BlockingUserComponent"/>
     /// </summary>
-    /// <param name="uid">The user blocking</param>
-    /// <param name="component">The <see cref="BlockingUserComponent"/></param>
-    private void UserStopBlocking(EntityUid uid, BlockingUserComponent component)
+    /// <param name="entity">The user blocking</param>
+    private void UserStopBlocking(Entity<BlockingUserComponent> entity)
     {
-        if (TryComp<BlockingComponent>(component.BlockingItem, out var blockComp) && blockComp.IsBlocking)
-            StopBlocking(component.BlockingItem.Value, blockComp, uid);
+        if (!_blockQuery.TryComp(entity.Comp.BlockingItem, out var blockComponent))
+            return;
+
+        LowerShield((entity.Comp.BlockingItem.Value, blockComponent), entity);
     }
 }

@@ -1,4 +1,4 @@
-using Robust.Shared.Configuration;
+﻿using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -154,11 +154,11 @@ public sealed partial class CCVars
         CVarDef.Create("atmos.heat_scale", 8f, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
-    ///     Maximum explosion radius for explosions caused by bursting a gas tank ("max caps").
-    ///     Setting this to zero disables the explosion but still allows the tank to burst and leak.
+    ///     Maximum explosion intensity for explosions caused by bursting a gas tank ("max caps").
+    ///     Setting this to zero disables the limits.
     /// </summary>
     public static readonly CVarDef<float> AtmosTankFragment =
-        CVarDef.Create("atmos.max_explosion_range", 13f, CVar.SERVERONLY); /// ADT-Tweak 26f to 13f - нерф лимиток
+        CVarDef.Create("atmos.max_explosion_range", 13f, CVar.SERVER); // ADT-Tweak
 
     /// <summary>
     /// Whether atmospherics will process delta-pressure damage on entities with a DeltaPressureComponent.

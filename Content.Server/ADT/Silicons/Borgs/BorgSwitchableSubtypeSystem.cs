@@ -6,7 +6,6 @@ namespace Content.Server.ADT.Silicons.Borgs;
 
 public sealed class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSubtypeSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -16,9 +15,14 @@ public sealed class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSubtypeSys
 
     private void OnSubtypeSelected(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSelectSubtypeMessage args)
     {
+        if (TryComp<BorgSwitchableTypeComponent>(ent.Owner, out var typeComp)
+            && typeComp.SelectedBorgType is { } selected
+            && Prototypes.TryIndex(args.Subtype, out var subtype)
+            && subtype.ParentBorgType != selected)
+            return;
+
         ent.Comp.BorgSubtype = args.Subtype;
         Dirty(ent);
         UpdateVisuals(ent);
-        _userInterface.CloseUi((ent.Owner, null), BorgSwitchableTypeUiKey.SelectBorgType);
     }
 }

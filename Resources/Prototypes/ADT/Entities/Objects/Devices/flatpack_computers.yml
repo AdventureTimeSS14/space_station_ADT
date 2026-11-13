@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ADTComputerCargoOrdersMedicalFlatpack
+  name: флатпак консоли заказов медотдела
+  description: Флатпак для развертывания консоли заказов медицинского отдела.
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersMedical
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTComputerCargoOrdersEngineeringFlatpack
+  name: флатпак консоли заказов инженерного отдела
+  description: Флатпак для развертывания консоли заказов инженерного отдела.
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersEngineering
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTComputerCargoOrdersScienceFlatpack
+  name: флатпак консоли заказов РНД
+  description: Флатпак для развертывания консоли заказов научного отдела.
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersScience
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTComputerCargoOrdersSecurityFlatpack
+  name: флатпак консоли заказов СБ
+  description: Флатпак для развертывания консоли заказов службы безопасности.
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersSecurity
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTComputerCargoOrdersServiceFlatpack
+  name: флатпак консоли заказов сервисного отдела
+  description: Флатпак для развертывания консоли заказов сервисного отдела.
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersService
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTComputerFundingAllocationFlatpack
+  name: флатпак консоли распределения бюджета
+  description: Флатпак для развертывания консоли распределения бюджета отделов.
+  components:
+  - type: Flatpack
+    entity: ComputerFundingAllocation

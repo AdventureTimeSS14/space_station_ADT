@@ -1,0 +1,29 @@
+- type: entity
+  parent: Airlock
+  id: ADTAirlockUSSP
+  name: USSP airlock
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/ussp.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: HighSecDoor
+  id: ADTAirlockUSSPHermetic
+  name: USSP hermetic door
+  description: A heavy hermetic door of a USSP bunker. It will survive a direct hit.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/ussp_hermetic.rsi
+
+- type: entity
+  parent: AirlockHatch
+  id: ADTAirlockUSSPHatch
+  name: USSP bunker hatch
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/ussp_hatch.rsi

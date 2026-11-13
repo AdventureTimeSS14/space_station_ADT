@@ -58,12 +58,12 @@ public sealed class MicrowaveRecipeEntry
         Time = proto.CookTime;
         Solids = proto.IngredientsSolids
         .ToDictionary(
-            sol => sol.Key,
+            sol => sol.Key.Id,
             sol => (uint)(int)sol.Value.Int()
         );
         Reagents = proto.IngredientsReagents
         .ToDictionary(
-            rea => rea.Key,
+            rea => rea.Key.Id,
             rea => (uint)(int)rea.Value.Int()
         );
         Result = proto.Result;

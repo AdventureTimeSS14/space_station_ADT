@@ -501,3 +501,39 @@
     Dead:
       sprite: Mobs/Silicon/station_ai.rsi
       state: ai_dead
+
+- type: stationAiCustomization
+  id: Hal9000
+  parent: StationAiIconBase
+  name: station-ai-icon-hal9000
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-hal9000
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
+
+- type: stationAiCustomization
+  id: Painter
+  parent: StationAiIconBase
+  name: station-ai-icon-painter
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-painter
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
+
+- type: stationAiCustomization
+  id: Painter2
+  parent: StationAiIconBase
+  name: station-ai-icon-painter2
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-painter2
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead

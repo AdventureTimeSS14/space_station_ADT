@@ -65,6 +65,11 @@
   name: Импланты
   priority: 7
 
+- type: storeCategory
+  id: ADTUplinkERTRevolutionalMechMechs
+  name: uplink-ertmech-mechs
+  priority: 11
+
 # Emergency Response Team - РХБЗЗ
 - type: storeCategory
   id: ADTUplinkERTCBURNWeapon

@@ -1,0 +1,140 @@
+- type: entity
+  parent: LightTube
+  id: ADTHeliosTubeDim
+  name: старая лампа дневного света
+  description: Эта лампа давно выработала свой ресурс и светит тускло и желтовато.
+  suffix: Гелиос
+  components:
+  - type: LightBulb
+    color: "#E6D7BC"
+    lightEnergy: 0.5
+    lightRadius: 6
+    lightSoftness: 1.8
+
+- type: entity
+  parent: LightTube
+  id: ADTHeliosTubeSick
+  name: лабораторная лампа
+  description: Свет этой лампы отдаёт больничной зеленью.
+  suffix: Гелиос
+  components:
+  - type: LightBulb
+    color: "#BCD9C4"
+    lightEnergy: 0.45
+    lightRadius: 5.5
+    lightSoftness: 1.8
+
+- type: entity
+  parent: LightTube
+  id: ADTHeliosTubeAmber
+  name: янтарная лампа
+  description: Такими лампами освещали техотсеки, чтобы глаза не уставали от яркого света.
+  suffix: Гелиос
+  components:
+  - type: LightBulb
+    color: "#FFA552"
+    lightEnergy: 0.55
+    lightRadius: 5.5
+    lightSoftness: 1.6
+
+- type: entity
+  parent: LightTube
+  id: ADTHeliosTubeEmergency
+  name: аварийная лампа
+  description: Красная аварийная лампа включилась, когда пропало основное питание, и так и не погасла.
+  suffix: Гелиос
+  components:
+  - type: LightBulb
+    color: "#FF3B2B"
+    lightEnergy: 0.6
+    lightRadius: 4.5
+    lightSoftness: 1.4
+
+- type: entity
+  parent: LightBulb
+  id: ADTHeliosBulbDim
+  name: тусклая лампочка
+  description: Маленькая лампочка с тёплым и слабым светом.
+  suffix: Гелиос
+  components:
+  - type: LightBulb
+    color: "#FFD49A"
+    lightEnergy: 0.4
+    lightRadius: 3.5
+    lightSoftness: 1.2
+
+- type: entity
+  parent: Poweredlight
+  id: ADTHeliosLightDim
+  suffix: Гелиос, тусклая
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: ADTHeliosTubeDim
+
+- type: entity
+  parent: Poweredlight
+  id: ADTHeliosLightSick
+  suffix: Гелиос, лаборатория
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: ADTHeliosTubeSick
+
+- type: entity
+  parent: Poweredlight
+  id: ADTHeliosLightAmber
+  suffix: Гелиос, янтарная
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: ADTHeliosTubeAmber
+
+- type: entity
+  parent: Poweredlight
+  id: ADTHeliosLightEmergency
+  suffix: Гелиос, аварийная
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: ADTHeliosTubeEmergency
+
+- type: entity
+  parent: PoweredSmallLight
+  id: ADTHeliosSmallLightDim
+  suffix: Гелиос, тусклая
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: ADTHeliosBulbDim
+
+- type: entity
+  parent: ADTHeliosLightDim
+  id: ADTHeliosLightDimFlicker
+  suffix: Гелиос, мигает
+  components:
+  - type: BlinkingPoweredLight
+
+- type: entity
+  parent: ADTHeliosLightSick
+  id: ADTHeliosLightSickFlicker
+  suffix: Гелиос, мигает
+  components:
+  - type: BlinkingPoweredLight
+
+- type: entity
+  parent: ADTHeliosLightAmber
+  id: ADTHeliosLightAmberFlicker
+  suffix: Гелиос, мигает
+  components:
+  - type: BlinkingPoweredLight
+
+- type: entity
+  parent: ADTHeliosLightEmergency
+  id: ADTHeliosLightEmergencyFlicker
+  suffix: Гелиос, мигает
+  components:
+  - type: BlinkingPoweredLight
+
+- type: entity
+  parent: PoweredlightEmpty
+  id: ADTHeliosLightBroken
+  suffix: Гелиос, разбита
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeBroken

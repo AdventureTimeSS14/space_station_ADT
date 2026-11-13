@@ -58,7 +58,7 @@ public sealed partial class ConstructionSystem
         // ADT-Tweak-Start: machine parts with tiers
         foreach (var (partType, amount) in machineBoard.PartRequirements)
         {
-            if (PrototypeManager.TryIndex(partType, out var machinePart))
+            if (ProtoMan.TryIndex(partType, out var machinePart))
             {
                 for (var i = 0; i < amount; i++)
                 {

@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise SS220 fork at icons/obj/lavaland/gems.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "amber"
+        },
+        {
+            "name": "diamond"
+        },
+        {
+            "name": "rupee"
+        },
+        {
+            "name": "broken_rupee",
+            "delays": [
+                [
+                    3.0,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "phoron"
+        },
+        {
+            "name": "purple"
+        },
+        {
+            "name": "red"
+        },
+        {
+            "name": "void"
+        },
+        {
+            "name": "data"
+        },
+        {
+            "name": "shine",
+            "delays": [
+                [
+                    1.3,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

@@ -9,9 +9,10 @@
     useDelay: 1
     raiseOnAction: true
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
-      state: icon-of
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
+    layers:
+    - state: icon-of
   - type: InstantAction
     event: !type:OnRetractableItemActionEvent {}
   - type: RetractableItemAction

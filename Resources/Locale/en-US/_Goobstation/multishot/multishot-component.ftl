@@ -1,0 +1,1 @@
+multishot-component-examine = [color=#E0C068]This weapon can be dual-wielded.[/color]

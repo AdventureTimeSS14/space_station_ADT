@@ -105,13 +105,6 @@ entities:
     - type: TileHistory
       chunkHistory: {}
     - type: SupermatterSpreaderGrid
-- proto: ADTBoxMusicDisksSyndicate
-  entities:
-  - uid: 125
-    components:
-    - type: Transform
-      pos: -1.2878348,0.7393123
-      parent: 1
 - proto: ADTFoodBoxSyndiPizza
   entities:
   - uid: 138
@@ -883,7 +876,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,3.5
       parent: 1
-- proto: WeaponTurretSyndicateDisposable
+- proto: WeaponTurretSyndicate
   entities:
   - uid: 126
     components:

@@ -29,3 +29,14 @@ nukeops-no-one-ready = Нет готовых игроков! Нельзя зап
 nukeops-role-commander = Командир
 nukeops-role-agent = Медик
 nukeops-role-operator = Оператор
+nukeops-disk-location-title = Последнее местоположение диска:
+nukeops-disk-carried-by =
+    { " " }у [color=White]{ $name }[/color], [color=orange]{ $job }[/color], { $location } { $user ->
+        [unknown] { "" }
+       *[other] ([color=gray]{ $user }[/color])
+    }
+storage-hierarchy-list =
+    { $items-left ->
+        [0] { $existing-text } { $item },
+       *[other] { $existing-text } { $item }, в
+    }

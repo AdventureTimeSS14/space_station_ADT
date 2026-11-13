@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 using Robust.Shared.Prototypes;
-using Content.Server.Nutrition.Components;
+using Content.Shared.Tools.Components;
 
 namespace Content.Server.GuideGenerator;
 
@@ -50,11 +50,12 @@ public sealed class SliceRecipeEntry
         Name = TextTools.TextTools.CapitalizeString(proto.Name);
         Type = "sliceableRecipes";
         Input = proto.ID;
-        if (proto.Components.TryGetComponent("SliceableFood", out var comp))
+        if (proto.Components.TryGetComponent("ToolRefinable", out var comp)
+            && comp is ToolRefinableComponent { RefineResult.Count: > 0 } refinable)
         {
-            var sliceable = (SliceableFoodComponent) comp;
-            Result = sliceable.Slice ?? "";
-            Count = sliceable.TotalCount;
+            var entry = refinable.RefineResult[0];
+            Result = entry.PrototypeId?.Id ?? "";
+            Count = entry.Amount;
         }
         else // just in case something will go wrong and we somehow will not get our component
         {

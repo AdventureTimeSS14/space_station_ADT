@@ -13,7 +13,6 @@
   startingGear: ADTBattleShipNavigatorKMTGear
   icon: "JobIconNavigatorKMT"
   supervisors: job-supervisors-kmt-commander
-  canBeAntag: false
   overrideConsoleVisibility: false
   access:
   - Security

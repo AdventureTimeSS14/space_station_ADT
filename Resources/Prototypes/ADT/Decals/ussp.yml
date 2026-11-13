@@ -1,0 +1,13 @@
+- type: decal
+  id: ADTUSSPStarRed
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/ussp.rsi
+    state: star_red
+
+- type: decal
+  id: ADTUSSPStarGold
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/ussp.rsi
+    state: star_gold

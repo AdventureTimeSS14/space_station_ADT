@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Etvy for Adventure Time project, based on Structures/Furniture/potted_plants.rsi (plant-02, tgstation)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ficus",
+            "delays": [
+                [
+                    1.0
+                ]
+            ]
+        }
+    ]
+}

@@ -24,14 +24,15 @@ namespace Content.Server.ADT.MidroundCustomization;
 
 public sealed class MidroundCustomizationSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
-    [Dependency] private readonly SponsorsManager _sponsors = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SponsorsManager _sponsors = default!;
+    [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     public override void Initialize()
     {
@@ -163,6 +164,9 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
         if (!TryComp<ActorComponent>(player, out var actor))
             return false;
+
+        if (_adtSponsors.IsTtsVoiceAllowed(actor.PlayerSession, voice.ID))
+            return true;
 
         if (!_sponsors.TryGetInfo(actor.PlayerSession.UserId, out var sponsor))
             return false;

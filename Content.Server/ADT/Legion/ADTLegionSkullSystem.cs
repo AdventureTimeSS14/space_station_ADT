@@ -1,3 +1,5 @@
+using System.Linq;
+using Content.Server.NPC.HTN;
 using Content.Shared.ADT.Legion;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -11,20 +13,26 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Legion;
 
 public sealed class ADTLegionSkullSystem : EntitySystem
 {
-    [Dependency] private readonly ADTLegionSystem _legion = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholds = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTLegionSystem _legion = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _thresholds = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+
+    private const string TargetKey = "Target";
+    private const string TargetCoordinatesKey = "TargetCoordinates";
 
     public override void Initialize()
     {
@@ -54,7 +62,7 @@ public sealed class ADTLegionSkullSystem : EntitySystem
         if (args.Handled || args.HitEntities.Count == 0)
             return;
 
-        var target = args.HitEntities[0];
+        var target = args.HitEntities.First();
 
         if (!HasComp<MobStateComponent>(target))
             return;
@@ -106,17 +114,8 @@ public sealed class ADTLegionSkullSystem : EntitySystem
 
     private void Infest(Entity<ADTLegionSkullComponent> ent, EntityUid target)
     {
-        if (!TryKill(target, ent.Owner))
+        if (InfestTarget(target, ent.Comp.LegionProto, ent.Comp.InfestMessage, ent.Owner) is not { } legion)
             return;
-
-        var coords = _transform.GetMoverCoordinates(target);
-
-        _popup.PopupCoordinates(
-            Loc.GetString(ent.Comp.InfestMessage, ("target", Identity.Entity(target, EntityManager))),
-            coords,
-            PopupType.LargeCaution);
-
-        var legion = Spawn(ent.Comp.LegionProto, coords);
 
         if (TryComp<NpcFactionMemberComponent>(ent.Owner, out var ourFaction))
         {
@@ -124,13 +123,49 @@ public sealed class ADTLegionSkullSystem : EntitySystem
             _faction.AddFactions(legion, ourFaction.Factions);
         }
 
-        if (TryComp<ADTLegionComponent>(legion, out var legionComp))
-            _legion.TryStoreBody((legion, legionComp), target);
-
         QueueDel(ent.Owner);
     }
 
-    private bool TryKill(EntityUid target, EntityUid origin)
+    public EntityUid? InfestTarget(EntityUid target, EntProtoId legionProto, LocId message, EntityUid? origin = null)
+    {
+        if (!TryKill(target, origin))
+            return null;
+
+        var coords = _transform.GetMoverCoordinates(target);
+
+        _popup.PopupCoordinates(
+            Loc.GetString(message, ("target", Identity.Entity(target, EntityManager))),
+            coords,
+            PopupType.LargeCaution);
+
+        var legion = Spawn(legionProto, coords);
+
+        if (TryComp<ADTLegionComponent>(legion, out var legionComp))
+            _legion.TryStoreBody((legion, legionComp), target);
+
+        ForgetTarget(target);
+
+        return legion;
+    }
+
+    private void ForgetTarget(EntityUid target)
+    {
+        RemComp<FactionExceptionTrackerComponent>(target);
+
+        var query = EntityQueryEnumerator<HTNComponent>();
+
+        while (query.MoveNext(out _, out var htn))
+        {
+            if (!htn.Blackboard.TryGetValue<EntityUid>(TargetKey, out var current, EntityManager) || current != target)
+                continue;
+
+            htn.Blackboard.Remove<EntityUid>(TargetKey);
+            htn.Blackboard.Remove<EntityCoordinates>(TargetCoordinatesKey);
+            _htn.Replan(htn);
+        }
+    }
+
+    private bool TryKill(EntityUid target, EntityUid? origin)
     {
         if (!TryComp<DamageableComponent>(target, out var damageable))
             return false;

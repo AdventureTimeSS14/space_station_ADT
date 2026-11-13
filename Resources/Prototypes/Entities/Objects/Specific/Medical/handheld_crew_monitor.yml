@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: handheld crew monitor
   categories: [ DoNotMap ]
   parent: [ BaseHandheldComputer, BaseGrandTheftContraband ]
@@ -23,18 +23,18 @@
     state: icon
     # ADT-Tweak-End
   - type: ActivatableUI
-    key: enum.CrewMonitoringUIKey.Key
+    key: enum.ADTCrewMonitoringUIKey.Key
   - type: UserInterface
     interfaces:
-      enum.CrewMonitoringUIKey.Key:
-        type: CrewMonitoringBoundUserInterface
-  - type: CrewMonitoringConsole
+      enum.ADTCrewMonitoringUIKey.Key:
+        type: ADTCrewMonitoringBoundUserInterface
+  - type: ADTCrewMonitoringConsole
     departments: [] # ADT-Tweak: No parameters == full access
   # ADT-Tweak Start - New Monitor
   - type: PdaBorderColor
     borderColor: "#C9CFE3"
     accentVColor: "#609EFF"
-  - type: CrewMonitoringUiVisuals
+  - type: ADTCrewMonitoringUiVisuals
     themeColor: "#609EFF"
   # #ADT-Tweak End
   - type: DeviceNetwork

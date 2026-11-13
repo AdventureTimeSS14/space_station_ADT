@@ -10,11 +10,12 @@
   description: Scope
   components:
   - type: Action
-    icon:
-      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
-      state: sniperscope
     useDelay: 0.25
     raiseOnUser: false
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+    layers:
+    - state: sniperscope
   - type: InstantAction
     event: !type:ToggleActionEvent
 
@@ -25,11 +26,12 @@
   description: Scope
   components:
   - type: Action
-    icon:
-      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
-      state: sniperscope
     raiseOnUser: false
     useDelay: 0.25
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+    layers:
+    - state: sniperscope
   - type: InstantAction
     event: !type:ScopeCycleZoomLevelEvent
   - type: Tag
@@ -43,10 +45,11 @@
   description: Toggle an attachable.
   components:
   - type: Action
-    icon:
-      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
-      state: sniperscope
     raiseOnUser: false
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+    layers:
+    - state: sniperscope
   - type: InstantAction
     event: !type:AttachableToggleActionEvent
 

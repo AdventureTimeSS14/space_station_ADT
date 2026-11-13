@@ -1,7 +1,5 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.ADT.Resomi.Abilities;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -16,8 +14,8 @@ public sealed partial class AgillitySkillComponent : Component
     [DataField("jumpEnabled")]
     public bool JumpEnabled = true;
 
-    [DataField("action", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? SwitchAgilityAction = "SwitchAgilityAction";
+    [DataField("action")]
+    public EntProtoId? SwitchAgilityAction = "SwitchAgilityAction";
 
     [ViewVariables]
     public EntityUid? SwitchAgilityActionEntity;

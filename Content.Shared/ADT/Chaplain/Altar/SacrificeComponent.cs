@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Collections.Generic;
 using Robust.Shared.Audio;
 using Content.Shared.FixedPoint;
@@ -32,8 +31,8 @@ public sealed partial class TransformationData
     /// <summary>
     /// Needed entity prototype to sacrafice
     /// </summary>
-    [DataField("requiredProto", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? RequiredProto;
+    [DataField("requiredProto")]
+    public EntProtoId? RequiredProto;
 
     /// <summary>
     /// Needed amount of items in stack to sacrafice (Recomended to use tag, if you going to use it)
@@ -56,14 +55,14 @@ public sealed partial class TransformationData
     /// <summary>
     /// Entity prototype what you going to have after sacrafice.
     /// </summary>
-    [DataField("resultProto", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? ResultProto;
+    [DataField("resultProto")]
+    public EntProtoId? ResultProto;
 
     /// <summary>
     /// Spawned effect prototype after sacrafice.
     /// </summary>
-    [DataField("effectProto", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? EffectProto;
+    [DataField("effectProto")]
+    public EntProtoId? EffectProto;
 
     /// <summary>
     /// Spawned sound after sacrafice.

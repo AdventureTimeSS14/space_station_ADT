@@ -53,6 +53,16 @@
   - Bubblish
   - RootSpeak
   maxLanguages: 6
+  defaultSoundsBySex:
+  - UnisexIPC
+  - UnisexIPC
+  - UnisexIPC
+  voices:
+  - UnisexIPC
+  - MaleIPC
+  - FemaleIPC
+  - CuteIPC
+  - XenoborgIPC
 
 # The lack of a layer means that
 # this person cannot have round-start anything

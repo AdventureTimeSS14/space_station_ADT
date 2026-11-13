@@ -17,6 +17,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Wall;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -80,7 +81,7 @@ public sealed partial class HereticAbilitySystem
         var circle = new Circle(mapPos.Position, radius);
         var grids = new List<Entity<MapGridComponent>>();
         var box = Box2.CenteredAround(mapPos.Position, new Vector2(radius, radius));
-        _mapMan.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+        _map.FindGridsIntersecting(mapPos.MapId, box, ref grids);
 
         var tiles = new List<(EntityCoordinates, TileRef, EntityUid, MapGridComponent)>();
         foreach (var grid in grids)
@@ -128,7 +129,7 @@ public sealed partial class HereticAbilitySystem
         var box = Box2.CenteredAround(mapPos.Position, new Vector2(range, range));
         var circle = new Circle(mapPos.Position, range);
         var grids = new List<Entity<MapGridComponent>>();
-        _mapMan.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+        _map.FindGridsIntersecting(mapPos.MapId, box, ref grids);
 
         var tiles = new List<(EntityCoordinates, TileRef, EntityUid, MapGridComponent)>();
         foreach (var grid in grids)
@@ -221,7 +222,7 @@ public sealed partial class HereticAbilitySystem
             _transform.SetLocalRotation(targetEntity, rotation);
         }
 
-        if (TerminatingOrDeleted(targetEntity) || !_tag.HasTag(targetEntity, "Wall"))
+        if (TerminatingOrDeleted(targetEntity) || !HasComp<WallComponent>(targetEntity))
             return false;
 
         if (targetEntity == target && !canRust)

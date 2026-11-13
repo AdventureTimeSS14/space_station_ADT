@@ -7,8 +7,8 @@ namespace Content.Server.ADT.Bubblegum.Abilities;
 
 public sealed class BubblegumSurroundSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

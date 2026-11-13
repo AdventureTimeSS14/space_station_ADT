@@ -20,9 +20,10 @@
     checkCanInteract: false
     useDelay: 15
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: ashen_shift
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: ashen_shift
   - type: InstantAction
     event: !type:EventHereticAshenShift
   - type: HereticAction
@@ -52,9 +53,10 @@
     checkCanInteract: false
     useDelay: 45
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: volcano_blast
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: volcano_blast
   - type: InstantAction
     event: !type:EventHereticVolcanoBlast
   - type: HereticAction
@@ -76,9 +78,10 @@
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: nightwatcher_rebirth
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: nightwatcher_rebirth
   - type: InstantAction
     event: !type:EventHereticNightwatcherRebirth
   - type: HereticAction
@@ -100,9 +103,10 @@
     checkCanInteract: false
     useDelay: 90
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: ashlord_rite1
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: ashlord_rite1
   - type: InstantAction
     event: !type:EventHereticFlames
   - type: HereticAction
@@ -121,9 +125,10 @@
     checkCanInteract: false
     useDelay: 30
     itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: ashlord_rite2
+  - type: Sprite
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    layers:
+    - state: ashlord_rite2
   - type: InstantAction
     event: !type:EventHereticCascade
   - type: HereticAction

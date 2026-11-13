@@ -161,7 +161,21 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyAdamantine
-  name: adamantite slime
+  name: adamantine slime
   components:
   - type: Slime
     breed: AdamantineMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyRainbow
+  name: rainbow slime
+  description: A rare and beautiful specimen. It radiates every color of the rainbow.
+  components:
+  - type: Slime
+    breed: RainbowMutation
+  - type: RgbLightController
+    layers: [ 0 ]
+  - type: PointLight
+    radius: 1
+    energy: 1

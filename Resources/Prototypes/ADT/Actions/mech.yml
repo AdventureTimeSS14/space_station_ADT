@@ -47,10 +47,11 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_internals_on
     useDelay: 2
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_internals_on
   - type: InstantAction
     event: !type:MechInhaleEvent
 
@@ -62,10 +63,11 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_lights_on
     useDelay: 2
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_lights_on
   - type: InstantAction
     event: !type:MechTurnLightsEvent
 
@@ -77,10 +79,11 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_overload_on
     useDelay: 2
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_overload_on
   - type: InstantAction
     event: !type:MechOverloadEvent
 
@@ -92,10 +95,11 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_phasing_on
     useDelay: 2
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_phasing_on
   - type: InstantAction
     event: !type:MechPhazeEvent
 
@@ -107,10 +111,11 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_thrusters_on
     useDelay: 2
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_thrusters_on
   - type: InstantAction
     event: !type:MechThrusterEvent
 
@@ -122,9 +127,10 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_eject
     useDelay: 2
+  - type: Sprite
+    sprite: Interface/Actions/actions_mecha.rsi
+    layers:
+    - state: mech_eject
   - type: InstantAction
     event: !type:MechCockpitEjectEvent

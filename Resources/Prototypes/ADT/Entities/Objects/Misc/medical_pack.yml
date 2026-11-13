@@ -15,10 +15,9 @@
     - state: bloodpack
   - type: Item
     sprite: ADT/Objects/Medical/blood_pack.rsi
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      pack:
-        maxVol: 100
+    - ADTBloodPackTransfusionSolution
   - type: FitsInDispenser
     solution: pack
   - type: RefillableSolution
@@ -74,13 +73,9 @@
   description: An empty blood pack ready to be filled.
   suffix: Full
   components:
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      pack:
-        maxVol: 100
-        reagents:
-        - ReagentId: Blood
-          Quantity: 100
+    - ADTBloodPackTransfusionFullSolution
   - type: Tag
     tags:
     - Bloodpack
@@ -99,3 +94,27 @@
 #          Quantity: 80
 #        - ReagentId: Bicaridine
 #          Quantity: 20
+
+- type: entity
+  parent: Solution
+  id: ADTBloodPackTransfusionSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: pack
+    solution:
+      maxVol: 100
+      reagents: []
+
+- type: entity
+  parent: Solution
+  id: ADTBloodPackTransfusionFullSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: pack
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100

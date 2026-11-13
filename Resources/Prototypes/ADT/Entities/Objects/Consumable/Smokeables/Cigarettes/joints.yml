@@ -7,15 +7,14 @@
   - type: Construction
     graph: ADTsmokeableJoint
     node: joint
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 30
-        reagents:
-          - ReagentId: THC
-            Quantity: 10
-          - ReagentId: Omnizine
-            Quantity: 16
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: THC
+        Quantity: 10
+      - ReagentId: Omnizine
+        Quantity: 16
 
 - type: entity
   id: ADTBluntWhite
@@ -26,12 +25,11 @@
   - type: Construction
     graph: ADTsmokeableBlunt
     node: blunt
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 30
-        reagents:
-          - ReagentId: THC
-            Quantity: 10
-          - ReagentId: Omnizine
-            Quantity: 16
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: THC
+        Quantity: 10
+      - ReagentId: Omnizine
+        Quantity: 16

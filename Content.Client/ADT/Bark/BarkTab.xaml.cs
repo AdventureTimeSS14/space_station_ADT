@@ -14,7 +14,7 @@ namespace Content.Client.ADT.Bark;
 [GenerateTypedNameReferences]
 public sealed partial class BarkTab : Control
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     private readonly SpeechBarksSystem _barkSystem;
     
     private List<BarkPrototype> _allBarks = new();

@@ -5,6 +5,8 @@ using Content.Server.Administration.Notes;
 using Content.Server.ADT.Antag;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Export;
+using Content.Server.ADT.JoinQueue;
+using Content.Server.ADT.MapRotation;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
@@ -28,6 +30,7 @@ using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Players.RateLimiting;
+using Content.Server.Players.Whitelist;
 using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
@@ -37,7 +40,6 @@ using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.FeedbackSystem;
 using Content.Shared.IoC;
-using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Server.ADT.Discord;
@@ -54,7 +56,6 @@ internal static class ServerContentIoC
         deps.Register<IChatSanitizationManager, ChatSanitizationManager>();
         deps.Register<IServerPreferencesManager, ServerPreferencesManager>();
         deps.Register<IServerDbManager, ServerDbManager>();
-        deps.Register<RecipeManager, RecipeManager>();
         deps.Register<INodeGroupFactory, NodeGroupFactory>();
         deps.Register<IConnectionManager, ConnectionManager>();
         deps.Register<ServerUpdateManager>();
@@ -78,6 +79,7 @@ internal static class ServerContentIoC
         // deps.Register<PoissonDiskSampler>(); // ADT-Tweak-Fix
         deps.Register<DiscordWebhook>();
         deps.Register<VoteWebhooks>();
+        deps.Register<EventWebhook>();
         deps.Register<ServerDbEntryManager>();
         deps.Register<ISharedPlaytimeManager, PlayTimeTrackingManager>();
         deps.Register<ServerApi>();
@@ -97,13 +99,16 @@ internal static class ServerContentIoC
         IoCManager.Register<ExportManager>(); // ADT Export
         IoCManager.Register<ServerDiscordIdManager>(); // ADT Discord
         IoCManager.Register<AntagRollBonusManager>(); // ADT Antag roll bonus
+        IoCManager.Register<MapRotationManager>(); // ADT-Tweak
         IoCManager.Register<SponsorsManager>(); // Corvax-Sponsors
         // ADT-Tweak-Start
         IoCManager.Register<SponsorManager>();
         IoCManager.Register<ISharedSponsorManager, SponsorManager>();
         // ADT-Tweak-End
         IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
+        IoCManager.Register<QueueGamesManager>(); // ADT-Tweak: queue games
         deps.Register<ServerFeedbackManager>();
         deps.Register<ISharedFeedbackManager, ServerFeedbackManager>();
+        deps.Register<WhitelistManager>();
     }
 }

@@ -7,9 +7,9 @@ namespace Content.Client.ADT.VentCrawling;
 
 public sealed class VentCrawlingSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SubFloorHideSystem _subFloorHideSystem = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SubFloorHideSystem _subFloorHideSystem = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     private VentCrawPipeOverlay _pipeOverlay = default!;
 

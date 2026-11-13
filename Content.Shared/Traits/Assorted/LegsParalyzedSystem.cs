@@ -1,4 +1,5 @@
-﻿using Content.Shared.Buckle.Components;
+﻿using Content.Shared.ADT.Vehicle.Components; // ADT-Tweak
+using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -8,10 +9,10 @@ using Content.Shared.Vehicle.Components;
 
 namespace Content.Shared.Traits.Assorted;
 
-public sealed class LegsParalyzedSystem : EntitySystem
+public sealed partial class LegsParalyzedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standingSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private StandingStateSystem _standingSystem = default!;
 
     public override void Initialize()
     {
@@ -47,7 +48,7 @@ public sealed class LegsParalyzedSystem : EntitySystem
     private void OnUpdateCanMoveEvent(EntityUid uid, LegsParalyzedComponent component, UpdateCanMoveEvent args)
     {
         // ADT-Tweak start
-        if (HasComp<RiderComponent>(uid))
+        if (HasComp<ADTVehicleRiderComponent>(uid))
             return;
 
         if (HasComp<RelayInputMoverComponent>(uid))

@@ -1,0 +1,18 @@
+- type: marking
+  id: ADTNovaHairInconnu
+  bodyPart: Hair
+  sponsorOnly: true
+  groupWhitelist: [Novakid]
+  sprites:
+  - sprite: ADT/Special/Personal/Inconnu/nova_hair.rsi
+    state: hair
+
+
+- type: marking
+  id: ADTNovaHairRubberInconnu
+  bodyPart: HeadTop
+  sponsorOnly: true
+  groupWhitelist: [Novakid]
+  sprites:
+  - sprite: ADT/Special/Personal/Inconnu/nova_hair.rsi
+    state: rubber

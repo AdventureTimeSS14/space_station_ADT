@@ -7,7 +7,6 @@ using Content.Shared.Damage;
 using Robust.Shared.Containers;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Morph;
@@ -106,23 +105,23 @@ public sealed partial class MorphComponent : Component
     public EntityWhitelist? DevourWhitelist = new();
 
     //дальше идёт хлам, который вам не надо использовать
-    [DataField("devourAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? DevourAction = "ActionMorphDevour";
+    [DataField("devourAction")]
+    public EntProtoId? DevourAction = "ActionMorphDevour";
     public EntityUid? DevourActionEntity;
-    [DataField("memoryAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? MemoryAction = "ActionMorphRemember";
+    [DataField("memoryAction")]
+    public EntProtoId? MemoryAction = "ActionMorphRemember";
     public EntityUid? MemoryActionEntity;
-    [DataField("replicationAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? ReplicationAction = "ActionMorphReplication";
+    [DataField("replicationAction")]
+    public EntProtoId? ReplicationAction = "ActionMorphReplication";
     public EntityUid? ReplicationActionEntity;
-    [DataField("mimicryAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? MimicryAction = "ActionMorphMimicry";
+    [DataField("mimicryAction")]
+    public EntProtoId? MimicryAction = "ActionMorphMimicry";
     public EntityUid? MimicryActionEntity;
-    [DataField("ambushAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? AmbushAction = "ActionMorphAmbush";
+    [DataField("ambushAction")]
+    public EntProtoId? AmbushAction = "ActionMorphAmbush";
     public EntityUid? AmbushActionEntity;
-    [DataField("openVentAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? VentOpenAction = "ActionMorphVentOpen";
+    [DataField("openVentAction")]
+    public EntProtoId? VentOpenAction = "ActionMorphVentOpen";
     public EntityUid? VentOpenActionEntity;
     // public List<HumanoidAppearanceComponent> ApperanceList = new();
     //нужен для работы мимикрии под гуманойдов, больше ничего

@@ -2,7 +2,7 @@
 - type: entity
   name: burrower
   id: ADTMobXenoNoGhost
-  parent: SimpleSpaceMobBase
+  parent: [ SimpleSpaceMobBase, BaseSlicingRefinable ]
   description: They mostly come at night. Mostly.
   suffix: NoGhost
   components:
@@ -101,15 +101,14 @@
       Dead:
         Base: dead
   - type: Puller
-  - type: Butcherable
-    butcheringType: knife # ADT-Tweak butcheringType: Spike
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatXeno
       amount: 2 # ADT-Tweak 5 -> 2
   - type: TypingIndicator
     proto: alien
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
   - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
@@ -389,8 +388,11 @@
     sprite: Mobs/Aliens/Xenos/rouny.rsi
     offset: 0,0.6
   - type: Butcherable
-    butcheringType: Spike
     spawned:
+    - id: FoodMeatRouny
+      amount: 3
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatRouny
       amount: 3
   # ADT-CollectiveMind-Tweak-Start

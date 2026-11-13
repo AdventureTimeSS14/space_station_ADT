@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from BlueMoon-Station at https://github.com/BlueMoon-Labs/BlueMoon-Station/blob/f0c8599206f15455e60244b3afde7b02bc7e8029/icons/obj/chemical.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "brutespray"
+        },
+        {
+            "name": "burnspray"
+        },
+        {
+            "name": "synthspray"
+        },
+        {
+            "name": "medspray"
+        }
+    ]
+}

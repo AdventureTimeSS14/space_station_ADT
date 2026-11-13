@@ -3,10 +3,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Mobs/slug-cat.rsi
-      state: rest-rivulet
     itemIconStyle: BigAction
     useDelay: 1
+  - type: Sprite
+    sprite: ADT/Mobs/slug-cat.rsi
+    layers:
+    - state: rest-rivulet
   - type: InstantAction
     event: !type:SharedSlimeCatSleepActionEvent

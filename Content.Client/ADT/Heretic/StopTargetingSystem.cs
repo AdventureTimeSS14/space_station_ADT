@@ -5,7 +5,7 @@ namespace Content.Client.ADT.Heretic;
 
 public sealed class StopTargetingSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public event Action? StopTargeting;
 

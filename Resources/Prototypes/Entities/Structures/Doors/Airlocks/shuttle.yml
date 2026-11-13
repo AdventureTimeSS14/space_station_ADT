@@ -86,6 +86,9 @@
     price: 350
   - type: Paintable
     group: null
+  - type: StructureAligner
+    alignerType:
+    - DoNotAlign
 
 - type: entity
   id: AirlockGlassShuttle

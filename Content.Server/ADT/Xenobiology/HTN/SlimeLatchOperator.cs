@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Xenobiology.HTN;
 
 public sealed partial class SlimeLatchOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private SlimeLatchSystem _slimeLatch = default!;
 
     [DataField]

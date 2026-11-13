@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Traits.Effects;
 /// <summary>
 /// Effect that spawns an item and attempts to place it in the player's hand.
 /// If the player cannot hold the item, it is spawned at their feet.
-/// Server-side effect - handled by TraitSystem.
+/// Server-side effect - handled by ADTTraitSystem.
 /// </summary>
 public sealed partial class SpawnItemInHandEffect : BaseTraitEffect
 {
@@ -18,7 +18,7 @@ public sealed partial class SpawnItemInHandEffect : BaseTraitEffect
     public override void Apply(TraitEffectContext ctx)
     {
         // This effect needs to be applied server-side where we have access to
-        // SharedHandsSystem. The actual spawning logic is handled by the server TraitSystem.
+        // SharedHandsSystem. The actual spawning logic is handled by the server ADTTraitSystem.
         // This class just holds the data.
     }
 }

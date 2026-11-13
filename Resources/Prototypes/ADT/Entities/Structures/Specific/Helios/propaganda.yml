@@ -1,0 +1,58 @@
+- type: entity
+  parent: PosterBase
+  id: ADTHeliosPosterBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/posters.rsi
+  - type: ADTIndestructible
+
+- type: entity
+  parent: ADTHeliosPosterBase
+  id: ADTHeliosPosterSun
+  name: плакат «Гелиос несёт энергию будущего»
+  description: 'На плакате написано: «Ваша сегодняшняя работа завтра станет светом для миллиардов людей, и NanoTrasen гордится вами».'
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: helios_sun
+
+- type: entity
+  parent: ADTHeliosPosterBase
+  id: ADTHeliosPosterWatch
+  name: плакат «Бдительность является долгом каждого»
+  description: 'На плакате написано: «Если вы заметили сомнения у коллеги, сообщите об этом в отдел безопасности, потому что сомнение ведёт к саботажу».'
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: helios_watch
+
+- type: entity
+  parent: ADTHeliosPosterBase
+  id: ADTHeliosPosterWork
+  name: плакат «Ваш труд становится нашим светом»
+  description: 'На плакате написано: «Каждая смена приближает нас к неисчерпаемой энергии, поэтому отдыхать мы будем после запуска».'
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: helios_work
+
+- type: entity
+  parent: ADTHeliosPosterBase
+  id: ADTHeliosPosterSilence
+  name: плакат «Молчание обеспечивает безопасность»
+  description: 'На плакате написано: «То, что происходит в "Гелиосе", остаётся в "Гелиосе", потому что ваша подписка о неразглашении бессрочна».'
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: helios_silence
+
+- type: entity
+  parent: ADTHeliosPosterBase
+  id: ADTHeliosPosterBurnt
+  name: обгоревший плакат
+  description: От слогана уцелели только слова «...энергия буд...», потому что нижняя половина плаката обуглена, будто его лизнуло пламя изнутри стены.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: helios_burnt

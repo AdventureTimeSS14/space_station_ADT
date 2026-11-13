@@ -15,7 +15,6 @@
   startingGear: ADTBattleShipPilotTSFGear
   icon: "JobIconPilotTSF"
   supervisors: job-supervisors-tsf-gunner
-  canBeAntag: false
   overrideConsoleVisibility: false
   access:
   - Security

@@ -8,9 +8,9 @@ namespace Content.Shared.ADT.Silicons.Borgs;
 
 public abstract class SharedAiRemoteControlSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStationAiSystem _stationAiSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private SharedStationAiSystem _stationAiSystem = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public void ReturnMindIntoAi(EntityUid entity)
     {

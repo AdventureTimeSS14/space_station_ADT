@@ -9,7 +9,7 @@ namespace Content.Shared.ADT.Lavaland.LegionCore;
 public sealed partial class ADTImplantedLegionCoreComponent : Component
 {
     [DataField]
-    public MobState TriggerState = MobState.Critical;
+    public MobState[] TriggerStates = [MobState.SoftCritical, MobState.Critical];
 
     [DataField]
     public FixedPoint2 HealMin = FixedPoint2.New(20);

@@ -1,0 +1,297 @@
+# Paradise: Life() раз в 2 с, метаболизм SS14 раз в 1 с. Выведение и урон за тик поделены на 2, шансы пересчитаны как 1 - (1 - p)^(1/2).
+
+- type: reagent
+  id: ADTSporeToxin
+  name: reagent-name-adt-spore-toxin
+  group: Toxins
+  desc: reagent-desc-adt-spore-toxin
+  physicalDesc: reagent-physical-desc-slimy
+  flavor: bitter
+  color: "#9ACD32"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+      - !type:ModifyStatusEffect
+        effectProto: ADTStatusEffectBlurryVision
+        type: Update
+        time: 6
+
+- type: reagent
+  id: ADTVenom
+  name: reagent-name-adt-venom
+  group: Toxins
+  desc: reagent-desc-adt-venom
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: bitter
+  color: "#CF3600"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.1
+      effects:
+      - !type:AddReagentToBloodstream
+        reagent: ADTAllergen
+        quantity: 7.5
+        probability: 0.134
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTVenom
+          max: 20
+        damage:
+          types:
+            Poison: 0.5
+            Blunt: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTVenom
+          min: 20
+        damage:
+          types:
+            Poison: 1
+            Blunt: 1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTVenom
+          min: 20
+        type: Local
+        visualType: MediumCaution
+        messages: [ "adt-venom-effect-nausea" ]
+        probability: 0.041
+
+- type: reagent
+  id: ADTAllergen
+  name: reagent-name-adt-allergen
+  group: Toxins
+  desc: reagent-desc-adt-allergen
+  physicalDesc: reagent-physical-desc-abrasive
+  color: "#E7C4C4"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.1
+      effects:
+      # Обычное действие
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.054
+      - !type:Emote
+        emote: Sneeze
+        showInChat: true
+        probability: 0.054
+      - !type:ModifyStatusEffect
+        effectProto: ADTStatusEffectBlurryVision
+        type: Update
+        time: 6
+        probability: 0.051
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        messages: [ "adt-allergen-effect-itchy-eyes" ]
+        probability: 0.051
+      - !type:HealthChange
+        probability: 0.051
+        damage:
+          types:
+            Blunt: 1
+      - !type:PopupMessage
+        type: Pvs
+        visualType: Small
+        messages: [ "adt-allergen-effect-scratch" ]
+        probability: 0.051
+      - !type:HealthChange
+        probability: 0.025
+        damage:
+          types:
+            Blunt: 2
+      # Передозировка 40-80
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        probability: 0.041
+        damage:
+          types:
+            Poison: 1
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        time: 8
+        probability: 0.01
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        type: Local
+        visualType: MediumCaution
+        messages: [ "adt-allergen-effect-mucus" ]
+        probability: 0.01
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        effectProto: StatusEffectStutter
+        type: Update
+        time: 10
+        probability: 0.01
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        probability: 0.0025
+        damage:
+          types:
+            Asphyxiation: 5
+      - !type:Emote
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        emote: Cough
+        showInChat: true
+        probability: 0.015
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        probability: 0.015
+        damage:
+          types:
+            Asphyxiation: 3
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 40
+          max: 80
+        type: Local
+        visualType: MediumCaution
+        messages: [ "adt-allergen-effect-chest-pain" ]
+        probability: 0.015
+      # Тяжёлая передозировка 80+
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 80
+        probability: 0.041
+        damage:
+          types:
+            Poison: 2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 80
+        probability: 0.015
+        damage:
+          types:
+            Blunt: 6
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 80
+        type: Pvs
+        visualType: MediumCaution
+        messages: [ "adt-allergen-effect-hives" ]
+        probability: 0.015
+      - !type:NestedEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 80
+        probability: 0.01
+        proto: ADTAllergenCoughFit
+      - !type:NestedEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTAllergen
+          min: 80
+        probability: 0.015
+        proto: ADTAllergenCollapse
+
+- type: entityEffect
+  id: ADTAllergenCoughFit
+  effects:
+  - !type:PopupMessage
+    type: Pvs
+    visualType: MediumCaution
+    messages: [ "adt-allergen-effect-cough-fit" ]
+  - !type:Emote
+    emote: Cough
+    showInChat: true
+    force: true
+  - !type:Jitter
+    time: 20
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectStutter
+    type: Update
+    time: 10
+  - !type:HealthChange
+    probability: 0.4
+    damage:
+      types:
+        Asphyxiation: 6
+  - !type:ModifyParalysis
+    type: Update
+    time: 16
+
+- type: entityEffect
+  id: ADTAllergenCollapse
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages: [ "adt-allergen-effect-heartbeat" ]
+  - !type:Emote
+    emote: Gasp
+    showInChat: true
+    force: true
+  - !type:HealthChange
+    damage:
+      types:
+        Asphyxiation: 8
+        Poison: 3
+  - !type:ModifyParalysis
+    type: Update
+    time: 6
+
+- type: reagent
+  id: ADTWeaverFrostOil
+  name: reagent-name-adt-weaver-frost-oil
+  group: Toxins
+  desc: reagent-desc-adt-weaver-frost-oil
+  physicalDesc: reagent-physical-desc-oily
+  flavor: cold
+  color: "#8BA6E9"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.2
+      effects:
+      - !type:AdjustTemperature
+        amount: -22000
+      - !type:PopupMessage
+        type: Local
+        messages: [ "frost-oil-effect-light-cold" ]
+        probability: 0.1

@@ -9,10 +9,9 @@
     sprite: ADT/Objects/Specific/Hydroponics/watering_can.rsi
     layers:
     - state: icon
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      bucket:
-        maxVol: 250
+    - ADTWateringCanSolution
   - type: Edible
     edible: Drink # slurping sounds!
     solution: bucket
@@ -65,10 +64,9 @@
     sprite: ADT/Objects/Specific/Hydroponics/watering_can_advanced.rsi
     layers:
     - state: icon
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      bucket:
-        maxVol: 750
+    - ADTAdvancedWateringCanSolution
   - type: Item
     size: Normal
     sprite: ADT/Objects/Specific/Hydroponics/watering_can_advanced.rsi
@@ -101,3 +99,25 @@
         - Produce
         - Seed
   - type: Dumpable
+
+- type: entity
+  parent: Solution
+  id: ADTWateringCanSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: bucket
+    solution:
+      maxVol: 250
+      reagents: []
+
+- type: entity
+  parent: Solution
+  id: ADTAdvancedWateringCanSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: bucket
+    solution:
+      maxVol: 750
+      reagents: []

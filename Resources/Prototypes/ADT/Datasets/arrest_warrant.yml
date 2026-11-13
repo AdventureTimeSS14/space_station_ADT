@@ -1,0 +1,12 @@
+- type: localizedDataset
+  id: ArrestWarrantReasons
+  values:
+    prefix: arrest-warrant-reason-
+    count: 30
+
+# Operator names used on the arrest warrant paper
+- type: localizedDataset
+  id: CentComOperatorNames
+  values:
+    prefix: centcom-operator-name-
+    count: 16

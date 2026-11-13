@@ -1,0 +1,10 @@
+ent-ADTChemistryBottleSpaceacillin = бутылёк космоциллина
+    .desc = Небольшая бутылочка.
+ent-ADTMedkitVirology = набор для лечения вирусов
+    .desc = Набор для борьбы с вирусными инфекциями.
+ent-ADTMedkitVirologyFilled = { ent-ADTMedkitVirology }
+    .desc = { ent-ADTMedkitVirology.desc }
+ent-ADTSyndicateAntiviralMedipen = антивирусный медипен
+    .desc = Одноразовый медипен Синдиката, который уничтожает в организме все вирусы.
+ent-ADTCrateVirologyCultures = ящик вирусных культур
+    .desc = Набор культур вирусов для вирусологической лаборатории. Требует медицинский доступ.

@@ -25,11 +25,11 @@ using Content.Server.Resist; //ADT-Medicine
 
 namespace Content.Server.Medical;
 
-public sealed class DefibrillatorSystem : SharedDefibrillatorSystem
+public sealed partial class DefibrillatorSystem : SharedDefibrillatorSystem
 {
-    [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private EuiManager _eui = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     protected override void OpenReturnToBodyEui(Entity<MindComponent> mind, ICommonSession session)
     {

@@ -15,17 +15,20 @@ namespace Content.Server.ADT.EntityEffects;
 
 public sealed partial class RandomSpeciesChangeSystem : EntityEffectSystem<HumanoidProfileComponent, RandomSpeciesChange>
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private HumanoidProfileSystem _humanoid = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private GrammarSystem _grammar = default!;
 
     protected override void Effect(Entity<HumanoidProfileComponent> entity, ref EntityEffectEvent<RandomSpeciesChange> args)
     {
         var uid = entity.Owner;
         var effect = args.Effect;
+
+        if (effect.SpeciesBlacklist != null && effect.SpeciesBlacklist.Contains(entity.Comp.Species))
+            return;
 
         var species = _prototype.EnumeratePrototypes<SpeciesPrototype>().ToList();
 

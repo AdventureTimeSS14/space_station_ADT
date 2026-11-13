@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911",
+  "size": {
+    "y": 32,
+    "x": 32
+  },
+  "states": [
+    {
+      "directions": 4,
+      "name": "belt-equipped-INNERCLOTHING-monkey"
+    },
+    {
+      "directions": 4,
+      "name": "belt-equipped-INNERCLOTHING"
+    },
+    {
+      "directions": 1,
+      "name": "belt-icon"
+    },
+    {
+      "directions": 4,
+      "name": "belt-inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "belt-inhand-right"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING-monkey"
+    },
+    {
+      "directions": 4,
+      "name": "equipped-INNERCLOTHING"
+    },
+    {
+      "directions": 1,
+      "name": "icon"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-right"
+    }
+  ]
+}

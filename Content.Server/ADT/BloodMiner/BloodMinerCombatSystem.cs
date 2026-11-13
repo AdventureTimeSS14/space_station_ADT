@@ -1,66 +1,32 @@
-using Content.Server.NPC.HTN;
-using Content.Server.NPC.Systems;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.ADT.BloodMiner;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.BloodMiner;
 
 public sealed class BloodMinerCombatSystem : EntitySystem
 {
-    [Dependency] private readonly BloodMinerDashSystem _dash = default!;
-    [Dependency] private readonly BloodMinerSystem _miner = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private BloodMinerDashSystem _dash = default!;
+    [Dependency] private BloodMinerSystem _miner = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
-    private const float MinShootDistance = 1.5f;
-
-    public override void Update(float frameTime)
+    public override void Initialize()
     {
-        base.Update(frameTime);
+        base.Initialize();
 
-        var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<BloodMinerComponent, HTNComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var htn))
-        {
-            if (HasComp<ActorComponent>(uid))
-                continue;
-
-            if (!_npc.IsAwake(uid, htn))
-                continue;
-
-            if (_mobState.IsDead(uid))
-                continue;
-
-            if (now < comp.NextDecisionAt)
-                continue;
-
-            comp.NextDecisionAt = now + comp.DecisionInterval;
-
-            if (!htn.Blackboard.TryGetValue<EntityUid>("Target", out var target, EntityManager)
-                || TerminatingOrDeleted(target))
-                continue;
-
-            if (!TargetOnSameGrid(uid, target))
-            {
-                htn.Blackboard.Remove<EntityUid>("Target");
-                continue;
-            }
-
-            OpenFire((uid, comp), target);
-        }
+        SubscribeLocalEvent<BloodMinerComponent, ADTMegafaunaOpenFireEvent>(OnOpenFire);
     }
 
-    private bool TargetOnSameGrid(EntityUid ent, EntityUid target)
+    private void OnOpenFire(Entity<BloodMinerComponent> ent, ref ADTMegafaunaOpenFireEvent args)
     {
-        return _transform.GetGrid(ent) == _transform.GetGrid(target);
+        OpenFire(ent, args.Target);
     }
 
     private void OpenFire(Entity<BloodMinerComponent> ent, EntityUid target)
@@ -94,7 +60,7 @@ public sealed class BloodMinerCombatSystem : EntitySystem
             return false;
 
         var distance = (targetCoords.Position - origin.Position).Length();
-        if (distance > ent.Comp.DashRange || distance < MinShootDistance)
+        if (distance > ent.Comp.DashRange || distance < ent.Comp.MinShootDistance)
             return false;
 
         var gun = Spawn(ent.Comp.GunProto, Transform(ent).Coordinates);

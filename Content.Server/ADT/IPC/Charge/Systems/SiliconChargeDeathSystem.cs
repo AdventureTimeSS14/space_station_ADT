@@ -9,9 +9,9 @@ namespace Content.Server.ADT.Silicon.Death;
 
 public sealed class SiliconDeathSystem : EntitySystem
 {
-    [Dependency] private readonly SleepingSystem _sleep = default!;
-    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SleepingSystem _sleep = default!;
+    [Dependency] private SiliconChargeSystem _silicon = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     public override void Initialize()
     {

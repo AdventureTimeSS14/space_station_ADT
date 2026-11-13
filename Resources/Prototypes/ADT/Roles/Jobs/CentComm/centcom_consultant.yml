@@ -41,11 +41,9 @@
       inverted: true
       species:
       - Vox
-  weight: 15
   startingGear: ADTCentcomConsultantGear
   icon: "JobIconADTCentcomConsultant"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
     - ADTAccessCentComm
   special:

@@ -7,8 +7,8 @@ namespace Content.Client.ADT.Mining;
 
 public sealed class ADTMagmiteMiningOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private ADTMagmiteMiningOverlay _overlay = default!;
 

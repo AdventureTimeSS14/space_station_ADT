@@ -9,49 +9,71 @@
       state: core
       color: "#704214"
       shader: XenoSepia
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ChangeFactionNearbyEffect
-        newFaction: AllHostile # BILLIONS MUST KILL
-        radius: 10
-        duration: 30
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:Jitter
-        time: 5
-        frequency: 20
-      - !type:CreateEntityReactionEffect
-        delay: 5
-        entity: XenoExtractChronofield
-        number: 1
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: FloorTileItemSepia
-        number: 30
+  - type: SlimeExtract
+    extractReactions:
+    - SepiaSlimeExtractWaterReaction
+    - SepiaSlimeExtractPlasmaReaction
+    - SepiaSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologySepiaExtract
+
+- type: extractReaction
+  id: SepiaSlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:ChangeFactionNearbyEffect
+      newFaction: AllHostile # BILLIONS MUST KILL
+      radius: 10
+      duration: 30
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: SepiaSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-evil" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:Jitter
+      time: 5
+      frequency: 20
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      delay: 5
+      entity: XenoExtractChronofield
+      number: 1
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: SepiaSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: FloorTileItemSepia
+      number: 30
+    scalingOffset: 1
+  shouldDelete: false

@@ -227,6 +227,12 @@
   id: ArtifactCrusherMachineCircuitboard
   result: ArtifactCrusherMachineCircuitboard
 
+# Teleportation
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: StationTeleporterMachineCircuitboard
+  result: StationTeleporterMachineCircuitboard
+
 # Anomaly
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
@@ -444,12 +450,10 @@
   id: BorgChargerCircuitboard
   result: BorgChargerCircuitboard
 
-# ADT-Tweak-Start
-# - type: latheRecipe
-#   parent: [ BaseGoldCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
-#   id: TurboItemRechargerCircuitboard
-#   result: TurboItemRechargerCircuitboard
-# ADT-Tweak-End
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+  id: TurboItemRechargerCircuitboard
+  result: TurboItemRechargerCircuitboard
 
 # Comms and Cameras
 - type: latheRecipe

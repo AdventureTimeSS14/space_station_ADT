@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss220-space/Paradise (master220) at icons/turf/smoothrocks.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "rock0"
+        },
+        {
+            "name": "rock1"
+        },
+        {
+            "name": "rock2"
+        },
+        {
+            "name": "rock3"
+        },
+        {
+            "name": "rock4"
+        },
+        {
+            "name": "rock5"
+        },
+        {
+            "name": "rock6"
+        },
+        {
+            "name": "rock7"
+        },
+        {
+            "name": "rock8"
+        },
+        {
+            "name": "rock9"
+        },
+        {
+            "name": "rock10"
+        },
+        {
+            "name": "rock11"
+        },
+        {
+            "name": "rock12"
+        },
+        {
+            "name": "rock13"
+        },
+        {
+            "name": "rock14"
+        },
+        {
+            "name": "rock15"
+        },
+        {
+            "name": "rock21"
+        },
+        {
+            "name": "rock23"
+        },
+        {
+            "name": "rock29"
+        },
+        {
+            "name": "rock31"
+        },
+        {
+            "name": "rock38"
+        },
+        {
+            "name": "rock39"
+        },
+        {
+            "name": "rock46"
+        },
+        {
+            "name": "rock47"
+        },
+        {
+            "name": "rock55"
+        },
+        {
+            "name": "rock63"
+        },
+        {
+            "name": "rock74"
+        },
+        {
+            "name": "rock75"
+        },
+        {
+            "name": "rock78"
+        },
+        {
+            "name": "rock79"
+        },
+        {
+            "name": "rock95"
+        },
+        {
+            "name": "rock110"
+        },
+        {
+            "name": "rock111"
+        },
+        {
+            "name": "rock127"
+        },
+        {
+            "name": "rock137"
+        },
+        {
+            "name": "rock139"
+        },
+        {
+            "name": "rock141"
+        },
+        {
+            "name": "rock143"
+        },
+        {
+            "name": "rock157"
+        },
+        {
+            "name": "rock159"
+        },
+        {
+            "name": "rock175"
+        },
+        {
+            "name": "rock191"
+        },
+        {
+            "name": "rock203"
+        },
+        {
+            "name": "rock207"
+        },
+        {
+            "name": "rock223"
+        },
+        {
+            "name": "rock239"
+        },
+        {
+            "name": "rock255"
+        }
+    ]
+}

@@ -9,7 +9,7 @@ namespace Content.Client.ADT.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
-    [Dependency] private readonly MeleeWeaponSystem _meleeWeaponSystem = default!;
+    [Dependency] private MeleeWeaponSystem _meleeWeaponSystem = default!;
 
     public override void Initialize()
     {
@@ -18,7 +18,6 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         SubscribeNetworkEvent<BlobAttackEvent>(OnBlobAttack);
     }
 
-    [ValidatePrototypeId<EntityPrototype>]
     private const string Animation = "WeaponArcPunch";
 
     private void OnBlobAttack(BlobAttackEvent ev)

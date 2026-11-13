@@ -13,8 +13,8 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedVoidCurseSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private SharedHereticSystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -30,7 +30,7 @@ public abstract class SharedVoidCurseSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _modifier.RefreshMovementSpeedModifiers(ent);
+        _modifier.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnTemperatureChangeAttempt(Entity<VoidCurseComponent> ent, ref TemperatureChangeAttemptEvent args)

@@ -1,0 +1,72 @@
+- type: entity
+  parent: ADTBustLenin
+  id: ADTBustUSSPLeaderBronze
+  name: bronze bust of the leader
+  description: A bronze bust of the great leader of the USSP.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/Statues/USSP/bust_leader_bronze.rsi
+    state: bust
+
+- type: entity
+  parent: ADTBustLenin
+  id: ADTBustUSSPLeaderGold
+  name: golden bust of the leader
+  description: A gilded bust of the great leader of the USSP. It shines brightly.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/Statues/USSP/bust_leader_gold.rsi
+    state: bust
+
+- type: entity
+  parent: ADTBustLenin
+  id: ADTBustUSSPLeaderIron
+  name: cast iron bust of the leader
+  description: A heavy cast iron bust of the great leader of the USSP.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/Statues/USSP/bust_leader_iron.rsi
+    state: bust
+
+- type: entity
+  parent: ADTStatueLenin
+  id: ADTStatueUSSPLeaderBronze
+  name: bronze statue of the leader
+  description: A bronze monument pointing the way to a bright future.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/Statues/USSP/statue_leader_bronze.rsi
+    state: statue
+
+- type: entity
+  parent: ADTStatueLenin
+  id: ADTStatueUSSPLeaderGold
+  name: golden statue of the leader
+  description: A gilded monument pointing the way to a bright future.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/Statues/USSP/statue_leader_gold.rsi
+    state: statue
+
+- type: entity
+  parent: BannerBase
+  id: ADTBannerUSSPPole
+  name: USSP banner
+  description: A red banner of the USSP on a pole.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/ussp_banners.rsi
+    state: banner_ussp
+
+- type: entity
+  parent: ADTBannerUSSPPole
+  id: ADTBannerUSSPPoleAlt
+  components:
+  - type: Sprite
+    state: banner_ussp_alt

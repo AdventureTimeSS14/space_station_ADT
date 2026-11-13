@@ -14,3 +14,4 @@ store-currency-display-silicon-memory = Память
 store-currency-display-wizcoin = Маг₭øин™
 
 store-currency-display-tradeunit = ЕТ
+store-currency-display-dna = ДНК

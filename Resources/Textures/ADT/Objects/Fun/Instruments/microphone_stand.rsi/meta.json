@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "All sprites created by prazat911 for the Adventure Time project",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base",
+            "directions": 4
+        },
+        {
+            "name": "base-mike",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "mike-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "mike-inhand-right",
+            "directions": 4
+        }
+    ]
+}

@@ -60,6 +60,36 @@ adt-figurines-plushie-jungar-9 = Я твой талисман удачи!
 adt-figurines-plushie-emilia-evenwood-1 = Йоу
 adt-figurines-plushie-emilia-evenwood-2 = Мамочки-арканочки
 
+adt-figurines-plushie-yuriy-trixter-1 = Фристайло
+adt-figurines-plushie-yuriy-trixter-2 = Эта вечеринка полный отстой
+adt-figurines-plushie-yuriy-trixter-3 = Сделай музыку погромче
+adt-figurines-plushie-yuriy-trixter-4 = Руки прочь от бумбокса
+adt-figurines-plushie-yuriy-trixter-5 = Я не буду ставить твою пластинку
+
 figurines-gipatter-1 = Ez...
 figurines-gipatter-2 = Хватит со своим Бламех-Жуббром
 figurines-gipatter-3 = Во всём виноваты воксы!
+
+adt-figurines-plushie-proxima-1 = З-з-здразтвуйте...
+adt-figurines-plushie-proxima-2 = Дворжзкого п-пожалуйста...
+adt-figurines-plushie-proxima-3 = Н-не г-гладьте меня...
+
+adt-figurines-plushie-reimor-1 = Ну нихрена себе!
+adt-figurines-plushie-reimor-2 = Ха-ха-ха!
+adt-figurines-plushie-reimor-3 = Да!
+
+adt-figurines-theokaya-1 = Зззтанззия! Датчики!
+adt-figurines-theokaya-2 = Жзжу-жзжу-жзжу
+adt-figurines-theokaya-3 = Азззизззтент умер беззз датчиков...
+
+adt-figurines-navi-1 = Мяу
+adt-figurines-navi-2 = Вам не кажется, что мы виделись с вами?
+adt-figurines-navi-3 = Витаминки один к одному с физраствором, вкусно!
+adt-figurines-navi-4 = Это не борода!
+adt-figurines-navi-5 = Я просто хочу отдохнуть...
+adt-figurines-navi-6 = Бу-бу-бу бе-бе-бе!
+
+adt-figurines-plushie-erich-stohl-1 = Не трогай руку.
+adt-figurines-plushie-erich-stohl-2 = Скрипит? Это протез, не я.
+adt-figurines-plushie-erich-stohl-3 = Где тут бар?
+adt-figurines-plushie-erich-stohl-4 = Мне и одной руки хватит.

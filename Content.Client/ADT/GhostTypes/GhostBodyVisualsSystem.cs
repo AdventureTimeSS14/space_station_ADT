@@ -2,6 +2,7 @@ using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.Clothing;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.GhostTypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -15,8 +16,8 @@ namespace Content.Client.GhostTypes;
 
 public sealed class GhostBodyVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly MarkingManager _marking = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private MarkingManager _marking = default!;
 
     private static readonly string GhostVariantLayer = "ghostVariant";
 

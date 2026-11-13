@@ -19,6 +19,21 @@
   - AdvancedEntertainment
 
 - type: technology
+  id: ADTColormat
+  name: research-technology-colormat
+  icon:
+    sprite: ADT/Objects/Devices/colormat.rsi
+    state: colormate
+  discipline: CivilianServices
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ADTColormatMachineCircuitboard
+  position: 3,-1
+  requiredTech:
+  - AdvancedEntertainment
+
+- type: technology
   id: ADTExoskeletons
   name: research-technology-exoskeletons
   icon:
@@ -61,6 +76,7 @@
   cost: 7500
   recipeUnlocks:
     - ADTAdvancedPlantAnalyzer
+    - ADTAdvancedWateringCan
   position: 1,-1
   requiredTech:
   - Hydroponics
@@ -96,3 +112,22 @@
   position: 5,1
   requiredTech:
   - FauxAstroTiles
+
+- type: technology
+  id: ADTJanicartUpgrades
+  name: research-technology-janicart-upgrades
+  icon:
+    sprite: ADT/Misc/car_update.rsi
+    state: janicart_upgrade_buffer
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ADTJanicartUpgradeBuffer
+  - ADTJanicartUpgradeVacuum
+  - ADTJanicartUpgradeSpeed
+  - ADTBorgModuleJanicartBuffer
+  - ADTBorgModuleJanicartVacuum
+  position: 1,2
+  requiredTech:
+  - AdvancedCleaning

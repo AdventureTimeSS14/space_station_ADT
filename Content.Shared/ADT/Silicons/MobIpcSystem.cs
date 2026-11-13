@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Silicon;
 
 public sealed class MobIpcSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
 
     public override void Initialize()
     {

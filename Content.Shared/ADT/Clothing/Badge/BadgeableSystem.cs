@@ -12,10 +12,10 @@ namespace Content.Shared.ADT.Clothing.Badge;
 [Virtual]
 public class BadgeableSystem : EntitySystem
 {
-    [Dependency] protected readonly ItemSlotsSystem ItemSlotsSystem = default!;
-    [Dependency] protected readonly BadgeSystem BadgeSystem = default!;
-    [Dependency] protected readonly InventorySystem InventorySystem = default!;
-    [Dependency] protected readonly ExamineSystemShared ExamineSystem = default!;
+    [Dependency] protected ItemSlotsSystem ItemSlotsSystem = default!;
+    [Dependency] protected BadgeSystem BadgeSystem = default!;
+    [Dependency] protected InventorySystem InventorySystem = default!;
+    [Dependency] protected ExamineSystemShared ExamineSystem = default!;
 
     override public void Initialize()
     {

@@ -7,8 +7,10 @@
   - type: Action
     priority: -6
     itemIconStyle: NoItem
-    icon: Interface/VerbIcons/drop.svg.192dpi.png
     useDelay: 0.5
+  - type: Sprite
+    layers:
+    - texture: Interface/VerbIcons/drop.svg.192dpi.png
   - type: TargetAction
     checkCanAccess: false
     range: 0
@@ -24,8 +26,10 @@
   - type: Action
     priority: -7
     itemIconStyle: NoItem
-    icon: Interface/VerbIcons/refresh.svg.192dpi.png
     useDelay: 0.3
+  - type: Sprite
+    layers:
+    - texture: Interface/VerbIcons/refresh.svg.192dpi.png
   - type: InstantAction
     event: !type:ADTCycleBorgMarkerColorEvent
 
@@ -38,7 +42,9 @@
   - type: Action
     priority: -8
     itemIconStyle: NoItem
-    icon: Interface/VerbIcons/delete.svg.192dpi.png
     useDelay: 1
+  - type: Sprite
+    layers:
+    - texture: Interface/VerbIcons/delete.svg.192dpi.png
   - type: InstantAction
     event: !type:ADTClearBorgMarkersEvent

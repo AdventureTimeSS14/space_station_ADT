@@ -1,0 +1,218 @@
+# SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Один прототип = одна зависимость, id прототипа - это kind в трайтах и эффектах.
+# stages идут по возрастанию: первый элемент - стадия 1, ниже его level зависимость вылечена.
+
+- type: addiction
+  id: Alcohol
+  name: health-analyzer-addiction-alcohol
+  sources:
+  - !type:AddictionReagentParentSource
+    parent: BaseAlcohol
+  beginPopup: addiction-begin-alcohol
+  dosePopup: addiction-dose-alcohol
+  curedPopup: addiction-cured-alcohol
+  withdrawal:
+    delay: 10m
+  stages:
+  - level: 25
+    popups: [ addiction-withdrawal-alcohol-0 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 6
+  - level: 50
+    popups: [ addiction-withdrawal-alcohol-1 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 8
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectSlurred
+  - level: 75
+    popups: [ addiction-withdrawal-alcohol-2 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 10
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectSlurred
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectWithdrawalWeakness
+
+- type: addiction
+  id: Nicotine
+  name: health-analyzer-addiction-nicotine
+  priority: 10
+  sources:
+  - !type:AddictionReagentSource
+    reagent: Nicotine
+  beginPopup: addiction-begin-nicotine
+  dosePopup: addiction-dose-nicotine
+  curedPopup: addiction-cured-nicotine
+  lifecyclePopupType: Medium
+  alert: NicotineCraving
+  withdrawal:
+    delay: 10m
+    ramp:
+    - after: 0s
+      stage: 1
+    - after: 4m
+      stage: 2
+    - after: 10m
+      stage: 3
+    warningAt: 0.55
+    warningPopups:
+    - addiction-craving-nicotine-0
+    - addiction-craving-nicotine-1
+    - addiction-craving-nicotine-2
+    - addiction-craving-nicotine-3
+  stages:
+  - level: 25
+    popupInterval: 25s
+    popupType: Medium
+    popups:
+    - addiction-withdrawal-nicotine-0-0
+    - addiction-withdrawal-nicotine-0-1
+    - addiction-withdrawal-nicotine-0-2
+    - addiction-withdrawal-nicotine-0-3
+    - addiction-withdrawal-nicotine-0-4
+    - addiction-withdrawal-nicotine-0-5
+    emotes:
+    - emote: Cough
+      popupChance: 0.22
+  - level: 50
+    popupInterval: 25s
+    popupType: MediumCaution
+    popups:
+    - addiction-withdrawal-nicotine-1-0
+    - addiction-withdrawal-nicotine-1-1
+    - addiction-withdrawal-nicotine-1-2
+    - addiction-withdrawal-nicotine-1-3
+    - addiction-withdrawal-nicotine-1-4
+    - addiction-withdrawal-nicotine-1-5
+    emotes:
+    - emote: Cough
+      popupChance: 0.35
+    symptoms:
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectWoozy
+      duration: 70s
+  - level: 75
+    popupInterval: 25s
+    popupType: LargeCaution
+    popups:
+    - addiction-withdrawal-nicotine-2-0
+    - addiction-withdrawal-nicotine-2-1
+    - addiction-withdrawal-nicotine-2-2
+    - addiction-withdrawal-nicotine-2-3
+    - addiction-withdrawal-nicotine-2-4
+    - addiction-withdrawal-nicotine-2-5
+    emotes:
+    - emote: Cough
+      interval: 4m
+    symptoms:
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectWoozy
+      duration: 110s
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectWithdrawalWeakness
+
+- type: addiction
+  id: Drug
+  name: health-analyzer-addiction-drug
+  sources:
+  - !type:AddictionReagentGroupSource
+    group: Narcotics
+  beginPopup: addiction-begin-drug
+  dosePopup: addiction-dose-drug
+  curedPopup: addiction-cured-drug
+  withdrawal:
+    delay: 10m
+  stages:
+  - level: 25
+    popups: [ addiction-withdrawal-drug-0 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 6
+  - level: 50
+    popups: [ addiction-withdrawal-drug-1 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 8
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectStutter
+  - level: 75
+    popups: [ addiction-withdrawal-drug-2 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 10
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectStutter
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectWithdrawalWeakness
+    - !type:AddictionComponentSymptom
+      components:
+      - type: Monochromacy
+
+# Без sources: канал появляется только от передоза, через AdjustAddictionLevel.
+- type: addiction
+  id: Medicine
+  name: health-analyzer-addiction-medicine
+  beginPopup: addiction-begin-medicine
+  dosePopup: addiction-dose-medicine
+  curedPopup: addiction-cured-medicine
+  withdrawal:
+    delay: 10m
+  stages:
+  - level: 25
+    popups: [ addiction-withdrawal-medicine-0 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 6
+  - level: 50
+    popups: [ addiction-withdrawal-medicine-1 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 8
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectStutter
+  - level: 75
+    popups: [ addiction-withdrawal-medicine-2 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 10
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectStutter
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectWithdrawalWeakness
+
+- type: addiction
+  id: Omnizine
+  name: health-analyzer-addiction-omnizine
+  beginPopup: addiction-begin-omnizine
+  dosePopup: addiction-dose-omnizine
+  curedPopup: addiction-cured-omnizine
+  withdrawal:
+    delay: 10m
+  stages:
+  - level: 25
+    popups: [ addiction-withdrawal-omnizine-0 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 6
+  - level: 50
+    popups: [ addiction-withdrawal-omnizine-1 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 8
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectStutter
+  - level: 75
+    popups: [ addiction-withdrawal-omnizine-2 ]
+    symptoms:
+    - !type:AddictionJitterSymptom
+      amplitude: 10
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectStutter
+    - !type:AddictionStatusEffectSymptom
+      effect: StatusEffectWithdrawalWeakness

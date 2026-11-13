@@ -28,3 +28,4 @@ ui-vote-votekick-success = Голосование за кик { $target } про
 ui-vote-votekick-failure = Голосование за кик { $target } провалилось. Причина кика: { $reason }
 ui-vote-votekick-not-enough-eligible = Недостаточное количество подходящих голосующих онлайн для начала голосования: { $voters }/{ $requirement }
 ui-vote-votekick-server-cancelled = Голосование за кик { $target } отменено сервером.
+ui-vote-map-invalid = { $winner } стала недоступна после голосования за карту! Она не будет выбрана!

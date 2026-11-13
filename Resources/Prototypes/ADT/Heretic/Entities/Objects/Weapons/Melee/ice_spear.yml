@@ -26,7 +26,9 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Sprite
     sprite: ADT/Heretic/Entities/ice_spear.rsi
     layers:
@@ -53,10 +55,9 @@
     slots:
     - back
     - suitStorage
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        maxVol: 5
+    - SpearIceHereticSolution
   - type: MeleeChemicalInjector
     transferAmount: 1
     solution: melee
@@ -78,3 +79,13 @@
   - type: ChangeTemperatureOnHit
     heat: -50000
   - type: IceSpear
+
+- type: entity
+  parent: SolutionWeapon
+  id: SpearIceHereticSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents: []

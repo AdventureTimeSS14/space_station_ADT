@@ -1,0 +1,88 @@
+- type: microwaveMealRecipe
+  id: ADTFoodBrezelRecipe
+  name: brezel recipe
+  result: ADTFoodBakedBrezel
+  time: 10
+  group: Dessert
+  solids:
+    FoodDoughRope: 2
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBrezelVanillaRecipe
+  name: brezel vanilla recipe
+  result: ADTFoodBakedBrezelVanilla
+  time: 10
+  group: Dessert
+  solids:
+    FoodDoughRope: 2
+  reagents:
+    Cream: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBrezelPoppySeedsRecipe
+  name: brezel poppy seeds recipe
+  result: ADTFoodBakedBrezelPoppySeeds
+  time: 10
+  group: Dessert
+  solids:
+    FoodDoughRope: 2
+    PoppySeeds: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBrezelSaltRecipe
+  name: brezel salt recipe
+  result: ADTFoodBakedBrezelSalt
+  time: 10
+  group: Dessert
+  solids:
+    FoodDoughRope: 2
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBrezelChocolateRecipe
+  name: brezel chocolate recipe
+  result: ADTFoodBakedBrezelChocolate
+  time: 10
+  group: Dessert
+  solids:
+    FoodDoughRope: 2
+    ADTFoodSnackChocolateBarChunk: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodWeissWurstRecipe
+  name: weiss wurst recipe
+  result: ADTFoodMeatWeissWurst
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatCutlet: 2
+    FoodMeatBacon: 1
+  reagents:
+    Egg: 6
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBratWurstRecipe
+  name: brat wurst recipe
+  result: ADTFoodMeatBratWurst
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatCutlet: 2
+    FoodMeatBacon: 1
+  reagents:
+    Blackpepper: 5
+  recipeType:
+  - Oven

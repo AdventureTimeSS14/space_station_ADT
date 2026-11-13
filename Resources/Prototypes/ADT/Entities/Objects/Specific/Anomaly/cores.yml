@@ -10,7 +10,7 @@
     energy: 3.5
     color: "#FFFE42"
     castShadows: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png
+    lightMask: ADTLightMaskCircleRings
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -24,7 +24,7 @@
     energy: 3.5
     color: "#FFFE42"
     castShadows: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png
+    lightMask: ADTLightMaskCircleRings
 
 - type: entity
   parent: BaseAnomalyCore
@@ -41,7 +41,7 @@
     energy: 3.5
     color: "#8a1111"
     castShadows: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_e.png
+    lightMask: ADTLightMaskCircleE
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -58,4 +58,4 @@
     energy: 3.5
     color: "#8a1111"
     castShadows: false
-    mask: /Textures/ADT/Effects/Lightmasks/circle_e.png
+    lightMask: ADTLightMaskCircleE

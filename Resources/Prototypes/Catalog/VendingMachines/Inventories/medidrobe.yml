@@ -38,6 +38,13 @@
         ClothingShoesColorBlue: 2
         ClothingShoesColorWhite: 2
         ClothingShoesBootsWinterMed: 2
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPmed: 2
+        ADTBookSRPcmd: 2
+        ADTBookPCDcmd: 2
+        ADTBookSpaceLaw: 3
+    # ADT tweak end wiki books
   contrabandInventory:
     ClothingUniformJumpskirtOfLife: 1
     ToyFigurineMedicalDoctor: 1

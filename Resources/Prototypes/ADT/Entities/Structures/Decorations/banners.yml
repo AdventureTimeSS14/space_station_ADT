@@ -172,6 +172,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: ADTBannerElysium
+    node: banner
 
 - type: entity
   id: ADTBannerEmpireKhsira

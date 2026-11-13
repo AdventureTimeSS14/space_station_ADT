@@ -12,8 +12,8 @@ namespace Content.Shared.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class TremorSpasmEffectSystem : EntityEffectSystem<StatusEffectsComponent, TremorSpasm>
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<TremorSpasm> args)
     {

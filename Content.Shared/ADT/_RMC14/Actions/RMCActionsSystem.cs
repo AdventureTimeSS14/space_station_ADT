@@ -7,7 +7,7 @@ namespace Content.Shared._RMC14.Actions;
 
 public sealed class RMCActionsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     private EntityQuery<ActionSharedCooldownComponent> _actionSharedCooldownQuery;
 

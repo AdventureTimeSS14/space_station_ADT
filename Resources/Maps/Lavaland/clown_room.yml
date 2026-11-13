@@ -319,7 +319,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-0.5
       parent: 1
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 47
     components:
@@ -336,7 +336,7 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-- proto: WallRockBasaltBananium
+- proto: ADTBasaltBananium
   entities:
   - uid: 42
     components:

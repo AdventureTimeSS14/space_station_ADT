@@ -10,5 +10,10 @@ namespace Content.Server.Corvax.StationGoal
     {
         [DataField]
         public List<ProtoId<StationGoalPrototype>> Goals = new();
+
+        // ADT-Tweak start
+        [DataField] 
+        public float SendDelay = 60f;
+        // ADT-Tweak end
     }
 }

@@ -10,11 +10,11 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class HereticBladeSystem : SharedHereticBladeSystem
 {
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _sol = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private BloodstreamSystem _blood = default!;
+    [Dependency] private TeleportSystem _teleport = default!;
+    [Dependency] private SharedSolutionContainerSystem _sol = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
 
     protected override void ApplyAshBladeEffect(EntityUid target)
     {

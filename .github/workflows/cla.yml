@@ -1,0 +1,48 @@
+name: CLA Assistant
+
+on:
+  issue_comment:
+    types: [ created ]
+  pull_request_target:
+    types: [ opened, closed, synchronize ]
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+  statuses: write
+
+jobs:
+  cla:
+    name: CLA Assistant
+    runs-on: ubuntu-latest
+    steps:
+      - name: CLA Assistant
+        if: |
+          github.event_name == 'pull_request_target' ||
+          github.event.comment.body == 'recheck' ||
+          github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA'
+        uses: contributor-assistant/github-action@v2.6.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          path-to-signatures: 'signatures/v1/cla.json'
+          path-to-document: 'https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/CLA.md'
+          branch: 'cla-signatures'
+          allowlist: '*[bot],PJBot,IanComradeBot,github-actions'
+          lock-pullrequest-aftermerge: false
+          custom-notsigned-prcomment: |-
+            ### Русский
+
+            **Требуется подписать CLA.** Чтобы мы могли принять ваш вклад, необходимо подписать [Лицензионное соглашение с контрибьютором](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/CLA.ru.md). Английский текст соглашения ([CLA](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/CLA.md)) является основным. Вы сохраняете авторские права на свой вклад. Условия лицензирования проекта описаны в [LICENSING.md](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/LICENSING.md). Соглашение действует только на вклады, переданные после подписания.
+
+            Чтобы подписать, ответьте на этот комментарий точной фразой, приведённой ниже.
+
+            ### English
+
+            **CLA signature required.** Before we can accept your contribution you must sign the [Contributor License Agreement](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/CLA.md) (a [Russian translation](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/CLA.ru.md) is provided for convenience). You retain copyright in your contribution. The Project's licensing terms are described in [LICENSING.md](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/LICENSING.md). The Agreement applies only to contributions submitted after you sign.
+
+            To sign, reply to this comment with the exact phrase below.
+          custom-pr-sign-comment: 'I have read the CLA Document and I hereby sign the CLA'
+          custom-allsigned-prcomment: 'Все авторы подписали CLA. / All contributors have signed the CLA.'

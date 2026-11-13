@@ -7,7 +7,7 @@ namespace Content.Shared._White.Collision.Blur;
 
 public sealed class BlurOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     public override void Initialize()
     {

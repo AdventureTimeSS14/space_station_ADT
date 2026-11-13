@@ -1,5 +1,5 @@
 using Content.Shared.ADT.Wizard.FadingTimedDespawn;
-using Content.Server.Bible.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Interaction;
@@ -11,8 +11,8 @@ namespace Content.Server.ADT.Heretic.EntitySystems;
 // ADT: server-side bible-cleanse part of CosmicRunesSystem
 public sealed class CosmicRuneBibleSystem : EntitySystem
 {
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -33,7 +33,7 @@ public sealed class CosmicRuneBibleSystem : EntitySystem
             return;
 
         _useDelay.TryResetDelay(args.Used, false, useDelay);
-        _audio.PlayPvs(bible.HealSoundPath, Transform(ent).Coordinates);
+        _audio.PlayPvs(bible.HealSound, Transform(ent).Coordinates);
         EnsureComp<FadingTimedDespawnComponent>(ent).Lifetime = 0f;
         args.Handled = true;
     }

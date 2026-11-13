@@ -5,7 +5,7 @@ namespace Content.Server.ADT.Objectives.Systems;
 
 public sealed class CheckSupermatterSystem : EntitySystem
 {
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     /// <summary>
     /// Вынюхиваем кристалл Суперматерии на станции.

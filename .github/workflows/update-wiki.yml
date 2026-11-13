@@ -18,6 +18,18 @@ on:
       - 'Resources/Prototypes/ADT/Reagents/**.yml'
       - 'Resources/Prototypes/ADT/Chemistry/**.yml'
       - 'Resources/Prototypes/ADT/Recipes/Reactions/**.yml'
+      - 'Content.Server/ADT/GuideGenerator/**.cs'
+      - 'Content.Shared/ADT/Atmos/Prototypes/**.cs'
+      - 'Content.Server/Atmos/Reactions/**.cs'
+      - 'Content.Server/ADT/Atmos/Reactions/**.cs'
+      - 'Content.Shared/EntityEffects/**.cs'
+      - 'Content.Shared/ADT/EntityEffects/**.cs'
+      - 'Resources/Prototypes/Atmospherics/**.yml'
+      - 'Resources/Prototypes/ADT/Atmospherics/**.yml'
+      - 'Resources/Locale/ru-RU/guidebook/**.ftl'
+      - 'Resources/Locale/ru-RU/gases/**.ftl'
+      - 'Resources/Locale/ru-RU/ADT/gases/**.ftl'
+      - 'Resources/Locale/ru-RU/ADT/entity-effects.ftl'
 
 jobs:
   update-wiki:
@@ -43,7 +55,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
 
     - name: Install Dependencies
       run: dotnet restore
@@ -58,7 +70,11 @@ jobs:
     - name: Check generated files
       run: |
         ls -la ./bin/Content.Server/data/*.json
-        test -f ./bin/Content.Server/data/chem_prototypes.json || (echo "chem_prototypes.json not generated!" && exit 1)
+        for name in chem react entity mealrecipes healthchangereagents gas gasreact; do
+          file=./bin/Content.Server/data/${name}_prototypes.json
+          test -s "$file" || { echo "${name}_prototypes.json not generated!"; exit 1; }
+          jq empty "$file" || { echo "${name}_prototypes.json is not valid JSON!"; exit 1; }
+        done
 
     - name: Upload chem_prototypes.json to wiki
       uses: jtmullen/mediawiki-edit-action@v0.1.1
@@ -96,6 +112,26 @@ jobs:
         wiki_text_file: ./bin/Content.Server/data/mealrecipes_prototypes.json
         edit_summary: Update mealrecipes_prototypes.json via GitHub Actions
         page_name: "${{ secrets.WIKI_PAGE_ROOT }}/mealrecipes_prototypes.json"
+        api_url: ${{ secrets.WIKI_ROOT_URL }}/api.php
+        username: ${{ secrets.WIKI_BOT_USER }}
+        password: ${{ secrets.WIKI_BOT_PASS }}
+
+    - name: Upload gas_prototypes.json to wiki
+      uses: jtmullen/mediawiki-edit-action@v0.1.1
+      with:
+        wiki_text_file: ./bin/Content.Server/data/gas_prototypes.json
+        edit_summary: Update gas_prototypes.json via GitHub Actions
+        page_name: "${{ secrets.WIKI_PAGE_ROOT }}/gas_prototypes.json"
+        api_url: ${{ secrets.WIKI_ROOT_URL }}/api.php
+        username: ${{ secrets.WIKI_BOT_USER }}
+        password: ${{ secrets.WIKI_BOT_PASS }}
+
+    - name: Upload gasreact_prototypes.json to wiki
+      uses: jtmullen/mediawiki-edit-action@v0.1.1
+      with:
+        wiki_text_file: ./bin/Content.Server/data/gasreact_prototypes.json
+        edit_summary: Update gasreact_prototypes.json via GitHub Actions
+        page_name: "${{ secrets.WIKI_PAGE_ROOT }}/gasreact_prototypes.json"
         api_url: ${{ secrets.WIKI_ROOT_URL }}/api.php
         username: ${{ secrets.WIKI_BOT_USER }}
         password: ${{ secrets.WIKI_BOT_PASS }}

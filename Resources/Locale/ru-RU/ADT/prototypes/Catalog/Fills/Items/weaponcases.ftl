@@ -39,6 +39,9 @@ ent-WeaponCaseNTnPulseCarbine = { ent-WeaponCaseNTM90 }
 ent-WeaponCaseNTIonRifle = { ent-WeaponCaseNTM90 }
     .desc = { ent-WeaponCaseNTM90.desc }
     .suffix = { "Ионная винтовка" }
+ent-WeaponCaseNTFlamer = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }
+    .suffix = { "Огнемёт, РХБЗЗ" }
 
 ent-WeaponCaseNTMateba = { ent-WeaponCaseNTM90 }
     .desc = { ent-WeaponCaseNTM90.desc }

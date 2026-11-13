@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Weapons.Medbeam;
 using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
@@ -11,10 +12,10 @@ namespace Content.Shared.Mech.EntitySystems;
 
 public abstract partial class SharedMechToolSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedMechSystem _mech = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -32,7 +33,10 @@ public abstract partial class SharedMechToolSystem : EntitySystem
         if (comp.Energy <= 0)
             return;
 
-        if (comp.CurrentSelectedEquipment is not { } equipment || !HasComp<MechToolComponent>(equipment))
+        if (comp.CurrentSelectedEquipment is not { } equipment)
+            return;
+
+        if (!HasComp<MechToolComponent>(equipment) && !HasComp<ADTMedbeamComponent>(equipment))
             return;
 
         args.Used = equipment;

@@ -15,7 +15,7 @@ namespace Content.Shared.ADT.Blob.NPC.BlobPod;
 
 public abstract class SharedBlobPodSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobs = default!;
+    [Dependency] private MobStateSystem _mobs = default!;
 
 
     private EntityQuery<HumanoidProfileComponent> _query;
@@ -63,7 +63,7 @@ public abstract class SharedBlobPodSystem : EntitySystem
 
     private void OnUnequipAttempt(Entity<BlobPodComponent> ent, ref BeingUnequippedAttemptEvent args)
     {
-        if (args.Unequipee == args.UnEquipTarget)
+        if (args.User == args.UnEquipTarget)
         {
             args.Cancel();
             return;

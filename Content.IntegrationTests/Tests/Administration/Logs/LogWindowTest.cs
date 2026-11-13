@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.Administration.UI;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Client.Administration.UI.Logs;
@@ -7,13 +7,14 @@ using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Logs;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 
 namespace Content.IntegrationTests.Tests.Administration.Logs;
 
 public sealed class LogWindowTest : InteractionTest
 {
-    protected override PoolSettings Settings => new() { Connected = true, Dirty = true, AdminLogsEnabled = true, DummyTicker = false };
+    public override PoolSettings PoolSettings => new() { Connected = true, Dirty = true, AdminLogsEnabled = true, DummyTicker = false };
 
     [Test]
     public async Task TestAdminLogsWindow()
@@ -36,13 +37,22 @@ public sealed class LogWindowTest : InteractionTest
         var search = logWindow.Logs.LogSearch;
         var refresh = logWindow.Logs.RefreshButton;
 
+        // ADT-Tweak-Start
+        async Task<SharedAdminLog[]> SearchForLog(Guid logGuid)
+        {
+            await Client.WaitPost(() => search.Text = logGuid.ToString());
+            await ClickControl(refresh);
+
+            await RunUntilSynced();
+            await RunTicks(10);
+
+            return logWindow.Logs.GetShownLogs().ToArray();
+        }
+        // ADT-Tweak-End
+
         // Search for the log we added earlier.
-        await Client.WaitPost(() => search.Text = guid.ToString());
-        await ClickControl(refresh);
-        await RunTicks(5);
-        
-        var searchResult = logWindow.Logs.GetShownLogs().ToArray(); // ADT-Tweak
-        Assert.That(searchResult.Length, Is.EqualTo(1));
+        var searchResult = await SearchForLog(guid);
+        Assert.That(searchResult, Has.Length.EqualTo(1));
         Assert.That(searchResult[0].Message, Contains.Substring($" test log 1: {guid}")); // ADT-Tweak
 
         // Add a new log
@@ -50,11 +60,8 @@ public sealed class LogWindowTest : InteractionTest
         await Server.WaitPost(() => log.Add(LogType.Unknown, $"{SPlayer} test log 2: {guid}"));
 
         // Update the search and refresh
-        await Client.WaitPost(() => search.Text = guid.ToString());
-        await ClickControl(refresh);
-        await RunTicks(5);
-        searchResult = logWindow.Logs.GetShownLogs().ToArray(); // ADT-Tweak
-        Assert.That(searchResult.Length, Is.EqualTo(1));
-        Assert.That(searchResult[0].Message, Contains.Substring($" test log 2: {guid}"));
+        searchResult = await SearchForLog(guid);
+        Assert.That(searchResult, Has.Length.EqualTo(1));
+        Assert.That(searchResult[0].Message, Contains.Substring($" test log 2: {guid}")); // ADT-Tweak
     }
 }

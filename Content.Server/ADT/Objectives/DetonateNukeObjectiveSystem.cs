@@ -3,6 +3,7 @@ using Content.Server.Nuke;
 using Content.Server.Station.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Station.Components;
 
 namespace Content.Server.ADT.Objectives;
 

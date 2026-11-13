@@ -1,4 +1,5 @@
-﻿using Content.Shared.Chemistry.Components;
+﻿using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -119,6 +120,20 @@ public sealed partial class InjectorModePrototype : IPrototype, IInheritingProto
     /// </summary>
     [DataField]
     public LocId? InjectPopupTarget;
+
+    // ADT-Tweak start
+    [DataField]
+    public ReactionMethod? ReactionMethod;
+
+    [DataField]
+    public bool RequiresExposedSkin;
+
+    [DataField]
+    public TimeSpan SuitMobTime;
+
+    [DataField]
+    public float SuitSelfModifier;
+    // ADT-Tweak end
 
 }
 

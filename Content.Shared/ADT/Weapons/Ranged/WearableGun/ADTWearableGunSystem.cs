@@ -9,9 +9,9 @@ namespace Content.Shared.ADT.Weapons.Ranged.WearableGun;
 
 public sealed class ADTWearableGunSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -29,9 +29,9 @@ public sealed class ADTWearableGunSystem : EntitySystem
         if (args.Slot != ent.Comp.Slot || !_net.IsServer)
             return;
 
-        var user = EnsureComp<ADTWearableGunUserComponent>(args.Equipee);
+        var user = EnsureComp<ADTWearableGunUserComponent>(args.EquipTarget);
         user.Gun = ent.Owner;
-        Dirty(args.Equipee, user);
+        Dirty(args.EquipTarget, user);
     }
 
     private void OnUnequipped(Entity<ADTWearableGunComponent> ent, ref GotUnequippedEvent args)
@@ -39,7 +39,7 @@ public sealed class ADTWearableGunSystem : EntitySystem
         if (args.Slot != ent.Comp.Slot)
             return;
 
-        RemoveUser(ent.Owner, args.Equipee);
+        RemoveUser(ent.Owner, args.EquipTarget);
     }
 
     private void OnShutdown(Entity<ADTWearableGunComponent> ent, ref ComponentShutdown args)

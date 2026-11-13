@@ -1,7 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
-using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Mind.Components;
@@ -14,14 +14,14 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class FeastOfOwlsSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly JitteringSystem _jitter = default!;
-    [Dependency] private readonly StutteringSystem _stutter = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private JitteringSystem _jitter = default!;
+    [Dependency] private StutteringSystem _stutter = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     public override void Update(float frameTime)
     {

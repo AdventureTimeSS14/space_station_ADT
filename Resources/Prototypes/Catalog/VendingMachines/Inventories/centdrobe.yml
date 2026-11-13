@@ -12,6 +12,7 @@
         #ClothingHeadsetCentCom: 3 # ADT-tweak
         ClothingNeckScarfStripedCentcom: 3
         ClothingNeckCloakCentcom: 3
+        ADTClothingCentralCommandMantleShoulder: 3 # ADT-Tweak
     ADTVendingCategoryUniforms:  # ADT-Tweak
         ClothingUniformJumpsuitCentcomOfficer: 3
         ClothingUniformJumpsuitCentcomOfficial: 3

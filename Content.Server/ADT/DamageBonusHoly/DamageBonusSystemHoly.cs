@@ -16,9 +16,9 @@ namespace Content.Server.ADT.DamageBonusHoly;
 public sealed class DamageBonusHolySystem : EntitySystem
 {
     private const string HolyDamageType = "Holy";
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
 
     public override void Initialize()
     {

@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: ADTBarrelHoney
+  start: closed
+  graph:
+    - node: closed
+      entity: ADTBarrelHoneyClosed
+      edges:
+        - to: open
+          steps:
+            - tool: Slicing
+              doAfter: 3
+    - node: open
+      entity: ADTBarrelHoneyOpen

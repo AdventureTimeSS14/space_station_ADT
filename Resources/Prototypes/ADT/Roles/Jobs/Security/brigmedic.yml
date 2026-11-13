@@ -25,7 +25,6 @@
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   access:
   - Medical
   - Security
@@ -35,6 +34,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTTenCodeKnowledge
 
 - type: startingGear
   id: BrigmedicGear

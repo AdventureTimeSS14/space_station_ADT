@@ -1,0 +1,22 @@
+logic-circuit-error-unknown = Схема отклонена.
+logic-circuit-error-too-many-nodes = Слишком много элементов, предел { $detail }.
+logic-circuit-error-too-many-wires = Слишком много проводов, предел { $detail }.
+logic-circuit-error-empty-node-id = У элемента нет имени.
+logic-circuit-error-node-id-too-long = Слишком длинное имя элемента: { $detail }.
+logic-circuit-error-duplicate-node-id = Два элемента с одним именем: { $detail }.
+logic-circuit-error-unknown-element = Неизвестный элемент: { $detail }.
+logic-circuit-error-unknown-wire-node = Провод ведёт к несуществующему элементу: { $detail }.
+logic-circuit-error-unknown-pin = У элемента нет такого контакта: { $detail }.
+logic-circuit-error-input-already-wired = К одному входу подключено два провода: { $detail }.
+logic-circuit-error-config-too-long = Слишком длинное значение в настройках элемента { $detail }.
+logic-circuit-error-not-enough-power = Не хватает мощности: { $detail }.
+logic-circuit-error-malformed = Схема повреждена.
+logic-circuit-error-invalid-node-id = В имени элемента недопустимые символы.
+logic-circuit-apply-cooldown = Схему нельзя применять так часто.
+
+logic-circuit-json-error-read = Не удалось прочитать файл схемы.
+logic-circuit-json-error-write = Не удалось сохранить файл схемы.
+logic-circuit-json-error-too-large = Файл схемы больше { $detail } КБ.
+logic-circuit-json-error-syntax = Файл схемы не является корректным JSON, ошибка на позиции { $detail }.
+logic-circuit-json-error-format = Неверное поле в файле схемы: { $detail }.
+logic-circuit-json-error-version = Неподдерживаемая версия файла схемы: { $detail }.

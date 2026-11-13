@@ -15,9 +15,9 @@ namespace Content.Shared.Heretic.EntitySystems.PathSpecific;
 
 public sealed class ChampionStanceSystem : EntitySystem
 {
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private MobThresholdSystem _threshold = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
 
     public override void Initialize()
     {
@@ -43,12 +43,12 @@ public sealed class ChampionStanceSystem : EntitySystem
 
     private void OnChampionShutdown(Entity<ChampionStanceComponent> ent, ref ComponentShutdown args)
     {
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnChampionStartup(Entity<ChampionStanceComponent> ent, ref ComponentStartup args)
     {
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnGetBloodlossMultiplier(Entity<ChampionStanceComponent> ent,
@@ -62,8 +62,9 @@ public sealed class ChampionStanceSystem : EntitySystem
         if (!TryComp(ent, out DamageableComponent? dmg) || !TryComp(ent, out MobThresholdsComponent? thresholdComp))
             return false;
 
-        if (!_threshold.TryGetThresholdForState(ent, MobState.Critical, out var threshold, thresholdComp))
-            threshold = _threshold.GetThresholdForState(ent, MobState.Dead, thresholdComp);
+        if (!_threshold.TryGetIncapThreshold(ent, out var threshold, thresholdComp))
+            return false;
+
         return _damageable.GetTotalDamage((ent.Owner, dmg)) >= threshold.Value.Float() / 2f;
     }
 

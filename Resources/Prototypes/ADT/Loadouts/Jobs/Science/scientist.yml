@@ -44,3 +44,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTOuterClothingCoatsCrazySci50Hour
+# HL Scientist Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitScientistHL
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitScientistHL

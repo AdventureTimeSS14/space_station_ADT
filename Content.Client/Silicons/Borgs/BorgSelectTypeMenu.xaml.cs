@@ -19,7 +19,7 @@ namespace Content.Client.Silicons.Borgs;
 [GenerateTypedNameReferences]
 public sealed partial class BorgSelectTypeMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private BorgTypePrototype? _selectedBorgType;
 
@@ -54,7 +54,12 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         //Start ADT Tweak
         ChassisSpriteSelection.SubtypeSelected += () =>
+        {
+            if (ChassisSpriteSelection.SelectedBorgSubtype is { } subtype)
+                ChassisView.SetPrototype(subtype.DummyPrototype);
+
             ConfirmTypeButton.Disabled = false;
+        };
         //End ADT Tweak
     }
 
@@ -80,14 +85,12 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         if (_selectedBorgType == null)
             return;
 
-        ConfirmedBorgType?.Invoke(_selectedBorgType);
-
         //Start ADT Tweak
-        if (ChassisSpriteSelection.SelectedBorgSubtype == null)
-            return;
-
-        ConfirmedBorgSubtype?.Invoke(ChassisSpriteSelection.SelectedBorgSubtype);
+        if (ChassisSpriteSelection.SelectedBorgSubtype != null)
+            ConfirmedBorgSubtype?.Invoke(ChassisSpriteSelection.SelectedBorgSubtype);
         //End ADT Tweak
+
+        ConfirmedBorgType?.Invoke(_selectedBorgType);
     }
 
     private static string PrototypeName(BorgTypePrototype prototype)

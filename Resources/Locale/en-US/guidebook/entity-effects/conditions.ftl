@@ -25,12 +25,12 @@ entity-condition-guidebook-group-damage =
                  }
     }
 
-entity-condition-guidebook-total-hunger =
+entity-condition-guidebook-total-satiation =
     { $max ->
-        [2147483648] the target has at least {NATURALFIXED($min, 2)} total hunger
+        [2147483648] the target has at least {NATURALFIXED($min, 2)} total {$type}
         *[other] { $min ->
-                    [0] the target has at most {NATURALFIXED($max, 2)} total hunger
-                    *[other] the target has between {NATURALFIXED($min, 2)} and {NATURALFIXED($max, 2)} total hunger
+                    [0] the target has at most {NATURALFIXED($max, 2)} total {$type}
+                    *[other] the target has between {NATURALFIXED($min, 2)} and {NATURALFIXED($max, 2)} total {$type}
                  }
     }
 
@@ -45,6 +45,11 @@ entity-condition-guidebook-reagent-threshold =
 
 entity-condition-guidebook-mob-state-condition =
     the mob is { $state }
+
+entity-condition-guidebook-mob-state-alive = alive
+entity-condition-guidebook-mob-state-softcritical = in soft crit
+entity-condition-guidebook-mob-state-critical = in crit
+entity-condition-guidebook-mob-state-dead = dead
 
 entity-condition-guidebook-job-condition =
     the target's job is { $job }

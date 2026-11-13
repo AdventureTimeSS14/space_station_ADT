@@ -13,3 +13,4 @@ ent-ActionDevour = [color=red]Поглотить[/color]
     .desc = Попытаться разрушить конструкцию своими челюстями или проглотить существо.
 ent-ActionDragonsBreath = [color=orange]Дыхание дракона[/color]
     .desc = Извергайте пламя на всех, кто поимеет глупость напасть на вас!
+ent-BloodSmoke = дым

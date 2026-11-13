@@ -46,3 +46,5 @@ ui-options-chat-highlight-sound-4 = Уведомление 4
 ui-options-chat-highlight-sound-5 = Уведомление 5
 
 ui-options-function-smart-equip-neck = Умная экипировка на шею
+
+ui-options-key-conflict = Эта клавиша уже назначена другому действию

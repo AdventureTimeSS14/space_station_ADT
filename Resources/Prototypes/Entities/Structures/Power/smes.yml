@@ -1,8 +1,8 @@
-﻿# Base SMES
+# Base SMES
 - type: entity
   abstract: true
   id: BaseSMES
-  parent: [ BaseMachine, ConstructibleMachine ]
+  parent: [ BaseMachine, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   name: SMES
   description: A high-capacity superconducting magnetic energy storage (SMES) unit.
   placement:
@@ -73,7 +73,7 @@
       energy: 3.0
       color: "#c9c042"
       castShadows: false
-      mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
+      lightMask: ADTLightMaskCircleA # ADT tweak
     - type: WiresPanel
     - type: WiresVisuals
     - type: Machine
@@ -88,8 +88,14 @@
       mediumVoltageNode: output
     - type: Damageable
       damageModifierSet: StructuralMetallicStrong
-    - type: Injurable
-      damageContainer: StructuralInorganic
+    - type: Destructible
+      thresholds:
+      - trigger: !type:DamageTrigger
+          damage: 175
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
     - type: BatterySensor
     - type: DeviceNetwork
       deviceNetId: AtmosDevices

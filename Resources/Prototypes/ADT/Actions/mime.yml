@@ -4,10 +4,11 @@
   description: Shoot an invisible energy bolt from your finger!
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/mime.rsi
-      state: fingergun
     useDelay: 30
+  - type: Sprite
+    sprite: ADT/Interface/Actions/mime.rsi
+    layers:
+    - state: fingergun
   - type: InstantAction
     event: !type:MimeFingerGunActionEvent
 
@@ -17,10 +18,11 @@
   description: Silence everyone around you with a theatrical gesture!
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/mime.rsi
-      state: mime_silence
     useDelay: 60
+  - type: Sprite
+    sprite: ADT/Interface/Actions/mime.rsi
+    layers:
+    - state: mime_silence
   - type: InstantAction
     event:
       !type:MimeSilenceActionEvent

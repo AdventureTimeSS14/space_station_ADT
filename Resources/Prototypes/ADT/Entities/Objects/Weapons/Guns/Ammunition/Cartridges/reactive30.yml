@@ -1,0 +1,101 @@
+- type: entity
+  abstract: true
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: ADTBaseCartridgeReactive30
+  name: cartridge (.30 reactive)
+  components:
+  - type: Tag
+    tags:
+    - ADTCartridgeReactive30
+  - type: CartridgeAmmo
+    proto: ADTBulletReactive30
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Casings/reactive30.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  parent: ADTBaseCartridgeReactive30
+  id: ADTCartridgeReactive30
+  name: cartridge (.30 reactive base)
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletReactive30
+
+- type: entity
+  parent: ADTBaseCartridgeReactive30
+  id: ADTCartridgeReactive30Blast
+  name: cartridge (.30 reactive blast)
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletReactive30Blast
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: tip
+      map: ["enum.AmmoVisualLayers.Tip"]
+      color: "#cd9d31"
+
+- type: entity
+  parent: ADTBaseCartridgeReactive30
+  id: ADTCartridgeReactive30Incendiary
+  name: cartridge (.30 reactive incendiary)
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletReactive30Incendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: tip
+      map: ["enum.AmmoVisualLayers.Tip"]
+      color: "#ff6e52"
+
+- type: entity
+  parent: ADTBaseCartridgeReactive30
+  id: ADTCartridgeReactive30Practice
+  name: cartridge (.30 reactive practice)
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletReactive30Practice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: tip
+      map: ["enum.AmmoVisualLayers.Tip"]
+      color: "#dbdbdb"
+
+- type: entity
+  parent: ADTBaseCartridgeReactive30
+  id: ADTCartridgeReactive30Shrapnel
+  name: cartridge (.30 reactive shrapnel)
+  components:
+  - type: CartridgeAmmo
+    proto: ADTPelletReactive30ShrapnelSpread
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: tip
+      map: ["enum.AmmoVisualLayers.Tip"]
+      color: "#9b171a"
+
+- type: entity
+  parent: ADTBaseCartridgeReactive30
+  id: ADTCartridgeReactive30Uranium
+  name: cartridge (.30 reactive uranium)
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletReactive30Uranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: tip
+      map: ["enum.AmmoVisualLayers.Tip"]
+      color: "#65fe08"

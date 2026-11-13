@@ -28,6 +28,17 @@
   - type: Strap
     position: Down
     rotation: 0 # sleep edit end
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   name: pizzeria chair
@@ -88,6 +99,17 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: rusty_chair
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   name: bar stool
@@ -395,7 +417,7 @@
 - type: entity
   name: barbell chair
   id: ADTBarbellChair
-  parent: [ADTChairBase, ADTBaseAttachableHolder]
+  parent: ADTChairBase
   description: A chair you can hang a barbell on.
   placement:
     mode: SnapgridCenter
@@ -409,20 +431,31 @@
       map: ["adt-aslot-barbell"]
       visible: false
   - type: BarbellBench
-    overlayPrototype: ADTBarbellBenchOverlay
+    overlayPrototype: ADTBarbellBenchOverlayVisual
     repSoundMaxDistance: 6
   - type: BarbellBenchVisuals
     attachedState: barbell_chair-overlay
     overlayBaseState: barbell_chair-overlay
     overlayRepFlickState: barbell-raises-overlay
   - type: Appearance
-  - type: AttachableHolder
+  - type: ItemSlots
     slots:
       adt-aslot-barbell:
-        locked: false
+        name: adt-aslot-barbell
         whitelist:
           tags:
           - ADTBarbellAttachment
+        insertSound:
+          path: /Audio/ADT/Furniture/barbell/sound_for_barbell_3.ogg
+          params:
+            maxDistance: 6
+        ejectSound:
+          path: /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
+          params:
+            maxDistance: 6
+  - type: ContainerContainer
+    containers:
+      adt-aslot-barbell: !type:ContainerSlot
   - type: Construction
     graph: ADTSeat
     node: adtbarbellchair

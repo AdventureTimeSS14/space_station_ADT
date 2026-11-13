@@ -1,23 +1,21 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared.ADT.Parallax; // ADT-Tweak
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes.Layers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Noise;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Parallax.Biomes;
 
-public abstract class SharedBiomeSystem : EntitySystem
+public abstract partial class SharedBiomeSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] protected readonly ITileDefinitionManager TileDefManager = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] protected ITileDefinitionManager TileDefManager = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     protected const byte ChunkSize = 8;
 
@@ -128,7 +126,7 @@ public abstract class SharedBiomeSystem : EntitySystem
             // Check if the tile is from meta layer, otherwise fall back to default layers.
             if (layer is BiomeMetaLayer meta)
             {
-                if (TryGetBiomeTile(indices, ProtoManager.Index<BiomeTemplatePrototype>(meta.Template).Layers, seed, grid, out tile))
+                if (TryGetBiomeTile(indices, ProtoMan.Index<BiomeTemplatePrototype>(meta.Template).Layers, seed, grid, out tile))
                 {
                     return true;
                 }
@@ -139,7 +137,7 @@ public abstract class SharedBiomeSystem : EntitySystem
             if (layer is not BiomeTileLayer tileLayer)
                 continue;
 
-            if (TryGetTile(indices, noiseCopy, tileLayer.Invert, tileLayer.Threshold, ProtoManager.Index(tileLayer.Tile), tileLayer.Variants, out tile))
+            if (TryGetTile(indices, noiseCopy, tileLayer.Invert, tileLayer.Threshold, ProtoMan.Index(tileLayer.Tile), tileLayer.Variants, out tile))
             {
                 return true;
             }
@@ -224,6 +222,16 @@ public abstract class SharedBiomeSystem : EntitySystem
             {
                 case BiomeDummyLayer:
                     continue;
+                // ADT-Tweak start
+                case ADTBiomeCaveLayer caveLayer:
+                    if (!caveLayer.AllowedTiles.Contains(tileId))
+                        continue;
+
+                    if (TryGetCaveEntity(indices, grid, out entity))
+                        return true;
+
+                    continue;
+                // ADT-Tweak end
                 case IBiomeWorldLayer worldLayer:
                     if (!worldLayer.AllowedTiles.Contains(tileId))
                         continue;
@@ -246,7 +254,7 @@ public abstract class SharedBiomeSystem : EntitySystem
 
             if (layer is BiomeMetaLayer meta)
             {
-                if (TryGetEntity(indices, ProtoManager.Index<BiomeTemplatePrototype>(meta.Template).Layers, tileRef, seed, grid, out entity))
+                if (TryGetEntity(indices, ProtoMan.Index<BiomeTemplatePrototype>(meta.Template).Layers, tileRef, seed, grid, out entity))
                 {
                     return true;
                 }
@@ -300,6 +308,17 @@ public abstract class SharedBiomeSystem : EntitySystem
             {
                 case BiomeDummyLayer:
                     continue;
+                // ADT-Tweak start
+                case ADTBiomeCaveLayer caveLayer:
+                    if (!caveLayer.AllowedTiles.Contains(tileId))
+                        continue;
+
+                    if (!TryGetCaveEntity(indices, grid, out _))
+                        continue;
+
+                    decals = null;
+                    return false;
+                // ADT-Tweak end
                 case IBiomeWorldLayer worldLayer:
                     if (!worldLayer.AllowedTiles.Contains(tileId))
                         continue;
@@ -321,7 +340,7 @@ public abstract class SharedBiomeSystem : EntitySystem
 
             if (layer is BiomeMetaLayer meta)
             {
-                if (TryGetDecals(indices, ProtoManager.Index<BiomeTemplatePrototype>(meta.Template).Layers, seed, grid, out decals))
+                if (TryGetDecals(indices, ProtoMan.Index<BiomeTemplatePrototype>(meta.Template).Layers, seed, grid, out decals))
                 {
                     return true;
                 }

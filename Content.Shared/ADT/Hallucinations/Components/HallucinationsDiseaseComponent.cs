@@ -48,8 +48,7 @@ public sealed partial class HallucinationsDiseaseComponent : Component
 
     public HallucinationsPrototype? Proto;
 
-    [ValidatePrototypeId<HallucinationsPrototype>]
-    public string? HallucinationsPreset;
+    public ProtoId<HallucinationsPrototype>? HallucinationsPreset;
 
     [DataField]
     public bool Epidemic = false;

@@ -5,7 +5,7 @@ namespace Content.Server.ADT.SpaceWhale;
 
 public sealed class TailedEntitySystem : SharedTailedEntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {

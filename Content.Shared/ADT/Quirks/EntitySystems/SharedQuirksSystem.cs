@@ -11,8 +11,8 @@ namespace Content.Shared.ADT.Traits;
 
 public abstract class SharedQuirksSystem : EntitySystem
 {
-    [Dependency] protected readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] protected IRobustRandom _random = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     public override void Initialize()
     {
@@ -34,9 +34,9 @@ public abstract class SharedQuirksSystem : EntitySystem
 
     private void OnSprinterComponentInit(EntityUid uid, SprinterComponent comp, ComponentInit args)
     {
-        if (!TryComp<MovementSpeedModifierComponent>(uid, out var move))
+        if (!HasComp<MovementSpeedModifierComponent>(uid))
             return;
-        _movementSpeed.RefreshMovementSpeedModifiers(uid, move);
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
     private void OnRefreshMovespeed(EntityUid uid, SprinterComponent component, RefreshMovementSpeedModifiersEvent args)
     {

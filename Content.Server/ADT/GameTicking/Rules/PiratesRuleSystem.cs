@@ -16,9 +16,9 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly PricingSystem _pricingSystem = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
+    [Dependency] private PricingSystem _pricingSystem = default!;
+    [Dependency] private MapLoaderSystem _map = default!;
 
 
     /// <inheritdoc/>
@@ -32,7 +32,7 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
     {
         base.Started(uid, component, gameRule, args);
 
-        var shuttleMap = _mapManager.CreateMap();
+        _mapManager.CreateMap(out var shuttleMap);
 
         var opts = new DeserializationOptions {
             StoreYamlUids = true,

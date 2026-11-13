@@ -2,7 +2,7 @@ using Content.Shared.ADT.Silicons.Borgs;
 using Robust.Server.GameObjects;
 using Content.Server.Actions;
 using Robust.Shared.Player;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Silicons.Borgs;
 using Content.Server.Station.Systems;
 using Content.Shared.Silicons.Borgs.Components;
@@ -14,13 +14,13 @@ namespace Content.Server.ADT.Silicons.Borgs;
 
 public sealed partial class BorgInfoSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly BorgSystem _borg = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private BorgSystem _borg = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -69,7 +69,7 @@ public sealed partial class BorgInfoSystem : EntitySystem
         UpdateAllPdaUisOnStation();
     }
 
-    private void OnAlertLevelChanged(AlertLevelChangedEvent args)
+    private void OnAlertLevelChanged(ref AlertLevelChangedEvent args)
     {
         UpdateAllPdaUisOnStation();
     }
@@ -150,10 +150,9 @@ public sealed partial class BorgInfoSystem : EntitySystem
     {
         var station = _station.GetOwningStation(uid);
         if (!TryComp(station, out AlertLevelComponent? alertComp) ||
-        alertComp.AlertLevels == null)
+            !ProtoMan.TryIndex(alertComp.CurrentAlertLevel, out var details))
             return;
-        component.StationAlertLevel = alertComp.CurrentLevel;
-        if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
-            component.StationAlertColor = details.Color;
+        component.StationAlertLevel = alertComp.CurrentAlertLevel;
+        component.StationAlertColor = details.Color;
     }
 }

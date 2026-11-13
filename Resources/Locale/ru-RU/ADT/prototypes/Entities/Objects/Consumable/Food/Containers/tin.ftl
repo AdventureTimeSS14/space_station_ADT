@@ -1,5 +1,5 @@
-ent-ADTFoodTinCondensedMilkTrash = сгущеное молоко (пусто)
+ent-ADTFoodTinCondensedMilkTrash = сгущённое молоко (пусто)
     .desc = Пустая консервная банка. Из неё можно получить немного металла.
 
-ent-ADTFoodTinCondensedMilk = сгущеное молоко
-    .desc = Стандартная банка сгущенки с удобным язычком.
+ent-ADTFoodTinCondensedMilk = сгущённое молоко
+    .desc = Стандартная банка сгущёнки с удобным язычком.

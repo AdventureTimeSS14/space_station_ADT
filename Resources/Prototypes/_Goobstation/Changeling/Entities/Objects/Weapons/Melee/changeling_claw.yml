@@ -27,18 +27,19 @@
   - type: Unremoveable
   - type: DisarmMalus
     malus: 0
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 30
+  # ADT-Tweak-Start
+  - type: Solution
+    id: melee
+    solution:
+      maxVol: 30
   - type: SolutionRegeneration
-    solution: melee
     generated:
       reagents:
       - ReagentId: Amatoxin
         Quantity: 5
       - ReagentId: MuteToxin
         Quantity: 10
+  # ADT-Tweak-End
   - type: MeleeChemicalInjector
     transferAmount: 2
     solution: melee

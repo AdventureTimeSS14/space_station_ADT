@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Thunderdome;
 using Content.Shared.Humanoid;
 using Content.Server.EUI;
@@ -45,34 +46,37 @@ using Content.Shared.ADT.Mobs;
 using Content.Shared.Power;
 using Content.Shared.Actions;
 using Content.Server.Access.Systems;
+using Content.Server.Antag.Components;
+using Content.Shared.Ghost.Components;
 
 namespace Content.Server.ADT.Thunderdome;
 
 public sealed partial class ThunderdomeRuleSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly Mind.TemporaryMindSystem _tempMind = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly ThunderdomeStatsSystem _stats = default!;
-    [Dependency] private readonly IdCardSystem _idCard = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IServerPreferencesManager _prefs = default!;
+    [Dependency] private EuiManager _euiManager = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private Mind.TemporaryMindSystem _tempMind = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private ThunderdomeStatsSystem _stats = default!;
+    [Dependency] private IdCardSystem _idCard = default!;
 
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
 
     private const string RulePrototype = "ThunderdomeRule";
+    private const string RandomLoadoutGear = "ThunderdomeRandom";
     private EntityUid? _ruleEntity;
     private bool _refillOnKill;
 
@@ -303,6 +307,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         var originalBody = mindComp.OwnedEntity != ghostEntity ? mindComp.OwnedEntity : null;
 
         var mob = _stationSpawning.SpawnPlayerMob(spawnCoords.Value, null, profile, null);
+        EnsureComp<AntagImmuneComponent>(mob);
         _stationSpawning.EquipStartingGear(mob, rule.Gear);
         SpawnLoadoutItems(mob, weaponIdx, rule);
 
@@ -473,6 +478,18 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         return false;
     }
 
+    private EntityUid? FindPlayerEntity(NetUserId user)
+    {
+        var query = EntityQueryEnumerator<ThunderdomePlayerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.OwnerUser == user && !TerminatingOrDeleted(uid))
+                return uid;
+        }
+
+        return null;
+    }
+
     private void GhostDomePlayer(
       Entity<ThunderdomePlayerComponent> ent,
       ThunderdomeRuleComponent rule,
@@ -490,7 +507,11 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
           || !TryComp<ThunderdomeRuleComponent>(ent.Comp.RuleEntity.Value, out var rule))
             return;
 
-        RegisterArenaDeath(ent, rule);
+        EntityUid? directKiller = null;
+        if (ent.Comp.LastAttacker is { } attackerUser)
+            directKiller = FindPlayerEntity(attackerUser);
+
+        RegisterArenaDeath(ent, rule, directKiller);
 
         rule.Players.Remove(GetNetEntity(ent));
         ClearOriginalBodyMarker(ent);
@@ -653,7 +674,20 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
             return;
 
         weaponIdx = Math.Clamp(weaponIdx, 0, rule.WeaponLoadouts.Count - 1);
-        _stationSpawning.EquipStartingGear(mob, rule.WeaponLoadouts[weaponIdx].Gear);
+        var gear = rule.WeaponLoadouts[weaponIdx].Gear;
+        if (gear == RandomLoadoutGear)
+        {
+            var others = new List<string>();
+            foreach (var loadout in rule.WeaponLoadouts)
+            {
+                if (loadout.Gear != RandomLoadoutGear)
+                    others.Add(loadout.Gear);
+            }
+            if (others.Count == 0)
+                return;
+            gear = _random.Pick(others);
+        }
+        _stationSpawning.EquipStartingGear(mob, gear);
     }
 
     private EntityCoordinates? GetRandomSpawnPoint(ThunderdomeRuleComponent rule)
@@ -751,19 +785,17 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
             foreach (var container in _container.GetAllContainers(current, containerManager))
             {
-                var inGun = container.ID is "gun_magazine" or "gun_chamber" or "revolver-ammo";
-
-                foreach (var contained in container.ContainedEntities)
+                foreach (var contained in container.ContainedEntities.ToArray())
                 {
                     toCheck.Enqueue(contained);
 
-                    if (!inGun && TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
+                    if (TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
                         RefillBallistic((contained, ballistic));
 
-                    if (!inGun && HasComp<BatteryAmmoProviderComponent>(contained))
+                    if (HasComp<BatteryAmmoProviderComponent>(contained))
                         RefillBattery(contained);
 
-                    if (!inGun && TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))
+                    if (TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))
                         RefillRevolver((contained, revolver));
                 }
             }

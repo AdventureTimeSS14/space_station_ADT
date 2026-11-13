@@ -52,7 +52,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                 Name = "Charlie Charlieson",
                 FlavorText = "The biggest boy around.",
                 Species = "Human",
-                Voice = "Eugene", // ADT-Tweak
+                TTSVoice = "Eugene", // ADT-Tweak
                 Age = 21,
                 Appearance = new(
                     Color.Azure,
@@ -72,7 +72,7 @@ namespace Content.IntegrationTests.Tests.Preferences
             var conn = new SqliteConnection("Data Source=:memory:");
             conn.Open();
             builder.UseSqlite(conn);
-            return new ServerDbSqlite(() => builder.Options, true, cfg, true, opsLog, serialization);
+            return new ServerDbSqlite(() => builder.Options, true, cfg, true, opsLog, serialization, false);
         }
 
         [Test]

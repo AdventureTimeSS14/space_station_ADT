@@ -6,9 +6,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
 
-public abstract partial class SharedStealthSystem : EntitySystem    // ADT partial
+public abstract partial class SharedStealthSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -99,7 +99,7 @@ public abstract partial class SharedStealthSystem : EntitySystem    // ADT parti
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
     {
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled, component.ExaminedDesc); // ADT tweaked
+        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled, component.ShimmerFrequency, component.ExaminedDesc); // ADT-Tweak
     }
 
     private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
@@ -110,7 +110,8 @@ public abstract partial class SharedStealthSystem : EntitySystem    // ADT parti
         SetEnabled(uid, cast.Enabled, component);
         component.LastVisibility = cast.Visibility;
         component.LastUpdated = cast.LastUpdated;
-        component.ExaminedDesc = cast.Desc; // ADT tweaked
+        component.ShimmerFrequency = cast.ShimmerFrequency;
+        component.ExaminedDesc = cast.Desc; // ADT-Tweak
     }
 
     private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEvent args)

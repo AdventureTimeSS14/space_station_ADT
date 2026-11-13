@@ -12,6 +12,7 @@
         ClothingUniformJumpskirtSecGrey: 3
         ClothingUniformJumpsuitSecBlue: 3
         # ADT-Tweak-Start
+        ADTClothingUniformJumpsuitDSS: 3
         ADTClothingUniformSecurityCadetLight: 2
         ADTClothingUniformJumpskirtSecurityCadetLight: 2
         # ADT-Tweak-End
@@ -34,11 +35,13 @@
         # ADT-Tweak-Start
         ADTClothingHeadHelmetSecCap: 2
         ADTClothingHeadHelmetSecUshanka: 2
+        ADTClothingMaskCoif: 4
         ClothingHeadHatCowboyBrown: 1
         ClothingHeadHatCowboyBlack: 1
         ClothingHeadHatCowboyWhite: 1
         # ADT-Tweak-End
     ADTVendingCategoryAccessories:  # ADT-Tweak
+        ADTClothingVoucherArmbands: 10
         ClothingMaskNeckGaiterRed: 3
         ClothingHandsGlovesColorBlack: 3
         ClothingHandsGlovesFingerless: 3
@@ -55,6 +58,14 @@
         ADTClothingKadet: 4
         ADTClothingOuterArmorVestHidden: 4
         # ADT-Tweak-End
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPcmd: 2
+        ADTBookSRPsec: 2
+        ADTBookPCDsec: 2
+        ADTBookPCDcmd: 2
+        ADTBookSpaceLaw: 3
+    # ADT tweak end wiki books
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ClothingMaskMimeSecurity: 1

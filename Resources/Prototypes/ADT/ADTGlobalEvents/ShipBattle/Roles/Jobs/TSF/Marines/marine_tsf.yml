@@ -18,7 +18,6 @@
   startingGear: ADTBattleShipMarineTSFGear
   icon: "JobIconMarineTSF"
   supervisors: job-supervisors-tsf-marine-leutenant
-  canBeAntag: false
   overrideConsoleVisibility: false
   access:
   - Security

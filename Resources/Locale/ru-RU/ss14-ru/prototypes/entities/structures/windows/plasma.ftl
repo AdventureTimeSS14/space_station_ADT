@@ -5,3 +5,6 @@ ent-PlasmaWindowDirectional = направленное плазменное ок
 ent-PlasmaWindowDiagonal = { ent-PlasmaWindow }
     .suffix = Диагональ
     .desc = { ent-PlasmaWindow.desc }
+ent-PlasmaWindowDirectionalCorner = { ent-PlasmaWindowDirectional }
+    .suffix = Угол
+    .desc = { ent-PlasmaWindowDirectional.desc }

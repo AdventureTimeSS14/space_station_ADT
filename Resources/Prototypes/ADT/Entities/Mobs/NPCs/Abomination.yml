@@ -53,7 +53,7 @@
         Base: dead
   - type: Puller
   - type: Temperature
-    currentTemperature: 310.15
+    temperature: 310.15
   - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150

@@ -216,13 +216,13 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi #Спрайты от prazat911
       state: skeleton_body
 
-- type: marking
-  id: arm1
-  bodyPart: RArm # ADT-Tweak: was [ RArm, LArm, RLeg, LLeg ], wizden schema is single-enum
-  groupWhitelist: [Tajaran]
-  sprites:
-    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi
-      state: points
+# - type: marking Не подходит спрайту
+#   id: arm1
+#   bodyPart: RArm # ADT-Tweak: was [ RArm, LArm, RLeg, LLeg ], wizden schema is single-enum
+#   groupWhitelist: [Tajaran]
+#   sprites:
+#     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi
+#       state: points
 
 #Части тел.
 
@@ -260,7 +260,7 @@
 
 - type: marking
   id: LLegGradient
-  bodyPart: RFoot
+  bodyPart: LLeg
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
@@ -268,11 +268,27 @@
 
 - type: marking
   id: RLegGradient
-  bodyPart: RFoot
+  bodyPart: RLeg
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
       state: gradient_RLeg
+
+- type: marking
+  id: LFootGradient
+  bodyPart: LFoot
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
+      state: gradient_LFoot
+
+- type: marking
+  id: RFootGradient
+  bodyPart: RFoot
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
+      state: gradient_RFoot
 
 #Хвосты.
 - type: marking
@@ -280,7 +296,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_3
@@ -290,7 +306,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_2
@@ -300,7 +316,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_1
@@ -310,7 +326,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: tail_tip
@@ -320,7 +336,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: tail_ring
@@ -330,7 +346,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от prazat911
       state: tail_skeleton
@@ -344,11 +360,51 @@
       state: tail_fluffy
 
 - type: marking
+  id: TailFluffyWingler1
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: wingler_1
+
+- type: marking
+  id: TailFluffyWingler2
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: wingler_2
+
+- type: marking
+  id: TailFluffyWingler3
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: wingler_3
+
+- type: marking
+  id: TailFluffySkeleton
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_skeleton
+
+- type: marking
   id: TailColor
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m
 
 #Хвосты Animated
@@ -357,7 +413,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m_wagging
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_3_wagging
@@ -367,7 +423,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m_wagging
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_2_wagging
@@ -377,7 +433,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m_wagging
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_1_wagging
@@ -387,7 +443,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m_wagging
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: tail_tip_wagging
@@ -397,7 +453,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m_wagging
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: tail_ring_wagging
@@ -407,7 +463,7 @@
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m_wagging
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от prazat911
       state: tail_skeleton_wagging
@@ -421,11 +477,51 @@
       state: tail_fluffy_wagging
 
 - type: marking
+  id: TailFluffyWingler1Animated
+  groupWhitelist: [Tajaran] # ADT-Tweak
+  bodyPart: Tail
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: wingler_1_wagging
+
+- type: marking
+  id: TailFluffyWingler2Animated
+  groupWhitelist: [Tajaran] # ADT-Tweak
+  bodyPart: Tail
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: wingler_2_wagging
+
+- type: marking
+  id: TailFluffyWingler3Animated
+  groupWhitelist: [Tajaran] # ADT-Tweak
+  bodyPart: Tail
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: wingler_3_wagging
+
+- type: marking
+  id: TailFluffySkeletonAnimated
+  groupWhitelist: [Tajaran] # ADT-Tweak
+  bodyPart: Tail
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_fluffy_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
+      state: tail_skeleton_wagging
+
+- type: marking
   id: TailColorAnimated
   bodyPart: Tail
   groupWhitelist: [Tajaran]
   sprites:
-    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi
       state: tail_m_wagging
 
 #Голова.
@@ -454,7 +550,6 @@
   id: Head7
   bodyPart: Head
   groupWhitelist: [Tajaran]
-  sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
       state: patch_SPONSOR_ONLY
@@ -475,15 +570,13 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
       state: tiger_head
 
-# ЗАКОМЕНТИРОВАНО - После принятия спрайтов корвакса эти глаза не подходят
-# - type: marking
-#   id: HeadEyesStripes
-#   bodyPart: Head
-#   markingCategory: Head
-#   speciesRestriction: [TajaranSpecies]
-#   sprites:
-#     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
-#       state: eye_stripes_head
+- type: marking
+  id: HeadEyesStripes
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: eye_stripes_head
 
 - type: marking
   id: HeadStar

@@ -13,9 +13,9 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public abstract class SharedVoidCloakSystem : EntitySystem
 {
-    [Dependency] private readonly ClothingSystem _clothing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private ClothingSystem _clothing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -25,15 +25,15 @@ public abstract class SharedVoidCloakSystem : EntitySystem
         SubscribeLocalEvent<VoidCloakHoodComponent, EntityTerminatingEvent>(OnTerminating);
 
         SubscribeLocalEvent<VoidCloakComponent, InventoryRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
-        SubscribeLocalEvent<VoidCloakComponent, InventoryRelayedEvent<ModifyChangedTemperatureEvent>>(OnTemperatureModify);
+        SubscribeLocalEvent<VoidCloakComponent, InventoryRelayedEvent<TemperatureChangeAttemptEvent>>(OnTemperatureModify);
     }
 
-    private void OnTemperatureModify(Entity<VoidCloakComponent> ent, ref InventoryRelayedEvent<ModifyChangedTemperatureEvent> args)
+    private void OnTemperatureModify(Entity<VoidCloakComponent> ent, ref InventoryRelayedEvent<TemperatureChangeAttemptEvent> args)
     {
         if (ent.Comp.Transparent || args.Args.TemperatureDelta > 0f)
             return;
 
-        args.Args.TemperatureDelta = 0f;
+        args.Args.Cancel();
     }
 
     private void OnCheckMagicItem(Entity<VoidCloakComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)

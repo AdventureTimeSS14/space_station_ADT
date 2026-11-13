@@ -47,6 +47,10 @@
     slots:
     - suitStorage
     - Belt
+  - type: Multishot
+    spreadMultiplier: 3
+    spreadAddition: 20
+    staminaDamage: 4.5
 
 - type: entity
   name: proto-kinetic repeater
@@ -216,7 +220,7 @@
     sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
     size: Small
   - type: BasicEntityAmmoProvider
-    proto: ADTBulletKineticPistol
+    proto: ADTBulletKineticAccelerator
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
     quickEquip: false

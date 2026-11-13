@@ -9,20 +9,23 @@
     state: hypo
   - type: Item
     sprite: Corvax/Objects/Specific/Medical/brigmedichypo.rsi
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 5
+  - type: Solution
+    id: hypospray
+    solution:
+      maxVol: 5
+      reagents: []
   - type: RefillableSolution
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
   - type: Injector
     ignoreBlockers: true
-    activeModeProtoId: HyposprayDynamicMode
+    # ADT-Tweak-Start
+    activeModeProtoId: ADTHyposprayDynamicMode
     allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+    - ADTHyposprayDynamicMode
+    - ADTHyposprayInjectMode
+    # ADT-Tweak-End
   - type: UseDelay
     delay: 2.5
   - type: StaticPrice

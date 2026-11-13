@@ -10,7 +10,7 @@ namespace Content.Server.Speech.EntitySystems
     {
         private static readonly Regex RegexLoneI = new(@"(?<=\ )i(?=[\ \.\?]|$)");
 
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private IRobustRandom _random = default!;
 
         public override void Initialize()
         {
@@ -24,7 +24,7 @@ namespace Content.Server.Speech.EntitySystems
             return Loc.GetString("...");
         }
 
-        private void OnAccent(EntityUid uid, GondolaSpeakingComponent component, AccentGetEvent args)
+        private void OnAccent(EntityUid uid, GondolaSpeakingComponent component, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message);
         }

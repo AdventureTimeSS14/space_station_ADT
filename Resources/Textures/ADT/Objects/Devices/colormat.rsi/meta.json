@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from BlueMoon-Station at https://github.com/BlueMoon-Labs/BlueMoon-Station/blob/2bbdc7f8771647e1a6db4ddae432f4fa377ca260/icons/obj/vending.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "panel"
+        },
+        {
+            "name": "colormate"
+        }
+    ]
+}

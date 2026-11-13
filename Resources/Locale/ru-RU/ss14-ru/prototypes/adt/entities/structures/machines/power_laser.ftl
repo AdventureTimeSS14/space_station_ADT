@@ -1,0 +1,1 @@
+ent-ADTPTL = { ent-BasicHitscan }

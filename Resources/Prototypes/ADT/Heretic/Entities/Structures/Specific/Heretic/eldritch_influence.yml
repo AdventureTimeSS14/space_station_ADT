@@ -18,12 +18,8 @@
   id: EldritchInfluenceIntermediate
   categories: [ HideSpawnMenu ]
   components:
-  # ADT: after collection the rift disappears for a while, then reappears as a
-  # reality fracture visible to everyone (previously spawned instantly)
   - type: TimedDespawn
-    lifetime: 120
-  - type: SpawnOnDespawn
-    prototype: EldritchInfluenceSpent
+    lifetime: 1
 
 - type: entity
   # ADT: inherit from the rift, else EldritchInfluence is missing

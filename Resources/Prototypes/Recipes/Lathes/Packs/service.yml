@@ -58,6 +58,7 @@
   - MegaSprayBottle
   - ADTBluespaceTrashCan # ADT tweak
   - ADTAdvancedWateringCan #ADT-Tweak
+  # - TrashBagHolding # ADT-Tweak
 
 - type: latheRecipePack
   id: Instruments
@@ -79,6 +80,7 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
+  - ADTColormatMachineCircuitboard # ADT-Tweak
   # ADT-Tweak-Start
   # - ADTAdvancedMicrowaveMachineCircuitBoard
   - ADTCoffeeMachineBluespaceCircuitboard

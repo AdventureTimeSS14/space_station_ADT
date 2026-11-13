@@ -8,51 +8,71 @@
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#828282"
-  - type: Reactive
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Water
-        addReagent: Epinephrine
-        removeAmount: 1
-        addAmount: 1
-    - reagents: [ Plasma ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:Jitter
-        time: 3
-        frequency: 20
-      - !type:CreateEntityReactionEffect
-        delay: 3
-        entity: MobSlimeXenobioBabyGrey
-        number: 3
-    - reagents: [ Blood ]
-      methods: [ Touch, Injection ]
-      effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: MonkeyCube
-        number: 3
+  - type: SlimeExtract
+    extractReactions:
+    - GreySlimeExtractWaterReaction
+    - GreySlimeExtractPlasmaReaction
+    - GreySlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyGreyExtract
+
+- type: extractReaction
+  id: GreySlimeExtractWaterReaction
+  requirements:
+    Water: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:AddReagentToSolution
+      reagent: Epinephrine
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
+  shouldDelete: false
+
+- type: extractReaction
+  id: GreySlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-evil" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:Jitter
+      time: 3
+      frequency: 20
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: MobSlimeXenobioBabyGrey
+      number: 3
+      delay: 3
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: GreySlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: MonkeyCube
+      number: 3
+    scalingOffset: 1
+  shouldDelete: false

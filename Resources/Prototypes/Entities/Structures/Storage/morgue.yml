@@ -34,7 +34,7 @@
         mask:
         - MachineMask
         layer:
-        - HalfWallLayer
+        - MachineLayer
   - type: EntityStorage
     isCollidableWhenOpen: true
     showContents: false
@@ -161,3 +161,4 @@
           False: { visible: false }
   - type: Transform
     anchored: true
+  - type: RequireProjectileTarget

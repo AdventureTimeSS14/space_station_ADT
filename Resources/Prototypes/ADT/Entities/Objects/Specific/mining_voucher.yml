@@ -24,6 +24,7 @@
     - MiningExtraction
     - MiningResonator
     - MiningSurvival
+    - MiningPKAUpgrades
     #- MiningDrone
 
 - type: entity

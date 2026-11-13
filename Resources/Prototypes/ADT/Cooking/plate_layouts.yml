@@ -1,0 +1,31 @@
+- type: adtPlateLayout
+  id: ADTPlateLarge
+  shadowColor: "#00000040"
+  shadowOffset: 0.015625, -0.03125
+  maxHeight: 22
+  arrangements:
+  - - offset: 0, -0.29688
+      width: 24
+  - - offset: 0, -0.18750
+      width: 24
+    - offset: 0, -0.32812
+      width: 18
+  - - offset: 0, -0.14062
+      width: 22
+    - offset: 0, -0.23438
+      width: 24
+    - offset: 0, -0.32812
+      width: 16
+
+- type: adtPlateLayout
+  id: ADTPlateSmall
+  shadowColor: "#00000040"
+  shadowOffset: 0.015625, -0.03125
+  maxHeight: 17
+  arrangements:
+  - - offset: 0.01562, -0.20312
+      width: 19
+  - - offset: 0.01562, -0.10938
+      width: 18
+    - offset: 0.01562, -0.21875
+      width: 14

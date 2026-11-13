@@ -60,6 +60,22 @@
   - Oven
 
 - type: microwaveMealRecipe
+  id: ADTFoodSoupAnimalEyeball
+  name: animal eyeball soup recipe
+  result: ADTFoodSoupAnimalEyeball
+  time: 10
+  group: Soup
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    ADTOrganAnimalEyes: 1
+    FoodCarrot: 1
+    FoodPotato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
   id: ADTFoodRelaxPillRecipe
   name: relax pill
   result: ADTPillRelax
@@ -735,6 +751,19 @@
     MaterialCloth1: 1
   recipeType:
   - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnackHematogenBarRecipe
+  name: hematogen bar
+  result: ADTFoodSnackHematogenBar
+  time: 5
+  group: Dessert
+  reagents:
+    Sugar: 5
+    ADTCondensedMilk: 5
+    Blood: 5
+  recipeType:
+  - Oven
 
 # Kebabs
 - type: microwaveMealRecipe

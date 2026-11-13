@@ -1,0 +1,128 @@
+- type: entity
+  id: ADTMobMarrowWeaver
+  parent: [ BaseMobAsteroid, MobBloodstream, BaseSlicingRefinable, BaseMobDestructible ]
+  name: marrow weaver
+  description: A big, angry, venomous spider. It likes to snack on bone marrow. Its favorite food source is you.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/marrow_weaver.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: weaver
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: weaver
+      Dead:
+        Base: weaver_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 130
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.625
+    baseSprintSpeed: 0.625
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      220: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    attackRate: 1
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 13
+  - type: ADTMarrowWeaver
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: ADTMarrowWeaverCompound
+    blackboard:
+      VisionRadius: !type:Single
+        8
+      AggroVisionRadius: !type:Single
+        8
+  - type: VentCrawler
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: ToolRefinable
+    refineResult:
+    - id: UraniumOre1
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+    - id: ADTMaterialSinew1
+    - id: ADTMaterialWeaverChitin1
+      amount: 3
+    - id: FoodMeatSpiderLeg
+      amount: 2
+  - type: Fauna
+  - type: AshStormImmune
+  - type: ADTLavaImmune
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyPoisonFang: 0.1
+
+- type: entity
+  id: ADTMobMarrowWeaverDangerous
+  parent: ADTMobMarrowWeaver
+  suffix: Dangerous
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.714
+    baseSprintSpeed: 0.714
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      320: Dead
+  - type: ADTMarrowWeaver
+    angrySpeedMultiplier: 2.33
+
+- type: entity
+  id: ADTMobMarrowWeaverFrost
+  parent: ADTMobMarrowWeaver
+  name: frostbite weaver
+  description: A big, angry, venomous ice spider. It likes to snack on bone marrow. Its favorite food source is you.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/marrow_weaver.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: weaver_ice
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: weaver_ice
+      Dead:
+        Base: weaver_ice_dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    attackRate: 1
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
+  - type: ADTMarrowWeaver
+    calmMinDamage: 10
+    calmMaxDamage: 13
+    calmPoison: ADTWeaverFrostOil
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyFrostGland: 0.1

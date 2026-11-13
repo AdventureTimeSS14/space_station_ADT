@@ -1,0 +1,99 @@
+- type: osApp
+  id: OsAppMyComputer
+  name: os-app-my-computer
+  description: os-app-my-computer-desc
+  icon: Computer
+  category: System
+  window: MyComputerApp
+  minSize: 420,300
+  defaultSize: 560,380
+  onDesktop: true
+  priority: 100
+
+- type: osApp
+  id: OsAppExplorer
+  name: os-app-explorer
+  description: os-app-explorer-desc
+  icon: Folder
+  category: System
+  window: ExplorerApp
+  minSize: 480,300
+  defaultSize: 720,460
+  onDesktop: true
+  priority: 90
+
+- type: osApp
+  id: OsAppTerminal
+  name: os-app-terminal
+  description: os-app-terminal-desc
+  icon: Terminal
+  category: System
+  window: TerminalApp
+  minSize: 440,260
+  defaultSize: 680,420
+  onDesktop: true
+  priority: 80
+
+- type: osApp
+  id: OsAppCircuit
+  name: os-app-circuit
+  description: os-app-circuit-desc
+  icon: Circuit
+  category: System
+  window: LogicCircuitApp
+  minSize: 720,460
+  defaultSize: 960,600
+  onDesktop: true
+  priority: 70
+  requiresComponent: ADTLogicCircuit
+  handles:
+  - .lgc
+
+- type: osApp
+  id: OsAppNotepad
+  name: os-app-notepad
+  description: os-app-notepad-desc
+  icon: Notepad
+  category: Tools
+  window: NotepadApp
+  minSize: 360,240
+  defaultSize: 560,420
+  singleInstance: false
+  priority: 60
+  handles:
+  - .txt
+  - .log
+
+- type: osApp
+  id: OsAppControlPanel
+  name: os-app-control-panel
+  description: os-app-control-panel-desc
+  icon: Settings
+  category: Service
+  window: ControlPanelApp
+  minSize: 420,300
+  defaultSize: 600,420
+  priority: 50
+
+- type: osApp
+  id: OsAppTaskManager
+  name: os-app-task-manager
+  description: os-app-task-manager-desc
+  icon: Tasks
+  category: Service
+  window: TaskManagerApp
+  minSize: 380,260
+  defaultSize: 520,380
+  priority: 40
+
+- type: osApp
+  id: OsAppDevices
+  name: os-app-devices
+  description: os-app-devices-desc
+  icon: Devices
+  category: Service
+  window: DeviceMonitorApp
+  minSize: 420,280
+  defaultSize: 620,420
+  priority: 30
+  requiresComponent: ADTLogicCircuit

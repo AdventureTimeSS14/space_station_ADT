@@ -1,0 +1,882 @@
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: ADTBaseBasalt
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    noRot: true
+  - type: Wall
+  - type: IsRoof
+  - type: Occluder
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: PlacementReplacement
+    key: walls
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: RadiationBlocker
+    resistance: 2
+  - type: BlockWeather
+  - type: SunShadowCast
+  - type: SoundOnGather
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+  - type: MiningScannerViewable
+  - type: ADTMineral
+    mineTime: 4
+    explosionBonus: 2
+    heavyIntensity: 4
+    devastationIntensity: 8
+  - type: IconSmooth
+    key: ADTBasalt
+    base: rock
+    mode: Bitmask
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTMineralVisuals.Cracks:
+        enum.ADTMineralVisuals.Cracks:
+          None: { visible: false }
+          One: { visible: true, state: cracks_1 }
+          Two: { visible: true, state: cracks_2 }
+
+- type: entity
+  parent: ADTBaseBasalt
+  id: ADTBasalt
+  name: basalt
+  description: A dense volcanic rock.
+  suffix: Lavaland
+  components:
+  - type: ADTMineral
+    hardness: 1
+    maxHardness: 1
+  - type: Icon
+    sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+    state: full
+  - type: Sprite
+    sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+    drawdepth: Walls
+    layers:
+    - state: rock0
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: cracks_1
+      map: [ "enum.ADTMineralVisuals.Cracks" ]
+      visible: false
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltIron
+  suffix: Lavaland, Iron
+  components:
+  - type: ADTMineralOre
+    ore: OreSteel
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: iron
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltUranium
+  suffix: Lavaland, Uranium
+  components:
+  - type: ADTMineralOre
+    ore: OreUranium
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: uranium
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltDiamond
+  suffix: Lavaland, Diamond
+  components:
+  - type: ADTMineralOre
+    ore: OreDiamond
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: diamond
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltGold
+  suffix: Lavaland, Gold
+  components:
+  - type: ADTMineralOre
+    ore: OreGold
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gold
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltSilver
+  suffix: Lavaland, Silver
+  components:
+  - type: ADTMineralOre
+    ore: OreSilver
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: silver
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltPlasma
+  suffix: Lavaland, Plasma
+  components:
+  - type: ADTMineralOre
+    ore: OrePlasma
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: plasma
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltBluespace
+  suffix: Lavaland, Bluespace
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreBS
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: bscrystal
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltMagmite
+  suffix: Lavaland, Magmite
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreMagmite
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: magmite
+    noExplosionBonus: true
+    fixedAmount: 1
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltBananium
+  suffix: Lavaland, Bananium
+  components:
+  - type: ADTMineralOre
+    ore: OreBananium
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: clown
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltCoal
+  suffix: Lavaland, Coal
+  components:
+  - type: ADTMineralOre
+    ore: OreCoal
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: coal
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltCopper
+  suffix: Lavaland, Copper
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreCopper
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_copper
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltZinc
+  suffix: Lavaland, Zinc
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreZinc
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_zinc
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltLead
+  suffix: Lavaland, Lead
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreLead
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_lead
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltQuartz
+  suffix: Lavaland, Quartz
+  components:
+  - type: ADTMineralOre
+    ore: OreSpaceQuartz
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_quartz
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltArtifactFragment
+  suffix: Lavaland, ArtifactFragment
+  components:
+  - type: ADTMineralOre
+    ore: OreArtifactFragment
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_artifact_fragment
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltSandstone
+  suffix: Lavaland, Sandstone
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_bauxite
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTBasaltRockLootTable
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltGem
+  suffix: Lavaland, Gem
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gem
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTGemVeinLootTable
+
+- type: entity
+  parent: ADTBasalt
+  id: ADTBasaltGibtonite
+  suffix: Lavaland, Gibtonite
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gibtonite
+  - type: ADTGibtoniteDeposit
+    minDetTime: 8
+    maxDetTime: 10
+    struckExplosion:
+      devastation: 1
+      heavy: 2
+      light: 5
+    timerExplosion:
+      devastation: 1
+      heavy: 3
+      light: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTMineralVisuals.Cracks:
+        enum.ADTMineralVisuals.Cracks:
+          None: { visible: false }
+          One: { visible: true, state: cracks_1 }
+          Two: { visible: true, state: cracks_2 }
+      enum.ADTGibtoniteVisuals.Stage:
+        enum.ADTGibtoniteVisuals.Stage:
+          Unstruck: { visible: false }
+          Active: { visible: true, state: gibtonite_active, shader: unshaded }
+          Stable: { visible: true, state: gibtonite_inactive }
+          Detonated: { visible: false }
+  - type: Icon
+    sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+    state: full
+  - type: Sprite
+    sprite: ADT/Structures/Walls/Lavaland/basalt.rsi
+    drawdepth: Walls
+    layers:
+    - state: rock0
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: cracks_1
+      map: [ "enum.ADTMineralVisuals.Cracks" ]
+      visible: false
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: gibtonite_active
+      map: [ "enum.ADTGibtoniteVisuals.Stage" ]
+      visible: false
+
+- type: entity
+  parent: ADTBaseBasalt
+  id: ADTBasaltHardened
+  name: hardened basalt
+  description: A dense volcanic rock.
+  suffix: Lavaland
+  components:
+  - type: ADTMineral
+    hardness: 2
+    maxHardness: 2
+  - type: Icon
+    sprite: ADT/Structures/Walls/Lavaland/basalt_hardened.rsi
+    state: full
+  - type: Sprite
+    sprite: ADT/Structures/Walls/Lavaland/basalt_hardened.rsi
+    drawdepth: Walls
+    layers:
+    - state: rock0
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: cracks_1
+      map: [ "enum.ADTMineralVisuals.Cracks" ]
+      visible: false
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedIron
+  suffix: Lavaland, Iron
+  components:
+  - type: ADTMineralOre
+    ore: OreSteel
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: iron
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedUranium
+  suffix: Lavaland, Uranium
+  components:
+  - type: ADTMineralOre
+    ore: OreUranium
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: uranium
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedDiamond
+  suffix: Lavaland, Diamond
+  components:
+  - type: ADTMineralOre
+    ore: OreDiamond
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: diamond
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedGold
+  suffix: Lavaland, Gold
+  components:
+  - type: ADTMineralOre
+    ore: OreGold
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gold
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedSilver
+  suffix: Lavaland, Silver
+  components:
+  - type: ADTMineralOre
+    ore: OreSilver
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: silver
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedPlasma
+  suffix: Lavaland, Plasma
+  components:
+  - type: ADTMineralOre
+    ore: OrePlasma
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: plasma
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedBluespace
+  suffix: Lavaland, Bluespace
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreBS
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: bscrystal
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedMagmite
+  suffix: Lavaland, Magmite
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreMagmite
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: magmite
+    noExplosionBonus: true
+    fixedAmount: 1
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedBananium
+  suffix: Lavaland, Bananium
+  components:
+  - type: ADTMineralOre
+    ore: OreBananium
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: clown
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedCoal
+  suffix: Lavaland, Coal
+  components:
+  - type: ADTMineralOre
+    ore: OreCoal
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: coal
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedCopper
+  suffix: Lavaland, Copper
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreCopper
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_copper
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedZinc
+  suffix: Lavaland, Zinc
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreZinc
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_zinc
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedLead
+  suffix: Lavaland, Lead
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreLead
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_lead
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedQuartz
+  suffix: Lavaland, Quartz
+  components:
+  - type: ADTMineralOre
+    ore: OreSpaceQuartz
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_quartz
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedArtifactFragment
+  suffix: Lavaland, ArtifactFragment
+  components:
+  - type: ADTMineralOre
+    ore: OreArtifactFragment
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_artifact_fragment
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedSandstone
+  suffix: Lavaland, Sandstone
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_bauxite
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTBasaltRockLootTable
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedGem
+  suffix: Lavaland, Gem
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gem
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTGemVeinLootTable
+
+- type: entity
+  parent: ADTBasaltHardened
+  id: ADTBasaltHardenedGibtonite
+  suffix: Lavaland, Gibtonite
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gibtonite
+  - type: ADTGibtoniteDeposit
+    minDetTime: 8
+    maxDetTime: 10
+    struckExplosion:
+      devastation: 1
+      heavy: 2
+      light: 5
+    timerExplosion:
+      devastation: 1
+      heavy: 3
+      light: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTMineralVisuals.Cracks:
+        enum.ADTMineralVisuals.Cracks:
+          None: { visible: false }
+          One: { visible: true, state: cracks_1 }
+          Two: { visible: true, state: cracks_2 }
+      enum.ADTGibtoniteVisuals.Stage:
+        enum.ADTGibtoniteVisuals.Stage:
+          Unstruck: { visible: false }
+          Active: { visible: true, state: gibtonite_active, shader: unshaded }
+          Stable: { visible: true, state: gibtonite_inactive }
+          Detonated: { visible: false }
+  - type: Icon
+    sprite: ADT/Structures/Walls/Lavaland/basalt_hardened.rsi
+    state: full
+  - type: Sprite
+    sprite: ADT/Structures/Walls/Lavaland/basalt_hardened.rsi
+    drawdepth: Walls
+    layers:
+    - state: rock0
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: cracks_1
+      map: [ "enum.ADTMineralVisuals.Cracks" ]
+      visible: false
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: gibtonite_active
+      map: [ "enum.ADTGibtoniteVisuals.Stage" ]
+      visible: false
+
+- type: entity
+  parent: ADTBaseBasalt
+  id: ADTBasaltVolcanic
+  name: hardened volcanic basalt
+  description: A dense volcanic rock.
+  suffix: Lavaland
+  components:
+  - type: ADTMineral
+    hardness: 3
+    maxHardness: 3
+  - type: Icon
+    sprite: ADT/Structures/Walls/Lavaland/basalt_volcanic.rsi
+    state: full
+  - type: Sprite
+    sprite: ADT/Structures/Walls/Lavaland/basalt_volcanic.rsi
+    drawdepth: Walls
+    layers:
+    - state: rock0
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: cracks_1
+      map: [ "enum.ADTMineralVisuals.Cracks" ]
+      visible: false
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicIron
+  suffix: Lavaland, Iron
+  components:
+  - type: ADTMineralOre
+    ore: OreSteel
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: iron
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicUranium
+  suffix: Lavaland, Uranium
+  components:
+  - type: ADTMineralOre
+    ore: OreUranium
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: uranium
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicDiamond
+  suffix: Lavaland, Diamond
+  components:
+  - type: ADTMineralOre
+    ore: OreDiamond
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: diamond
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicGold
+  suffix: Lavaland, Gold
+  components:
+  - type: ADTMineralOre
+    ore: OreGold
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gold
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicSilver
+  suffix: Lavaland, Silver
+  components:
+  - type: ADTMineralOre
+    ore: OreSilver
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: silver
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicPlasma
+  suffix: Lavaland, Plasma
+  components:
+  - type: ADTMineralOre
+    ore: OrePlasma
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: plasma
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicBluespace
+  suffix: Lavaland, Bluespace
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreBS
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: bscrystal
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicMagmite
+  suffix: Lavaland, Magmite
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreMagmite
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: magmite
+    noExplosionBonus: true
+    fixedAmount: 1
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicBananium
+  suffix: Lavaland, Bananium
+  components:
+  - type: ADTMineralOre
+    ore: OreBananium
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: clown
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicCoal
+  suffix: Lavaland, Coal
+  components:
+  - type: ADTMineralOre
+    ore: OreCoal
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: coal
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicCopper
+  suffix: Lavaland, Copper
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreCopper
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_copper
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicZinc
+  suffix: Lavaland, Zinc
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreZinc
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_zinc
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicLead
+  suffix: Lavaland, Lead
+  components:
+  - type: ADTMineralOre
+    ore: ADTOreLead
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/rock.rsi
+      state: rock_lead
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicQuartz
+  suffix: Lavaland, Quartz
+  components:
+  - type: ADTMineralOre
+    ore: OreSpaceQuartz
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_quartz
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicArtifactFragment
+  suffix: Lavaland, ArtifactFragment
+  components:
+  - type: ADTMineralOre
+    ore: OreArtifactFragment
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_artifact_fragment
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicSandstone
+  suffix: Lavaland, Sandstone
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/Structures/Walls/rock.rsi
+      state: rock_bauxite
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTBasaltRockLootTable
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicGem
+  suffix: Lavaland, Gem
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gem
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTGemVeinLootTable
+
+- type: entity
+  parent: ADTBasaltVolcanic
+  id: ADTBasaltVolcanicGibtonite
+  suffix: Lavaland, Gibtonite
+  components:
+  - type: ADTMineralOre
+    scanOverlay:
+      sprite: /Textures/ADT/Structures/Walls/Lavaland/ore_overlays.rsi
+      state: gibtonite
+  - type: ADTGibtoniteDeposit
+    minDetTime: 8
+    maxDetTime: 10
+    struckExplosion:
+      devastation: 1
+      heavy: 2
+      light: 5
+    timerExplosion:
+      devastation: 1
+      heavy: 3
+      light: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTMineralVisuals.Cracks:
+        enum.ADTMineralVisuals.Cracks:
+          None: { visible: false }
+          One: { visible: true, state: cracks_1 }
+          Two: { visible: true, state: cracks_2 }
+      enum.ADTGibtoniteVisuals.Stage:
+        enum.ADTGibtoniteVisuals.Stage:
+          Unstruck: { visible: false }
+          Active: { visible: true, state: gibtonite_active, shader: unshaded }
+          Stable: { visible: true, state: gibtonite_inactive }
+          Detonated: { visible: false }
+  - type: Icon
+    sprite: ADT/Structures/Walls/Lavaland/basalt_volcanic.rsi
+    state: full
+  - type: Sprite
+    sprite: ADT/Structures/Walls/Lavaland/basalt_volcanic.rsi
+    drawdepth: Walls
+    layers:
+    - state: rock0
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: cracks_1
+      map: [ "enum.ADTMineralVisuals.Cracks" ]
+      visible: false
+    - sprite: ADT/Structures/Walls/Lavaland/mineral_overlays.rsi
+      state: gibtonite_active
+      map: [ "enum.ADTGibtoniteVisuals.Stage" ]
+      visible: false

@@ -21,11 +21,9 @@
       - Resomi
       - Vox
       - Shadekin
-  weight: 15
   startingGear: ADTBlueShieldOfficerGear
   icon: "JobIconADTBlueShieldOfficer"
   supervisors: job-supervisors-CCC
-  canBeAntag: false
   access:
     - Captain
     - Command
@@ -43,6 +41,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTTenCodeKnowledge
 
 - type: startingGear
   id: ADTBlueShieldOfficerGear

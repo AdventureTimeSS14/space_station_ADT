@@ -3,7 +3,7 @@ using Content.Server.Examine;
 namespace Content.Server.ADT.Chat;
 public sealed class ChatVisibilityCheckSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystem _examineSystem = default!;
+    [Dependency] private ExamineSystem _examineSystem = default!;
 
     public override void Initialize()
     {

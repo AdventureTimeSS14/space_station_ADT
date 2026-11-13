@@ -1,0 +1,1 @@
+ent-ADTMobObserverBlob = наблюдатель блоба

@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Server.Disposal.Unit;
 using Content.Shared.ADT.LightDetection;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.Eye;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;

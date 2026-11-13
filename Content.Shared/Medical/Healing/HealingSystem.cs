@@ -1,4 +1,5 @@
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Medical;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
@@ -19,18 +20,19 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Medical.Healing;
 
-public sealed class HealingSystem : EntitySystem
+public sealed partial class HealingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedStackSystem _stacks = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedStackSystem _stacks = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private ADTHealingVisualsSystem _healVisuals = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -45,18 +47,34 @@ public sealed class HealingSystem : EntitySystem
     {
 
         if (args.Handled || args.Cancelled)
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (!TryComp(args.Used, out HealingComponent? healing))
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (!TryComp<InjurableComponent>(target, out var injurable))
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (healing.DamageContainers is not null &&
             injurable.DamageContainer is not null &&
             !healing.DamageContainers.Contains(injurable.DamageContainer.Value))
         {
+            _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
             return;
         }
 
@@ -72,7 +90,7 @@ public sealed class HealingSystem : EntitySystem
                 var popup = (args.User == target.Owner)
                     ? Loc.GetString("medical-item-stop-bleeding-self")
                     : Loc.GetString("medical-item-stop-bleeding", ("target", Identity.Entity(target.Owner, EntityManager)));
-                _popupSystem.PopupClient(popup, target, args.User);
+                _popupSystem.PopupEntity(popup, target, args.User);
             }
         }
 
@@ -81,7 +99,12 @@ public sealed class HealingSystem : EntitySystem
             _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
 
         if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
+        // ADT-Tweak start
+        {
+            _healVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         var total = healed.GetTotal();
 
@@ -118,7 +141,9 @@ public sealed class HealingSystem : EntitySystem
 
         if (!args.Repeat)
         {
-            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
+            _healVisuals.StopHealEffect(target.Owner); // ADT-Tweak
+
+            _popupSystem.PopupEntity(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
             return;
         }
 
@@ -200,7 +225,7 @@ public sealed class HealingSystem : EntitySystem
 
         if (!HasDamage(healing, target!))
         {
-            _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
+            _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
         }
 
@@ -228,8 +253,15 @@ public sealed class HealingSystem : EntitySystem
                 BreakOnWeightlessMove = false,
             };
 
-        _doAfter.TryStartDoAfter(doAfterEventArgs);
-        return true;
+        // ADT-Tweak start
+        if (_doAfter.TryStartDoAfter(doAfterEventArgs))
+        {
+            _healVisuals.TryStartHealEffect(target.Owner, healing.Comp.HealEffect);
+            return true;
+        }
+
+        return false;
+        // ADT-Tweak end
     }
 
     /// <summary>
@@ -243,8 +275,11 @@ public sealed class HealingSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
             return mod;
 
-        if (!_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var amount, ent.Comp2))
+        // ADT-Tweak-start
+        if (!_mobThresholdSystem.TryGetThresholdForState(ent, MobState.SoftCritical, out var amount, ent.Comp2)
+            && !_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out amount, ent.Comp2))
             return 1;
+        // ADT-Tweak-end
 
         var percentDamage = (float)(_damageable.GetTotalDamage(ent) / amount);
         //basically make it scale from 1 to the multiplier.

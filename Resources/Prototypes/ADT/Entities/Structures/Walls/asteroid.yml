@@ -508,6 +508,14 @@
       - state: gibtonite_inactive
         visible: false
         map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+  - type: Destructible
+    thresholdsOverride:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: ADTAsteroidRockGibtonit
@@ -530,6 +538,19 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+    - type: Destructible
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 120
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/break_stone.ogg
+            params:
+              volume: -6
 
 - type: entity
   id: ADTMeteorRockGibtonit
@@ -552,6 +573,19 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+    - type: Destructible
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 12
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/break_stone.ogg
+            params:
+              volume: -6
 
 - type: entity
   id: ADTWallRockBasaltGibtonit
@@ -574,6 +608,14 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+    - type: Destructible
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
   id: ADTWallRockSnowGibtonit
@@ -596,6 +638,14 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+    - type: Destructible
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
   id: ADTWallRockSandGibtonit
@@ -618,6 +668,14 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+    - type: Destructible
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
   id: ADTWallRockChromiteGibtonit
@@ -640,6 +698,14 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+    - type: Destructible
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
   id: ADTWallRockAndesiteGibtonit
@@ -662,3 +728,65 @@
         - state: gibtonite_inactive
           visible: false
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+    - type: Destructible
+      thresholdsOverride:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTWallRockBasaltSandstone
+  parent: WallRockBasalt
+  description: A basalt vein interspersed with sandstone.
+  suffix: Sandstone
+  components:
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTBasaltRockLootTable
+  - type: Sprite
+    layers:
+    - state: rock_bauxite
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west
+
+- type: entity
+  id: ADTWallRockBasaltGem
+  parent: WallRockBasalt
+  description: A basalt vein studded with gems.
+  suffix: Gem
+  components:
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+      - Pickaxe
+    loot:
+      All: !type:NestedSelector
+        tableId: ADTGemVeinLootTable
+  - type: Sprite
+    layers:
+    - state: rock_painite
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west

@@ -5,6 +5,8 @@ uplink-syndimech-mech-mauler-name = Маулер
 uplink-syndimech-mech-mauler-desc = Тяжёлый бронированный экзоскелет, обладающий 5-ю слотами.
 uplink-ertmech-mech-marauder-name = Мародёр
 uplink-ertmech-mech-marauder-desc = Тяжёлый бронированный экзоскелет, обладающий 5-ю слотами.
+uplink-syndimech-mech-paddy-name = Падди АВП
+uplink-syndimech-mech-paddy-desc = Базовая версия Падди Службы Безопасности, доступная в аплинке.
 # Weapon
 uplink-syndimech-weapon-immolator-name = Мех-лазер CH-PS "Испепелитель"
 uplink-syndimech-weapon-immolator-desc = Легкая и скорострельная лазерная пушка для установки на мех.

@@ -9,8 +9,8 @@ namespace Content.Client.ADT.CharecterFlavor;
 
 public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     /// <summary>
     /// Кэш последних запрошенных URL для предотвращения дублирования запросов (для лобби)

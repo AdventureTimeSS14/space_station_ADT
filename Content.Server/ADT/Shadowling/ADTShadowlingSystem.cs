@@ -11,7 +11,7 @@ using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
-using Content.Shared.Mindshield.Components;
+using Content.Shared.Mindshield;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
@@ -22,15 +22,16 @@ namespace Content.Server.ADT.Shadowling;
 
 public sealed class ADTShadowlingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly SharedNightVisionSystem _nightVision = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private MindShieldSystem _mindShield = default!;
+    [Dependency] private SharedLanguageSystem _language = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private SharedNightVisionSystem _nightVision = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";
@@ -115,6 +116,12 @@ public sealed class ADTShadowlingSystem : EntitySystem
             GrantActions(ent, new List<EntProtoId> { ent.Comp.AscendAction }, ent.Comp.GrantedActions);
     }
 
+    public bool IsMindShielded(EntityUid target)
+    {
+        _mindShield.GetMindshieldStatus(target, out var isMindshielded, out _);
+        return isMindshielded;
+    }
+
     public bool TryMakeThrall(EntityUid target, EntityUid? master = null)
     {
         if (HasComp<ADTShadowlingComponent>(target)
@@ -122,7 +129,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
             || HasComp<ADTAscendantShadowlingComponent>(target))
             return false;
 
-        if (HasComp<MindShieldComponent>(target))
+        if (IsMindShielded(target))
             return false;
 
         var thrall = EnsureComp<ADTShadowlingThrallComponent>(target);

@@ -59,10 +59,7 @@
     speechVerb: LargeMob
 #
   - type: Vocal
-    sounds:
-      Male: MaleDrask
-      Female: FemaleDrask
-      Unsexed: MaleDrask
+    emoteSounds: MaleDrask
 #
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -134,7 +131,6 @@
         - MobLayer
 #
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 5
@@ -291,10 +287,7 @@
     speechVerb: LargeMob
 #
   - type: Vocal
-    sounds:
-      Male: MaleDrask
-      Female: FemaleDrask
-      Unsexed: MaleDrask
+    emoteSounds: MaleDrask
 #
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -380,7 +373,6 @@
         Base: dead
 #
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 5
@@ -633,10 +625,7 @@
   - type: TTS
     voice: "bloodseeker_dota_2"
   - type: Vocal
-    sounds:
-      Male: MaleButcher
-      Female: MaleButcher
-      Unsexed: MaleButcher
+    emoteSounds: MaleButcher
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5.5

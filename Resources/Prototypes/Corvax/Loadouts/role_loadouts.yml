@@ -16,6 +16,8 @@
   # ADT underwear tweak end
   - Trinkets
   - GroupSpeciesBreathTool
+  - ADTPersonalLoadoutLawyer
+  - ADTPersonalLoadoutPlushie
 
 # Engineering
 # - type: roleLoadout
@@ -66,4 +68,5 @@
   # ADT underwear tweak end
   - Trinkets
   - GroupSpeciesBreathTool
-
+  - ADTPersonalLoadoutSecurity
+  - ADTPersonalLoadoutPlushie

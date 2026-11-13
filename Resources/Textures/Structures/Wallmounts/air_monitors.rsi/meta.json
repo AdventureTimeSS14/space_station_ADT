@@ -1,13 +1,13 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/commit/b7ac5798ae0d411b0cdeaf7efbc4ac86d24b4634, fire_emagged.png edited by github:Morb0",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/commit/b7ac5798ae0d411b0cdeaf7efbc4ac86d24b4634, fire_emagged.png edited by github:Morb0",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+        {
       "name": "alarm0",
       "directions": 4,
       "delays": [
@@ -29,7 +29,7 @@
         ]
       ]
     },
-    {
+        {
       "name": "alarm1",
       "directions": 4,
       "delays": [
@@ -123,7 +123,7 @@
         ]
       ]
     },
-    {
+        {
       "name": "alarm2",
       "directions": 4,
       "delays": [
@@ -193,27 +193,23 @@
         ]
       ]
     },
-    {
-      "name": "alarm_b1",
-      "directions": 4
-    },
-    {
-      "name": "alarm_b2",
-      "directions": 4
-    },
-    {
+        {
+            "name": "alarm_b1"
+        },
+        {
+            "name": "alarm_b2"
+        },
+        {
       "name": "alarm_bitem",
       "directions": 1
     },
-    {
-      "name": "alarmp",
-      "directions": 4
-    },
-    {
-      "name": "alarmx",
-      "directions": 4
-    },
-    {
+        {
+            "name": "alarmp"
+        },
+        {
+            "name": "alarmx"
+        },
+        {
       "name": "auth_off",
       "directions": 1,
       "delays": [
@@ -222,51 +218,34 @@
         ]
       ]
     },
-    {
-      "name": "auth_on",
-      "directions": 1,
-      "delays": [
-        [
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "fire0",
-      "directions": 4
-    },
-    {
-      "name": "fire_0",
-      "directions": 4
-    },
-    {
-      "name": "fire_1",
-      "directions": 4
-    },
-    {
-      "name": "fire_2",
-      "directions": 4,
-      "delays": [
-        [
-          0.5,
-          0.5
-        ],
-        [
-          0.5,
-          0.5
-        ],
-        [
-          0.5,
-          0.5
-        ],
-        [
-          0.5,
-          0.5
-        ]
-      ]
-    },
-    {
+        {
+            "name": "auth_on",
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "fire0"
+        },
+        {
+            "name": "fire_0"
+        },
+        {
+            "name": "fire_1"
+        },
+        {
+            "name": "fire_2",
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
       "name": "fire_3",
       "directions": 4,
       "delays": [
@@ -288,23 +267,29 @@
         ]
       ]
     },
-    {
-      "name": "fire_b0",
-      "directions": 4
-    },
-    {
-      "name": "fire_b1",
-      "directions": 4
-    },
-    {
-      "name": "fire_b2",
-      "directions": 4
-    },
-    {
+        {
+            "name": "fire_b0"
+        },
+        {
+            "name": "fire_b1"
+        },
+        {
+            "name": "fire_b2"
+        },
+        {
       "name": "fire_bitem",
       "directions": 1
     },
-    {
+        {
+            "name": "fire_detected",
+            "delays": [
+                [
+                    0.4,
+                    0.4
+                ]
+            ]
+        },
+        {
       "name": "fire_emagged",
       "directions": 4,
       "delays": [
@@ -326,11 +311,10 @@
         ]
       ]
     },
-    {
-      "name": "fire_off",
-      "directions": 4
-    },
-    {
+        {
+            "name": "fire_off"
+        },
+        {
       "name": "fire_on",
       "directions": 4,
       "delays": [
@@ -368,9 +352,11 @@
         ]
       ]
     },
-    {
-      "name": "firex",
-      "directions": 4
-    }
-  ]
+        {
+            "name": "fire_overlay"
+        },
+        {
+            "name": "firex"
+        }
+    ]
 }

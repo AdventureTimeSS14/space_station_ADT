@@ -18,8 +18,6 @@
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/poster_broken.ogg
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
           PosterBroken:
@@ -930,3 +928,23 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/posters.rsi
     state: VLM
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterCorgiParty
+  name: Festive poster
+  description: "A colorful image of a corgi in the midst of a party."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: poster_corgi_party
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterCorgiPartyPaws
+  name: Festive poster with a corgi
+  description: "A colorful image of a corgi in the midst of a party."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: poster_corgi_party_paws

@@ -1,0 +1,209 @@
+- type: htnCompound
+  id: ADTXenoborgGunCompound
+  branches:
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          minPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyAliveGunTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioContact
+            channel: Xenoborg
+            cooldown: 60
+            groupCooldown: 30
+            groupRange: 30
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            stopOnLineOfSight: true
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:GunOperator
+            targetKey: Target
+            targetState: SoftCritical
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+          services:
+            - !type:UtilityService
+              id: RangedService
+              proto: ADTNearbyAliveGunTargets
+              key: Target
+
+- type: htnCompound
+  id: ADTXenoborgMeleeCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyMeleeTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioContact
+            channel: Xenoborg
+            cooldown: 60
+            groupCooldown: 30
+            groupRange: 30
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: SoftCritical
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: InteractRange
+          services:
+            - !type:UtilityService
+              id: MeleeService
+              proto: ADTNearbyMeleeTargets
+              key: Target
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTNearbyMeleeTargets
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Contact
+            lineSet: ADTXenoborgRadioContact
+            channel: Xenoborg
+            cooldown: 60
+            groupCooldown: 30
+            groupRange: 30
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: SoftCritical
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: InteractRange
+          services:
+            - !type:UtilityService
+              id: MeleeService
+              proto: ADTNearbyMeleeTargets
+              key: Target
+
+- type: htnCompound
+  id: ADTXenoborgRepairRetreatCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindAllyOperator
+            minDistance: 2
+            key: ADTAlly
+            keyCoordinates: ADTAllyCoordinates
+            prototypes:
+              - ADTMobXenoborgEngiNpc
+              - XenoborgEngi
+              - XenoborgEngiPrinted
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Help
+            lineSet: ADTXenoborgRadioHelp
+            channel: Xenoborg
+            cooldown: 30
+            groupCooldown: 5
+            groupRange: 5
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: ADTAllyCoordinates
+            rangeKey: InteractRange
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindAllyOperator
+            range: 2.5
+            key: ADTAlly
+            keyCoordinates: ADTAllyCoordinates
+            prototypes:
+              - ADTMobXenoborgEngiNpc
+              - XenoborgEngi
+              - XenoborgEngiPrinted
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTWaitOperator
+            seconds: 2
+
+- type: htnCompound
+  id: ADTXenoborgIdleCompound
+  branches:
+    - preconditions:
+        - !type:ADTRadioCallPrecondition
+          types:
+            - Help
+            - Contact
+          maxAge: 40
+          minDistance: 5
+          maxDistance: 40
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickRadioCallOperator
+            types:
+              - Help
+              - Contact
+            maxAge: 40
+            minDistance: 5
+            maxDistance: 40
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTRadioCallOperator
+            call: Moving
+            lineSet: ADTXenoborgRadioMoving
+            channel: Xenoborg
+            cooldown: 30
+            groupCooldown: 8
+            groupRange: 10
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTWaitOperator
+            seconds: 2
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            rangeKey: ADTPatrolRange
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickPatrolPointOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+            targetKey: ADTPatrolCoordinates
+            pathfindKey: ADTPatrolPathfind
+        - !type:HTNPrimitiveTask
+          operator: !type:RandomOperator
+            targetKey: IdleTime
+            minKey: MinimumIdleTime
+            maxKey: MaximumIdleTime
+        - !type:HTNPrimitiveTask
+          operator: !type:WaitOperator
+            key: IdleTime
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: IdleTime
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleSpinCompound

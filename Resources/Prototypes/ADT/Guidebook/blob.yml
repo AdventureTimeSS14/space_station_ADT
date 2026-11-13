@@ -4,3 +4,35 @@
   id: ADTBlob
   name: guide-entry-blob
   text: "/ServerInfo/ADT/Guidebook/Antagonist/Blob.xml"
+  priority: 5
+  children:
+  - ADTBlobOverview
+  - ADTBlobTiles
+  - ADTBlobChems
+  - ADTBlobMinions
+  - ADTBlobTactics
+
+- type: guideEntry
+  id: ADTBlobOverview
+  name: guide-entry-blob-overview
+  text: "/ServerInfo/ADT/Guidebook/Blob/Overview.xml"
+
+- type: guideEntry
+  id: ADTBlobTiles
+  name: guide-entry-blob-tiles
+  text: "/ServerInfo/ADT/Guidebook/Blob/Tiles.xml"
+
+- type: guideEntry
+  id: ADTBlobChems
+  name: guide-entry-blob-chems
+  text: "/ServerInfo/ADT/Guidebook/Blob/Chems.xml"
+
+- type: guideEntry
+  id: ADTBlobMinions
+  name: guide-entry-blob-minions
+  text: "/ServerInfo/ADT/Guidebook/Blob/Minions.xml"
+
+- type: guideEntry
+  id: ADTBlobTactics
+  name: guide-entry-blob-tactics
+  text: "/ServerInfo/ADT/Guidebook/Blob/Tactics.xml"

@@ -1,5 +1,5 @@
-using System.Linq;
-using Content.Server.Chemistry.Components;
+﻿using System.Linq;
+using Content.Server.ADT.Chemistry;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Explosion;
 using Content.Shared.Hands;
@@ -10,18 +10,14 @@ using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-
 namespace Content.Server.Storage.EntitySystems;
 
 public sealed partial class StorageSystem : SharedStorageSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    // ADT-TWeak Start
+// ADT-TWeak Start
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     // ADT-TWeak End
-
     public override void Initialize()
     {
         base.Initialize();
@@ -48,7 +44,7 @@ public sealed partial class StorageSystem : SharedStorageSystem
         base.AddTransferVerbs(uid, component, args);
 
         // if the target is ChemMaster, add a verb to transfer bottles.
-        if (TryComp(args.Target, out ChemMasterComponent? targetChemMaster))
+        if (TryComp(args.Target, out ADTChemMasterComponent? targetChemMaster))
         {
             UtilityVerb verb = new()
             {
@@ -61,7 +57,7 @@ public sealed partial class StorageSystem : SharedStorageSystem
         }
     }
 
-    private void TransferBottlesToChemMaster(EntityUid source, EntityUid target, EntityUid? user, StorageComponent sourceComp, ChemMasterComponent targetComp)
+    private void TransferBottlesToChemMaster(EntityUid source, EntityUid target, EntityUid? user, StorageComponent sourceComp, ADTChemMasterComponent targetComp)
     {
         var entities = sourceComp.Container.ContainedEntities.ToArray();
         foreach (var entity in entities)
@@ -73,7 +69,7 @@ public sealed partial class StorageSystem : SharedStorageSystem
         }
     }
 
-    private bool TryInsertBottleIntoChemMaster(EntityUid entity, EntityUid target, EntityUid? user, ChemMasterComponent targetComp)
+    private bool TryInsertBottleIntoChemMaster(EntityUid entity, EntityUid target, EntityUid? user, ADTChemMasterComponent targetComp)
     {
         for (uint slotIndex = 0; slotIndex < targetComp.MaxBottles; slotIndex++)
         {

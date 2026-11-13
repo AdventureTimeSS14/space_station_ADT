@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Mining;
 
 public sealed class ADTMagmiteScannerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     private const int CarrierSearchDepth = 8;
 

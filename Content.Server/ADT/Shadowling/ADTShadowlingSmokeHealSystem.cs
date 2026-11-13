@@ -8,9 +8,9 @@ namespace Content.Server.ADT.Shadowling;
 
 public sealed class ADTShadowlingSmokeHealSystem : EntitySystem
 {
-    [Dependency] private readonly ADTShadowlingAbilitySystem _shadowling = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private ADTShadowlingAbilitySystem _shadowling = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

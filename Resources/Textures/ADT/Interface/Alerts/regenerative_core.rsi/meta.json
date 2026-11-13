@@ -1,14 +1,21 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise SS220 fork at icons/mob/screen_alert.dmi",
+    "copyright": "Taken from tgstation/tgstation (master) at icons/obj/medical/organs/mining_organs.dmi",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "icon"
+            "name": "icon",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.6
+                ]
+            ]
         }
     ]
 }

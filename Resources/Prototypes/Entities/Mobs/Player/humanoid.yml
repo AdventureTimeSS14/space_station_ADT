@@ -26,6 +26,7 @@
     implants:
     - MindShieldImplant
     - DeathRattleImplantCentcomm
+  - type: ADTTenCodeKnowledge # ADT-Tweak
 
 ## Death Squad
 
@@ -54,6 +55,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -525,6 +527,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -544,7 +547,7 @@
   components:
     - type: Loadout
       prototypes: [ADTCBURNGear] # ADT tweak
-      roleLoadout: [ ADTRoleSurvivalCBURN ] # ADT tweak
+      # roleLoadout: [ RoleSurvivalEVA ] # ADT tweak
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
@@ -577,6 +580,7 @@
     - Vox
     - KoboltSpecies
     - DemonSpecies
+    - CelecernSpecies
     - NovakidSpecies
     - TajaranSpecies
     - UrsusSpecies
@@ -593,15 +597,15 @@
     - DraskSpecies # ADT-Tweak-end
   parent: EventHumanoidMindShielded
   components:
-    - type: GhostRole
-      name: ghost-role-information-centcom-official-name
-      description: ghost-role-information-centcom-official-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: default
-      job: CentralCommandOfficial
+    # - type: GhostRole # ADT tweak start
+    #   name: ghost-role-information-centcom-official-name
+    #   description: ghost-role-information-centcom-official-description
+    #   rules: ghost-role-information-nonantagonist-rules
+    #   raffle:
+    #     settings: default
+    #   job: CentralCommandOfficial # ADT tweak end
     - type: Loadout
-      prototypes: [ CentcommGear ]
+      prototypes: [ ADTCentcommGear ] # ADT tweak
       roleLoadout: [ RoleSurvivalStandard ]
 
 ## Syndicate
@@ -614,7 +618,10 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ NamesDeathCommando ]
+      nameSegments:
+      - NamesDeathCommandoFirst
+      - NamesDeathCommandoLast
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 

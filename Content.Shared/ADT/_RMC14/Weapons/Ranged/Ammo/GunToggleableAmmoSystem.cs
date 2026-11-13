@@ -12,9 +12,9 @@ namespace Content.Shared._RMC14.Weapons.Ranged.Ammo;
 
 public sealed class GunToggleableAmmoSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
 

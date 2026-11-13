@@ -15,7 +15,7 @@ namespace Content.Client.ADT.Minesweeper;
 [GenerateTypedNameReferences]
 public sealed partial class MinesweeperWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private AudioSystem _audioSystem;
 
     // --- Константы / readonly ---

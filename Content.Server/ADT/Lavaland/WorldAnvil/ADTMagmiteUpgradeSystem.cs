@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Containers;
 using Content.Shared.ADT.Lavaland.WorldAnvil;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -10,10 +11,10 @@ namespace Content.Server.ADT.Lavaland.WorldAnvil;
 
 public sealed class ADTMagmiteUpgradeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -80,6 +81,9 @@ public sealed class ADTMagmiteUpgradeSystem : EntitySystem
         {
             foreach (var container in _container.GetAllContainers(target, containers).ToList())
             {
+                if (ADTInternalContainers.IsInternal(container))
+                    continue;
+
                 _container.EmptyContainer(container);
             }
         }

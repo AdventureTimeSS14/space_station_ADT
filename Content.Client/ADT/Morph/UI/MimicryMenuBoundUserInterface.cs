@@ -7,8 +7,8 @@ namespace Content.Client.ADT.Morph.UI;
 
 public sealed partial class MimicryMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     [NonSerialized] private MimicryMenu? _menu;
 

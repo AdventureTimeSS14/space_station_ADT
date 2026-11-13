@@ -9,3 +9,5 @@ ent-CrateWeaponAirsoftSecure = защищённый ящик для страйк
     .desc = Ящик для страйкбольных наборов.
 ent-ADTCrateResearchAndDevelopmentServer = ящик сервера РнД
     .desc = Содержит упаковку сервера РнД. Для открытия требуется доступ "Научный".
+ent-ADTCrateComputerInconnuOS = ящик рабочей станции
+    .desc = Содержит упаковку рабочей станции с InconnuOS™.

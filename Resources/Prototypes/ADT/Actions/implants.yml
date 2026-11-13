@@ -3,10 +3,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/mantis_daggers.rsi
-      state: icon
     itemIconStyle: BigAction
+  - type: Sprite
+    sprite: ADT/Interface/Actions/mantis_daggers.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleMantisDaggersEvent
 
@@ -16,14 +17,16 @@
   components:
   - type: Action
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/sundowner_shields.rsi
-      state: icon
-    iconOn:
-      sprite: ADT/Interface/Actions/sundowner_shields.rsi
-      state: icon-ON
     itemIconStyle: BigAction
     useDelay: 5
+  - type: Sprite
+    sprite: ADT/Interface/Actions/sundowner_shields.rsi
+    layers:
+    - state: icon
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon-ON
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: InstantAction
     event: !type:ToggleSundownerShieldsEvent
 
@@ -32,11 +35,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/muscles_implant.rsi
-      state: icon
     itemIconStyle: BigAction
     useDelay: 15
+  - type: Sprite
+    sprite: ADT/Interface/Actions/muscles_implant.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleMusclesEvent
 
@@ -47,9 +51,10 @@
   - type: Action
     useDelay: 10
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Interface/Actions/muscles_implant.rsi
-      state: jump-icon
+  - type: Sprite
+    sprite: ADT/Interface/Actions/muscles_implant.rsi
+    layers:
+    - state: jump-icon
   - type: TargetAction
     checkCanAccess: false
     repeat: true
@@ -62,11 +67,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/stealth.rsi
-      state: icon
     itemIconStyle: BigAction
     useDelay: 1
+  - type: Sprite
+    sprite: ADT/Interface/Actions/stealth.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleCompStealthEvent
 
@@ -76,10 +82,11 @@
   components:
   - type: Action
     checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/sandevistan.rsi
-      state: icon
     itemIconStyle: BigAction
     useDelay: 2
+  - type: Sprite
+    sprite: ADT/Interface/Actions/sandevistan.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleSandevistanEvent

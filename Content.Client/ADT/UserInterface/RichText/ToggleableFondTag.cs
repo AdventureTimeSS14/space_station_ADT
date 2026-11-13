@@ -20,9 +20,9 @@ public sealed class ToggleableFontTag : IMarkupTag
     public const string DefaultFont = "Default";
     public const int DefaultSize = 12;
 
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     public string Name => "tfont";
 

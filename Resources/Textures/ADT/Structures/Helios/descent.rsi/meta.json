@@ -1,0 +1,50 @@
+{
+ "version": 1,
+ "license": "CC-BY-SA-3.0",
+ "copyright": "Sprited by Inconnu(discord:inconnu1337)",
+ "size": {
+  "x": 32,
+  "y": 32
+ },
+ "states": [
+  {
+   "name": "shaft_left"
+  },
+  {
+   "name": "shaft_center"
+  },
+  {
+   "name": "shaft_right"
+  },
+  {
+   "name": "exit_glow"
+  },
+  {
+   "name": "pit_0"
+  },
+  {
+   "name": "pit_1"
+  },
+  {
+   "name": "pit_2"
+  },
+  {
+   "name": "pit_3"
+  },
+  {
+   "name": "pit_4"
+  },
+  {
+   "name": "pit_5"
+  },
+  {
+   "name": "pit_6"
+  },
+  {
+   "name": "pit_7"
+  },
+  {
+   "name": "pit_8"
+  }
+ ]
+}

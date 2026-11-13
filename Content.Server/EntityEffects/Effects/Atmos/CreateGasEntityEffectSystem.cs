@@ -1,4 +1,5 @@
-﻿using Content.Server.Atmos.EntitySystems;
+﻿using Content.Server.ADT.Atmos;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects.Atmos;
 
@@ -11,11 +12,12 @@ namespace Content.Server.EntityEffects.Effects.Atmos;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class CreateGasEntityEffectSystem : EntityEffectSystem<TransformComponent, CreateGas>
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private ADTReactionGasReleaseSystem _gasRelease = default!; // ADT-Tweak
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<CreateGas> args)
     {
-        var tileMix = _atmosphere.GetContainingMixture(entity.AsNullable(), false, true);
+        var tileMix = _gasRelease.GetReleaseMixture(entity); // ADT-Tweak
 
         tileMix?.AdjustMoles(args.Effect.Gas, args.Scale * args.Effect.Moles);
     }

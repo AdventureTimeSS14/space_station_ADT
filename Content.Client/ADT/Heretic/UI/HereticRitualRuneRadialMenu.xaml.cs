@@ -14,10 +14,10 @@ namespace Content.Client.ADT.Heretic.UI;
 
 public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
     private readonly SpriteSystem _spriteSystem;
     private readonly HereticSystem _heretic;
 

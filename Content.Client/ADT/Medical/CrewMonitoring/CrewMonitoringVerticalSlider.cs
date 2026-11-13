@@ -1,4 +1,4 @@
-using Robust.Client.Graphics;
+﻿using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using Robust.Shared.Maths;
@@ -8,7 +8,7 @@ namespace Content.Client.ADT.Medical.CrewMonitoring;
 /// <summary>
 /// Simple vertical volume slider (Robust Slider is horizontal-only).
 /// </summary>
-public sealed class CrewMonitoringVerticalSlider : Control
+public sealed class ADTCrewMonitoringVerticalSlider : Control
 {
     private bool _grabbed;
     private float _value = 1f;
@@ -37,7 +37,7 @@ public sealed class CrewMonitoringVerticalSlider : Control
         _value = Math.Clamp(value, 0f, 1f);
     }
 
-    public CrewMonitoringVerticalSlider()
+    public ADTCrewMonitoringVerticalSlider()
     {
         MouseFilter = MouseFilterMode.Stop;
         MinWidth = 18;

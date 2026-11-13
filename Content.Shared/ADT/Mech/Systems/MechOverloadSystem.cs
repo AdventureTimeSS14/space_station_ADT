@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
 using Content.Shared.Mech.Components;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -13,48 +12,72 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public sealed class MechOverloadSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<MechOverloadComponent, MechOverloadEvent>(OnToggleOverload);
         SubscribeLocalEvent<MechOverloadComponent, DamageChangedEvent>(OnDamage);
+        SubscribeLocalEvent<MechOverloadComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<MechOverloadComponent, RefreshFrictionModifiersEvent>(OnRefreshFrictionModifiers);
     }
 
     private void OnToggleOverload(EntityUid uid, MechOverloadComponent comp, MechOverloadEvent args)
     {
-        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
         if (!TryComp<MechComponent>(uid, out var mech))
             return;
         if (mech.Integrity <= comp.MinIng)
             return;
-        if (comp.Overload == false)
+
+        if (!comp.Overload)
         {
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 5, 5, 40, movementSpeed);
-            mech.MechEnergyWaste += 20;
             comp.Overload = true;
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+            _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
+            mech.MechEnergyWaste += 20;
             Spawn("EffectSparks", Transform(uid).Coordinates);
             _damageable.TryChangeDamage(uid, comp.DamagePerSpeed, ignoreResistances: true);
         }
         else
         {
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 3, 40, movementSpeed);
-            mech.MechEnergyWaste -= 20;
             comp.Overload = false;
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+            _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
+            mech.MechEnergyWaste -= 20;
         }
     }
     private void OnDamage(EntityUid uid, MechOverloadComponent component, DamageChangedEvent args)
     {
-        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
         if (!TryComp<MechComponent>(uid, out var mech))
             return;
         if (mech.Integrity > component.MinIng)
             return;
-        _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 3, 40, movementSpeed);
-        mech.MechEnergyWaste -= 20;
+        if (!component.Overload)
+            return;
+
         component.Overload = false;
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+        _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
+        mech.MechEnergyWaste -= 20;
     }
+
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, MechOverloadComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (!comp.Overload)
+            return;
+
+        args.ModifySpeed(comp.WalkSpeedMultiplier, comp.SprintSpeedMultiplier);
+    }
+
+    private void OnRefreshFrictionModifiers(EntityUid uid, MechOverloadComponent comp, ref RefreshFrictionModifiersEvent args)
+    {
+        if (!comp.Overload)
+            return;
+
+        args.ModifyAcceleration(comp.AccelerationMultiplier);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -69,10 +92,7 @@ public sealed class MechOverloadSystem : EntitySystem
                 continue;
             overload.Accumulator = 0f;
 
-            var dmg = mech.MechToPilotDamageMultiplier;
-            mech.MechToPilotDamageMultiplier = 0f;
-            _damageable.TryChangeDamage(uid, overload.DamagePerSpeed, ignoreResistances: true);
-            mech.MechToPilotDamageMultiplier = dmg;
+            _damageable.SetDamage(uid, _damageable.GetAllDamage(uid) + overload.DamagePerSpeed);
         }
     }
 }

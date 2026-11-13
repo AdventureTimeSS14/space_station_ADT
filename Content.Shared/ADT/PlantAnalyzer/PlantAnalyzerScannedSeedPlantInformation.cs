@@ -37,8 +37,6 @@ public struct AdvancedScanInfo
     public float WaterConsumption;
     public float IdealHeat;
     public float HeatTolerance;
-    public float IdealLight;
-    public float LightTolerance;
     public float ToxinsTolerance;
     public float LowPressureTolerance;
     public float HighPressureTolerance;
