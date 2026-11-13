@@ -69,6 +69,7 @@
   - Xenoborg
   - ADTSpaceMobs # ADT-tweak
   - ADTAshWalker # ADT-tweak
+  - Changeling # ADT-tweak
 
 - type: npcFaction
   id: SimpleNeutral
@@ -185,6 +186,8 @@
   - Revolutionary
   - Wizard
   - ADTAshWalker # ADT-Tweak
+  - ADTSovietBunker # ADT-Tweak
+  - ADTSmugglersPirates # ADT-Tweak
 
   - Xeno # rivalry
 

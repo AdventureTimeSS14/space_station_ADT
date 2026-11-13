@@ -11,3 +11,4 @@ entity-effect-guidebook-mutate-plants-nearby = Мутирует растения
 entity-effect-guidebook-emp-reaction = Мощный ЭМИ-импульс вокруг
 entity-effect-guidebook-random-teleport-nearby = Телепортирует всех рядом в случайное место
 entity-effect-guidebook-explosion-reaction = Взрыв через несколько секунд
+entity-effect-guidebook-knockdown-nearby = Сбивает с ног всех вокруг

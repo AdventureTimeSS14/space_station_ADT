@@ -8,7 +8,7 @@
     localizedLabel: reagent-name-charcoal
   - type: Solution
     solution:
-      maxVol: 200
+      maxVol: 240
       reagents:
       - ReagentId: Charcoal
-        Quantity: 200
+        Quantity: 240

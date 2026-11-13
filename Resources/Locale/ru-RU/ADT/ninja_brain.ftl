@@ -9,7 +9,7 @@ objective-condition-borg-hack-title = Взломайте { $count } { $count ->
     [few] киборга
    *[other] киборгов
 }
-objective-condition-borg-hack-description = Откройте панель киборга отвёрткой и взломайте перчатками.
+objective-condition-borg-hack-description = Используйте свои активные перчатки на повреждённого борга, превратив его в версию клана паука.
 brain-extractor-eject-success = Цель извлечена из капсулы.
 brain-extractor-no-power = Нет питания.
 brain-extractor-no-pod = Капсула не подключена. Свяжите консоль с капсулой мультитулом.

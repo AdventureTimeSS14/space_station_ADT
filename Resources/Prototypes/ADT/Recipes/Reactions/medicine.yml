@@ -108,6 +108,7 @@
 #Кровоостанавливающая пудра
 - type: reaction
   id: ADTStypticPowder
+  minTemp: 300
   reactants:
     Aluminium:
       amount: 1
@@ -115,15 +116,32 @@
       amount: 2
     SulfuricAcid:
       amount: 1
+    ADTIronIons:
+      amount: 1
+    Bicaridine:
+      amount: 1
   products:
-    ADTStypticPowder: 4
+    ADTStypticPowder: 3
+
+- type: reaction
+  id: ADTIronIonsExtraction
+  source: true
+  quantized: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Iron:
+      amount: 3
+  products:
+    ADTIronIons: 1
 #Сульфадиазин серебра
 - type: reaction
   id: ADTSilverSulfadiazine
+  minTemp: 370
   reactants:
     Ammonia:
       amount: 1
-    Silver:
+    ADTSilverIons:
       amount: 1
     Sulfur:
       amount: 1
@@ -131,8 +149,22 @@
       amount: 1
     Chlorine:
       amount: 1
+    Dermaline:
+      amount: 1
   products:
-    ADTSilverSulfadiazine: 5
+    ADTSilverSulfadiazine: 3
+
+- type: reaction
+  id: ADTSilverIonsExtraction
+  source: true
+  quantized: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Silver:
+      amount: 2
+  products:
+    ADTSilverIons: 1
 
 # КриоПрепараты
 - type: reaction
@@ -304,3 +336,73 @@
       catalyst: true
   products:
     ADTLiminalium: 3
+
+- type: reaction
+  id: ADTSpaceacillin
+  impact: Medium
+  reactants:
+    Cornoil:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    ADTSpaceacillin: 2
+
+- type: reaction
+  id: ADTTeporone
+  reactants:
+    Acetone:
+      amount: 1
+    Silicon:
+      amount: 1
+    Plasma:
+      amount: 1
+  products:
+    ADTTeporone: 2
+
+- type: reaction
+  id: ADTSalbutamol
+  reactants:
+    Lithium:
+      amount: 1
+    Aluminium:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    ADTSalbutamol: 4
+
+- type: reaction
+  id: ADTMitocholide
+  reactants:
+    Cryoxadone:
+      amount: 1
+    Plasma:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTMitocholide: 3
+
+- type: reaction
+  id: ADTCalomel
+  minTemp: 373
+  reactants:
+    Mercury:
+      amount: 1
+    Chlorine:
+      amount: 1
+  products:
+    ADTCalomel: 2
+
+- type: reaction
+  id: ADTGlycerol
+  reactants:
+    Cornoil:
+      amount: 3
+    SulfuricAcid:
+      amount: 1
+  products:
+    ADTGlycerol: 1

@@ -4,6 +4,7 @@ using Content.Server.NPC.Pathfinding;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Doors.Systems; // ADT-Tweak
 using Content.Shared.NPC;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -37,6 +38,7 @@ public sealed partial class NPCSteeringSystem
     [Dependency] private EntityQuery<DoorComponent> _doorQuery = default!;
     [Dependency] private EntityQuery<ClimbableComponent> _climbableQuery = default!;
     [Dependency] private EntityQuery<DestructibleComponent> _destructibleQuery = default!;
+    [Dependency] private SharedDoorSystem _door = default!; // ADT-Tweak
 
     private SteeringObstacleStatus TryHandleFlags(EntityUid uid, NPCSteeringComponent component, PathPoly poly)
     {
@@ -102,6 +104,23 @@ public sealed partial class NPCSteeringSystem
 
                 // If we get to here then didn't succeed for reasons.
             }
+
+            // ADT-Tweak start
+            if (isDoor && isAccessRequired && (component.Flags & PathFlags.Access) != 0x0)
+            {
+                if (obstacleEnts.Count == 0)
+                    return SteeringObstacleStatus.Completed;
+
+                foreach (var ent in obstacleEnts)
+                {
+                    if (!_doorQuery.TryGetComponent(ent, out var door) || door.State == DoorState.Open)
+                        continue;
+
+                    if (door.State == DoorState.Opening || _door.TryOpen(ent, door, uid))
+                        return SteeringObstacleStatus.Continuing;
+                }
+            }
+            // ADT-Tweak end
 
             if ((component.Flags & PathFlags.Prying) != 0x0 && isDoor)
             {

@@ -1,0 +1,32 @@
+- type: entity
+  parent: CrateMedicalSecure
+  id: ADTCrateVirologyCultures
+  name: virus culture crate
+  description: Набор культур вирусов для вирусологической лаборатории. Требует медицинский доступ.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTVirusCultureBottleCold
+        - id: ADTVirusCultureBottleFlu
+        - id: ADTVirusCultureBottleSneezing
+        - id: ADTVirusCultureBottleCough
+        - id: ADTVirusCultureBottleHeal
+        - id: ADTVirusCultureBottleMindRestoration
+        - id: ADTVirusCultureBottleSensoryRestoration
+        - id: ADTBioBag
+          amount: 2
+
+- type: entity
+  parent: CrateMedical
+  id: ADTCrateVirologyBiohazardBags
+  name: biohazard body bag crate
+  description: Набор биоизоляционных мешков, которые не дают вирусам вырваться наружу.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTBodyBagBiohazard
+          amount: 3

@@ -1,0 +1,14 @@
+- type: entity
+  id: ADTGripModule
+  parent: BaseItem
+  name: grip lock
+  description: A small lock for the handle of a melee weapon or a shield.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pin.rsi
+    state: firing_pin_pindi
+  - type: Item
+    size: Tiny
+  - type: ADTGripModule
+  - type: StaticPrice
+    price: 50

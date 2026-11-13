@@ -37,6 +37,7 @@
 - type: latheRecipePack
   id: ADTAttachmentPack
   recipes:
+  - ADTAttachmentMagneticHarnessRecipe
   - ADTAttachmentVerticalGripRecipe
   - ADTAttachmentLaserSightRecipe
   - ADTAttachmentReflexSightRecipe

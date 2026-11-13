@@ -86,6 +86,7 @@ public sealed partial class ADTLavalandGenerationSystem
         PlaceBridges(comp);
 
         ReserveTileSet(ent, _lavaTiles.Concat(_shoreTiles));
+        comp.LavaTiles.UnionWith(_lavaTiles);
 
         foreach (var tile in _lavaTiles)
         {

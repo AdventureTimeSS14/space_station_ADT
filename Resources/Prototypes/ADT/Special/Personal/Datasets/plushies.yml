@@ -39,3 +39,9 @@
   values:
     prefix: adt-figurines-navi-
     count: 6
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieErichStohl
+  values:
+    prefix: adt-figurines-plushie-erich-stohl-
+    count: 4

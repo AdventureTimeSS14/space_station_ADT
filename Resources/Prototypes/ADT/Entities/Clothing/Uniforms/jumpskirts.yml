@@ -693,3 +693,446 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_white.rsi
   - type: StaticPrice
     price: 85
+
+# Dresses & Skirts
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressArtdeco
+  name: black and gold art deco dress
+  description: An elegant dress made in art deco style.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/artdeco_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/artdeco_dress.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressBlackrose
+  name: black executive dress
+  description: Strict corporate dress for high-ranking successful women.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/blackrose_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/blackrose_dress.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformDressDarkblue
+  name: neat dark blue dress
+  description: A well-kept dress for workers or housewives.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/darkblue_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/darkblue_dress.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressEveningBlack
+  name: black evening dress
+  description: An elegant dress for formal events and social evenings.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/evening_dress_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/evening_dress_black.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressEveningCyan
+  name: cyan evening dress
+  description: An elegant light cyan dress for formal events.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/evening_dress_cyan.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/evening_dress_cyan.rsi
+  - type: StaticPrice
+    price: 50
+
+# Kilts
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformKiltBlue
+  name: blue kilt
+  description: Traditional Scottish clothing. SCOTLAND FOREVER!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_blue.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformKiltGreen
+  name: green kilt
+  description: Traditional Scottish clothing. SCOTLAND FOREVER!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_green.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformKiltRed
+  name: red kilt
+  description: Traditional Scottish clothing. SCOTLAND FOREVER!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kilt_red.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressLeopart
+  name: leopard dress
+  description: Poor leopard...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/leopart_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/leopart_dress.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressPink
+  name: quirky pink dress
+  description: A dress of unusual and quirky cut.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pink_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pink_dress.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformDressPrecise
+  name: plaid dress
+  description: A charming dress in neat geometric plaid.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/precise_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/precise_dress.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressQipao
+  name: qipao
+  description: Traditional Chinese silk dress. Made in China.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/qipao.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/qipao.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformDressRD
+  name: boring dress
+  description: A strict female suit. Looks like something a schoolteacher would wear.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rd_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rd_dress.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressRose
+  name: executive dress
+  description: Strict dress with an open neckline. For successful women.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rose_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rose_dress.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressVictorianBlack
+  name: black Victorian dress
+  description: For women of the old school.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/victorian_black_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/victorian_black_dress.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformDressTealSuit
+  name: teal skirt suit
+  description: Bright teal suit with a skirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/teal_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/teal_suit.rsi
+  - type: StaticPrice
+    price: 40
+
+# Swimsuits
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimGold
+  name: golden swimsuit
+  description: Luxurious gold swimsuit. Now on sale!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_gold.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_gold.rsi
+  - type: StaticPrice
+    price: 60
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimWatermelon
+  name: watermelon swimsuit
+  description: Juicy swimsuit with watermelon print. Look at those melons!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_watermelon.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_watermelon.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimCentcom
+  name: CentCom swimsuit
+  description: Not a report?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_centcom.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_centcom.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimPlasma
+  name: plasma swimsuit
+  description: Holy plasma canisters!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_plasma.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_plasma.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimSani
+  name: psychologist swimsuit
+  description: A calming swimsuit in soft medical tones.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_sani.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_sani.rsi
+  - type: StaticPrice
+    price: 35
+
+# Bodysuits & Order
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformBodysuitBeige
+  name: beige bodysuit
+  description: Very tight fitting.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/beige_bodysuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/beige_bodysuit.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformBodysuitBlack
+  name: black bodysuit
+  description: Very tight fitting.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/black_bodysuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/black_bodysuit.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressElegantBlack
+  name: elegant night dress
+  description: A rather modest black dress covering the whole body.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/elegant_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/elegant_black.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, ClothingUniformFoldableBase ]
+  id: ADTClothingUniformShortsHoot
+  name: orange shorts and tank top
+  description: You just imagined that.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/hoot.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/hoot.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressMemeBlackgold
+  name: elegant black and gold dress
+  description: You've seen this somewhere before.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/meme_blackgold_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/meme_blackgold_dress.rsi
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressNightBlack
+  name: black sequined night dress
+  description: A sparkling dress for parties and celebrations.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_black.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressNightRed
+  name: red sequined night dress
+  description: A sparkling dress for parties and celebrations.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_red.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressNightWhite
+  name: white sequined night dress
+  description: A sparkling dress for parties and celebrations.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/night_white.rsi
+  - type: StaticPrice
+    price: 50
+
+# Sweatercut
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSweatercutBeige
+  name: beige cut sweater
+  description: In theory, this sweater is meant to keep you warm, not attract attention.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_beige.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_beige.rsi
+  - type: StaticPrice
+    price: 40
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSweatercutBlack
+  name: black cut sweater
+  description: In theory, this sweater is meant to keep you warm, not attract attention.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_black.rsi
+  - type: StaticPrice
+    price: 40
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSweatercutBlue
+  name: blue cut sweater
+  description: In theory, this sweater is meant to keep you warm, not attract attention.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_blue.rsi
+  - type: StaticPrice
+    price: 40
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSweatercutRed
+  name: red cut sweater
+  description: In theory, this sweater is meant to keep you warm, not attract attention.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_red.rsi
+  - type: StaticPrice
+    price: 40
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSweatercutWhite
+  name: white cut sweater
+  description: In theory, this sweater is meant to keep you warm, not attract attention.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Sweatercut/sweatercut_white.rsi
+  - type: StaticPrice
+    price: 40

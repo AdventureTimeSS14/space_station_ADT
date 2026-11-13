@@ -189,3 +189,9 @@
     back:
     - ADTSuperSynthesizerDarkBlueInstrument
   groupBy: "supersynthesizer"
+
+# Carp Fedora
+- type: loadout
+  id: ADTClothingHeadHatCarpFedora
+  equipment:
+    head: ADTClothingHeadHatCarpFedora

@@ -24,6 +24,12 @@
     - state: nukefestive
       map: ["christmas"]
       visible: false
+# ADT-Tweak-start
+    - sprite: ADT/Blob/Mobs/blob.rsi
+      state: blob_nuke_overlay
+      map: ["blob_overlay"]
+      visible: false
+# ADT-Tweak-end
   - type: Appearance
   - type: HolidayVisuals
     holidays:
@@ -35,6 +41,12 @@
 # ADT-Holidays-End
   - type: GenericVisualizer
     visuals:
+# ADT-Tweak-start
+      enum.BlobNukeVisuals.Infested:
+        blob_overlay:
+          True: { visible: true }
+          False: { visible: false }
+# ADT-Tweak-end
       enum.HolidayVisuals.Holiday:
         christmas:
           festive: { visible: true }

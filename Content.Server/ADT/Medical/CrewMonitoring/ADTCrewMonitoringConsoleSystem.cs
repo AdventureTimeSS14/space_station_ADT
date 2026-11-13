@@ -508,7 +508,7 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
         var current = new Dictionary<NetEntity, bool>();
         foreach (var sensor in sensors)
         {
-            if (!sensor.IsActive || sensor.Mode == ADTSuitSensorMode.SensorOff)
+            if (!IsAlertSensor(sensor))
                 continue;
 
             if (!sensor.IsAlive)
@@ -789,15 +789,17 @@ public sealed class ADTCrewMonitoringConsoleSystem : EntitySystem
         _navMap.EnsureNavMap(gridUid, mapGrid);
     }
 
+    private static bool IsAlertSensor(ADTSuitSensorStatus status)
+    {
+        return status.IsActive && status.Mode == ADTSuitSensorMode.SensorCords;
+    }
+
     private static bool HasAlertCondition(IEnumerable<ADTSuitSensorStatus> sensors)
     {
         foreach (var sensor in sensors)
         {
-            if (!sensor.IsActive ||
-                sensor.Mode == ADTSuitSensorMode.SensorOff)
-            {
+            if (!IsAlertSensor(sensor))
                 continue;
-            }
 
             // Alert only for dead or MobState.Critical (unconscious), not high damage while awake.
             if (!sensor.IsAlive || sensor.IsCritical) //ADT-Tweak: NewMonitor

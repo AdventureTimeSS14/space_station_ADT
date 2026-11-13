@@ -1,0 +1,16 @@
+ent-ADTNinjaBorgChassisSecurity = ninja security cyborg
+    .desc = A silent blade of the Spider Clan. By the time it reaches you, it is already too late to scream.
+ent-ADTNinjaBorgChassisEngineer = ninja engineer cyborg
+    .desc = Rerouted to the clan's needs: cutting cables and cracking airlocks takes but a moment.
+ent-ADTNinjaBorgChassisMedical = ninja medical cyborg
+    .desc = Keeps its allies combat-ready and its enemies powered down.
+ent-ADTNinjaBorgChassisHeavy = heavy ninja cyborg
+    .desc = Every step rumbles like an avalanche. Silence was its previous life.
+ent-ADTNinjaBorgChassisSpider = ninja spider cyborg
+    .desc = Conducts station extermination, pest control for the Spider Clan.
+ent-ADTNinjaBorgChassisBooty = ninja service cyborg
+    .desc = The Spider Clan can do more than steal. It knows how to present itself.
+ent-ADTNinjaBorgChassisBroBooty = ninja brobot cyborg
+    .desc = No pants could ever betray his mission. Though the mission is always easy.
+ent-ADTNinjaBorgChassisMissM = MissM ninja cyborg
+    .desc = Elegance refined through thousands of nightly drills. And a bit of spontaneity.

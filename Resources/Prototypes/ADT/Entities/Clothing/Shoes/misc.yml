@@ -76,3 +76,209 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
+
+# Heels
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootHeelsBlack
+  name: black heels
+  description: A pair of elegant black high heels.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Heels/heelblack.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Heels/heelblack.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootHeelsGold
+  name: gold heels
+  description: A pair of elegant gold high heels.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Heels/heelgold.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Heels/heelgold.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootHeelsRed
+  name: red heels
+  description: A pair of elegant red high heels.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Heels/heelred.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Heels/heelred.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootHeelsWhite
+  name: white heels
+  description: A pair of elegant white high heels.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Heels/heelwhite.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Heels/heelwhite.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 35
+
+# Sandals
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsBlack
+  name: black sandals
+  description: A pair of simple black sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_black.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsBlue
+  name: blue sandals
+  description: A pair of simple blue sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_blue.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsBrown
+  name: brown sandals
+  description: A pair of simple brown sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_brown.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsGreen
+  name: green sandals
+  description: A pair of simple green sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_green.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsPink
+  name: pink sandals
+  description: A pair of simple pink sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_pink.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_pink.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsRed
+  name: red sandals
+  description: A pair of simple red sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_red.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsWhite
+  name: white sandals
+  description: A pair of simple white sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_white.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSandalsYellow
+  name: yellow sandals
+  description: A pair of simple yellow sandals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Sandals/sandals_yellow.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StaticPrice
+    price: 25

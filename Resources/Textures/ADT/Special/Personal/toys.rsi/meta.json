@@ -41,6 +41,14 @@
             "name": "plushie_ilumi"
         },
         {
+            "name": "morulu-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "morulu-inhand-right",
+            "directions": 4
+        },
+        {
             "name": "ilumi-inhand-left",
             "directions": 4
         },
@@ -431,6 +439,17 @@
         },
         {
             "name": "reimor-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushie_erich"
+        },
+        {
+            "name": "erich-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "erich-inhand-right",
             "directions": 4
         },
         {

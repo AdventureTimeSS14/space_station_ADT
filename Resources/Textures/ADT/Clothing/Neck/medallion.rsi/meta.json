@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911",
+  "size": {
+    "y": 32,
+    "x": 32
+  },
+  "states": [
+    {
+      "directions": 4,
+      "name": "diamond-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "diamond-icon"
+    },
+    {
+      "directions": 4,
+      "name": "emerald-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "emerald-icon"
+    },
+    {
+      "directions": 4,
+      "name": "gold-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "gold"
+    },
+    {
+      "directions": 4,
+      "name": "heart-gold-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "heart-gold"
+    },
+    {
+      "directions": 4,
+      "name": "heart-silver-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "heart-silver"
+    },
+    {
+      "directions": 4,
+      "name": "heart-steel-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "heart-steel"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "inhand-right"
+    },
+    {
+      "directions": 1,
+      "name": "photo-gold-open"
+    },
+    {
+      "directions": 1,
+      "name": "photo-gold"
+    },
+    {
+      "directions": 1,
+      "name": "photo-silver-open"
+    },
+    {
+      "directions": 1,
+      "name": "photo-silver"
+    },
+    {
+      "directions": 1,
+      "name": "photo-steel-open"
+    },
+    {
+      "directions": 1,
+      "name": "photo-steel"
+    },
+    {
+      "directions": 4,
+      "name": "plasma-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "plasma-icon"
+    },
+    {
+      "directions": 4,
+      "name": "ruby-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "ruby-icon"
+    },
+    {
+      "directions": 4,
+      "name": "sapphire-equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "sapphire-icon"
+    },
+    {
+      "directions": 4,
+      "name": "silver-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "silver-inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "silver-inhand-right"
+    },
+    {
+      "directions": 1,
+      "name": "silver"
+    },
+    {
+      "directions": 4,
+      "name": "steel-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "steel-inhand-left"
+    },
+    {
+      "directions": 4,
+      "name": "steel-inhand-right"
+    },
+    {
+      "directions": 1,
+      "name": "steel"
+    }
+  ]
+}

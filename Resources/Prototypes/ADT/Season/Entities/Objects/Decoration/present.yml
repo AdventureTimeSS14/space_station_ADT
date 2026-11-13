@@ -1,0 +1,11 @@
+- type: entity
+  id: ADTPresentSelected
+  parent: [PresentBase, BaseItem]
+  suffix: Filled Selected
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentTrash
+      - id: Coal1
+    sound:
+      path: /Audio/Effects/unwrap.ogg

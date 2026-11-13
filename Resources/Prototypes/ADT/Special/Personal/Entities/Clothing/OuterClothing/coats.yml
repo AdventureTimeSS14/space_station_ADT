@@ -21,3 +21,16 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+
+# Darkiich
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatErichStohl
+  name: Erich Stohl's black jacket
+  description: A worn black leather jacket with a fur collar and cuffs. A brown strap with a brass buckle runs across the chest.
+  suffix: Personal, Darkiich
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Darkiich/erich_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Darkiich/erich_jacket.rsi

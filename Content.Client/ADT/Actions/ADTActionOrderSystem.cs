@@ -1,5 +1,6 @@
 using System.IO;
 using System.Linq;
+using Content.Client.ADT.UserData;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -14,7 +15,8 @@ namespace Content.Client.ADT.Actions;
 
 public sealed class ADTActionOrderSystem : EntitySystem
 {
-    private static readonly ResPath SavePath = new("/adt_action_order.yml");
+    private static readonly ResPath LegacySavePath = new("/adt_action_order.yml");
+    private static readonly ResPath SavePath = ADTUserData.Root / "action_order.yml";
     private static readonly TimeSpan SaveDelay = TimeSpan.FromSeconds(1);
 
     [Dependency] private IGameTiming _timing = default!;
@@ -88,11 +90,12 @@ public sealed class ADTActionOrderSystem : EntitySystem
 
     private void Load()
     {
-        if (!_resources.UserData.Exists(SavePath))
-            return;
-
         try
         {
+            ADTUserData.MoveLegacy(_resources.UserData, LegacySavePath, SavePath);
+            if (!_resources.UserData.Exists(SavePath))
+                return;
+
             using var reader = _resources.UserData.OpenText(SavePath);
             var yaml = new YamlStream();
             yaml.Load(reader);
@@ -120,6 +123,7 @@ public sealed class ADTActionOrderSystem : EntitySystem
         try
         {
             var node = _serialization.WriteValue(data, notNullableOverride: true);
+            _resources.UserData.CreateDir(SavePath.Directory);
             using var writer = _resources.UserData.OpenWriteText(SavePath);
             var yaml = new YamlStream { new YamlDocument(node.ToYamlNode()) };
             yaml.Save(new YamlMappingFix(new Emitter(writer)), false);

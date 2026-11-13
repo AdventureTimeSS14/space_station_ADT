@@ -35,3 +35,9 @@ ent-ADTClothingEyesGlassesMedChem = химико-медицинские очки
 
 ent-ADTClothingEyesGlassesMonocle = монокль
     .desc = Устаревший оптический прибор для коррекции зрения или демонстрации высокомерия.
+
+ent-ADTClothingEyesGlassesGasTemperature = термальные очки атмосферных техников
+    .desc = Программно ограниченые термальные очки для атмосферных техников.
+
+adt-vision-tint-verb-on = Включить цветные линзы
+adt-vision-tint-verb-off = Выключить цветные линзы

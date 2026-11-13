@@ -106,6 +106,8 @@
     sprite: Clothing/Shoes/Boots/laceups.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/laceups.rsi
+  - type: StaticPrice
+    price: 25
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots

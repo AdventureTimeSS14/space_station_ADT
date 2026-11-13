@@ -1,0 +1,56 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "pot and tray taken from tgstation at https://github.com/tgstation/tgstation (icons/obj/service/kitchen.dmi), pan, liquid levels and oven view of the tray drawn by Inconnu(discord:inconnu1337)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "pan"
+        },
+        {
+            "name": "medium-pan-1"
+        },
+        {
+            "name": "medium-pan-2"
+        },
+        {
+            "name": "medium-pan-3"
+        },
+        {
+            "name": "medium-pan-4"
+        },
+        {
+            "name": "pot"
+        },
+        {
+            "name": "medium-pot-1"
+        },
+        {
+            "name": "medium-pot-2"
+        },
+        {
+            "name": "medium-pot-3"
+        },
+        {
+            "name": "medium-pot-4"
+        },
+        {
+            "name": "tray"
+        },
+        {
+            "name": "batter-pan"
+        },
+        {
+            "name": "batter-tray"
+        },
+        {
+            "name": "tray-oven"
+        },
+        {
+            "name": "batter-tray-oven"
+        }
+    ]
+}

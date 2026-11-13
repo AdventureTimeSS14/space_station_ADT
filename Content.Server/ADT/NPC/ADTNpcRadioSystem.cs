@@ -7,6 +7,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -62,7 +63,7 @@ public sealed class ADTNpcRadioSystem : EntitySystem
 
         if (channel != null)
         {
-            if (!_proto.TryIndex(channel.Value, out channelProto) || !_inventory.TryGetSlotEntity(caller, "ears", out _))
+            if (!_proto.TryIndex(channel.Value, out channelProto) || !CanTransmit(caller, channel.Value))
                 return false;
         }
 
@@ -103,6 +104,14 @@ public sealed class ADTNpcRadioSystem : EntitySystem
 
         _chat.TrySendInGameICMessage(caller, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: channelProto != null);
         return true;
+    }
+
+    private bool CanTransmit(EntityUid caller, ProtoId<RadioChannelPrototype> channel)
+    {
+        if (_inventory.TryGetSlotEntity(caller, "ears", out _))
+            return true;
+
+        return TryComp<IntrinsicRadioTransmitterComponent>(caller, out var transmitter) && transmitter.Channels.Contains(channel);
     }
 
     public RadioCall? FindCall(EntityUid listener, IReadOnlyCollection<string> types, float maxAge, float minDistance, float maxDistance)

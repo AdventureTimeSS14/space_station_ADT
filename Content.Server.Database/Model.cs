@@ -59,9 +59,11 @@ namespace Content.Server.Database
         public DbSet<AdtSponsorTier> AdtSponsorTier { get; set; } = null!;
         public DbSet<AdtSponsorGrant> AdtSponsorGrant { get; set; } = null!;
         public DbSet<AdtSponsorPreference> AdtSponsorPreference { get; set; } = null!;
+        public DbSet<AdtSponsorLegacyTier> AdtSponsorLegacyTier { get; set; } = null!;
         public DbSet<AdtPoll> AdtPoll { get; set; } = null!;
         public DbSet<AdtPollResponse> AdtPollResponse { get; set; } = null!;
         public DbSet<AdtPollPending> AdtPollPending { get; set; } = null!;
+        public DbSet<AdtMapRotation> AdtMapRotation { get; set; } = null!;
         // ADT-Tweak-End
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<CustomVoteLog> CustomVoteLog { get; set; } = null!;
@@ -406,6 +408,7 @@ namespace Content.Server.Database
 
             ModelBan.OnModelCreating(modelBuilder);
             ModelCustomVoteLog.OnModelCreating(modelBuilder);
+            ModelAdtCanvas.OnModelCreating(modelBuilder); // ADT-Tweak
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -884,6 +887,16 @@ namespace Content.Server.Database
         public string? OocColor { get; set; }
 
         public string? GhostColor { get; set; }
+    }
+
+    public class AdtSponsorLegacyTier
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int LegacyTier { get; set; }
+
+        public int? TierId { get; set; }
+
+        public DateTime? LastSeen { get; set; }
     }
 
     public class AdtPoll

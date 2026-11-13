@@ -38,23 +38,728 @@
     sprite: ADT/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi  
 
 - type: entity
-  parent: [ClothingOuterStorageBase, ClothingOuterWinterCoat]
-  id: ADTClothingOuterHoodyBlack
-  name: black hoodie
-  description: A soft black hoodie with a hood.
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase ]
+  id: ADTClothingOuterDownjacketBlack
+  name: black downjacket
+  description: A heavy winter jacket filled with synthetic down.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_black.rsi
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_black.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_black.rsi
-
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_black.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodDownjacket_black
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
 - type: entity
-  parent: [ClothingOuterStorageBase, ClothingOuterWinterCoat]
-  id: ADTClothingOuterHoodyWhite
-  name: white hoodie
-  description: A soft white hoodie with a hood.
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase ]
+  id: ADTClothingOuterDownjacketBlue
+  name: blue downjacket
+  description: A heavy winter jacket filled with synthetic down.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_white.rsi
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_blue.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_white.rsi
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_blue.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodDownjacket_blue
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase ]
+  id: ADTClothingOuterDownjacketBrown
+  name: brown downjacket
+  description: A heavy winter jacket filled with synthetic down.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_brown.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_brown.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodDownjacket_brown
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase ]
+  id: ADTClothingOuterDownjacketGreen
+  name: green downjacket
+  description: A heavy winter jacket filled with synthetic down.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_green.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_green.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodDownjacket_green
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase ]
+  id: ADTClothingOuterDownjacketMerc
+  name: mercenary downjacket
+  description: A heavy winter jacket filled with synthetic down.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_merc.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_merc.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodDownjacket_merc
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase ]
+  id: ADTClothingOuterDownjacketRed
+  name: red downjacket
+  description: A heavy winter jacket filled with synthetic down.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_red.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_red.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodDownjacket_red
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase ]
+  id: ADTClothingOuterDownjacketWhite
+  name: white downjacket
+  description: A heavy winter jacket filled with synthetic down.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_white.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Downjacket/downjacket_white.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodDownjacket_white
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyBeige
+  name: beige hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_beige.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_beige.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_beige
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyBlack
+  name: black hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_black.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_black
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyBlue
+  name: blue hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_blue.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_blue
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyBrown
+  name: brown hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_brown.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_brown
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyDarkBlue
+  name: darkblue hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_darkblue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_darkblue.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_darkblue
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyGray
+  name: gray hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_gray.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_gray.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_gray
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyGreen
+  name: green hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_green.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_green
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyPurple
+  name: purple hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_purple.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_purple
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyRed
+  name: red hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_red.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_red
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageBase ]
+  id: ADTClothingOuterHoodyWhite
+  name: white hoody
+  description: A soft hooded sweatshirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hoody/hoody_white.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHoodHoody_white
+    slot: head
+    verbText: toggle-clothing-verb-hood
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon

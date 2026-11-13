@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterCoatUrs
   name: Urs outercoat.
@@ -350,6 +350,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/dutch_jacket.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/dutch_jacket.rsi
+  - type: StaticPrice
+    price: 45
 
 - type: entity
   parent: ADTClothingOuterStorageClothBase
@@ -361,6 +363,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_nanotrasen.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_nanotrasen.rsi
+  - type: StaticPrice
+    price: 40
 
 - type: entity
   parent: ADTClothingOuterStorageClothBase
@@ -372,6 +376,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
+  - type: StaticPrice
+    price: 40
 
 - type: entity
   parent: ADTClothingOuterStorageClothBase
@@ -385,6 +391,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_black.rsi
 
 # Тренч деку
+  - type: StaticPrice
+    price: 40
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
@@ -762,6 +770,62 @@
     containers:
       storagebase: !type:Container
       toggleable-clothing: !type:ContainerSlot
+
+- type: entity
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageFoldableBase, ClothingOuterArmorBase ]
+  id: ADTClothingOuterCaptainCoat
+  name: captain's armored winter coat
+  description: A sturdy, utilitarian winter coat designed to protect the captain from cold and dangers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/captain_coat.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/captain_coat.rsi
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.60
+        Blunt: 0.60
+        Piercing: 0.60
+        Heat: 0.50
+        Cold: 0.50
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  - type: Tag
+    tags:
+    - WinterCoat
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 80
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCaptainCoat ]
+  id: ADTClothingOuterCaptainCoatOpened
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/captain_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/captain_coat.rsi
+  - type: StaticPrice
+    price: 80
 
 - type: entity
   parent: ClothingOuterStorageBase

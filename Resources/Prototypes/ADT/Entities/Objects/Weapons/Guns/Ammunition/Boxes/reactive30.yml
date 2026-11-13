@@ -1,0 +1,261 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: ADTMagazineBoxReactive30Base
+  name: ammunition box (.30 reactive)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ADTCartridgeReactive30
+    proto: ADTCartridgeReactive30
+    capacity: 20
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Boxes/reactive30.rsi
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-5
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+
+- type: entity
+  parent: ADTMagazineBoxReactive30Base
+  id: ADTMagazineBoxReactive30
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-5
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: ADTMagazineBoxReactive30Base
+  id: ADTMagazineBoxReactive30Blast
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Blast
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-5
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: blast-b
+
+- type: entity
+  parent: ADTMagazineBoxReactive30Base
+  id: ADTMagazineBoxReactive30Incendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Incendiary
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-5
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary-b
+
+- type: entity
+  parent: ADTMagazineBoxReactive30Base
+  id: ADTMagazineBoxReactive30Practice
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Practice
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-5
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice-b
+
+- type: entity
+  parent: ADTMagazineBoxReactive30Base
+  id: ADTMagazineBoxReactive30Shrapnel
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Shrapnel
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-5
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: shrapnel-b
+
+- type: entity
+  parent: ADTMagazineBoxReactive30Base
+  id: ADTMagazineBoxReactive30Uranium
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Uranium
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-5
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium-b
+
+- type: entity
+  parent: ADTMagazineBoxReactive30Base
+  id: ADTMagazineBoxReactive30Empty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: ADTMagazineBoxReactive30CanBase
+  name: ammunition box (.30 reactive)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ADTCartridgeReactive30
+    proto: ADTCartridgeReactive30
+    capacity: 50
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Boxes/reactive30.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+
+- type: entity
+  parent: ADTMagazineBoxReactive30CanBase
+  id: ADTMagazineBoxReactive30Can
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: ADTMagazineBoxReactive30CanBase
+  id: ADTMagazineBoxReactive30CanBlast
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Blast
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: blast
+
+- type: entity
+  parent: ADTMagazineBoxReactive30CanBase
+  id: ADTMagazineBoxReactive30CanIncendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Incendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  parent: ADTMagazineBoxReactive30CanBase
+  id: ADTMagazineBoxReactive30CanPractice
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Practice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  parent: ADTMagazineBoxReactive30CanBase
+  id: ADTMagazineBoxReactive30CanShrapnel
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Shrapnel
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: shrapnel
+
+- type: entity
+  parent: ADTMagazineBoxReactive30CanBase
+  id: ADTMagazineBoxReactive30CanUranium
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeReactive30Uranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+- type: entity
+  parent: ADTMagazineBoxReactive30CanBase
+  id: ADTMagazineBoxReactive30CanEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

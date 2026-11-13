@@ -32,7 +32,6 @@ public sealed class ADTWeatherTileCacheSystem : EntitySystem
         SubscribeLocalEvent<BlockWeatherComponent, ComponentStartup>(OnBlockerStartup);
         SubscribeLocalEvent<BlockWeatherComponent, ComponentShutdown>(OnBlockerShutdown);
         SubscribeLocalEvent<BlockWeatherComponent, AnchorStateChangedEvent>(OnBlockerAnchor);
-        SubscribeLocalEvent<BlockWeatherComponent, ReAnchorEvent>(OnBlockerReAnchor);
     }
 
     public override void Shutdown()
@@ -157,12 +156,6 @@ public sealed class ADTWeatherTileCacheSystem : EntitySystem
     private void OnBlockerAnchor(Entity<BlockWeatherComponent> ent, ref AnchorStateChangedEvent args)
     {
         Invalidate(args.Transform);
-    }
-
-    private void OnBlockerReAnchor(Entity<BlockWeatherComponent> ent, ref ReAnchorEvent args)
-    {
-        Invalidate(args.OldGrid, args.TilePos);
-        Invalidate(args.Grid, args.TilePos);
     }
 
     private sealed class CachedChunk

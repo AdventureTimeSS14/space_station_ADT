@@ -11,6 +11,7 @@
       sprite: ADT/Objects/Weapons/Melee/ert_heavy_shield.rsi
       size: Ginormous
       heldPrefix: ert
+    - type: MultiHandedItem
     - type: Blocking
       passiveBlockModifier:
         coefficients:

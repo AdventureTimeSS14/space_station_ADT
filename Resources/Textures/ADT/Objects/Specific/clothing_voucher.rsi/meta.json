@@ -1,12 +1,44 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by orange6775 (discord)",
+  "copyright": "Made by orange6775 (discord), prazat911",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
-    { "name": "icon" }
+    {
+      "name": "icon"
+    },
+    {
+      "name": "adidas_auto"
+    },
+    {
+      "name": "beanie_auto"
+    },
+    {
+      "name": "bowtie_auto"
+    },
+    {
+      "name": "downjacket_auto"
+    },
+    {
+      "name": "heels_auto"
+    },
+    {
+      "name": "hoody_auto"
+    },
+    {
+      "name": "keikogi_auto"
+    },
+    {
+      "name": "sandals_auto"
+    },
+    {
+      "name": "shawl_auto"
+    },
+    {
+      "name": "sweatercut_auto"
+    }
   ]
 }

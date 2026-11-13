@@ -1,0 +1,152 @@
+- type: adtCookingSettings
+  id: Default
+  updateInterval: 1
+  heatMultipliers:
+    Low: 0.5
+    Medium: 1
+    High: 1.5
+  ovenHeat: Medium
+  qualities:
+  - ADTDishQualityRuined
+  - ADTDishQualityNormal
+  - ADTDishQualityGood
+  - ADTDishQualityExcellent
+  nutrientReagents:
+  - Nutriment
+  - Protein
+  - Vitamin
+  qualityThresholds:
+  - 2
+  - 4
+  flavorGroups:
+  - name: adt-cooking-flavor-seasoning
+    amount: 1
+    reagents:
+    - TableSalt
+    - Blackpepper
+    - Soysauce
+    - Vinegar
+  - name: adt-cooking-flavor-aromatics
+    ingredients:
+    - FoodGarlic
+    - FoodOnion
+    - FoodOnionSlice
+    - FoodOnionRed
+    - FoodOnionRedSlice
+    - FoodChiliPepper
+    - FoodLemon
+    - FoodLime
+  - name: adt-cooking-flavor-sauce
+    amount: 2
+    reagents:
+    - Ketchup
+    - Mayo
+    - BbqSauce
+    - Hotsauce
+    - Coldsauce
+    - HorseradishSauce
+    - Mustard
+  dressingReagents:
+  - JuiceLemon
+  - JuiceLime
+  - JuiceOrange
+  - OilOlive
+  - Ketchunaise
+  spiceReagents:
+  - TableSalt
+  - Blackpepper
+  glazeStrength: 0.42
+  glazeMaxStrength: 0.65
+  spiceDensity: 0.06
+  spiceMaxDensity: 0.14
+  saucePourAmount: 3
+  waterReagents:
+  - Water
+  defaultOvercookTime: 20
+  defaultBurnTime: 40
+  noMediumBurnMultiplier: 2
+  noMediumMaxLevel: 1
+  freeformResults:
+    Pan: ADTFoodFreeformFry
+    Pot: ADTFoodFreeformSoup
+    Tray: ADTFoodFreeformBake
+  freeformTimes:
+    Pan: 20
+    Pot: 40
+    Tray: 40
+  freeformNutritionMultiplier: 0.6
+  freeformMaxLevel: 0
+  freeformMaxPortions: 4
+  freeformWaterPerPortion: 15
+  freeformMinWater: 10
+  burntResult: ADTFoodBurntMess
+  meltIntoMedium:
+  - FoodButter
+  - FoodButterSlice
+  baseIngredients:
+  - FoodDough
+  - FoodDoughFlat
+  - FoodDoughPie
+  - FoodDoughTortillaFlat
+  - FoodDoughCottonFlat
+  bowls:
+  - FoodBowlBig
+  - FoodBowlFancy
+  - ADTMushroomBowl
+  stirTag: ADTLadle
+  flipTag: ADTSpatula
+  flipWindowStart: 0.4
+  flipWindowEnd: 0.7
+  stirInterval: 15
+  stirWindow: 8
+  flareMinWater: 1
+  flareMinHeat: Medium
+  fireDuration: 6
+  fireRange: 1
+  fireStacks: 1
+  flareSound:
+    path: /Audio/Effects/fire.ogg
+  burnSound:
+    path: /Audio/Effects/sizzle.ogg
+  stirSound:
+    path: /Audio/Effects/Fluids/slosh.ogg
+  flipSound:
+    path: /Audio/Effects/sizzle.ogg
+  fryDropSound:
+    path: /Audio/ADT/Effects/Cooking/fry_drop.ogg
+    params:
+      volume: -4
+  waterDropSound:
+    path: /Audio/Effects/Fluids/splash.ogg
+    params:
+      volume: -6
+  ovenOpenSound:
+    path: /Audio/ADT/Effects/Cooking/oven_open.ogg
+    params:
+      volume: -4
+  ovenCloseSound:
+    path: /Audio/ADT/Effects/Cooking/oven_close.ogg
+    params:
+      volume: -4
+  fryLoopSound:
+    path: /Audio/ADT/Effects/Cooking/fry_loop.ogg
+    params:
+      volume: -8
+      maxDistance: 6
+  boilLoopSound:
+    path: /Audio/ADT/Effects/Cooking/boil_loop.ogg
+    params:
+      volume: -8
+      maxDistance: 6
+  ovenLoopSound:
+    path: /Audio/ADT/Effects/Cooking/oven_loop.ogg
+    params:
+      volume: -12
+      maxDistance: 5
+  ovenTimerSound:
+    path: /Audio/Machines/ding.ogg
+  fireLoopSound:
+    path: /Audio/Effects/fire.ogg
+    params:
+      volume: -4
+      maxDistance: 7

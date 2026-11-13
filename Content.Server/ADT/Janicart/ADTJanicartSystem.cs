@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Janicart;
+using Content.Shared.Actions;
 using Content.Shared.ADT.Janicart.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
@@ -18,6 +19,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Vehicle;
 using Content.Shared.Vehicle.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -46,6 +48,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = [];
     private readonly HashSet<Entity<ItemComponent>> _items = [];
@@ -65,6 +68,64 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
 
         SubscribeLocalEvent<BorgModuleComponent, BorgModuleInstalledEvent>(OnBorgModuleInstalled);
         SubscribeLocalEvent<BorgModuleComponent, BorgModuleUninstalledEvent>(OnBorgModuleUninstalled);
+
+        SubscribeLocalEvent<ADTJanicartUpgradeableComponent, VehicleOperatorSetEvent>(OnOperatorSet);
+
+        SubscribeLocalEvent<ADTJanicartBufferComponent, ADTJanicartToggleActionEvent>(OnToggleBuffer);
+        SubscribeLocalEvent<ADTJanicartVacuumComponent, ADTJanicartToggleActionEvent>(OnToggleVacuum);
+    }
+
+    private void OnToggleBuffer(Entity<ADTJanicartBufferComponent> ent, ref ADTJanicartToggleActionEvent args)
+    {
+        ent.Comp.Enabled = !ent.Comp.Enabled;
+        _actions.SetToggled(ent.Comp.ToggleActionEntity, !ent.Comp.Enabled);
+        args.Handled = true;
+    }
+
+    private void OnToggleVacuum(Entity<ADTJanicartVacuumComponent> ent, ref ADTJanicartToggleActionEvent args)
+    {
+        ent.Comp.Enabled = !ent.Comp.Enabled;
+        _actions.SetToggled(ent.Comp.ToggleActionEntity, !ent.Comp.Enabled);
+        args.Handled = true;
+    }
+
+    private void OnOperatorSet(Entity<ADTJanicartUpgradeableComponent> ent, ref VehicleOperatorSetEvent args)
+    {
+        if (!TryComp<ADTJanicartActiveModulesComponent>(ent, out var active))
+            return;
+
+        foreach (var moduleUid in active.ActiveModules)
+        {
+            if (args.OldOperator is { } oldOperator)
+                RevokeToggleActions(oldOperator, moduleUid);
+
+            if (args.NewOperator is { } newOperator)
+                GrantToggleActions(newOperator, moduleUid);
+        }
+    }
+
+    private void GrantToggleActions(EntityUid user, EntityUid moduleUid)
+    {
+        if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer))
+        {
+            _actions.AddAction(user, ref buffer.ToggleActionEntity, buffer.ToggleAction, moduleUid);
+            _actions.SetToggled(buffer.ToggleActionEntity, !buffer.Enabled);
+        }
+
+        if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum))
+        {
+            _actions.AddAction(user, ref vacuum.ToggleActionEntity, vacuum.ToggleAction, moduleUid);
+            _actions.SetToggled(vacuum.ToggleActionEntity, !vacuum.Enabled);
+        }
+    }
+
+    private void RevokeToggleActions(EntityUid user, EntityUid moduleUid)
+    {
+        if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer))
+            _actions.RemoveAction(user, buffer.ToggleActionEntity);
+
+        if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum))
+            _actions.RemoveAction(user, vacuum.ToggleActionEntity);
     }
 
     private void OnInit(Entity<ADTJanicartUpgradeableComponent> ent, ref ComponentInit args)
@@ -98,6 +159,9 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         _popup.PopupClient(Loc.GetString("janicart-upgrade-popup-insert", ("upgrade", used), ("vehicle", ent.Owner)), user);
         OnUpgradesChanged(ent);
         AddActiveModule(ent, used);
+
+        if (CompOrNull<VehicleComponent>(ent)?.Operator is { } driver)
+            GrantToggleActions(driver, used);
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} installed {ToPrettyString(used)} into {ToPrettyString(ent.Owner)}.");
         return true;
@@ -158,8 +222,14 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
         if (!_container.TryGetContainer(ent, ent.Comp.UpgradesContainerId, out var container))
             return;
 
+        var driver = CompOrNull<VehicleComponent>(ent)?.Operator;
         foreach (var upgrade in GetUpgrades(ent))
+        {
             RemoveActiveModule(ent, upgrade.Owner);
+
+            if (driver is { } uid)
+                RevokeToggleActions(uid, upgrade.Owner);
+        }
 
         _container.EmptyContainer(container);
         _audio.PlayPredicted(ent.Comp.RemoveSound, ent, user);
@@ -225,6 +295,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
                     continue;
 
                 if (TryComp<ADTJanicartBufferComponent>(moduleUid, out var buffer)
+                    && buffer.Enabled
                     && curTime >= buffer.NextCheck)
                 {
                     buffer.NextCheck = curTime + buffer.CheckInterval;
@@ -232,6 +303,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
                 }
 
                 if (TryComp<ADTJanicartVacuumComponent>(moduleUid, out var vacuum)
+                    && vacuum.Enabled
                     && curTime >= vacuum.NextCheck)
                 {
                     vacuum.NextCheck = curTime + vacuum.CheckInterval;
@@ -296,6 +368,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return;
 
         AddActiveModule(args.ChassisEnt, ent);
+        GrantToggleActions(args.ChassisEnt, ent);
     }
 
     private void OnBorgModuleUninstalled(Entity<BorgModuleComponent> ent, ref BorgModuleUninstalledEvent args)
@@ -304,6 +377,7 @@ public sealed class ADTJanicartSystem : SharedADTJanicartSystem
             return;
 
         RemoveActiveModule(args.ChassisEnt, ent);
+        RevokeToggleActions(args.ChassisEnt, ent);
     }
 
     private void WashPuddles(EntityUid moduleUid, ADTJanicartBufferComponent buffer)

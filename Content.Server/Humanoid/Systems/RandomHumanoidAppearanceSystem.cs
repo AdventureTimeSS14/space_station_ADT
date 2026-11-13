@@ -25,10 +25,11 @@ public sealed partial class RandomHumanoidAppearanceSystem : EntitySystem
             return;
 
         var profile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
-        ApplyADTRestrictions(component, profile); // ADT-Tweak
+        profile = ApplyADTRestrictions(component, profile); // ADT-Tweak
 
         _visualBody.ApplyProfileTo(uid, profile);
         _humanoidProfile.ApplyProfileTo(uid, profile);
+        ApplyADTProfile(uid, component, profile); // ADT-Tweak
 
         if (component.RandomizeName)
             _metaData.SetEntityName(uid, profile.Name);

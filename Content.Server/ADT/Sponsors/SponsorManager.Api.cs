@@ -78,6 +78,8 @@ public sealed partial class SponsorManager
 
     public async Task<SponsorGrant?> AddGrantAsync(SponsorGrant grant, string actor)
     {
+        grant.Legacy = false;
+
         if (grant.TierId == null && grant.Overrides == null)
             return null;
 
@@ -94,6 +96,9 @@ public sealed partial class SponsorManager
 
     public async Task<bool> UpdateGrantAsync(SponsorGrant grant, string actor)
     {
+        if (grant.Id <= 0 || grant.Legacy)
+            return false;
+
         if (grant.TierId != null && !_tiers.ContainsKey(grant.TierId.Value))
             return false;
 
@@ -108,6 +113,9 @@ public sealed partial class SponsorManager
 
     public async Task<bool> RevokeGrantAsync(int grantId, Guid? revokedBy, string actor)
     {
+        if (grantId <= 0)
+            return false;
+
         var grant = await _db.GetSponsorGrantAsync(grantId);
 
         if (grant == null)
@@ -166,10 +174,23 @@ public sealed partial class SponsorManager
             players[userId] = data.DiscordRoles.ToArray();
         }
 
+        var legacyTiers = new Dictionary<int, string[]>();
+        if (_legacyImport)
+        {
+            foreach (var (legacyTier, mapping) in _legacyTiers)
+            {
+                if (mapping.TierId == null || !_tiers.TryGetValue(mapping.TierId.Value, out var mapped) || !mapped.Enabled)
+                    continue;
+
+                legacyTiers[legacyTier] = mapped.Benefits.DiscordRoles.ToArray();
+            }
+        }
+
         return new SponsorDiscordRoleMap
         {
             Managed = managed,
             Players = players,
+            LegacyTiers = legacyTiers,
         };
     }
 
@@ -207,11 +228,18 @@ public sealed partial class SponsorManager
             if (!_cache.ContainsKey(userId))
                 return;
 
-            _cache[userId] = new CachedSponsor
+            var now = DateTime.UtcNow;
+
+            var cached = new CachedSponsor
             {
                 Grants = grants,
-                Data = Resolve(grants, DateTime.UtcNow),
+                Data = SponsorData.Empty,
             };
+
+            RebuildLegacyGrant(userId, cached, now);
+            cached.Data = Resolve(cached.Effective, now);
+
+            _cache[userId] = cached;
 
             SendState(userId);
         }
@@ -241,4 +269,5 @@ public sealed class SponsorDiscordRoleMap
 {
     public HashSet<string> Managed = new();
     public Dictionary<Guid, string[]> Players = new();
+    public Dictionary<int, string[]> LegacyTiers = new();
 }

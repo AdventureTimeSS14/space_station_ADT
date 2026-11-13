@@ -1170,8 +1170,30 @@ ADTClothingOuterArmorMinerReinforcedFull: ADTClothingOuterArmorMiner
 ADTClothingHeadHelmetMinerReinforcedOne: ADTClothingHeadHelmetMiner
 ADTClothingHeadHelmetMinerReinforcedTwo: ADTClothingHeadHelmetMiner
 ADTClothingHeadHelmetMinerReinforcedFull: ADTClothingHeadHelmetMiner
+ADTMobNightmareSpider: ADTMobMarrowWeaver
+ADTMobShockSpider: ADTMobMarrowWeaverFrost
+ADTSpawnMobNightmareSpider: ADTSpawnMobMarrowWeaver
+ADTSpawnMobShockSpider: ADTSpawnMobMarrowWeaverFrost
+ADTTendrilNightmareSpider: ADTTendrilRandomThreat
+ADTTendrilShockSpider: ADTTendrilRandomThreat
+ADTTendrilIcewingWatcher: ADTTendrilLavaWatcher
+ADTTendrilMagmawingWatcher: ADTTendrilLavaWatcher
+ADTTendrilBScrab: ADTTendrilRandomThreat
 # ADT-Tweak-End
 
 # ADT-Tweak: remove Music song
 ADTBoxMusicDisksSyndicate: null
 ADTMusicDiskShanson: null
+
+ADTBarbellBenchOverlay: null # ADT-Tweak
+
+# ADT frogs 2026-11-05
+SpawnMobFrog: ADTSpawnMobFrog
+
+# ADT-Tweak 2026-11-11
+ADTMaskCoif: ADTClothingMaskCoif
+ADTClothingNeckArmband: ADTClothingNeckArmbandWhite
+
+# ADT-Tweak 2026-11-12
+Vaccinator: ADTPandemic
+VaccinatorMachineCircuitboard: ADTPandemicMachineCircuitboard

@@ -42,9 +42,15 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         Seed = _random.Next();
     }
 
-    private void OnLanguageSwitch(LanguageChosenMessage args)
+    private void OnLanguageSwitch(LanguageChosenMessage args, EntitySessionEventArgs session)
     {
+        if (session.SenderSession.AttachedEntity is not { Valid: true } user)
+            return;
+
         var uid = GetEntity(args.Uid);
+        if (uid != user)
+            return;
+
         if (!TryComp<LanguageSpeakerComponent>(uid, out var component))
             return;
         if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out _) || !langs.ContainsKey(args.SelectedLanguage))

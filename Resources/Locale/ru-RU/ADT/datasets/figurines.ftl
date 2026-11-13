@@ -88,3 +88,8 @@ adt-figurines-navi-3 = Витаминки один к одному с физра
 adt-figurines-navi-4 = Это не борода!
 adt-figurines-navi-5 = Я просто хочу отдохнуть...
 adt-figurines-navi-6 = Бу-бу-бу бе-бе-бе!
+
+adt-figurines-plushie-erich-stohl-1 = Не трогай руку.
+adt-figurines-plushie-erich-stohl-2 = Скрипит? Это протез, не я.
+adt-figurines-plushie-erich-stohl-3 = Где тут бар?
+adt-figurines-plushie-erich-stohl-4 = Мне и одной руки хватит.

@@ -1,17 +1,31 @@
 - type: npcFaction
   id: ADTSovietBunker
   hostile:
-  - NanoTrasen
-  - SimpleHostile
-  - Xeno
-  - PetsNT
-  - Zombie
-  - Heretic
-  - Ursus
+  - ADTAshWalker
+  - ADTBlob
+  - ADTShadowling
+  - ADTSmugglersPirates
+  - ADTSpaceMobs
+  - Changeling
   - Dragon
-  - AllHostile
+  - Heretic
+  - KMT
+  - Mouse
+  - NanoTrasen
+  - Passive
+  - PetsNT
+  - Pirate
+  - Revolutionary
+  - SimpleHostile
+  - SimpleNeutral
+  - SpaceSecFaction
+  - Syndicate
+  - TSF
+  - Ursus
   - Wizard
+  - Xeno
   - Xenoborg
+  - Zombie
 
 - type: npcFaction
   id: ADTSmugglersPirates

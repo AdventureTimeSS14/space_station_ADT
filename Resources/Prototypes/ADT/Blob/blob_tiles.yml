@@ -303,6 +303,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Airtight
+      blockExplosions: false
     - type: BlobTile
       blobTileType: Strong
     - type: Destructible
@@ -331,6 +332,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Airtight
+      blockExplosions: false
     - type: BlobTile
       blobTileType: Reflective
     - type: Destructible
@@ -350,6 +352,10 @@
       spread: 20
       reflects:
         - Energy
+    - type: DamagedByFlashing
+      flashDamage:
+        types:
+          Heat: 0
     - type: Sprite
       sprite: ADT/Blob/Mobs/blob.rsi
       drawdepth: BlobTiles

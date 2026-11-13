@@ -1,0 +1,85 @@
+- type: reagent
+  id: ADTVirusFood
+  name: reagent-name-adt-virus-food
+  group: Biological
+  desc: reagent-desc-adt-virus-food
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: milk
+  color: "#899613"
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:Satiate
+        satiationType: Hunger
+        factor: 1.5
+
+- type: reagent
+  id: ADTMutagenicAgar
+  name: reagent-name-adt-mutagenic-agar
+  group: Biological
+  desc: reagent-desc-adt-mutagenic-agar
+  physicalDesc: reagent-physical-desc-glowing
+  flavor: bitter
+  color: "#a3c00f"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 2.0
+
+- type: reagent
+  id: ADTSucroseAgar
+  name: reagent-name-adt-sucrose-agar
+  group: Biological
+  desc: reagent-desc-adt-sucrose-agar
+  physicalDesc: reagent-physical-desc-glowing
+  flavor: sweet
+  color: "#41b0c0"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 1.0
+
+- type: reagent
+  id: ADTVirusRations
+  name: reagent-name-adt-virus-rations
+  group: Biological
+  desc: reagent-desc-adt-virus-rations
+  physicalDesc: reagent-physical-desc-chalky
+  flavor: medicine
+  color: "#d18aa5"
+
+- type: reagent
+  id: ADTVirusPlasma
+  name: reagent-name-adt-virus-plasma
+  group: Biological
+  desc: reagent-desc-adt-virus-plasma
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#a69da9"
+
+- type: reagent
+  id: ADTWeakVirusPlasma
+  name: reagent-name-adt-weak-virus-plasma
+  group: Biological
+  desc: reagent-desc-adt-weak-virus-plasma
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#cec3c6"
+
+- type: reagent
+  id: ADTVaccine
+  name: reagent-name-adt-vaccine
+  group: Medicine
+  desc: reagent-desc-adt-vaccine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#c81040"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.5

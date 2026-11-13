@@ -23,7 +23,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         SubscribeLocalEvent<MesonVisionComponent, ComponentRemove>(OnMesonVisionRemove);
 
         SubscribeLocalEvent<MesonVisionItemComponent, GetItemActionsEvent>(OnMesonVisionItemGetActions);
-        SubscribeLocalEvent<MesonVisionItemComponent, ToggleActionEvent>(OnMesonVisionItemToggle);
+        SubscribeLocalEvent<MesonVisionItemComponent, ToggleMesonActionEvent>(OnMesonVisionItemToggle);
         SubscribeLocalEvent<MesonVisionItemComponent, GotEquippedEvent>(OnMesonVisionItemGotEquipped);
         SubscribeLocalEvent<MesonVisionItemComponent, GotUnequippedEvent>(OnMesonVisionItemGotUnequipped);
         SubscribeLocalEvent<MesonVisionItemComponent, ActionRemovedEvent>(OnMesonVisionItemActionRemoved);
@@ -65,7 +65,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         args.AddAction(ref ent.Comp.Action, ent.Comp.ActionId);
     }
 
-    private void OnMesonVisionItemToggle(Entity<MesonVisionItemComponent> ent, ref ToggleActionEvent args)
+    private void OnMesonVisionItemToggle(Entity<MesonVisionItemComponent> ent, ref ToggleMesonActionEvent args)
     {
         if (args.Handled)
             return;

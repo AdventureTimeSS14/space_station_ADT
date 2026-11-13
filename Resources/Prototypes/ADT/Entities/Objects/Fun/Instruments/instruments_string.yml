@@ -19,3 +19,58 @@
       types:
         Slash: 15
         Structural: 25
+
+- type: entity
+  parent: ElectricGuitarInstrument
+  id: ADTImprovisedGuitarInstrument
+  name: improvised guitar
+  description: An emergency toolbox, a crowbar, some cables and a tool belt. Somehow, it plays music.
+  components:
+  - type: Instrument
+    program: 24
+  - type: SwappableInstrument
+    instrumentList:
+      "Акустика (нейлон)": {24: 0}
+      "Акустика (сталь)": {25: 0}
+      "Электрогитара (джаз)": {26: 0}
+      "Электрогитара (чистая)": {27: 0}
+      "Электрогитара (приглушённая)": {28: 0}
+      "Бас (пальцы)": {33: 0}
+      "Бас (медиатор)": {34: 0}
+      "Бас (слэп)": {36: 0}
+      "Бас (фанковый слэп)": {37: 0}
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
+    size: Ginormous
+    shape:
+    - 0,0,3,3
+  - type: Clothing
+    sprite: ADT/Objects/Fun/Instruments/improvised_guitar.rsi
+  - type: Construction
+    graph: ADTImprovisedGuitar
+    node: guitar
+  - type: StaticPrice
+    price: 25
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+  - type: ToolTileCompatible
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Wieldable
+    wieldedInhandPrefix: null
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6

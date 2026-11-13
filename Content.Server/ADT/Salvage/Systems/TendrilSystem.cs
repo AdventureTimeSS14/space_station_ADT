@@ -1,24 +1,29 @@
-using System.Linq;
 using System.Numerics;
 using Content.Server.ADT.Lavaland.DayNight;
 using Content.Server.ADT.Salvage.Components;
-using Content.Server.Interaction;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
+using Content.Server.Parallax;
 using Content.Shared.ADT.AshWalker.Components;
+using Content.Shared.ADT.Explosion;
+using Content.Shared.ADT.Mining.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
+using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -27,16 +32,18 @@ namespace Content.Server.ADT.Salvage.Systems;
 public sealed class TendrilSystem : EntitySystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private BiomeSystem _biome = default!;
     [Dependency] private ADTLavalandDayNightSystem _dayNight = default!;
-    [Dependency] private TransformSystem _transform = default!;
-    [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
-    [Dependency] private IGameTiming _time = default!;
+    [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private NPCSystem _npc = default!;
-    [Dependency] private NpcFactionSystem _faction = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     private const string TargetKey = "Target";
     private const string TargetCoordinatesKey = "TargetCoordinates";
@@ -44,82 +51,178 @@ public sealed class TendrilSystem : EntitySystem
 
     private const int AttackerSearchDepth = 5;
 
+    private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+
+    private readonly List<(Vector2i Index, Tile Tile)> _reserved = new();
+    private readonly HashSet<Entity<ADTMineralComponent>> _minerals = new();
+
+    private TimeSpan _nextUpdate;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TendrilComponent, TendrilMobDeadEvent>(OnTendrilMobDeath);
+        SubscribeLocalEvent<TendrilComponent, MapInitEvent>(OnTendrilMapInit);
         SubscribeLocalEvent<TendrilComponent, DestructionEventArgs>(OnTendrilDestruction);
-        SubscribeLocalEvent<TendrilComponent, ComponentStartup>(OnTendrilStartup);
         SubscribeLocalEvent<TendrilComponent, DamageChangedEvent>(OnTendrilDamaged);
         SubscribeLocalEvent<TendrilComponent, AttackedEvent>(OnTendrilAttacked);
         SubscribeLocalEvent<TendrilComponent, BeforeDamageChangedEvent>(OnTendrilBeforeDamage);
+        SubscribeLocalEvent<TendrilComponent, ComponentShutdown>(OnTendrilShutdown);
+
         SubscribeLocalEvent<TendrilMobComponent, MobStateChangedEvent>(OnMobState);
+        SubscribeLocalEvent<TendrilMobComponent, ComponentShutdown>(OnMobShutdown);
+
+        SubscribeLocalEvent<TendrilCollapseComponent, MapInitEvent>(OnCollapseMapInit);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<TendrilComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var now = _timing.CurTime;
+        if (now < _nextUpdate)
+            return;
+
+        _nextUpdate = now + UpdateInterval;
+
+        var tendrils = EntityQueryEnumerator<TendrilComponent, TransformComponent>();
+        while (tendrils.MoveNext(out var uid, out var comp, out var xform))
         {
-            if (comp.Aggressor is { } aggressor && (_time.CurTime > comp.AggroEndTime || !IsValidTarget(aggressor)))
+            if (comp.Aggressor is { } aggressor && (now > comp.AggroEndTime || !IsValidTarget(aggressor)))
                 ClearAggro((uid, comp));
 
-            var xform = Transform(uid);
-            var maxSpawns = comp.MaxSpawns;
-            var spawnDelay = comp.SpawnDelay;
+            TrySpawn((uid, comp, xform), now);
+        }
 
-            if (_dayNight.TryGetNight(xform.MapUid, out var night))
-            {
-                maxSpawns += night.TendrilExtraSpawns;
-                spawnDelay *= night.TendrilDelayMultiplier;
-            }
-
-            if (comp.Mobs.Count >= maxSpawns)
-                continue;
-            if (comp.LastSpawn + TimeSpan.FromSeconds(spawnDelay) > _time.CurTime)
-                continue;
-
-            var coords = xform.Coordinates;
-            var newCoords = coords.Offset(_random.NextVector2(4));
-            for (var i = 0; i < 20; i++)
-            {
-                var randVector = _random.NextVector2(4);
-                newCoords = coords.Offset(randVector);
-                if (!_lookup.GetEntitiesIntersecting(newCoords.ToMap(EntityManager, _transform), LookupFlags.Static).Any())
-                {
-                    break;
-                }
-            }
-            var mob = Spawn(_random.Pick(comp.Spawns), newCoords);
-            var mobComp = EnsureComp<TendrilMobComponent>(mob);
-            mobComp.Tendril = uid;
-            comp.Mobs.Add(mob);
-            comp.LastSpawn = _time.CurTime;
-
-            if (comp.Aggressor is { } current)
-                AggroMob((mob, mobComp), current, comp);
+        var collapses = EntityQueryEnumerator<TendrilCollapseComponent>();
+        while (collapses.MoveNext(out var uid, out var collapse))
+        {
+            if (now >= collapse.CollapseAt)
+                Collapse((uid, collapse));
         }
     }
 
-    private void OnTendrilStartup(EntityUid uid, TendrilComponent comp, ComponentStartup args)
+    private void TrySpawn(Entity<TendrilComponent, TransformComponent> ent, TimeSpan now)
     {
-        comp.LastSpawn = _time.CurTime;
+        if (now < ent.Comp1.NextSpawn || ent.Comp1.Spawns.Count == 0)
+            return;
+
+        var maxSpawns = ent.Comp1.MaxSpawns;
+        var delay = ent.Comp1.SpawnDelay;
+
+        if (_dayNight.TryGetNight(ent.Comp2.MapUid, out var night))
+        {
+            maxSpawns += night.TendrilExtraSpawns;
+            delay *= night.TendrilDelayMultiplier;
+        }
+
+        if (ent.Comp1.Mobs.Count >= maxSpawns)
+            return;
+
+        ent.Comp1.NextSpawn = now + delay;
+
+        var mob = Spawn(_random.Pick(ent.Comp1.Spawns), ent.Comp2.Coordinates);
+        var mobComp = EnsureComp<TendrilMobComponent>(mob);
+        mobComp.Tendril = ent.Owner;
+        ent.Comp1.Mobs.Add(mob);
+
+        _popup.PopupEntity(Loc.GetString(ent.Comp1.SpawnPopup, ("mob", mob), ("tendril", ent.Owner)), ent.Owner, PopupType.SmallCaution);
+
+        if (ent.Comp1.Aggressor is { } current)
+            AggroMob((mob, mobComp), current, ent.Comp1);
     }
 
-    private void OnTendrilMobDeath(EntityUid uid, TendrilComponent comp, ref TendrilMobDeadEvent args)
+    private void OnTendrilMapInit(Entity<TendrilComponent> ent, ref MapInitEvent args)
     {
-        comp.Mobs.Remove(args.Entity);
+        ent.Comp.NextSpawn = _timing.CurTime;
+        ClearSurroundings(ent);
+    }
+
+    private void ClearSurroundings(Entity<TendrilComponent> ent)
+    {
+        var xform = Transform(ent);
+        if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        var center = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
+        var radius = ent.Comp.ClearRadius;
+        var bounds = new Box2(center.X - radius, center.Y - radius, center.X + radius + 1, center.Y + radius + 1);
+
+        _reserved.Clear();
+        _biome.ReserveTiles(gridUid, bounds.Enlarged(-0.1f), _reserved);
+
+        _minerals.Clear();
+        _lookup.GetLocalEntitiesIntersecting(gridUid, bounds.Enlarged(-0.1f), _minerals, LookupFlags.Static);
+        foreach (var mineral in _minerals)
+        {
+            QueueDel(mineral);
+        }
+    }
+
+    private void OnTendrilShutdown(Entity<TendrilComponent> ent, ref ComponentShutdown args)
+    {
+        foreach (var mob in ent.Comp.Mobs)
+        {
+            if (TryComp<TendrilMobComponent>(mob, out var mobComp))
+                mobComp.Tendril = null;
+        }
+
+        ent.Comp.Mobs.Clear();
+    }
+
+    private void OnTendrilDestruction(Entity<TendrilComponent> ent, ref DestructionEventArgs args)
+    {
+        var coords = _transform.GetMapCoordinates(ent);
+
+        Spawn(ent.Comp.Collapse, coords);
+        Spawn(ent.Comp.Chest, coords);
+    }
+
+    private void OnCollapseMapInit(Entity<TendrilCollapseComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.CollapseAt = _timing.CurTime + ent.Comp.Delay;
+
+        _popup.PopupEntity(Loc.GetString(ent.Comp.StartPopup), ent.Owner, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.TearPopup), ent.Owner, PopupType.MediumCaution);
+        _audio.PlayPvs(ent.Comp.StartSound, ent.Owner);
+    }
+
+    private void Collapse(Entity<TendrilCollapseComponent> ent)
+    {
+        var xform = Transform(ent);
+        var mapCoords = _transform.GetMapCoordinates(ent, xform);
+
+        RaiseNetworkEvent(new ADTScreenShakeEvent(mapCoords, ent.Comp.ShakeRange, ent.Comp.ShakeDuration, ent.Comp.ShakeStrength));
+        _audio.PlayPvs(ent.Comp.CollapseSound, xform.Coordinates);
+        _popup.PopupCoordinates(Loc.GetString(ent.Comp.CollapsePopup), xform.Coordinates, PopupType.LargeCaution);
+
+        if (xform.GridUid is { } gridUid && TryComp<MapGridComponent>(gridUid, out var grid))
+        {
+            var center = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
+            var radius = ent.Comp.Radius;
+
+            for (var dx = -radius; dx <= radius; dx++)
+            {
+                for (var dy = -radius; dy <= radius; dy++)
+                {
+                    var indices = center + new Vector2i(dx, dy);
+                    if (!_map.TryGetTileRef(gridUid, grid, indices, out var tileRef) || tileRef.Tile.IsEmpty)
+                        continue;
+
+                    if (_turf.IsTileBlocked(tileRef, CollisionGroup.Impassable))
+                        continue;
+
+                    Spawn(ent.Comp.Chasm, _map.GridTileToLocal(gridUid, grid, indices));
+                }
+            }
+        }
+
+        QueueDel(ent);
     }
 
     private void OnTendrilDamaged(Entity<TendrilComponent> ent, ref DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
-            return;
-
-        if (args.Origin is not { } origin)
+        if (!args.DamageIncreased || args.Origin is not { } origin)
             return;
 
         Aggro(ent, origin);
@@ -139,44 +242,49 @@ public sealed class TendrilSystem : EntitySystem
         Aggro(ent, args.User);
     }
 
-    private void OnTendrilDestruction(EntityUid uid, TendrilComponent comp, DestructionEventArgs args)
+    private void OnMobState(Entity<TendrilMobComponent> ent, ref MobStateChangedEvent args)
     {
-        var coords = Transform(uid).Coordinates;
-        Robust.Shared.Timing.Timer.Spawn(TimeSpan.FromSeconds(comp.ChasmDelay), () =>
-        {
-            SpawnChasm(coords, 2);
-        });
+        if (args.NewMobState == MobState.Dead)
+            Release(ent);
+    }
+
+    private void OnMobShutdown(Entity<TendrilMobComponent> ent, ref ComponentShutdown args)
+    {
+        Release(ent);
+    }
+
+    private void Release(Entity<TendrilMobComponent> ent)
+    {
+        if (ent.Comp.Tendril is not { } tendril)
+            return;
+
+        ent.Comp.Tendril = null;
+
+        if (TryComp<TendrilComponent>(tendril, out var comp))
+            comp.Mobs.Remove(ent);
     }
 
     public void Aggro(Entity<TendrilComponent> ent, EntityUid origin)
     {
-        if (ResolveAttacker(origin) is not { } attacker)
-            return;
-
-        if (!IsValidTarget(attacker))
+        if (ResolveAttacker(origin) is not { } attacker || !IsValidTarget(attacker))
             return;
 
         if (ent.Comp.Aggressor is { } previous && previous != attacker)
             ClearAggro(ent);
 
         ent.Comp.Aggressor = attacker;
-        ent.Comp.AggroEndTime = _time.CurTime + ent.Comp.AggroMemory;
+        ent.Comp.AggroEndTime = _timing.CurTime + ent.Comp.AggroMemory;
 
         foreach (var mob in ent.Comp.Mobs)
         {
-            if (!TryComp<TendrilMobComponent>(mob, out var mobComp))
-                continue;
-
-            AggroMob((mob, mobComp), attacker, ent.Comp);
+            if (TryComp<TendrilMobComponent>(mob, out var mobComp))
+                AggroMob((mob, mobComp), attacker, ent.Comp);
         }
     }
 
     private void AggroMob(Entity<TendrilMobComponent> mob, EntityUid target, TendrilComponent tendril)
     {
-        if (TerminatingOrDeleted(mob) || mob.Owner == target)
-            return;
-
-        if (_mobState.IsDead(mob))
+        if (TerminatingOrDeleted(mob) || mob.Owner == target || _mobState.IsDead(mob))
             return;
 
         if (_faction.IsEntityFriendly(mob.Owner, target))
@@ -246,7 +354,6 @@ public sealed class TendrilSystem : EntitySystem
                 return current;
 
             var parent = Transform(current).ParentUid;
-
             if (!parent.IsValid())
                 return null;
 
@@ -258,10 +365,7 @@ public sealed class TendrilSystem : EntitySystem
 
     private bool IsValidTarget(EntityUid target)
     {
-        if (TerminatingOrDeleted(target))
-            return false;
-
-        if (!HasComp<MobStateComponent>(target))
+        if (TerminatingOrDeleted(target) || !HasComp<MobStateComponent>(target))
             return false;
 
         return !_mobState.IsDead(target);
@@ -287,26 +391,5 @@ public sealed class TendrilSystem : EntitySystem
             return null;
 
         return (ourCoords.Position - targetCoords.Position).Length();
-    }
-
-    private void SpawnChasm(EntityCoordinates coords, int radius)
-    {
-        for (var dx = -radius; dx <= radius; dx++)
-        {
-            for (var dy = -radius; dy <= radius; dy++)
-            {
-                Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X + dx, coords.Y + dy));
-            }
-        }
-    }
-
-    private void OnMobState(EntityUid uid, TendrilMobComponent comp, MobStateChangedEvent args)
-    {
-        if (args.NewMobState != MobState.Dead)
-            return;
-        if (!comp.Tendril.HasValue)
-            return;
-        var ev = new TendrilMobDeadEvent(uid);
-        RaiseLocalEvent(comp.Tendril.Value, ref ev);
     }
 }

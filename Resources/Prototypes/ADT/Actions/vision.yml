@@ -16,7 +16,7 @@
       map: ["enum.ActionVisuals.IconToggled"]
       visible: false
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleNightVisionActionEvent
 
 - type: entity
   id: ActionToggleThermalVision
@@ -36,7 +36,7 @@
       map: ["enum.ActionVisuals.IconToggled"]
       visible: false
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleThermalVisionActionEvent
 
 - type: entity
   id: ActionToggleMesonVision
@@ -56,4 +56,4 @@
       map: ["enum.ActionVisuals.IconToggled"]
       visible: false
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleMesonActionEvent

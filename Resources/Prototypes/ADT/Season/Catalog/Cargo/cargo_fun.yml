@@ -1,0 +1,20 @@
+- type: cargoProduct
+  id: ADTFunOktoberfestClothes
+  icon:
+    sprite: ADT/Season/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi
+    state: icon
+  product: ADTCrateFunOktoberfestClothes
+  cost: 750
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTFunHalloweenCloth
+  icon:
+    sprite: ADT/Season/Objects/Storage/Boxes/halloween_box.rsi
+    state: pennywise
+  product: ADTCrateHalloweenCloth
+  cost: 8350
+  category: cargoproduct-category-name-fun
+  group: market
+

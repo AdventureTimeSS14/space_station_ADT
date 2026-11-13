@@ -1,7 +1,9 @@
 using System.Numerics;
+using Content.Shared.ADT.Explosion;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Systems;
+using Robust.Client.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -14,6 +16,8 @@ public sealed class ADTScreenShakeSystem : EntitySystem
     [Dependency] private SharedContentEyeSystem _eye = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float IconSize = 32f;
     private const float TilesPerSecond = 0.7f;
@@ -27,7 +31,20 @@ public sealed class ADTScreenShakeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTScreenShakeComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
+        SubscribeNetworkEvent<ADTScreenShakeEvent>(OnShakeEvent);
         Subs.CVar(_config, CCVars.ScreenShakeIntensity, value => _intensity = value, true);
+    }
+
+    private void OnShakeEvent(ADTScreenShakeEvent ev)
+    {
+        if (_player.LocalEntity is not { } local)
+            return;
+
+        var coords = _transform.GetMapCoordinates(local);
+        if (coords.MapId != ev.Center.MapId || (coords.Position - ev.Center.Position).Length() > ev.Range)
+            return;
+
+        Shake(local, ev.Duration, ev.Strength);
     }
 
     private void OnGetEyeOffset(Entity<ADTScreenShakeComponent> ent, ref GetEyeOffsetEvent args)

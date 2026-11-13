@@ -143,7 +143,6 @@ public sealed class ADTEntitySpawnIndex
 
     private readonly List<Rule> _rules = new();
     private readonly Dictionary<string, ADTSpawnCategoryNode> _nodes = new();
-    private Dictionary<string, string>? _paths;
     private readonly ISawmill _sawmill;
 
     public readonly List<ADTEntitySpawnEntry> Entries = new();
@@ -155,6 +154,7 @@ public sealed class ADTEntitySpawnIndex
     public ADTSpawnCategoryNode Favorites { get; private set; } = default!;
     public ADTSpawnCategoryNode Recent { get; private set; } = default!;
     public ADTSpawnCategoryNode? Untranslated { get; private set; }
+    public Dictionary<string, string> Paths { get; private set; } = default!;
 
     public ADTEntitySpawnIndex()
     {
@@ -167,12 +167,7 @@ public sealed class ADTEntitySpawnIndex
         return _nodes.GetValueOrDefault(id);
     }
 
-    public void InvalidatePaths()
-    {
-        _paths = null;
-    }
-
-    public void Rebuild()
+    public void Rebuild(Dictionary<string, string>? paths)
     {
         Entries.Clear();
         Roots.Clear();
@@ -180,17 +175,17 @@ public sealed class ADTEntitySpawnIndex
         _nodes.Clear();
         _rules.Clear();
 
-        EnsurePaths();
+        Paths = paths ?? ScanPaths();
 
-        All = AddNode(AllId, Loc.GetString("adt-spawn-menu-category-all"), null, false, int.MinValue);
-        Favorites = AddNode(FavoritesId, Loc.GetString("adt-spawn-menu-category-favorites"), null, false, int.MinValue + 1);
-        Recent = AddNode(RecentId, Loc.GetString("adt-spawn-menu-category-recent"), null, false, int.MinValue + 2);
+        All = AddNode(AllId, _loc.GetString("adt-spawn-menu-category-all"), null, false, int.MinValue);
+        Favorites = AddNode(FavoritesId, _loc.GetString("adt-spawn-menu-category-favorites"), null, false, int.MinValue + 1);
+        Recent = AddNode(RecentId, _loc.GetString("adt-spawn-menu-category-recent"), null, false, int.MinValue + 2);
 
         var checkTranslation = _loc.DefaultCulture?.TwoLetterISOLanguageName == RussianLanguage;
         Untranslated = checkTranslation
-            ? AddNode(UntranslatedId, Loc.GetString("adt-spawn-menu-category-untranslated"), null, false, int.MaxValue - 1)
+            ? AddNode(UntranslatedId, _loc.GetString("adt-spawn-menu-category-untranslated"), null, false, int.MaxValue - 1)
             : null;
-        Other = AddNode(OtherId, Loc.GetString("adt-spawn-menu-category-other"), null, false, int.MaxValue);
+        Other = AddNode(OtherId, _loc.GetString("adt-spawn-menu-category-other"), null, false, int.MaxValue);
 
         foreach (var category in _prototypes.EnumeratePrototypes<ADTSpawnCategoryPrototype>())
         {
@@ -212,7 +207,7 @@ public sealed class ADTEntitySpawnIndex
             };
 
             context.Prototype = prototype;
-            context.Path = _paths!.GetValueOrDefault(prototype.ID, string.Empty);
+            context.Path = Paths.GetValueOrDefault(prototype.ID, string.Empty);
             context.SuffixTags = entry.SuffixTags;
             context.Ancestors = null;
             context.MeleeDamage = null;
@@ -233,12 +228,9 @@ public sealed class ADTEntitySpawnIndex
         SortChildren(Roots);
     }
 
-    private void EnsurePaths()
+    private Dictionary<string, string> ScanPaths()
     {
-        if (_paths != null)
-            return;
-
-        _paths = new Dictionary<string, string>();
+        var paths = new Dictionary<string, string>();
 
         foreach (var file in _resources.ContentFindFiles(PrototypesRoot))
         {
@@ -255,7 +247,7 @@ public sealed class ADTEntitySpawnIndex
             {
                 if (line.StartsWith("- "))
                 {
-                    StorePath(kind, id, path);
+                    StorePath(paths, kind, id, path);
                     kind = null;
                     id = null;
                     ParseKey(line.Substring(2), ref kind, ref id);
@@ -266,14 +258,16 @@ public sealed class ADTEntitySpawnIndex
                     ParseKey(line.Substring(2), ref kind, ref id);
             }
 
-            StorePath(kind, id, path);
+            StorePath(paths, kind, id, path);
         }
+
+        return paths;
     }
 
-    private void StorePath(string? kind, string? id, string path)
+    private static void StorePath(Dictionary<string, string> paths, string? kind, string? id, string path)
     {
         if (kind == "entity" && !string.IsNullOrEmpty(id))
-            _paths![id] = path;
+            paths[id] = path;
     }
 
     private static void ParseKey(string line, ref string? kind, ref string? id)
@@ -339,7 +333,7 @@ public sealed class ADTEntitySpawnIndex
             parent = GetOrCreateNode(parentCategory);
 
         var service = category.Service || parent is { Service: true };
-        var name = category.Name != null ? Loc.GetString(category.Name.Value) : category.ID;
+        var name = category.Name != null ? _loc.GetString(category.Name.Value) : category.ID;
         return AddNode(category.ID, name, parent, service, category.Order);
     }
 

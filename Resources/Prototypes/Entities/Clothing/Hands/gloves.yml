@@ -197,6 +197,13 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - arms
+    - hands
+  # ADT-Tweak-End
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -211,6 +218,13 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - arms
+    - hands
+  # ADT-Tweak-End
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -315,15 +329,19 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
-    # ADT-Tweak start: Ninja borg hack objective
-    - objective: BorgHackObjective
-      components:
-      - type: EmagProvider
-        emagType: "Access, Interaction"
-        whitelist:
-          components:
-          - Airlock
-          - EmagSiliconLaw
+    # ADT-Tweak start: Ninja borg
+    - components:
+      - type: NinjaBorgConvert
+        chassisByBorgType:
+          security: ADTNinjaBorgChassisSecurity
+          engineering: ADTNinjaBorgChassisEngineer
+          medical: ADTNinjaBorgChassisMedical
+          mining: ADTNinjaBorgChassisHeavy
+          janitor: ADTNinjaBorgChassisSpider
+        fallbackChassis:
+        - ADTNinjaBorgChassisBooty
+        - ADTNinjaBorgChassisBroBooty
+        - ADTNinjaBorgChassisMissM
     # ADT-Tweak end
 
 - type: entity

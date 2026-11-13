@@ -289,6 +289,8 @@
   description: trait-monochromacy-desc
   category: Disabilities
   cost: -1
+  conflicts:
+    - ADTNoirVision
   effects:
     - !type:AddCompsEffect
       components:
@@ -445,3 +447,17 @@
             description: ghost-role-information-dissociative-alter-description
             rules: ghost-role-information-dissociative-alter-rules
           - type: GhostTakeoverAvailable
+
+- type: trait
+  id: ADTNoirVision
+  name: trait-adt-noir-vision-name
+  description: trait-adt-noir-vision-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: NoirOverlay
+  conflicts:
+    - Monochromacy
+

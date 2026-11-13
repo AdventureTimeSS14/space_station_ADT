@@ -1,6 +1,8 @@
 adt-kinetic-trophy-legion-skull = [color=#FFD700][b]Улучшение:[/b][/color] [color=#e480ff]череп легионера[/color]
 adt-kinetic-trophy-magma-wing = [color=#FFD700][b]Улучшение:[/b][/color] [color=#ff4500]крыло магмокрыла[/color]
-adt-kinetic-trophy-poison-fang = [color=#FFD700][b]Улучшение:[/b][/color] [color=#32cd32]ядовитый клык[/color]
+adt-kinetic-trophy-watcher-wing = [color=#FFD700][b]Улучшение:[/b][/color] [color=#ff6347]крыло наблюдателя[/color]
+adt-kinetic-trophy-ice-wing = [color=#FFD700][b]Улучшение:[/b][/color] [color=#87cefa]крыло ледяного наблюдателя[/color]
+adt-kinetic-trophy-poison-fang =[color=#FFD700][b]Улучшение:[/b][/color] [color=#32cd32]ядовитый клык[/color]
 adt-kinetic-trophy-frost-gland = [color=#FFD700][b]Улучшение:[/b][/color] [color=#00ffff]ледяная железа[/color]
 adt-kinetic-trophy-blood-drunk-miner = [color=#FFD700][b]Улучшение:[/b][/color] [color=#ff0000]глаз кровавого шахтёра[/color]
 adt-kinetic-trophy-ash-drake-spike = [color=#FFD700][b]Улучшение:[/b][/color] [color=#ff8c00]шип пепельного дракона[/color]
@@ -13,6 +15,12 @@ ent-ADTKineticTrophyLegionSkull = череп легиона
 
 ent-ADTKineticTrophyMagmaWing = крыло магмокрыла
     .desc = Всё ещё раскалённое крыло магмокрылого наблюдателя. После детонации метки следующий выстрел протокинетику наносит дополнительный урон огнём.
+
+ent-ADTKineticTrophyWatcherWing = крыло наблюдателя
+    .desc = Оторванное крыло наблюдателя. Детонация метки ненадолго не даёт фауне использовать дальние атаки.
+
+ent-ADTKineticTrophyIceWing = крыло ледяного наблюдателя
+    .desc = Хрупкое, замороженное крыло ледяного наблюдателя. Детонация метки не даёт фауне использовать дальние атаки.
 
 ent-ADTKineticTrophyPoisonFang = ядовитый клык
     .desc = Острый ядовитый клык, снятый с опасного существа. При ударе по помеченной цели та получает на 10% больше урона в течение 2 секунд.
@@ -44,7 +52,9 @@ crusher-effect-lifesteal = Попадания восстанавливают [co
 
 crusher-effect-slow-debuff = Детонация метки на цели снижает наносимый ею урон на [color=yellow]{$reduction}%[/color] в течение [color=cyan]{$duration} сек.[/color]
 
-crusher-effect-health-scaling = Детонация метки наносит дополнительный урон в размере [color=yellow]{$percent}%[/color] от полученного вами урона.
+crusher-effect-suppress-ranged = Детонация метки не даёт цели использовать дальние атаки в течение [color=cyan]{$duration} сек.[/color]
+
+crusher-effect-health-scaling =Детонация метки наносит дополнительный урон в размере [color=yellow]{$percent}%[/color] от полученного вами урона.
 
 crusher-effect-firerate-boost = Имеет увеличенную скорострельность на [color=yellow]{$percent}%[/color].
 

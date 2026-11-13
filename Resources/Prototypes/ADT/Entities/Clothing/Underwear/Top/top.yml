@@ -266,3 +266,36 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/t_shirt_telnik.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBigbraCow
+  name: cow big bra
+  description: Cute cow print big bra. Moo!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bigbra_cow.rsi
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraAmerica
+  name: America bra
+  description: Freedom in every stitch.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra_america.rsi
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraPink
+  name: pink bra
+  description: Standard Nanotrasen bra dyed pink.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra_pink.rsi
+  - type: StaticPrice
+    price: 15

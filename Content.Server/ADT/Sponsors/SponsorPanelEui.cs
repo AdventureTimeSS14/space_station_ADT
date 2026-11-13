@@ -23,6 +23,7 @@ public sealed class SponsorPanelEui : BaseEui
     private string _targetName = string.Empty;
     private SponsorGrant[] _grants = Array.Empty<SponsorGrant>();
     private string _status = string.Empty;
+    private SponsorLegacyTier[] _legacyTiers = Array.Empty<SponsorLegacyTier>();
 
     public SponsorPanelEui()
     {
@@ -36,6 +37,9 @@ public sealed class SponsorPanelEui : BaseEui
         base.Opened();
 
         _admins.OnPermsChanged += OnPermsChanged;
+
+        StateDirty();
+        ReloadLegacyTiers();
     }
 
     public override void Closed()
@@ -55,6 +59,8 @@ public sealed class SponsorPanelEui : BaseEui
             PlayerName = _targetName,
             Grants = _grants,
             Status = _status,
+            LegacyTiers = _legacyTiers,
+            LegacyImport = _sponsors.LegacyImportEnabled,
         };
 
         if (_target != null && _sponsors.TryGetData(_target.Value, out var data))
@@ -97,6 +103,18 @@ public sealed class SponsorPanelEui : BaseEui
 
             case SponsorPanelEuiMsg.RevokeGrant m:
                 RevokeGrant(m.GrantId);
+                break;
+
+            case SponsorPanelEuiMsg.SaveLegacyTier m:
+                SaveLegacyTier(m.LegacyTier, m.TierId);
+                break;
+
+            case SponsorPanelEuiMsg.DeleteLegacyTier m:
+                DeleteLegacyTier(m.LegacyTier);
+                break;
+
+            case SponsorPanelEuiMsg.RefreshLegacyTiers:
+                ReloadLegacyTiers();
                 break;
         }
     }
@@ -227,6 +245,64 @@ public sealed class SponsorPanelEui : BaseEui
         }
     }
 
+    private async void SaveLegacyTier(int legacyTier, int? tierId)
+    {
+        try
+        {
+            var saved = await _sponsors.SetLegacyTierAsync(legacyTier, tierId, ActorName());
+            Report(saved
+                ? $"Старый тир {legacyTier} сохранён."
+                : "Новый тир не найден.");
+
+            await ReloadLegacyTiersAsync();
+            await ReloadGrants();
+        }
+        catch (Exception ex)
+        {
+            _sawmill.Error($"Сохранение старого тира {legacyTier} сорвалось: {ex}");
+            Report("Не удалось сохранить старый тир, подробности в логе сервера.");
+        }
+    }
+
+    private async void DeleteLegacyTier(int legacyTier)
+    {
+        try
+        {
+            var deleted = await _sponsors.DeleteLegacyTierAsync(legacyTier, ActorName());
+            Report(deleted
+                ? $"Старый тир {legacyTier} убран из списка."
+                : "Старый тир не найден.");
+
+            await ReloadLegacyTiersAsync();
+            await ReloadGrants();
+        }
+        catch (Exception ex)
+        {
+            _sawmill.Error($"Удаление старого тира {legacyTier} сорвалось: {ex}");
+            Report("Не удалось удалить старый тир, подробности в логе сервера.");
+        }
+    }
+
+    private async void ReloadLegacyTiers()
+    {
+        try
+        {
+            await ReloadLegacyTiersAsync();
+        }
+        catch (Exception ex)
+        {
+            _sawmill.Error($"Загрузка старых тиров сорвалась: {ex}");
+            Report("Не удалось загрузить старые тиры, подробности в логе сервера.");
+        }
+    }
+
+    private async Task ReloadLegacyTiersAsync()
+    {
+        var tiers = await _sponsors.GetLegacyTiersAsync();
+        _legacyTiers = tiers.ToArray();
+        StateDirty();
+    }
+
     private bool HasPermission()
     {
         return _admins.HasAdminFlag(Player, AdminFlags.Host);
@@ -245,7 +321,17 @@ public sealed class SponsorPanelEui : BaseEui
             return;
         }
 
-        var grants = await _sponsors.GetGrantHistoryAsync(_target.Value.UserId);
+        var target = _target.Value;
+
+        var grants = await _sponsors.GetGrantHistoryAsync(target.UserId);
+        var legacy = await _sponsors.GetLegacyGrantAsync(target);
+
+        if (_target != target)
+            return;
+
+        if (legacy != null)
+            grants.Insert(0, legacy);
+
         _grants = grants.ToArray();
         StateDirty();
     }

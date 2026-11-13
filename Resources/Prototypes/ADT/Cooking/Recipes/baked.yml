@@ -1,0 +1,3042 @@
+- type: adtCookingRecipe
+  id: ADTCookAmanitaJelly
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodFlyAmanita
+    count: 3
+  reagents:
+    Water: 5
+    Vodka: 5
+  time: 20
+  result: FoodJellyAmanita
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookAmanitaPie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodFlyAmanita
+    count: 1
+  time: 30
+  result: FoodPieAmanita
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookAppendixBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: OrganHumanAppendix
+    count: 1
+  time: 20
+  result: FoodBurgerAppendix
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookApplePie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodApple
+    count: 3
+  time: 30
+  result: FoodPieApple
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookBagel
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughRope
+    count: 1
+  time: 10
+  result: FoodBagel
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookBagelCotton
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCottonRope
+    count: 1
+  time: 10
+  result: FoodBagelCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookBagelPoppy
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughRope
+    count: 1
+  - id: PoppySeeds
+    count: 1
+  time: 10
+  result: FoodBagelPoppy
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookBaguette
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  reagents:
+    TableSalt: 1
+    Blackpepper: 1
+  time: 30
+  result: FoodBreadBaguette
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookBaguetteCotton
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCotton
+    count: 1
+  reagents:
+    TableSalt: 1
+    Blackpepper: 1
+  time: 30
+  result: FoodBreadBaguetteCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookBaguetteSword
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: PartRodMetal1
+    count: 1
+  reagents:
+    TableSalt: 1
+    Blackpepper: 1
+  time: 30
+  result: WeaponBaguette
+  secret: true
+  group: Secret
+
+- type: adtCookingRecipe
+  id: ADTCookBakedCorvaxVulpkanin
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeat
+    count: 1
+  - id: FoodApple
+    count: 1
+  - id: OrganVulpkaninHead
+    count: 1
+  reagents:
+    TableSalt: 2
+    Blackpepper: 2
+  time: 30
+  result: FoodBakedVulpkaninPlate
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBaklava
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodSnackPistachios
+    count: 1
+  time: 30
+  result: FoodPieBaklava
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookBananaBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodBanana
+    count: 1
+  time: 30
+  result: FoodBreadBanana
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookBananaCreamPie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodBanana
+    count: 3
+  time: 30
+  result: FoodPieBananaCream
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookBaseballBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: BaseBallBat
+    count: 1
+  time: 20
+  result: FoodBurgerBaseball
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBearger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatBear
+    count: 1
+  time: 20
+  result: FoodBurgerBear
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBerryClafoutis
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodBerries
+    count: 3
+  time: 30
+  result: FoodPieClafoutis
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookBerryDelight
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCakeBlueberry
+    count: 1
+  - id: FoodBerries
+    count: 2
+  reagents:
+    Milk: 10
+  time: 10
+  result: FoodCakeBerryDelight
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookBigBiteBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeat
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodOnionSlice
+    count: 2
+  time: 30
+  result: FoodBurgerBig
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBoiledSnail
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: MobSnail
+    count: 1
+  reagents:
+    Water: 10
+  time: 10
+  result: FoodMeatSnailCooked
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBrainBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: OrganHumanBrain
+    count: 1
+  time: 20
+  result: FoodBurgerBrain
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  time: 20
+  result: FoodBreadPlain
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookBreadCotton
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCotton
+    count: 1
+  time: 20
+  result: FoodBreadCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookBreakfastAmerican
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeatBacon
+    count: 2
+  - id: FoodPotato
+    count: 1
+  - id: FoodBakedPancake
+    count: 2
+  - id: ADTFoodEggRaw
+    count: 2
+  time: 60
+  result: FoodBreakfastAmerican
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBreakfastEnglish
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeatBacon
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodSoybeans
+    count: 2
+  - id: ADTFoodEggRaw
+    count: 2
+  time: 60
+  result: FoodBreakfastEnglish
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBrownies
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodButter
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 2
+  - id: ADTFoodEggRaw
+    count: 3
+  reagents:
+    Flour: 15
+    Sugar: 30
+  time: 50
+  result: FoodBakedBrownieBatch
+  group: BarsAndCookies
+
+- type: adtCookingRecipe
+  id: ADTCookBun
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  time: 10
+  result: FoodBreadBun
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookBurgerMcguffin
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 1
+  time: 20
+  result: FoodBurgerMcguffin
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookBurgerMcrib
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMealRibs
+    count: 1
+  - id: FoodOnionSlice
+    count: 5
+  time: 20
+  result: FoodBurgerMcrib
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCake
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCakeBatter
+    count: 1
+  time: 30
+  result: FoodCakePlain
+  group: Cake
+
+- type: adtCookingRecipe
+  id: ADTCookCannabisBrownies
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCannabisButter
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 2
+  - id: ADTFoodEggRaw
+    count: 3
+  reagents:
+    Flour: 15
+    Sugar: 30
+  time: 50
+  result: FoodBakedCannabisBrownieBatch
+  group: BarsAndCookies
+
+- type: adtCookingRecipe
+  id: ADTCookCannabisButter
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodButter
+    count: 1
+  - id: LeavesCannabis
+    count: 1
+  time: 30
+  result: FoodCannabisButter
+  group: Other
+
+- type: adtCookingRecipe
+  id: ADTCookCarpBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatFish
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  time: 20
+  result: FoodBurgerCarp
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCatBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: ClothingHeadHatCatEars
+    count: 1
+  time: 20
+  result: FoodBurgerCat
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCheeseburger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  time: 20
+  result: FoodBurgerCheese
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCherryPie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodCherry
+    count: 5
+  time: 30
+  result: FoodPieCherry
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookChickenSandwich
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatChicken
+    count: 1
+  reagents:
+    Mayo: 2
+  time: 20
+  result: FoodBurgerChicken
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookClownBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: ClothingMaskClown
+    count: 1
+  time: 20
+  result: FoodBurgerClown
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCocoTart
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 3
+  reagents:
+    Sugar: 5
+    Milk: 5
+  time: 30
+  result: FoodTartCoco
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookCookie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodButterSlice
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 1
+  reagents:
+    Flour: 5
+    Sugar: 5
+  time: 10
+  result: FoodBakedCookie
+  group: BarsAndCookies
+
+- type: adtCookingRecipe
+  id: ADTCookCookieOatmeal
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodButterSlice
+    count: 1
+  reagents:
+    Oats: 5
+    Sugar: 5
+  time: 10
+  result: FoodBakedCookieOatmeal
+  group: BarsAndCookies
+
+- type: adtCookingRecipe
+  id: ADTCookCorgiBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatCorgi
+    count: 1
+  time: 20
+  result: FoodBurgerCorgi
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCornbread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCornmeal
+    count: 1
+  time: 20
+  result: FoodBreadCorn
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookCottonBun
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCottonSlice
+    count: 1
+  time: 10
+  result: FoodCottonBun
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookCottonCake
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCakePlain
+    count: 1
+  reagents:
+    Fiber: 10
+  time: 10
+  result: FoodCakeCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookCottonPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCottonFlat
+    count: 1
+  - id: CottonBol
+    count: 4
+  time: 60
+  result: FoodPizzaCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookCrabBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatCrab
+    count: 2
+  time: 20
+  result: FoodBurgerCrab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCrazyHamburger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeat
+    count: 2
+  - id: FoodCheeseSlice
+    count: 2
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  - id: CrayonGreen
+    count: 1
+  - id: Flare
+    count: 1
+  reagents:
+    OilOlive: 15
+  time: 30
+  result: FoodBurgerCrazy
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCreamCheeseBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  reagents:
+    Milk: 5
+  time: 30
+  result: FoodBreadCreamcheese
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookCroissant
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCroissantRaw
+    count: 1
+  - id: FoodButterSlice
+    count: 1
+  time: 10
+  result: FoodBakedCroissant
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookCroissantCotton
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCroissantRawCotton
+    count: 1
+  - id: FoodButterSlice
+    count: 1
+  time: 10
+  result: FoodBakedCroissantCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookCubanCarp
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodCheeseSlice
+    count: 2
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodMeatFish
+    count: 2
+  time: 30
+  result: FoodMealCubancarp
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookDankPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: LeavesCannabis
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: FoodPizzaDank
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookDonkpocketPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodDonkpocketWarm
+    count: 3
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: FoodPizzaDonkpocket
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookDuckBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatDuck
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  time: 20
+  result: FoodBurgerDuck
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookEmpoweredBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: SheetPlasma1
+    count: 2
+  time: 20
+  result: FoodBurgerEmpowered
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookEnchiladas
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodMeatCutlet
+    count: 2
+  - id: FoodDoughTortillaFlat
+    count: 1
+  time: 40
+  result: FoodMealEnchiladas
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFiveBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodChiliPepper
+    count: 3
+  time: 20
+  result: FoodBurgerFive
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBakedChevreChaud
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodChevreSlice
+    count: 1
+  - id: FoodBreadBaguetteSlice
+    count: 1
+  time: 10
+  result: FoodBakedChevreChaud
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBakedChevreChaudCotton
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodChevreSlice
+    count: 1
+  - id: FoodBreadBaguetteCottonSlice
+    count: 1
+  time: 10
+  result: FoodBakedChevreChaudCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBratWurstRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeatCutlet
+    count: 2
+  - id: FoodMeatBacon
+    count: 1
+  reagents:
+    Blackpepper: 5
+  time: 20
+  result: ADTFoodMeatBratWurst
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBreadVolcanicRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  reagents:
+    Ash: 5
+    TableSalt: 5
+  time: 30
+  result: FoodBreadVolcanic
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBrezelChocolateRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughRope
+    count: 2
+  - id: ADTFoodSnackChocolateBarChunk
+    count: 1
+  time: 20
+  result: ADTFoodBakedBrezelChocolate
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBrezelPoppySeedsRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughRope
+    count: 2
+  - id: PoppySeeds
+    count: 1
+  time: 20
+  result: ADTFoodBakedBrezelPoppySeeds
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBrezelRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughRope
+    count: 2
+  time: 20
+  result: ADTFoodBakedBrezel
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBrezelSaltRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughRope
+    count: 2
+  reagents:
+    TableSalt: 5
+  time: 20
+  result: ADTFoodBakedBrezelSalt
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBrezelVanillaRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughRope
+    count: 2
+  reagents:
+    Cream: 5
+  time: 20
+  result: ADTFoodBakedBrezelVanilla
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBunHoneyRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  reagents:
+    Syrup: 5
+  time: 30
+  result: FoodBakedBunHoney
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBunHotXRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  reagents:
+    Sugar: 10
+    Blackpepper: 3
+  time: 30
+  result: FoodBakedBunHotX
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBunMeatRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  time: 30
+  result: FoodBakedBunMeat
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFoodCakePuddingChristmasRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTFoodSnackCandyStick
+    count: 2
+  - id: ADTFoodEggRaw
+    count: 1
+  reagents:
+    Water: 15
+    Milk: 10
+    Flour: 10
+    Sugar: 15
+  time: 20
+  result: ADTFoodCakePuddingChristmas
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookFoodCannoliRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 2
+  reagents:
+    Sugar: 5
+    Milk: 5
+    Cream: 5
+  time: 30
+  result: FoodBakedCannoli
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodCornedbeefRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeat
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  reagents:
+    TableSalt: 5
+  time: 30
+  result: FoodMealCornedbeef
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodCottonNutriBatardRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCotton
+    count: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  time: 30
+  result: FoodBreadCottonNutriBatard
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutAppleRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodApple
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutApple
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutBluePumpkinRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBluePumpkin
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutBluePumpkin
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutBungoRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBungo
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutBungo
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutCaramelRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    Cream: 3
+  time: 20
+  result: FoodDonutCaramel
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutChaosRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodMushroom
+    count: 1
+  reagents:
+    Sugar: 5
+    TableSalt: 3
+  time: 20
+  result: FoodDonutChaos
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutChocolateRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    CocoaPowder: 3
+  time: 20
+  result: FoodDonutChocolate
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutHomerRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodCherry
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutHomer
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyAppleRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodApple
+    count: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyApple
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyBluePumpkinRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBluePumpkin
+    count: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyBluePumpkin
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyBungoRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBungo
+    count: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyBungo
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyCaramelRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    Cream: 3
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyCaramel
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyChocolateRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    CocoaPowder: 3
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyChocolate
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyHomerRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodCherry
+    count: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyHomer
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyMatchaRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    TeaPowder: 3
+    Syrup: 3
+  time: 20
+  result: FoodDonutJelly
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyPinkRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBerries
+    count: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyPink
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyPlainRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyPlain
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellyScurretRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    Slime: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellyScurret
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellySpacemanRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBerries
+    count: 2
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellySpaceman
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutJellySweetpeaRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodPeaPod
+    count: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  time: 20
+  result: FoodDonutJellySweetpea
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutMatchaRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+    TeaPowder: 3
+  time: 20
+  result: FoodDonut
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutMeatRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutMeat
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutPinkRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBerries
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutPink
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutPlainRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutPlain
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutSpacemanRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBerries
+    count: 2
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutSpaceman
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodDonutSweetpeaRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodPeaPod
+    count: 1
+  reagents:
+    Sugar: 5
+  time: 20
+  result: FoodDonutSweetpea
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodEggsBenedictRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 1
+  - id: FoodMeatBacon
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 1
+  time: 20
+  result: FoodMealEggsbenedict
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookFoodKhachapuriRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodBreadPlainSlice
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 2
+  reagents:
+    TableSalt: 5
+    Milk: 5
+  time: 30
+  result: ADTFoodMealKhachapuri
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealBerriedDelightRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTFoodStrawberry
+    count: 2
+  - id: FoodBakedCookieOatmeal
+    count: 2
+  reagents:
+    Cream: 10
+  time: 20
+  result: ADTFoodBerriedDelight
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealCheeseTomatoRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 2
+  time: 20
+  result: ADTFoodMealCheeseTomato
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealClothRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughCottonRope
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 2
+  reagents:
+    Water: 10
+  time: 20
+  result: ADTFoodMealCloth
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealCreamRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodButterSlice
+    count: 1
+  reagents:
+    Cream: 5
+  time: 20
+  result: ADTFoodMealCream
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealEggplantParm
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodEggplant
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  reagents:
+    OilOlive: 5
+  time: 60
+  result: FoodMealEggplantParm
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealFishRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTFoodMealCream
+    count: 1
+  - id: ADTFoodMeatFish
+    count: 1
+  time: 20
+  result: ADTFoodMealFish
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealInkFishRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTFoodMealInk
+    count: 1
+  - id: ADTFoodMeatFish
+    count: 2
+  time: 20
+  result: ADTFoodMealInkFish
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealInkRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: Pen
+    count: 1
+  time: 20
+  result: ADTFoodMealInk
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealMushroomRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTFoodMealCream
+    count: 1
+  - id: FoodMushroom
+    count: 2
+  time: 20
+  result: ADTFoodMealMushroom
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealNigiriCarpRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodRiceBoiled
+    count: 1
+  - id: FoodMeatFish
+    count: 1
+  time: 10
+  result: ADTFoodMealNigiriCarp
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealNigiriCookedRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodRiceBoiled
+    count: 1
+  - id: ADTFoodFishCutletCooked
+    count: 1
+  time: 10
+  result: ADTFoodMealNigiriCooked
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealNigiriFishRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodRiceBoiled
+    count: 1
+  - id: ADTFoodFishCutlet
+    count: 1
+  time: 10
+  result: ADTFoodMealNigiriFish
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealPigblanket
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodDoughSlice
+    count: 1
+  time: 10
+  result: FoodMealPigblanket
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMeatClown
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ClothingMaskClown
+    count: 1
+  - id: FoodMeat
+    count: 1
+  time: 20
+  result: FoodMeatClown
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMeatHamRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeat
+    count: 2
+  reagents:
+    Blackpepper: 5
+    TableSalt: 5
+  time: 50
+  result: ADTFoodMeatHam
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMeatSalami
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeat
+    count: 1
+  reagents:
+    TableSalt: 5
+  time: 20
+  result: FoodMeatSalami
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMuffinBluecherryRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodCherry
+    count: 3
+  - id: FoodBerries
+    count: 1
+  reagents:
+    Sugar: 10
+  time: 30
+  result: FoodBakedMuffinBluecherry
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookFoodNutriBatardRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  time: 30
+  result: FoodBreadNutriBatard
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPiePlumpRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodMushroom
+    count: 2
+  time: 30
+  result: FoodPiePlump
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaBBQRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  reagents:
+    BbqSauce: 5
+  time: 60
+  result: ADTFoodPizzaBBQ
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaBaseRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  time: 20
+  result: FoodDoughPizzaBaked
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaBologneseRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodMeatChicken
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: ADTFoodPizzaBolognese
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaCaesarRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodOnionRedSlice
+    count: 2
+  - id: FoodCabbage
+    count: 1
+  - id: FoodMeatChicken
+    count: 1
+  time: 60
+  result: ADTFoodPizzaCaesar
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaCheeseRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: ADTFoodPizzaCheese
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaChicagoRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 3
+  - id: FoodTomato
+    count: 2
+  time: 60
+  result: ADTFoodPizzaChicago
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaChickenRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 2
+  - id: FoodMeatChicken
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: ADTFoodPizzaChicken
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaClassic
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: ADTFoodMeatSmokedSausageSlice
+    count: 5
+  time: 60
+  result: ADTFoodPizzaClassic
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaDiabloRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodChiliPepper
+    count: 2
+  reagents:
+    Hotsauce: 5
+  time: 60
+  result: ADTFoodPizzaDiablo
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaFourcheeseRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 2
+  - id: FoodChevreSlice
+    count: 2
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: ADTFoodPizzaFourcheese
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaMexicanRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodChiliPepper
+    count: 2
+  - id: FoodOnionRedSlice
+    count: 2
+  time: 60
+  result: ADTFoodPizzaMexican
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaMushroomchickenRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 2
+  - id: FoodMeat
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodMushroom
+    count: 5
+  time: 60
+  result: ADTFoodPizzaMushroomchicken
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaSassysageRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodMeatSalamiSlice
+    count: 5
+  time: 60
+  result: FoodPizzaSassysage
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaSeaRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: ADTFoodMeatFish
+    count: 3
+  - id: FoodTomato
+    count: 1
+  reagents:
+    Mayo: 5
+  time: 60
+  result: ADTFoodPizzaSea
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPizzaSindiRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodTomato
+    count: 4
+  - id: FoodCheeseSlice
+    count: 2
+  reagents:
+    Blood: 5
+  time: 30
+  result: ADTFoodPizzaSindi
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookFoodPotatoYakiRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodPotato
+    count: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  time: 30
+  result: FoodMealPotatoYaki
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodWeissWurstRecipe
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeatCutlet
+    count: 2
+  - id: FoodMeatBacon
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 1
+  time: 20
+  result: ADTFoodMeatWeissWurst
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFrostyPie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodChillyPepper
+    count: 3
+  time: 30
+  result: FoodPieFrosty
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookGappleTart
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodApple
+    count: 2
+  reagents:
+    Gold: 10
+    Sugar: 5
+    Milk: 5
+  time: 30
+  result: FoodTartGapple
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookGarlicBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 1
+  - id: FoodGarlic
+    count: 1
+  - id: FoodButterSlice
+    count: 1
+  time: 10
+  result: FoodBreadGarlicSlice
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookGhostBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: Ectoplasm
+    count: 1
+  time: 20
+  result: FoodBurgerGhost
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookGrapeTart
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodGrape
+    count: 3
+  reagents:
+    Sugar: 5
+    Milk: 5
+  time: 30
+  result: FoodTartGrape
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookHawaiianPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodMeatChickenCutlet
+    count: 3
+  - id: FoodPineappleSlice
+    count: 5
+  time: 60
+  result: FoodPizzaPineapple
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookHotChocolate
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: DrinkGlass
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 2
+  time: 20
+  result: ADTHotChocolateGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookHotChocolate2
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTHotChocolateGlass
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 2
+  time: 20
+  result: ADTHotChocolateGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookHotChocolateAllergic
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: DrinkGlass
+    count: 1
+  - id: ADTHypoAllergenChocolateBar
+    count: 2
+  time: 20
+  result: ADTHotChocolateAllergicGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookHotChocolateAllergic2
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTHotChocolateAllergicGlass
+    count: 1
+  - id: ADTHypoAllergenChocolateBar
+    count: 2
+  time: 20
+  result: ADTHotChocolateAllergicGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookHotCocoa
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: DrinkGlass
+    count: 1
+  reagents:
+    ADTCocoaDrink: 30
+  time: 20
+  result: ADTHotCocoaGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookHotCocoa2
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTHotCocoaGlass
+    count: 1
+  reagents:
+    ADTCocoaDrink: 30
+  time: 20
+  result: ADTHotCocoaGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookHumanBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatHuman
+    count: 1
+  time: 20
+  result: FoodBurgerHuman
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookJellyBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodJellyAmanita
+    count: 1
+  time: 20
+  result: FoodBurgerJelly
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookJellyToast
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 1
+  - id: FoodJellyAmanita
+    count: 1
+  time: 10
+  result: FoodBreadJellySlice
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookLoadedBakedPotato
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodPotato
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  time: 30
+  result: FoodMealPotatoLoaded
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookMargheritaPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 4
+  time: 60
+  result: FoodPizzaMargherita
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookMeatBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodMeatCutlet
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  time: 30
+  result: FoodBreadMeat
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookMeatPie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodMeat
+    count: 3
+  time: 30
+  result: FoodPieMeat
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookMeatPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodMeat
+    count: 3
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: FoodPizzaMeat
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookMimanaBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodMimana
+    count: 2
+  reagents:
+    Nothing: 5
+  time: 30
+  result: FoodBreadMimana
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookMimeBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: ClothingMaskMime
+    count: 1
+  time: 20
+  result: FoodBurgerMime
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookMimeTart
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodMimana
+    count: 3
+  reagents:
+    Sugar: 5
+    Milk: 5
+  time: 30
+  result: FoodTartMime
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookMoproach
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: MobMothroach
+    count: 1
+  - id: OrganAnimalHeart
+    count: 1
+  - id: MoproachShoes
+    count: 1
+  reagents:
+    SpaceCleaner: 15
+  time: 60
+  result: MobMoproach
+  group: Other
+
+- type: adtCookingRecipe
+  id: ADTCookMothRoachburger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: MobMothroach
+    count: 1
+  time: 10
+  result: FoodBurgerMothRoach
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookMuffin
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  reagents:
+    Sugar: 10
+  time: 30
+  result: FoodBakedMuffin
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookMuffinBanana
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBanana
+    count: 1
+  reagents:
+    Sugar: 10
+  time: 30
+  result: FoodBakedMuffinBanana
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookMuffinBerry
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodBerries
+    count: 1
+  reagents:
+    Sugar: 10
+  time: 30
+  result: FoodBakedMuffinBerry
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookMuffinCherry
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodCherry
+    count: 3
+  reagents:
+    Sugar: 10
+  time: 30
+  result: FoodBakedMuffinCherry
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookMuffinChocolate
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughSlice
+    count: 1
+  - id: FoodSnackChocolateBar
+    count: 1
+  reagents:
+    Sugar: 10
+  time: 30
+  result: FoodBakedMuffinChocolate
+  group: Dessert
+
+- type: adtCookingRecipe
+  id: ADTCookMulledWineWarm
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: DrinkGlass
+    count: 1
+  reagents:
+    ADTMulledWineCold: 30
+  time: 20
+  result: ADTMulledWineGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookMulledWineWarm2
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTMulledWineGlass
+    count: 1
+  reagents:
+    ADTMulledWineCold: 30
+  time: 20
+  result: ADTMulledWineGlass
+  group: Holidays
+
+- type: adtCookingRecipe
+  id: ADTCookMushroomPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodMushroom
+    count: 5
+  time: 60
+  result: FoodPizzaMushroom
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookNachos
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughTortillaFlat
+    count: 1
+  reagents:
+    TableSalt: 1
+  time: 20
+  result: FoodMealNachos
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookNachosCuban
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodDoughTortillaFlat
+    count: 1
+  reagents:
+    Ketchup: 5
+  time: 20
+  result: FoodMealNachosCuban
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookOnionRings
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodOnionSlice
+    count: 1
+  time: 30
+  result: FoodOnionRings
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookPlainBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeat
+    count: 1
+  time: 20
+  result: FoodBurgerPlain
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookPumpkinPie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodPumpkin
+    count: 1
+  time: 30
+  result: FoodPiePumpkin
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookQueso
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodCheeseSlice
+    count: 2
+  time: 30
+  result: FoodMealQueso
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookRaisinCookie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodSnackRaisins
+    count: 1
+  reagents:
+    Flour: 5
+    Sugar: 5
+  time: 10
+  result: FoodBakedCookieRaisin
+  group: BarsAndCookies
+
+- type: adtCookingRecipe
+  id: ADTCookRatBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatRat
+    count: 1
+  time: 20
+  result: FoodBurgerRat
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeBakedChicken
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTChickenBody
+    count: 1
+  reagents:
+    BbqSauce: 5
+  time: 50
+  result: ADTFoodMeatChickenBaked
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeBakedChickenLeg
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTFoodMeatChickenLeg
+    count: 1
+  time: 10
+  result: ADTFoodMeatChickenBakedLeg
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeBakedChickenWing
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTFoodMeatChickenWing
+    count: 1
+  time: 10
+  result: ADTFoodMeatChickenBakedWing
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeBakedStuffedChicken
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: ADTChickenBody
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodPotato
+    count: 1
+  - id: FoodCorn
+    count: 1
+  - id: FoodMeatCutlet
+    count: 2
+  reagents:
+    BbqSauce: 5
+  time: 60
+  result: ADTFoodMeatChickenBakedWithVegetables
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeChakChak
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  reagents:
+    OilOlive: 5
+    Mead: 15
+  time: 20
+  result: ADTChakChak
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeShawermaCheese
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodTomato
+    count: 1
+  - id: FoodMeatCutlet
+    count: 3
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodOnionRedSlice
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  reagents:
+    Mayo: 2
+  time: 40
+  result: ADTShawermaCheese
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeShawermaDefault
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodTomato
+    count: 1
+  - id: FoodMeatCutlet
+    count: 3
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodOnionRedSlice
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  reagents:
+    Mayo: 2
+  time: 40
+  result: ADTShawermaDefault
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRecipeStringCheese
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCheeseSlice
+    count: 1
+  reagents:
+    TableSalt: 5
+  time: 10
+  result: ADTStringCheese
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRibs
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodMeat
+    count: 2
+  - id: FoodKebabSkewer
+    count: 1
+  reagents:
+    BbqSauce: 10
+  time: 30
+  result: FoodMealRibs
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRobotBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: CapacitorStockPart
+    count: 2
+  time: 20
+  result: FoodBurgerRobot
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookSausageBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodMeat
+    count: 1
+  time: 30
+  result: FoodBreadSausage
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookSoylentBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodSoybeans
+    count: 2
+  time: 20
+  result: FoodBurgerSoy
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookSpellBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: ClothingHeadHatWizard
+    count: 1
+  time: 20
+  result: FoodBurgerSpell
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookSpiderMeatBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodMeatSpiderCutlet
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  time: 30
+  result: FoodBreadMeatSpider
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookSugarCookie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodButterSlice
+    count: 1
+  reagents:
+    Flour: 5
+    Sugar: 10
+  time: 10
+  result: FoodBakedCookieSugar
+  group: BarsAndCookies
+
+- type: adtCookingRecipe
+  id: ADTCookSuperBiteBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeat
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodTomato
+    count: 2
+  - id: ADTFoodEggRaw
+    count: 2
+  reagents:
+    TableSalt: 1
+    Blackpepper: 1
+  time: 50
+  result: FoodBurgerSuper
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookSuppermatter
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCakeBatter
+    count: 2
+  reagents:
+    Sugar: 30
+    Nitrogen: 10
+    Plasma: 10
+  time: 60
+  result: FoodCakeSuppermatter
+  group: Other
+
+- type: adtCookingRecipe
+  id: ADTCookThrowingCroissant
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodCroissantRaw
+    count: 1
+  - id: FoodButterSlice
+    count: 1
+  - id: ShardGlass
+    count: 1
+  time: 10
+  result: WeaponCroissant
+  secret: true
+  group: Secret
+
+- type: adtCookingRecipe
+  id: ADTCookTofuBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodTofuSlice
+    count: 1
+  time: 30
+  result: FoodBreadTofu
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookTofuBurger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodTofuSlice
+    count: 1
+  time: 20
+  result: FoodBurgerTofu
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTwoBreadSlice
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 2
+  reagents:
+    Wine: 5
+  time: 10
+  result: FoodBreadTwoSlice
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookUraniumPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodChiliPepper
+    count: 2
+  - id: FoodTomato
+    count: 2
+  - id: SheetUranium1
+    count: 2
+  time: 60
+  result: FoodPizzaUranium
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookVegetablePizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodEggplant
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodCorn
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 60
+  result: FoodPizzaVegetable
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookWarmDonkpocketPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDonkpocketPizza
+    count: 1
+  time: 10
+  result: FoodDonkpocketPizzaWarm
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookWorldpeasPizza
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughFlat
+    count: 1
+  - id: FoodWorldPeas
+    count: 3
+  time: 60
+  result: FoodPizzaWorldpeas
+  group: Pizza
+
+- type: adtCookingRecipe
+  id: ADTCookXenoMeatBread
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDough
+    count: 1
+  - id: FoodMeatXenoCutlet
+    count: 2
+  - id: FoodCheeseSlice
+    count: 2
+  time: 30
+  result: FoodBreadMeatXeno
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookXenoPie
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodDoughPie
+    count: 1
+  - id: FoodMeatXeno
+    count: 3
+  time: 30
+  result: FoodPieXeno
+  group: Pie
+
+- type: adtCookingRecipe
+  id: ADTCookXenoburger
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatXeno
+    count: 1
+  time: 20
+  result: FoodBurgerXeno
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookWaffle
+  method: Baked
+  cookware: Tray
+  reagents:
+    ADTPancakeBatter: 15
+  toppingTags:
+  - Fruit
+  toppingIds:
+  - FoodSnackChocolateBar
+  - ADTFoodSnackChocolateBarChunk
+  maxToppings: 4
+  time: 20
+  result: FoodBakedWaffle
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookWaffleSoylent
+  method: Baked
+  cookware: Tray
+  ingredients:
+  - id: FoodSoybeans
+    count: 2
+  reagents:
+    ADTPancakeBatter: 15
+  toppingTags:
+  - Fruit
+  toppingIds:
+  - FoodSnackChocolateBar
+  - ADTFoodSnackChocolateBarChunk
+  maxToppings: 4
+  time: 20
+  result: FoodBakedWaffleSoylent
+  group: Breakfast

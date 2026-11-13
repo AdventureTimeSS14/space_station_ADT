@@ -29,6 +29,7 @@
       settings: default
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
+  - type: SpawnInVentSpawner # ADT-Tweak
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

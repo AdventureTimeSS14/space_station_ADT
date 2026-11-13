@@ -43,6 +43,7 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             MedicalDoctor: [ 3, 4 ]
             Chemist: [ 2, 2 ]
+            ADTVirologist: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
             Paramedic: [ 1, 2 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles

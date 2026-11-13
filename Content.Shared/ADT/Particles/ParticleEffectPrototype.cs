@@ -49,6 +49,17 @@ public enum EmissionShapeType : byte
     Box, // Particles spawn randomly within a rectangle.
 }
 
+/// <summary>Coordinate space particle spawn positions are fixed in.</summary>
+public enum ParticleSimulationSpace : byte
+{
+    /// <summary>Particles move relative to the emitter origin.</summary>
+    Local,
+    /// <summary>Spawn positions stay fixed in map space; particles hang in the world when a grid moves away.</summary>
+    Map,
+    /// <summary>Spawn positions stay fixed relative to the grid, so effects travel with moving and rotating grids.</summary>
+    Grid,
+}
+
 [DataDefinition]
 public sealed partial class EmissionShapeData
 {
@@ -235,9 +246,10 @@ public sealed partial class ParticleEffectPrototype : IPrototype, IInheritingPro
     /// Set this to roughly the highest number of particles you expect to see on screen at one time, not the total
     /// spawned over the effect's lifetime. Slots are allocated up front and never freed until the emitter dies,
     /// so a value of 500 on a slow effect that only ever has 10 visible particles wastes 490 slots of memory.
+    /// When unset, a value is calculated automatically from the emission settings.
     /// <b>Keep It Low.</b>
     /// </summary>
-    [DataField] public int MaxCount { get; private set; } = 50;
+    [DataField] public int? MaxCount { get; private set; }
 
     /// <summary>When true, emits all <see cref="MaxCount"/> particles at once then stops immediately.</summary>
     [DataField] public bool Burst { get; private set; }
@@ -252,16 +264,34 @@ public sealed partial class ParticleEffectPrototype : IPrototype, IInheritingPro
     #region =^..^= Space =^..^=
 
     /// <summary>
-    /// When true (default), particles simulate in world space and trail behind moving emitters.
-    /// When false, particles move relative to the emitter origin.
+    /// Coordinate space particle spawn positions are fixed in. Defaults to <see cref="ParticleSimulationSpace.Grid"/>.
     /// </summary>
-    [DataField] public bool WorldSpace { get; private set; } = true;
+    [DataField] public ParticleSimulationSpace SimulationSpace { get; private set; } = ParticleSimulationSpace.Grid;
 
     /// <summary>
-    /// World-space offset from the emitter origin applied to particle spawn positions.
-    /// Useful for nudging effects away from entity anchor points.
+    /// Legacy <c>worldSpace</c> field kept for older prototypes.
+    /// Prefer <see cref="SimulationSpace"/> for new effects.
+    /// </summary>
+    [DataField("worldSpace")] public bool? LegacyWorldSpace { get; private set; }
+
+    public ParticleSimulationSpace ResolvedSimulationSpace => LegacyWorldSpace switch
+    {
+        true => ParticleSimulationSpace.Grid,
+        false => ParticleSimulationSpace.Local,
+        null => SimulationSpace,
+    };
+
+    /// <summary>
+    /// Offset from the emitter origin applied to particle spawn positions.
+    /// With <see cref="RotateWithEmitter"/>, this is attached-entity-local; otherwise it is map-relative.
     /// </summary>
     [DataField] public Vector2 SpawnOffset { get; private set; }
+
+    /// <summary>
+    /// When true, the emission direction and <see cref="SpawnOffset"/> rotate with the attached entity.
+    /// For directional effects (nozzles, torches) that must point where the entity points.
+    /// </summary>
+    [DataField] public bool RotateWithEmitter { get; private set; }
 
     #endregion
     #region =^..^= Shape =^..^=

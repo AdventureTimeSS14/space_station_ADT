@@ -1,0 +1,7 @@
+- type: holiday
+  id: ADTNewYearSeason
+  name: holiday-name-adt-new-year-season
+  beginDay: 15
+  beginMonth: December
+  endDay: 15
+  endMonth: January

@@ -46,20 +46,19 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead
+      200: Dead # ADT-Tweak 50 -> 200
   - type: ToolRefinable
     refineResult:
     - id: DiamondOre1
-      amount: 1
+      amount: 2 # ADT-Tweak 1 -> 2
     - id: MaterialBones1 #ADT tweak
-      maxAmount: 3 #ADT tweak
     - id: ADTMaterialSinew1 #ADT tweak
-      maxAmount: 2 #ADT tweak
+      amount: 2 #ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed: 3 # ADT tweak 5->3
     baseSprintSpeed: 4 #ADT tweak 7-> 4
   - type: BatteryAmmoProvider
-    proto: WatcherBolt
+    proto: ADTWatcherBolt # ADT-Tweak
     fireCost: 50
   - type: BatterySelfRecharger
     autoRechargeRate: 50
@@ -93,7 +92,7 @@
         10
   - type: ADTMobLoot
     loots:
-      ADTKineticTrophyMagmaWing: 0.1
+      ADTKineticTrophyWatcherWing: 0.1
   # ADT-Tweak end
 
 - type: entity
@@ -141,18 +140,23 @@
     energy: 3
     color: deepskyblue
   # ADT-Tweak-Start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      170: Dead
+  - type: BatteryAmmoProvider
+    proto: ADTWatcherBoltIcewing
+    fireCost: 50
   - type: ToolRefinable
     refineResult:
-    - id: MaterialBones1
-      maxAmount: 3
-    - id: SilverOre1
-      maxAmount: 3
     - id: DiamondOre1
-      maxAmount: 1
-    - id: ADTMaterialSinew1
-      maxAmount: 2
+      amount: 5
+    - id: MaterialBones1
     - id: ADTGemFrostDiamond
       prob: 0.3
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyIceWing: 0.1
   # ADT-Tweak-End
 
 - type: entity
@@ -174,25 +178,29 @@
       shader: unshaded
       color: orangered
   - type: PointLight
-    radius: 1
-    energy: 3
-    color: orangered
+    radius: 3 # ADT-Tweak 1 -> 3
+    energy: 2.5 # ADT-Tweak 3 -> 2.5
+    color: "#c48a18" # ADT-Tweak
   - type: BatteryAmmoProvider
-    proto: WatcherBoltMagmawing
+    proto: ADTWatcherBoltMagmawing # ADT-Tweak
     fireCost: 50
   # ADT-Tweak-Start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      215: Dead
   - type: ToolRefinable
     refineResult:
-    - id: MaterialBones1
-      maxAmount: 3
-    - id: PlasmaOre1
-      maxAmount: 2
     - id: DiamondOre1
-      maxAmount: 2
+      amount: 2
+    - id: MaterialBones1
     - id: ADTMaterialSinew1
-      maxAmount: 2
+      amount: 2
     - id: ADTMagmaGem
-      prob: 0.5
+      prob: 0.3
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyMagmaWing: 0.1
   # ADT-Tweak-End
 
 - type: entity

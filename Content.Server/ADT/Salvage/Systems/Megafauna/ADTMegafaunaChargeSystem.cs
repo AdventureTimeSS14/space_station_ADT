@@ -211,6 +211,9 @@ public sealed class ADTMegafaunaChargeSystem : EntitySystem
 
     private void OnCanMove(Entity<ADTMegafaunaActiveChargeComponent> ent, ref UpdateCanMoveEvent args)
     {
+        if (ent.Comp.LifeStage > ComponentLifeStage.Running)
+            return;
+
         args.Cancel();
     }
 

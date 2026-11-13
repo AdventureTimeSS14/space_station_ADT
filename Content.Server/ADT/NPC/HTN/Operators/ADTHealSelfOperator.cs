@@ -3,12 +3,14 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.NPC.HTN.Operators;
 
 public sealed partial class ADTHealSelfOperator : HTNOperator
 {
     [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private ADTNpcGearSystem _gear = default!;
 
@@ -25,6 +27,9 @@ public sealed partial class ADTHealSelfOperator : HTNOperator
 
     [DataField]
     public float RecheckInterval = 1f;
+
+    [DataField]
+    public float HurtAbort = 0.5f;
 
     public override void Initialize(IEntitySystemManager sysManager)
     {
@@ -56,6 +61,13 @@ public sealed partial class ADTHealSelfOperator : HTNOperator
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+
+        if (_entManager.TryGetComponent(owner, out ADTNpcCombatMemoryComponent? memory) &&
+            memory.Hurt &&
+            (_timing.CurTime - memory.LastHurt).TotalSeconds < HurtAbort)
+        {
+            return HTNOperatorStatus.Failed;
+        }
 
         var timer = (blackboard.TryGetValue<float>(TimerKey, out var stored, _entManager) ? stored : 0f) + frameTime;
         blackboard.SetValue(TimerKey, timer);

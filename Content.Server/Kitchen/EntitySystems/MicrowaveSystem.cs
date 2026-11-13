@@ -429,9 +429,9 @@ namespace Content.Server.Kitchen.EntitySystems
                 {
                     if (TryComp<MicrowaveComponent>(ent, out var component))
                     {
-                        if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Microwave)
+                        if (component.ValidRecipeTypes is (int)MicrowaveRecipeType.Microwave or (int)MicrowaveRecipeType.ADTMicrowave) // ADT-Tweak
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopup, ("item", args.Used)), ent, args.User); // ADT-Tweak: "microwave-component-interact-item-too-big"<ent.Comp.TooBigPopup
-                        if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Assembler)
+                        if (component.ValidRecipeTypes is (int)MicrowaveRecipeType.Assembler or (int)MicrowaveRecipeType.ADTAssembler) // ADT-Tweak
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupAssembler, ("item", args.Used)), ent, args.User);
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.MedicalAssembler)
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupMedicalAssembler, ("item", args.Used)), ent, args.User);

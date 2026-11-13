@@ -378,7 +378,7 @@
     solution:
       reagents:
       - ReagentId: Coldsauce
-        Quantity: 50
+        Quantity: 60 # ADT-Tweak
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -409,7 +409,7 @@
     solution:
       reagents:
       - ReagentId: Enzyme
-        Quantity: 50
+        Quantity: 60 # ADT-Tweak
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -446,7 +446,7 @@
     solution:
       reagents:
       - ReagentId: Vinegar
-        Quantity: 50
+        Quantity: 60 # ADT-Tweak
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -480,7 +480,7 @@
     solution:
       reagents:
       - ReagentId: Hotsauce
-        Quantity: 50
+        Quantity: 60 # ADT-Tweak
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -511,7 +511,7 @@
     solution:
       reagents:
       - ReagentId: Ketchup
-        Quantity: 50
+        Quantity: 60 # ADT-Tweak
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:
@@ -542,7 +542,7 @@
     solution:
       reagents:
       - ReagentId: BbqSauce
-        Quantity: 50
+        Quantity: 60 # ADT-Tweak
   #ADT-Tweak-Start
   - type: GenericVisualizer
     visuals:

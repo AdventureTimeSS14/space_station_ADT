@@ -83,6 +83,7 @@
     damageModifierSet: Glass
   - type: Injurable
     damageContainer: StructuralInorganic
+  - type: SparksOnDamage # ADT-Tweak
   - type: ExaminableDamage
     messages: WindowMessages
   - type: RCDDeconstructable

@@ -6,6 +6,7 @@ using Content.Server.ADT.Antag;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Export;
 using Content.Server.ADT.JoinQueue;
+using Content.Server.ADT.MapRotation;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
@@ -98,6 +99,7 @@ internal static class ServerContentIoC
         IoCManager.Register<ExportManager>(); // ADT Export
         IoCManager.Register<ServerDiscordIdManager>(); // ADT Discord
         IoCManager.Register<AntagRollBonusManager>(); // ADT Antag roll bonus
+        IoCManager.Register<MapRotationManager>(); // ADT-Tweak
         IoCManager.Register<SponsorsManager>(); // Corvax-Sponsors
         // ADT-Tweak-Start
         IoCManager.Register<SponsorManager>();

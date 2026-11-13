@@ -37,6 +37,7 @@
         mask:
         - MobMask
   - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
+  - type: ProtectedFromStepTriggers # ADT-Tweak
   - type: Damageable
   - type: Injurable
     damageContainer: Inorganic

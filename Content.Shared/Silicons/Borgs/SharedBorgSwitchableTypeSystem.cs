@@ -84,6 +84,16 @@ public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem
     // Implementation
     //
 
+    // ADT-Tweak start
+    public ProtoId<BorgTypePrototype>? GetSelectedBorgType(Entity<BorgSwitchableTypeComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return null;
+
+        return entity.Comp.SelectedBorgType;
+    }
+    // ADT-Tweak end
+
     protected virtual void SelectBorgModule(
         Entity<BorgSwitchableTypeComponent> ent,
         ProtoId<BorgTypePrototype> borgType)

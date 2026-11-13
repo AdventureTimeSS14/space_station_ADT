@@ -70,6 +70,12 @@ public sealed partial class PathfindingSystem
             {
                 modifier += 10f;
             }
+            // ADT-Tweak start
+            else if (isDoor && isAccess && (request.Flags & PathFlags.Access) != 0x0)
+            {
+                modifier += 1f;
+            }
+            // ADT-Tweak end
             else if ((request.Flags & PathFlags.Smashing) != 0x0 && end.Data.Damage > 0f)
             {
                 modifier += 10f + end.Data.Damage / 100f;

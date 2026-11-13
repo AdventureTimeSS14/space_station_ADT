@@ -36,6 +36,7 @@
             MedicalIntern: [ 3, 3 ]
             Paramedic: [ 1, 1 ]
             Chemist: [ 3, 3 ]
+            ADTVirologist: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             ADTPathologist: [ 1, 1 ] #ADT-Roles

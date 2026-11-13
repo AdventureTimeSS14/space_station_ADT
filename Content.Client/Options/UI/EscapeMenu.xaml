@@ -11,7 +11,7 @@
         <PanelContainer StyleClasses="LowDivider" Margin="0 2.5 0 2.5" />
         <Button Access="Public" Name="RulesButton" Text="{Loc 'ui-escape-rules'}" StyleClasses="OpenLeft" />
         <Button Access="Public" Name="GuidebookButton" Text="{Loc 'ui-escape-guidebook'}" StyleClasses="OpenBoth" />
-        <Button Access="Public" Name="WebSiteButton" Text="{Loc 'ui-escape-website'}" StyleClasses="Caution"/>
+        <Button Access="Public" Name="WebSiteButton" Text="{Loc 'ui-escape-website'}" StyleClasses="OpenBoth ButtonColorOrange"/> <!-- ADT-Tweak -->
         <Button Access="Public" Name="WikiButton" Text="{Loc 'ui-escape-wiki'}" StyleClasses="OpenBoth" />
         <changelog:ChangelogButton Access="Public" Name="ChangelogButton" StyleClasses="OpenBoth"/>
         <Button Access="Public" Name="FeedbackButton" Text="{Loc 'ui-escape-feedback'}" StyleClasses="OpenBoth"/>

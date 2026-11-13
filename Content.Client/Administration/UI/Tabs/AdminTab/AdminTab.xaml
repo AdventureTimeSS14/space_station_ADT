@@ -20,6 +20,7 @@
             <cc:UICommandButton Command="echo-chat-panel" Text="{Loc admin-player-actions-window-echo-chat-panel}" WindowType="{x:Type at:EchoChatPanelWindow}"/>
             <cc:UICommandButton Command="playtime-panel" Text="{Loc admin-player-actions-window-playtime-panel}" WindowType="{x:Type at:PlayTimeEditorWindow}" />
             <cc:CommandButton Command="playersdashboard" Text="{Loc admin-player-actions-window-players-dashboard}"/>
+            <cc:CommandButton Command="paintingqueue" Text="{Loc admin-player-actions-window-painting-queue}"/>
             <!-- ADT-Tweak-End -->
         </GridContainer>
     </BoxContainer>

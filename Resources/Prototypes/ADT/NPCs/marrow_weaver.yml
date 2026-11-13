@@ -1,0 +1,10 @@
+- type: htnCompound
+  id: ADTMarrowWeaverCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+

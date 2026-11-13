@@ -1,5 +1,6 @@
 using System.Numerics;
 using JetBrains.Annotations;
+using Content.Client.ADT.UserData;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Serialization;
@@ -19,7 +20,8 @@ public sealed class ADTSpawnMenuStorageUIController : UIController
     [Dependency] private ISerializationManager _serialization = default!;
     [Dependency] private ILogManager _log = default!;
 
-    private static readonly ResPath SavePath = new("/adt_spawn_menu.yml");
+    private static readonly ResPath LegacySavePath = new("/adt_spawn_menu.yml");
+    private static readonly ResPath SavePath = ADTUserData.Root / "spawn_menu.yml";
     private const int SaveDelay = 1000;
 
     private ADTSpawnMenuData? _data;
@@ -49,11 +51,12 @@ public sealed class ADTSpawnMenuStorageUIController : UIController
     {
         _data = new ADTSpawnMenuData();
 
-        if (!_resources.UserData.Exists(SavePath))
-            return;
-
         try
         {
+            ADTUserData.MoveLegacy(_resources.UserData, LegacySavePath, SavePath);
+            if (!_resources.UserData.Exists(SavePath))
+                return;
+
             using var reader = _resources.UserData.OpenText(SavePath);
             var yaml = new YamlStream();
             yaml.Load(reader);
@@ -76,6 +79,7 @@ public sealed class ADTSpawnMenuStorageUIController : UIController
         try
         {
             var node = _serialization.WriteValue(_data, notNullableOverride: true);
+            _resources.UserData.CreateDir(SavePath.Directory);
             using var writer = _resources.UserData.OpenWriteText(SavePath);
             var yaml = new YamlStream { new YamlDocument(node.ToYamlNode()) };
             yaml.Save(new YamlMappingFix(new Emitter(writer)), false);
