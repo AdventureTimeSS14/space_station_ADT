@@ -857,7 +857,7 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         }
 
         foreach (var btn in _betButtons)
-            btn.Disabled = state.Working;
+            btn.Disabled = state.Working || state.FreeSpinsRemaining > 0;
 
         var canSpin = state.FreeSpinsRemaining > 0 || state.Balance >= state.BetAmount;
         _balanceLabel.Text = Loc.GetString("slotmachine-casino-balance-amount", ("amount", state.Balance));

@@ -190,6 +190,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
                 break;
             case SlotMachineCasinoAction.SetBet:
                 if (!ent.Comp.Working &&
+                    ent.Comp.FreeSpinsRemaining <= 0 &&
                     msg.Amount >= ent.Comp.SpinPriceMin && msg.Amount <= ent.Comp.SpinPriceMax)
                 {
                     ent.Comp.BetAmount = msg.Amount;
