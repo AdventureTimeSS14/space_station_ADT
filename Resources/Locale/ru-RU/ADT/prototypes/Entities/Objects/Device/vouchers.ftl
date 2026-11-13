@@ -48,3 +48,7 @@ ent-ADTERTEngineerVoucher = РВИ "Эгида"
 ent-ADTERTMedicalVoucher = РВИ "Эгида"
     .suffix = { "ОБР Медик" }
     .desc = { ent-ADTERTLeaderVoucher.desc }
+
+ent-ADTMusicianVoucher = РВИ "Нота"
+    .suffix = { "Музыкант" }
+    .desc = Радиальный Выборочный Интерфейс - Устройство для транспортировки музыкальных инструментов прямо на место выступления.

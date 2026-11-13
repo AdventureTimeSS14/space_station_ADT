@@ -4,8 +4,9 @@
     AcousticGuitarInstrument: 1
     BassGuitarInstrument: 1
     ElectricGuitarInstrument: 1
-    BanjoInstrument: 1
     RockGuitarInstrument: 1
+    FretlessBassGuitarInstrument: 1
+    BanjoInstrument: 1
     CelloInstrument: 1
     ViolinInstrument: 1
     ViolaInstrument: 1
@@ -22,6 +23,7 @@
     SaxophoneInstrument: 1
     ClarinetInstrument: 1
     FluteInstrument: 1
+    ADTMusicianVoucher: 3
   contrabandInventory:
     ToyFigurineMusician: 1
     ADTPlushieEtvy: 1
