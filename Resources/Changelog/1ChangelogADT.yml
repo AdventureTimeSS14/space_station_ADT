@@ -17519,3 +17519,14 @@ Entries:
     id: 2114
     pr_number: 3681
     time: '2026-11-13T15:05:35Z'
+  - author: blad bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'мод смотрителя получил эми защиту, мод гсб получил больше слотов
+          под модули. (10>12)', type: Tweak}
+    id: 2115
+    pr_number: 3677
+    time: '2026-11-13T15:06:38Z'
