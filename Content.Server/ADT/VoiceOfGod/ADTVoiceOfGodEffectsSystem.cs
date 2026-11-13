@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server.ADT.Hallucinations;
+using Content.Server.ADT.Hallucinations.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Silicons.Laws;
@@ -15,6 +15,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects.StatusEffects;
 using Content.Shared.Medical;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
@@ -85,11 +86,11 @@ public sealed partial class ADTForceVomitEffectSystem : EntityEffectSystem<MetaD
 
 public sealed partial class ADTHallucinateEffectSystem : EntityEffectSystem<MetaDataComponent, ADTHallucinate>
 {
-    [Dependency] private HallucinationsSystem _hallucinations = default!;
+    [Dependency] private SchizophreniaSystem _schizophrenia = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ADTHallucinate> args)
     {
-        _hallucinations.StartHallucinations(entity.Owner, args.Effect.Key, args.Effect.Time * args.Scale, true, args.Effect.Pack);
+        _schizophrenia.AddOrAdjustHallucinations(entity.Owner, args.Effect.Pack, (float) (args.Effect.Time * args.Scale).TotalSeconds, StatusEffectMetabolismType.Add);
     }
 }
 
