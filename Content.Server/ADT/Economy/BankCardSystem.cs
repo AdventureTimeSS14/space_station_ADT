@@ -363,6 +363,41 @@ public sealed class BankCardSystem : EntitySystem
         return false;
     }
 
+    public bool TryGetPersonalAccountId(EntityUid user, out int accountId)
+    {
+        accountId = 0;
+        var fallbackFound = false;
+
+        foreach (var item in _accessReader.FindPotentialAccessItems(user))
+        {
+            BankCardComponent? card = null;
+
+            if (TryComp(item, out PdaComponent? pda) &&
+                pda.ContainedId is { Valid: true } id)
+                TryComp(id, out card);
+
+            if (card == null)
+                TryComp(item, out card);
+
+            if (card?.AccountId is not { } account)
+                continue;
+
+            if (!card.CommandBudgetCard)
+            {
+                accountId = account;
+                return true;
+            }
+
+            if (!fallbackFound)
+            {
+                accountId = account;
+                fallbackFound = true;
+            }
+        }
+
+        return fallbackFound;
+    }
+
     private (bool Fixed, int Pay) GetPay(EntityUid? mind)
     {
         if (!_job.MindTryGetJob(mind, out var job))

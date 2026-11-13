@@ -44,7 +44,7 @@ public sealed class AmassCreditsConditionSystem : EntitySystem
         if (mind.Comp.OwnedEntity is not { } body)
             return 0;
 
-        var total = _bankCard.TryGetUserAccountId(body, out var accountId)
+        var total = _bankCard.TryGetPersonalAccountId(body, out var accountId)
             ? _bankCard.GetBalance(accountId)
             : 0;
 

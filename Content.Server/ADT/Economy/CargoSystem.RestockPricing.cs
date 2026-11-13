@@ -68,8 +68,20 @@ public sealed partial class CargoSystem
         if (proto.Components.TryGetValue(Factory.GetComponentName<VendingMachineRestockComponent>(), out var restock) &&
             restock.Component is VendingMachineRestockComponent vRestock)
         {
+            var bestPack = default(ProtoId<VendingMachineInventoryPrototype>);
+            var bestPrice = -1;
             foreach (var pack in vRestock.CanRestock)
-                packs[pack] = packs.GetValueOrDefault(pack) + 1;
+            {
+                var price = AdtGetPackPrice(pack);
+                if (price > bestPrice)
+                {
+                    bestPrice = price;
+                    bestPack = pack;
+                }
+            }
+
+            if (bestPrice > 0)
+                packs[bestPack] = packs.GetValueOrDefault(bestPack) + 1;
 
             return;
         }
@@ -141,6 +153,24 @@ public sealed partial class CargoSystem
 
         var total = 0;
         foreach (var (id, amount, price, _) in VendingMachineInventoryData.Flatten(pack.StartingInventory))
+        {
+            var unit = price;
+            if (unit <= 0 && ProtoMan.TryIndex(id, out var itemProto))
+                unit = AdtGetEntryPrice(itemProto);
+
+            total += Math.Max(unit, 0) * (int) amount;
+        }
+
+        foreach (var (id, amount, price, _) in VendingMachineInventoryData.Flatten(pack.EmaggedInventory))
+        {
+            var unit = price;
+            if (unit <= 0 && ProtoMan.TryIndex(id, out var itemProto))
+                unit = AdtGetEntryPrice(itemProto);
+
+            total += Math.Max(unit, 0) * (int) amount;
+        }
+
+        foreach (var (id, amount, price, _) in VendingMachineInventoryData.Flatten(pack.ContrabandInventory))
         {
             var unit = price;
             if (unit <= 0 && ProtoMan.TryIndex(id, out var itemProto))

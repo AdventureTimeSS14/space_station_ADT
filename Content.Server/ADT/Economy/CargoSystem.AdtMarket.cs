@@ -135,8 +135,8 @@ public sealed partial class CargoSystem
 
         for (var i = 0; i < pending.Count; i++)
         {
-            var (ent, sell, _) = pending[i];
-            pending[i] = (ent, sell, AdtDeflatePrice(ent, mults, topLevel));
+            var (ent, sell, price) = pending[i];
+            pending[i] = (ent, sell, AdtDeflatePrice(ent, price, mults, topLevel));
         }
     }
 
@@ -163,15 +163,21 @@ public sealed partial class CargoSystem
         }
     }
 
-    private double AdtDeflatePrice(EntityUid ent, Dictionary<string, double> mults, HashSet<EntityUid> topLevel)
+    private double AdtDeflatePrice(EntityUid ent, double basePrice, Dictionary<string, double> mults, HashSet<EntityUid> topLevel)
     {
-        var price = _pricing.GetPrice(ent, includeContents: false);
+        var (raw, deflated) = AdtDecomposePrice(ent, mults, topLevel);
+        return raw > 0 ? basePrice * (deflated / raw) : basePrice;
+    }
 
-        if (MetaData(ent).EntityPrototype?.ID is { } protoId)
-            price *= mults.GetValueOrDefault(protoId, 1);
+    private (double Raw, double Deflated) AdtDecomposePrice(EntityUid ent, Dictionary<string, double> mults, HashSet<EntityUid> topLevel)
+    {
+        var raw = _pricing.GetPrice(ent, includeContents: false);
+        var deflated = MetaData(ent).EntityPrototype?.ID is { } protoId
+            ? raw * mults.GetValueOrDefault(protoId, 1)
+            : raw;
 
         if (!TryComp<ContainerManagerComponent>(ent, out var containers))
-            return price;
+            return (raw, deflated);
 
         foreach (var container in containers.Containers.Values)
         {
@@ -180,11 +186,13 @@ public sealed partial class CargoSystem
                 if (topLevel.Contains(child))
                     continue;
 
-                price += AdtDeflatePrice(child, mults, topLevel);
+                var (childRaw, childDeflated) = AdtDecomposePrice(child, mults, topLevel);
+                raw += childRaw;
+                deflated += childDeflated;
             }
         }
 
-        return price;
+        return (raw, deflated);
     }
 
     public void AdtRefreshOrderConsoles(EntityUid station)
