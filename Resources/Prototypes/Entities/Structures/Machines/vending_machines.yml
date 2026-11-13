@@ -363,6 +363,7 @@
   - type: ADTVendingMachine
     pack: ChefvendInventory
     discountJobs: [Chef] # ADT-Economy
+    discountPercent: 0.9 # ADT-Economy
   - type: VendingMachineVisuals
     ejectState: eject-unshaded
   - type: DatasetVocalizer
