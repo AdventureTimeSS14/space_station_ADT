@@ -148,6 +148,12 @@
     sprite: Clothing/Mask/medical.rsi
   - type: BreathMask
   - type: IngestionBlocker
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.5
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Tag
     tags:
     - PetWearable
@@ -176,6 +182,13 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.3
+    airborne: 0.9
+    zones:
+    - head
+  # ADT-Tweak-End
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -412,6 +425,13 @@
   - type: BreathMask
   - type: IngestionBlocker
   - type: IdentityBlocker
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.35
+    airborne: 0.65
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: HideLayerClothing
     slots:
     - Snout
