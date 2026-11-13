@@ -38,18 +38,16 @@ public sealed partial class ADTDiseaseSystem
             ? GetForeignVirusVolume(ent.Comp, args.Solution.Comp.Solution)
             : FixedPoint2.Zero;
 
-        ScanFluids(ent.Owner, args.Solution, allowVaccine: true);
-
-        if (sample <= FixedPoint2.Zero)
-            return;
-
-        if (!TrimExcessBlood(ent.Comp, args.Solution.Comp.Solution, sample))
-            return;
-
         _regulatingBlood = true;
         try
         {
-            _solution.UpdateChemicals(args.Solution, needsReactionsProcessing: false);
+            ScanFluids(ent.Owner, args.Solution, allowVaccine: true);
+
+            if (sample <= FixedPoint2.Zero)
+                return;
+
+            if (TrimExcessBlood(ent.Comp, args.Solution.Comp.Solution, sample))
+                _solution.UpdateChemicals(args.Solution, needsReactionsProcessing: false);
         }
         finally
         {
@@ -83,7 +81,7 @@ public sealed partial class ADTDiseaseSystem
         var total = FixedPoint2.Zero;
         foreach (var reagent in solution.Contents)
         {
-            if (GetVirusData(reagent) == null)
+            if (GetVirusData(reagent) == null || !blood.BloodReferenceSolution.ContainsPrototype(reagent.Reagent.Prototype))
                 continue;
 
             if (reagent.Reagent == new ReagentId(reagent.Reagent.Prototype, blood.BloodData))
