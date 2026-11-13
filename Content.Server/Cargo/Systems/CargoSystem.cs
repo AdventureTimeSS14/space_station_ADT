@@ -57,6 +57,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
         InitializeBounty();
         InitializeFunds();
         AdtInitializeRestockPricing(); // ADT-Economy
+        AdtInitializeMarket(); // ADT-Economy
     }
 
     public override void Update(float frameTime)

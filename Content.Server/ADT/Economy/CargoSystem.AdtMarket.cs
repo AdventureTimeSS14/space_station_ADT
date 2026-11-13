@@ -4,8 +4,10 @@ using Content.Server.Cargo.Systems;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.GameTicking;
 using Content.Shared.Stacks;
 using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cargo.Systems;
@@ -49,26 +51,25 @@ public sealed partial class CargoSystem
         return 1;
     }
 
-    private bool AdtCategorySurged(EntityUid station, string category)
-    {
-        return TryComp<StationCategorySurgeComponent>(station, out var surge) &&
-               surge.Multipliers.ContainsKey(category);
-    }
+    private StationMarketData? _adtMarket;
 
-    private StationMarketComponent? AdtDeflationMarket(EntityUid gridUid)
+    private StationMarketData? AdtDeflationMarket()
     {
         if (!_cfg.GetCVar(ADTCCVars.MarketDeflation))
             return null;
 
-        var station = _station.GetOwningStation(gridUid);
+        _adtMarket ??= new StationMarketData();
+        return _adtMarket;
+    }
 
-        if (station != null && TryComp<StationBankAccountComponent>(station.Value, out _))
-            return EnsureComp<StationMarketComponent>(station.Value);
+    private void AdtInitializeMarket()
+    {
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(AdtOnRoundRestart);
+    }
 
-        if (HasComp<TradeStationComponent>(gridUid))
-            return EnsureComp<StationMarketComponent>(gridUid);
-
-        return null;
+    private void AdtOnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        _adtMarket = null;
     }
 
     /// <summary>
@@ -114,34 +115,84 @@ public sealed partial class CargoSystem
         if (!_cfg.GetCVar(ADTCCVars.MarketDeflation) || pending.Count == 0)
             return;
 
-        var market = AdtDeflationMarket(gridUid);
+        var market = AdtDeflationMarket();
         if (market == null)
             return;
+
+        var topLevel = new HashSet<EntityUid>();
+        foreach (var (ent, _, _) in pending)
+            topLevel.Add(ent);
 
         // размер партии по прототипам - чтобы скидка учитывала саму партию
         var batch = new Dictionary<string, int>();
         foreach (var (ent, _, _) in pending)
-        {
-            if (MetaData(ent).EntityPrototype?.ID is not { } protoId)
-                continue;
+            AdtCountGoods(ent, batch, topLevel);
 
+        var now = Timing.CurTime;
+        var mults = new Dictionary<string, double>();
+        foreach (var (protoId, units) in batch)
+            mults[protoId] = market.GetBatchMultiplier(protoId, units, now);
+
+        for (var i = 0; i < pending.Count; i++)
+        {
+            var (ent, sell, _) = pending[i];
+            pending[i] = (ent, sell, AdtDeflatePrice(ent, mults, topLevel));
+        }
+    }
+
+    private const int AdtMaxContainerDepth = 10;
+
+    private void AdtCountGoods(EntityUid ent, Dictionary<string, int> batch, HashSet<EntityUid> topLevel, int depth = 0)
+    {
+        if (depth > AdtMaxContainerDepth)
+            return;
+
+        if (MetaData(ent).EntityPrototype?.ID is { } protoId)
+        {
             var units = TryComp<StackComponent>(ent, out var stack) ? Math.Max(1, (int) stack.Count) : 1;
             batch[protoId] = batch.GetValueOrDefault(protoId) + units;
         }
 
-        var now = Timing.CurTime;
-        for (var i = 0; i < pending.Count; i++)
+        if (!TryComp<ContainerManagerComponent>(ent, out var containers))
+            return;
+
+        foreach (var container in containers.Containers.Values)
         {
-            if (MetaData(pending[i].Ent).EntityPrototype?.ID is not { } protoId)
-                continue;
+            foreach (var child in container.ContainedEntities)
+            {
+                if (topLevel.Contains(child))
+                    continue;
 
-            var units = batch.GetValueOrDefault(protoId);
-            var (ent, sell, price) = pending[i];
-
-            price *= market.GetBatchMultiplier(protoId, units, now);
-
-            pending[i] = (ent, sell, price);
+                AdtCountGoods(child, batch, topLevel, depth + 1);
+            }
         }
+    }
+
+    private double AdtDeflatePrice(EntityUid ent, Dictionary<string, double> mults, HashSet<EntityUid> topLevel, int depth = 0)
+    {
+        if (depth > AdtMaxContainerDepth)
+            return _pricing.GetPrice(ent);
+
+        var price = _pricing.GetPrice(ent, includeContents: false);
+
+        if (MetaData(ent).EntityPrototype?.ID is { } protoId)
+            price *= mults.GetValueOrDefault(protoId, 1);
+
+        if (!TryComp<ContainerManagerComponent>(ent, out var containers))
+            return price;
+
+        foreach (var container in containers.Containers.Values)
+        {
+            foreach (var child in container.ContainedEntities)
+            {
+                if (topLevel.Contains(child))
+                    continue;
+
+                price += AdtDeflatePrice(child, mults, topLevel, depth + 1);
+            }
+        }
+
+        return price;
     }
 
     public void AdtRefreshOrderConsoles(EntityUid station)
@@ -167,19 +218,21 @@ public sealed partial class CargoSystem
         if (!_cfg.GetCVar(ADTCCVars.MarketDeflation) || goods.Count == 0)
             return;
 
-        var market = AdtDeflationMarket(gridUid);
+        var market = AdtDeflationMarket();
         if (market == null)
             return;
 
         var now = Timing.CurTime;
 
+        var topLevel = new HashSet<EntityUid>();
         foreach (var (ent, _, _) in goods)
-        {
-            if (MetaData(ent).EntityPrototype?.ID is not { } protoId)
-                continue;
+            topLevel.Add(ent);
 
-            var units = TryComp<StackComponent>(ent, out var stack) ? Math.Max(1, (int) stack.Count) : 1;
+        var sold = new Dictionary<string, int>();
+        foreach (var (ent, _, _) in goods)
+            AdtCountGoods(ent, sold, topLevel);
+
+        foreach (var (protoId, units) in sold)
             market.AddSold(protoId, units, now);
-        }
     }
 }
