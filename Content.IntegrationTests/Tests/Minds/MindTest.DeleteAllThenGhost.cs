@@ -22,7 +22,16 @@ public sealed partial class MindTests
         await pair.Server.WaitPost(() => conHost.ExecuteCommand("entities delete"));
         await pair.RunTicksSync(5);
 
-        Assert.That(pair.Server.EntMan.EntityCount, Is.EqualTo(0));
+        // ADT-Tweak start
+        var leftovers = new System.Collections.Generic.List<string>();
+        foreach (var ent in pair.Server.EntMan.GetEntities())
+        {
+            var xform = pair.Server.EntMan.GetComponentOrNull<TransformComponent>(ent);
+            leftovers.Add($"{pair.Server.EntMan.ToPrettyString(ent)} parent={xform?.ParentUid} map={xform?.MapID}");
+        }
+
+        Assert.That(pair.Server.EntMan.EntityCount, Is.EqualTo(0), $"Server entities left: {string.Join("; ", leftovers)}");
+        // ADT-Tweak end
 
         foreach (var ent in pair.Client.EntMan.GetEntities())
         {

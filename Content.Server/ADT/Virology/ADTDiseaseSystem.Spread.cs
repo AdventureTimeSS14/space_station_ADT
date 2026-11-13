@@ -290,10 +290,16 @@ public sealed partial class ADTDiseaseSystem
         if (roll < 80)
             return ZoneChest;
 
-        if (roll < 90)
+        if (roll < 85)
             return ZoneArms;
 
-        return ZoneLegs;
+        if (roll < 90)
+            return ZoneHands;
+
+        if (roll < 95)
+            return ZoneLegs;
+
+        return ZoneFeet;
     }
 
     private bool CheckAirborneProtection(EntityUid uid, ADTDisease disease)
