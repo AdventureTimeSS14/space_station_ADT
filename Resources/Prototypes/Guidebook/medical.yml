@@ -7,6 +7,7 @@
   - Chemist
   - Cloning
   - Cryogenics
+  - ADTSurgery # ADT-Tweak
   - ADTVirology # ADT-Tweak
 
 - type: guideEntry
@@ -53,6 +54,11 @@
   text: "/ServerInfo/Guidebook/Medical/AdvancedBrute.xml"
 
 # ADT-Tweak-Start
+- type: guideEntry
+  id: ADTSurgery
+  name: guide-entry-adt-surgery
+  text: "/ServerInfo/Guidebook/Medical/ADTSurgery.xml"
+
 - type: guideEntry
   id: ADTVirology
   name: guide-entry-adt-virology

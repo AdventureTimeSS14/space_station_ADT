@@ -19,6 +19,7 @@ guide-entry-medicinal-recipes = Наборы и медипены
 guide-entry-other-recipes = Другое
 guide-entry-secret-recipes = Секретное
 guide-entry-medication = Медицина
+guide-entry-adt-surgery = Хирургия
 guide-entry-chaplain = Священник
 guide-entry-altars = Таблица алтарей
 guide-entry-martialarts-ADT = Боевые искусства
