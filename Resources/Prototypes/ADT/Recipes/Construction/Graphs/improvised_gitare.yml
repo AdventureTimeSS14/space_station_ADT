@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: ADTImprovisedGuitar
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: guitar
+      steps:
+      - tag: ADTToolboxRedSacrifice
+        name: adt-construction-graph-tag-emergency-toolbox
+        icon:
+          sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+          state: icon
+        doAfter: 2
+      - tag: CrowbarRed
+        name: adt-construction-graph-tag-emergency-crowbar
+        icon:
+          sprite: Objects/Tools/crowbar.rsi
+          state: icon
+        doAfter: 2
+      - material: Cable
+        amount: 15
+        doAfter: 3
+      - material: CableHV
+        amount: 10
+        doAfter: 2
+  - node: guitar
+    entity: ADTImprovisedGuitarInstrument
+

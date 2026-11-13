@@ -94,7 +94,7 @@
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - ADTRacialItems # ADT-Tweak
-  #- PassengerJobTrinkets
+  - ADTPassengerJobTrinkets # ADT-Tweak
   - GroupSpeciesBreathTool
   - ADTPersonalLoadoutCivilian # ADT-Tweak personal
   - ADTPersonalLoadoutPlushie # ADT-Tweak personal
@@ -594,7 +594,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - ADTEngineeringBelt # ADT-TWEAK
-  - ADTEngineeringGlasses # ADT-TWEAK
+  - ADTAtmosphericTechnicianGlasses # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   - ADTAtmosPDA # ADT tweak
