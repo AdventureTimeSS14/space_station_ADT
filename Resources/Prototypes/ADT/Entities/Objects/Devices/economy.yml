@@ -29,6 +29,8 @@
     - type: Access
       groups:
       - Cargo
+    - type: StealTarget
+      stealGroup: ADTBudgetCardCargo
 
 - type: entity
   parent: Paper
@@ -53,6 +55,8 @@
     - type: Access
       groups:
       - Service
+    - type: StealTarget
+      stealGroup: ADTBudgetCardService
 
 - type: entity
   parent: Paper
@@ -77,6 +81,8 @@
     - type: Access
       groups:
       - Engineering
+    - type: StealTarget
+      stealGroup: ADTBudgetCardEngineering
 
 - type: entity
   parent: Paper
@@ -101,6 +107,8 @@
     - type: Access
       groups:
       - Medical
+    - type: StealTarget
+      stealGroup: ADTBudgetCardMedical
 
 - type: entity
   parent: Paper
@@ -125,6 +133,8 @@
     - type: Access
       groups:
       - Research
+    - type: StealTarget
+      stealGroup: ADTBudgetCardScience
 
 - type: entity
   parent: Paper
@@ -149,6 +159,8 @@
     - type: Access
       groups:
       - Security
+    - type: StealTarget
+      stealGroup: ADTBudgetCardSecurity
 
 - type: entity
   parent: Paper
