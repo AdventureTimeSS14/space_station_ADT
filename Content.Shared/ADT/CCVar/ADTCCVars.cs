@@ -337,7 +337,7 @@ public sealed class ADTCCVars
     /// Интервал выплат зарплат
     /// </summary>
     public static readonly CVarDef<int> SalaryDelay =
-        CVarDef.Create("economy.salary_delay", 2700, CVar.SERVERONLY);
+        CVarDef.Create("economy.salary_delay", 1800, CVar.SERVERONLY);
 
     /// <summary>
     /// Максимальное количество записей в истории транзакций счёта
