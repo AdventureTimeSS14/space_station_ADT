@@ -1,12 +1,9 @@
 using System.Linq;
 using Content.Shared.ADT.Virology;
 using Content.Shared.ADT.Virology.Prototypes;
-using Content.Shared.Body.Components;
+using Content.Shared.ADT.Virology.Systems;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -37,12 +34,9 @@ public sealed partial class ADTDiseaseSystem
 
     private readonly Dictionary<string, ADTDisease> _archive = new();
 
-    private bool _mixing;
-
     private void InitializeAdvance()
     {
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<SolutionContainerManagerComponent, SolutionChangedEvent>(OnSolutionChanged);
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
@@ -356,131 +350,38 @@ public sealed partial class ADTDiseaseSystem
         solution.AddReagent(new ReagentId(reagent.Reagent.Prototype, list), reagent.Quantity);
     }
 
-    private static readonly Dictionary<string, (int Min, int Max)> Mutagens = new()
+    public void MutateSolutionAdvance(Entity<SolutionComponent> solution, Action<ADTDisease> modify)
     {
-        ["ADTVirusFood"] = (0, 2),
-        ["UnstableMutagen"] = (2, 4),
-        ["ADTPlasmaDust"] = (4, 6),
-        ["Uranium"] = (5, 6),
-        ["ADTMutagenicAgar"] = (3, 3),
-        ["ADTSucroseAgar"] = (4, 4),
-        ["ADTWeakVirusPlasma"] = (5, 5),
-        ["ADTVirusPlasma"] = (6, 6),
-        ["ADTVirusRations"] = (1, 1),
-    };
+        if (ADTVirusMutationSystem.NeedsMix(solution.Comp.Solution))
+            MergeSolutionViruses(solution);
 
-    private const string DevolveReagent = "Diphenhydramine";
-
-    private bool TryApplyMutagens(Entity<SolutionComponent> solution)
-    {
         var sol = solution.Comp.Solution;
-        if (!sol.Contents.Any(r => GetVirusData(r)?.Diseases.Any(d => d.IsAdvance) == true))
-            return false;
-
-        string? used = null;
-        (int Min, int Max)? levels = null;
-        foreach (var reagent in sol.Contents)
-        {
-            if (reagent.Quantity < 1)
-                continue;
-
-            if (reagent.Reagent.Prototype == DevolveReagent)
-            {
-                used = DevolveReagent;
-                break;
-            }
-
-            if (Mutagens.TryGetValue(reagent.Reagent.Prototype, out var found))
-            {
-                used = reagent.Reagent.Prototype;
-                levels = found;
-                break;
-            }
-        }
-
-        if (used == null)
-            return false;
-
-        _mixing = true;
-        try
-        {
-            if (levels == null)
-                ModifySolutionAdvance(solution, Devolve);
-            else
-                ModifySolutionAdvance(solution, disease => Evolve(disease, levels.Value.Min, levels.Value.Max));
-
-            sol.RemoveReagent(used, FixedPoint2.New(1));
-            _solution.UpdateChemicals(solution, needsReactionsProcessing: false);
-        }
-        finally
-        {
-            _mixing = false;
-        }
-
-        return true;
-    }
-
-    private void OnSolutionChanged(Entity<SolutionContainerManagerComponent> ent, ref SolutionChangedEvent args)
-    {
-        if (_mixing)
-            return;
-
-        if (HasComp<BloodstreamComponent>(ent))
-        {
-            ScanFluids(ent.Owner, args.Solution, allowVaccine: true);
-            return;
-        }
-
-        if (TryApplyMutagens(args.Solution))
-            return;
-
-        var solution = args.Solution.Comp.Solution;
-        string? firstId = null;
-        var needsMix = false;
-        foreach (var reagent in solution.Contents)
+        ADTDisease? mutated = null;
+        foreach (var reagent in sol.Contents.ToList())
         {
             var data = GetVirusData(reagent);
-            if (data == null)
+            var advance = data?.Diseases.FirstOrDefault(d => d.IsAdvance);
+            if (data == null || advance == null)
                 continue;
 
-            foreach (var disease in data.Diseases)
+            var newData = (ADTVirusData) data.Clone();
+            var index = newData.Diseases.FindIndex(d => d.IsAdvance);
+            if (mutated == null)
             {
-                if (!disease.IsAdvance)
-                    continue;
-
-                var id = disease.GetId();
-                if (firstId == null)
-                {
-                    firstId = id;
-                    continue;
-                }
-
-                if (firstId != id)
-                {
-                    needsMix = true;
-                    break;
-                }
+                mutated = newData.Diseases[index];
+                mutated.Name = advance.Name;
+                modify(mutated);
+            }
+            else
+            {
+                newData.Diseases[index] = CopyAdvance(mutated);
             }
 
-            if (needsMix)
-                break;
-        }
-
-        if (!needsMix)
-            return;
-
-        _mixing = true;
-        try
-        {
-            MergeSolutionViruses(args.Solution);
-        }
-        finally
-        {
-            _mixing = false;
+            ReplaceReagentData(sol, reagent, data, newData);
         }
     }
 
-    private void MergeSolutionViruses(Entity<SolutionComponent> solution)
+    public void MergeSolutionViruses(Entity<SolutionComponent> solution)
     {
         var sol = solution.Comp.Solution;
         var carriers = sol.Contents.Where(r => GetVirusData(r) != null).ToList();
@@ -510,8 +411,6 @@ public sealed partial class ADTDiseaseSystem
 
             ReplaceReagentData(sol, reagent, GetVirusData(reagent)!, newData);
         }
-
-        _solution.UpdateChemicals(solution, needsReactionsProcessing: false);
     }
 }
 

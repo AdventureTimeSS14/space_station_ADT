@@ -1,0 +1,24 @@
+﻿- files: ["bonus.ogg"]
+  license: "Custom"
+  copyright: "AGPL-3.0"
+  source: "https://github.com/BlueMoon-Labs/BlueMoon-Station/tree/master/modular_bluemoon/sound/machines/slot-machine"
+
+- files: ["casino_fuck.ogg"]
+  license: "Custom"
+  copyright: "AGPL-3.0"
+  source: "https://github.com/BlueMoon-Labs/BlueMoon-Station/tree/master/modular_bluemoon/sound/machines/slot-machine"
+
+- files: ["jackpot.ogg"]
+  license: "Custom"
+  copyright: "AGPL-3.0"
+  source: "https://github.com/BlueMoon-Labs/BlueMoon-Station/tree/master/modular_bluemoon/sound/machines/slot-machine"
+
+- files: ["money.ogg"]
+  license: "Custom"
+  copyright: "AGPL-3.0"
+  source: "https://github.com/BlueMoon-Labs/BlueMoon-Station/tree/master/modular_bluemoon/sound/machines/slot-machine"
+
+- files: ["wheel.ogg"]
+  license: "Custom"
+  copyright: "AGPL-3.0"
+  source: "https://github.com/BlueMoon-Labs/BlueMoon-Station/tree/master/modular_bluemoon/sound/machines/slot-machine"
