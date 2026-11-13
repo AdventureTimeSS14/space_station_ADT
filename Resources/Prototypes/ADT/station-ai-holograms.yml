@@ -1,0 +1,8 @@
+- type: stationAiCustomization
+  id: ADTStationAiHologramCapri
+  name: station-ai-hologram-capri
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: ADT/Mobs/Silicon/capri_hologram.rsi
+      state: capri
