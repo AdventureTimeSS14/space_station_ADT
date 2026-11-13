@@ -32,6 +32,7 @@
     ADTBudgetCardMedicalStealObjective: 1
     ADTBudgetCardScienceStealObjective: 1
     ADTBudgetCardSecurityStealObjective: 0.5
+    ADTAmassCreditsTraitorObjective: 1
     # ADT-Tweak end
 
 - type: weightedRandom
@@ -76,6 +77,7 @@
   weights:
     ThiefObjectiveGroupCollection: 1
     ThiefObjectiveGroupItem: 1
+    ADTObjectiveGroupCreditsThief: 1 # ADT-Tweak
 
 - type: weightedRandom
   id: ThiefBigObjectiveGroups

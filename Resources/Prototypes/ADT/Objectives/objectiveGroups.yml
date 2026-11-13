@@ -13,6 +13,11 @@
     TraitorObjectiveGroupSocial: 1
     TraitorObjectiveGroupNukieDisk: 0.05
 
+- type: weightedRandom
+  id: ADTObjectiveGroupCreditsThief
+  weights:
+    ADTAmassCreditsThiefObjective: 1
+
 # TraitorLight - облегчённые цели без полноценных убийств
 - type: weightedRandom
   id: TraitorLightObjectiveGroups
