@@ -3,11 +3,11 @@ using Content.Shared.ADT.Virology;
 using Content.Shared.ADT.Virology.Prototypes;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -42,7 +42,7 @@ public sealed partial class ADTDiseaseSystem
     private void InitializeAdvance()
     {
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<SolutionContainerManagerComponent, SolutionChangedEvent>(OnSolutionChanged);
+        SubscribeLocalEvent<ContainerManagerComponent, SolutionChangedEvent>(OnSolutionChanged);
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
@@ -420,7 +420,7 @@ public sealed partial class ADTDiseaseSystem
         return true;
     }
 
-    private void OnSolutionChanged(Entity<SolutionContainerManagerComponent> ent, ref SolutionChangedEvent args)
+    private void OnSolutionChanged(Entity<ContainerManagerComponent> ent, ref SolutionChangedEvent args)
     {
         if (_mixing)
             return;

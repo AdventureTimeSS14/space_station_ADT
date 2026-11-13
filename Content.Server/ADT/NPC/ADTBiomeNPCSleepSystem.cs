@@ -3,6 +3,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Parallax;
 using Content.Shared.ADT.Lavaland;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
@@ -99,6 +100,9 @@ public sealed class ADTBiomeNPCSleepSystem : EntitySystem
 
     private void Sleep(EntityUid uid)
     {
+        if (HasComp<MegafaunaComponent>(uid))
+            return;
+
         _npc.SleepNPC(uid);
         EnsureComp<ADTChunkSleepingNPCComponent>(uid);
         SetPausedRecursive(uid, true);
