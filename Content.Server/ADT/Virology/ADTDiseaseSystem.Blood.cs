@@ -78,10 +78,11 @@ public sealed partial class ADTDiseaseSystem
 
     private static FixedPoint2 GetForeignVirusVolume(BloodstreamComponent blood, Solution solution)
     {
+        var reference = blood.BloodReferenceSolution;
         var total = FixedPoint2.Zero;
         foreach (var reagent in solution.Contents)
         {
-            if (GetVirusData(reagent) == null || !blood.BloodReferenceSolution.ContainsPrototype(reagent.Reagent.Prototype))
+            if (GetVirusData(reagent) == null || !reference.ContainsPrototype(reagent.Reagent.Prototype))
                 continue;
 
             if (reagent.Reagent == new ReagentId(reagent.Reagent.Prototype, blood.BloodData))
