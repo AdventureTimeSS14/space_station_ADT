@@ -26,8 +26,8 @@ public sealed partial class MindTests
         var leftovers = new System.Collections.Generic.List<string>();
         foreach (var ent in pair.Server.EntMan.GetEntities())
         {
-            var xform = pair.Server.EntMan.GetComponentOrNull<TransformComponent>(ent);
-            leftovers.Add($"{pair.Server.EntMan.ToPrettyString(ent)} parent={xform?.ParentUid} map={xform?.MapID}");
+            var leftoverXform = pair.Server.EntMan.GetComponentOrNull<TransformComponent>(ent);
+            leftovers.Add($"{pair.Server.EntMan.ToPrettyString(ent)} parent={leftoverXform?.ParentUid} map={leftoverXform?.MapID}");
         }
 
         Assert.That(pair.Server.EntMan.EntityCount, Is.EqualTo(0), $"Server entities left: {string.Join("; ", leftovers)}");
