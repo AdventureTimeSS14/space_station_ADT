@@ -30,6 +30,11 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
     private readonly Label _nearMissBanner = new();
     private readonly Label _freeSpinsBanner = new();
     private readonly Label _hotBanner = new();
+    private PanelContainer _bonusBannerPanel = null!;
+    private PanelContainer _streakBannerPanel = null!;
+    private PanelContainer _nearMissBannerPanel = null!;
+    private PanelContainer _freeSpinsBannerPanel = null!;
+    private PanelContainer _hotBannerPanel = null!;
     private readonly Label _balanceLabel = new();
     private readonly Label _sessionLabel = new();
     private readonly Button _spinButton = new();
@@ -190,8 +195,10 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         amountRow.AddChild(_jackpotAmount);
         root.AddChild(header);
 
-        root.AddChild(MakeBanner(_bonusBanner, SlotMachineUiColors.PinkBonus, 14));
-        root.AddChild(MakeBanner(_streakBanner, Color.FromHex("#ff6633"), 12));
+        _bonusBannerPanel = MakeBanner(_bonusBanner, SlotMachineUiColors.PinkBonus, 14);
+        root.AddChild(_bonusBannerPanel);
+        _streakBannerPanel = MakeBanner(_streakBanner, Color.FromHex("#ff6633"), 12);
+        root.AddChild(_streakBannerPanel);
 
         var reelsPanel = new PanelContainer
         {
@@ -208,9 +215,12 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         root.AddChild(reelsPanel);
 
 
-        root.AddChild(MakeBanner(_nearMissBanner, SlotMachineUiColors.OrangeHot, 13));
-        root.AddChild(MakeBanner(_freeSpinsBanner, Color.FromHex("#4f4"), 13));
-        root.AddChild(MakeBanner(_hotBanner, Color.FromHex("#ff6633"), 11));
+        _nearMissBannerPanel = MakeBanner(_nearMissBanner, SlotMachineUiColors.OrangeHot, 13);
+        root.AddChild(_nearMissBannerPanel);
+        _freeSpinsBannerPanel = MakeBanner(_freeSpinsBanner, Color.FromHex("#4f4"), 13);
+        root.AddChild(_freeSpinsBannerPanel);
+        _hotBannerPanel = MakeBanner(_hotBanner, Color.FromHex("#ff6633"), 11);
+        root.AddChild(_hotBannerPanel);
 
         _gamblePanel.PanelOverride = new StyleBoxFlat
         {
@@ -813,8 +823,10 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         _reels.WinningLine = state.WinningLine;
 
         _bonusBanner.Visible = state.BonusActive && !state.Working;
+        _bonusBannerPanel.Visible = _bonusBanner.Visible;
         SetFittedText(_bonusBanner, Loc.GetString("slotmachine-casino-banner-bonus", ("multiplier", state.BonusMultiplier)), 14, true, BannerMaxWidth());
         _streakBanner.Visible = state.WinStreak >= 2;
+        _streakBannerPanel.Visible = _streakBanner.Visible;
         SetFittedText(_streakBanner, Loc.GetString("slotmachine-casino-banner-streak", ("count", state.WinStreak)), 12, true, BannerMaxWidth());
 
         if (_lastSpinCount == -1)
@@ -833,10 +845,13 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
 
 
         _nearMissBanner.Visible = state.NearMiss && !state.Working;
+        _nearMissBannerPanel.Visible = _nearMissBanner.Visible;
         SetFittedText(_nearMissBanner, Loc.GetString("slotmachine-casino-nearmiss", ("message", state.NearMissMessage)), 13, true, BannerMaxWidth());
         _freeSpinsBanner.Visible = state.FreeSpinsRemaining > 0;
+        _freeSpinsBannerPanel.Visible = _freeSpinsBanner.Visible;
         SetFittedText(_freeSpinsBanner, Loc.GetString("slotmachine-casino-banner-freespins", ("count", state.FreeSpinsRemaining)), 13, true, BannerMaxWidth());
         _hotBanner.Visible = state.LossStreak >= state.LossStreakHot && !state.Working;
+        _hotBannerPanel.Visible = _hotBanner.Visible;
         SetFittedText(_hotBanner, Loc.GetString("slotmachine-casino-banner-hot", ("count", state.LossStreak)), 11, true, BannerMaxWidth());
 
         _gambleTitle.Text = Loc.GetString("slotmachine-casino-gamble-title", ("amount", state.GambleAmount));
