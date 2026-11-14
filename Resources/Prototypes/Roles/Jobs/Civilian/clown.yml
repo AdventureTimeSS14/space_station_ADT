@@ -39,6 +39,10 @@
   storage:
     back:
     - RubberStampClown
+    ## adt-tweak-start
+    - ADTMakeupPaletteBasic
+    - ADTMakeupPaletteTheatrical
+    ## adt-tweak-end
     - CrayonRainbow
 
 - type: chameleonOutfit

@@ -118,6 +118,15 @@
   id: MobReptilian
   name: Urist McScales
   components:
+  ## adt-tweak-start
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTMakeupFaceReptilian
+  ## adt-tweak-end
   # ADT-Tweak start
   - type: MobThresholds
     thresholds:

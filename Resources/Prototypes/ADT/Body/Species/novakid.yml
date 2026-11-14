@@ -233,6 +233,7 @@
         Blunt: 0.02 # Супер пониженный дамаг от давления
   - type: Reactive
     groups:
+      ADTMakeupSkin: [Touch]
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
       Acidic: [ Touch, Ingestion ]
@@ -245,6 +246,11 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPie
+    - reagents: [Water]
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect
+        proto: ADTMakeupClearBasic
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:

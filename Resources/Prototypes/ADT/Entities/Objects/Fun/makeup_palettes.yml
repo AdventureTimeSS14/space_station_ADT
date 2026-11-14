@@ -1,0 +1,489 @@
+- type: injectorMode
+  id: ADTMakeupTopical
+  name: adt-makeup-choose
+  injectOnUse: true
+  behavior: Inject
+  reactionMethod: Touch
+  requiresExposedSkin: false
+  mobTime: 5
+  selfModifier: 0.4
+  downedModifier: 1
+  delayPerVolume: 0
+  suitMobTime: 0
+  transferAmounts: [1]
+  popupUserAttempt: adt-makeup-applying
+  popupTargetAttempt: adt-makeup-being-applied
+
+- type: entity
+  id: ADTMakeupSolutionBase
+  abstract: true
+  categories: [HideSpawnMenu]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 4
+      canReact: false
+  - type: SolutionRegeneration
+    duration: 1
+    generated:
+      reagents: []
+
+- type: entity
+  parent: BaseItem
+  id: ADTMakeupPaletteBase
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: UseDelay
+    delay: 0.25
+
+- type: entity
+  parent: ADTMakeupPaletteBase
+  id: ADTMakeupPaletteBasic
+  name: regular makeup palette
+  description: Select a design, then apply it to yourself (2 s) or someone else (5 s). Water washes it off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/general_paint.rsi
+    state: icon
+  - type: SolutionManager
+    solutions:
+    - ADTMakeupSolutionBasicClown
+    - ADTMakeupSolutionBasicMime
+  - type: SelectableComponentAdder
+    verbCategoryName: adt-makeup-choose
+    entries:
+    - verbName: adt-makeup-clown
+      popup: adt-makeup-selected-clown
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupBasicClown
+        ignoreBlockers: true
+    - verbName: adt-makeup-mime
+      popup: adt-makeup-selected-mime
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupBasicMime
+        ignoreBlockers: true
+
+- type: entity
+  id: ADTMakeupSolutionBasicClown
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupBasicClown
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentBasicClown
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentBasicClown
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionBasicMime
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupBasicMime
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentBasicMime
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentBasicMime
+        Quantity: 1
+
+- type: entity
+  parent: ADTMakeupPaletteBase
+  id: ADTMakeupPaletteTheatrical
+  name: theatrical makeup palette
+  description: Select a design, then apply it to yourself (2 s) or someone else (5 s). Select Remove makeup to clean the face with this palette.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/clown_mime_paint.rsi
+    state: icon
+  - type: SolutionManager
+    solutions:
+    - ADTMakeupSolutionTheatricalClown
+    - ADTMakeupSolutionTheatricalBananaClown
+    - ADTMakeupSolutionTheatricalSecurityClown
+    - ADTMakeupSolutionTheatricalBlushingClown
+    - ADTMakeupSolutionTheatricalAbyssClown
+    - ADTMakeupSolutionTheatricalCluwne
+    - ADTMakeupSolutionTheatricalBallisticClown
+    - ADTMakeupSolutionTheatricalMime
+    - ADTMakeupSolutionTheatricalBlushingMime
+    - ADTMakeupSolutionTheatricalSadMime
+    - ADTMakeupSolutionTheatricalScaredMime
+    - ADTMakeupSolutionTheatricalSecurityMime
+    - ADTMakeupSolutionTheatricalRemove
+  - type: SelectableComponentAdder
+    verbCategoryName: adt-makeup-choose
+    entries:
+    - verbName: adt-makeup-clown
+      popup: adt-makeup-selected-clown
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalClown
+        ignoreBlockers: true
+    - verbName: adt-makeup-banana-clown
+      popup: adt-makeup-selected-banana-clown
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalBananaClown
+        ignoreBlockers: true
+    - verbName: adt-makeup-security-clown
+      popup: adt-makeup-selected-security-clown
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalSecurityClown
+        ignoreBlockers: true
+    - verbName: adt-makeup-blushing-clown
+      popup: adt-makeup-selected-blushing-clown
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalBlushingClown
+        ignoreBlockers: true
+    - verbName: adt-makeup-abyss-clown
+      popup: adt-makeup-selected-abyss-clown
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalAbyssClown
+        ignoreBlockers: true
+    - verbName: adt-makeup-cluwne
+      popup: adt-makeup-selected-cluwne
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalCluwne
+        ignoreBlockers: true
+    - verbName: adt-makeup-ballistic-clown
+      popup: adt-makeup-selected-ballistic-clown
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalBallisticClown
+        ignoreBlockers: true
+    - verbName: adt-makeup-mime
+      popup: adt-makeup-selected-mime
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalMime
+        ignoreBlockers: true
+    - verbName: adt-makeup-blushing-mime
+      popup: adt-makeup-selected-blushing-mime
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalBlushingMime
+        ignoreBlockers: true
+    - verbName: adt-makeup-sad-mime
+      popup: adt-makeup-selected-sad-mime
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalSadMime
+        ignoreBlockers: true
+    - verbName: adt-makeup-scared-mime
+      popup: adt-makeup-selected-scared-mime
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalScaredMime
+        ignoreBlockers: true
+    - verbName: adt-makeup-security-mime
+      popup: adt-makeup-selected-security-mime
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalSecurityMime
+        ignoreBlockers: true
+    - verbName: adt-makeup-remove
+      popup: adt-makeup-selected-remove
+      componentExistsBehavior: Replace
+      componentsToAdd:
+      - type: Injector
+        netsync: false
+        currentTransferAmount: 1
+        activeModeProtoId: ADTMakeupTopical
+        allowedModes: [ADTMakeupTopical]
+        solutionName: makeupTheatricalRemove
+        ignoreBlockers: true
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalClown
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalClown
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalClown
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalClown
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalBananaClown
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalBananaClown
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBananaClown
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBananaClown
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalSecurityClown
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalSecurityClown
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalSecurityClown
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalSecurityClown
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalBlushingClown
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalBlushingClown
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBlushingClown
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBlushingClown
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalAbyssClown
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalAbyssClown
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalAbyssClown
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalAbyssClown
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalCluwne
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalCluwne
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalCluwne
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalCluwne
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalBallisticClown
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalBallisticClown
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBallisticClown
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBallisticClown
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalMime
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalMime
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalMime
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalMime
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalBlushingMime
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalBlushingMime
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBlushingMime
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalBlushingMime
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalSadMime
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalSadMime
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalSadMime
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalSadMime
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalScaredMime
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalScaredMime
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalScaredMime
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalScaredMime
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalSecurityMime
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalSecurityMime
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalSecurityMime
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalSecurityMime
+        Quantity: 1
+
+- type: entity
+  id: ADTMakeupSolutionTheatricalRemove
+  parent: ADTMakeupSolutionBase
+  components:
+  - type: Solution
+    id: makeupTheatricalRemove
+    solution:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalRemove
+        Quantity: 4
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: ADTMakeupPigmentTheatricalRemove
+        Quantity: 1

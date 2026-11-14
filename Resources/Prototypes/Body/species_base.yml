@@ -73,6 +73,7 @@
           MeatLaserImpact
   - type: Reactive
     groups:
+      ADTMakeupSkin: [Touch] ## adt-tweak
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
       Acidic: [Touch, Ingestion]
@@ -87,6 +88,13 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPie
+    ## adt-tweak-start
+    - reagents: [Water]
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect
+        proto: ADTMakeupClearBasic
+    ## adt-tweak-end
   - type: StatusEffects
     allowed:
     - Stutter
