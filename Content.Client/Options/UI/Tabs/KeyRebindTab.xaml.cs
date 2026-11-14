@@ -29,6 +29,7 @@ namespace Content.Client.Options.UI.Tabs
 
         [Dependency] private IInputManager _inputManager = default!;
         [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private ILocalizationManager _loc = default!; // ADT-Tweak
 
         private BindButton? _currentlyRebinding;
 
@@ -357,6 +358,76 @@ namespace Content.Client.Options.UI.Tabs
         }
 
         // ADT-Tweak-Start
+        private enum MovementMode
+        {
+            Other,
+            OnFoot,
+            Shuttle,
+            Posing
+        }
+
+        private static MovementMode GetMovementMode(BoundKeyFunction function)
+        {
+            if (function == EngineKeyFunctions.MoveUp || function == EngineKeyFunctions.MoveDown
+                || function == EngineKeyFunctions.MoveLeft || function == EngineKeyFunctions.MoveRight
+                || function == EngineKeyFunctions.Walk)
+                return MovementMode.OnFoot;
+
+            if (function == ContentKeyFunctions.ShuttleStrafeUp || function == ContentKeyFunctions.ShuttleStrafeDown
+                || function == ContentKeyFunctions.ShuttleStrafeLeft || function == ContentKeyFunctions.ShuttleStrafeRight
+                || function == ContentKeyFunctions.ShuttleRotateLeft || function == ContentKeyFunctions.ShuttleRotateRight
+                || function == ContentKeyFunctions.ShuttleBrake)
+                return MovementMode.Shuttle;
+
+            if (function == ContentKeyFunctions.PosingOffsetUp || function == ContentKeyFunctions.PosingOffsetDown
+                || function == ContentKeyFunctions.PosingOffsetLeft || function == ContentKeyFunctions.PosingOffsetRight
+                || function == ContentKeyFunctions.PosingRotateNegative || function == ContentKeyFunctions.PosingRotatePositive)
+                return MovementMode.Posing;
+
+            return MovementMode.Other;
+        }
+
+        private static bool CanConflict(BoundKeyFunction first, BoundKeyFunction second, IInputCmdContext[] contexts)
+        {
+            var firstMode = GetMovementMode(first);
+            var secondMode = GetMovementMode(second);
+
+            if (firstMode != MovementMode.Other && secondMode != MovementMode.Other && firstMode != secondMode)
+                return false;
+
+            var firstRegistered = false;
+            var secondRegistered = false;
+            foreach (var context in contexts)
+            {
+                var hasFirst = context.FunctionExistsHierarchy(first);
+                var hasSecond = context.FunctionExistsHierarchy(second);
+                if (hasFirst && hasSecond)
+                    return true;
+
+                firstRegistered |= hasFirst;
+                secondRegistered |= hasSecond;
+            }
+
+            return !firstRegistered || !secondRegistered;
+        }
+
+        private string GetFunctionName(BoundKeyFunction function)
+        {
+            var id = $"ui-options-function-{CaseConversion.PascalToKebab(function.FunctionName)}";
+            return _loc.TryGetString(id, out var name) ? name : function.FunctionName;
+        }
+
+        private static bool IsArcadeFunction(BoundKeyFunction function)
+        {
+            return function == ContentKeyFunctions.ArcadeUp
+                || function == ContentKeyFunctions.ArcadeDown
+                || function == ContentKeyFunctions.ArcadeLeft
+                || function == ContentKeyFunctions.ArcadeRight
+                || function == ContentKeyFunctions.Arcade1
+                || function == ContentKeyFunctions.Arcade2
+                || function == ContentKeyFunctions.Arcade3;
+        }
+
         private void UpdateConflictStates()
         {
             var usageMap =
@@ -364,6 +435,9 @@ namespace Content.Client.Options.UI.Tabs
 
             foreach (var binding in _inputManager.AllBindings)
             {
+                if (IsArcadeFunction(binding.Function))
+                    continue;
+
                 var combo = GetBindingCombo(binding);
                 if (!usageMap.TryGetValue(combo, out var functions))
                 {
@@ -374,10 +448,19 @@ namespace Content.Client.Options.UI.Tabs
                 functions.Add(binding.Function);
             }
 
+            // Check every gameplay context, not just the one active in the options menu.
+            var contexts = new List<IInputCmdContext>();
+            foreach (var name in new[] { "common", "human", "ghost", "aghost", "editor", "shuttle", "posing" })
+            {
+                if (_inputManager.Contexts.TryGetContext(name, out var context))
+                    contexts.Add(context);
+            }
+
+            var availableContexts = contexts.ToArray();
             foreach (var control in _keyControls.Values)
             {
-                control.BindButton1.UpdateConflictState(usageMap);
-                control.BindButton2.UpdateConflictState(usageMap);
+                control.BindButton1.UpdateConflictState(usageMap, availableContexts);
+                control.BindButton2.UpdateConflictState(usageMap, availableContexts);
             }
         }
 
@@ -420,6 +503,7 @@ namespace Content.Client.Options.UI.Tabs
         {
             base.EnteredTree();
 
+            UpdateConflictStates(); // ADT-Tweak
             _inputManager.FirstChanceOnKeyEvent += InputManagerOnFirstChanceOnKeyEvent;
             _inputManager.OnKeyBindingAdded += OnKeyBindAdded;
             _inputManager.OnKeyBindingRemoved += OnKeyBindRemoved;
@@ -552,6 +636,10 @@ namespace Content.Client.Options.UI.Tabs
             }
 
             _currentlyRebinding = button;
+            // ADT-Tweak-Start
+            button.Button.Label.FontColorOverride = null;
+            button.Button.ToolTip = null;
+            // ADT-Tweak-End
             _currentlyRebinding.Button.Text = Loc.GetString("ui-options-key-prompt");
 
             if (button.Binding != null)
@@ -594,8 +682,7 @@ namespace Content.Client.Options.UI.Tabs
                 Function = function;
                 var name = new Label
                 {
-                    Text = Loc.GetString(
-                        $"ui-options-function-{CaseConversion.PascalToKebab(function.FunctionName)}"),
+                    Text = parent.GetFunctionName(function), // ADT-Tweak
                     HorizontalExpand = true,
                     HorizontalAlignment = HAlignment.Left
                 };
@@ -694,34 +781,32 @@ namespace Content.Client.Options.UI.Tabs
 
             // ADT-Tweak-Start
             public void UpdateConflictState(
-                Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>> usageMap)
+                Dictionary<(Keyboard.Key, Keyboard.Key, Keyboard.Key, Keyboard.Key), HashSet<BoundKeyFunction>> usageMap,
+                IInputCmdContext[] contexts)
             {
-                if (_tab._currentlyRebinding == this)
-                {
-                    Button.Label.FontColorOverride = null;
-                    Button.ToolTip = null;
+                Button.Label.FontColorOverride = null;
+                Button.ToolTip = null;
+
+                if (_tab._currentlyRebinding == this || Binding == null
+                    || !usageMap.TryGetValue(GetBindingCombo(Binding), out var functions) || functions.Count < 2)
                     return;
+
+                var conflicts = new List<string>();
+                foreach (var function in functions)
+                {
+                    if (function != Binding.Function && CanConflict(Binding.Function, function, contexts))
+                        conflicts.Add(_tab.GetFunctionName(function));
                 }
 
-                var hasConflict = false;
-                if (Binding != null
-                    && usageMap.TryGetValue(KeyRebindTab.GetBindingCombo(Binding), out var functions)
-                    && functions.Count > 1)
-                {
-                    hasConflict = true;
-                }
+                if (conflicts.Count == 0)
+                    return;
 
-                if (hasConflict)
-                {
-                    Button.Label.FontColorOverride = ConflictColor;
-                    Button.ToolTip = Loc.GetString("ui-options-key-conflict");
-                }
-                else
-                {
-                    Button.Label.FontColorOverride = null;
-                    Button.ToolTip = null;
-                }
+                conflicts.Sort(StringComparer.CurrentCulture);
+                Button.Label.FontColorOverride = ConflictColor;
+                var heading = Loc.GetString("ui-options-key-conflict");
+                Button.ToolTip = $"{heading}\n- {string.Join("\n- ", conflicts)}";
             }
+
             // ADT-Tweak-End
         }
     }
