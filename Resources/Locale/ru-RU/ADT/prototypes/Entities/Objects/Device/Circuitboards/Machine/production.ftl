@@ -28,3 +28,5 @@ ent-ADTEnergyBoozeDispenserMachineCircuitboard = энерго-раздатчик
     .desc = Печатная плата энерго-раздатчика алкоголя.
 ent-ADTEnergySodaDispenserMachineCircuitboard = энерго-раздатчик безалкоголя (машинная плата)
     .desc = Печатная плата энерго-раздатчика безалкоголя.
+ent-ADTPandemicMachineCircuitboard = ПанД.Е.М.И.К 220 (машинная плата)
+    .desc = Печатная плата ПанД.Е.М.И.К 220.
