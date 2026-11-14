@@ -28,7 +28,7 @@ public sealed partial class CrystallizerWindow : FancyWindow
     private float _lastParentWidth;
     public event Action<Button, string?>? OnRecipeButtonPressed;
     public event Action<float>? OnGasInputChanged;
-
+    
     // Локализованные полные имена газов для UI (в движке есть только аббревиатуры).
     private static readonly Dictionary<Gas, string> GasNames = new()
     {
@@ -128,8 +128,6 @@ public sealed partial class CrystallizerWindow : FancyWindow
 
         var fillPercentage = Math.Clamp((temperature - minRange) / (maxRange - minRange), 0f, 1f);
 
-        // Красный — вне допустимого отклонения, реакция стоит; жёлтый — идёт, но растёт
-        // перерасход газа (QualityLoss); зелёный — внутри диапазона рецепта.
         Color barColor;
         if (temperature < minRange || temperature > maxRange)
         {
