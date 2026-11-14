@@ -366,7 +366,6 @@ public sealed class BankCardSystem : EntitySystem
     public bool TryGetPersonalAccountId(EntityUid user, out int accountId)
     {
         accountId = 0;
-        var fallbackFound = false;
 
         foreach (var item in _accessReader.FindPotentialAccessItems(user))
         {
@@ -379,23 +378,14 @@ public sealed class BankCardSystem : EntitySystem
             if (card == null)
                 TryComp(item, out card);
 
-            if (card?.AccountId is not { } account)
+            if (card is not { AccountId: { } account } || card.CommandBudgetCard)
                 continue;
 
-            if (!card.CommandBudgetCard)
-            {
-                accountId = account;
-                return true;
-            }
-
-            if (!fallbackFound)
-            {
-                accountId = account;
-                fallbackFound = true;
-            }
+            accountId = account;
+            return true;
         }
 
-        return fallbackFound;
+        return false;
     }
 
     private (bool Fixed, int Pay) GetPay(EntityUid? mind)
