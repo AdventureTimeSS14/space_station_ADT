@@ -55,7 +55,10 @@ public sealed partial class PlantMutationSystem : EntitySystem
 
                 // Stat adjustments do not persist by being an attached effect, they just change the stat.
                 if (mutation.Persists && ent.Comp.Mutations.All(m => m.Name != mutation.Name))
+                {
                     ent.Comp.Mutations.Add(mutation);
+                    ent.Comp.IsModified = true; // ADT-Tweak
+                }
             }
         }
     }
@@ -135,6 +138,7 @@ public sealed partial class PlantMutationSystem : EntitySystem
         // For the list of mutation effects on both plants, use a 50% chance to pick each one.
         // Union all of the chosen mutations into one list, and pick ones with a Distinct (unique) name.
         targetCore.Mutations = targetCore.Mutations.Where(_ => Random(0.5f)).Union(pollenCore.Mutations.Where(_ => Random(0.5f))).DistinctBy(m => m.Name).ToList();
+        targetCore.IsModified = true; // ADT-Tweak
 
         // Hybrids have a high chance of being seedless. Balances very
         // effective hybrid crossings.

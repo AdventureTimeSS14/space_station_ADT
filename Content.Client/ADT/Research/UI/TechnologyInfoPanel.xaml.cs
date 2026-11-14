@@ -30,11 +30,18 @@ public sealed partial class TechnologyInfoPanel : Control
         TechnologyTexture.Texture = sprite.Frame0(proto.Icon);
 
         UnlocksContainer.DisposeAllChildren();
+        var discipline = _proto.Index<TechDisciplinePrototype>(proto.Discipline);
         foreach (var item in proto.RecipeUnlocks)
         {
             var recipe = _proto.Index(item);
             var control = new MiniRecipeCardControl(proto, recipe, _proto, sprite, _lathe);
             UnlocksContainer.AddChild(control);
+        }
+
+        foreach (var geneId in proto.UnlockedGenes)
+        {
+            var gene = _proto.Index(geneId);
+            UnlocksContainer.AddChild(new MiniGeneCardControl(gene, discipline, sprite));
         }
         if (!hasAccess)
             ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");

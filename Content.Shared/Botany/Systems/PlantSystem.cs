@@ -137,7 +137,12 @@ public sealed partial class PlantSystem : EntitySystem
         // Process mutations.
         if (ent.Comp.MutationLevel > 0)
         {
-            _mutation.CheckRandomMutations(ent.Owner, Math.Min(ent.Comp.MutationLevel, ent.Comp.MaxMutationLevel));
+            var severity = Math.Min(ent.Comp.MutationLevel, ent.Comp.MaxMutationLevel);
+            // ADT-Tweak start
+            if (TryComp<PlantComponent>(ent.Owner, out var plant))
+                severity *= 1f + plant.Instability / 100f;
+            _mutation.CheckRandomMutations(ent.Owner, severity);
+            // ADT-Tweak end
             ent.Comp.MutationLevel = 0;
             DirtyField(ent, ent.Comp, nameof(ent.Comp.MutationLevel));
         }
