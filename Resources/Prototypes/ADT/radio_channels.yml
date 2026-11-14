@@ -55,6 +55,14 @@
   longRange: true
 
 - type: radioChannel
+  id: ADTLimaTen
+  name: ADT-LimaTen-Channel-name
+  keycode: 'э'
+  frequency: 1306
+  color: "#323181"
+  longRange: true
+
+- type: radioChannel
   id: ADTOldBroadcast
   name: chat-radio-broadcast
   keycode: 'р'

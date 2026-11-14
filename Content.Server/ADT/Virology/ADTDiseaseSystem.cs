@@ -604,7 +604,7 @@ public sealed partial class ADTDiseaseSystem : EntitySystem
         return string.Join(Loc.GetString("adt-disease-cure-and"), parts);
     }
 
-    public List<ADTDiseaseInfo>? GetScannerDiseases(EntityUid uid)
+    public List<ADTDiseaseInfo>? GetScannerDiseases(EntityUid uid, bool ignoreStealth = false)
     {
         if (!TryComp<ADTDiseaseCarrierComponent>(uid, out var carrier) || carrier.Diseases.Count == 0)
             return null;
@@ -612,7 +612,7 @@ public sealed partial class ADTDiseaseSystem : EntitySystem
         var result = new List<ADTDiseaseInfo>();
         foreach (var disease in carrier.Diseases)
         {
-            if ((disease.Visibility & ADTDiseaseVisibility.HiddenScanner) != 0)
+            if (!ignoreStealth && (disease.Visibility & ADTDiseaseVisibility.HiddenScanner) != 0)
                 continue;
 
             if (!_proto.TryIndex(disease.Prototype, out var proto))
