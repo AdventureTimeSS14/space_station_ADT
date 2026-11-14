@@ -96,7 +96,6 @@
     - Adrenaline
     # ADT-Tweak start
     - Weakness
-    - ADTHallucinations
     - ADTStarvation
     # ADT-Tweak end
   - type: Identity

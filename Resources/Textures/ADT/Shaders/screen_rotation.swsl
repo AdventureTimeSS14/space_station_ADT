@@ -1,0 +1,19 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float angle;
+
+void fragment() {
+	highp vec2 center = vec2(0.5);
+	highp vec2 offset = (UV - center) / SCREEN_PIXEL_SIZE;
+	highp mat2 rotation = mat2(
+		cos(angle), -sin(angle),
+		sin(angle), cos(angle)
+	);
+	highp vec2 rotatedUv = center + (rotation * offset) * SCREEN_PIXEL_SIZE;
+
+	if (rotatedUv.x < 0.0 || rotatedUv.x > 1.0 || rotatedUv.y < 0.0 || rotatedUv.y > 1.0) {
+		COLOR = vec4(0.0);
+		return;
+	}
+
+	COLOR = zTextureSpec(SCREEN_TEXTURE, rotatedUv);
+}
