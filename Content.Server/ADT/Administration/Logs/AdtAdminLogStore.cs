@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.CCVar;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Robust.Shared.Configuration;
@@ -35,6 +36,7 @@ public sealed class AdtAdminLogStore
     private int _cachedBytes;
 
     private bool _enabledCVar;
+    private bool _synchronousDb;
 
     public bool Enabled { get; private set; }
     public bool WriteLegacy { get; private set; }
@@ -52,6 +54,7 @@ public sealed class AdtAdminLogStore
 
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsChunksEnabled, value => _enabledCVar = value, true);
         Enabled = _enabledCVar;
+        _cfg.OnValueChanged(CCVars.DatabaseSynchronous, value => _synchronousDb = value, true);
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsWriteLegacy, value => WriteLegacy = value, true);
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsChunkMaxLogs, value => _chunkMaxLogs = value, true);
         _cfg.OnValueChanged(ADTAdminLogCVars.AdminLogsChunkMaxBytes, value => _chunkMaxBytes = value, true);
@@ -119,7 +122,15 @@ public sealed class AdtAdminLogStore
 
         var nextIndex = await GetNextChunkIndex(roundId);
 
-        var chunks = await Task.Run(() => BuildChunks(roundId, nextIndex, logs));
+        List<AdtAdminLogChunk> chunks;
+        if (_synchronousDb)
+        {
+            chunks = BuildChunks(roundId, nextIndex, logs);
+        }
+        else
+        {
+            chunks = await Task.Run(() => BuildChunks(roundId, nextIndex, logs));
+        }
         if (chunks.Count == 0)
             return;
 
