@@ -64,17 +64,17 @@ slotmachine-casino-agreement-howto-header = Как играть
 slotmachine-casino-agreement-howto = Вставьте наличные в купюроприёмник, выберите размер ставки и нажмите «КРУТИТЬ». Ставка задаёт число активных линий выплат: 5 кр - 1 линия, 10 кр - 2 линии, 25 кр и выше - 3 линии.
 
 slotmachine-casino-agreement-payout-header = Выплаты (М - множитель ставки)
-slotmachine-casino-agreement-payout-5 = • 5 в ряд - 150 × М (× бонус)
-slotmachine-casino-agreement-payout-4 = • 4 в ряд - 50 × М (× бонус)
-slotmachine-casino-agreement-payout-3 = • 3 в ряд - 1–3 бесплатных вращения (× бонус)
-slotmachine-casino-agreement-payout-scatter = • Жетон NT ×3+ - 5 × М × количество, выплата вне линий
-slotmachine-casino-agreement-payout-bonus = • Бонус ×2–×5 - при 2+ совпадениях на средней линии
+slotmachine-casino-agreement-payout-5 = • 5 в ряд - 100 × М (× бонус)
+slotmachine-casino-agreement-payout-4 = • 4 в ряд - 35 × М (× бонус)
+slotmachine-casino-agreement-payout-3 = • 3 в ряд - 1–2 бесплатных вращения (× бонус)
+slotmachine-casino-agreement-payout-scatter = • Жетон NT ×3+ - 4 × М × количество, выплата вне линий
+slotmachine-casino-agreement-payout-bonus = • Бонус ×2–×4 - при 2+ совпадениях на средней линии
 slotmachine-casino-agreement-payout-gamble = • Гемблинг «красное/чёрное» - 25%: удвоить или потерять
 slotmachine-casino-agreement-payout-jackpot = • ДЖЕКПОТ - 5 золота/кубиков на средней линии: ВЕСЬ банк автомата и объявление на всю станцию
 
 slotmachine-casino-agreement-odds-header = Вероятности (на один барабан)
 slotmachine-casino-agreement-odds-line = { $name } - примерно { $percent }%
-slotmachine-casino-agreement-odds-note = Шанс бонуса - 4%; после 5 проигрышей подряд растёт на 2% за каждый, но не более 15%.
+slotmachine-casino-agreement-odds-note = Шанс бонуса - 2%; после 7 проигрышей подряд растёт на 1% за каждый, но не более 8%.
 
 slotmachine-casino-sym-seven = золота
 slotmachine-casino-sym-cherry = вишня

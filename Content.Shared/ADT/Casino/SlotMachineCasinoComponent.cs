@@ -85,14 +85,14 @@ public sealed partial class SlotMachineCasinoComponent : Component
 
     [DataField] public int SpinPriceMin = 5;
     [DataField] public int SpinPriceMax = 100;
-    [DataField] public int SmallPrizeBase = 50;
-    [DataField] public int BigPrizeBase = 150;
+    [DataField] public int SmallPrizeBase = 35;
+    [DataField] public int BigPrizeBase = 100;
     [DataField] public float SpinTime = 1.5f;
     [DataField] public float ReelStopDelay = 0.7f;
 
     [DataField] public float NextSpinDelay = 2.4f;
     [DataField] public float BonusChance = 0.01f;
-    [DataField] public int ScatterWinBase = 5;
+    [DataField] public int ScatterWinBase = 4;
     [DataField] public int MaxHistory = 5;
 
     [DataField]
@@ -112,11 +112,11 @@ public sealed partial class SlotMachineCasinoComponent : Component
 
     /// <summary>Possible multipliers rolled when the bonus triggers.</summary>
     [DataField]
-    public List<int> BonusMultipliers = new() { 2, 2, 2, 3, 3, 5 };
+    public List<int> BonusMultipliers = new() { 2, 2, 2, 3, 4 };
 
     /// <summary>Free spins awarded for a 3-in-row (rolled between min and max, times bonus).</summary>
     [DataField] public int FreeSpinsMin = 1;
-    [DataField] public int FreeSpinsMax = 3;
+    [DataField] public int FreeSpinsMax = 2;
 
     /// <summary>Chance that the red/black gamble doubles the prize.</summary>
     [DataField] public float GambleWinChance = 0.25f;
@@ -125,11 +125,11 @@ public sealed partial class SlotMachineCasinoComponent : Component
     [DataField] public int AutoSpinMax = 50;
 
     /// <summary>After this many consecutive losses the bonus chance starts growing...</summary>
-    [DataField] public int LossStreakHot = 5;
+    [DataField] public int LossStreakHot = 7;
 
     /// <summary>...by this step per extra loss, capped at <see cref="BonusChanceMax"/>.</summary>
-    [DataField] public float BonusStreakStep = 0.02f;
-    [DataField] public float BonusChanceMax = 0.15f;
+    [DataField] public float BonusStreakStep = 0.01f;
+    [DataField] public float BonusChanceMax = 0.08f;
 
     /// <summary>Sevens/wilds on the middle line that trigger the near-miss message.</summary>
     [DataField] public int NearMissSevens = 3;

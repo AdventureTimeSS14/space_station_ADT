@@ -23,8 +23,17 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
-#    EnergyShotgunStealObjective: 0.5 # ADT objective
-    ADTMobileDefibrillatorStealObjective: 1 # ADT Objective
+    # ADT-Tweak start
+#    EnergyShotgunStealObjective: 0.5
+    ADTMobileDefibrillatorStealObjective: 1
+    ADTBudgetCardCargoStealObjective: 0.5
+    ADTBudgetCardServiceStealObjective: 1
+    ADTBudgetCardEngineeringStealObjective: 1
+    ADTBudgetCardMedicalStealObjective: 1
+    ADTBudgetCardScienceStealObjective: 1
+    ADTBudgetCardSecurityStealObjective: 0.5
+    ADTAmassCreditsTraitorObjective: 1
+    # ADT-Tweak end
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -68,6 +77,7 @@
   weights:
     ThiefObjectiveGroupCollection: 1
     ThiefObjectiveGroupItem: 1
+    ADTObjectiveGroupCreditsThief: 1 # ADT-Tweak
 
 - type: weightedRandom
   id: ThiefBigObjectiveGroups

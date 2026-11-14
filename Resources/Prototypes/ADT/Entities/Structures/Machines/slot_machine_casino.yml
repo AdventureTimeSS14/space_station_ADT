@@ -63,18 +63,47 @@
   - type: SlotMachineCasino
     money: 250000
     nextSpinDelay: 4.6 # todo
-    bonusChance: 0.04
+    bonusChance: 0.02
     symbolWeights:
-      seven: 2
-      cherry: 4
-      banana: 4
-      strawberry: 4
-      grape: 4
-      diamond: 3
-      star: 3
-      watermelon: 4
-      wild: 3
-      scatter: 2
+      seven: 1
+      cherry: 3
+      banana: 3
+      strawberry: 3
+      grape: 3
+      diamond: 2
+      star: 2
+      watermelon: 3
+      wild: 1
+      scatter: 1
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+    - trigger: !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Repairable
+    doAfterDelay: 8
   - type: ActivatableUI
     key: enum.SlotMachineCasinoUiKey.Key
     singleUser: true
@@ -91,14 +120,3 @@
   - type: Anchorable
   - type: StaticPrice
     price: 300
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]

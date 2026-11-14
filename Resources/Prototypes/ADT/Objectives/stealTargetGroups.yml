@@ -70,3 +70,45 @@
   sprite:
     sprite: Mobs/Aliens/slimes.rsi
     state: rainbow_slime_extract
+
+- type: stealTargetGroup
+  id: ADTBudgetCardCargo
+  name: steal-target-groups-adt-budget-card-cargo
+  sprite:
+    sprite: ADT/Objects/Misc/cards.rsi
+    state: budgetcard
+
+- type: stealTargetGroup
+  id: ADTBudgetCardService
+  name: steal-target-groups-adt-budget-card-service
+  sprite:
+    sprite: ADT/Objects/Misc/cards.rsi
+    state: srv_budget
+
+- type: stealTargetGroup
+  id: ADTBudgetCardEngineering
+  name: steal-target-groups-adt-budget-card-engineering
+  sprite:
+    sprite: ADT/Objects/Misc/cards.rsi
+    state: eng_budget
+
+- type: stealTargetGroup
+  id: ADTBudgetCardMedical
+  name: steal-target-groups-adt-budget-card-medical
+  sprite:
+    sprite: ADT/Objects/Misc/cards.rsi
+    state: med_budget
+
+- type: stealTargetGroup
+  id: ADTBudgetCardScience
+  name: steal-target-groups-adt-budget-card-science
+  sprite:
+    sprite: ADT/Objects/Misc/cards.rsi
+    state: sci_budget
+
+- type: stealTargetGroup
+  id: ADTBudgetCardSecurity
+  name: steal-target-groups-adt-budget-card-security
+  sprite:
+    sprite: ADT/Objects/Misc/cards.rsi
+    state: sec_budget

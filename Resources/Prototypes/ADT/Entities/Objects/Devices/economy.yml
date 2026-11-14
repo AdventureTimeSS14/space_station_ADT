@@ -11,6 +11,10 @@
       state: budgetcard
     - type: Item
       storedRotation: 90
+    - type: Tag
+      tags:
+      - DoorBumpOpener
+      - HighRiskItem
 
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
@@ -22,6 +26,11 @@
       state: budgetcard
     - type: BankCard
       commandBudgetType: Cargo
+    - type: Access
+      groups:
+      - Cargo
+    - type: StealTarget
+      stealGroup: ADTBudgetCardCargo
 
 - type: entity
   parent: Paper
@@ -43,6 +52,11 @@
       state: srv_budget
     - type: BankCard
       commandBudgetType: Service
+    - type: Access
+      groups:
+      - Service
+    - type: StealTarget
+      stealGroup: ADTBudgetCardService
 
 - type: entity
   parent: Paper
@@ -64,6 +78,11 @@
       state: eng_budget
     - type: BankCard
       commandBudgetType: Engineering
+    - type: Access
+      groups:
+      - Engineering
+    - type: StealTarget
+      stealGroup: ADTBudgetCardEngineering
 
 - type: entity
   parent: Paper
@@ -85,6 +104,11 @@
       state: med_budget
     - type: BankCard
       commandBudgetType: Medical
+    - type: Access
+      groups:
+      - Medical
+    - type: StealTarget
+      stealGroup: ADTBudgetCardMedical
 
 - type: entity
   parent: Paper
@@ -106,6 +130,11 @@
       state: sci_budget
     - type: BankCard
       commandBudgetType: Science
+    - type: Access
+      groups:
+      - Research
+    - type: StealTarget
+      stealGroup: ADTBudgetCardScience
 
 - type: entity
   parent: Paper
@@ -127,6 +156,11 @@
       state: sec_budget
     - type: BankCard
       commandBudgetType: Security
+    - type: Access
+      groups:
+      - Security
+    - type: StealTarget
+      stealGroup: ADTBudgetCardSecurity
 
 - type: entity
   parent: Paper
