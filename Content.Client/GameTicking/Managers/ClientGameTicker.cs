@@ -148,6 +148,10 @@ namespace Content.Client.GameTicking.Managers
 
         private void JoinGame(TickerJoinGameEvent message)
         {
+            // ADT: fade out the lobby before showing the round introduction.
+            if (ADTRoundIntroJoinGameAttempt())
+                return;
+
             _stateManager.RequestStateChange<GameplayState>();
         }
 
