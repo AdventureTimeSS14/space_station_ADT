@@ -17580,3 +17580,10 @@ Entries:
     id: 2119
     pr_number: 3688
     time: '2026-11-14T16:53:16Z'
+  - author: Inconnu
+    changes:
+      - {message: 'АВД, Адвокат, ОСЩ, Мед. Отдел больше не могут иметь вторую личность.',
+        type: Tweak}
+    id: 2120
+    pr_number: 3692
+    time: '2026-11-14T16:57:28Z'
