@@ -28,3 +28,6 @@ ent-ADTClothingHeadsetTrader = гарнитура торговцев
 
 ent-ADTClothingHeadsetParamedic = гарнитура парамедика
     .desc = Гарнитура, используемая парамедиками.
+
+ent-ADTClothingHeadsetLimaTen = гарнитура Лима-10
+    .desc = Гарнитура, используемая оперативниками группировки Лима-10.
