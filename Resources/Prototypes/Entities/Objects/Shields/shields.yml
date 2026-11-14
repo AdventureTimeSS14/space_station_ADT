@@ -39,6 +39,21 @@
       messages: ShieldMessages
     - type: StaticPrice
       price: 100
+    # ADT-Tweak-Start
+    - type: MeleeWeapon
+      attackRate: 0.5
+      angle: 0
+      wideAnimationRotation: -10
+      damage:
+        types:
+          Blunt: 9
+      soundHit:
+        collection: MetalThud
+    - type: ADTShieldBash
+      distance: 1.5
+      raisedDistance: 3
+      speed: 7
+    # ADT-Tweak-End
 
 - type: entity
   abstract: true
@@ -440,6 +455,8 @@
       components:
       - type: DisarmMalus
         malus: 0.6
+      - type: IgniteOnMeleeHit # ADT-Tweak
+        fireStacks: 0.5 # ADT-Tweak
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -501,6 +518,28 @@
     - type: Injurable
       damageContainer: Shield
     # ADT-Tweak-Start
+    - type: MeleeWeapon
+      attackRate: 0.5
+      angle: 0
+      wideAnimationRotation: -10
+      damage:
+        types:
+          Blunt: 3
+      soundHit:
+        collection: MetalThud
+    - type: ItemToggleMeleeWeapon
+      activatedSoundOnHit:
+        path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+        params:
+          variation: 0.250
+          volume: -10
+      activatedDamage:
+        types:
+          Heat: 10.5
+    - type: ADTShieldBash
+      distance: 1.5
+      raisedDistance: 3
+      speed: 7
     # - type: ExaminableDamage
     #   messages: EnergyShieldMessages
     # - type: Destructible
