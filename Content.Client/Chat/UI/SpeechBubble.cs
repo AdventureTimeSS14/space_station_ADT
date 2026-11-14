@@ -68,7 +68,10 @@ namespace Content.Client.Chat.UI
         public event Action<EntityUid, SpeechBubble>? OnDied;
 
         public static SpeechBubble CreateSpeechBubble(SpeechType type, ChatMessage message, EntityUid senderEntity)
-        {
+        { // ADT-Tweak-start
+            if (IoCManager.Resolve<IConfigurationManager>().GetCVar(ADTCCVars.ChatRunechat))
+                return new RunechatSpeechBubble(message, senderEntity, type);
+            // ADT-Tweak-end
             switch (type)
             {
                 case SpeechType.Emote:
