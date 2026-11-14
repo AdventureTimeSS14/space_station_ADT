@@ -9,7 +9,6 @@ using Content.Shared.Foldable;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
 using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -38,7 +37,6 @@ public abstract class SharedADTVehicleSystem : EntitySystem
     [Dependency] private TagSystem _tag = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
-    [Dependency] private SharedJointSystem _joints = default!;
     [Dependency] private SharedBuckleSystem _buckle = default!;
     [Dependency] private SharedMoverController _mover = default!;
     [Dependency] private SharedStunSystem _stun = default!;
@@ -64,7 +62,6 @@ public abstract class SharedADTVehicleSystem : EntitySystem
 
         SubscribeLocalEvent<ADTInVehicleComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
 
-        SubscribeLocalEvent<ADTVehicleRiderComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<ADTVehicleRiderComponent, ShotAttemptedEvent>(OnShootAttempt);
         SubscribeLocalEvent<ADTVehicleRiderComponent, MeleeHitEvent>(OnHitAttempt);
     }
@@ -135,7 +132,6 @@ public abstract class SharedADTVehicleSystem : EntitySystem
         if (ent.Comp.HornSound != null && ent.Comp.HornAction != null)
             _actions.AddAction(rider, ref ent.Comp.HornActionEntity, ent.Comp.HornAction, ent);
 
-        _joints.ClearJoints(rider);
         _tag.AddTag(ent, DoorBumpTag);
     }
 
@@ -235,12 +231,6 @@ public abstract class SharedADTVehicleSystem : EntitySystem
 
         if (_vehicle.GetOperatorOrNull(vehicle) is { } rider && rider != args.User)
             args.Cancel();
-    }
-
-    private void OnPullAttempt(Entity<ADTVehicleRiderComponent> ent, ref PullAttemptEvent args)
-    {
-        if (ent.Comp.Vehicle != null)
-            args.Cancelled = true;
     }
 
     private void OnShootAttempt(Entity<ADTVehicleRiderComponent> ent, ref ShotAttemptedEvent args)
