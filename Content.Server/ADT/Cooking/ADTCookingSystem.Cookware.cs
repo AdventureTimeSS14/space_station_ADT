@@ -82,15 +82,22 @@ public sealed partial class ADTCookingSystem
         if (ent.Comp.LargeItems.Remove(GetNetEntity(args.Entity)))
             Dirty(ent);
 
-        if (!HasResult(ent.Comp) && ent.Comp.Stage >= ADTCookingStage.Done && ent.Comp.Stage != ADTCookingStage.OnFire)
+        if (!HasResult(ent) && ent.Comp.Stage >= ADTCookingStage.Done && ent.Comp.Stage != ADTCookingStage.OnFire)
             ResetCooking(ent);
         else if (ent.Comp.Stage == ADTCookingStage.Cooking && !TerminatingOrDeleted(ent) && !TerminatingOrDeleted(args.Entity))
             UpdateTarget(ent, GetMedium(ent), Settings);
     }
 
-    private static bool HasResult(ADTCookwareComponent comp)
+    private bool HasResult(Entity<ADTCookwareComponent> ent)
     {
-        return comp.Contents.ContainedEntities.Count > 0 || comp.SoupResult != null;
+        var comp = ent.Comp;
+        if (comp.Contents.ContainedEntities.Count > 0)
+            return true;
+
+        if (comp.SoupResult == null)
+            return false;
+
+        return _solution.TryGetSolution(ent.Owner, comp.Solution, out _, out var soup) && soup.Volume > 0;
     }
 
     private static float GetBurnFraction(ADTCookwareComponent comp)
@@ -103,6 +110,15 @@ public sealed partial class ADTCookingSystem
 
     private void OnCookwareSolutionChanged(Entity<ADTCookwareComponent> ent, ref SolutionChangedEvent args)
     {
+        if (ent.Comp.Stage >= ADTCookingStage.Done
+            && ent.Comp.Stage != ADTCookingStage.OnFire
+            && !TerminatingOrDeleted(ent)
+            && !HasResult(ent))
+        {
+            ResetCooking(ent);
+            return;
+        }
+
         UpdateAppearance(ent);
     }
 

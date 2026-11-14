@@ -10,7 +10,7 @@
       angle: 0
       damage:
         types:
-          Blunt: 10
+          Blunt: 12
       soundHit:
         collection: MetalThud
     - type: Reflect
@@ -96,6 +96,8 @@
       components:
       - type: DisarmMalus
         malus: 0.6
+      - type: IgniteOnMeleeHit
+        fireStacks: 0.5
     - type: Sprite
       sprite: ADT/Objects/Weapons/Melee/blueshield_shield.rsi
       layers:
@@ -156,6 +158,28 @@
     - type: Damageable
     - type: Injurable
       damageContainer: Shield
+    - type: MeleeWeapon
+      attackRate: 0.5
+      angle: 0
+      wideAnimationRotation: -10
+      damage:
+        types:
+          Blunt: 3
+      soundHit:
+        collection: MetalThud
+    - type: ItemToggleMeleeWeapon
+      activatedSoundOnHit:
+        path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+        params:
+          variation: 0.250
+          volume: -10
+      activatedDamage:
+        types:
+          Heat: 10.5
+    - type: ADTShieldBash
+      distance: 1.5
+      raisedDistance: 3
+      speed: 7
     - type: Battery
       maxCharge: 1200
       startingCharge: 1200

@@ -351,6 +351,7 @@
     - ADTChemDisp
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard
+    - ADTVirologyBoards
     - BluespaceArtilleryBoards
     - ReactorCircuitboards
     # ADT-tweak-end

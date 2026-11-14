@@ -1489,6 +1489,17 @@
         whitelist:
           tags:
           - ConstructionMaterial
+    # ADT-Tweak-Start
+    - hand:
+        emptyRepresentative: DoorElectronics
+        emptyLabel: borg-slot-circuitboards-empty
+        whitelist:
+          components:
+          - Circuitboard
+        blacklist:
+          components:
+          - SiliconLawProvider
+    # ADT-Tweak-End
     - item: XenoborgMaterialBag
     - item: PinpointerMothership
     - item: HandheldGPSBasic
