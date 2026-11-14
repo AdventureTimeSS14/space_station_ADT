@@ -1,5 +1,13 @@
-# ADT: Закомментировано из-за использования генокрада от Goob Station
-# # ADT: закомментировано — используется генокрад от Goob Station, перевод в Resources/Locale/ru-RU/ADT/_Goobstation/Changeling/
-# # ent-MobLing = Урист МакКрад
-# #     .suffix = Неантаг
-# #     .desc = { ent-MobHuman.desc }
+ent-MobLing = Урист МакКрад
+    .suffix = Неантаг
+    .desc = { ent-MobHuman.desc }
+ent-MobHeadSlug = головной слизень
+    .desc = Маленькое слизнеподобное существо с огромной разинутой пастью. Покрыто толстым слоем липкой слизи.
+ent-ChangelingFleshClothingAbilityStoreDummy = { "" }
+    .desc = { "" }
+ent-ChangelingVoiceMimicDummy = { "" }
+    .desc = { "" }
+ent-ChangelingNightVisionDummy = { "" }
+    .desc = { "" }
+ent-ChangelingFakeMindshieldDummy = { "" }
+    .desc = { "" }

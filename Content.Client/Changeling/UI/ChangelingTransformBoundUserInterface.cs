@@ -1,112 +1,110 @@
-// ADT: Закомментировано из-за использования генокрада от Goob Station
-// using Content.Client.Stylesheets.Palette;
-// using Content.Client.UserInterface.Controls;
-// using Content.Shared.Changeling.Components;
-// using Content.Shared.Changeling.Systems;
-// using JetBrains.Annotations;
-// using Robust.Client.UserInterface;
-// using Robust.Shared.Utility;
+using Content.Client.Stylesheets.Palette;
+using Content.Client.UserInterface.Controls;
+using Content.Shared.Changeling.Components;
+using Content.Shared.Changeling.Systems;
+using JetBrains.Annotations;
+using Robust.Client.UserInterface;
+using Robust.Shared.Utility;
 
-// namespace Content.Client.Changeling.UI;
+namespace Content.Client.Changeling.UI;
 
-// [UsedImplicitly]
-// public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
-// {
-//     private SimpleRadialMenu? _menu;
-//     private static readonly Color SelectedOptionBackground = Palettes.Green.Element.WithAlpha(128);
-//     private static readonly Color DisabledOptionBackground = Palettes.Slate.Element.WithAlpha(128);
-//     private static readonly Color SelectedOptionHoverBackground = Palettes.Green.HoveredElement.WithAlpha(128);
-//     private static readonly Color DisabledOptionHoverBackground = Palettes.Slate.HoveredElement.WithAlpha(128);
+[UsedImplicitly]
+public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+{
+    private SimpleRadialMenu? _menu;
+    private static readonly Color SelectedOptionBackground = Palettes.Green.Element.WithAlpha(128);
+    private static readonly Color DisabledOptionBackground = Palettes.Slate.Element.WithAlpha(128);
+    private static readonly Color SelectedOptionHoverBackground = Palettes.Green.HoveredElement.WithAlpha(128);
+    private static readonly Color DisabledOptionHoverBackground = Palettes.Slate.HoveredElement.WithAlpha(128);
 
-//     protected override void Open()
-//     {
-//         base.Open();
+    protected override void Open()
+    {
+        base.Open();
 
-//         _menu = this.CreateWindow<SimpleRadialMenu>();
-//         Update();
-//         _menu.OpenOverMouseScreenPosition();
-//     }
+        _menu = this.CreateWindow<SimpleRadialMenu>();
+        Update();
+        _menu.OpenOverMouseScreenPosition();
+    }
 
-//     public override void Update()
-//     {
-//         if (_menu == null)
-//             return;
+    public override void Update()
+    {
+        if (_menu == null)
+            return;
 
-//         if (!EntMan.TryGetComponent<ChangelingIdentityComponent>(Owner, out var lingIdentity))
-//             return;
+        if (!EntMan.TryGetComponent<ChangelingIdentityComponent>(Owner, out var lingIdentity))
+            return;
+        
+        var manualDrop = true;
 
-//         var manualDrop = true;
+        if (EntMan.TryGetComponent<ChangelingTransformComponent>(Owner, out var lingTransform))
+            manualDrop = lingTransform.ManualDrop;
+            
+        var models = ConvertToButtons(lingIdentity.ConsumedIdentities, lingIdentity.CurrentIdentity, manualDrop);
 
-//         if (EntMan.TryGetComponent<ChangelingTransformComponent>(Owner, out var lingTransform))
-//             manualDrop = lingTransform.ManualDrop;
+        _menu.SetButtons(models);
+    }
 
-//         var models = ConvertToButtons(lingIdentity.ConsumedIdentities, lingIdentity.CurrentIdentity, manualDrop);
+    private IEnumerable<RadialMenuOptionBase> ConvertToButtons(
+        IEnumerable<ChangelingIdentityData> identities,
+        EntityUid? currentIdentity,
+        bool canDrop
+    )
+    {
+        var buttons = new List<RadialMenuOptionBase>();
+        var dropButtons = new List<RadialMenuOptionBase>();
 
-//         _menu.SetButtons(models);
-//     }
+        foreach (var identity in identities)
+        {
+            if (identity.Identity == null)
+                continue;
 
-//     private IEnumerable<RadialMenuOptionBase> ConvertToButtons(
-//         IEnumerable<ChangelingIdentityData> identities,
-//         EntityUid? currentIdentity,
-//         bool canDrop
-//     )
-//     {
-//         var buttons = new List<RadialMenuOptionBase>();
-//         var dropButtons = new List<RadialMenuOptionBase>();
+            // Options for selecting identities.
+            var option = new RadialMenuActionOption<NetEntity>(SendIdentitySelect, EntMan.GetNetEntity(identity.Identity.Value))
+            {
+                IconSpecifier = RadialMenuIconSpecifier.With(identity.Identity.Value),
+                ToolTip = Loc.GetString("changeling-transform-bui-select-entity", ("entity", identity.Identity)),
+                BackgroundColor = (currentIdentity == identity.Identity) ? SelectedOptionBackground : null, // mark as selected
+                HoverBackgroundColor = (currentIdentity == identity.Identity) ? SelectedOptionHoverBackground : null
+            };
+            buttons.Add(option);
 
-//         foreach (var identity in identities)
-//         {
-//             if (identity.Identity == null)
-//                 continue;
+            if (!canDrop)
+                continue;
 
-//             // Options for selecting identities.
-//             var option = new RadialMenuActionOption<NetEntity>(SendIdentitySelect, EntMan.GetNetEntity(identity.Identity.Value))
-//             {
-//                 IconSpecifier = RadialMenuIconSpecifier.With(identity.Identity.Value),
-//                 ToolTip = Loc.GetString("changeling-transform-bui-select-entity", ("entity", identity.Identity)),
-//                 BackgroundColor = (currentIdentity == identity.Identity) ? SelectedOptionBackground : null, // mark as selected
-//                 HoverBackgroundColor = (currentIdentity == identity.Identity) ? SelectedOptionHoverBackground : null,
-//             };
-//             buttons.Add(option);
+            // Options for dropping identities.
+            var dropOption = new RadialMenuActionOption<NetEntity>(SendIdentityDrop, EntMan.GetNetEntity(identity.Identity.Value))
+            {
+                IconSpecifier = RadialMenuIconSpecifier.With(identity.Identity.Value),
+                ToolTip = (currentIdentity == identity.Identity)
+                    ? Loc.GetString("changeling-transform-bui-drop-identity-cannot-drop")
+                    : Loc.GetString("changeling-transform-bui-drop-identity-entity", ("entity", identity.Identity)),
+                BackgroundColor = (currentIdentity == identity.Identity) ? DisabledOptionBackground : null, // cannot drop your current identity
+                HoverBackgroundColor = (currentIdentity == identity.Identity) ? DisabledOptionHoverBackground : null
+            };
+            dropButtons.Add(dropOption);
+        }
+        
+        if (canDrop)
+        {
+            // Menu category for dropping identities.
+            var dropMenuButton = new RadialMenuNestedLayerOption(dropButtons)
+            {
+                IconSpecifier = RadialMenuIconSpecifier.With(new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/delete.svg.192dpi.png"))),
+                ToolTip = Loc.GetString("changeling-transform-bui-drop-identity-menu")
+            };
+            buttons.Add(dropMenuButton);
+        }
 
-//             if (!canDrop)
-//                 continue;
+        return buttons;
+    }
 
-//             // Options for dropping identities.
-//             var dropOption = new RadialMenuActionOption<NetEntity>(SendIdentityDrop, EntMan.GetNetEntity(identity.Identity.Value))
-//             {
-//                 IconSpecifier = RadialMenuIconSpecifier.With(identity.Identity.Value),
-//                 ToolTip = (currentIdentity == identity.Identity)
-//                     ? Loc.GetString("changeling-transform-bui-drop-identity-cannot-drop")
-//                     : Loc.GetString("changeling-transform-bui-drop-identity-entity", ("entity", identity.Identity)),
-//                 BackgroundColor = (currentIdentity == identity.Identity) ? DisabledOptionBackground : null, // cannot drop your current identity
-//                 HoverBackgroundColor = (currentIdentity == identity.Identity) ? DisabledOptionHoverBackground : null,
-//             };
-//             dropButtons.Add(dropOption);
-//         }
+    private void SendIdentitySelect(NetEntity identityId)
+    {
+        SendPredictedMessage(new ChangelingTransformIdentitySelectMessage(identityId));
+    }
 
-//         if (canDrop)
-//         {
-//             // Menu category for dropping identities.
-//             var dropMenuButton = new RadialMenuNestedLayerOption(dropButtons)
-//             {
-//                 IconSpecifier = RadialMenuIconSpecifier.With(new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/delete.svg.192dpi.png"))),
-//                 ToolTip = Loc.GetString("changeling-transform-bui-drop-identity-menu"),
-//                 Order = 0, // Explicit first option.
-//             };
-//             buttons.Add(dropMenuButton);
-//         }
-
-//         return buttons;
-//     }
-
-//     private void SendIdentitySelect(NetEntity identityId)
-//     {
-//         SendPredictedMessage(new ChangelingTransformIdentitySelectMessage(identityId));
-//     }
-
-//     private void SendIdentityDrop(NetEntity identityId)
-//     {
-//         SendPredictedMessage(new ChangelingTransformIdentityDropMessage(identityId));
-//     }
-// }
+    private void SendIdentityDrop(NetEntity identityId)
+    {
+        SendPredictedMessage(new ChangelingTransformIdentityDropMessage(identityId));
+    }
+}
