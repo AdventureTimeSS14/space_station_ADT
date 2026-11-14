@@ -17587,3 +17587,15 @@ Entries:
     id: 2120
     pr_number: 3692
     time: '2026-11-14T16:57:28Z'
+  - author: blad bochar
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Грейтара лишилась струн от акустики, а взамен получила струны от
+          рок-гитары', type: Tweak}
+      - {message: Исправлен крафт грейтары, type: Fix}
+    id: 2121
+    pr_number: 3687
+    time: '2026-11-14T16:57:54Z'
