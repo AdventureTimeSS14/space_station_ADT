@@ -27,11 +27,12 @@
   description: An emergency toolbox, a crowbar, some cables and a tool belt. Somehow, it plays music.
   components:
   - type: Instrument
-    program: 24
+    program: 29
   - type: SwappableInstrument
     instrumentList:
-      "Акустика (нейлон)": {24: 0}
-      "Акустика (сталь)": {25: 0}
+      "Рок-гитара (овердрайв)": {29: 0}
+      "Рок-гитара (дисторшн)": {30: 0}
+      "Рок-гитара (гармоники)": {31: 0}
       "Электрогитара (джаз)": {26: 0}
       "Электрогитара (чистая)": {27: 0}
       "Электрогитара (приглушённая)": {28: 0}
