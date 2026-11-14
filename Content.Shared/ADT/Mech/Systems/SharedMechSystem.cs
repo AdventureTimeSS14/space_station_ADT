@@ -8,6 +8,7 @@ using Content.Shared.StepTrigger.Components;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
+using Robust.Shared.Player;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -106,9 +107,14 @@ public abstract partial class SharedMechSystem
             args.Cancel();
     }
 
-    private void OnMechEquipSelected(SelectMechEquipmentEvent ev)
+    private void OnMechEquipSelected(SelectMechEquipmentEvent ev, EntitySessionEventArgs args)
     {
+        if (args.SenderSession.AttachedEntity is not { Valid: true } user)
+            return;
+
         var uid = GetEntity(ev.User);
+        if (uid != user)
+            return;
 
         if (!TryComp<MechPilotComponent>(uid, out var pilot))
             return;

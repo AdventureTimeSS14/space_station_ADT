@@ -15,6 +15,7 @@ public sealed class ExportYmlMessage : NetMessage
     {
         // Read the length of the byte array
         int length = buffer.ReadInt32();
+        buffer.AssertAtLeastSize(length);
         // Read the byte array
         byte[] dataBytes = buffer.ReadBytes(length);
         // Decode the byte array to a string using UTF-8 encoding
