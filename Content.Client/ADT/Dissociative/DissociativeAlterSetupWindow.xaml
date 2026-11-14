@@ -1,0 +1,18 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               Title="{Loc 'dissociative-setup-window-title'}"
+               MinSize="360 200">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+        <Label Text="{Loc 'dissociative-setup-window-info'}" />
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'dissociative-setup-window-name'}" MinWidth="80" />
+            <LineEdit Name="NameEdit" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'dissociative-setup-window-sex'}" MinWidth="80" />
+            <OptionButton Name="SexSelector" HorizontalExpand="True" />
+        </BoxContainer>
+        <Button Name="CustomizeButton" Text="{Loc 'dissociative-setup-window-customize'}" HorizontalExpand="True" />
+        <Button Name="ConfirmButton" Text="{Loc 'dissociative-setup-window-confirm'}" HorizontalExpand="True" StyleClasses="Caution" />
+    </BoxContainer>
+</controls:FancyWindow>

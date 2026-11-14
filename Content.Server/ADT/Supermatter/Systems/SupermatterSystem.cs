@@ -1,6 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Radiation.Systems;
-using Content.Server.ADT.Hallucinations;
+using Content.Server.ADT.Hallucinations.Systems;
 using Content.Shared.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
@@ -85,8 +85,8 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private StationSystem _station = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private RoundEndSystem _roundEnd = default!;
-    [Dependency] private HallucinationsSystem _hallucinations = default!;
     [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SchizophreniaSystem _schizophrenia = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
 
