@@ -383,7 +383,12 @@
   departmentBlacklist:
     - Command
     - Security
+    - Medical
     - CentcomSpecialists
+  jobBlacklist:
+    - ADTBlueShieldOfficer
+    - IAA
+    - Lawyer
   speciesBlacklist:
     - IPC
   effects:
