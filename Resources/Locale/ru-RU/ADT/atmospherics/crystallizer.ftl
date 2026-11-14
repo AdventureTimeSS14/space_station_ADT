@@ -1,3 +1,6 @@
+ent-Crystallizer = кристаллизатор
+    .desc = Используется для кристаллизации газов.
+
 crystallizer-ui-controls = Управление
 crystallizer-ui-power = Питание:
 crystallizer-ui-recipe = Рецепт:
@@ -14,10 +17,14 @@ crystallizer-ui-gas-requirement =  - {$gas}: {$moles} молей
 crystallizer-ui-moles = {$moles} молей
 crystallizer-ui-exothermic = Реакция экзотермическая.
 crystallizer-ui-endothermic = Реакция эндотермическая.
-ent-Crystallizer = кристаллизатор
-    .desc = Используется для кристаллизации газов.
 crystallizer-recipe-PlasticRecipe = Пластик (10)
 crystallizer-recipe-Iridite = Иридит (1)
 crystallizer-recipe-Plasteel = Пласталь (10)
 crystallizer-recipe-Plasma = Плазма (1)
 crystallizer-recipe-Diamond = Алмаз (1)
+crystallizer-recipe-Marble = Мрамор (1)
+crystallizer-recipe-Copper = Медь (5)
+crystallizer-recipe-Lead = Свинец (5)
+crystallizer-recipe-Zinc = Цинк (5)
+crystallizer-recipe-BluespaceCrystal = БС кристалл (1)
+crystallizer-recipe-Glass = Стекло (5)

@@ -56,3 +56,77 @@
     MaterialDiamond1: 1
   minimumRequirements:
     CarbonDioxide: 500
+
+- type: crystallizerRecipe
+  id: Marble
+  minimumTemperature: 350
+  maximumTemperature: 450
+  energyRelease: -400
+  products:
+    ADTmarble1: 1
+  minimumRequirements:
+    CarbonDioxide: 20
+    WaterVapor: 15
+    Ammonia: 5
+
+- type: crystallizerRecipe
+  id: Copper
+  minimumTemperature: 800
+  maximumTemperature: 1500
+  energyRelease: -900
+  products:
+    ADTSheetCopper5: 1
+  minimumRequirements:
+    Oxygen: 5
+    Hydrogen: 25
+
+- type: crystallizerRecipe
+  id: Lead
+  minimumTemperature: 800
+  maximumTemperature: 1500
+  energyRelease: -1100
+  products:
+    ADTSheetLead5: 1
+  minimumRequirements:
+    Oxygen: 25
+    Hydrogen: 5
+    Nitrogen: 10
+
+- type: crystallizerRecipe
+  id: Zinc
+  minimumTemperature: 1200
+  maximumTemperature: 1800
+  energyRelease: -1500
+  products:
+    ADTSheetZinc5: 1
+  minimumRequirements:
+    Plasma: 15
+    Oxygen: 10
+    BZ: 2
+    Nitrogen: 10
+
+- type: crystallizerRecipe
+  id: BluespaceCrystal
+  minimumTemperature: 2
+  maximumTemperature: 12
+  energyRelease: -600
+  products:
+    ADTMaterialBScrystal1: 1
+  minimumRequirements:
+    Oxygen: 15
+    CarbonDioxide: 10
+    Frezon: 25
+    Nitrogen: 20
+    HyperNoblium: 2
+    Healium: 10
+
+- type: crystallizerRecipe
+  id: Glass
+  minimumTemperature: 600
+  maximumTemperature: 1500
+  energyRelease: -800
+  products:
+    ADTSheetGlass5: 1
+  minimumRequirements:
+    Oxygen: 15
+    CarbonDioxide: 30

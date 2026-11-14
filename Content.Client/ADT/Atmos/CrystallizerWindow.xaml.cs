@@ -33,14 +33,25 @@ public sealed partial class CrystallizerWindow : FancyWindow
     private static readonly Dictionary<Gas, string> GasNames = new()
     {
         [Gas.Ammonia] = Loc.GetString("gases-ammonia"),
+        [Gas.BZ] = Loc.GetString("gases-bz"),
         [Gas.CarbonDioxide] = Loc.GetString("gases-co2"),
         [Gas.Frezon] = Loc.GetString("gases-frezon"),
+        [Gas.Helium] = Loc.GetString("gases-helium"),
+        [Gas.Healium] = Loc.GetString("gases-healium"),
+        [Gas.Hydrogen] = Loc.GetString("gases-hydrogen"),
+        [Gas.HyperNoblium] = Loc.GetString("gases-hyper-noblium"),
+        [Gas.AntiNoblium] = Loc.GetString("gases-anti-noblium"),
         [Gas.Nitrogen] = Loc.GetString("gases-nitrogen"),
+        [Gas.Nitrium] = Loc.GetString("gases-nitrium"),
         [Gas.NitrousOxide] = Loc.GetString("gases-n2o"),
         [Gas.Oxygen] = Loc.GetString("gases-oxygen"),
         [Gas.Plasma] = Loc.GetString("gases-plasma"),
+        [Gas.Pluoxium] = Loc.GetString("gases-pluoxium"),
+        [Gas.ProtoNitrate] = Loc.GetString("gases-proto-nitrate"),
         [Gas.Tritium] = Loc.GetString("gases-tritium"),
         [Gas.WaterVapor] = Loc.GetString("gases-water-vapor"),
+        [Gas.Zauker] = Loc.GetString("gases-zauker"),
+        [Gas.Halon] = Loc.GetString("gases-halon"),
     };
 
     public CrystallizerWindow()
