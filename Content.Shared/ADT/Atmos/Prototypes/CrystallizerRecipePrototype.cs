@@ -23,4 +23,10 @@ public sealed partial class CrystallizerRecipePrototype : IPrototype
 
     [DataField("products")]
     public Dictionary<EntProtoId, int> Products { get; private set; } = new();
+
+    [DataField("progressRateMultiplier")]
+    public float ProgressRateMultiplier { get; private set; } = 5f;
+
+    [DataField("qualityRateMultiplier")]
+    public float QualityRateMultiplier { get; private set; } = 4.5f;
 }

@@ -33,8 +33,8 @@ public sealed partial class CrystallizerSystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
 
     private const float MinProgressAmount = 3f;
-    private const float MinDeviationRate = 0.90f;
-    private const float MaxDeviationRate = 1.10f;
+    private const float RecipeMolesLogScale = 0.1f;
+    private const float StallQualityPenalty = 0.5f;
 
     public override void Initialize()
     {
@@ -148,10 +148,10 @@ public sealed partial class CrystallizerSystem : EntitySystem
             if (recipeTotalMoles <= 0)
                 return;
 
-            var newMix = new GasMixture();
+            var buffer = crystallizer.InputBuffer;
+            buffer.Clear();
+            buffer.Temperature = pipeMix.Temperature;
             bool anyGasRemoved = false;
-
-            newMix.Temperature = pipeMix.Temperature;
 
             foreach (var (gas, requiredMoles) in recipe.MinimumRequirements)
             {
@@ -165,20 +165,20 @@ public sealed partial class CrystallizerSystem : EntitySystem
                 float proportion = availableMoles / recipeTotalMoles;
                 proportion = Math.Min(proportion, 1.0f);
 
-                float molesToRemove = crystallizer.GasInput * 0.5f * proportion;
+                float molesToRemove = crystallizer.GasInput * crystallizer.InputEfficiency * proportion;
 
                 float molesRemoved = Math.Min(availableMoles, molesToRemove);
                 if (molesRemoved > 0)
                 {
                     pipeMix.AdjustMoles(gas, -molesRemoved);
-                    newMix.AdjustMoles(gas, molesRemoved);
+                    buffer.AdjustMoles(gas, molesRemoved);
                     anyGasRemoved = true;
                 }
             }
 
             if (anyGasRemoved)
             {
-                _atmos.Merge(crystalMix, newMix);
+                _atmos.Merge(crystalMix, buffer);
             }
         }
     }
@@ -197,12 +197,12 @@ public sealed partial class CrystallizerSystem : EntitySystem
         if (gasCheck && tempCheck)
         {
             HeatCalculations(crystalMix, recipe, crystallizer);
-            float progressFactor = 5f / MathF.Max(MathF.Log10(crystallizer.TotalRecipeMoles * 0.1f), 1f);
+            float progressFactor = recipe.ProgressRateMultiplier / ProgressDenominator(crystallizer.TotalRecipeMoles);
             crystallizer.ProgressBar = Math.Min(crystallizer.ProgressBar + MinProgressAmount * progressFactor, 100f);
         }
         else
         {
-            crystallizer.QualityLoss = Math.Min(crystallizer.QualityLoss + 0.5f, 100f);
+            crystallizer.QualityLoss = Math.Min(crystallizer.QualityLoss + StallQualityPenalty, 100f);
             crystallizer.ProgressBar = Math.Max(crystallizer.ProgressBar - 1f, 0f);
         }
 
@@ -226,22 +226,27 @@ public sealed partial class CrystallizerSystem : EntitySystem
     private bool CheckTempRequirements(GasMixture crystalMix, CrystallizerRecipePrototype recipe)
     {
         float temperature = crystalMix.Temperature;
-        return temperature >= recipe.MinimumTemperature * MinDeviationRate &&
-               temperature <= recipe.MaximumTemperature * MaxDeviationRate;
+        return temperature >= recipe.MinimumTemperature * CrystallizerConstants.MinDeviationRate &&
+               temperature <= recipe.MaximumTemperature * CrystallizerConstants.MaxDeviationRate;
+    }
+
+    private static float ProgressDenominator(float totalRecipeMoles)
+    {
+        return MathF.Max(MathF.Log10(totalRecipeMoles * RecipeMolesLogScale), 1f);
     }
 
     private void HeatCalculations(GasMixture crystalMix, CrystallizerRecipePrototype recipe, CrystallizerComponent crystallizer)
     {
-        float progressAmountToQuality = MinProgressAmount * 4.5f / MathF.Max(MathF.Log10(crystallizer.TotalRecipeMoles * 0.1f), 1f);
+        float progressAmountToQuality = MinProgressAmount * recipe.QualityRateMultiplier / ProgressDenominator(crystallizer.TotalRecipeMoles);
         float medianTemperature = (recipe.MaximumTemperature + recipe.MinimumTemperature) / 2f;
 
-        if ((crystalMix.Temperature >= recipe.MinimumTemperature * MinDeviationRate && crystalMix.Temperature <= recipe.MinimumTemperature) ||
-            (crystalMix.Temperature >= recipe.MaximumTemperature && crystalMix.Temperature <= recipe.MaximumTemperature * MaxDeviationRate))
+        if ((crystalMix.Temperature >= recipe.MinimumTemperature * CrystallizerConstants.MinDeviationRate && crystalMix.Temperature <= recipe.MinimumTemperature) ||
+            (crystalMix.Temperature >= recipe.MaximumTemperature && crystalMix.Temperature <= recipe.MaximumTemperature * CrystallizerConstants.MaxDeviationRate))
         {
             crystallizer.QualityLoss = Math.Min(crystallizer.QualityLoss + progressAmountToQuality, 100f);
         }
 
-        if (crystalMix.Temperature >= medianTemperature * MinDeviationRate && crystalMix.Temperature <= medianTemperature * MaxDeviationRate)
+        if (crystalMix.Temperature >= medianTemperature * CrystallizerConstants.MinDeviationRate && crystalMix.Temperature <= medianTemperature * CrystallizerConstants.MaxDeviationRate)
         {
             // Mono nerf: floor снижен с -85 до -25.
             crystallizer.QualityLoss = Math.Max(crystallizer.QualityLoss - progressAmountToQuality, -25f);

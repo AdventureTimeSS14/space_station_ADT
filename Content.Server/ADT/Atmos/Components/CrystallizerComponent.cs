@@ -33,4 +33,9 @@ public sealed partial class CrystallizerComponent : Component
     [ViewVariables]
     [DataField("totalRecipeMoles")]
     public float TotalRecipeMoles { get; set; } = 0f;
+
+    [DataField("inputEfficiency")]
+    public float InputEfficiency = 0.5f;
+
+    public GasMixture InputBuffer = new();
 }

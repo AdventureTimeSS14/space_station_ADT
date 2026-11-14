@@ -76,3 +76,9 @@ public sealed class CrystallizerProgressBarMessage : BoundUserInterfaceMessage
         ProgressBar = progressBar;
     }
 }
+
+public static class CrystallizerConstants
+{
+    public const float MinDeviationRate = 0.90f;
+    public const float MaxDeviationRate = 1.10f;
+}
