@@ -240,13 +240,15 @@ public sealed partial class CrystallizerSystem : EntitySystem
         float progressAmountToQuality = MinProgressAmount * recipe.QualityRateMultiplier / ProgressDenominator(crystallizer.TotalRecipeMoles);
         float medianTemperature = (recipe.MaximumTemperature + recipe.MinimumTemperature) / 2f;
 
-        if ((crystalMix.Temperature >= recipe.MinimumTemperature * CrystallizerConstants.MinDeviationRate && crystalMix.Temperature <= recipe.MinimumTemperature) ||
-            (crystalMix.Temperature >= recipe.MaximumTemperature && crystalMix.Temperature <= recipe.MaximumTemperature * CrystallizerConstants.MaxDeviationRate))
+        bool inDeviationZone =
+            (crystalMix.Temperature >= recipe.MinimumTemperature * CrystallizerConstants.MinDeviationRate && crystalMix.Temperature <= recipe.MinimumTemperature) ||
+            (crystalMix.Temperature >= recipe.MaximumTemperature && crystalMix.Temperature <= recipe.MaximumTemperature * CrystallizerConstants.MaxDeviationRate);
+
+        if (inDeviationZone)
         {
             crystallizer.QualityLoss = Math.Min(crystallizer.QualityLoss + progressAmountToQuality, 100f);
         }
-
-        if (crystalMix.Temperature >= medianTemperature * CrystallizerConstants.MinDeviationRate && crystalMix.Temperature <= medianTemperature * CrystallizerConstants.MaxDeviationRate)
+        else if (crystalMix.Temperature >= medianTemperature * CrystallizerConstants.MinDeviationRate && crystalMix.Temperature <= medianTemperature * CrystallizerConstants.MaxDeviationRate)
         {
             // Mono nerf: floor снижен с -85 до -25.
             crystallizer.QualityLoss = Math.Max(crystallizer.QualityLoss - progressAmountToQuality, -25f);
