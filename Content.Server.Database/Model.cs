@@ -64,6 +64,7 @@ namespace Content.Server.Database
         public DbSet<AdtPollResponse> AdtPollResponse { get; set; } = null!;
         public DbSet<AdtPollPending> AdtPollPending { get; set; } = null!;
         public DbSet<AdtMapRotation> AdtMapRotation { get; set; } = null!;
+        public DbSet<AdtAdminLogChunk> AdtAdminLogChunk { get; set; } = null!;
         // ADT-Tweak-End
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<CustomVoteLog> CustomVoteLog { get; set; } = null!;
@@ -151,6 +152,12 @@ namespace Content.Server.Database
                 .WithMany(p => p.Pending)
                 .HasForeignKey(p => p.PollId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AdtAdminLogChunk>()
+                .HasKey(chunk => new { chunk.RoundId, chunk.ChunkIndex });
+
+            modelBuilder.Entity<AdtAdminLogChunk>()
+                .HasIndex(chunk => chunk.FirstDate);
             // ADT-Tweak-End
 
             modelBuilder.Entity<Profile>()
@@ -964,6 +971,52 @@ namespace Content.Server.Database
         public string Snapshot { get; set; } = null!;
 
         public DateTime CreatedAt { get; set; }
+    }
+
+    public class AdtAdminLogChunk
+    {
+        public int RoundId { get; set; }
+
+        public int ChunkIndex { get; set; }
+
+        /// <summary>
+        /// Версия раскладки <see cref="Payload"/>.
+        /// </summary>
+        public byte Format { get; set; }
+
+        public int LogCount { get; set; }
+
+        public int FirstLogId { get; set; }
+
+        public int LastLogId { get; set; }
+
+        public DateTime FirstDate { get; set; }
+
+        public DateTime LastDate { get; set; }
+
+        /// <summary>
+        /// Размер распакованного <see cref="Payload"/> в байтах.
+        /// </summary>
+        public int RawSize { get; set; }
+
+        public byte Flags { get; set; }
+
+        /// <summary>
+        /// Битовая маска <see cref="LogImpact"/>, присутствующих в чанке.
+        /// </summary>
+        public byte ImpactMask { get; set; }
+
+        /// <summary>
+        /// Битовая маска <see cref="LogType"/>, присутствующих в чанке.
+        /// </summary>
+        public byte[] TypeMask { get; set; } = default!;
+
+        /// <summary>
+        /// Уникальные игроки чанка, по 16 байт на Guid
+        /// </summary>
+        public byte[] Players { get; set; } = default!;
+
+        public byte[] Payload { get; set; } = default!;
     }
     // ADT-Tweak-End
 

@@ -31,6 +31,10 @@ public sealed partial class AdminLogsEui : BaseEui
     private bool _isLoading = true;
     private readonly Dictionary<Guid, string> _players = new();
     private int _roundLogs;
+    // ADT-Tweak-Start
+    private int _loadedRound = -1;
+    private int _loadToken;
+    // ADT-Tweak-End
     private CancellationTokenSource _logSendCancellation = new();
     private LogFilter _filter;
 
@@ -127,9 +131,18 @@ public sealed partial class AdminLogsEui : BaseEui
                 };
 
                 var roundId = _filter.Round ??= CurrentRoundId;
-                await LoadFromDb(roundId);
 
-                SendLogs(true, _filter);
+                // ADT-Tweak-Start
+                var filter = _filter;
+
+                if (roundId != _loadedRound || roundId == CurrentRoundId)
+                    await LoadFromDb(roundId);
+
+                if (filter.CancellationToken.IsCancellationRequested)
+                    break;
+
+                SendLogs(true, filter);
+                // ADT-Tweak-End
                 break;
             }
             case NextLogsRequest:
@@ -158,8 +171,19 @@ public sealed partial class AdminLogsEui : BaseEui
         var stopwatch = new Stopwatch();
         stopwatch.Start();
 
-        var logs = await Task.Run(async () => await _adminLogs.All(filter, _adminLogListPool.Get),
-            filter.CancellationToken);
+        // ADT-Tweak-Start
+        List<SharedAdminLog> logs;
+
+        try
+        {
+            logs = await Task.Run(async () => await _adminLogs.All(filter, _adminLogListPool.Get),
+                filter.CancellationToken);
+        }
+        catch (OperationCanceledException)
+        {
+            return;
+        }
+        // ADT-Tweak-End
 
         if (logs.Count > 0)
         {
@@ -198,16 +222,24 @@ public sealed partial class AdminLogsEui : BaseEui
         _logSendCancellation.Dispose();
     }
 
+    // ADT-Tweak-Start
     private async Task LoadFromDb(int roundId)
     {
-        _isLoading = true;
-        StateDirty();
+        var token = ++_loadToken;
+        var reload = roundId == _loadedRound;
 
-        var round = _adminLogs.Round(roundId);
-        var count = _adminLogs.CountLogs(roundId);
-        await Task.WhenAll(round, count);
+        if (!reload)
+        {
+            _isLoading = true;
+            StateDirty();
+        }
 
-        var players = (await round).Players
+        var round = await _adminLogs.Round(roundId);
+
+        if (token != _loadToken)
+            return;
+
+        var players = round.Players
             .ToDictionary(player => player.UserId, player => player.LastSeenUserName);
 
         _players.Clear();
@@ -217,9 +249,17 @@ public sealed partial class AdminLogsEui : BaseEui
             _players.Add(id, name);
         }
 
-        _roundLogs = await count;
-
+        _loadedRound = roundId;
         _isLoading = false;
         StateDirty();
+
+        var count = await _adminLogs.CountLogs(roundId);
+
+        if (token != _loadToken)
+            return;
+
+        _roundLogs = count;
+        StateDirty();
+        // ADT-Tweak-End
     }
 }

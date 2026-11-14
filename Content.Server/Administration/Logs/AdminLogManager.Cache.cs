@@ -29,6 +29,11 @@ public sealed partial class AdminLogManager
     // TODO ADMIN LOGS cache previous {MaxRoundsCached} rounds on startup
     public void CacheNewRound()
     {
+        // ADT-Tweak-Start
+        if (AdtStore.StartRound(_currentRoundId))
+            return;
+        // ADT-Tweak-End
+
         List<SharedAdminLog>? list = null;
 
         _roundsLogCacheQueue.Enqueue(_currentRoundId);
@@ -58,6 +63,14 @@ public sealed partial class AdminLogManager
 
     private void CacheLog(SharedAdminLog log)
     {
+        // ADT-Tweak-Start
+        if (AdtStore.Enabled)
+        {
+            AdtStore.AppendLive(_currentRoundId, log);
+            return;
+        }
+        // ADT-Tweak-End
+
         // TODO ADMIN LOGS remove redundant data and don't do a dictionary lookup per log
         var cache = _roundsLogCache[_currentRoundId];
         cache.Add(log);

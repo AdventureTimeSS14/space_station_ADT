@@ -436,6 +436,75 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtAdminLogChunk", b =>
+                {
+                    b.Property<int>("RoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_id");
+
+                    b.Property<int>("ChunkIndex")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("chunk_index");
+
+                    b.Property<DateTime>("FirstDate")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("first_date");
+
+                    b.Property<int>("FirstLogId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("first_log_id");
+
+                    b.Property<byte>("Flags")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("flags");
+
+                    b.Property<byte>("Format")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("format");
+
+                    b.Property<byte>("ImpactMask")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("impact_mask");
+
+                    b.Property<DateTime>("LastDate")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_date");
+
+                    b.Property<int>("LastLogId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("last_log_id");
+
+                    b.Property<int>("LogCount")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("log_count");
+
+                    b.Property<byte[]>("Payload")
+                        .IsRequired()
+                        .HasColumnType("BLOB")
+                        .HasColumnName("payload");
+
+                    b.Property<byte[]>("Players")
+                        .IsRequired()
+                        .HasColumnType("BLOB")
+                        .HasColumnName("players");
+
+                    b.Property<int>("RawSize")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("raw_size");
+
+                    b.Property<byte[]>("TypeMask")
+                        .IsRequired()
+                        .HasColumnType("BLOB")
+                        .HasColumnName("type_mask");
+
+                    b.HasKey("RoundId", "ChunkIndex")
+                        .HasName("PK_adt_admin_log_chunk");
+
+                    b.HasIndex("FirstDate");
+
+                    b.ToTable("adt_admin_log_chunk", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtMapRotation", b =>
                 {
                     b.Property<string>("Server")

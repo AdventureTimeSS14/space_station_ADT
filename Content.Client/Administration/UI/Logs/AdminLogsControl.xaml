@@ -58,9 +58,15 @@
                     <Button Name="RefreshButton" Access="Public" Text="{Loc admin-logs-refresh}" StyleClasses="ButtonSquare"/>
                     <Button Name="NextButton" Access="Public" Text="{Loc admin-logs-next}" StyleClasses="OpenLeft"/>
                 </BoxContainer>
-                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
-                    <BoxContainer Name="LogsContainer" Access="Public" Orientation="Vertical" VerticalExpand="True"/>
-                </ScrollContainer>
+                <!-- ADT-Tweak-Start -->
+                <PanelContainer Name="StatusPanel" Visible="False" StyleClasses="BackgroundDark">
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Name="StatusLabel" HorizontalExpand="True"/>
+                        <Button Name="RetryButton" Access="Public" Text="{Loc adt-admin-logs-retry}" Visible="False"/>
+                    </BoxContainer>
+                </PanelContainer>
+                <OutputPanel Name="LogsOutput" Access="Public" VerticalExpand="True" HorizontalExpand="True"/>
+                <!-- ADT-Tweak-End -->
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>
