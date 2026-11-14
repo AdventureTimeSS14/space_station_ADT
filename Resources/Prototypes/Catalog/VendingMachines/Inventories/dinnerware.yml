@@ -7,7 +7,14 @@
     Spoon: 4
     Fork: 4
     PairedChopsticks: 4
-    ADTIronTray: 2 #ADT tweak
+    # ADT-Tweak-Start
+    ADTCookwarePan: 2
+    ADTCookwarePot: 2
+    ADTCookwareTray: 2
+    ADTSpatula: 2
+    ADTLadle: 2
+    ADTIronTray: 2
+    # ADT-Tweak-End
     FoodBowlBig: 10
     FoodPlate: 10
     FoodPlateSmall: 10

@@ -14,6 +14,7 @@
     # Карго
     CargoTechnician: 200
     SalvageSpecialist: 300
+    ADTMiner: 300
     # Сервис
   #  Boxer: 150
     Chaplain: 150
