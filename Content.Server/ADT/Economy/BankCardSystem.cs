@@ -589,14 +589,14 @@ public sealed class BankCardSystem : EntitySystem
                 !ownBank.Accounts.ContainsKey(account.AccountPrototype.Value))
                 return false;
 
-            if (ownBank.Accounts[account.AccountPrototype.Value] + amount < 0)
+            if (amount < 0 && ownBank.Accounts[account.AccountPrototype.Value] + amount < 0)
                 return false;
 
             _cargo.UpdateBankAccount((account.Station.Value, ownBank), amount, account.AccountPrototype.Value);
         }
         else
         {
-            if (account.Balance + amount < 0)
+            if (amount < 0 && account.Balance + amount < 0)
                 return false;
 
             account.Balance += amount;
