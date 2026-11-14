@@ -1,24 +1,27 @@
-using Content.Shared.ADT.Atmos.Components;
 using Content.Server.ADT.Atmos.Components;
-using Content.Server.Power.Components;
-using Content.Shared.Atmos.Piping.Unary.Components;
-using Robust.Server.GameObjects;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.UserInterface;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
+using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.Nodes;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.Atmos.Components;
+using Content.Shared.ADT.Atmos.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Server.NodeContainer.Nodes;
-using Content.Server.NodeContainer.EntitySystems;
-using Robust.Shared.Prototypes;
-using Content.Shared.ADT.Atmos.Prototypes;
-using System.Numerics;
+using Content.Shared.Atmos.Piping.Unary.Components;
+using Content.Shared.UserInterface;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
+using System.Numerics;
 
 namespace Content.Server.ADT.Atmos.Systems;
 
+/// <summary>
+/// Машина, кристаллизующая газовую смесь из входной трубы в предметы при соблюдении рецепта.
+/// </summary>
 public sealed partial class CrystallizerSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
@@ -134,11 +137,11 @@ public sealed partial class CrystallizerSystem : EntitySystem
                 return;
 
             float recipeTotalMoles = 0;
-            for (int gasIndex = 0; gasIndex < recipe.MinimumRequirements.Length; gasIndex++)
+            foreach (var (gas, requiredMoles) in recipe.MinimumRequirements)
             {
-                if (recipe.MinimumRequirements[gasIndex] > 0 && crystalMix.GetMoles(gasIndex) < recipe.MinimumRequirements[gasIndex] * 2)
+                if (requiredMoles > 0 && crystalMix.GetMoles(gas) < requiredMoles * 2)
                 {
-                    recipeTotalMoles += pipeMix.GetMoles(gasIndex);
+                    recipeTotalMoles += pipeMix.GetMoles(gas);
                 }
             }
 
@@ -150,27 +153,26 @@ public sealed partial class CrystallizerSystem : EntitySystem
 
             newMix.Temperature = pipeMix.Temperature;
 
-            for (int gasIndex = 0; gasIndex < recipe.MinimumRequirements.Length; gasIndex++)
+            foreach (var (gas, requiredMoles) in recipe.MinimumRequirements)
             {
-                if (recipe.MinimumRequirements[gasIndex] > 0)
+                if (requiredMoles <= 0)
+                    continue;
+
+                if (crystalMix.GetMoles(gas) >= requiredMoles * 2)
+                    continue;
+
+                float availableMoles = pipeMix.GetMoles(gas);
+                float proportion = availableMoles / recipeTotalMoles;
+                proportion = Math.Min(proportion, 1.0f);
+
+                float molesToRemove = crystallizer.GasInput * 0.5f * proportion;
+
+                float molesRemoved = Math.Min(availableMoles, molesToRemove);
+                if (molesRemoved > 0)
                 {
-                    float requiredMoles = recipe.MinimumRequirements[gasIndex];
-                    if (crystalMix.GetMoles(gasIndex) >= requiredMoles * 2)
-                        continue;
-
-                    float availableMoles = pipeMix.GetMoles(gasIndex);
-                    float proportion = availableMoles / recipeTotalMoles;
-                    proportion = Math.Min(proportion, 1.0f);
-
-                    float molesToRemove = crystallizer.GasInput * 0.5f * proportion;
-
-                    float molesRemoved = Math.Min(availableMoles, molesToRemove);
-                    if (molesRemoved > 0)
-                    {
-                        pipeMix.AdjustMoles(gasIndex, -molesRemoved);
-                        newMix.AdjustMoles(gasIndex, molesRemoved);
-                        anyGasRemoved = true;
-                    }
+                    pipeMix.AdjustMoles(gas, -molesRemoved);
+                    newMix.AdjustMoles(gas, molesRemoved);
+                    anyGasRemoved = true;
                 }
             }
 
@@ -213,14 +215,10 @@ public sealed partial class CrystallizerSystem : EntitySystem
 
     private bool CheckGasRequirements(GasMixture crystalMix, CrystallizerRecipePrototype recipe)
     {
-        for (int gasIndex = 0; gasIndex < recipe.MinimumRequirements.Length; gasIndex++)
+        foreach (var (gas, requiredMoles) in recipe.MinimumRequirements)
         {
-            if (recipe.MinimumRequirements[gasIndex] > 0)
-            {
-                float availableMoles = crystalMix.GetMoles(gasIndex);
-                if (availableMoles < recipe.MinimumRequirements[gasIndex])
-                    return false;
-            }
+            if (requiredMoles > 0 && crystalMix.GetMoles(gas) < requiredMoles)
+                return false;
         }
         return true;
     }
@@ -261,19 +259,18 @@ public sealed partial class CrystallizerSystem : EntitySystem
         var crystalMix = crystallizer.CrystallizerGasMixture;
 
         // Consume gases
-        for (int gasIndex = 0; gasIndex < recipe.MinimumRequirements.Length; gasIndex++)
+        foreach (var (gas, requiredMoles) in recipe.MinimumRequirements)
         {
-            if (recipe.MinimumRequirements[gasIndex] > 0)
+            if (requiredMoles <= 0)
+                continue;
+
+            float amountConsumed = requiredMoles + (requiredMoles * crystallizer.QualityLoss * 0.01f);
+            float availableMoles = crystalMix.GetMoles(gas);
+            if (availableMoles < amountConsumed)
             {
-                float requiredMoles = recipe.MinimumRequirements[gasIndex];
-                float amountConsumed = requiredMoles + (requiredMoles * crystallizer.QualityLoss * 0.01f);
-                float availableMoles = crystalMix.GetMoles(gasIndex);
-                if (availableMoles < amountConsumed)
-                {
-                    crystallizer.QualityLoss = Math.Min(crystallizer.QualityLoss + 10f, 100f);
-                }
-                crystalMix.AdjustMoles(gasIndex, -Math.Min(availableMoles, amountConsumed));
+                crystallizer.QualityLoss = Math.Min(crystallizer.QualityLoss + 10f, 100f);
             }
+            crystalMix.AdjustMoles(gas, -Math.Min(availableMoles, amountConsumed));
         }
 
         // Spawn products
@@ -308,7 +305,7 @@ public sealed partial class CrystallizerSystem : EntitySystem
             return 0f;
 
         float total = 0f;
-        foreach (var moles in recipe.MinimumRequirements)
+        foreach (var moles in recipe.MinimumRequirements.Values)
         {
             total += moles;
         }

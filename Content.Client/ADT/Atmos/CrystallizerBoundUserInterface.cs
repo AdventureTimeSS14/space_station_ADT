@@ -1,6 +1,6 @@
+using Content.Shared.ADT.Atmos.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Content.Shared.ADT.Atmos.Components;
 
 namespace Content.Client.ADT.Atmos;
 
