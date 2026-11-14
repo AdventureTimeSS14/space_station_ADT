@@ -129,20 +129,30 @@
 - type: accessGroup
   id: ADTAccessExtended
   tags:
-  - Cargo
+  - Command
+  - Cryogenics
+  - EmergencyShuttleRepealAll
+  - Security
+  - Detective
+  - Armory
+  - Brig
+  - Lawyer
   - Engineering
+  - Atmospherics
   - Medical
+  - Chemistry
+  - Salvage
+  - Cargo
   - Research
   - Service
+  - Maintenance
   - External
+  - Janitor
+  - Theatre
   - Bar
+  - Kitchen
   - Chapel
   - Hydroponics
-  - Janitor
-  - Kitchen
-  - Lawyer
-  - Theatre
-  - EmergencyShuttleRepealAll
-  - Chemistry
-  - Maintenance
-  - Salvage
+  - IAA
+  - BlueShield
+  - Magistrate
