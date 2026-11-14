@@ -521,6 +521,11 @@ namespace Content.Shared.Cuffs
             if (TryComp<HandsComponent>(target, out var hands) && hands.Count <= component.CuffedHandCount)
                 return false;
 
+            // ADT-Tweak-Start
+            var beforeEv = new BeforeTargetHandcuffedEvent(user);
+            RaiseLocalEvent(target, ref beforeEv);
+            // ADT-Tweak-End
+
             // Success!
             //ADT secborg start
             TrySpawnCuffSplitStack(handcuff, user, target, out EntityUid? handcuffsplit);
@@ -932,6 +937,14 @@ namespace Content.Shared.Cuffs
         /// </summary>
         public SlotFlags TargetSlots { get; set; }
     }
+
+    // ADT-Tweak-Start
+    [ByRefEvent]
+    public record struct BeforeTargetHandcuffedEvent(EntityUid User) : IInventoryRelayEvent
+    {
+        public SlotFlags TargetSlots { get; set; }
+    }
+    // ADT-Tweak-End
 
     /// <summary>
     /// Raised on the entity being cuffed to determine if their cuffing doafter should get a stuncuff timer reduction.

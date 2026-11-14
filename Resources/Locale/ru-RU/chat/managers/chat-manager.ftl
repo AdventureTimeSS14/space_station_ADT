@@ -125,6 +125,7 @@ chat-speech-verb-electricity-1 = трещит
 chat-speech-verb-electricity-2 = гудит
 chat-speech-verb-electricity-3 = скрипит
 chat-speech-verb-name-wawa = Вава
+chat-speech-verb-name-horror = Ужас
 chat-speech-verb-vulpkanin-1 = рычит
 chat-speech-verb-vulpkanin-2 = лает
 chat-speech-verb-vulpkanin-3 = ворчит

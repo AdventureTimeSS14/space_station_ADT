@@ -1,5 +1,3 @@
-using Content.Server.Antag;
-using Content.Shared.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Changeling.Systems;
@@ -9,11 +7,12 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Changeling.Systems;
 
-public sealed partial class ChangelingLastResortSystem : SharedChangelingLastResortSystem
+public sealed partial class ServerChangelingLastResortSystem : ChangelingLastResortSystem
 {
     private static readonly ProtoId<AntagSpecifierPrototype> ChangelingAntag = "Changeling";
 
@@ -36,9 +35,12 @@ public sealed partial class ChangelingLastResortSystem : SharedChangelingLastRes
         args.Handled = true;
 
         Audio.PlayPvs(ent.Comp.Sound, ent.Owner);
-        _popup.PopupEntity(Loc.GetString("changeling-takeover-start-others", ("user", Identity.Entity(ent.Owner, EntityManager))),
+        _popup.PopupEntity(Loc.GetString("changeling-takeover-start-others",
+                ("user", Identity.Entity(ent.Owner, EntityManager))),
             ent.Owner,
             PopupType.MediumCaution);
+
+        var examine = Loc.GetString("changeling-takeover-doafter", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target, EntityManager)));
 
         var doAfter = new DoAfterArgs(EntityManager,
             ent.Owner,
@@ -51,6 +53,7 @@ public sealed partial class ChangelingLastResortSystem : SharedChangelingLastRes
             BreakOnMove = true,
             DuplicateCondition = DuplicateConditions.None,
             RequireCanInteract = false,
+            ExamineText = examine
         };
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -61,13 +64,14 @@ public sealed partial class ChangelingLastResortSystem : SharedChangelingLastRes
     /// </summary>
     private bool CanTakeOver(EntityUid user, EntityUid target, bool showPopups = true)
     {
-        if (!HasComp<HumanoidProfileComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target) || HasComp<ChangelingHorrorComponent>(target))
             return false;
 
-        if (HasComp<ChangelingIdentityComponent>(target))
+        if (HasComp<ChangelingIdentityComponent>(target) || HasComp<ZombieComponent>(target))
         {
             if (showPopups)
-                _popup.PopupEntity(Loc.GetString("changeling-takeover-is-changeling"), user);
+                _popup.PopupEntity(Loc.GetString("changeling-takeover-is-changeling"), user, user);
+
             return false;
         }
 
@@ -75,7 +79,8 @@ public sealed partial class ChangelingLastResortSystem : SharedChangelingLastRes
             return true;
 
         if (showPopups)
-            _popup.PopupEntity(Loc.GetString("changeling-takeover-not-dead"), user);
+            _popup.PopupEntity(Loc.GetString("changeling-takeover-not-dead"), user, user);
+
         return false;
     }
 
@@ -91,17 +96,21 @@ public sealed partial class ChangelingLastResortSystem : SharedChangelingLastRes
         if (!_mind.TryGetMind(args.User, out var mindId, out var mind))
             return;
 
-        TakeOverCorpse(args.User, target, mindId, mind);
-
-        _popup.PopupEntity(Loc.GetString("changeling-takeover-success-self"), target, target, PopupType.Large);
+        TakeOverCorpse(ent, target, mindId, mind);
     }
 
-    private void TakeOverCorpse(EntityUid user, EntityUid target, EntityUid mindId, MindComponent mind)
+    private void TakeOverCorpse(Entity<ChangelingSlugComponent> ent,
+        EntityUid target,
+        EntityUid mindId,
+        MindComponent mind)
     {
         _mind.TransferTo(mindId, target, mind: mind);
 
         _antag.AssignAntagComponents(target, ChangelingAntag);
 
-        QueueDel(user);
+        var ev = new BodyTakenByHeadslugEvent(target, ent.Comp.AutoStasis, ent.Comp.AutoStasisDurationMultiplier);
+        RaiseLocalEvent(target, ref ev);
+
+        QueueDel(ent);
     }
 }

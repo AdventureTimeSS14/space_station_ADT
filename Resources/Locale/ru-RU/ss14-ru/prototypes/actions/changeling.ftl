@@ -1,5 +1,5 @@
-ent-ActionRetractableItemArmBlade = Рука-клинок
-    .desc = Сбросьте свою плоть и преобразуйте её в плотное лезвие.
+ent-ActionRetractableItemArmblade = Рука-клинок
+    .desc = Сбросьте свою плоть и преобразуйте её в плотное лезвие. Можно переключать.
 ent-ActionChangelingDevour = [color=red]Поглотить[/color]
     .desc = Поглощайте сущность ваших жертв и впитывайте их личности и разум в себя.
 ent-ActionChangelingTransform = [color=red]Трансформация[/color]
@@ -52,3 +52,15 @@ ent-ActionChangelingScreech = Визг
     .desc = Мы издаём оглушительный визг, ослабляющий всех вокруг.
 ent-ActionChangelingFakeMindshieldToggle = [color=green]Переключить поддельный щит разума[/color]
     .desc = Включает и выключает видимость нашего щита разума.
+ent-ActionChangelingStingArmblade = Жало руки-клинка
+    .desc = Незаметно ужальте цель, и спустя долгое время у неё вырастет тупая рука-клинок.
+
+      Требует 50 химикатов.
+ent-ActionChangelingStingHemotoxin = Гемотоксиновое жало
+    .desc = Ужальте цель и введите ей опасную дозу различных токсинов, вызывающих обильное кровотечение.
+
+      Требует 30 химикатов.
+ent-ActionChangelingFleshtomb = Гробница из плоти
+    .desc = Заключите тело в хрупкий кокон из плоти, который медленно выкачивает из него жизнь ради ДНК.
+
+      Требует 35 химикатов.
