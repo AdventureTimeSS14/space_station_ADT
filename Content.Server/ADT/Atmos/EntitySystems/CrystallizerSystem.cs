@@ -263,19 +263,22 @@ public sealed partial class CrystallizerSystem : EntitySystem
     {
         var crystalMix = crystallizer.CrystallizerGasMixture;
 
-        // Consume gases
+        var batchCost = new List<(Gas Gas, float Cost)>();
         foreach (var (gas, requiredMoles) in recipe.MinimumRequirements)
         {
             if (requiredMoles <= 0)
                 continue;
 
-            float amountConsumed = requiredMoles + (requiredMoles * crystallizer.QualityLoss * 0.01f);
-            float availableMoles = crystalMix.GetMoles(gas);
-            if (availableMoles < amountConsumed)
-            {
-                crystallizer.QualityLoss = Math.Min(crystallizer.QualityLoss + 10f, 100f);
-            }
-            crystalMix.AdjustMoles(gas, -Math.Min(availableMoles, amountConsumed));
+            float cost = requiredMoles * (1f + crystallizer.QualityLoss * 0.01f);
+            if (crystalMix.GetMoles(gas) < cost)
+                return;
+
+            batchCost.Add((gas, cost));
+        }
+
+        foreach (var (gas, cost) in batchCost)
+        {
+            crystalMix.AdjustMoles(gas, -cost);
         }
 
         // Spawn products
