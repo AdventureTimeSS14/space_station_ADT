@@ -23,15 +23,45 @@
     count: 20
 
 - type: localizedDataset
-  id: ADTExpeditionNpcJokes
+  id: ADTNamesMarauderCallsign
   values:
-    prefix: adt-expedition-npc-joke-
+    prefix: adt-names-marauder-callsign-dataset-
     count: 20
 
 - type: localizedDataset
-  id: ADTExpeditionNpcChatter
+  id: ADTSovietBunkerJokes
   values:
-    prefix: adt-expedition-npc-chatter-
+    prefix: adt-soviet-bunker-joke-
+    count: 20
+
+- type: localizedDataset
+  id: ADTSmugglerJokes
+  values:
+    prefix: adt-smuggler-joke-
+    count: 20
+
+- type: localizedDataset
+  id: ADTMarauderJokes
+  values:
+    prefix: adt-marauder-joke-
+    count: 20
+
+- type: localizedDataset
+  id: ADTSovietBunkerChatter
+  values:
+    prefix: adt-soviet-bunker-chatter-
+    count: 20
+
+- type: localizedDataset
+  id: ADTSmugglerChatter
+  values:
+    prefix: adt-smuggler-chatter-
+    count: 20
+
+- type: localizedDataset
+  id: ADTMarauderChatter
+  values:
+    prefix: adt-marauder-chatter-
     count: 20
 
 - type: localizedDataset
@@ -81,3 +111,75 @@
   values:
     prefix: adt-xenoborg-radio-neutralized-
     count: 5
+
+- type: localizedDataset
+  id: ADTSquadSovietFollow
+  values:
+    prefix: adt-squad-soviet-bunker-follow-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSovietPositions
+  values:
+    prefix: adt-squad-soviet-bunker-positions-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSovietEngage
+  values:
+    prefix: adt-squad-soviet-bunker-engage-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSovietStandDown
+  values:
+    prefix: adt-squad-soviet-bunker-standdown-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerFollow
+  values:
+    prefix: adt-squad-smuggler-follow-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerPositions
+  values:
+    prefix: adt-squad-smuggler-positions-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerEngage
+  values:
+    prefix: adt-squad-smuggler-engage-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerStandDown
+  values:
+    prefix: adt-squad-smuggler-standdown-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderFollow
+  values:
+    prefix: adt-squad-marauder-follow-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderPositions
+  values:
+    prefix: adt-squad-marauder-positions-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderEngage
+  values:
+    prefix: adt-squad-marauder-engage-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderStandDown
+  values:
+    prefix: adt-squad-marauder-standdown-
+    count: 3

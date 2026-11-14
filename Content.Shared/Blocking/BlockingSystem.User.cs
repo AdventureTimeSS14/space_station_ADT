@@ -12,6 +12,7 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power;
 using Content.Shared.PowerCell;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.Blocking;
 
@@ -88,7 +89,8 @@ public sealed partial class BlockingSystem
 
         // This is how much damage the shield is attempting to block
         var split = args.OriginalDamage * blockFraction;
-        var damage = _damageable.ChangeDamage(item, split);
+        var modifier = GetBlockingModifier((item, blocking)); // ADT-Tweak
+        var damage = _damageable.ChangeDamage(item, AmplifyShieldDamage(split, modifier)); // ADT-Tweak
 
         //ADT-Tweak-Start
         if (blocking.IsCharging && HasEnoughBatteryCharge(item, blocking))
@@ -99,8 +101,7 @@ public sealed partial class BlockingSystem
         //ADT-Tweak-End
 
         // Of the damage that went through, reduce by the appropriate blocking modifiers.
-        var modifier = GetBlockingModifier((item, blocking));
-        var blowthrough = DamageSpecifier.ApplyModifierSet(split, modifier);
+        var blowthrough = ClampBlowthrough(split, DamageSpecifier.ApplyModifierSet(split, modifier)); // ADT-Tweak
 
         args.Damage *= 1f - blockFraction;
         args.Damage += blowthrough;
@@ -219,6 +220,32 @@ public sealed partial class BlockingSystem
 
             _batterySystem.SetCharge(battery.Value.AsNullable(), newCharge);
         }
+    }
+
+    private static DamageSpecifier AmplifyShieldDamage(DamageSpecifier split, DamageModifierSet modifier)
+    {
+        var result = new DamageSpecifier(split);
+        foreach (var (type, coefficient) in modifier.Coefficients)
+        {
+            if (coefficient <= 1f || !result.DamageDict.TryGetValue(type, out var value))
+                continue;
+
+            result.DamageDict[type] = value * coefficient;
+        }
+
+        return result;
+    }
+
+    private static DamageSpecifier ClampBlowthrough(DamageSpecifier split, DamageSpecifier blowthrough)
+    {
+        var result = new DamageSpecifier();
+        foreach (var (type, value) in blowthrough.DamageDict)
+        {
+            var max = split.DamageDict.GetValueOrDefault(type);
+            result.DamageDict[type] = FixedPoint2.Min(value, max);
+        }
+
+        return result;
     }
 
     private void OnBatteryExamined(Entity<BlockingComponent> ent, ref ExaminedEvent args)

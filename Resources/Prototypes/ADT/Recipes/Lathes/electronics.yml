@@ -125,3 +125,12 @@
   parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: CrystallizerMachineCircuitboard
   result: CrystallizerMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTPandemicMachineCircuitboard
+  result: ADTPandemicMachineCircuitboard
+  materials:
+    Steel: 600
+    Glass: 900
+    Copper: 600

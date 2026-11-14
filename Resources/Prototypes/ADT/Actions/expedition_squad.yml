@@ -1,0 +1,243 @@
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: ADTActionSquadFollow
+  name: Follow!
+  description: Order your faction's fighters to follow you.
+  components:
+  - type: Action
+    useDelay: 3
+    priority: 6
+  - type: Sprite
+    sprite: Interface/Actions/actions_rat_king.rsi
+    layers:
+    - state: followOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: follow
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: InstantAction
+    event: !type:ADTSquadOrderActionEvent
+      order: Follow
+
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: ADTActionSquadPositions
+  name: To positions!
+  description: Order your faction's fighters to return to their posts.
+  components:
+  - type: Action
+    useDelay: 3
+    priority: 6
+  - type: Sprite
+    sprite: Interface/Actions/actions_rat_king.rsi
+    layers:
+    - state: stayOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: stay
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: InstantAction
+    event: !type:ADTSquadOrderActionEvent
+      order: Positions
+
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: ADTActionSquadEngage
+  name: Engage!
+  description: Order your faction's fighters to attack enemies.
+  components:
+  - type: Action
+    useDelay: 3
+    priority: 6
+  - type: Sprite
+    sprite: Interface/Actions/actions_rat_king.rsi
+    layers:
+    - state: attackOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: attack
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: InstantAction
+    event: !type:ADTSquadOrderActionEvent
+      order: Engage
+
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: ADTActionSquadStandDown
+  name: Stand down!
+  description: Order your faction's fighters to cease fire.
+  components:
+  - type: Action
+    useDelay: 3
+    priority: 6
+  - type: Sprite
+    sprite: Interface/Actions/actions_rat_king.rsi
+    layers:
+    - state: looseOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: loose
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: InstantAction
+    event: !type:ADTSquadOrderActionEvent
+      order: StandDown
+
+- type: entity
+  parent: ADTActionSquadFollow
+  id: ADTActionSquadFollowUSSP
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_ussp.rsi
+    layers:
+    - state: followOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: follow
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadPositions
+  id: ADTActionSquadPositionsUSSP
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_ussp.rsi
+    layers:
+    - state: positionsOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: positions
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadEngage
+  id: ADTActionSquadEngageUSSP
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_ussp.rsi
+    layers:
+    - state: engageOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: engage
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadStandDown
+  id: ADTActionSquadStandDownUSSP
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_ussp.rsi
+    layers:
+    - state: standdownOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: standdown
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadFollow
+  id: ADTActionSquadFollowSmugglers
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_smugglers.rsi
+    layers:
+    - state: followOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: follow
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadPositions
+  id: ADTActionSquadPositionsSmugglers
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_smugglers.rsi
+    layers:
+    - state: positionsOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: positions
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadEngage
+  id: ADTActionSquadEngageSmugglers
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_smugglers.rsi
+    layers:
+    - state: engageOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: engage
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadStandDown
+  id: ADTActionSquadStandDownSmugglers
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_smugglers.rsi
+    layers:
+    - state: standdownOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: standdown
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadFollow
+  id: ADTActionSquadFollowMarauders
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_marauders.rsi
+    layers:
+    - state: followOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: follow
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadPositions
+  id: ADTActionSquadPositionsMarauders
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_marauders.rsi
+    layers:
+    - state: positionsOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: positions
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadEngage
+  id: ADTActionSquadEngageMarauders
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_marauders.rsi
+    layers:
+    - state: engageOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: engage
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+
+- type: entity
+  parent: ADTActionSquadStandDown
+  id: ADTActionSquadStandDownMarauders
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/squad_marauders.rsi
+    layers:
+    - state: standdownOff
+      map: ["enum.ActionVisuals.Icon"]
+    - state: standdown
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false

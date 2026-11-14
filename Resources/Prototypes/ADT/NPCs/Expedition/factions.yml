@@ -3,21 +3,19 @@
   hostile:
   - ADTAshWalker
   - ADTBlob
+  - ADTMarauders
   - ADTShadowling
-  - ADTSmugglersPirates
+  - ADTSmugglers
   - ADTSpaceMobs
   - Changeling
   - Dragon
   - Heretic
   - KMT
-  - Mouse
   - NanoTrasen
-  - Passive
   - PetsNT
   - Pirate
   - Revolutionary
   - SimpleHostile
-  - SimpleNeutral
   - SpaceSecFaction
   - Syndicate
   - TSF
@@ -28,7 +26,7 @@
   - Zombie
 
 - type: npcFaction
-  id: ADTSmugglersPirates
+  id: ADTSmugglers
   hostile:
   - NanoTrasen
   - SimpleHostile
@@ -41,3 +39,30 @@
   - AllHostile
   - Wizard
   - Xenoborg
+
+- type: npcFaction
+  id: ADTMarauders
+  friendly:
+  - Syndicate
+  hostile:
+  - ADTAshWalker
+  - ADTBlob
+  - ADTShadowling
+  - ADTSovietBunker
+  - ADTSpaceMobs
+  - Changeling
+  - Dragon
+  - Heretic
+  - KMT
+  - NanoTrasen
+  - PetsNT
+  - Pirate
+  - Revolutionary
+  - SimpleHostile
+  - SpaceSecFaction
+  - TSF
+  - Ursus
+  - Wizard
+  - Xeno
+  - Xenoborg
+  - Zombie
