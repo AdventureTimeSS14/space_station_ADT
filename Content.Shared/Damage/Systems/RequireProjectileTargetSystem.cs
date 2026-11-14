@@ -37,7 +37,7 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
 
         if (TryComp(other, out ProjectileComponent? projectile))
         {
-            // ADT-Tweak start
+            // ADT-Tweak-Start
             if (HasComp<ADTPreciseProjectileTargetComponent>(other) &&
                 TryComp<TargetedProjectileComponent>(other, out var precise))
             {
@@ -49,7 +49,7 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
 
                 return;
             }
-            // ADT-Tweak end
+            // ADT-Tweak-End
 
             // ADT Crawling abuse fix start
             if (TryComp<TargetedProjectileComponent>(other, out var targeted) &&
