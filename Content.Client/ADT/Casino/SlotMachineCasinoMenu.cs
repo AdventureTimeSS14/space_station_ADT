@@ -836,7 +836,7 @@ public sealed class SlotMachineCasinoMenu : FancyWindow
         SetFittedText(_nearMissBanner, Loc.GetString("slotmachine-casino-nearmiss", ("message", state.NearMissMessage)), 13, true, BannerMaxWidth());
         _freeSpinsBanner.Visible = state.FreeSpinsRemaining > 0;
         SetFittedText(_freeSpinsBanner, Loc.GetString("slotmachine-casino-banner-freespins", ("count", state.FreeSpinsRemaining)), 13, true, BannerMaxWidth());
-        _hotBanner.Visible = state.LossStreak >= 5 && !state.Working;
+        _hotBanner.Visible = state.LossStreak >= state.LossStreakHot && !state.Working;
         SetFittedText(_hotBanner, Loc.GetString("slotmachine-casino-banner-hot", ("count", state.LossStreak)), 11, true, BannerMaxWidth());
 
         _gambleTitle.Text = Loc.GetString("slotmachine-casino-gamble-title", ("amount", state.GambleAmount));

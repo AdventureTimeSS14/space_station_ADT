@@ -361,6 +361,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
             BonusActive = comp.BonusActive,
             WinStreak = comp.WinStreak,
             LossStreak = comp.LossStreak,
+            LossStreakHot = comp.LossStreakHot,
             SessionWinnings = comp.SessionWinnings,
             AutoSpin = comp.AutoSpin,
             AutoSpinRemaining = comp.AutoSpinRemaining,
