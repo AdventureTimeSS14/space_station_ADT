@@ -31,6 +31,16 @@
     type: CircleFill
     radius: 0.1
 
+- type: entity
+  id: OverlayWeldSparksEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ParticleEmitter
+    effect: ADTWeldingSparks
+  - type: Tag
+    tags:
+      - HideContextMenu
+
 - type: particleEffect
   id: ADTWeldingBurst
   sprite:
@@ -247,3 +257,36 @@
   shape:
     type: CircleFill
     radius: 0.1
+
+- type: particleEffect
+  id: ADTMachineHitSparks
+  sprite:
+    sprite: ADT/Particles/generic.rsi
+    state: curl
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FFFFFFFF"
+    - time: 0.15
+      color: "#FFF29AFF"
+    - time: 0.65
+      color: "#FF9D24CC"
+    - time: 1.0
+      color: "#FF3C0000"
+  shader: unshaded
+  particleSize: 0.5
+  sizeVariance: 0.2
+  stretchFactor: 0.6
+  lifetime: 0.22
+  lifetimeVariance: 0.12
+  speed: 3.5
+  speedVariance: 1.5
+  gravity: 5.0
+  drag: 0.08
+  maxCount: 7
+  burst: true
+  simulationSpace: grid
+  shape:
+    type: Box
+    boxExtents: 0.3, 0.3
+  spreadAngle: 360
+  emitAngle: 0

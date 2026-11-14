@@ -462,6 +462,30 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtMapRotation", b =>
+                {
+                    b.Property<string>("Server")
+                        .HasColumnType("text")
+                        .HasColumnName("server");
+
+                    b.Property<string>("MapId")
+                        .HasColumnType("text")
+                        .HasColumnName("map_id");
+
+                    b.Property<double>("BonusPerPlayer")
+                        .HasColumnType("double precision")
+                        .HasColumnName("bonus_per_player");
+
+                    b.Property<DateTime?>("LastPlayed")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_played");
+
+                    b.HasKey("Server", "MapId")
+                        .HasName("PK_adt_map_rotation");
+
+                    b.ToTable("adt_map_rotation", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtPainting", b =>
                 {
                     b.Property<int>("PaintingId")
@@ -1025,6 +1049,26 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasIndex("UserId", "Revoked");
 
                     b.ToTable("adt_sponsor_grant", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorLegacyTier", b =>
+                {
+                    b.Property<int>("LegacyTier")
+                        .HasColumnType("integer")
+                        .HasColumnName("legacy_tier");
+
+                    b.Property<DateTime?>("LastSeen")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_seen");
+
+                    b.Property<int?>("TierId")
+                        .HasColumnType("integer")
+                        .HasColumnName("tier_id");
+
+                    b.HasKey("LegacyTier")
+                        .HasName("PK_adt_sponsor_legacy_tier");
+
+                    b.ToTable("adt_sponsor_legacy_tier", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.AdtSponsorPreference", b =>

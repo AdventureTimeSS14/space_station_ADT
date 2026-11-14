@@ -597,15 +597,15 @@
     - DraskSpecies # ADT-Tweak-end
   parent: EventHumanoidMindShielded
   components:
-    - type: GhostRole
-      name: ghost-role-information-centcom-official-name
-      description: ghost-role-information-centcom-official-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: default
-      job: CentralCommandOfficial
+    # - type: GhostRole # ADT tweak start
+    #   name: ghost-role-information-centcom-official-name
+    #   description: ghost-role-information-centcom-official-description
+    #   rules: ghost-role-information-nonantagonist-rules
+    #   raffle:
+    #     settings: default
+    #   job: CentralCommandOfficial # ADT tweak end
     - type: Loadout
-      prototypes: [ CentcommGear ]
+      prototypes: [ ADTCentcommGear ] # ADT tweak
       roleLoadout: [ RoleSurvivalStandard ]
 
 ## Syndicate

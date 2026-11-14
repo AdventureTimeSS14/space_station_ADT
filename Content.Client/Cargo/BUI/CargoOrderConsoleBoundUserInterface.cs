@@ -135,6 +135,7 @@ namespace Content.Client.Cargo.BUI
                 return;
 
             _menu.ProductCatalogue = cState.Products;
+            _menu.ProductCosts = cState.ProductCosts; // ADT-Economy
             _menu.ShuttleCapacityLabel.Text = Loc.GetString(
                 "cargo-console-menu-order-capacity-number",
                 ("count", OrderCount),

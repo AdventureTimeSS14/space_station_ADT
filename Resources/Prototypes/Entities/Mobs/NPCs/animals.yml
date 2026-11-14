@@ -270,6 +270,15 @@
     refineResult:
     - id: FoodMeatChicken
       amount: 2 # ADT-Tweak
+  # ADT-Tweak start
+  - type: ADTHolidayComponents
+    holidays:
+      ADTNewYearSeason:
+      - type: ToolRefinable
+        refineResult:
+        - id: ADTChickenBody
+          amount: 1
+  # ADT-Tweak end
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -1671,6 +1680,9 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  # ADT-Tweak start
+  - type: ADTVirusSusceptible
+  # ADT-Tweak end
   - type: CombatMode
     canDisarm: true
   - type: Inventory

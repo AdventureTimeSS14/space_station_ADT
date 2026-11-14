@@ -39,7 +39,7 @@
   spawnerPrototype: SpawnPointGhostMorph
   pickPlayer: false
   mindRoles:
-  - MindRoleGhostRoleNeutral
+  - MindRoleGhostRoleTeamAntagonist
 
 - type: antagSpecifier
   id: ADTSpaceEmperor

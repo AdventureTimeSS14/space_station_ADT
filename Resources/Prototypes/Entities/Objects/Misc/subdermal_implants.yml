@@ -381,6 +381,7 @@
   components:
   - type: SubdermalImplant
     implantAction: FakeMindShieldToggleAction
+    permanent: true # ADT-Tweak
   - type: FakeMindShield
 
 # Sec and Command implants

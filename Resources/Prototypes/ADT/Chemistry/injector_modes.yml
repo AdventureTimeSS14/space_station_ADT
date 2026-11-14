@@ -17,3 +17,19 @@
   injectSound: /Audio/Effects/spray2.ogg
   reactionMethod: Touch
   requiresExposedSkin: true
+
+- type: injectorMode
+  parent: HyposprayDynamicMode
+  id: ADTHyposprayDynamicMode
+  suitMobTime: 1
+
+- type: injectorMode
+  parent: HyposprayInjectMode
+  id: ADTHyposprayInjectMode
+  suitMobTime: 1
+
+- type: injectorMode
+  parent: HyposprayInjectMode
+  id: ADTCustomMedipenInjectMode
+  suitMobTime: 2.5
+  suitSelfModifier: 0.5

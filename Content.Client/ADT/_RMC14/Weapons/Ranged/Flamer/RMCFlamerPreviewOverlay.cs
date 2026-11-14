@@ -85,7 +85,7 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
         var fromCoordinates = xform.Coordinates;
         var toCoordinates = _transform.ToCoordinates(player.Value, mousePos);
 
-        if (!_flamer.TryGetPreviewTiles((gunUid, flamer), fromCoordinates, toCoordinates, out var tiles))
+        if (!_flamer.TryGetPreviewTiles((gunUid, flamer), player.Value, fromCoordinates, toCoordinates, out var tiles))
             return;
 
         var baseColor = _flamer.TryGetFuelColor((gunUid, flamer), out var fuelColor) ? fuelColor : FallbackColor;

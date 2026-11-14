@@ -330,3 +330,31 @@
     sprite: ADT/Special/Personal/Illumy/arbitrator_suit.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Illumy/arbitrator_suit.rsi
+
+#Marksman
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitMarksman
+  name: комбинезон "Марксман"
+  description: Костюм, содержащий в себе всё необходимое для работы и при этом не забывающий создавать официально-деловую атмосферу среди коллег по отделу.
+  suffix: Personal, Marksman, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Marksman/marksman_jumpsuit.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/Marksman/marksman_jumpsuit.rsi
+
+#IronLotus
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitIronLotus
+  name: комбинезон "Железный лотус"
+  description: Официальный деловой костюм, на котором вышит рисунок золотого дракона. Идеально подходит для переговоров о предстоящих звёздных делах.
+  suffix: Personal, IronLotus, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_jumpsuit.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_jumpsuit.rsi

@@ -19,4 +19,4 @@
                 state: modcore8
               doAfter: 2
     - node: adtmodsuitmining
-      entity: ADTClothingModsuitBackMining
+      entity: ADTClothingModsuitBackMiningEmpty

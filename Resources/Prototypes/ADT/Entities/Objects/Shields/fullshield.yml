@@ -1,6 +1,6 @@
 - type: entity
   name: Full Riot Shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: ADTFullRiotShield
   suffix: Full Shield
   description: A big big shield. yeah.  very creative.
@@ -126,22 +126,31 @@
       radius: 1.5
       energy: 2
       color: blue
+    - type: Reflect
+      reflectProb: 0.95
+      reflects:
+        - Energy
     - type: Blocking
-      isHasBlockingToggle: false
       isCharging: true
       isToggle: true
+      energyCostPerHit: 5
       passiveBlockModifier:
         coefficients:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+          Blunt: 1.4
+          Slash: 0.85
+          Piercing: 0.8
+          Heat: 0.55
       activeBlockModifier:
         coefficients:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+          Blunt: 1.8
+          Slash: 0.8
+          Piercing: 0.45
+          Heat: 0.35
+        flatReductions:
+          Blunt: 5
+          Piercing: 10
+          Slash: 5
+          Heat: 25
     - type: ItemTogglePointLight
     - type: Appearance
     - type: Damageable

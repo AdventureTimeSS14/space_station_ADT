@@ -29,6 +29,9 @@ public sealed partial class ModSuitModComponent : Component
     [DataField, AutoNetworkedField]
     public float EnergyUsing = 0;
 
+    [DataField, AutoNetworkedField]
+    public List<EntProtoId> IncompatibleModules = new();
+
     /// <summary>
     /// The components to add when activated.
     /// </summary>

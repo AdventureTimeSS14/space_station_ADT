@@ -1,0 +1,122 @@
+- type: entity
+  name: forged pistol
+  parent: [BaseWeaponPistol, BaseMajorContraband]
+  id: ADTWeaponPistolForged
+  description: A pistol forged by smuggler gunsmiths. Uses .35 auto magazines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/forged_pistol.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/forged_pistol.rsi
+  - type: Gun
+    fireRate: 7
+    angleIncrease: 0.3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  name: forged autopistol
+  parent: [BaseWeaponPistol, BaseMajorContraband]
+  id: ADTWeaponPistolForgedAuto
+  description: An automatic pistol forged by smuggler gunsmiths. Uses .35 auto magazines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/forged_autopistol.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/forged_autopistol.rsi
+  - type: Gun
+    fireRate: 8
+    angleIncrease: 0.4
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolHighCapacity
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazinePistol
+          - MagazinePistolHighCapacity
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  name: improvised pistol
+  parent: [BaseWeaponPistol, BaseMajorContraband]
+  id: ADTWeaponPistolImprovised
+  description: A crude but reliable pistol made by smuggler gunsmiths. Uses .35 auto magazines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/improvised_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/improvised_pistol.rsi
+  - type: Gun
+    fireRate: 6.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: StaticPrice
+    price: 400
+
+- type: entity
+  name: improvised heavy pistol
+  parent: [BaseWeaponPistol, BaseMajorContraband]
+  id: ADTWeaponPistolImprovisedHeavy
+  description: A crude heavy pistol made by smuggler gunsmiths. Uses .45 magnum magazines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/improvised_handgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/improvised_handgun.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 16
+    angleIncrease: 6
+    fireRate: 4.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum
+  - type: StaticPrice
+    price: 500

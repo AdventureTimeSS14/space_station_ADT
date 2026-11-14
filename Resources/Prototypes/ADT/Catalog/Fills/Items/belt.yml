@@ -153,7 +153,7 @@
       storagebase: !type:NestedSelector
         tableId: BeltSecurityLigthbatonEntityTable
 
-#Варбелты ОБР
+#Варбелты ОБР (ДСО)
 - type: entity
   id: ADTClothingWarBeltMedicERTFilled
   parent: ADTShipBattleClothingBeltWarbelt
@@ -208,3 +208,20 @@
         - id: FlashlightLantern
         - id: LightReplacer
         - id: WireBrush
+
+- type: entity
+  id: ADTClothingWarBeltSODOfficerFilled
+  parent: ADTShipBattleClothingBeltWarbelt
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpeedLoaderMagnumUranium
+          amount: 2
+        - id: SpeedLoaderMagnum
+          amount: 4
+        - id: MedkitCombatFilled
+        - id: CombatMedipen
+          amount: 2

@@ -118,6 +118,9 @@ syndicate-commander-voucher-hardsuit-description = Усиленная верси
 syndicate-medic-voucher-hardsuit-name = кроваво-красный медицинский скафандр
 syndicate-medic-voucher-hardsuit-description = Тяжелобронированный и манёвренный продвинутый скафандр, предназначенный для полевых медицинских операций.
 
+syndicate-medic-voucher-mod-name = МОД "Медицинский"
+syndicate-medic-voucher-mod-description = Медицинская версия костюма "Gorlex Marauders". Рассчитана на полевую медицину под огнем.
+
 syndicate-commander-voucher-mod-name = МОД "Меркурий"
 syndicate-commander-voucher-mod-description = Сильно улучшенная версия обычного МОДа синдиката, что выполнена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.
 

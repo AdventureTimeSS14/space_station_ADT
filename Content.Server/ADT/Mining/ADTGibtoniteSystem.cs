@@ -1,4 +1,6 @@
 using Content.Server.ADT.Explosion;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared.ADT.Explosion;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Mining;
@@ -25,6 +27,7 @@ namespace Content.Server.ADT.Mining;
 public sealed class ADTGibtoniteSystem : SharedADTGibtoniteSystem
 {
     [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private AirtightSystem _airtight = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedDestructibleSystem _destructible = default!;
@@ -191,6 +194,9 @@ public sealed class ADTGibtoniteSystem : SharedADTGibtoniteSystem
     {
         ent.Comp.Stage = ADTGibtoniteStage.Detonated;
         RemComp<ADTActiveGibtoniteComponent>(ent);
+
+        if (TryComp<AirtightComponent>(ent, out var airtight))
+            _airtight.SetAirblocked((ent, airtight), false);
 
         var coords = _transform.GetMapCoordinates(ent);
         DestroyDeposit(ent, null);

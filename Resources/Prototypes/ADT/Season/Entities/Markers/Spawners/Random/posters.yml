@@ -1,0 +1,25 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTHalloweenPosterRandom
+  name: random helloween wall decor spawner
+  #decription: random helloween wall decor spawner
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+        state: spider
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - ADTPosterHalloweenSpooky
+      - ADTPosterHalloweenYummy
+      - ADTPosterHalloweenSpider
+      - ADTPosterHalloweenSpiderWeb1
+      - ADTPosterHalloweenSpiderWeb2
+      - ADTPosterHappyHalloween
+      - ADTPosterHappyHalloween2
+      - ADTPosterHappyHalloween3
+      - ADTPosterTayarHalloween
+    chance: 1

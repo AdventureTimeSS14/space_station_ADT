@@ -67,7 +67,7 @@ public sealed partial class TrayScannerSystem : SharedTrayScannerSystem
         // API is extremely skrungly. If this ever shows up on dottrace ping me and laugh.
         var canSee = false;
 
-        foreach (var item in _inventory.GetHandOrInventoryEntities(player.Value, SlotFlags.POCKET))
+        foreach (var item in _inventory.GetHandOrInventoryEntities(player.Value, SlotFlags.POCKET | SlotFlags.HEAD)) // ADT-Tweak
         {
             if (!_trayScannerQuery.TryGetComponent(item, out var scanner) || !scanner.Enabled)
                 continue;

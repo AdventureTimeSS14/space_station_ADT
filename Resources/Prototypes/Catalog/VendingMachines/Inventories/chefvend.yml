@@ -6,13 +6,22 @@
     ReagentContainerSugar: 2 #ADT_Tweak
     ReagentContainerRice: 4  #ADT_Tweak
     ADTReagentContainerOat: 2 #ADT_Tweak
-    FoodCondimentPacketSalt: 8 #ADT_Tweak
+    ReagentContainerSalt: 2 #ADT_Tweak
+    ReagentContainerPepper: 2 #ADT_Tweak
     FoodCondimentBottleEnzyme: 1 #ADT_Tweak
     FoodCondimentBottleHotsauce: 1
     FoodCondimentBottleKetchup: 1
     FoodCondimentBottleBBQ: 1
     FoodCondimentBottleVinegar: 1 #ADT_Tweak
     ReagentContainerOliveoil: 1 #ADT_Tweak
+    # ADT-Tweak-Start
+    ADTReagentContainerSunflowerOil: 2
+    # ADTCookwarePan: 2
+    # ADTCookwarePot: 2
+    # ADTCookwareTray: 2
+    # ADTSpatula: 2
+    # ADTLadle: 2
+    # ADT-Tweak-End
     ReagentContainerMayo: 1
     VariantCubeBox: 1
     FoodContainerEgg: 2 #ADT_Tweak

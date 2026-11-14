@@ -355,10 +355,9 @@
   components:
     - type: Solution
       solution:
-        maxVol: 25
         reagents:
         - ReagentId: ADTOrangeTeaReg
-          Quantity: 25
+          Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
       state: icon
@@ -370,10 +369,9 @@
   components:
     - type: Solution
       solution:
-        maxVol: 25
         reagents:
         - ReagentId: ADTCherryTeaReg
-          Quantity: 25
+          Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
       state: icon
@@ -385,10 +383,9 @@
   components:
     - type: Solution
       solution:
-        maxVol: 25
         reagents:
         - ReagentId: ADTWatermelonTeaReg
-          Quantity: 25
+          Quantity: 30
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
       state: icon

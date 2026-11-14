@@ -1,0 +1,153 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: ADTMagazineShotgunEgerBase
+  name: Eger magazine (.50 shotgun)
+  components:
+  - type: Tag
+    tags:
+    - ADTMagazineShotgunEger
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ShellShotgun
+    proto: ShellShotgun
+    capacity: 5
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/eger_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#d73307"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: ADTMagazineShotgunEgerBase
+  id: ADTMagazineShotgunEger
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ba7710"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ba7710"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ba7710"
+
+- type: entity
+  parent: ADTMagazineShotgunEgerBase
+  id: ADTMagazineShotgunEgerSlug
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlug
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#72382d"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#72382d"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#72382d"
+
+- type: entity
+  parent: ADTMagazineShotgunEgerBase
+  id: ADTMagazineShotgunEgerBeanbag
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbag
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#30722d"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#30722d"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#30722d"
+
+- type: entity
+  parent: ADTMagazineShotgunEgerBase
+  id: ADTMagazineShotgunEgerIncendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ff6e52"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ff6e52"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ff6e52"
+
+- type: entity
+  parent: ADTMagazineShotgunEgerBase
+  id: ADTMagazineShotgunEgerEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d73307"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d73307"

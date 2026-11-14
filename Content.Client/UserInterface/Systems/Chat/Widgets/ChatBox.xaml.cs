@@ -47,6 +47,7 @@ public partial class ChatBox : UIWidget
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
+        ChatInput.FilterButton.Popup.OnOpenCustomEmotes += OnOpenCustomEmotes; // ADT-Tweak
         // ADT-Tweak start
         ChatInput.OnSearchButtonPressed += ToggleSearch;
         ChatSearch.OnSearchChanged += OnSearchTextChanged;
@@ -135,6 +136,13 @@ public partial class ChatBox : UIWidget
     {
         ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
     }
+
+    // ADT-Tweak-Start
+    private void OnOpenCustomEmotes()
+    {
+        _controller.OpenCustomEmotesWindow();
+    }
+    // ADT-Tweak-End
 
     private void OnChannelSelect(ChatSelectChannel channel)
     {

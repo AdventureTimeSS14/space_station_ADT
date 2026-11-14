@@ -45,3 +45,21 @@
 
 - type: playTimeTracker
   id: JobADTMiner
+
+- type: playTimeTracker
+  id: JobADTVirologist
+
+- type: playTimeTracker
+  id: JobADTCentcomInspector
+
+- type: playTimeTracker
+  id: JobADTCentcomInquisitor
+
+- type: playTimeTracker
+  id: JobADTCentcomOfficer
+
+- type: playTimeTracker
+  id: JobADTCentcomOperator
+
+- type: playTimeTracker
+  id: JobADTSODOfficer

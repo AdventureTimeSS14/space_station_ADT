@@ -4,6 +4,8 @@
 
 Особое сладкое угощение может значительно поднять моральный дух экипажа.
 
+<GuideADTCookingGroupEmbed Group="Dessert"/>
+
 <GuideMicrowaveGroupEmbed Group="Dessert"/>
 
 </Document>

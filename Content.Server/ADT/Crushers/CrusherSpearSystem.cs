@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Crushers;
 using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Crushers;
 using Content.Shared.ADT.Crushers.Components;
@@ -9,7 +10,9 @@ using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
@@ -63,12 +66,51 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
     {
         base.Update(frameTime);
 
+        var wieldQuery = EntityQueryEnumerator<ADTCrusherSpearWieldPendingComponent>();
+        while (wieldQuery.MoveNext(out var uid, out var pending))
+        {
+            if (pending.User is not { } wielder
+                || TerminatingOrDeleted(uid)
+                || TerminatingOrDeleted(wielder)
+                || !_hands.IsHolding(wielder, uid))
+            {
+                RemCompDeferred<ADTCrusherSpearWieldPendingComponent>(uid);
+                continue;
+            }
+
+            if (HasStaleGrip(wielder, uid))
+                continue;
+
+            RemCompDeferred<ADTCrusherSpearWieldPendingComponent>(uid);
+
+            if (TryComp<WieldableComponent>(uid, out var wieldable)
+                && !wieldable.Wielded
+                && _wieldable.CanWield((uid, wieldable), wielder, true))
+            {
+                _wieldable.TryWield((uid, wieldable), wielder);
+            }
+        }
+
         var query = EntityQueryEnumerator<ADTCrusherSpearReturningComponent, ADTCrusherSpearThrowComponent, PhysicsComponent>();
 
         while (query.MoveNext(out var uid, out _, out var spear, out var physics))
         {
             Steer((uid, spear), physics);
         }
+    }
+
+    private bool HasStaleGrip(EntityUid user, EntityUid spear)
+    {
+        if (!TryComp<HandsComponent>(user, out var hands))
+            return false;
+
+        foreach (var held in _hands.EnumerateHeld((user, hands)))
+        {
+            if (TryComp<VirtualItemComponent>(held, out var virtualItem) && virtualItem.BlockingEntity == spear)
+                return true;
+        }
+
+        return false;
     }
 
     private void OnThrowRequest(ADTCrusherSpearThrowRequestEvent msg, EntitySessionEventArgs args)
@@ -338,13 +380,8 @@ public sealed class CrusherSpearSystem : SharedCrusherSpearSystem
 
         _hands.PickupOrDrop(user.Value, ent, animate: false);
 
-        if (_hands.IsHolding(user.Value, ent.Owner)
-            && TryComp<WieldableComponent>(ent, out var wieldable)
-            && !wieldable.Wielded
-            && _wieldable.CanWield((ent.Owner, wieldable), user.Value, true))
-        {
-            _wieldable.TryWield((ent.Owner, wieldable), user.Value);
-        }
+        if (_hands.IsHolding(user.Value, ent.Owner))
+            EnsureComp<ADTCrusherSpearWieldPendingComponent>(ent.Owner).User = user;
 
         _audio.PlayPvs(ent.Comp.CatchSound, user.Value);
     }

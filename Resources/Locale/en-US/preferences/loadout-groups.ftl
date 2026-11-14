@@ -214,3 +214,6 @@ loadout-group-tramdriver-jumpsuit = Tram driver jumpsuit
 loadout-group-tramdriver-outerclothing = Tram driver suit
 loadout-group-tramdriver-hat = Tram driver hat
 loadout-group-tramdriver-gloves = Tram driver gloves
+loadout-group-service-worker-head-adt = Service Worker head
+loadout-group-musician-head-adt = Musician head
+loadout-group-medical-doctor-neck-adt = Medical Doctor neck

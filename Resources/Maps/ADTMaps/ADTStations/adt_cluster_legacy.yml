@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 12/13/2025 11:10:26
-  entityCount: 9523
+  entityCount: 9526
 maps:
 - 1
 grids:
@@ -50839,6 +50839,23 @@ entities:
       pos: -11.5,14.5
       parent: 2
   - uid: 7043
+    components:
+    - type: Transform
+      pos: -12.5,14.5
+      parent: 2
+- proto: SpawnPointADTVirologist
+  entities:
+  - uid: 9524
+    components:
+    - type: Transform
+      pos: -10.5,14.5
+      parent: 2
+  - uid: 9525
+    components:
+    - type: Transform
+      pos: -11.5,14.5
+      parent: 2
+  - uid: 9526
     components:
     - type: Transform
       pos: -12.5,14.5

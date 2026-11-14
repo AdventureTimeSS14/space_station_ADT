@@ -32,6 +32,7 @@ public sealed class MidroundCustomizationSystem : EntitySystem
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedPointLightSystem _pointLight = default!;
     [Dependency] private SponsorsManager _sponsors = default!;
+    [Dependency] private Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     public override void Initialize()
     {
@@ -102,6 +103,8 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
     private void OnSelectSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationSelectDoAfterEvent args)
     {
+        component.DoAfter = null;
+
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
@@ -135,6 +138,8 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
     private void OnChangeVoiceDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeVoiceDoAfterEvent args)
     {
+        component.DoAfter = null;
+
         if (args.Handled || args.Cancelled)
             return;
 
@@ -164,6 +169,9 @@ public sealed class MidroundCustomizationSystem : EntitySystem
         if (!TryComp<ActorComponent>(player, out var actor))
             return false;
 
+        if (_adtSponsors.IsTtsVoiceAllowed(actor.PlayerSession, voice.ID))
+            return true;
+
         if (!_sponsors.TryGetInfo(actor.PlayerSession.UserId, out var sponsor))
             return false;
 
@@ -188,6 +196,8 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
     private void OnChangeBarkDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkDoAfterEvent args)
     {
+        component.DoAfter = null;
+
         if (args.Handled || args.Cancelled)
             return;
 

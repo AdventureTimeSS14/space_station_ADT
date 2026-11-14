@@ -64,7 +64,7 @@ public sealed partial class ADTFindAllyOperator : HTNOperator
         var position = _transform.GetMapCoordinates(owner);
 
         EntityUid? best = null;
-        var bestScore = float.MaxValue;
+        var bestDistance = float.MaxValue;
 
         _found.Clear();
         _lookup.GetEntitiesInRange(position, Range, _found);
@@ -90,23 +90,14 @@ public sealed partial class ADTFindAllyOperator : HTNOperator
             if (distance <= MinDistance)
                 return Task.FromResult<(bool Valid, Dictionary<string, object>? Effects)>((false, null));
 
-            var score = distance;
+            if (MinDamage > 0f && _gear.DamageFraction(other) < MinDamage)
+                continue;
 
-            if (MinDamage > 0f)
-            {
-                var damage = _gear.DamageFraction(other);
-
-                if (damage < MinDamage)
-                    continue;
-
-                score = -damage;
-            }
-
-            if (score >= bestScore)
+            if (distance >= bestDistance)
                 continue;
 
             best = other;
-            bestScore = score;
+            bestDistance = distance;
         }
 
         if (best == null)

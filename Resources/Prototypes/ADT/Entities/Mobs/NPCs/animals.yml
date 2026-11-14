@@ -652,3 +652,44 @@
       - ReagentId: Rewriter
         Quantity: 2
 
+
+- type: entity
+  parent: MobFrog
+  id: ADTMobFrog
+  components:
+  - type: Item
+    size: Normal
+    sprite: ADT/Mobs/Animals/frog.rsi
+    storedOffset: 0,-11
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Mobs/Animals/frog.rsi
+    slots:
+    - HEAD
+  - type: Sprite
+    drawdepth: Mobs
+    offset: 0,-0.34375
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: frog
+      sprite: Mobs/Animals/frog.rsi
+      offset: 0,0.34375
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 60
+    sound:
+      path: /Audio/Animals/frog_ribbit.ogg
+      params:
+        variation: 0.125
+  - type: SoundWhileAlive
+  - type: InteractionPopup
+    onActivate: true
+    successChance: 0.90
+
+- type: entity
+  parent: SpawnMobFrog
+  id: ADTSpawnMobFrog
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobFrog

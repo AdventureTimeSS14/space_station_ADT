@@ -67,6 +67,9 @@ ent-ADTClothingVoucherKilt = автопокрасчик килта
 ent-ADTClothingVoucherNightDress = автопокрасчик ночного платья
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
+ent-ADTClothingVoucherArmbands = автопокрасчик нарукавной повязки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
 clothing-voucher-jumpsuit-turtleneck-white = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
 clothing-voucher-jumpsuit-turtleneck-aquamarine = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
 clothing-voucher-jumpsuit-turtleneck-azure = { ent-ADTClothingUniformJumpsuitTurtleneckAzure }
@@ -306,6 +309,17 @@ clothing-voucher-casualshirt-darkblue = { ent-ADTClothingUniformJumpsuitShirtDar
 clothing-voucher-casualshirt-green = { ent-ADTClothingUniformJumpsuitShirtGreen }
 clothing-voucher-casualshirt-teal = { ent-ADTClothingUniformJumpsuitShirtTeal }
 clothing-voucher-casualshirt-yellow = { ent-ADTClothingUniformJumpsuitShirtYellow }
+clothing-voucher-casualshirt-black = { ent-ADTClothingUniformJumpsuitBlackShirt }
+clothing-voucher-casualshirt-blue = { ent-ADTClothingUniformJumpsuitBlueShirt }
+clothing-voucher-casualshirt-purple = { ent-ADTClothingUniformJumpsuitPurpleShirt }
+clothing-voucher-casualshirt-red = { ent-ADTClothingUniformJumpsuitRedShirt }
+clothing-voucher-casualshirt-white = { ent-ADTClothingUniformJumpsuitWhiteShirt }
+clothing-voucher-casualshirt-fancy = { ent-ADTClothingUniformJumpsuitFancyShirt }
+clothing-voucher-casualshirt-redplaid = { ent-ADTClothingUniformJumpsuitRedPlaidShirt }
+clothing-voucher-casualshirt-hawaii = { ent-ADTClothingUniformJumpsuitHawaiiShirt }
+clothing-voucher-casualshirt-tonny = { ent-ADTClothingUniformJumpsuitTonnyShirt }
+clothing-voucher-casualshirt-navy = { ent-ADTClothingUniformJumpsuitNavyShirt }
+clothing-voucher-casualshirt-limbusco = { ent-ADTClothingUniformJumpsuitLimbuscoShirt }
 
 clothing-voucher-keikogi-white = { ent-ADTClothingUniformJumpsuitKeikogiWhite }
 clothing-voucher-keikogi-orange = { ent-ADTClothingUniformJumpsuitKeikogiOrange }
@@ -399,3 +413,13 @@ clothing-voucher-underwear-bra-america = { ent-ADTClothingUnderwearTopBraAmerica
 clothing-voucher-underwear-bra-pink = { ent-ADTClothingUnderwearTopBraPink }
 clothing-voucher-underwear-bigbra-cow = { ent-ADTClothingUnderwearTopBigbraCow }
 clothing-voucher-sock-stocking-cow = { ent-ADTClothingUnderwearSocksStockingCow }
+
+clothing-voucher-armband-white = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-black = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-blue = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-lazure = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-green = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-orange = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-purple = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-red = { ent-ADTClothingNeckArmbandWhite }
+clothing-voucher-armband-yellow = { ent-ADTClothingNeckArmbandWhite }

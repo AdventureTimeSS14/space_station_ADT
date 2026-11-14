@@ -21,6 +21,7 @@
             bounds: "-0.5,-0.5,0.5,0.5"
   - type: Airtight
     noAirWhenFullyAirBlocked: false
+  - type: ADTGasPassable # ADT-Tweak
   - type: Clickable
   - type: Tag
     tags:
@@ -57,6 +58,7 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.48,-0.48,0.48,-0.40"
+  - type: ADTGasPassable # ADT-Tweak
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:

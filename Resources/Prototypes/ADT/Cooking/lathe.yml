@@ -1,0 +1,34 @@
+- type: latheRecipe
+  id: ADTCookwarePanRecipe
+  result: ADTCookwarePan
+  completetime: 2
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: ADTCookwarePotRecipe
+  result: ADTCookwarePot
+  completetime: 2
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  id: ADTCookwareTrayRecipe
+  result: ADTCookwareTray
+  completetime: 2
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: ADTSpatulaRecipe
+  result: ADTSpatula
+  completetime: 1
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: ADTLadleRecipe
+  result: ADTLadle
+  completetime: 1
+  materials:
+    Steel: 100

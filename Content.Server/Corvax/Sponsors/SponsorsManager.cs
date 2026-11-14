@@ -32,10 +32,17 @@ public sealed class SponsorsManager
 
     private readonly Dictionary<NetUserId, SponsorInfo> _cachedSponsors = new();
 
+    // ADT-Tweak-Start
+    private bool _legacyBridge = true;
+
+    public event Action<NetUserId>? InfoLoaded;
+    // ADT-Tweak-End
+
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("sponsors");
         _cfg.OnValueChanged(CCCVars.SponsorsApiUrl, s => _apiUrl = s, true);
+        _cfg.OnValueChanged(Content.Shared.ADT.Sponsors.SponsorCVars.LegacyBridge, v => _legacyBridge = v, true); // ADT-Tweak
 
         _netMgr.RegisterNetMessage<MsgSponsorInfo>();
 
@@ -46,8 +53,28 @@ public sealed class SponsorsManager
 
     public bool TryGetInfo(NetUserId userId, [NotNullWhen(true)] out SponsorInfo? sponsor)
     {
+        // ADT-Tweak-Start
+        if (!_legacyBridge)
+        {
+            sponsor = null;
+            return false;
+        }
+        // ADT-Tweak-End
+
         return _cachedSponsors.TryGetValue(userId, out sponsor);
     }
+
+    // ADT-Tweak-Start
+    public bool TryGetRawInfo(NetUserId userId, [NotNullWhen(true)] out SponsorInfo? sponsor)
+    {
+        return _cachedSponsors.TryGetValue(userId, out sponsor);
+    }
+
+    public Task<SponsorInfo?> FetchInfoAsync(NetUserId userId)
+    {
+        return LoadSponsorInfo(userId);
+    }
+    // ADT-Tweak-End
 
     private async Task OnConnecting(NetConnectingArgs e)
     {
@@ -56,6 +83,7 @@ public sealed class SponsorsManager
         if (info == null)
         {
             _cachedSponsors.Remove(e.UserId);
+            InfoLoaded?.Invoke(e.UserId); // ADT-Tweak
             return;
         }
 
@@ -79,12 +107,14 @@ public sealed class SponsorsManager
         else if (isExpired || info.Tier == null)
         {
             _cachedSponsors.Remove(e.UserId);
+            InfoLoaded?.Invoke(e.UserId); // ADT-Tweak
             return;
         }
 
         DebugTools.Assert(!_cachedSponsors.ContainsKey(e.UserId), "Cached data was found on client connect");
 
         _cachedSponsors[e.UserId] = info;
+        InfoLoaded?.Invoke(e.UserId); // ADT-Tweak
     }
 
     private void OnConnected(object? sender, NetChannelArgs e)

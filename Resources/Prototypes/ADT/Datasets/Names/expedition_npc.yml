@@ -75,3 +75,9 @@
   values:
     prefix: adt-xenoborg-radio-moving-
     count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioNeutralized
+  values:
+    prefix: adt-xenoborg-radio-neutralized-
+    count: 5

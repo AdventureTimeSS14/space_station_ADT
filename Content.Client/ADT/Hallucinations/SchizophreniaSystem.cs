@@ -1,0 +1,341 @@
+using System.Linq;
+using Content.Client.Audio;
+using Content.Shared.ADT.Hallucinations.Components;
+using Content.Shared.ADT.Hallucinations.Events;
+using Content.Shared.Antag;
+using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Components;
+using Content.Shared.StatusIcon.Components;
+using Robust.Client.Audio;
+using Robust.Client.GameObjects;
+using Robust.Client.Player;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+
+namespace Content.Client.ADT.Hallucinations;
+
+public sealed partial class SchizophreniaSystem : EntitySystem
+{
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private ContentAudioSystem _contentAudio = default!;
+
+    private Dictionary<NetEntity, TimeSpan> _layers = new();
+    private readonly List<NetEntity> _expiredLayers = new();
+    private readonly HashSet<EntityUid> _hiddenMobs = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeNetworkEvent<SetHallucinationAppearanceMessage>(OnAppearanceMessage);
+
+        SubscribeLocalEvent<SchizophreniaComponent, GetStatusIconsEvent>(OnGetHallucinatingIcons);
+        SubscribeLocalEvent<HallucinationComponent, GetStatusIconsEvent>(OnGetHallucinationIcons);
+
+        SubscribeLocalEvent<HallucinationsMusicComponent, MapInitEvent>(OnMusicInit);
+        SubscribeLocalEvent<HallucinationsMusicComponent, ComponentShutdown>(OnMusicShutdown);
+        SubscribeLocalEvent<HallucinationsMusicComponent, LocalPlayerAttachedEvent>(OnMusicAttach);
+        SubscribeLocalEvent<HallucinationsMusicComponent, LocalPlayerDetachedEvent>(OnMusicDetach);
+        SubscribeLocalEvent<HallucinationsMusicComponent, AfterAutoHandleStateEvent>(OnMusicHandleState);
+
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, ComponentStartup>(OnRemoveMobsStartup);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, ComponentShutdown>(OnRemoveMobsShutdown);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, LocalPlayerAttachedEvent>(OnRemoveMobsAttached);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, LocalPlayerDetachedEvent>(OnRemoveMobsDetached);
+        SubscribeLocalEvent<MobStateComponent, ComponentStartup>(OnMobStartup);
+        SubscribeLocalEvent<MobStateComponent, ComponentShutdown>(OnMobShutdown);
+        SubscribeLocalEvent<HallucinationComponent, ComponentStartup>(OnHallucinationStartup);
+    }
+
+    private void OnAppearanceMessage(SetHallucinationAppearanceMessage args)
+    {
+        if (_player.LocalSession == null)
+            return;
+
+        // Get target entity
+        var ents = EntityManager.AllEntities<HumanoidProfileComponent>().Where(x => x.Owner != _player.LocalEntity && !HasComp<HallucinationComponent>(x)).ToList();
+        if (ents.Count <= 0)
+            return;
+
+        var selected = _random.Pick(ents);
+
+        if (args.Appearance.Prototypes is not { Count: > 0 } || args.Appearance.States.Count <= 0)
+            return;
+
+        var proto = _random.Pick(args.Appearance.Prototypes);
+        var item = Spawn(proto);
+
+        if (!TryComp<SpriteComponent>(selected, out var sprite) || !TryComp<SpriteComponent>(item, out var itemSprite))
+        {
+            QueueDel(item);
+            return;
+        }
+
+        var state = _random.Pick(args.Appearance.States);
+
+        // Ensure that given prototype sprite contains our state
+        var rsi = itemSprite.BaseRSI;
+        if (rsi == null || !rsi.TryGetState(state, out _))
+        {
+            QueueDel(item);
+            return;
+        }
+
+        // Build layer
+        var layer = new PrototypeLayerData();
+        layer.RsiPath = rsi.Path.ToString();
+        layer.State = state;
+
+        // Set layer and play sound
+        _sprite.LayerMapReserve(selected.Owner, "hallucination");
+        _sprite.LayerSetData(selected.Owner, "hallucination", layer);
+        if (_layers.TryAdd(GetNetEntity(selected), _timing.CurTime + TimeSpan.FromSeconds(5)))
+            _audio.PlayEntity(args.Appearance.Sound, _player.LocalSession, selected);
+
+        QueueDel(item);
+    }
+
+    private void OnGetHallucinatingIcons(Entity<SchizophreniaComponent> ent, ref GetStatusIconsEvent args)
+    {
+        if (!(TryComp<HallucinationComponent>(_player.LocalEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx) &&
+            !HasComp<ShowAntagIconsComponent>(_player.LocalEntity))
+            return;
+
+        args.StatusIcons.Add(_proto.Index(ent.Comp.FactionIcon));
+    }
+
+    private void OnGetHallucinationIcons(Entity<HallucinationComponent> ent, ref GetStatusIconsEvent args)
+    {
+        if (!(TryComp<HallucinationComponent>(_player.LocalEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx) &&
+            !HasComp<ShowAntagIconsComponent>(_player.LocalEntity))
+            return;
+
+        args.StatusIcons.Add(_proto.Index(ent.Comp.FactionIcon));
+    }
+
+    private void OnMusicInit(Entity<HallucinationsMusicComponent> ent, ref MapInitEvent args)
+    {
+        if (_player.LocalEntity != ent.Owner)
+            return;
+
+        foreach (var item in ent.Comp.Music)
+        {
+            if (ent.Comp.ActiveMusic.ContainsKey(item.Key) || ent.Comp.NextMusic.ContainsKey(item.Key))
+                continue;
+
+            ent.Comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(10f);
+        }
+    }
+
+    private void OnMusicShutdown(Entity<HallucinationsMusicComponent> ent, ref ComponentShutdown args)
+    {
+        if (_player.LocalEntity != ent.Owner)
+            return;
+
+        foreach (var item in ent.Comp.ActiveMusic.ToList())
+        {
+            _contentAudio.FadeOut(item.Value, duration: 5f);
+            ent.Comp.ActiveMusic.Remove(item.Key);
+            ent.Comp.NextMusic.Remove(item.Key);
+        }
+    }
+
+    private void OnMusicAttach(Entity<HallucinationsMusicComponent> ent, ref LocalPlayerAttachedEvent args)
+    {
+        foreach (var item in ent.Comp.Music)
+        {
+            if (ent.Comp.ActiveMusic.ContainsKey(item.Key) || ent.Comp.NextMusic.ContainsKey(item.Key))
+                continue;
+
+            ent.Comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(item.Value.Delay.HasValue ? item.Value.Delay.Value.Next(_random) : 10f);
+        }
+    }
+
+    private void OnMusicDetach(Entity<HallucinationsMusicComponent> ent, ref LocalPlayerDetachedEvent args)
+    {
+        foreach (var item in ent.Comp.ActiveMusic.ToList())
+        {
+            _contentAudio.FadeOut(item.Value, duration: 1f);
+            ent.Comp.ActiveMusic.Remove(item.Key);
+            ent.Comp.NextMusic.Remove(item.Key);
+        }
+    }
+
+    private void OnMusicHandleState(Entity<HallucinationsMusicComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        if (_player.LocalEntity != ent.Owner)
+            return;
+
+        foreach (var item in ent.Comp.Music)
+        {
+            if (ent.Comp.ActiveMusic.ContainsKey(item.Key) || ent.Comp.NextMusic.ContainsKey(item.Key))
+                continue;
+
+            ent.Comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(10f);
+        }
+
+        foreach (var item in ent.Comp.ActiveMusic.ToList())
+        {
+            if (!ent.Comp.Music.ContainsKey(item.Key))
+            {
+                _contentAudio.FadeOut(item.Value, duration: 8f);
+                ent.Comp.ActiveMusic.Remove(item.Key);
+                ent.Comp.NextMusic.Remove(item.Key);
+            }
+        }
+    }
+
+    public bool CanSee(EntityUid target)
+    {
+        if (!HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
+            return true;
+
+        if (target == _player.LocalEntity || !HasComp<MobStateComponent>(target))
+            return true;
+
+        if (HasComp<HallucinationComponent>(target))
+            return true;
+
+        if (Transform(target).ParentUid == _player.LocalEntity)
+            return true;
+
+        return false;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (!TryComp<HallucinationsMusicComponent>(_player.LocalEntity, out var comp))
+            return;
+
+        foreach (var item in comp.NextMusic.ToDictionary())
+        {
+            if (item.Value > _timing.CurTime)
+                continue;
+
+            if (!comp.Music.TryGetValue(item.Key, out var music))
+                continue;
+
+            if (music.Delay.HasValue)
+                comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(music.Delay.Value.Next(_random));
+            else
+                comp.NextMusic.Remove(item.Key);
+
+            var hasMusic = comp.ActiveMusic.TryGetValue(item.Key, out var exsisting) && exsisting.IsValid();
+
+            var mus = _audio.PlayGlobal(music.Sound, _player.LocalEntity.Value, AudioParams.Default.WithLoop(music.Delay == null));
+            if (!mus.HasValue)
+                continue;
+
+            comp.ActiveMusic[item.Key] = mus.Value.Entity;
+
+            if (!hasMusic)
+                _contentAudio.FadeIn(mus.Value.Entity, duration: 5f);
+        }
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+
+        if (_layers.Count == 0)
+            return;
+
+        foreach (var (netEnt, endTime) in _layers)
+        {
+            if (endTime <= _timing.CurTime)
+                _expiredLayers.Add(netEnt);
+        }
+
+        foreach (var netEnt in _expiredLayers)
+        {
+            _layers.Remove(netEnt);
+
+            if (TryGetEntity(netEnt, out var ent))
+                _sprite.RemoveLayer(ent.Value, "hallucination", false);
+        }
+
+        _expiredLayers.Clear();
+    }
+
+    private void OnRemoveMobsStartup(Entity<HallucinationsRemoveMobsComponent> ent, ref ComponentStartup args)
+    {
+        if (_player.LocalEntity == ent.Owner)
+            HideMobs();
+    }
+
+    private void OnRemoveMobsShutdown(Entity<HallucinationsRemoveMobsComponent> ent, ref ComponentShutdown args)
+    {
+        if (_player.LocalEntity == ent.Owner)
+            RestoreMobs();
+    }
+
+    private void OnRemoveMobsAttached(Entity<HallucinationsRemoveMobsComponent> ent, ref LocalPlayerAttachedEvent args)
+    {
+        HideMobs();
+    }
+
+    private void OnRemoveMobsDetached(Entity<HallucinationsRemoveMobsComponent> ent, ref LocalPlayerDetachedEvent args)
+    {
+        RestoreMobs();
+    }
+
+    private void OnMobStartup(Entity<MobStateComponent> ent, ref ComponentStartup args)
+    {
+        if (!HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
+            return;
+
+        TryHideMob(ent.Owner);
+    }
+
+    private void OnMobShutdown(Entity<MobStateComponent> ent, ref ComponentShutdown args)
+    {
+        _hiddenMobs.Remove(ent.Owner);
+    }
+
+    private void OnHallucinationStartup(Entity<HallucinationComponent> ent, ref ComponentStartup args)
+    {
+        if (!_hiddenMobs.Remove(ent.Owner))
+            return;
+
+        _sprite.SetVisible(ent.Owner, true);
+    }
+
+    private void HideMobs()
+    {
+        var query = AllEntityQuery<MobStateComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            TryHideMob(uid);
+        }
+    }
+
+    private void TryHideMob(EntityUid uid)
+    {
+        if (CanSee(uid) || !TryComp<SpriteComponent>(uid, out var sprite) || !sprite.Visible)
+            return;
+
+        _sprite.SetVisible((uid, sprite), false);
+        _hiddenMobs.Add(uid);
+    }
+
+    private void RestoreMobs()
+    {
+        foreach (var uid in _hiddenMobs)
+        {
+            if (TryComp<SpriteComponent>(uid, out var sprite))
+                _sprite.SetVisible((uid, sprite), true);
+        }
+
+        _hiddenMobs.Clear();
+    }
+}

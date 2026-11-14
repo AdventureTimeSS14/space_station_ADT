@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.ADT.Particles;
+using Content.Client.IconSmoothing;
 using Content.Shared.ADT.Mining;
 using Content.Shared.ADT.Mining.Components;
 using Content.Shared.ADT.Particles;
@@ -14,6 +15,7 @@ namespace Content.Client.ADT.Mining;
 public sealed class ADTMineralSystem : SharedADTMineralSystem
 {
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IconSmoothSystem _iconSmooth = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private ParticleSystem _particles = default!;
     [Dependency] private SpriteSystem _sprite = default!;
@@ -27,7 +29,19 @@ public sealed class ADTMineralSystem : SharedADTMineralSystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTMineralOreComponent, ComponentStartup>(OnOreStartup);
+        SubscribeLocalEvent<ADTMineralComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeNetworkEvent<ADTMineralHitEvent>(OnMineralHit);
+    }
+
+    private void OnAnchorChanged(Entity<ADTMineralComponent> ent, ref AnchorStateChangedEvent args)
+    {
+        if (!args.Detaching || _timing.ApplyingState)
+            return;
+
+        if (!ent.Comp.Breaking && ent.Comp.Hardness > 0)
+            return;
+
+        _iconSmooth.DirtyNeighbours(ent.Owner);
     }
 
     private void OnOreStartup(Entity<ADTMineralOreComponent> ent, ref ComponentStartup args)

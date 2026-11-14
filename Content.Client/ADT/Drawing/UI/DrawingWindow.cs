@@ -11,6 +11,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -27,6 +28,8 @@ public sealed partial class DrawingWindow : DefaultWindow
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private readonly PenInputSystem _pen;
     private readonly CanvasDocument _document;
@@ -37,6 +40,9 @@ public sealed partial class DrawingWindow : DefaultWindow
 
     private readonly ColorSelectorSliders _colorSelector;
     private readonly Button _brushButton;
+    private readonly Button _mirrorButton;
+    private readonly BoxContainer _blurOptions;
+    private readonly BoxContainer _liquifyOptions;
     private readonly Button _undoButton;
     private readonly Button _redoButton;
     private readonly ProgressBar _pressureBar;
@@ -58,10 +64,13 @@ public sealed partial class DrawingWindow : DefaultWindow
     private readonly SettingSlider _taperOutSlider;
     private readonly SettingSlider _smoothingSlider;
     private bool _syncing;
+    private DrawingHotkeysWindow? _hotkeysWindow;
+    private readonly ISawmill _sawmill;
 
     public DrawingWindow(CanvasDocument document, bool ownsDocument)
     {
         IoCManager.InjectDependencies(this);
+        _sawmill = _log.GetSawmill("drawing");
         _pen = _systems.GetEntitySystem<PenInputSystem>();
 
         Title = Loc.GetString("adt-drawing-window-title");
@@ -74,6 +83,8 @@ public sealed partial class DrawingWindow : DefaultWindow
         _canvas.OnSample += UpdatePressure;
         _canvas.OnColorPicked += OnColorPicked;
         _canvas.OnViewChanged += UpdateStatus;
+        DrawingHotkeyStorage.Load(_canvas.Hotkeys, _res, _serialization, _sawmill);
+        _canvas.Hotkeys.Changed += SaveHotkeys;
         _document.HistoryChanged += UpdateHistoryButtons;
         _document.Layers.Changed += UpdateHistoryButtons;
 
@@ -105,23 +116,102 @@ public sealed partial class DrawingWindow : DefaultWindow
         var rectangleButton = ToolButton("adt-drawing-tool-rectangle", toolGroup, DrawingTool.Rectangle);
         var ellipseButton = ToolButton("adt-drawing-tool-ellipse", toolGroup, DrawingTool.Ellipse);
         var fillButton = ToolButton("adt-drawing-tool-fill", toolGroup, DrawingTool.Fill);
+        var blurButton = ToolButton("adt-drawing-tool-blur", toolGroup, DrawingTool.Blur);
+        var lassoButton = ToolButton("adt-drawing-tool-lasso", toolGroup, DrawingTool.Lasso);
+        var transformButton = ToolButton("adt-drawing-tool-transform", toolGroup, DrawingTool.Transform);
+        var liquifyButton = ToolButton("adt-drawing-tool-liquify", toolGroup, DrawingTool.Liquify);
+        _mirrorButton = new Button
+        {
+            Text = Loc.GetString("adt-drawing-mirror"),
+            ToolTip = Loc.GetString("adt-drawing-mirror-tooltip"),
+            ToggleMode = true,
+            HorizontalExpand = true,
+            ClipText = true,
+        };
+        _mirrorButton.OnToggled += args => _canvas.Mirrored = args.Pressed;
+        var deselectButton = ActionButton("adt-drawing-deselect", _canvas.ClearSelection);
+        deselectButton.ClipText = true;
         _brushButton.Pressed = true;
-        sidebar.AddChild(Row(_brushButton, eraserButton, pickerButton));
-        sidebar.AddChild(Row(lineButton, rectangleButton, ellipseButton, fillButton));
+        sidebar.AddChild(Row(_brushButton, eraserButton, blurButton));
+        sidebar.AddChild(Row(pickerButton, fillButton, lineButton));
+        sidebar.AddChild(Row(rectangleButton, ellipseButton, lassoButton));
+        sidebar.AddChild(Row(transformButton, liquifyButton, _mirrorButton));
+        sidebar.AddChild(deselectButton);
 
         var toolButtons = new Dictionary<DrawingTool, Button>
         {
+            [DrawingTool.Brush] = _brushButton,
+            [DrawingTool.Eraser] = eraserButton,
+            [DrawingTool.Picker] = pickerButton,
+            [DrawingTool.Blur] = blurButton,
+            [DrawingTool.Lasso] = lassoButton,
+            [DrawingTool.Transform] = transformButton,
+            [DrawingTool.Liquify] = liquifyButton,
             [DrawingTool.Line] = lineButton,
             [DrawingTool.Rectangle] = rectangleButton,
             [DrawingTool.Ellipse] = ellipseButton,
             [DrawingTool.Fill] = fillButton,
         };
+        _blurOptions = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 4,
+            Visible = false,
+        };
+        _blurOptions.AddChild(new SettingSlider("adt-drawing-blur-strength", 1, 100, _brush.BlurStrength * 100, "0",
+            v => _brush.BlurStrength = v / 100f).Row);
+        _blurOptions.AddChild(new SettingSlider("adt-drawing-blur-hardness", 0, 100, _brush.BlurHardness * 100, "0",
+            v => _brush.BlurHardness = v / 100f).Row);
+        sidebar.AddChild(_blurOptions);
+
+        var liquifyMode = new OptionButton
+        {
+            HorizontalExpand = true,
+        };
+        foreach (var mode in Enum.GetValues<LiquifyMode>())
+        {
+            liquifyMode.AddItem(Loc.GetString($"adt-drawing-liquify-{mode.ToString().ToLowerInvariant()}"), (int) mode);
+        }
+        liquifyMode.OnItemSelected += args =>
+        {
+            liquifyMode.SelectId(args.Id);
+            _brush.LiquifyMode = (LiquifyMode) args.Id;
+        };
+        var liquifyLabel = new Label
+        {
+            Text = Loc.GetString("adt-drawing-liquify-mode"),
+        };
+        _liquifyOptions = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 4,
+            Visible = false,
+        };
+        _liquifyOptions.AddChild(Row(liquifyLabel, liquifyMode));
+        _liquifyOptions.AddChild(new SettingSlider("adt-drawing-blur-strength", 1, 100, _brush.LiquifyStrength * 100, "0",
+            v => _brush.LiquifyStrength = v / 100f).Row);
+        _liquifyOptions.AddChild(new SettingSlider("adt-drawing-blur-hardness", 0, 100, _brush.LiquifyHardness * 100, "0",
+            v => _brush.LiquifyHardness = v / 100f).Row);
+        sidebar.AddChild(_liquifyOptions);
+
         _canvas.OnToolSelected += tool =>
         {
             if (toolButtons.TryGetValue(tool, out var button))
                 button.Pressed = true;
+
+            _blurOptions.Visible = tool == DrawingTool.Blur;
+            _liquifyOptions.Visible = tool == DrawingTool.Liquify;
         };
 
+        _canvas.RightClickPicker = _cfg.GetCVar(ADTCCVars.CanvasRightClickPicker);
+        var rightClickCheck = Check("adt-drawing-rmb-picker", _canvas.RightClickPicker, v =>
+        {
+            _canvas.RightClickPicker = v;
+            _cfg.SetCVar(ADTCCVars.CanvasRightClickPicker, v);
+            _cfg.SaveToFile();
+        });
+        rightClickCheck.ToolTip = Loc.GetString("adt-drawing-rmb-picker-tooltip");
+        sidebar.AddChild(rightClickCheck);
         sidebar.AddChild(Check("adt-drawing-shape-fill", false, v => _canvas.ShapeFill = v));
         sidebar.AddChild(new SettingSlider("adt-drawing-fill-tolerance", 0, 100, _canvas.FillTolerance * 100, "0",
             v => _canvas.FillTolerance = v / 100f).Row);
@@ -234,9 +324,10 @@ public sealed partial class DrawingWindow : DefaultWindow
         sidebar.AddChild(_pressureBar);
         sidebar.AddChild(_pressureLabel);
         sidebar.AddChild(WrapLabel(Loc.GetString("adt-drawing-hotkeys"), Color.Gray));
+        sidebar.AddChild(ActionButton("adt-drawing-hotkeys-open", OpenHotkeys));
 
-        _undoButton = ActionButton("adt-drawing-undo", _document.Undo);
-        _redoButton = ActionButton("adt-drawing-redo", _document.Redo);
+        _undoButton = ActionButton("adt-drawing-undo", _canvas.Undo);
+        _redoButton = ActionButton("adt-drawing-redo", _canvas.Redo);
         sidebar.AddChild(Row(_undoButton, _redoButton));
         _clearButton = ActionButton("adt-drawing-clear", () => _document.Clear(Color.White));
         sidebar.AddChild(Row(
@@ -324,6 +415,8 @@ public sealed partial class DrawingWindow : DefaultWindow
         root.AddChild(right);
         Contents.AddChild(root);
 
+        OnClose += () => _hotkeysWindow?.Close();
+
         if (ownsDocument)
             OnClose += () => _document.Dispose();
 
@@ -355,6 +448,24 @@ public sealed partial class DrawingWindow : DefaultWindow
         _canvas.BaseLocked = baseLocked;
         _layerPanel.CanMerge = !locked && !baseLocked;
         UpdateHistoryButtons();
+    }
+
+    private void OpenHotkeys()
+    {
+        if (_hotkeysWindow != null)
+        {
+            _hotkeysWindow.MoveToFront();
+            return;
+        }
+
+        _hotkeysWindow = new DrawingHotkeysWindow(_canvas.Hotkeys);
+        _hotkeysWindow.OnClose += () => _hotkeysWindow = null;
+        _hotkeysWindow.OpenCentered();
+    }
+
+    private void SaveHotkeys()
+    {
+        DrawingHotkeyStorage.Save(_canvas.Hotkeys, _res, _serialization, _sawmill);
     }
 
     public static RichTextLabel WrapLabel(string text, Color color)
@@ -435,8 +546,6 @@ public sealed partial class DrawingWindow : DefaultWindow
     {
         _brush.Color = color;
         _colorSelector.Color = color;
-        _brushButton.Pressed = true;
-        _canvas.Tool = DrawingTool.Brush;
     }
 
     private void UpdatePressure(PenSample sample)
@@ -454,6 +563,7 @@ public sealed partial class DrawingWindow : DefaultWindow
 
     private void UpdateStatus()
     {
+        _mirrorButton.Pressed = _canvas.Mirrored;
         _statusLabel.Text = Loc.GetString("adt-drawing-status",
             ("width", _document.Width),
             ("height", _document.Height),
@@ -500,6 +610,7 @@ public sealed partial class DrawingWindow : DefaultWindow
             ToggleMode = true,
             Group = group,
             HorizontalExpand = true,
+            ClipText = true,
         };
         button.OnPressed += _ => _canvas.Tool = tool;
         return button;

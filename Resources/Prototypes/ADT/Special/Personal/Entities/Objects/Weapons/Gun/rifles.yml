@@ -77,3 +77,38 @@
   - type: GunWieldBonus
     minAngle: -13
     maxAngle: -13
+
+#Marksman
+- type: entity
+  name: игрушечная винтовка "Марксман"
+  parent: [BaseToyGun, BaseWeaponShotgun, BaseGunWieldable] 
+  id: ADTWeaponRifleFoamMarksman 
+  description: С виду старая и ветхая винтовка, пережившая множество перестрелок. Существует легенда, что выпущенная пуля всегда возвращается к своему обладателю, унося за собой всех, кого тот любит. В данном случае это просто детская игрушка...
+  suffix: Personal, Marksman, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Marksman/marksman_rifle.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Marksman/marksman_rifle.rsi
+  - type: Item
+    sprite: ADT/Special/Personal/Marksman/marksman_rifle_x64.rsi
+    size: Large
+    shape:
+    - 0,0,3,0
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - BulletFoam
+    capacity: 7 
+    proto: BulletFoam
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: GunExecutionBlacklist

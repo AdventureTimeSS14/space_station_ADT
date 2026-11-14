@@ -83,3 +83,8 @@
   id: ADTMaidPDA
   equipment:
     id: ADTMaidPDA
+# Maid Headband
+- type: loadout
+  id: ADTClothingHeadMaidHeadband
+  equipment:
+    head: ADTClothingHeadMaidHeadband

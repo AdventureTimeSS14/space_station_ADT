@@ -4,6 +4,7 @@
   components:
     - type: ADTNpcBorg
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
     - type: InputMover
     - type: MobMover
     - type: Prying
@@ -12,7 +13,6 @@
       speedModifier: 1
       useSound:
         path: /Audio/Items/crowbar.ogg
-    - type: GhostTakeoverAvailable
 
 - type: entity
   parent: [ XenoborgHeavy, ADTMobXenoborgNpcBase ]
@@ -37,14 +37,6 @@
           4
         MaximumIdleTime: !type:Single
           10
-    - type: GhostRole
-      name: ghost-role-information-adt-xenoborg-heavy-name
-      description: ghost-role-information-adt-xenoborg-heavy-description
-      rules: ghost-role-information-silicon-rules
-      mindRoles:
-        - MindRoleXenoborg
-      raffle:
-        settings: default
 
 - type: entity
   parent: [ XenoborgScout, ADTMobXenoborgNpcBase ]
@@ -69,14 +61,6 @@
           4
         MaximumIdleTime: !type:Single
           10
-    - type: GhostRole
-      name: ghost-role-information-adt-xenoborg-scout-name
-      description: ghost-role-information-adt-xenoborg-scout-description
-      rules: ghost-role-information-silicon-rules
-      mindRoles:
-        - MindRoleXenoborg
-      raffle:
-        settings: default
 
 - type: entity
   parent: [ XenoborgStealth, ADTMobXenoborgNpcBase ]
@@ -101,14 +85,10 @@
           4
         MaximumIdleTime: !type:Single
           10
-    - type: GhostRole
-      name: ghost-role-information-adt-xenoborg-stealth-name
-      description: ghost-role-information-adt-xenoborg-stealth-description
-      rules: ghost-role-information-silicon-rules
-      mindRoles:
-        - MindRoleXenoborg
-      raffle:
-        settings: default
+        ADTReachRange: !type:Single
+          1.3
+        ADTStalkRange: !type:Single
+          7
 
 - type: entity
   parent: [ XenoborgEngi, ADTMobXenoborgNpcBase ]
@@ -133,14 +113,8 @@
           4
         MaximumIdleTime: !type:Single
           10
-    - type: GhostRole
-      name: ghost-role-information-adt-xenoborg-engi-name
-      description: ghost-role-information-adt-xenoborg-engi-description
-      rules: ghost-role-information-silicon-rules
-      mindRoles:
-        - MindRoleXenoborg
-      raffle:
-        settings: default
+        ADTReachRange: !type:Single
+          1.3
     - type: Prying
       pryPowered: true
       force: true

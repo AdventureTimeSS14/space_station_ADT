@@ -1,0 +1,14 @@
+- type: entity
+  id: ADTClothingBeltKilla
+  parent: ClothingBeltMilitaryWebbing
+  name: Triton belt
+  description: Triton belt
+  suffix: Halloween
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Season/Clothing/Belt/killa_webbing.rsi
+  - type: Clothing
+    sprite: ADT/Season/Clothing/Belt/killa_webbing.rsi
+

@@ -13,11 +13,11 @@ ent-ADTAdvancedPlantAnalyzer = Агровед 9000
 ent-ADTAdvancedPlantAnalyzerEmpty = Агровед 9000
     .desc = Продвинутая модель анализатора растений
 
-ent-ADTKitchenElectricRange = Электрическая печь
-    .desc = Функциональная печь с множеством функций.
+ent-ADTKitchenElectricRange = Электроплита
+    .desc = Плита с четырьмя конфорками и духовкой. Сковороды и кастрюли ставятся на конфорки, противень - в духовку.
 
-ent-ADTSyndicateKitchenElectricRange = Электрическая печь синдиката
-    .desc = Функциональная печь синдиката с множеством функций.
+ent-ADTSyndicateKitchenElectricRange = Электроплита синдиката
+    .desc = Плита синдиката с четырьмя конфорками и духовкой. Знает пару особых рецептов.
 
 ent-ADTKitchenAssembler = Кухонный ассемблер
     .desc = Готовит за вас большую часть лицензированных блюд в NanoTrasen. Вы не знаете как оно это делает.

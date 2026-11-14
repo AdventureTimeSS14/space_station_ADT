@@ -96,7 +96,6 @@
     - Adrenaline
     # ADT-Tweak start
     - Weakness
-    - ADTHallucinations
     - ADTStarvation
     # ADT-Tweak end
   - type: Identity
@@ -237,6 +236,7 @@
   - type: OfferItem
   - type: RadiationPopup
   - type: PickupHumans
+    handsRequired: 1
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage

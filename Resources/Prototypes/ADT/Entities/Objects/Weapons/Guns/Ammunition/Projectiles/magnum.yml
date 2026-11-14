@@ -58,7 +58,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 32
+        Piercing: 18
+        Heat: 5
 
 - type: entity
   id: ADTBulletMagnumLesserAP

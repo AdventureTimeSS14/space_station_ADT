@@ -66,8 +66,8 @@
     - !type:AllSelector
       rolls: 3
       children:
-      - id: FoodCondimentPacketSalt
-      - id: FoodCondimentPacketPepper
+      - id: ReagentContainerSalt
+      - id: ReagentContainerPepper
       # ADT-tweak-start
         amount: 3
       - id: FoodCondimentBottleEnzyme
