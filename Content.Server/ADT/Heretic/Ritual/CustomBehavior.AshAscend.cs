@@ -1,5 +1,6 @@
 //
 
+using Content.Server.ADT.Heretic.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -41,5 +42,11 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 
         outstr = null;
         return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        var ash = args.EntityManager.EnsureComponent<AshAscendedComponent>(args.Performer);
+        args.EntityManager.Dirty(args.Performer, ash);
     }
 }

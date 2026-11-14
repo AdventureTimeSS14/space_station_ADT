@@ -12,6 +12,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Whitelist;
+using Content.Shared.Item;
+using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
@@ -176,7 +178,13 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
 
     private bool IsEntityMindIgnored(EntityUid user, WizardTrapComponent trap)
     {
-        if (HasComp<GhostComponent>(user) || HasComp<SpectralComponent>(user) || !HasComp<MobStateComponent>(user))
+        if (HasComp<GhostComponent>(user) || HasComp<SpectralComponent>(user))
+            return true;
+
+        if (trap.TriggerOnItems && (HasComp<ItemComponent>(user) || HasComp<ThrownItemComponent>(user)))
+            return false;
+
+        if (!HasComp<MobStateComponent>(user))
             return true;
 
         if (trap.TargetedEntityWhitelist != null && !_whitelist.IsWhitelistPass(trap.TargetedEntityWhitelist, user))

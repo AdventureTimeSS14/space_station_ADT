@@ -1,5 +1,7 @@
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Heretic.Components;
 
@@ -14,4 +16,7 @@ public sealed partial class CosmicFieldComponent : Component
 
     [DataField]
     public LocId BombDefusePopup = "cosmic-field-component-bomb-defused-message";
+
+    [DataField]
+    public ProtoId<TagPrototype> IgnoredTag = "GrenadeIgnoreCosmicField";
 }

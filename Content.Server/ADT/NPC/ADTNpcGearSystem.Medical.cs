@@ -13,6 +13,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.Stacks;
+using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Prototypes;
 
@@ -37,7 +38,10 @@ public sealed partial class ADTNpcGearSystem
 
     private static readonly ProtoId<DamageTypePrototype> BluntDamage = "Blunt";
     private static readonly EntProtoId[] Medipens = { "CombatMedipen", "EmergencyMedipen" };
+    private static readonly ProtoId<TagPrototype> MedipenTag = "ADTMedipen";
     private static readonly TimeSpan MedipenMemory = TimeSpan.FromMinutes(5);
+
+    private const int MedipenSelfScore = 400;
 
     public float DamageFraction(EntityUid uid)
     {
@@ -89,6 +93,9 @@ public sealed partial class ADTNpcGearSystem
 
     public int HealScore(EntityUid patient, EntityUid item)
     {
+        if (_tag.HasTag(item, MedipenTag))
+            return SolutionVolume(item) > FixedPoint2.Zero ? MedipenSelfScore : 0;
+
         return HealScore(item, IsBleeding(patient), PatientDamage(patient));
     }
 
@@ -99,7 +106,31 @@ public sealed partial class ADTNpcGearSystem
 
     public EntityUid? FindHealItem(EntityUid owner, HashSet<EntityUid>? ignored, out int bestScore)
     {
+        if (FindSelfMedipen(owner, ignored) is { } medipen)
+        {
+            bestScore = MedipenSelfScore;
+            return medipen;
+        }
+
         return FindHealItemFor(owner, owner, ignored, out bestScore);
+    }
+
+    public EntityUid? FindSelfMedipen(EntityUid owner, HashSet<EntityUid>? ignored)
+    {
+        foreach (var entry in GetReserve(owner))
+        {
+            var item = entry.Item;
+
+            if (ignored != null && ignored.Contains(item))
+                continue;
+
+            if (!_tag.HasTag(item, MedipenTag) || SolutionVolume(item) <= FixedPoint2.Zero || !IsCarried(owner, item))
+                continue;
+
+            return item;
+        }
+
+        return null;
     }
 
     public EntityUid? FindHealItemFor(EntityUid medic, EntityUid patient, HashSet<EntityUid>? ignored, out int bestScore)

@@ -1,7 +1,12 @@
-- files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "repulse.ogg", "voidblink.ogg"]
+- files: ["blind.ogg", "castsummon.ogg", "curse.ogg", "disintegrate.ogg", "hereticknock.ogg", "moon_parade.ogg", "repulse.ogg", "voidblink.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
+
+- files: ["party_horn.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items"
 
 - files: ["heartbeat.ogg"]
   license: "CC-BY-SA-3.0"

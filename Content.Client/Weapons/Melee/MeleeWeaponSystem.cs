@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Client.ADT.Crushers; // ADT-Tweak
 using Content.Client.Gameplay;
+using Content.Shared.ADT.Heretic.Components.Moon;
 using Content.Shared.ADT.Weapons.Melee;
 using Content.Shared.CCVar;
 using Content.Shared.Effects;
@@ -77,6 +78,13 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var useDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.Use);
         var altDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.UseSecondary);
+
+        // ADT-Tweak-Start
+        if (HasComp<MoonConfusedComponent>(entity))
+        {
+            (useDown, altDown) = (altDown, useDown);
+        }
+        // ADT-Tweak-End
 
         if (weapon.AutoAttack || useDown != BoundKeyState.Down && altDown != BoundKeyState.Down || _cfg.GetCVar(CCVars.ControlHoldToAttackMelee))
         {

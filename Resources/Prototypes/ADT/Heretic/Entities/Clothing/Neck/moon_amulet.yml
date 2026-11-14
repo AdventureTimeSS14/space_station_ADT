@@ -1,0 +1,22 @@
+- type: entity
+  parent: [ ClothingNeckBase, BaseMagicContraband ]
+  id: HereticMoonAmulet
+  name: moonlight amulet
+  description: A piece of the mind, the soul and the moon.
+  components:
+  - type: HereticMagicItem
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: moon_amulette
+  - type: Clothing
+    sprite: ADT/Heretic/items.rsi
+  - type: ThermalVisionItem
+    toggleable: false
+    slotFlags: NECK
+  - type: ThermalVision
+    color: "#998989"
+    highlightOnly: true
+  - type: MoonAmulet
+  - type: Tag
+    tags:
+    - HereticItem

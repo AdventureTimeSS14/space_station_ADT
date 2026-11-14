@@ -12,10 +12,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.ADT.Heretic.Common;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -32,16 +34,20 @@ public sealed class ComplexJointVisualsOverlay : Overlay
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;
     private readonly IGameTiming _timing;
+    private readonly IResourceCache _cache;
+
+    private readonly Dictionary<SpriteSpecifier, bool> _validSprites = new();
 
     private readonly ShaderInstance _unshadedShader;
 
-    public ComplexJointVisualsOverlay(IEntityManager entManager, IPrototypeManager prototype, IGameTiming timing)
+    public ComplexJointVisualsOverlay(IEntityManager entManager, IPrototypeManager prototype, IGameTiming timing, IResourceCache cache)
     {
         ZIndex = 5;
 
         _entManager = entManager;
 
         _timing = timing;
+        _cache = cache;
 
         _sprite = entManager.System<SpriteSystem>();
         _transform = entManager.System<TransformSystem>();
@@ -84,7 +90,9 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 if (time < TimeSpan.Zero)
                     time = TimeSpan.Zero;
 
-                var texture = _sprite.GetFrame(data.Sprite, time);
+                if (!TryGetFrame(data.Sprite, time, out var texture))
+                    continue;
+
                 var textureSize = (Vector2) texture.Size;
                 var realY = textureSize.Y / EyeManager.PixelsPerMeter;
                 var realX = textureSize.X / EyeManager.PixelsPerMeter;
@@ -121,10 +129,10 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 {
                     Texture? tex = null;
 
-                    if (i == 0 && data.StartSprite is { } start)
-                        tex = _sprite.GetFrame(start, time);
-                    else if (i == segments - 1 && data.EndSprite is { } end)
-                        tex = _sprite.GetFrame(end, time);
+                    if (i == 0 && TryGetFrame(data.StartSprite, time, out var start))
+                        tex = start;
+                    else if (i == segments - 1 && TryGetFrame(data.EndSprite, time, out var end))
+                        tex = end;
 
                     (extraLen, var drawSize, var pos) =
                         GetData(tex, extraLen, realX, realY, i, size, normalized);
@@ -142,10 +150,38 @@ public sealed class ComplexJointVisualsOverlay : Overlay
 
     private float? GetStartOrEndRealY(SpriteSpecifier? sprite)
     {
-        if (sprite == null)
+        if (!TryGetFrame(sprite, TimeSpan.Zero, out var texture))
             return null;
 
-        return (float) _sprite.Frame0(sprite).Size.Y / EyeManager.PixelsPerMeter;
+        return (float) texture.Size.Y / EyeManager.PixelsPerMeter;
+    }
+
+    private bool TryGetFrame(SpriteSpecifier? sprite, TimeSpan time, [NotNullWhen(true)] out Texture? texture)
+    {
+        texture = null;
+
+        if (sprite == null || !IsValidSprite(sprite))
+            return false;
+
+        texture = _sprite.GetFrame(sprite, time);
+        return texture != null;
+    }
+
+    private bool IsValidSprite(SpriteSpecifier sprite)
+    {
+        if (_validSprites.TryGetValue(sprite, out var valid))
+            return valid;
+
+        valid = sprite switch
+        {
+            SpriteSpecifier.Rsi rsi => _cache.TryGetResource<RSIResource>(rsi.RsiPath, out var resource) &&
+                                       resource.RSI.TryGetState(rsi.RsiState, out _),
+            SpriteSpecifier.Texture tex => _cache.TryGetResource<TextureResource>(tex.TexturePath, out _),
+            _ => false,
+        };
+
+        _validSprites[sprite] = valid;
+        return valid;
     }
 
     private (float extraLen, Vector2 drawSize, Vector2 bottomLeft) GetData(Texture? tex,

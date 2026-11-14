@@ -1,4 +1,5 @@
 using Content.Server.Hands.Systems;
+using Content.Shared.Hands.Components; // ADT-Tweak
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 
@@ -22,13 +23,38 @@ public sealed partial class WieldedPrecondition : HTNPrecondition
     public override bool IsMet(NPCBlackboard blackboard)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-
-        if (!blackboard.TryGetValue<string>(NPCBlackboard.ActiveHand, out var activeHand, _entManager))
-            return false;
-
+        // ADT-Tweak-start
         var handsSystem = _entManager.System<HandsSystem>();
-        if (!handsSystem.TryGetHeldItem(owner, activeHand, out var heldEntity))
+        EntityUid? heldEntity = null;
+
+        if (blackboard.TryGetValue<string>(NPCBlackboard.ActiveHand, out var activeHand, _entManager) &&
+            handsSystem.TryGetHeldItem(owner, activeHand, out var held))
+        {
+            heldEntity = held;
+        }
+        else if (_entManager.TryGetComponent<HandsComponent>(owner, out var handsComp))
+        {
+            if (handsComp.ActiveHandId != null && handsSystem.TryGetHeldItem(owner, handsComp.ActiveHandId, out held))
+            {
+                heldEntity = held;
+            }
+            else
+            {
+                foreach (var (handName, _) in handsComp.Hands)
+                {
+                    if (handsSystem.TryGetHeldItem(owner, handName, out var handHeld) &&
+                        _entManager.HasComponent<WieldableComponent>(handHeld))
+                    {
+                        heldEntity = handHeld;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (heldEntity == null)
             return false;
+        // ADT-Tweak-end
 
         if (!_entManager.TryGetComponent<WieldableComponent>(heldEntity, out var wieldable))
             return false;

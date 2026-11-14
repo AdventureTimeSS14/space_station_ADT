@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.Access;
 using Content.Shared.AlertLevel;
+using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Clumsy.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -170,6 +171,9 @@ public sealed partial class FiringPinSystem : EntitySystem
 
     private void OnShotAttempted(Entity<GunComponent> ent, ref ShotAttemptedEvent args)
     {
+        if (HasComp<GhoulWeaponComponent>(ent) || HasComp<HereticMinionComponent>(args.User))
+            return;
+
         if (!TryComp<FiringPinHolderComponent>(ent, out var holder))
             return;
 

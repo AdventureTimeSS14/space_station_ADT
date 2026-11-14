@@ -1,4 +1,4 @@
-﻿- type: cloningSettings
+- type: cloningSettings
   id: FleshMimic
   components:
   # general
@@ -49,7 +49,7 @@
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
   forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
-  copyInternalStorage: false
+  copyInternalStorage: true
   # ADT: CloningSettingsPrototype lacks copyStorage / makeEquipmentUnremoveable /
   copyEquipment: # No pockets, ears, suit storage, id card
   - PREVENTEQUIP

@@ -24,6 +24,9 @@
     solution: tank
   - type: ReagentTank
     tankType: Fuel
+  - type: Tag # ADT-Tweak
+    tags:
+    - WaterTank
   - type: DamageOnToolInteract
     tools: Welding
     weldingDamage:

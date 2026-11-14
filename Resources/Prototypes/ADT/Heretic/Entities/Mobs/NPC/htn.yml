@@ -1,15 +1,177 @@
 - type: htnCompound
   id: HereticSummonCompound
   branches:
-    - tasks:
+    - preconditions:
+        - !type:ADTDownedPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTStandUpOperator
+
+    - preconditions:
+        - !type:ADTNeedHealPrecondition
+          minDamage: 0.3
+        - !type:ADTHostileNearPrecondition
+          range: 12
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTHealSelfOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Exists
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindCritEnemyOperator
+            range: 5
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Melee
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTExecuteOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+          invert: true
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Usable
+        - !type:ADTWeaponPrecondition
+          role: Sidearm
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Sidearm
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Held
+        - !type:CanReloadGunPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ReloadGunOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+          invert: true
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Exists
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Active
+          invert: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Melee
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Usable
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+          invert: true
+        - !type:ADTWeaponPrecondition
+          check: ActiveNonWeapon
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSwitchWeaponOperator
+            role: Main
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: HasAmmo
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindCritEnemyOperator
+            range: 5
+        - !type:HTNCompoundTask
+          task: ADTFinishTargetGunCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Active
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: HasAmmo
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTAcquireTarget
         - !type:HTNCompoundTask
           task: RangedCombatCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Active
+      tasks:
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Melee
+          check: Exists
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindWeaponOperator
+            range: 5
+            onlyRole: Melee
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickupWeaponOperator
+
+    - preconditions:
+        - !type:ADTWeaponPrecondition
+          role: Main
+          check: Held
+          strict: true
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindWeaponOperator
+            range: 7
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTPickupWeaponOperator
+
     - tasks:
         - !type:HTNCompoundTask
           task: MeleeCombatCompound
+
     - tasks:
         - !type:HTNCompoundTask
           task: FollowCompound
+
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound

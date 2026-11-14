@@ -1,4 +1,5 @@
 using Content.Shared.Heretic;
+using Content.Shared.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;
 
@@ -40,7 +41,7 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
         IEntityManager entMan,
         TransformSystem transform)
     {
-        if (comp.CurrentPath is not { } path || !comp.LimitedTransmutations.TryGetValue($"Blade{path}", out var blades))
+        if (comp.CurrentPath is not { } path)
             return null;
 
         var originCoords = transform.GetMapCoordinates(origin);
@@ -53,17 +54,28 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
 
         var range = MathF.Max(1.5f, dist + 0.5f);
 
-        foreach (var blade in blades)
+        EntityUid? otherPathBlade = null;
+
+        foreach (var blades in comp.LimitedTransmutations.Values)
         {
-            if (!entMan.EntityExists(blade))
-                continue;
+            foreach (var blade in blades)
+            {
+                if (!entMan.EntityExists(blade))
+                    continue;
 
-            if (originCoords.InRange(transform.GetMapCoordinates(blade), range))
-                continue;
+                if (!entMan.TryGetComponent(blade, out HereticBladeComponent? bladeComp))
+                    continue;
 
-            return blade;
+                if (originCoords.InRange(transform.GetMapCoordinates(blade), range))
+                    continue;
+
+                if (bladeComp.Path == path)
+                    return blade;
+
+                otherPathBlade ??= blade;
+            }
         }
 
-        return null;
+        return otherPathBlade;
     }
 }

@@ -19,6 +19,17 @@
   requiresExposedSkin: true
 
 - type: injectorMode
+  parent: [ BaseDrawMode ]
+  id: PhylacteryDrawMode
+  name: injector-component-draw-mode-name
+  transferAmounts: [ 15 ]
+  mobTime: 0.3
+  containerDrawTime: 0.1
+  delayPerVolume: 0
+  popupUserAttempt: injector-component-needle-drawing-user
+  popupTargetAttempt: injector-component-needle-drawing-target
+
+- type: injectorMode
   parent: HyposprayDynamicMode
   id: ADTHyposprayDynamicMode
   suitMobTime: 1

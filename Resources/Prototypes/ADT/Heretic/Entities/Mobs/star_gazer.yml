@@ -35,6 +35,16 @@
     # ADT: no armorPenetration
   - type: Physics
     bodyType: KinematicController
+  - type: Input
+    context: "human"
+  - type: Hands
+    activeHandId: right
+    startingHands:
+      right:
+        location: Right
+      left:
+        location: Left
+  - type: ComplexInteraction
   - type: Fixtures
     fixtures:
       fix1:

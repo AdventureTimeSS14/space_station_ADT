@@ -29,3 +29,19 @@
     - type: ThermalVision
       color: "#998989"
       highlightOnly: true
+
+- type: entity
+  parent: ClothingNeckAmberFocus
+  id: ClothingNeckSharpMedal
+  name: sharp medal
+  description: Issued many times to those who have proven their strength, cutting off the fingers of those who have strayed once.
+  components:
+    - type: Sprite
+      sprite: ADT/Heretic/Entities/sharp_medal.rsi
+      state: icon
+    - type: Clothing
+      sprite: ADT/Heretic/Entities/sharp_medal.rsi
+    - type: SharpMedal
+    - type: Tag
+      tags:
+        - SharpMedal

@@ -1,0 +1,141 @@
+- type: entity
+  parent: Mirror
+  id: HereticMiraculousMirror
+  name: miraculous mirror
+  description: A silvered mirror that shows more than your reflection.
+  components:
+  - type: HereticMiraculousMirror
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingWeeping
+  name: the sister and he who wept
+  description: A weeping painting that clears the mind of the faithful and curses heathens with visions.
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting3
+  - type: HereticPainting
+    kind: Weeping
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingDesire
+  name: the feast of desire
+  description: A hungry painting that feeds the faithful and starves heathens.
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting6
+  - type: HereticPainting
+    kind: Desire
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingVines
+  name: great chaparral over rolling hills
+  description: A green painting that slows heathens who linger near it.
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting9
+  - type: HereticPainting
+    kind: Vines
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingBeauty
+  name: lady of the gate
+  description: A beautiful painting that steals the words of heathens.
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting14
+  - type: HereticPainting
+    kind: Beauty
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
+
+- type: entity
+  parent: BaseWallmount
+  id: HereticPaintingRust
+  name: master of the rusted mountain
+  description: A rusted painting that corrodes the floor heathens walk on.
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting18
+  - type: HereticPainting
+    kind: Rust
+  - type: ActivatableUI
+    key: enum.PaintingCurseUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintingCurseUiKey.Key:
+        type: PaintingCurseBoundUserInterface
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: HereticMansusGate
+  name: mansus gate
+  description: A paired gate to the Mansus. Only the faithful, the dead, or the willing may pass.
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/effects.rsi
+    state: bhole3
+    drawdepth: OverMobs
+  - type: HereticMansusGate
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        layer:
+        - WallLayer
+        mask:
+        - MobMask
+        density: 60
+        hard: false
+  - type: Pullable
+  - type: Anchorable
+  - type: Clickable
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

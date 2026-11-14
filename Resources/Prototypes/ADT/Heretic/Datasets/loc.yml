@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: FractureHeathenExamineMessages
+  values:
+    prefix: fracture-examine-message-
+    count: 16
+
+- type: localizedDataset
+  id: InfluenceGainMessages
+  values:
+    prefix: influence-gain-message-
+    count: 16

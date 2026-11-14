@@ -58,7 +58,7 @@
       playerRatio: 20
       range:
         min: 1
-        max: 2
+        max: 3
   - type: Tag
     tags:
       - CalmAntag

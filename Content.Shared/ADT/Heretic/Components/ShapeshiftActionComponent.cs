@@ -4,10 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShapeshiftActionComponent : Component
 {
-    [DataField(required: true)]
+    [DataField(required: true), AutoNetworkedField]
     public List<ProtoId<PolymorphPrototype>> Polymorphs = new();
 
     [DataField]
