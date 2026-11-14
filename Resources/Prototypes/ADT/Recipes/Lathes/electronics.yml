@@ -120,3 +120,12 @@
 #    Gold: 600
 #    Silver: 600
 #    Copper: 1000
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTPandemicMachineCircuitboard
+  result: ADTPandemicMachineCircuitboard
+  materials:
+    Steel: 600
+    Glass: 900
+    Copper: 600

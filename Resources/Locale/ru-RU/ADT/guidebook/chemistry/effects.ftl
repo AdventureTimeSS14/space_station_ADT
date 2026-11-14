@@ -44,3 +44,11 @@ reagent-effect-guidebook-murder-solution-burst =
         [1] Наносит
        *[other] наносят
     } разово { $amount } ед. радиационного урона, не чаще раза в { $cooldown } с
+reagent-effect-guidebook-adt-cure-diseases =
+    { $chance ->
+        [1] Излечивает
+       *[other] излечивают
+    } { $viruses ->
+        [true] все вирусы
+       *[false] все болезни
+    }

@@ -221,3 +221,16 @@
   position: 5,-1
   requiredTech:
   - ADTAdvancedMedicalCare
+
+- type: technology
+  id: ADTVirology
+  name: research-technology-virology
+  icon:
+    sprite: ADT/Structures/Machines/Medical/pandemic.rsi
+    state: pandemic
+  discipline: Biochemical
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ADTPandemicMachineCircuitboard
+  position: 4,2

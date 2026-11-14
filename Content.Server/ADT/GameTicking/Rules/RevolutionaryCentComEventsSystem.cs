@@ -25,6 +25,7 @@ public sealed class RevolutionaryCentComEventsSystem : EntitySystem
     private void OnRuleEnded(Entity<RevolutionaryCentComEventsComponent> entity, ref GameRuleEndedEvent args)
     {
         entity.Comp.Token?.Cancel();
+        entity.Comp.Token?.Dispose();
         entity.Comp.Token = null;
     }
 

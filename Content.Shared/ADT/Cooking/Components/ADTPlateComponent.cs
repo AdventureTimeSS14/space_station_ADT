@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Cooking.Prototypes;
+using Content.Shared.Item;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -15,6 +16,12 @@ public sealed partial class ADTPlateComponent : Component
 
     [DataField]
     public int MaxItems = 4;
+
+    [DataField]
+    public int MaxWeight = 10;
+
+    [DataField]
+    public ProtoId<ItemSizePrototype> FullSize = "Normal";
 
     [ViewVariables]
     public Container Contents = default!;

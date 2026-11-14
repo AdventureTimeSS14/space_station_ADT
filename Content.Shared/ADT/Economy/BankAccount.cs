@@ -16,6 +16,7 @@ public sealed class BankAccount
     public ProtoId<CargoAccountPrototype>? AccountPrototype;
     public EntityUid? CartridgeUid;
     public List<TransactionsHistory> History;
+    public EntityUid? Station;
 
     public BankAccount(int accountId, int balance, IRobustRandom random)
     {

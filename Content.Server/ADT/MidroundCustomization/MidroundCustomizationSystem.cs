@@ -103,6 +103,8 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
     private void OnSelectSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationSelectDoAfterEvent args)
     {
+        component.DoAfter = null;
+
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
@@ -136,6 +138,8 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
     private void OnChangeVoiceDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeVoiceDoAfterEvent args)
     {
+        component.DoAfter = null;
+
         if (args.Handled || args.Cancelled)
             return;
 
@@ -192,6 +196,8 @@ public sealed class MidroundCustomizationSystem : EntitySystem
 
     private void OnChangeBarkDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkDoAfterEvent args)
     {
+        component.DoAfter = null;
+
         if (args.Handled || args.Cancelled)
             return;
 

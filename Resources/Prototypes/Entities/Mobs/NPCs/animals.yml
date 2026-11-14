@@ -1680,6 +1680,9 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  # ADT-Tweak start
+  - type: ADTVirusSusceptible
+  # ADT-Tweak end
   - type: CombatMode
     canDisarm: true
   - type: Inventory

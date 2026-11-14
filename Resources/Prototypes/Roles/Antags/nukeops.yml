@@ -94,6 +94,10 @@
     nameSegments:
     - NamesSyndicateNormal
     nameFormat: name-format-nukie-agent
+  # ADT-Tweak start
+  - type: ADTVirusImmune
+    absolute: true
+  # ADT-Tweak end
   mindRoles:
   - MindRoleNukeopsMedic
 

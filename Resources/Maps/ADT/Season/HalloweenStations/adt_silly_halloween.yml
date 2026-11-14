@@ -37018,10 +37018,6 @@ entities:
           ents: []
           showEnts: False
           occludes: True
-        badge: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
     - type: SolutionContainerManager
       solutions:
         food:

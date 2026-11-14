@@ -116,38 +116,6 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ADTClothingNeckArmband
-  name: armband
-  description: A simple cloth armband.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Neck/armband.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Neck/armband.rsi
-  - type: StaticPrice
-    price: 10
-  - type: Construction
-    graph: ADTClothingNeckArmband
-    node: armband
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ADTClothingNeckArmbandMed
-  name: medical armband
-  description: A cloth armband with a cyan medical cross.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Neck/armband_med.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Neck/armband_med.rsi
-  - type: StaticPrice
-    price: 15
-  - type: Construction
-    graph: ADTClothingNeckArmbandMed
-    node: armbandMed
-
-- type: entity
-  parent: ClothingNeckBase
   id: ADTClothingNeckScientistHLTie
   name: red and blue scientist tie
   description: HELP ME, GORDON!

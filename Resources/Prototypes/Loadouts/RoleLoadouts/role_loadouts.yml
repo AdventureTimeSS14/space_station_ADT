@@ -701,6 +701,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - HeadofSecurityHead
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT #ADT-Tweak
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -729,6 +730,7 @@
   - Inventory # Corvax-Loadouts
   - WardenHead
   #ADT-Tweak-Start
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT
   - WardenNeckADT
   #ADT-Tweak-End
@@ -757,6 +759,7 @@
   - Inventory # Corvax-Loadouts
   - SecurityHead
   #ADT-Tweak-Start
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT
   - SecurityOfficerNeckADT
     #ADT-Tweak-End
@@ -785,6 +788,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - DetectiveHead
+  - ADTSecurityMasks # ADT-Tweak
   - SecurityOfficerGlassesADT #ADT-Tweak
   - DetectiveNeck
   - DetectiveJumpsuit

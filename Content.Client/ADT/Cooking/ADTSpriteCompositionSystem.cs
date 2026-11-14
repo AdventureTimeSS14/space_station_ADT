@@ -1,7 +1,5 @@
 using System.Numerics;
 using Content.Client.Clickable;
-using Content.Client.DisplacementMap;
-using Content.Shared.DisplacementMap;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Graphics.RSI;
@@ -13,7 +11,6 @@ namespace Content.Client.ADT.Cooking;
 public sealed partial class ADTSpriteCompositionSystem : EntitySystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
-    [Dependency] private DisplacementMapSystem _displacement = default!;
     [Dependency] private IClickMapManager _clickMap = default!;
 
     private const int ClickMapRadius = 2;
@@ -151,7 +148,6 @@ public sealed partial class ADTSpriteCompositionSystem : EntitySystem
         Angle rotation,
         int? index,
         Color? tint = null,
-        DisplacementData? displacement = null,
         ShaderInstance? shader = null,
         Color? fill = null,
         bool keepOwnShaders = false,
@@ -200,12 +196,6 @@ public sealed partial class ADTSpriteCompositionSystem : EntitySystem
                 target.Comp.LayerSetShader(newIndex, layer.Shader, layer.ShaderPrototype?.Id);
 
             keys.Add(key);
-
-            if (displacement != null && _displacement.TryAddDisplacement(displacement, target, newIndex, key, out var displacementKey))
-            {
-                keys.Add(displacementKey);
-                newIndex++;
-            }
 
             if (index != null)
                 index = newIndex + 1;

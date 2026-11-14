@@ -7,10 +7,3 @@
   id: ADTFoodSauce
   kind: source
   path: "/Textures/ADT/Shaders/food_sauce.swsl"
-
-- type: shader
-  id: ADTFoodSauceDisplaced
-  kind: source
-  path: "/Textures/ADT/Shaders/food_sauce_displaced.swsl"
-  params:
-    displacementSize: 127

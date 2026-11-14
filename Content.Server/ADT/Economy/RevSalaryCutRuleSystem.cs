@@ -17,6 +17,7 @@ public sealed partial class RevSalaryCutRuleSystem : StationEventSystem<RevSalar
 {
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StationSalaryCutSystem _salaryCut = default!;
 
     protected override void Started(EntityUid uid, RevSalaryCutRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -37,11 +38,9 @@ public sealed partial class RevSalaryCutRuleSystem : StationEventSystem<RevSalar
 
         base.Started(uid, component, gameRule, args);
 
-        var cuts = EnsureComp<StationSalaryCutComponent>(station.Value);
-        cuts.Cuts[department] = Math.Min(cuts.Cuts.GetValueOrDefault(department) + cut, cuts.MaxCut);
+        var totalPercent = (int) Math.Round(_salaryCut.AddCut(station.Value, department, cut) * 100);
 
         var departmentName = Loc.GetString($"command-budget-{department}");
-        var totalPercent = (int) Math.Round(cuts.Cuts[department] * 100);
         var reason = Loc.GetString($"rev-salary-cut-reason-{_random.Next(1, 4)}");
 
         _chat.DispatchGlobalAnnouncement(

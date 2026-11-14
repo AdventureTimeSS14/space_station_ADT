@@ -11,7 +11,7 @@ public sealed class ADTStoveWindow : DefaultWindow
     [Dependency] private IEntityManager _entMan = default!;
     [Dependency] private IGameTiming _timing = default!;
 
-    private const int Step = 15;
+    private const int Step = 10;
 
     public event Action<int>? OnTimerSelected;
 

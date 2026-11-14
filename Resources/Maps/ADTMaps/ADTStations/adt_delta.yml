@@ -5,7 +5,7 @@ meta:
   forkId: SS14_DEV
   forkVersion: 9a43594aa9e46f1991fa6fc057df4366423ad79c
   time: 07/04/2026 11:31:14
-  entityCount: 38978
+  entityCount: 38982
 maps:
 - 1
 grids:
@@ -194209,7 +194209,7 @@ entities:
           Telecrystal: 2
         costModifiersBySourceId: {}
       - id: ADTUplinkMask
-        productEntity: ADTMaskCoif
+        productEntity: ADTClothingMaskCoif
         name: uplink-mask-name
         description: uplink-mask-desc
         categories:
@@ -221759,6 +221759,28 @@ entities:
       pos: 30.5,-26.5
       parent: 2
   - uid: 30902
+    components:
+    - type: Transform
+      pos: 5.5,-49.5
+      parent: 2
+- proto: SpawnPointADTVirologist
+  entities:
+  - uid: 53950
+    components:
+    - type: Transform
+      pos: 29.5,-25.5
+      parent: 2
+  - uid: 53951
+    components:
+    - type: Transform
+      pos: 28.5,-28.5
+      parent: 2
+  - uid: 53952
+    components:
+    - type: Transform
+      pos: 30.5,-26.5
+      parent: 2
+  - uid: 53953
     components:
     - type: Transform
       pos: 5.5,-49.5

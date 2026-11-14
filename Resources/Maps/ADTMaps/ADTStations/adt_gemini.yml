@@ -5,7 +5,7 @@ meta:
   forkId: SS14_DEV
   forkVersion: 3f312a9379939f8c4b0ef093544c51009c591022
   time: 07/05/2026 05:44:29
-  entityCount: 30994
+  entityCount: 30996
 maps:
 - 1
 grids:
@@ -186265,6 +186265,18 @@ entities:
       pos: -18.5,-29.5
       parent: 2
   - uid: 22062
+    components:
+    - type: Transform
+      pos: -17.5,-29.5
+      parent: 2
+- proto: SpawnPointADTVirologist
+  entities:
+  - uid: 31005
+    components:
+    - type: Transform
+      pos: -18.5,-29.5
+      parent: 2
+  - uid: 31006
     components:
     - type: Transform
       pos: -17.5,-29.5

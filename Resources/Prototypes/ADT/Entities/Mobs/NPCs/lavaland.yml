@@ -55,7 +55,44 @@
   suffix: Tendril
   components:
   - type: ADTLegion
-    corpseProto: ADTHeliosRemainsCharred
+    corpseProto: ADTLegionCharredRemains
+
+- type: entity
+  id: ADTLegionCharredRemains
+  name: charred skeletal remains
+  description: A skeleton burnt black. Whoever it was, the necropolis took them a long time ago.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/charred_remains.rsi
+    state: charred
+    drawdepth: FloorObjects
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.2,0.4,0.2"
+        density: 50
+        mask:
+        - ItemMask
+  - type: Pullable
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: ADTMobLegionSkull

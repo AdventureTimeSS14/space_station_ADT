@@ -41,3 +41,6 @@ ent-ADTEffectLavalandGoliathChargeDecoy = { "" }
 
 ent-ADTEffectLavalandGoliathAncientChargeDecoy = { "" }
     .desc = { "" }
+
+ent-ADTLegionCharredRemains = обугленные останки
+    .desc = Скелет, обгоревший дочерна. Кем бы ни был этот человек, некрополь забрал его очень давно.

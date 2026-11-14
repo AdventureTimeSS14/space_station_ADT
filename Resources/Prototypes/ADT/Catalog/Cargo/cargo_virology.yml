@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: ADTMedicalVirologyCultures
+  icon:
+    sprite: ADT/Objects/Specific/Medical/virus_tube.rsi
+    state: tube
+  product: ADTCrateVirologyCultures
+  cost: 1200
+  category: cargoproduct-category-name-medical
+  group: market
+
+- type: cargoProduct
+  id: ADTMedicalVirologyBiohazardBags
+  icon:
+    sprite: ADT/Objects/Specific/Medical/envirobag.rsi
+    state: bag
+  product: ADTCrateVirologyBiohazardBags
+  cost: 600
+  category: cargoproduct-category-name-medical
+  group: market

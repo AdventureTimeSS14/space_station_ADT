@@ -13,6 +13,8 @@
     Bloodstream:
       # Main effects
       effects:
+      - !type:DissociativeExtendFront # ADT-Tweak
+        seconds: 3
       - !type:HealthChange
         # Start ADT tweak
         conditions:
@@ -180,6 +182,8 @@
   metabolisms:
     Bloodstream:
       effects:
+      - !type:DissociativeExtendFront # ADT-Tweak
+        seconds: 3
       # Main effects
       - !type:MovementSpeedModifier
         walkSpeedModifier: 1.25
@@ -342,6 +346,14 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+      # ADT-Tweak-start
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ]
+      #  type: Add
+      #  time: 4
+      - !type:DissociativeExtendFront # ADT-Tweak
+        seconds: 1
+      # ADT-Tweak-end
 
 - type: reagent
   id: Bananadine
@@ -358,6 +370,12 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+      # ADT-Tweak-start
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ]
+      #  type: Add
+      #  time: 4
+      # ADT-Tweak-end
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -687,3 +705,9 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+      # ADT-Tweak-start
+      #- !type:Hallucinate
+      #  hallucinations: [ SupermatterPack ]
+      #  type: Add
+      #  time: 4
+      # ADT-Tweak-end

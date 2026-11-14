@@ -17,6 +17,13 @@
     sprite: Clothing/Uniforms/Jumpsuits/Medical/virology.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuits/Medical/virology.rsi
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.5
+    zones:
+    - chest
+    - arms
+  # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase

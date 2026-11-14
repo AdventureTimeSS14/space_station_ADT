@@ -75,7 +75,7 @@ entity-effect-guidebook-adjust-addiction-level = Снижает уровень �
 
 guide-entry-addictions = Зависимости
 
-health-analyzer-window-addictions-title = Зависимости:
+health-analyzer-window-addictions-title = Зависимости
 health-analyzer-addiction-alcohol = Алкогольная
 health-analyzer-addiction-nicotine = Никотиновая
 health-analyzer-addiction-drug = Наркотическая
@@ -83,8 +83,11 @@ health-analyzer-addiction-medicine = Лекарственная
 health-analyzer-addiction-omnizine = Омнизиновая
 health-analyzer-window-addiction-line = { $kind } зависимость: стадия { $stage } ({ $stageName })
 health-analyzer-window-addiction-permanent = { $kind } зависимость: стадия { $stage } ({ $stageName }, не лечится)
-health-analyzer-addiction-stage-1 = лёгкая
-health-analyzer-addiction-stage-2 = средняя
-health-analyzer-addiction-stage-3 = тяжёлая
+health-analyzer-addiction-stage-1 = Лёгкая форма привыкания
+health-analyzer-addiction-stage-2 = Средняя форма привыкания
+health-analyzer-addiction-stage-3 = Тяжёлая форма привыкания
+health-analyzer-window-addiction-stage-short = Стадия { $stage } из 3
+health-analyzer-window-addiction-treatable-note = Поддаётся лечению
+health-analyzer-window-addiction-permanent-note = Хроническая, лечению не поддаётся
 health-analyzer-window-addictions-treatment = Лечение: воздержание или Детоксин
 health-analyzer-window-addictions-untreatable = Лечение невозможно: зависимость хроническая

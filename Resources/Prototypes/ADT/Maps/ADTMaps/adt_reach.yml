@@ -41,6 +41,7 @@
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 1 ]
+            ADTVirologist: [ 2, 2 ]
             MedicalDoctor: [ 1, 1 ]
             MedicalIntern: [ 1, 2 ]
             ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
