@@ -1,0 +1,10 @@
+ent-MissileMagazine50mmHE = автозарядник фугасных 50мм ракет
+    .desc = Контейнерный 50-мм ракетный автозарядник.
+    .ammo-loader-type = Контейнер (фугасные)
+    .ammo-loader-caliber = 50 мм
+    .ammo-loader-weight = 22 кг
+ent-MissileCartridge50mmHE = фугасная ракета 50 мм
+    .desc = Одиночная 50-мм фугасная ракета.
+    .ammo-loader-type = Ракета (фугасная)
+    .ammo-loader-caliber = 50 мм
+    .ammo-loader-weight = 4.5 кг

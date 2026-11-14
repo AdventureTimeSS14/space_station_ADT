@@ -140,6 +140,14 @@ public sealed partial class GunComponent : Component
     [ViewVariables]
     public EntityCoordinates? ShootCoordinates = null;
 
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Mono - multiplier applied to the damage of every projectile or hitscan fired by this gun.
+    /// </summary>
+    [DataField]
+    public float DamageModifier = 1f;
+    // ADT-Tweak-End
+
     /// <summary>
     /// Who the gun is being requested to shoot at directly.
     /// </summary>

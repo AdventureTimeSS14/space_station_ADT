@@ -1,0 +1,12 @@
+ent-Magazine30mm = автозарядник 30-мм снарядов
+    .desc = Контейнерный автозарядник 30-мм боеприпасов для корабельной артиллерии.
+    .ammo-loader-type = Контейнер
+    .ammo-loader-caliber = 30 мм
+    .ammo-loader-weight = 12 кг
+ent-30mmCartridge = снаряд 30 мм
+ent-Magazine30mmHE = автозарядник фугасных 30-мм снарядов
+    .desc = Контейнерный автозарядник 30-мм фугасных боеприпасов для корабельной артиллерии.
+    .ammo-loader-type = Контейнер (фугасные)
+    .ammo-loader-caliber = 30 мм
+    .ammo-loader-weight = 13 кг
+ent-30mmCartridgeHE = фугасный снаряд 30 мм

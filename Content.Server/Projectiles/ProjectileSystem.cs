@@ -9,6 +9,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
+using Content.Shared._Mono.Projectile; // ADT-Tweak
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 
@@ -92,6 +93,14 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             if (!args.OurBody.LinearVelocity.IsLengthZero())
                 _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
+
+        // ADT-Tweak-Start: Mono, shells exploding after penetration
+        if (component.ProjectileSpent)
+        {
+            var spentEv = new ProjectileSpentEvent();
+            RaiseLocalEvent(uid, ref spentEv);
+        }
+        // ADT-Tweak-End
 
         if (component.DeleteOnCollide && component.ProjectileSpent)
             QueueDel(uid);

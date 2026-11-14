@@ -1,0 +1,131 @@
+using Robust.Shared.Serialization;
+using Robust.Shared.Map;
+using Content.Shared._Crescent.ShipShields;
+using Content.Shared.Shuttles.BUIStates;
+
+namespace Content.Shared._Mono.FireControl;
+
+[Serializable, NetSerializable]
+public sealed class FireControlConsoleUpdateEvent : EntityEventArgs
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlConsoleBoundInterfaceState : BoundUserInterfaceState
+{
+    public bool Connected;
+    public FireControllableEntry[] FireControllables;
+    public NavInterfaceState NavState;
+    public ShipShieldState ShieldState; // ADT-Tweak: Forge sends it in NavInterfaceState
+
+    public FireControlConsoleBoundInterfaceState(bool connected, FireControllableEntry[] fireControllables, NavInterfaceState navState, ShipShieldState shieldState)
+    {
+        Connected = connected;
+        FireControllables = fireControllables;
+        NavState = navState;
+        ShieldState = shieldState;
+    }
+}
+
+[Serializable, NetSerializable]
+public enum FireControlConsoleUiKey : byte
+{
+    Key,
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlConsoleRefreshServerMessage : BoundUserInterfaceMessage
+{
+
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlConsoleFireMessage : BoundUserInterfaceMessage
+{
+    public List<NetEntity> Selected;
+    public NetCoordinates Coordinates;
+    public FireControlConsoleFireMessage(List<NetEntity> selected, NetCoordinates coordinates)
+    {
+        Selected = selected;
+        Coordinates = coordinates;
+    }
+}
+
+/// <summary>
+/// Event raised when a fire control console wants to fire weapons at specific coordinates.
+/// Used for tracking cursor position.
+/// </summary>
+public sealed class FireControlConsoleFireEvent : EntityEventArgs
+{
+    /// <summary>
+    /// The coordinates of the cursor/firing position
+    /// </summary>
+    public NetCoordinates Coordinates;
+
+    /// <summary>
+    /// The weapons selected to fire
+    /// </summary>
+    public List<NetEntity> Selected;
+
+    public FireControlConsoleFireEvent(NetCoordinates coordinates, List<NetEntity> selected)
+    {
+        Coordinates = coordinates;
+        Selected = selected;
+    }
+}
+
+[Serializable, NetSerializable]
+public struct FireControllableEntry
+{
+    /// <summary>
+    /// The entity in question
+    /// </summary>
+    public NetEntity NetEntity;
+
+    /// <summary>
+    /// Location of the entity
+    /// </summary>
+    public NetCoordinates Coordinates;
+
+    /// <summary>
+    /// Display name of the entity
+    /// </summary>
+    public string Name;
+
+    /// <summary>
+    /// Current ammunition count.
+    /// </summary>
+    public int? AmmoCount;
+
+    /// <summary>
+    /// Whether this weapon has manual reload.
+    /// </summary>
+    public bool HasManualReload;
+
+    /// <summary>
+    /// Whether this weapon ignores line-of-sight restrictions.
+    /// </summary>
+    public bool IgnoresLos;
+
+    // LuaM
+    /// <summary>
+    /// When the weapon fired last, if it is still waiting to fire again.
+    /// </summary>
+    public TimeSpan? ReloadStart;
+
+    /// <summary>
+    /// When the weapon can fire again, if it is still waiting.
+    /// </summary>
+    public TimeSpan? ReloadEnd;
+    // End LuaM
+
+    public FireControllableEntry(NetEntity entity, NetCoordinates coordinates, string name, int? ammoCount = null, bool hasManualReload = false, bool ignoresLos = false)
+    {
+        NetEntity = entity;
+        Coordinates = coordinates;
+        Name = name;
+        AmmoCount = ammoCount;
+        HasManualReload = hasManualReload;
+        IgnoresLos = ignoresLos;
+    }
+}

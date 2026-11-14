@@ -22,7 +22,7 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public int Capacity = 30;
 
-    public int Count => UnspawnedCount + Container.ContainedEntities.Count;
+    public int Count => (InfiniteUnspawned ? 0 : UnspawnedCount) + Container.ContainedEntities.Count; // ADT-Tweak: Mono infinite ammo
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public int UnspawnedCount;
@@ -57,4 +57,13 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan FillDelay = TimeSpan.FromSeconds(0.5);
+
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Monolith - whether to ignore UnspawnedCount and be able to fire infinitely
+    /// Will prioritise and fire/spend entity ammo if loaded
+    /// </summary>
+    [DataField]
+    public bool InfiniteUnspawned;
+    // ADT-Tweak-End
 }
