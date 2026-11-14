@@ -160,3 +160,16 @@
       sprite: ADT/Clothing/Ears/Headsets/armyheadset.rsi
 
 # USSP USSP
+
+- type: entity
+  parent: ClothingHeadsetCentCom
+  id: ADTClothingHeadsetLimaTen
+  name: lima-10 headset
+  description: A headset for lima-10 forces.
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+        - ADTEncryptionKeyLimaTen
+    - type: Tag # Убираем из хамелеона
+      tags: []
