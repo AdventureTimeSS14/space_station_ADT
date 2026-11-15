@@ -42,6 +42,7 @@
     MedicalDoctor: 300
     Paramedic: 400
     ADTPathologist: 400
+    ADTVirologist: 400
     Chemist: 400
     ADTSeniorPhysician: 450
     # СБ
