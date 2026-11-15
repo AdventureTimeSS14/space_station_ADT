@@ -18,6 +18,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Stacks;
+using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Warps;
@@ -59,6 +60,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private DecalSystem _decalSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -371,30 +373,19 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var elapsed = _timing.CurTime - comp.LastLaunchTime;
         var cooldownReady = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
 
-        var isAtWar = comp.WarDeclaredTime != null;
         var warCooldownRemaining = 0;
-        var warNukieArriveDelay = TimeSpan.Zero;
-
-        var nukeopsQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
-        while (nukeopsQuery.MoveNext(out _, out var nukeops))
+        if (comp.WarDeclaredTime is { } warDeclared)
         {
-            if (nukeops.WarDeclaredTime != null)
-            {
-                var warTime = _timing.CurTime - nukeops.WarDeclaredTime.Value;
-                warNukieArriveDelay = nukeops.WarNukieArriveDelay;
-                if (warTime < nukeops.WarNukieArriveDelay)
-                {
-                    warCooldownRemaining = (int)Math.Ceiling((nukeops.WarNukieArriveDelay - warTime).TotalSeconds);
-                }
-                break;
-            }
+            var warTime = _timing.CurTime - warDeclared;
+            var warNukieArriveDelay = GetWarArriveDelay();
+            if (warTime < warNukieArriveDelay)
+                warCooldownRemaining = (int)Math.Ceiling((warNukieArriveDelay - warTime).TotalSeconds);
         }
-
-        comp.WarDeclaredTime = comp.WarDeclaredTime ?? _timing.CurTime;
+        var isAtWar = comp.WarDeclaredTime != null;
 
         var tcCount = GetTcInSlot(uid);
         var currentCost = isAtWar ? comp.WarCost : comp.PeaceCost;
-        var canLaunch = cooldownReady && tcCount >= currentCost;
+        var canLaunch = cooldownReady && tcCount >= currentCost && warCooldownRemaining == 0;
 
         var cooldownRemaining = cooldownReady ? 0 : (int)Math.Ceiling((comp.Cooldown - elapsed).TotalSeconds);
 
@@ -462,6 +453,17 @@ public sealed class DropPodConsoleSystem : EntitySystem
         return stack.Count;
     }
 
+    private TimeSpan GetWarArriveDelay()
+    {
+        var query = EntityQueryEnumerator<NukeopsRuleComponent>();
+        while (query.MoveNext(out _, out var nukeops))
+        {
+            if (nukeops.WarDeclaredTime != null)
+                return nukeops.WarNukieArriveDelay;
+        }
+        return TimeSpan.FromMinutes(15);
+    }
+
     private void OnDeployMessage(Entity<DropPodConsoleComponent> ent, ref DropPodConsoleDeployMessage args)
     {
         var (uid, comp) = ent;
@@ -474,7 +476,10 @@ public sealed class DropPodConsoleSystem : EntitySystem
         }
 
         if (dropPod.Launched)
+        {
+            _popup.PopupEntity(Loc.GetString("drop-pod-console-popup-launched"), uid, args.Actor);
             return;
+        }
 
         if ((_timing.CurTime - comp.LastLaunchTime) < comp.Cooldown)
             return;
@@ -482,21 +487,12 @@ public sealed class DropPodConsoleSystem : EntitySystem
         if (comp.WarDeclaredTime != null)
         {
             var warTime = _timing.CurTime - comp.WarDeclaredTime.Value;
-            var warNukieArriveDelay = TimeSpan.FromMinutes(15); // default > NukeopsRuleComponent 15 minutes
-            var nukeopsQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
-            while (nukeopsQuery.MoveNext(out _, out var nukeops))
-            {
-                if (nukeops.WarDeclaredTime != null)
-                {
-                    warNukieArriveDelay = nukeops.WarNukieArriveDelay;
-                    break;
-                }
-            }
-
+            var warNukieArriveDelay = GetWarArriveDelay();
             if (warTime < warNukieArriveDelay)
             {
-                var timeRemain = warNukieArriveDelay - warTime;
-                Log.Debug($"DropPodConsole {ToPrettyString(uid)}: launch blocked by war cooldown, {timeRemain:mm\\:ss} remaining.");
+                var timeRemain = (int)Math.Ceiling((warNukieArriveDelay - warTime).TotalSeconds);
+                Log.Debug($"DropPodConsole {ToPrettyString(uid)}: launch blocked by war cooldown, {timeRemain}s remaining.");
+                _popup.PopupEntity(Loc.GetString("drop-pod-console-popup-war", ("time", timeRemain)), uid, args.Actor);
                 return;
             }
         }
@@ -507,7 +503,10 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var currentCost = isAtWar ? comp.WarCost : comp.PeaceCost;
 
         if (tcCount < currentCost)
+        {
+            _popup.PopupEntity(Loc.GetString("drop-pod-console-popup-tc", ("cost", currentCost)), uid, args.Actor);
             return;
+        }
 
         var targetBeaconEnt = GetEntity(args.TargetBeacon);
 
