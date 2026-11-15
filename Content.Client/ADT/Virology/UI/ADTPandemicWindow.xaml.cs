@@ -52,6 +52,8 @@ public sealed partial class ADTPandemicWindow : DefaultWindow
     {
         EjectButton.Disabled = !state.HasBeaker;
         ClearButton.Disabled = !state.HasBeaker;
+        EjectButton.Visible = !state.ReadOnly;
+        ClearButton.Visible = !state.ReadOnly;
 
         DnaLabel.Text = state.HasBeaker && state.BloodDna.Length > 0
             ? Loc.GetString("adt-pandemic-dna", ("dna", state.BloodDna))
@@ -104,6 +106,11 @@ public sealed partial class ADTPandemicWindow : DefaultWindow
                 HorizontalExpand = true,
             });
 
+            AntibodiesContainer.AddChild(row);
+
+            if (state.ReadOnly)
+                continue;
+
             var vaccineButton = new Button
             {
                 Text = Loc.GetString("adt-pandemic-create-vaccine"),
@@ -113,8 +120,6 @@ public sealed partial class ADTPandemicWindow : DefaultWindow
             var index = antibody.Index;
             vaccineButton.OnPressed += _ => OnCreateVaccine?.Invoke(index);
             row.AddChild(vaccineButton);
-
-            AntibodiesContainer.AddChild(row);
         }
     }
 
@@ -143,24 +148,27 @@ public sealed partial class ADTPandemicWindow : DefaultWindow
 
         var index = disease.Index;
 
-        if (disease.IsAdvance)
+        if (disease.IsAdvance && !state.ReadOnly)
         {
             var renameButton = new Button { Text = Loc.GetString("adt-pandemic-rename") };
             renameButton.OnPressed += _ => OnRenameDisease?.Invoke(index);
             header.AddChild(renameButton);
         }
 
-        var cultureButton = new Button
+        if (!state.ReadOnly)
         {
-            Text = Loc.GetString("adt-pandemic-create-culture"),
-            Disabled = state.Busy,
-        };
-        cultureButton.OnPressed += _ => OnCreateCulture?.Invoke(index);
-        header.AddChild(cultureButton);
+            var cultureButton = new Button
+            {
+                Text = Loc.GetString("adt-pandemic-create-culture"),
+                Disabled = state.Busy,
+            };
+            cultureButton.OnPressed += _ => OnCreateCulture?.Invoke(index);
+            header.AddChild(cultureButton);
 
-        var formButton = new Button { Text = Loc.GetString("adt-pandemic-print-form") };
-        formButton.OnPressed += _ => OnPrintForm?.Invoke(index);
-        header.AddChild(formButton);
+            var formButton = new Button { Text = Loc.GetString("adt-pandemic-print-form") };
+            formButton.OnPressed += _ => OnPrintForm?.Invoke(index);
+            header.AddChild(formButton);
+        }
 
         box.AddChild(header);
 
@@ -214,9 +222,12 @@ public sealed partial class ADTPandemicWindow : DefaultWindow
             StyleClasses = { "LabelSubText" },
         });
 
-        var addButton = new Button { Text = Loc.GetString("adt-pandemic-add-symptom") };
-        addButton.OnPressed += _ => OnRequestSymptoms?.Invoke(index);
-        symptomsRow.AddChild(addButton);
+        if (!state.ReadOnly)
+        {
+            var addButton = new Button { Text = Loc.GetString("adt-pandemic-add-symptom") };
+            addButton.OnPressed += _ => OnRequestSymptoms?.Invoke(index);
+            symptomsRow.AddChild(addButton);
+        }
         box.AddChild(symptomsRow);
 
         foreach (var (id, name) in disease.Symptoms)
@@ -234,6 +245,10 @@ public sealed partial class ADTPandemicWindow : DefaultWindow
                 HorizontalExpand = true,
                 ToolTip = GetSymptomTooltip(id),
             });
+            box.AddChild(row);
+
+            if (state.ReadOnly)
+                continue;
 
             var removeButton = new Button
             {
@@ -244,11 +259,9 @@ public sealed partial class ADTPandemicWindow : DefaultWindow
             var symptomId = id;
             removeButton.OnPressed += _ => OnRemoveSymptom?.Invoke(index, symptomId);
             row.AddChild(removeButton);
-
-            box.AddChild(row);
         }
 
-        if (state.CandidatesForDisease != index || state.SymptomCandidates.Count == 0)
+        if (state.ReadOnly || state.CandidatesForDisease != index || state.SymptomCandidates.Count == 0)
             return box;
 
         box.AddChild(new Label

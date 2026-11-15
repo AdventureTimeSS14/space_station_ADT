@@ -122,7 +122,7 @@ public sealed partial class ADTCookingSystem : SharedADTCookingSystem
         if (CheckFlare(ent, heat, medium, settings))
             return;
 
-        if (comp.Stage >= ADTCookingStage.Done && !HasResult(comp))
+        if (comp.Stage >= ADTCookingStage.Done && !HasResult(ent))
             ResetCooking(ent);
 
         UpdateTarget(ent, medium, settings);

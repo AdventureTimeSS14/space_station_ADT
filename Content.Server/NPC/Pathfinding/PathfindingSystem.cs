@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.ADT.NPC;
 using Content.Server.Administration.Managers;
 using Content.Server.Destructible;
 using Content.Server.NPC.Systems;
@@ -52,6 +53,7 @@ namespace Content.Server.NPC.Pathfinding
         [Dependency] private SharedMapSystem _maps = default!;
         [Dependency] private SharedPhysicsSystem _physics = default!;
         [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private ADTNpcNavMemorySystem _adtNavMemory = default!; // ADT-Tweak
 
         [Dependency] private EntityQuery<AccessReaderComponent> _accessReaderQuery = default!;
         [Dependency] private EntityQuery<DestructibleComponent> _destructibleQuery = default!;
@@ -425,7 +427,12 @@ namespace Content.Server.NPC.Pathfinding
                 (layer, mask) = _physics.GetHardCollision(entity, fixtures);
             }
 
-            return new AStarPathRequest(start, end, flags, range, layer, mask, cancelToken);
+            // ADT-Tweak-Start
+            return new AStarPathRequest(start, end, flags, range, layer, mask, cancelToken)
+            {
+                ADTBlockedTiles = _adtNavMemory.GetBlockedTiles(entity),
+            };
+            // ADT-Tweak-End
         }
 
         public PathFlags GetFlags(EntityUid uid)
@@ -468,7 +475,7 @@ namespace Content.Server.NPC.Pathfinding
                 flags |= PathFlags.Blob;
             }
 
-            if (blackboard.TryGetValue<bool>("ADTNavAccess", out var access, EntityManager) && access)
+            if (blackboard.TryGetValue<bool>(NPCBlackboard.ADTNavAccess, out var access, EntityManager) && access)
             {
                 flags |= PathFlags.Access;
             }

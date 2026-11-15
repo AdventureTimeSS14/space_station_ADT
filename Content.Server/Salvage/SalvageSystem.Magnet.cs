@@ -413,9 +413,10 @@ public sealed partial class SalvageSystem
         {
             var salvXForm = Transform(mapChild);
             var localPos = salvXForm.LocalPosition;
+            var localRot = salvXForm.LocalRotation; // ADT-Tweak
 
             _transform.SetParent(mapChild, salvXForm, spawnUid.Value);
-            _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, salvXForm);
+            _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + spawnAngle.RotateVec(localPos - bounds!.Value.Center), spawnAngle + localRot, salvXForm); // ADT-Tweak
 
             data.Comp.ActiveEntities ??= new List<EntityUid>();
             data.Comp.ActiveEntities?.Add(mapChild);
@@ -462,8 +463,7 @@ public sealed partial class SalvageSystem
             var finalCoords = new MapCoordinates(randomPos, mapId);
 
             angle = _random.NextAngle();
-            var box2 = Box2.CenteredAround(finalCoords.Position, bounds.Size);
-            var box2Rot = new Box2Rotated(box2, angle, finalCoords.Position);
+            var box2Rot = new Box2Rotated(bounds.Translated(finalCoords.Position - bounds.Center).Enlarged(1f), angle, finalCoords.Position); // ADT-Tweak
 
             // This doesn't stop it from spawning on top of random things in space
             // Might be better like this, ghosts could stop it before

@@ -59,3 +59,8 @@
   id: ADTMedbeamPack
   recipes:
   - ADTWeaponMedbeamCivil
+
+- type: latheRecipePack
+  id: ADTVirologyBoards
+  recipes:
+  - ADTPandemicMachineCircuitboard
