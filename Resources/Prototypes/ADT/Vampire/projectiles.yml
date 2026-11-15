@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseBullet
+  id: ProjectileInfectedTrophy
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: skull
+  - type: ProjectileInfect
+    infection: VampireGraveFever
+  - type: ProjectileAoE
+    damageRadius: 1
+    damageMultiplier: 1
+  - type: Projectile
+    ignoreResistances: true
+    ignoreTargeted: true
+    damage:
+      types:
+        Blunt: 5
+  - type: TimedDespawn
+    lifetime: 0.175

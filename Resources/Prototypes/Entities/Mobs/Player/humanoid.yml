@@ -35,6 +35,7 @@
   name: Death Squad Agent
   suffix: ERTRole, Death Squad
   components:
+    - type: SurgicalSkill # ADT-Tweak
     - type: Sprite
       sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
       state: icon

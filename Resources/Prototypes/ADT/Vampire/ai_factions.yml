@@ -1,0 +1,8 @@
+- type: npcFaction
+  id: Vampire
+  hostile:
+  - NanoTrasen
+  - Zombie
+  - SimpleHostile
+  - Xeno
+  - Dragon

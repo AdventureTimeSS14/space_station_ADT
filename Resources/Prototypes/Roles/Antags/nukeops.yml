@@ -62,6 +62,7 @@
   roleLoadout:
   - RoleSurvivalNukie
   components:
+  - type: SurgicalSkill # ADT-Tweak
   - type: NukeOperative
   - type: NpcFactionMember
     factions:
@@ -90,6 +91,7 @@
   spawnerPrototype: SpawnPointNukeopsMedic
   startingGear: SyndicateOperativeMedicFull
   components:
+  - type: SurgicalSkill # ADT-Tweak
   - type: RandomMetadata
     nameSegments:
     - NamesSyndicateNormal

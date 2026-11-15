@@ -1,0 +1,21 @@
+- type: damageModifierSet
+  id: Vampire
+  coefficients:
+    Blunt: 0.8
+    Piercing: 0.8
+    Cold: 0.2
+    Heat: 1.5
+    Shock: 1.5
+    Poison: 0.0
+    Radiation: 0.0
+
+- type: damageModifierSet
+  id: VampireBloodSwell
+  coefficients:
+    Blunt: 0.4
+    Piercing: 0.4
+    Cold: 0.1
+    Heat: 1.2
+    Shock: 1.2
+    Poison: 0.0
+    Radiation: 0.0

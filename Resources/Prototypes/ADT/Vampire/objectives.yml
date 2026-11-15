@@ -1,0 +1,310 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseVampireObjective
+  components:
+  - type: Objective
+    issuer: Vampire
+  - type: RoleRequirement
+    roles:
+    - VampireRole
+
+- type: entity
+  abstract: true
+  parent: [BaseVampireObjective, BaseStealObjective]
+  id: BaseVampireStealObjective
+  components:
+  - type: StealCondition
+    verifyMapExistence: false
+  - type: Objective
+    difficulty: 2
+  - type: ObjectiveLimit
+    limit: 2
+
+# Blood
+- type: entity
+  parent: BaseVampireObjective
+  id: VampireBloodObjectiveBase
+  name: Steal blood
+  components:
+  - type: Objective
+    difficulty: 0
+    icon:
+      sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+      state: blood
+  - type: BloodCondition
+    targetMin: 200
+    targetMax: 300
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      tags:
+      - Tear2
+      - Tear3
+  - type: Tag
+    tags:
+    - Tear1
+
+- type: entity
+  parent: VampireBloodObjectiveBase
+  id: VampireBloodObjectiveMedium
+  name: Steal blood
+  components:
+  - type: BloodCondition
+    targetMin: 500
+    targetMax: 700
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      tags:
+      - Tear1
+      - Tear3
+  - type: Tag
+    tags:
+    - Tear2
+
+- type: entity
+  parent: BaseVampireObjective
+  id: VampireBloodObjectiveLarge
+  name: Steal blood
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+      state: blood
+  - type: BloodCondition
+    targetMin: 1000
+    targetMax: 1200
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      tags:
+      - Tear2
+      - Tear1
+  - type: Tag
+    tags:
+    - Tear3
+
+- type: entity
+  parent: BaseVampireObjective
+  id: VampireBloodDilebry
+  name: Dilebry
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+      state: blood
+  - type: DiablerieCondition
+  - type: ObjectiveLimit
+    limit: 1
+
+# Escape
+- type: entity
+  parent: [BaseVampireObjective, BaseLivingObjective]
+  id: EscapeVampirefShuttleObjective
+  name: Escape to centcomm alive and unrestrained.
+  description: One of our undercover agents will debrief you when you arrive. Don't show up in cuffs.
+  components:
+  - type: Objective
+    difficulty: 0
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition
+
+#Steal
+
+## cmo
+
+- type: entity
+  abstract: true
+  parent: BaseVampireStealObjective
+  id: BaseVampireCMOStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ ChiefMedicalOfficer ]
+  - type: StealCondition
+    owner: job-name-cmo
+
+- type: entity
+  parent: BaseVampireCMOStealObjective
+  id: VampireCMOHyposprayStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: Hypospray
+
+- type: entity
+  parent: BaseVampireCMOStealObjective
+  id: VampireCMOCrewMonitorStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: HandheldCrewMonitor
+
+## rd
+
+- type: entity
+  abstract: true
+  parent: BaseVampireStealObjective
+  id: BaseVampireRDStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ ResearchDirector ]
+  - type: StealCondition
+    owner: job-name-rd
+
+- type: entity
+  parent: BaseVampireRDStealObjective
+  id: VampireRDHardsuitStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Objective
+    difficulty: 3
+
+- type: entity
+  parent: BaseVampireRDStealObjective
+  id: VampireHandTeleporterStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: HandTeleporter
+
+## ce
+
+- type: entity
+  parent: BaseVampireStealObjective
+  id: VampireMagbootsStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+  - type: StealCondition
+    stealGroup: ClothingShoesBootsMagAdv
+    owner: job-name-ce
+
+## qm
+
+- type: entity
+  parent: BaseVampireStealObjective
+  id: VampireClipboardStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ Quartermaster ]
+  - type: StealCondition
+    stealGroup: BoxFolderQmClipboard
+    owner: job-name-qm
+
+## hop
+
+- type: entity
+  parent: BaseVampireStealObjective
+  id: VampireCorgiMeatStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ HeadOfPersonnel ]
+  - type: ObjectiveLimit
+    limit: 3
+  - type: StealCondition
+    stealGroup: FoodMeatCorgi
+    owner: objective-condition-steal-Ian
+
+## cap
+
+- type: entity
+  abstract: true
+  parent: BaseVampireStealObjective
+  id: BaseVampireCaptainObjective
+  components:
+  - type: Objective
+    difficulty: 3.5
+  - type: NotJobRequirement
+    jobs: [ Captain ]
+
+- type: entity
+  parent: BaseVampireCaptainObjective
+  id: VampireCaptainIDStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: CaptainIDCard
+
+- type: entity
+  parent: BaseVampireCaptainObjective
+  id: VampireCaptainJetpackStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: JetpackCaptainFilled
+
+- type: entity
+  parent: BaseVampireCaptainObjective
+  id: VampireCaptainGunStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: WeaponAntiqueLaser
+    owner: job-name-captain
+
+# warden
+- type: entity
+  parent: BaseVampireStealObjective
+  id: VampireGlovesKravMagaStealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: NotJobRequirement
+    jobs: [ Warden ]
+  - type: StealCondition
+    stealGroup: GlovesKravMaga
+    owner: job-name-warden
+
+## Kill
+- type: entity
+  parent: [BaseVampireObjective, BaseKillRandomObjective]
+  id: VampireKillRandomPersonObjective
+  description: Do it however you like, just make sure they don't get off the station.
+  components:
+  - type: Objective
+    difficulty: 1.75
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-maroon-person-title
+  - type: KillPersonCondition
+    requireMaroon: true
+
+- type: entity
+  parent: [BaseVampireObjective, BaseKillRandomObjective]
+  id: VampireKillRandomHeadObjective
+  description: We need this head gone and you probably know why. Make sure they don't make it to CentComm, even if they're dead. Good luck, agent.
+  components:
+  - type: Objective
+    # technically its still possible for KillRandomPersonObjective to roll a head but this is guaranteed, so higher difficulty
+    difficulty: 3.0
+    # killing 1 head is enough
+    unique: true
+  - type: TargetObjective
+    title: objective-condition-kill-maroon-title
+  - type: PickRandomPerson
+    conditions:
+    - !type:BodyWhitelistCondition
+      whitelist:
+        components:
+        - CommandStaff
+  - type: KillPersonCondition
+    # don't count missing evac as killing as heads are higher profile, so you really need to do the dirty work
+    # if ce flies a shittle to centcom you better find a way onto it
+    requireDead: true
+    requireMaroon: true
+
+- type: entity
+  parent: [BaseVampireObjective, BaseKillRandomObjective]
+  id: VampireKillStationAiObjective
+  description: Nanotrasen proudly boasts about their state of the art artificial intelligence. Remind them it's just another toy that can be broken.
+  components:
+  - type: Objective
+    difficulty: 3.0
+    # there's probably only one AI
+    unique: true
+    icon:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead # TODO: Change this to broken when we have a better objectives UI, broken sprite is currently too big!
+  - type: TargetObjective
+    title: objective-condition-kill-station-ai
+  - type: PickRandomPerson
+    pool: !type:AliveAiPool
+  - type: KillPersonCondition
+    requireDead: true

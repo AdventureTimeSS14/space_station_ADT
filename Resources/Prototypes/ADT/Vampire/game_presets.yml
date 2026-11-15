@@ -1,0 +1,14 @@
+- type: gamePreset
+  id: Vampire
+  alias:
+    - vampire
+  name: vampire-title
+  description: vampire-description
+  showInVote: false
+  rules:
+    - Vampire
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation

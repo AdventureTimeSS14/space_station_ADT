@@ -1,0 +1,61 @@
+- type: entity
+  parent: CrateCoffin
+  id: CrateCoffinVampire
+  name: coffin
+  description: A comfy coffin, excellent place for the vampires and corpses.
+  suffix: DO NOT MAPP
+  components:
+  - type: VampireCoffin
+  - type: Lock
+    showExamine: false
+    showLockVerbs: false
+    unlockOnClick: false
+    useAccess: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 1
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageInContainer
+    damage:
+      types:
+        Asphyxiation: -8
+        Cellular: -2
+        Bloodloss: -2
+    damageGroups:
+      groups:
+        Brute: -4
+        Burn: -4
+        Toxin: -4
+    allowedStates:
+    - Alive
+    - SoftCritical
+    - Critical
+    slotId: entity_storage
+    whitelist:
+      components:
+      - Vampire
+  - type: PointLight
+    radius: 3.5
+    energy: 5
+    color: "#880000"
+  - type: TimedDespawn
+    lifetime: 30.0
+  - type: SpawnOnDespawn
+    prototype: Ash
+  - type: Construction
+    graph: CrateCoffin
+    node: cratecoffinvampire
+    containers:
+    - entity_storage

@@ -1,0 +1,11 @@
+- type: entity
+  name: holy point marker
+  id: HolyPointMarker
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+    - sprite: Objects/Specific/Chapel/bible.rsi
+      state: icon
+  - type: HolyPoint

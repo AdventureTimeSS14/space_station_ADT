@@ -1,0 +1,84 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float ratio;
+
+const highp float MAX_VIGNETTE = 0.55;
+const highp float MAX_GLITCH_STRENGTH = 0.15;
+const highp float MAX_CHROMATIC = 0.004;
+const highp float MAX_SCANLINE = 0.04;
+
+highp float rand(highp vec2 uv) {
+    return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void fragment() {
+    highp vec2 uv = UV;
+    highp float time = TIME * 1.8;
+    highp float intensity = clamp(ratio, 0.0, 1.0);
+
+    highp float effectStrength;
+    if (intensity <= 0.3) {
+        effectStrength = (intensity / 0.3) * 0.1;
+    } else {
+        effectStrength = 0.1 + ((intensity - 0.3) / 0.7) * 0.9;
+    }
+    effectStrength = pow(effectStrength, 1.2);
+
+    highp vec2 distortion = vec2(
+        sin(uv.y * 80.0 + time * 2.5) * 0.002 * effectStrength,
+        cos(uv.x * 70.0 - time * 2.0) * 0.0015 * effectStrength
+    );
+    uv += distortion;
+
+    highp float chromaAmount = MAX_CHROMATIC * effectStrength;
+    highp vec2 rUv = uv + vec2(chromaAmount, 0.0);
+    highp vec2 bUv = uv - vec2(chromaAmount, 0.0);
+
+    highp float r = texture(SCREEN_TEXTURE, clamp(rUv, 0.001, 0.999)).r;
+    highp float g = texture(SCREEN_TEXTURE, clamp(uv, 0.001, 0.999)).g;
+    highp float b = texture(SCREEN_TEXTURE, clamp(bUv, 0.001, 0.999)).b;
+    highp vec4 color = vec4(r, g, b, 1.0);
+
+    highp float glitchLine = 0.0;
+    if (effectStrength > 0.15) {
+        highp float t1 = fract(time * 0.6);
+        highp float t2 = fract(time * 0.9 + 0.4);
+        highp float t3 = fract(time * 1.3 + 0.8);
+
+        highp float lineHeight = 0.04 + effectStrength * 0.06;
+        glitchLine += smoothstep(t1, t1 + lineHeight, uv.y) * (1.0 - smoothstep(t1 + lineHeight, t1 + lineHeight + 0.02, uv.y));
+        glitchLine += smoothstep(t2, t2 + lineHeight, uv.y) * (1.0 - smoothstep(t2 + lineHeight, t2 + lineHeight + 0.02, uv.y));
+        glitchLine += smoothstep(t3, t3 + lineHeight, uv.y) * (1.0 - smoothstep(t3 + lineHeight, t3 + lineHeight + 0.02, uv.y));
+        glitchLine = clamp(glitchLine * effectStrength, 0.0, 0.5);
+
+        highp vec2 glitchOffset = vec2(glitchLine * 0.06 * sin(uv.y * 200.0 + time * 20.0), 0.0);
+        if (glitchLine > 0.01) {
+            highp vec4 glitchedColor = texture(SCREEN_TEXTURE, clamp(uv + glitchOffset, 0.001, 0.999));
+            color = mix(color, glitchedColor, glitchLine * 0.7);
+        }
+    }
+
+    highp vec2 center = vec2(0.5, 0.5);
+    highp float dist = length(uv - center);
+    highp float vignette = 1.0 - smoothstep(0.2, 0.8, dist) * MAX_VIGNETTE * effectStrength;
+    color.rgb *= vignette;
+
+    highp vec3 coldShift = vec3(0.85, 0.92, 1.05);
+    color.rgb *= mix(vec3(1.0), coldShift, effectStrength * 0.4);
+
+    highp float scanline = sin(uv.y * 500.0) * 0.5 + 0.5;
+    scanline = scanline * MAX_SCANLINE * effectStrength;
+    color.rgb -= scanline * 0.05;
+
+    if (effectStrength > 0.5) {
+        highp float extraGlitch = step(0.95, rand(vec2(floor(time * 8.0), uv.y * 100.0)));
+        color.rgb = mix(color.rgb, vec3(0.1, 0.15, 0.25), extraGlitch * effectStrength * 0.5);
+    }
+
+    if (effectStrength > 0.6) {
+        highp float avg = (color.r + color.g + color.b) / 3.0;
+        color.rgb = mix(color.rgb, vec3(avg), 0.2);
+    }
+
+    color.rgb = clamp(color.rgb, 0.0, 1.0);
+    COLOR = vec4(color.rgb, color.a);
+}

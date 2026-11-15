@@ -1,0 +1,9 @@
+- type: shader
+  id: NaturalNightVision
+  kind: source
+  path: "/Textures/ADT/Vampire/Shaders/nightvision.swsl"
+
+- type: shader
+  id: NullDamage
+  kind: source
+  path: "/Textures/ADT/Vampire/Shaders/nulldamage.swsl"

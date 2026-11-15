@@ -1,0 +1,11 @@
+- type: adtDisease
+  id: VampireGraveFever
+  parent: ADTBaseDisease
+  name: vampire-grave-fever
+  description: vampire-grave-fever-desc
+  severity: Minor
+  spread: NonContagious
+  symptoms:
+  - Cough
+  - Fever
+  - Weakness

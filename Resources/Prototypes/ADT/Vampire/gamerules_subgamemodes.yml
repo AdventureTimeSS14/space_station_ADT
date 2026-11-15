@@ -1,0 +1,6 @@
+- type: entity
+  parent: Vampire
+  id: SubVampire
+  components:
+  - type: GameRule
+    cancelPresetOnTooFewPlayers: false

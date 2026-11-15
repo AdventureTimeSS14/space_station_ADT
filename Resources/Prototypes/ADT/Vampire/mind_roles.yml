@@ -1,0 +1,14 @@
+# Vampire
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleVampire
+  name: Vampire Role
+#  description: mind-role-vampire-description
+  components:
+  - type: MindRole
+    antagPrototype: Vampire
+    roleType: SoloAntagonist
+  - type: VampireRole
+
+# BloodCultist

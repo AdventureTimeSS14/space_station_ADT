@@ -1,0 +1,22 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float brightness_gain;
+uniform highp float vision_contrast;
+uniform highp vec4 tint_color;
+uniform highp float vision_radius;
+
+void fragment() {
+    highp vec4 color = texture(SCREEN_TEXTURE, UV);
+
+    highp float brightness = dot(color.rgb, vec3(0.2126, 0.7152, 0.0722));
+
+    highp float enhanced = pow(brightness * brightness_gain, 1.0 / vision_contrast);
+    enhanced = clamp(enhanced, 0.0, 1.0);
+
+    highp vec2 center = vec2(0.5, 0.5);
+    highp float dist = distance(UV, center);
+    highp float vignette = 1.0 - smoothstep(0.0, 0.7, dist / (vision_radius * 0.1));
+
+    highp vec3 night_vision = mix(color.rgb * enhanced, tint_color.rgb * enhanced, 0.6) * vignette;
+    
+    COLOR = vec4(night_vision, color.a);
+}

@@ -34,6 +34,7 @@
   id: MobHumanSyndicateAgentMedic
   name: syndicate medic
   components:
+  - type: SurgicalSkill # ADT-Tweak
   - type: Loadout
     prototypes: [SyndicateReinforcementMedic]
     roleLoadout: [ RoleSurvivalSyndicate ]
@@ -85,6 +86,7 @@
   id: MobHumanLoneNuclearOperative
   name: Lone Operative
   components:
+  - type: SurgicalSkill # ADT-Tweak
   - type: RandomHumanoidAppearance
     randomizeName: false
   - type: NukeOperative

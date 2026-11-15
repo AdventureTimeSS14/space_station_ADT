@@ -1,0 +1,39 @@
+<ui:RadialMenu x:Class="Content.Client._Wega.Vampire.Ui.VampireClassSelectionMenu"
+               xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+               BackButtonStyleClass="RadialMenuBackButton"
+               CloseButtonStyleClass="RadialMenuCloseButton"
+               VerticalExpand="True" HorizontalExpand="True"
+               MinSize="450 450">
+
+    <!-- Main Radial Menu Container -->
+    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="128" ReserveSpaceForHiddenChildren="False">
+        <!-- Button 1: Hemomancer -->
+        <ui:RadialMenuButton Name="HemomancerButton" StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'select-class-hemomancer'}">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Vampire/Interface/Actions/claws.png"/>
+        </ui:RadialMenuButton>
+
+        <!-- Button 2: Umbrae -->
+        <ui:RadialMenuButton Name="UmbraeButton" StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'select-class-umbrae'}">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Vampire/Interface/Actions/cloak.png"/>
+        </ui:RadialMenuButton>
+
+        <!-- Button 3: Gargantua -->
+        <ui:RadialMenuButton Name="GargantuaButton" StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'select-class-gargantua'}">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Vampire/Interface/Actions/swell.png"/>
+        </ui:RadialMenuButton>
+
+        <!-- Button 4: Dantalion -->
+        <ui:RadialMenuButton Name="DantalionButton" StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'select-class-dantalion'}">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Vampire/Interface/Actions/enthrall.png"/>
+        </ui:RadialMenuButton>
+
+        <!-- Button 5: Bestia -->
+        <ui:RadialMenuButton Name="BestiaButton" StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'select-class-bestia'}">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Vampire/Interface/Actions/rush.png"/>
+        </ui:RadialMenuButton>
+
+    </ui:RadialContainer>
+
+</ui:RadialMenu>

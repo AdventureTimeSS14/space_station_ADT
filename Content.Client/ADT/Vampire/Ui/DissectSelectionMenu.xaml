@@ -1,0 +1,7 @@
+<ui:RadialMenu x:Class="Content.Client._Wega.Vampire.Ui.DissectSelectionMenu"
+               xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+               MinSize="450 450">
+    <ui:RadialContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" InitialRadius="128"/>
+</ui:RadialMenu>
