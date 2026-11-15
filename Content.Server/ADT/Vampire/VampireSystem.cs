@@ -121,7 +121,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
     /// </summary>
     private static readonly ProtoId<ReagentPrototype>[] BloodProto = new ProtoId<ReagentPrototype>[]
     {
-        "Blood", "CopperBlood", "InsectBlood", "SulfurBlood", "AmmoniaBlood", "ResomiBlood", "AriralBlood"
+        "Blood", "CopperBlood", "InsectBlood", "SulfurBlood", "AmmoniaBlood", "ResomiBlood"
     };
 
     public override void Initialize()

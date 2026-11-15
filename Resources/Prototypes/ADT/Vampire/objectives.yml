@@ -249,7 +249,7 @@
   - type: NotJobRequirement
     jobs: [ Warden ]
   - type: StealCondition
-    stealGroup: GlovesKravMaga
+    stealGroup: ClothingHandsGlovesKravMaga
     owner: job-name-warden
 
 ## Kill
