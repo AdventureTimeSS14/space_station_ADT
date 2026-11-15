@@ -13,6 +13,8 @@
     baseFriction: 0.2
     baseSprintSpeed: 4
     baseWalkSpeed: 1.5
+    baseWeightlessModifier: 0
+  - type: GravityAffected
   - type: Repairable
     fuelCost: 20
     doAfterDelay: 20

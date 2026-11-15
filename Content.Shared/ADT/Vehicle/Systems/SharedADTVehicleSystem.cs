@@ -1,27 +1,28 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Vehicle.Components;
 using Content.Shared.Audio;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Foldable;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Input;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Systems;
+using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
-using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Vehicle;
 using Content.Shared.Vehicle.Systems;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -34,13 +35,14 @@ public abstract class SharedADTVehicleSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
     [Dependency] private TagSystem _tag = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedBuckleSystem _buckle = default!;
-    [Dependency] private SharedMoverController _mover = default!;
-    [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private VehicleSystem _vehicle = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     private const string KeySlot = "key_slot";
 
@@ -51,42 +53,46 @@ public abstract class SharedADTVehicleSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ADTVehicleComponent, ComponentStartup>(OnVehicleStartup);
         SubscribeLocalEvent<ADTVehicleComponent, StrapAttemptEvent>(OnStrapAttempt);
         SubscribeLocalEvent<ADTVehicleComponent, VehicleOperatorSetEvent>(OnOperatorSet);
         SubscribeLocalEvent<ADTVehicleComponent, HonkActionEvent>(OnHonkAction);
         SubscribeLocalEvent<ADTVehicleComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<ADTVehicleComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        SubscribeLocalEvent<ADTVehicleComponent, MoveEvent>(OnMoveEvent);
+        SubscribeLocalEvent<ADTVehicleComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<ADTVehicleComponent, MoveInputEvent>(OnMoveInput);
         SubscribeLocalEvent<ADTVehicleComponent, FoldedEvent>(OnVehicleFolded);
 
         SubscribeLocalEvent<ADTInVehicleComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
 
         SubscribeLocalEvent<ADTVehicleRiderComponent, ShotAttemptedEvent>(OnShootAttempt);
-        SubscribeLocalEvent<ADTVehicleRiderComponent, MeleeHitEvent>(OnHitAttempt);
+
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.Unbuckle,
+                InputCmdHandler.FromDelegate(HandleUnbuckle, handle: false, outsidePrediction: false))
+            .Register<SharedADTVehicleSystem>();
     }
 
-    public override void Update(float frameTime)
+    public override void Shutdown()
     {
-        var query = EntityQueryEnumerator<ADTVehicleComponent, InputMoverComponent>();
-        while (query.MoveNext(out var uid, out var vehicle, out var mover))
-        {
-            if (!vehicle.AutoAnimate)
-                continue;
+        base.Shutdown();
 
-            UpdateAutoAnimate(uid, _mover.GetVelocityInput(mover).Sprinting != Vector2.Zero);
-        }
+        CommandBinds.Unregister<SharedADTVehicleSystem>();
     }
 
-    private void OnVehicleStartup(Entity<ADTVehicleComponent> ent, ref ComponentStartup args)
+    protected virtual void OnVehicleRotated(Entity<ADTVehicleComponent> ent)
     {
-        UpdateDrawDepth(ent, 2);
+    }
 
-        if (TryComp<StrapComponent>(ent, out var strap))
+    private Vector2 GetRiderOffset(Entity<ADTVehicleComponent> ent, StrapComponent strap, Angle rotation)
+    {
+        var baseOffset = strap.BuckleOffset;
+        return rotation.GetCardinalDir() switch
         {
-            ent.Comp.BaseBuckleOffset = strap.BuckleOffset;
-            strap.BuckleOffset = Vector2.Zero;
-        }
+            Direction.North => new Vector2(0, ent.Comp.NorthOverride),
+            Direction.East => baseOffset,
+            Direction.West => new Vector2(-baseOffset.X, baseOffset.Y),
+            _ => new Vector2(0, ent.Comp.SouthOverride),
+        };
     }
 
     private void OnStrapAttempt(Entity<ADTVehicleComponent> ent, ref StrapAttemptEvent args)
@@ -118,13 +124,10 @@ public abstract class SharedADTVehicleSystem : EntitySystem
         riderComp.Vehicle = ent;
         Dirty(rider, riderComp);
 
-        ent.Comp.LastRider = rider;
-        Dirty(ent);
-        Appearance.SetData(ent, ADTVehicleVisuals.HideRider, true);
+        UpdateRiderOffset(ent, Transform(ent));
 
-        UpdateBuckleOffset(ent, Transform(ent));
-        if (TryComp<InputMoverComponent>(ent, out var mover))
-            UpdateDrawDepth(ent, GetDrawDepth(Transform(ent), ent.Comp, mover.RelativeRotation));
+        if (TryComp<EyeComponent>(rider, out var eye) && eye.Target == null)
+            _eye.SetTarget(rider, ent, eye);
 
         if (TryComp<UnpoweredFlashlightComponent>(ent, out var flashlight))
             _actions.AddAction(rider, ref flashlight.ToggleActionEntity, flashlight.ToggleAction, ent);
@@ -137,14 +140,51 @@ public abstract class SharedADTVehicleSystem : EntitySystem
 
     private void RemoveRider(Entity<ADTVehicleComponent> ent, EntityUid rider)
     {
-        Appearance.SetData(ent, ADTVehicleVisuals.HideRider, false);
+        SetAutoAnimate(ent, false);
+        _tag.RemoveTag(ent, DoorBumpTag);
 
         if (TerminatingOrDeleted(rider))
             return;
 
+        if (TryComp<EyeComponent>(rider, out var eye) && eye.Target == ent.Owner)
+            _eye.SetTarget(rider, null, eye);
+
         _actions.RemoveProvidedActions(rider, ent);
         RemComp<ADTVehicleRiderComponent>(rider);
-        _tag.RemoveTag(ent, DoorBumpTag);
+    }
+
+    private void OnMove(Entity<ADTVehicleComponent> ent, ref MoveEvent args)
+    {
+        if (args.NewRotation.GetCardinalDir() == args.OldRotation.GetCardinalDir())
+            return;
+
+        UpdateRiderOffset(ent, args.Component);
+        OnVehicleRotated(ent);
+    }
+
+    private void UpdateRiderOffset(Entity<ADTVehicleComponent> ent, TransformComponent xform)
+    {
+        if (_vehicle.GetOperatorOrNull(ent.Owner) is not { } rider
+            || !HasComp<ADTVehicleRiderComponent>(rider)
+            || !TryComp<StrapComponent>(ent, out var strap))
+        {
+            return;
+        }
+
+        _transform.SetLocalPositionNoLerp(rider, GetRiderOffset(ent, strap, xform.LocalRotation));
+    }
+
+    private void OnMoveInput(Entity<ADTVehicleComponent> ent, ref MoveInputEvent args)
+    {
+        SetAutoAnimate(ent, args.HasDirectionalMovement && args.Entity.Comp.CanMove);
+    }
+
+    private void SetAutoAnimate(Entity<ADTVehicleComponent> ent, bool value)
+    {
+        if (!ent.Comp.AutoAnimate)
+            return;
+
+        Appearance.SetData(ent, ADTVehicleVisuals.AutoAnimate, value);
     }
 
     private void OnVehicleFolded(Entity<ADTVehicleComponent> ent, ref FoldedEvent args)
@@ -205,29 +245,10 @@ public abstract class SharedADTVehicleSystem : EntitySystem
         _ambientSound.SetAmbience(ent, false);
     }
 
-    private void OnMoveEvent(Entity<ADTVehicleComponent> ent, ref MoveEvent args)
-    {
-        if (args.NewRotation == args.OldRotation)
-            return;
-
-        if (ent.Comp.AutoAnimate && !HasComp<InputMoverComponent>(ent))
-        {
-            UpdateAutoAnimate(ent, false);
-            return;
-        }
-
-        UpdateBuckleOffset(ent, args.Component);
-        if (TryComp<InputMoverComponent>(ent, out var mover))
-            UpdateDrawDepth(ent, GetDrawDepth(args.Component, ent.Comp, mover.RelativeRotation));
-    }
-
     private void OnGettingPickedUpAttempt(Entity<ADTInVehicleComponent> ent, ref GettingPickedUpAttemptEvent args)
     {
         if (ent.Comp.Vehicle is not { } vehicle)
-        {
-            args.Cancel();
             return;
-        }
 
         if (_vehicle.GetOperatorOrNull(vehicle) is { } rider && rider != args.User)
             args.Cancel();
@@ -238,99 +259,31 @@ public abstract class SharedADTVehicleSystem : EntitySystem
         args.Cancel();
     }
 
-    private void OnHitAttempt(Entity<ADTVehicleRiderComponent> ent, ref MeleeHitEvent args)
+    private void HandleUnbuckle(ICommonSession? session)
     {
-        _stun.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4), refresh: false);
-    }
-
-    private int GetDrawDepth(TransformComponent xform, ADTVehicleComponent component, Angle cameraAngle)
-    {
-        var itemDirection = cameraAngle.GetDir() switch
-        {
-            Direction.South => xform.LocalRotation.GetDir(),
-            Direction.North => xform.LocalRotation.RotateDir(Direction.North),
-            Direction.West => xform.LocalRotation.RotateDir(Direction.East),
-            Direction.East => xform.LocalRotation.RotateDir(Direction.West),
-            _ => Direction.South,
-        };
-
-        var over = itemDirection switch
-        {
-            Direction.North => component.NorthOver,
-            Direction.South => component.SouthOver,
-            Direction.West => component.WestOver,
-            Direction.East => component.EastOver,
-            _ => false,
-        };
-
-        return over ? (int) DrawDepth.DrawDepth.Doors : (int) DrawDepth.DrawDepth.WallMountedItems;
-    }
-
-    private void UpdateBuckleOffset(Entity<ADTVehicleComponent> ent, TransformComponent xform)
-    {
-        if (!TryComp<StrapComponent>(ent, out var strap))
+        if (session?.AttachedEntity is not { } player)
             return;
 
-        var component = ent.Comp;
-        var oldOffset = strap.BuckleOffset;
-        var rot = xform.LocalRotation.Degrees;
-        if (rot > 0)
+        if (!TryComp<BuckleComponent>(player, out var buckle) || !buckle.Buckled)
+            return;
+
+        if (TryComp<HandsComponent>(player, out var hands)
+            && _hands.TryGetHeldItem((player, hands), hands.ActiveHandId, out _, hideVirtualItems: true))
         {
-            strap.BuckleOffset = rot switch
-            {
-                < 45f => new(0, component.SouthOverride),
-                <= 145f => component.BaseBuckleOffset,
-                < 225f => new(0, component.NorthOverride),
-                <= 325f => new(component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
-                _ => new(0, component.SouthOverride),
-            };
-        }
-        else
-        {
-            strap.BuckleOffset = rot switch
-            {
-                > -45f => new(0, component.SouthOverride),
-                >= -145f => new(component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
-                > -225f => new(0, component.NorthOverride),
-                >= -325f => component.BaseBuckleOffset,
-                _ => new(0, component.SouthOverride),
-            };
+            return;
         }
 
-        if (!oldOffset.Equals(strap.BuckleOffset) && _net.IsServer)
-            Dirty(ent, strap);
+        if (!_blocker.CanInteract(player, null))
+            return;
 
-        foreach (var buckledEntity in strap.BuckledEntities)
-        {
-            if (_net.IsServer)
-            {
-                var coords = new EntityCoordinates(ent, strap.BuckleOffset);
-                _transform.SetCoordinates(buckledEntity, Transform(buckledEntity), coords);
-            }
-            else
-            {
-                _transform.SetLocalPositionNoLerp(buckledEntity, strap.BuckleOffset);
-            }
-        }
-    }
-
-    private void UpdateDrawDepth(EntityUid uid, int drawDepth)
-    {
-        Appearance.SetData(uid, ADTVehicleVisuals.DrawDepth, drawDepth);
-    }
-
-    private void UpdateAutoAnimate(EntityUid uid, bool autoAnimate)
-    {
-        Appearance.SetData(uid, ADTVehicleVisuals.AutoAnimate, autoAnimate);
+        _buckle.TryUnbuckle((player, buckle), player, popup: true);
     }
 }
 
 [Serializable, NetSerializable]
 public enum ADTVehicleVisuals : byte
 {
-    DrawDepth,
     AutoAnimate,
-    HideRider,
 }
 
 public sealed partial class HonkActionEvent : InstantActionEvent
