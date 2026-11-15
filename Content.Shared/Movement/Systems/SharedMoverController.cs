@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Vehicle.Components; // ADT-Tweak
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
@@ -223,15 +222,7 @@ public abstract partial class SharedMoverController : VirtualController
         var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
-        // ADT-Tweak start: Block vehicles from moving in space
-        if (HasComp<ADTVehicleComponent>(uid) && !_gravity.EntityGridOrMapHaveGravity(uid))
-        {
-            UsedMobMovement[uid] = false;
-            return;
-        }
-
         if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
-        // ADT-Tweak end
         {
             if (!weightless)
             {
