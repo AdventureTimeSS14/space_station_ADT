@@ -171,6 +171,9 @@ ghost-role-information-BreadDog-description = Вы — любимое дитя �
 ghost-role-information-space-ninja-name = Космический ниндзя
 ghost-role-information-space-ninja-description = Используйте хитрость и скрытность, чтобы устроить диверсию на станции.
 ghost-role-information-space-ninja-rules = Вы — [color={ role-type-solo-antagonist-color }][bold]{ role-type-solo-antagonist-name }[/bold][/color]. Ваши намерения ясны, и они несут вред станции и её экипажу.
+
+ghost-role-information-space-changeling-name = Древний головной слизень
+ghost-role-information-space-changeling-description = Взрослый головной слизень генокрада, жаждущий поглотить экипаж и затаиться на станции. Этот слизень особенно хрупок, и ему нужно найти мёртвое тело, чтобы принять облик гуманоида.
     Вы не помните ничего из своей предыдущей жизни и не помните ничего из того, что узнали, будучи призраком.
     Вам разрешено помнить знания об игре в целом, например, как готовить, как использовать предметы и т.д.
     Вам [color=red]НЕ[/color] разрешается помнить или говорить об имени, внешности и т. д. вашего предыдущего персонажа.

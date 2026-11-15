@@ -652,3 +652,9 @@ entity-effect-disarm =
         [1] Обезоруживает
        *[other] обезоруживают
     } цель
+
+entity-effect-guidebook-make-trap-in-container =
+    { $chance ->
+        [1] Запирает
+        *[other] запирает
+    } метаболизирующего внутри { $entityname }

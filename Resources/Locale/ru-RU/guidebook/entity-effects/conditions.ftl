@@ -102,3 +102,6 @@ entity-condition-guidebook-internals =
         [true] использует дыхательную систему
        *[false] дышит воздухом из атмосферы
     }
+
+entity-condition-guidebook-mouth-uncovered-condition =
+    у существа не закрыт рот

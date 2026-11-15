@@ -7,7 +7,6 @@ namespace Content.Shared.Stealth.Components
     ///     based on the entity's (lack of) movement.
     /// </summary>
     [RegisterComponent, NetworkedComponent]
-    [AutoGenerateComponentState] // ADT-Tweak start
     public sealed partial class StealthOnMoveComponent : Component
     {
         /// <summary>
@@ -21,16 +20,5 @@ namespace Content.Shared.Stealth.Components
         /// </summary>
         [DataField("movementVisibilityRate")]
         public float MovementVisibilityRate = 0.2f;
-
-        // ADT-Tweak start
-        [DataField]
-        [AutoNetworkedField]
-        public TimeSpan NoMoveTime = TimeSpan.Zero;
-
-        // goob - break stealth on any movement
-        [DataField]
-        [AutoNetworkedField]
-        public bool BreakOnMove;
-        // ADT-Tweak end
     }
 }

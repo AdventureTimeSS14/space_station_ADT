@@ -17,11 +17,3 @@
 - type: objectiveIssuer
   id: ADTShadowling
   name: objective-issuer-adt-shadowling
-
-- type: objectiveIssuer
-  id: ADTHivemind
-  name: objective-issuer-hivemind
-
-- type: objectiveIssuer
-  id: ADTTiger
-  name: objective-issuer-tiger

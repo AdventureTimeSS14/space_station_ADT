@@ -110,9 +110,6 @@ public sealed partial class RetractableItemActionSystem : EntitySystem
 
         ent.Comp.ActionItemUid = summoned.Value;
 
-        // ADT-Tweak
-        RemComp<UnremoveableComponent>(summoned.Value);
-
         // Mark the unremovable item so it can be added back into the action.
         var summonedComp = AddComp<ActionRetractableItemComponent>(summoned.Value);
         summonedComp.SummoningAction = ent.Owner;
