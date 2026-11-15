@@ -16,6 +16,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
+using Content.Shared.Movement.Components;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Popups;
@@ -324,6 +325,16 @@ public sealed class DropPodConsoleSystem : EntitySystem
         }
 
         // 3. Remove the now-empty pod grid.
+        foreach (var child in podContents)
+        {
+            if (TryComp<InputMoverComponent>(child, out var mover) && mover.RelativeEntity == podGrid)
+            {
+                var childXform = Transform(child);
+                mover.RelativeEntity = childXform.GridUid ?? childXform.MapUid;
+                Dirty(child, mover);
+            }
+        }
+
         QueueDel(podGrid);
     }
 
