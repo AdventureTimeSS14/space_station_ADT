@@ -371,7 +371,7 @@ public sealed class BankCardSystem : EntitySystem
         if (_salaries.Fixed.TryGetValue(job.ID, out var fixedPay))
             return (true, fixedPay);
 
-        return (_salaries.Salaries.TryGetValue(job.ID, out var pay), pay);
+        return (false, _salaries.Salaries.GetValueOrDefault(job.ID));
     }
 
     private void OnMapInit(EntityUid uid, BankCardComponent component, MapInitEvent args)
