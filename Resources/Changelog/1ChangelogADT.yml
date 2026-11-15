@@ -17599,3 +17599,10 @@ Entries:
     id: 2121
     pr_number: 3687
     time: '2026-11-14T16:57:54Z'
+  - author: Inconnu
+    changes:
+      - {message: Добавлен Генокрад., type: Add}
+      - {message: Удален Генокрад., type: Remove}
+    id: 2122
+    pr_number: 3695
+    time: '2026-11-15T15:47:40Z'
