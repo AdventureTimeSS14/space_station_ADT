@@ -17644,3 +17644,12 @@ Entries:
     id: 2123
     pr_number: 3683
     time: '2026-11-15T15:49:58Z'
+  - author: CrimeMoot, fork [Monolith](https://github.com/Forge-Station/Monolith)
+    changes:
+      - {message: 'Добавлен газовый кристаллизатор - машина, превращающая газовые
+          смеси в твёрдые материалы (исследуется в: Атмосферные технологии).', type: Add}
+      - {message: 'Добавлен материал иридит, получаемый кристаллизацией газов (сдаётся
+          в карго).', type: Add}
+    id: 2124
+    pr_number: 3603
+    time: '2026-11-15T15:51:30Z'
