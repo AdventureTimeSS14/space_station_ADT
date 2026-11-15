@@ -851,7 +851,7 @@
   id: Instruments
   name: loadout-group-instruments
   minLimit: 0
-  maxLimit: 3
+  maxLimit: 3 #ADT-Tweak 2 > 3
   loadouts:
   - ADTBoxJukeBoxPlayer #ADT-Tweak
   - Glockenspiel
