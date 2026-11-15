@@ -181,11 +181,15 @@ public sealed class DropPodConsoleSystem : EntitySystem
             }
         }
 
+        var podContents = new HashSet<EntityUid>();
+        CollectDescendants(podGrid, podContents);
+
         var nearby = _lookup.GetEntitiesInRange(podCoords, 6f,
             LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries);
         foreach (var target in nearby)
         {
             if (target == podGrid) continue;
+            if (podContents.Contains(target)) continue;
             var targetXform = Transform(target);
 
             if (targetXform.GridUid == podGrid)
@@ -228,7 +232,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
             && !TerminatingOrDeleted(stationGridUid.Value)
             && TryComp<MapGridComponent>(stationGridUid.Value, out var stationGridComp))
         {
-            MergeIntoStation(podGrid, podGridComp, stationGridUid.Value, stationGridComp);
+            MergeIntoStation(podGrid, podGridComp, stationGridUid.Value, stationGridComp, podContents);
         }
         else
         {
@@ -242,7 +246,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
     /// </summary>
     private void MergeIntoStation(
         EntityUid podGrid, MapGridComponent podComp,
-        EntityUid stationGrid, MapGridComponent stationComp)
+        EntityUid stationGrid, MapGridComponent stationComp,
+        HashSet<EntityUid> podContents)
     {
         // Build matrices BEFORE any rotation changes so world positions of children are still valid.
         var podWorldMatrix = _transform.GetWorldMatrix(podGrid);
@@ -266,7 +271,11 @@ public sealed class DropPodConsoleSystem : EntitySystem
         {
             var stationTileIdx = baseTile + tileRef.GridIndices;
             foreach (var stale in _mapSystem.GetAnchoredEntities(stationGrid, stationComp, stationTileIdx).ToList())
+            {
+                if (podContents.Contains(stale))
+                    continue;
                 QueueDel(stale);
+            }
             tilesToSet.Add((stationTileIdx, tileRef.Tile));
         }
         _mapSystem.SetTiles((stationGrid, stationComp), tilesToSet);
@@ -296,16 +305,35 @@ public sealed class DropPodConsoleSystem : EntitySystem
                 baseTile.X * stationComp.TileSize,
                 baseTile.Y * stationComp.TileSize);
 
+            Vector2i oldPodTile = default;
+            if (wasAnchored)
+                oldPodTile = _mapSystem.TileIndicesFor(podGrid, podComp, childXform.Coordinates);
+
             _transform.SetCoordinates((child, Transform(child), MetaData(child)), new EntityCoordinates(stationGrid, entityStationLocal), unanchor: false);
             // Restore pod-local rotation (SetCoordinates doesn't preserve it when changing parent).
             _transform.SetLocalRotation(child, podLocalRot);
 
             if (wasAnchored)
-                _transform.AnchorEntity(child, Transform(child));
+            {
+                var newStationTile = _mapSystem.TileIndicesFor(stationGrid, stationComp, childXform.Coordinates);
+                _mapSystem.RemoveFromSnapGridCell(podGrid, podComp, oldPodTile, child);
+                _mapSystem.AddToSnapGridCell(stationGrid, stationComp, newStationTile, child);
+            }
         }
 
         // 3. Remove the now-empty pod grid.
         QueueDel(podGrid);
+    }
+
+    private void CollectDescendants(EntityUid root, HashSet<EntityUid> into)
+    {
+        var enumerator = Transform(root).ChildEnumerator;
+
+        while (enumerator.MoveNext(out var child))
+        {
+            if (into.Add(child))
+                CollectDescendants(child, into);
+        }
     }
 
     // Find all grids that belong to stations marked with DropPodTargetStationComponent
@@ -672,9 +700,6 @@ public sealed class DropPodConsoleSystem : EntitySystem
         MapGridComponent stationComp,
         List<(Vector2i GridIndices, Tile Tile)> tilesToSet)
     {
-        if (!HasComp<DecalGridComponent>(stationGrid))
-            return;
-
         if (tilesToSet.Count == 0)
             return;
 
