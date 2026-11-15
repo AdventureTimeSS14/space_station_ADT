@@ -15,7 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.MartialArts;
-using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
+using Content.Shared.Changeling.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -107,7 +107,7 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
     {
-        if (HasComp<MartialArtsKnowledgeComponent>(ent) || HasComp<ChangelingComponent>(ent))
+        if (HasComp<MartialArtsKnowledgeComponent>(ent) || HasComp<ChangelingIdentityComponent>(ent))
             return;
 
         foreach (var actionId in ent.Comp.BaseKravMagaMoves)
