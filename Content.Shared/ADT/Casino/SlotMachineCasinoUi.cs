@@ -64,6 +64,7 @@ public sealed class SlotMachineCasinoBoundUserInterfaceState : BoundUserInterfac
     public bool BonusActive;
     public int WinStreak;
     public int LossStreak;
+    public int LossStreakHot;
     public int SessionWinnings;
     public bool AutoSpin;
     public int AutoSpinRemaining;

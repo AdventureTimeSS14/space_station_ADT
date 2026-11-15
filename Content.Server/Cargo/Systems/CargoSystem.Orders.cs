@@ -347,9 +347,9 @@ namespace Content.Server.Cargo.Systems
             msg.AddMarkupPermissive(Loc.GetString("cargo-acquisition-slip-body",
                 ("product", product.Name),
                 ("description", product.Description),
-                ("unit", product.Cost),
+                ("unit", AdtProductCost(product)), // ADT-Economy
                 ("amount", args.Amount),
-                ("cost", product.Cost * args.Amount),
+                ("cost", AdtProductCost(product) * args.Amount), // ADT-Economy
                 ("orderer", args.Requester),
                 ("reason", args.Reason)));
             _paperSystem.SetContent((label, paper), msg.ToMarkup());

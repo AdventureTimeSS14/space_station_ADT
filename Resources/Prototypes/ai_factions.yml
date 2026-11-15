@@ -69,7 +69,6 @@
   - Xenoborg
   - ADTSpaceMobs # ADT-tweak
   - ADTAshWalker # ADT-tweak
-  - Changeling # ADT-tweak
 
 - type: npcFaction
   id: SimpleNeutral

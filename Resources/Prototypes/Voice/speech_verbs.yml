@@ -205,3 +205,18 @@
   speechVerbStrings:
   - chat-speech-verb-reptilian-1 # hiss
 # ADT-Tweak-End
+- type: speechVerb # they get a mix of everything because they are SPOOPY and making DISTURBING noise
+  id: Horror
+  name: chat-speech-verb-name-horror
+  speechVerbStrings:
+  - chat-speech-verb-default
+  - chat-speech-verb-wawa-1
+  - chat-speech-verb-vulpkanin-1
+  - chat-speech-verb-electricity-1
+  - chat-speech-verb-cluwne-1
+  - chat-speech-verb-parrot-1
+  - chat-speech-verb-monkey-1
+  - chat-speech-verb-canine-1
+  - chat-speech-verb-robotic-1
+  - chat-speech-verb-slime-1
+  - chat-speech-verb-reptilian-1

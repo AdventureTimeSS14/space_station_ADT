@@ -15,3 +15,7 @@ store-preset-name-spellbook = Книга заклинаний
 store-preset-name-nukie-delivery = Блюспейс-доставка ядерных оперативников
 store-preset-name-changeling = Магазин ДНК
 store-listing-locked = Заблокировано
+
+store-generator-examine = { CAPITALIZE(SUBJECT($entity)) } содержит [color=yellow]{ $amount } { $currency }[/color].
+store-generator-collect-empty-popup = Здесь нечего собирать.
+store-generator-collect-popup = Вы собираете { $amount } { $currency } из { THE($entity) }.
