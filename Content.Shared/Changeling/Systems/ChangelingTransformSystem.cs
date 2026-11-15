@@ -91,6 +91,20 @@ public sealed partial class ChangelingTransformSystem : EntitySystem
         if (!TryComp<ChangelingIdentityComponent>(ent, out var identity))
             return;
 
+        // ADT-Tweak-Start
+        if (_doAfter.IsRunning(ent.Comp.TransformDoAfter))
+        {
+            var cancelOnly = ent.Comp.TransformTarget == targetIdentity || identity.CurrentIdentity == targetIdentity;
+            _doAfter.Cancel(ent.Comp.TransformDoAfter);
+
+            if (cancelOnly)
+            {
+                _popup.PopupEntity(Loc.GetString("adt-changeling-transform-cancelled"), ent.Owner, ent.Owner);
+                return;
+            }
+        }
+        // ADT-Tweak-End
+
         if (identity.CurrentIdentity == targetIdentity)
             return; // don't transform into ourselves
 
@@ -144,6 +158,14 @@ public sealed partial class ChangelingTransformSystem : EntitySystem
         if (!_changelingIdentity.TryGetDataFromIdentity((ent.Owner, identity), targetIdentity.Value, out _))
             return; // this identity does not belong to this player
 
+        // ADT-Tweak-Start
+        if (ent.Comp.TransformTarget == targetIdentity && _doAfter.IsRunning(ent.Comp.TransformDoAfter))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-changeling-transform-drop-transforming"), ent.Owner, ent.Owner);
+            return;
+        }
+        // ADT-Tweak-End
+
         _popup.PopupEntity(Loc.GetString("changeling-transform-bui-drop-identity-entity-popup", ("entity", targetIdentity.Value)), ent.Owner, ent.Owner, PopupType.Large);
         _changelingIdentity.DropStoredIdentity(ent.Owner, targetIdentity.Value);
     }
@@ -186,7 +208,8 @@ public sealed partial class ChangelingTransformSystem : EntitySystem
         else
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player} begun an attempt to transform into \"{Name(targetIdentity)}\"");
 
-        _doAfter.TryStartDoAfter(new DoAfterArgs(
+        // ADT-Tweak-Start
+        if (_doAfter.TryStartDoAfter(new DoAfterArgs(
             EntityManager,
             ent,
             ent.Comp.TransformWindup,
@@ -198,7 +221,12 @@ public sealed partial class ChangelingTransformSystem : EntitySystem
             RequireCanInteract = false,
             DistanceThreshold = null,
             ExamineText = ent.Comp.TransformExamine == null ? null : Loc.GetString(ent.Comp.TransformExamine, ("user", Identity.Entity(ent, EntityManager)))
-        });
+        }, out var doAfterId))
+        {
+            ent.Comp.TransformDoAfter = doAfterId;
+            ent.Comp.TransformTarget = targetIdentity;
+        }
+        // ADT-Tweak-End
     }
 
 
@@ -207,10 +235,20 @@ public sealed partial class ChangelingTransformSystem : EntitySystem
     {
         args.Handled = true;
 
+        // ADT-Tweak-Start
+        var isCurrent = ent.Comp.TransformDoAfter is { } currentId && currentId.Index == args.DoAfter.Index;
+        if (isCurrent)
+        {
+            ent.Comp.TransformDoAfter = null;
+            ent.Comp.TransformTarget = null;
+        }
+        // ADT-Tweak-End
+
         if (args.Cancelled)
         {
             // Only stop the sound if we finish transforming successfully.
-            ent.Comp.CurrentTransformSound = _audio.Stop(ent.Comp.CurrentTransformSound);
+            if (isCurrent) // ADT-Tweak
+                ent.Comp.CurrentTransformSound = _audio.Stop(ent.Comp.CurrentTransformSound);
             return;
         }
 
@@ -218,6 +256,13 @@ public sealed partial class ChangelingTransformSystem : EntitySystem
 
         if (args.Target is not { } targetIdentity)
             return;
+
+        // ADT-Tweak-Start
+        if (TerminatingOrDeleted(targetIdentity)
+            || !TryComp<ChangelingIdentityComponent>(ent, out var identity)
+            || !_changelingIdentity.TryGetDataFromIdentity((ent.Owner, identity), targetIdentity, out _))
+            return;
+        // ADT-Tweak-End
 
         // Transform the entity
         TransformIntoNow(ent, targetIdentity);
