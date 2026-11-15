@@ -5,7 +5,7 @@ uniform highp vec4 tint_color;
 uniform highp float vision_radius;
 
 void fragment() {
-    highp vec4 color = texture(SCREEN_TEXTURE, UV);
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
 
     highp float brightness = dot(color.rgb, vec3(0.2126, 0.7152, 0.0722));
 

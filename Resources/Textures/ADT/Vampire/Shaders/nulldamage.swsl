@@ -33,9 +33,9 @@ void fragment() {
     highp vec2 rUv = uv + vec2(chromaAmount, 0.0);
     highp vec2 bUv = uv - vec2(chromaAmount, 0.0);
 
-    highp float r = texture(SCREEN_TEXTURE, clamp(rUv, 0.001, 0.999)).r;
-    highp float g = texture(SCREEN_TEXTURE, clamp(uv, 0.001, 0.999)).g;
-    highp float b = texture(SCREEN_TEXTURE, clamp(bUv, 0.001, 0.999)).b;
+    highp float r = zTextureSpec(SCREEN_TEXTURE, clamp(rUv, 0.001, 0.999)).r;
+    highp float g = zTextureSpec(SCREEN_TEXTURE, clamp(uv, 0.001, 0.999)).g;
+    highp float b = zTextureSpec(SCREEN_TEXTURE, clamp(bUv, 0.001, 0.999)).b;
     highp vec4 color = vec4(r, g, b, 1.0);
 
     highp float glitchLine = 0.0;
@@ -52,7 +52,7 @@ void fragment() {
 
         highp vec2 glitchOffset = vec2(glitchLine * 0.06 * sin(uv.y * 200.0 + time * 20.0), 0.0);
         if (glitchLine > 0.01) {
-            highp vec4 glitchedColor = texture(SCREEN_TEXTURE, clamp(uv + glitchOffset, 0.001, 0.999));
+            highp vec4 glitchedColor = zTextureSpec(SCREEN_TEXTURE, clamp(uv + glitchOffset, 0.001, 0.999));
             color = mix(color, glitchedColor, glitchLine * 0.7);
         }
     }
