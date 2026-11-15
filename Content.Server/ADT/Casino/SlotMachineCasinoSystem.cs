@@ -1,6 +1,7 @@
 using Content.Shared.ADT.Casino;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chat;
+using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -47,9 +48,22 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
         SubscribeLocalEvent<SlotMachineCasinoComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlotMachineCasinoComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<SlotMachineCasinoComponent, BoundUIOpenedEvent>(OnUiOpened);
+        SubscribeLocalEvent<SlotMachineCasinoComponent, DestructionEventArgs>(OnDestroyed);
 
         SubscribeLocalEvent<SlotMachineCasinoComponent, SlotMachineCasinoActionMessage>(OnAction);
         SubscribeLocalEvent<SlotMachineCasinoComponent, PowerChangedEvent>(OnPowerChanged);
+    }
+
+    private void OnDestroyed(Entity<SlotMachineCasinoComponent> ent, ref DestructionEventArgs args)
+    {
+        var comp = ent.Comp;
+
+        if (comp.Balance <= 0)
+            return;
+
+        var cash = Spawn("SpaceCash", Transform(ent.Owner).Coordinates);
+        _stack.SetCount(cash, comp.Balance);
+        comp.Balance = 0;
     }
 
     private void OnMapInit(Entity<SlotMachineCasinoComponent> ent, ref MapInitEvent args)
@@ -190,6 +204,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
                 break;
             case SlotMachineCasinoAction.SetBet:
                 if (!ent.Comp.Working &&
+                    ent.Comp.FreeSpinsRemaining <= 0 &&
                     msg.Amount >= ent.Comp.SpinPriceMin && msg.Amount <= ent.Comp.SpinPriceMax)
                 {
                     ent.Comp.BetAmount = msg.Amount;
@@ -360,6 +375,7 @@ public sealed partial class SlotMachineCasinoSystem : EntitySystem
             BonusActive = comp.BonusActive,
             WinStreak = comp.WinStreak,
             LossStreak = comp.LossStreak,
+            LossStreakHot = comp.LossStreakHot,
             SessionWinnings = comp.SessionWinnings,
             AutoSpin = comp.AutoSpin,
             AutoSpinRemaining = comp.AutoSpinRemaining,
