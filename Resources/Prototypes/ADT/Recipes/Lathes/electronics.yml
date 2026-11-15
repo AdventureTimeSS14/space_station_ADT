@@ -122,6 +122,11 @@
 #    Copper: 1000
 
 - type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: CrystallizerMachineCircuitboard
+  result: CrystallizerMachineCircuitboard
+
+- type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: ADTPandemicMachineCircuitboard
   result: ADTPandemicMachineCircuitboard

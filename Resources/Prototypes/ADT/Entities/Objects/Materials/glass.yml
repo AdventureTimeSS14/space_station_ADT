@@ -1,0 +1,10 @@
+- type: entity
+  parent: SheetGlass
+  id: ADTSheetGlass5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: glass
+  - type: Stack
+    stackType: Glass
+    count: 5
