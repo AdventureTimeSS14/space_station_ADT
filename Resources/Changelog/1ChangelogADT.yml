@@ -17653,3 +17653,11 @@ Entries:
     id: 2124
     pr_number: 3603
     time: '2026-11-15T15:51:30Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Добавлен новый кейбинд - отстегнуться. По стандарту на Q., type: Add}
+      - {message: Теперь сидя на транспорте можно тащить за собой предмет или существо.,
+        type: Tweak}
+    id: 2125
+    pr_number: 3630
+    time: '2026-11-15T19:38:30Z'
