@@ -217,6 +217,9 @@ ghost-role-information-BreadDog-description = You are the chef's favorite child.
 ghost-role-information-space-ninja-name = Space Ninja
 ghost-role-information-space-ninja-description = Use stealth and deception to sabotage the station.
 ghost-role-information-space-ninja-rules = You are a [color={role-type-solo-antagonist-color}][bold]{role-type-solo-antagonist-name}[/bold][/color]. Your intentions are clear, and harmful to the station and its crew.
+
+ghost-role-information-space-changeling-name = Elder Headslug
+ghost-role-information-space-changeling-description = An adult changeling headslug, eager to assimilate crew members and ready to hide within the station. This headslug is especially frail and needs to find a dead body to assume a humanoid appearance.
     You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
     You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.

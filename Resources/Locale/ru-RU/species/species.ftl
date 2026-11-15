@@ -11,6 +11,7 @@ species-name-skeleton = Скелет
 species-name-vox = Вокс
 species-name-gingerbread = вкуснейшая выпечка
 # species-name-vulpkanin = Вульпканин
+species-name-horror = Ползучая мерзость
 
 ## Misc species things
 

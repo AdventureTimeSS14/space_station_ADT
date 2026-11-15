@@ -17,6 +17,24 @@
 
 - type: gamePreset
   showInVote: false # secret
+  id: Changeling
+  alias:
+    - ling
+    - lings
+    - changeling
+  name: adt-changeling-gamemode-title
+  description: adt-changeling-gamemode-description
+  rules:
+    - Changeling
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - ADTDiseaseAlertRule
+
+- type: gamePreset
+  showInVote: false # secret
   id: ADTShadowling
   alias:
     - shadowling

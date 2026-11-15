@@ -95,7 +95,7 @@
   name: revenant-shield-effect-name
   description: revenant-shield-effect-desc
   productEvent: !type:AddRevenantShieldEvent
-  raiseOnBuyer: true
+  raiseProductEventOnUser: true
   cost:
     StolenEssence: 100
   categories:
@@ -112,7 +112,7 @@
   name: revenant-misery-effect-name
   description: revenant-misery-effect-desc
   productEvent: !type:StartRevenantMiseryEvent
-  raiseOnBuyer: true
+  raiseProductEventOnUser: true
   cost:
     StolenEssence: 300
   categories:
