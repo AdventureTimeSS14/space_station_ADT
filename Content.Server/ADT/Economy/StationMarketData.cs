@@ -1,9 +1,6 @@
-using Robust.Shared.Serialization;
-
 namespace Content.Server.ADT.Economy;
 
-[RegisterComponent]
-public sealed partial class StationMarketComponent : Component
+public sealed class StationMarketData
 {
     public Dictionary<string, double> SoldUnits = new();
 
@@ -12,16 +9,13 @@ public sealed partial class StationMarketComponent : Component
     /// <summary>
     /// Скидка приёма за каждую проданную единицу (0.05 - минус 5% за штуку).
     /// </summary>
-    [DataField]
     public float UnitDiscount = 0.05f;
 
     /// <summary>
     /// Нижний потолок множителя приёма (0.35 - максимум минус 65%).
     /// </summary>
-    [DataField]
     public float MinMultiplier = 0.35f;
 
-    [DataField]
     public TimeSpan HalfLife = TimeSpan.FromMinutes(20);
 
     public void AddSold(string protoId, int units, TimeSpan now)
@@ -30,26 +24,36 @@ public sealed partial class StationMarketComponent : Component
         SoldUnits[protoId] = SoldUnits.GetValueOrDefault(protoId) + units;
     }
 
-    /// <summary>
-    /// Множитель приёма для партии из batchUnits единиц прототипа.
-    /// Партия сама проезжает по нарастающей скидке: усреднённый множитель
-    /// считается от середины диапазона счётчика (before + (batch+1)/2),
-    /// поэтому крупная партия дешевеет уже в момент продажи, а не со следующей.
-    /// </summary>
     public double GetBatchMultiplier(string? protoId, int batchUnits, TimeSpan now)
     {
         Decay(now);
 
-        var before = protoId != null && SoldUnits.TryGetValue(protoId, out var units) ? units : 0;
-        if (before <= 0 && batchUnits <= 0)
+        if (batchUnits <= 0)
             return 1;
 
-        var avg = before + (batchUnits + 1) / 2.0;
-        return Math.Max(MinMultiplier, 1 - avg * UnitDiscount);
+        var discount = (double) UnitDiscount;
+        if (discount <= 0)
+            return 1;
+
+        var before = protoId != null && SoldUnits.TryGetValue(protoId, out var units) ? units : 0;
+        var min = (double) MinMultiplier;
+
+        var unitsUntilMin = (1.0 - min) / discount - before;
+        var progressiveUnits = Math.Clamp((int) Math.Floor(unitsUntilMin + 1e-9), 0, batchUnits);
+        var minUnits = batchUnits - progressiveUnits;
+
+        var sum = progressiveUnits
+            - discount * (before * progressiveUnits + (double) progressiveUnits * (progressiveUnits + 1) / 2.0)
+            + minUnits * min;
+
+        return Math.Max(min, sum / batchUnits);
     }
 
     private void Decay(TimeSpan now)
     {
+        if (now == LastDecayTime)
+            return;
+
         var dt = now - LastDecayTime;
         LastDecayTime = now;
 

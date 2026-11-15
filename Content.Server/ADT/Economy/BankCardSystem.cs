@@ -363,6 +363,31 @@ public sealed class BankCardSystem : EntitySystem
         return false;
     }
 
+    public bool TryGetPersonalAccountId(EntityUid user, out int accountId)
+    {
+        accountId = 0;
+
+        foreach (var item in _accessReader.FindPotentialAccessItems(user))
+        {
+            BankCardComponent? card = null;
+
+            if (TryComp(item, out PdaComponent? pda) &&
+                pda.ContainedId is { Valid: true } id)
+                TryComp(id, out card);
+
+            if (card == null)
+                TryComp(item, out card);
+
+            if (card is not { AccountId: { } account } || card.CommandBudgetCard)
+                continue;
+
+            accountId = account;
+            return true;
+        }
+
+        return false;
+    }
+
     private (bool Fixed, int Pay) GetPay(EntityUid? mind)
     {
         if (!_job.MindTryGetJob(mind, out var job))
@@ -371,7 +396,10 @@ public sealed class BankCardSystem : EntitySystem
         if (_salaries.Fixed.TryGetValue(job.ID, out var fixedPay))
             return (true, fixedPay);
 
-        return (_salaries.Salaries.TryGetValue(job.ID, out var pay), pay);
+        if (_salaries.Salaries.TryGetValue(job.ID, out var pay))
+            return (false, pay);
+
+        return (false, 0);
     }
 
     private void OnMapInit(EntityUid uid, BankCardComponent component, MapInitEvent args)
@@ -561,14 +589,14 @@ public sealed class BankCardSystem : EntitySystem
                 !ownBank.Accounts.ContainsKey(account.AccountPrototype.Value))
                 return false;
 
-            if (ownBank.Accounts[account.AccountPrototype.Value] + amount < 0)
+            if (amount < 0 && ownBank.Accounts[account.AccountPrototype.Value] + amount < 0)
                 return false;
 
             _cargo.UpdateBankAccount((account.Station.Value, ownBank), amount, account.AccountPrototype.Value);
         }
         else
         {
-            if (account.Balance + amount < 0)
+            if (amount < 0 && account.Balance + amount < 0)
                 return false;
 
             account.Balance += amount;
