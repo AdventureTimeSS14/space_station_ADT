@@ -292,19 +292,25 @@ namespace Content.Client.Cargo.UI
 
             var i = 0;
             ActionOptions.Clear();
+            /* ADT-Tweak start
             ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-withdraw"), i);
             i++;
+            ADT-Tweak end */
             foreach (var account in bank.Accounts.Keys)
             {
                 if (account == console.Account)
                     continue;
                 var accountProto = _protoManager.Index(account);
                 ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-transfer",
-                    ("code", Loc.GetString(accountProto.Code))),
-                    i);
+                    ("code", Loc.GetString(accountProto.Code))), i); // ADT-Tweak
                 ActionOptions.SetItemMetadata(i, account);
                 i++;
             }
+
+            // ADT-Tweak start
+            if (i > 0)
+                ActionOptions.SelectId(0);
+            // ADT-Tweak end
         }
 
         public void UpdateStation(EntityUid station)
