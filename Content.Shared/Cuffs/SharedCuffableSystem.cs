@@ -521,10 +521,8 @@ namespace Content.Shared.Cuffs
             if (TryComp<HandsComponent>(target, out var hands) && hands.Count <= component.CuffedHandCount)
                 return false;
 
-            // ADT-Tweak-Start
             var beforeEv = new BeforeTargetHandcuffedEvent(user);
             RaiseLocalEvent(target, ref beforeEv);
-            // ADT-Tweak-End
 
             // Success!
             //ADT secborg start
@@ -938,13 +936,18 @@ namespace Content.Shared.Cuffs
         public SlotFlags TargetSlots { get; set; }
     }
 
-    // ADT-Tweak-Start
+    /// <summary>
+    /// Raised on the target before they get handcuffed.
+    /// Relayed to their held items.
+    /// </summary>
     [ByRefEvent]
     public record struct BeforeTargetHandcuffedEvent(EntityUid User) : IInventoryRelayEvent
     {
+        /// <summary>
+        /// All slots to relay to
+        /// </summary>
         public SlotFlags TargetSlots { get; set; }
     }
-    // ADT-Tweak-End
 
     /// <summary>
     /// Raised on the entity being cuffed to determine if their cuffing doafter should get a stuncuff timer reduction.
