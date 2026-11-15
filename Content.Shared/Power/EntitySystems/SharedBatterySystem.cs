@@ -1,3 +1,4 @@
+using Content.Shared.ADT.EMP;
 using Content.Shared.Cargo;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
@@ -58,7 +59,17 @@ public abstract partial class SharedBatterySystem : EntitySystem
     private void OnEmpPulse(Entity<BatteryComponent> ent, ref EmpPulseEvent args)
     {
         args.Affected = true;
-        UseCharge(ent.AsNullable(), args.EnergyConsumption);
+
+        // ADT-Tweak-start
+        var consumption = args.EnergyConsumption;
+        if (TryComp<EmpPowerDrainCapComponent>(ent.Owner, out var cap))
+        {
+            consumption = MathF.Max(consumption, cap.RelativeToMaxCharge ? ent.Comp.MaxCharge : ent.Comp.LastCharge);
+        }
+
+        // ADT-Tweak-end
+
+        UseCharge(ent.AsNullable(), consumption);   // ADT-Tweak: using modified local variable
     }
 
     private void OnExamine(Entity<BatteryComponent> ent, ref ExaminedEvent args)
