@@ -3,7 +3,7 @@
   # Кулинарная техника
 
   <Box>
-    <GuideEntityEmbed Entity="ADTCookbookManual" Caption="кулинарная книга приёмов"/>
+    <GuideEntityEmbed Entity="ADTCookbookManual" Caption="Кулинария ближнего боя"/>
   </Box>
 
   Школа повара. Приёмы названы по кухонным операциям и заточены на то, чтобы разорвать
