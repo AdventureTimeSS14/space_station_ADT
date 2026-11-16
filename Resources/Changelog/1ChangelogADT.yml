@@ -17661,3 +17661,9 @@ Entries:
     id: 2125
     pr_number: 3630
     time: '2026-11-15T19:38:30Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Вирусолог теперь имеет зарплату., type: Fix}
+    id: 2126
+    pr_number: 3698
+    time: '2026-11-16T06:27:23Z'
