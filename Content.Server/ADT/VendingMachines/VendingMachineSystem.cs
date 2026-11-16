@@ -333,15 +333,6 @@ namespace Content.Server.ADT.VendingMachines
             return _bankCard.TryGetDepartmentAccountId(station.Value, revenueAccount, out accountId);
         }
 
-        private void ApplyPriceCreep(VendingMachineInventoryEntry entry)
-        {
-            if (entry.BasePrice <= 0)
-                entry.BasePrice = entry.Price;
-
-            var step = Math.Max(1, entry.BasePrice / 20);
-            entry.Price = Math.Min(entry.Price + step, entry.BasePrice * 3);
-        }
-
         private void OnAfterActivatableUIOpen(EntityUid uid, ADTVendingMachineComponent component, AfterActivatableUIOpenEvent args)
         {
             SendUserInfo(uid, component, args.User);
@@ -559,8 +550,6 @@ namespace Content.Server.ADT.VendingMachines
                     Deny((uid, vendComponent), ejectComponent: ejectComponent);
                     return;
                 }
-
-                ApplyPriceCreep(entry);
             }
             vendComponent.NextItemCount = count;
             vendComponent.NextItemReturnedCount = freeCount;

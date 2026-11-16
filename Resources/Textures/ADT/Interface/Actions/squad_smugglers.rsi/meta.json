@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Squad order icons drawn for Adventure Time SS14 (generated with Claude AI)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "follow"
+        },
+        {
+            "name": "followOff"
+        },
+        {
+            "name": "positions"
+        },
+        {
+            "name": "positionsOff"
+        },
+        {
+            "name": "engage"
+        },
+        {
+            "name": "engageOff"
+        },
+        {
+            "name": "standdown"
+        },
+        {
+            "name": "standdownOff"
+        }
+    ]
+}

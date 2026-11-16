@@ -36,8 +36,6 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     noRot: true
   - type: MovementSpeedModifier
-    acceleration: 1
-    friction: 1
     baseWalkSpeed: 4.5
     baseSprintSpeed: 7
   - type: Strap

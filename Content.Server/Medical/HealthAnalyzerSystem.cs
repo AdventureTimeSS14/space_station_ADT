@@ -1,6 +1,7 @@
 using Content.Server.Medical.Components;
 using Content.Server.ADT.Addiction; // ADT-Tweak
 using Content.Server.ADT.Virology;
+using Content.Shared.ADT.Virology.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
@@ -246,6 +247,11 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
 
         var uiState = GetHealthAnalyzerUiState(target);
         uiState.ScanMode = scanMode;
+
+        // ADT-Tweak-Start
+        if (TryComp<ADTDiseaseViewerComponent>(healthAnalyzer, out var viewer) && viewer.IgnoreStealth)
+            uiState.Diseases = _disease.GetScannerDiseases(target, true);
+        // ADT-Tweak-End
 
         _uiSystem.ServerSendUiMessage(
             healthAnalyzer,

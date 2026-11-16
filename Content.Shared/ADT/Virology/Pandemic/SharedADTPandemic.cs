@@ -52,6 +52,8 @@ public sealed class ADTPandemicBoundUserInterfaceState : BoundUserInterfaceState
 {
     public bool HasBeaker;
 
+    public bool ReadOnly;
+
     public string? ErrorMessage;
 
     public string BloodDna = string.Empty;

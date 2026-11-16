@@ -12,8 +12,8 @@
           sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
           state: icon
         doAfter: 2
-      - tag: CrowbarRed
-        name: adt-construction-graph-tag-emergency-crowbar
+      - tag: Crowbar
+        name: adt-construction-graph-tag-crowbar
         icon:
           sprite: Objects/Tools/crowbar.rsi
           state: icon

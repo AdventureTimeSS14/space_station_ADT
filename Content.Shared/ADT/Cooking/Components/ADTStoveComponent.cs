@@ -43,7 +43,7 @@ public sealed partial class ADTStoveComponent : Component
     public float CookTimeMultiplier = 1f;
 
     [DataField]
-    public List<int> OvenTimerPresets = new() { 15, 30, 45, 60, 90, 120, 180, 300 };
+    public List<int> OvenTimerPresets = new() { 5, 10, 15, 20, 30, 50, 60, 90 };
 
     [DataField]
     public int OvenTimerMax = 600;

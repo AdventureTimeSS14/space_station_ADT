@@ -10,3 +10,4 @@ ADT-TransSolar19482-Channel-name = ТСФ 1948.2
 ADT-TransSolar19487-Channel-name = ТСФ 1948.7
 ADT-TransSolar19489-Channel-name = ТСФ 1948.9
 ADT-USSP-Channel-name = СССП
+ADT-LimaTen-Channel-name = Лима-10

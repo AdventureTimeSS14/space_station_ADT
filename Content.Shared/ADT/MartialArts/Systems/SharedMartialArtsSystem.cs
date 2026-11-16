@@ -29,7 +29,7 @@ using System.Linq;
 using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
-using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
+using Content.Shared.Changeling.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Heretic;
 using Content.Shared.ADT.BackStab;
@@ -491,7 +491,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
 
-        if (HasComp<ChangelingComponent>(user))
+        if (HasComp<ChangelingIdentityComponent>(user))
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), user, user);
             return false;
