@@ -416,6 +416,8 @@
                 layer:
                 - None
           - type: DissociativeAlterBody
+          - type: ADTVirusImmune
+            absolute: true
           - type: StatusIcon
             bounds: -0.5,-0.5,0.5,0.5
           - type: InputMover
