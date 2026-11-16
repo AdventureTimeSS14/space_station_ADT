@@ -4,9 +4,12 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System.Linq;
-using Content.Server.Atmos.EntitySystems;	
+using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
@@ -17,6 +20,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Vampire;
 using Content.Shared.Vampire.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Vampire;
@@ -34,44 +38,121 @@ public sealed partial class VampireSystem
         SubscribeLocalEvent<VampireComponent, VampireExtinguishActionEvent>(OnExtinguish);
         SubscribeLocalEvent<VampireComponent, VampireShadowBoxingActionEvent>(OnShadowBoxing);
         SubscribeLocalEvent<VampireComponent, VampireEternalDarknessActionEvent>(OnEternalDarkness);
+        SubscribeLocalEvent<VampireComponent, DamageModifyEvent>(OnCloakDamageModify);
     }
+
+    private const float CloakSpeedMod = 1.3f;
+    private const float CloakLightCheckRange = 4f;
 
     private void OnCloakOfDarkness(Entity<VampireComponent> ent, ref VampireCloakOfDarknessActionEvent args)
     {
-        if (!TryComp<StealthComponent>(ent, out var stealth))
+        if (ent.Comp.CloakActive)
         {
-            stealth = EnsureComp<StealthComponent>(ent);
-            _stealth.SetVisibility(ent, 0.3f, stealth);
-            _stealth.SetEnabled(ent, false, stealth);
+            DisableCloakOfDarkness(ent);
+            _popup.PopupEntity(Loc.GetString("vampire-stealth-disabled"), ent, ent, PopupType.Small);
+            args.Handled = true;
+            return;
         }
 
-        if (TryComp(ent, out MovementSpeedModifierComponent? speedmodComponent))
+        if (!CheckBloodEssence(ent.Owner, args.BloodCost))
         {
-            var originalWalkSpeed = speedmodComponent.BaseWalkSpeed;
-            var originalSprintSpeed = speedmodComponent.BaseSprintSpeed;
-
-            if (stealth.Enabled)
-            {
-                _stealth.SetEnabled(ent, false, stealth);
-                _speed.ChangeBaseSpeed(ent, originalWalkSpeed / args.SpeedMod, originalSprintSpeed / args.SpeedMod, speedmodComponent.Acceleration);
-                _popup.PopupEntity(Loc.GetString("vampire-stealth-disabled"), ent, ent, PopupType.Small);
-            }
-            else
-            {
-                if (!CheckBloodEssence(ent.Owner, args.BloodCost))
-                {
-                    SendFailedPopup(ent);
-                    return;
-                }
-
-                _stealth.SetEnabled(ent, true, stealth);
-                _speed.ChangeBaseSpeed(ent, originalWalkSpeed * args.SpeedMod, originalSprintSpeed * args.SpeedMod, speedmodComponent.Acceleration);
-                _popup.PopupEntity(Loc.GetString("vampire-stealth-enabled"), ent, ent, PopupType.Small);
-                SubtractBloodEssence(ent.Owner, args.BloodCost);
-            }
+            SendFailedPopup(ent);
+            return;
         }
 
+        if (!TryComp(ent, out MovementSpeedModifierComponent? speedmodComponent))
+            return;
+
+        ent.Comp.CloakWalkSpeed = speedmodComponent.BaseWalkSpeed;
+        ent.Comp.CloakSprintSpeed = speedmodComponent.BaseSprintSpeed;
+        ent.Comp.CloakActive = true;
+        ent.Comp.CloakInDarkness = false;
+        ent.Comp.NextCloakCheck = 1f;
+
+        var stealth = EnsureComp<StealthComponent>(ent);
+        _stealth.SetEnabled(ent, true, stealth);
+
+        UpdateCloakOfDarkness(ent, ent.Comp);
+        SubtractBloodEssence(ent.Owner, args.BloodCost);
+        _popup.PopupEntity(Loc.GetString("vampire-stealth-enabled"), ent, ent, PopupType.Small);
         args.Handled = true;
+    }
+
+    private void UpdateCloakOfDarkness(EntityUid uid, VampireComponent component)
+    {
+        if (!component.CloakActive)
+            return;
+
+        if (TryComp<FlammableComponent>(uid, out var flammable) && flammable.OnFire)
+        {
+            DisableCloakOfDarkness((uid, component));
+            _popup.PopupEntity(Loc.GetString("vampire-cloak-broken-fire"), uid, uid, PopupType.MediumCaution);
+            return;
+        }
+
+        var inDarkness = component.Variant != VampireVariant.Classic || !IsCloakLit(uid);
+        if (inDarkness == component.CloakInDarkness)
+            return;
+
+        component.CloakInDarkness = inDarkness;
+
+        if (TryComp<StealthComponent>(uid, out var stealth))
+            _stealth.SetVisibility(uid, inDarkness ? 0.3f : 0.8f, stealth);
+
+        if (TryComp<MovementSpeedModifierComponent>(uid, out var speed))
+        {
+            var mod = inDarkness ? CloakSpeedMod : 1f;
+            _speed.ChangeBaseSpeed(uid, component.CloakWalkSpeed * mod, component.CloakSprintSpeed * mod, speed.Acceleration);
+        }
+
+        Dirty(uid, component);
+    }
+
+    private bool IsCloakLit(EntityUid uid)
+    {
+        if (IsInSpace(uid))
+            return true;
+
+        var coords = Transform(uid).Coordinates;
+        foreach (var light in _entityLookup.GetEntitiesInRange<PointLightComponent>(coords, CloakLightCheckRange))
+        {
+            if (light.Owner != uid && light.Comp.Enabled && light.Comp.Energy > 0f)
+                return true;
+        }
+
+        return false;
+    }
+
+    private void DisableCloakOfDarkness(Entity<VampireComponent> vampire)
+    {
+        if (!vampire.Comp.CloakActive)
+            return;
+
+        vampire.Comp.CloakActive = false;
+        vampire.Comp.CloakInDarkness = false;
+
+        if (TryComp<StealthComponent>(vampire, out var stealth))
+            _stealth.SetEnabled(vampire, false, stealth);
+
+        if (TryComp<MovementSpeedModifierComponent>(vampire, out var speed))
+            _speed.ChangeBaseSpeed(vampire, vampire.Comp.CloakWalkSpeed, vampire.Comp.CloakSprintSpeed, speed.Acceleration);
+
+        Dirty(vampire.Owner, vampire.Comp);
+    }
+
+    private void OnCloakDamageModify(Entity<VampireComponent> ent, ref DamageModifyEvent args)
+    {
+        if (!ent.Comp.CloakActive)
+            return;
+
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, new DamageModifierSet
+        {
+            Coefficients = new Dictionary<ProtoId<DamageTypePrototype>, float>
+            {
+                { "Heat", 1.3f },
+                { "Shock", 1.3f }
+            }
+        });
     }
 
     private void OnShadowSnare(Entity<VampireComponent> ent, ref VampireShadowSnareActionEvent args)

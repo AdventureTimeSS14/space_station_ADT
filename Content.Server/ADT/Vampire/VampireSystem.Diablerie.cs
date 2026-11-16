@@ -6,6 +6,7 @@
 using Content.Shared.Administration.Systems;
 using Content.Shared.Bible.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -18,6 +19,7 @@ using Content.Shared.Popups;
 using Content.Shared.Surgery.Components;
 using Content.Shared.Vampire;
 using Content.Shared.Vampire.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -35,6 +37,18 @@ public sealed partial class VampireSystem
         SubscribeLocalEvent<VampireDiablerieComponent, ComponentStartup>(OnDiablerieStartup);
         SubscribeLocalEvent<VampireDiablerieComponent, ExaminedEvent>(OnDiablerieExamined);
         SubscribeLocalEvent<VampireDiablerieComponent, VampireSacramentInitiationActionEvent>(OnSacramentInitiation);
+        SubscribeLocalEvent<VampireDiablerieComponent, MeleeHitEvent>(OnDiablerieMeleeHit);
+    }
+
+    private void OnDiablerieMeleeHit(Entity<VampireDiablerieComponent> ent, ref MeleeHitEvent args)
+    {
+        if (ent.Comp.DiablerieLevel < 4 || args.HitEntities.Count == 0)
+            return;
+
+        args.BonusDamage += new DamageSpecifier
+        {
+            DamageDict = { { "Blunt", 5 } }
+        };
     }
 
     private void OnDiablerieStartup(Entity<VampireDiablerieComponent> ent, ref ComponentStartup args)
@@ -213,8 +227,15 @@ public sealed partial class VampireSystem
                     _popup.PopupEntity(Loc.GetString("vampire-diablerie-level-three"), ent, ent, PopupType.Large);
                     break;
                 }
-
+            case 4:
+                {
+                    _popup.PopupEntity(Loc.GetString("vampire-diablerie-level-four"), ent, ent, PopupType.Large);
+                    break;
+                }
         }
+
+        if (level > 0)
+            ApplyCooldownReduction((ent.Owner, vampire), level);
     }
 
     private void AnnounceVampireAscended(Entity<VampireDiablerieComponent> ent)

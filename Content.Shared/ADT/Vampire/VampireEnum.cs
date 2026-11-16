@@ -15,7 +15,16 @@ public enum VampireClassEnum : byte
     Umbrae,
     Gargantua,
     Dantalion,
-    Bestia // Here! Don't bite me!
+    Bestia, // Here! Don't bite me!
+    Ancient
+}
+
+[Serializable, NetSerializable]
+public enum VampireVariant : byte
+{
+    Classic = 0,
+    Goon,
+    Devil
 }
 
 [Serializable, NetSerializable]
@@ -37,5 +46,6 @@ public enum BestiaOrganType : byte
     Liver,
     Kidneys,
     Eyes,
-    Stomach
+    Stomach,
+    Ears
 }

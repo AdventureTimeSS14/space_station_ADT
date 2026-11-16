@@ -41,6 +41,30 @@ public sealed partial class VampireComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public VampireClassEnum CurrentEvolution { get; set; } = VampireClassEnum.NonSelected;
 
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public VampireVariant Variant = VampireVariant.Classic;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public HashSet<EntityUid> DrainedVictims = new();
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public Dictionary<EntityUid, TimeSpan> BaseActionDelays = new();
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool CloakActive;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool CloakInDarkness;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float CloakWalkSpeed;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float CloakSprintSpeed;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float NextCloakCheck;
+
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public FixedPoint2 CurrentBlood = 0;
 
@@ -100,6 +124,50 @@ public sealed partial class VampireComponent : Component
             { 600f, new() { "ActionVampireAnabiosis" } },
             { 800f, new() { "ActionVampireSummonBats" } },
             { 1000f, new() { "ActionVampireMetamorphosisHound" } }
+        },
+        [VampireClassEnum.Ancient] = new()
+        {
+            { 0f, new()
+                {
+                    "ActionVampireClaws", "ActionVampireBloodTendrils", "ActionVampireBloodBarrier",
+                    "ActionVampireSanguinePool", "ActionVampirePredatorSenses", "ActionVampireBloodEruption",
+                    "ActionVampireBloodBringersRite",
+                    "ActionVampireCloakOfDarkness", "ActionVampireShadowSnare", "ActionVampireSoulAnchor",
+                    "ActionVampireDarkPassage", "ActionVampireExtinguish", "ActionVampireShadowBoxing",
+                    "ActionVampireEternalDarkness",
+                    "ActionVampireBloodSwell", "ActionVampireBloodRush", "ActionVampireSeismicStomp",
+                    "ActionVampireBloodSwellAdvanced", "ActionVampireOverwhelmingForce", "ActionDemonicGrasp",
+                    "ActionVampireCharge",
+                    "ActionEnthrall", "ActionCommune", "ActionPacify", "ActionSubspaceSwap", "ActionDeployDecoy",
+                    "ActionRallyThralls", "ActionVampirePacifyNearby", "ActionBloodBond", "ActionVampireThrallHeal",
+                    "ActionMassHysteria",
+                    "ActionVampireCheckTrophies", "ActionVampireDissect", "ActionVampireInfectedTrophy",
+                    "ActionVampireLunge", "ActionVampireMarkPrey", "ActionVampireMetamorphosisBats",
+                    "ActionVampireAnabiosis", "ActionVampireSummonBats", "ActionVampireMetamorphosisHound"
+                }
+            }
+        }
+    };
+
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public Dictionary<VampireVariant, Dictionary<float, List<EntProtoId>>> VariantThresholds { get; set; } = new()
+    {
+        [VampireVariant.Goon] = new()
+        {
+            { 0f, new() { "ActionVampireHypnotise" } },
+            { 100f, new() { "ActionVampireMetamorphosisBats" } },
+            { 150f, new() { "ActionVampireCloakOfDarkness", "ActionVampireGoonDisease" } },
+            { 200f, new() { "ActionVampireSummonBats", "ActionVampireScreech" } },
+            { 250f, new() { "ActionVampireBlink" } },
+            { 300f, new() { "ActionPolymorphJaunt", "ActionEnthrall" } }
+        },
+        [VampireVariant.Devil] = new()
+        {
+            { 100f, new() { "ActionVampireMetamorphosisBats" } },
+            { 150f, new() { "ActionVampireCloakOfDarkness", "ActionVampireShadowSnare" } },
+            { 200f, new() { "ActionVampireExtinguish", "ActionVampireScreech" } },
+            { 250f, new() { "ActionVampireBlink" } },
+            { 300f, new() { "ActionPolymorphJaunt" } }
         }
     };
 

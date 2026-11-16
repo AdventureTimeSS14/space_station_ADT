@@ -15,6 +15,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NullRod;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
+using Content.Shared.ADT.Virology.Components;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Rotting;
@@ -61,6 +62,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Vampire;
 
@@ -100,6 +102,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private VampireRuleSystem _vampireRule = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     private const int MaxBloodToConsume = 200;
 
@@ -154,6 +157,16 @@ public sealed partial class VampireSystem : SharedVampireSystem
             if (ShouldTakeSpaceDamage(vampireComponent, frameTime, out var shouldDamage) && shouldDamage)
             {
                 if (IsInSpace(uid)) DoSpaceDamage(uid, vampireComponent);
+            }
+
+            if (vampireComponent.CloakActive)
+            {
+                vampireComponent.NextCloakCheck -= frameTime;
+                if (vampireComponent.NextCloakCheck <= 0f)
+                {
+                    vampireComponent.NextCloakCheck = 1f;
+                    UpdateCloakOfDarkness(uid, vampireComponent);
+                }
             }
         }
     }
@@ -229,6 +242,15 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (TryComp<DamageableComponent>(vampire, out var dmg))
             state.OriginalDamageModifierSetId = dmg.DamageModifierSetId;
 
+        if (TryComp<EyeComponent>(vampire, out var eye))
+            state.OriginalDrawFov = eye.DrawFov;
+
+        if (TryComp<NaturalNightVisionComponent>(vampire, out var nightVision))
+        {
+            state.OriginalNightVisionRadius = nightVision.VisionRadius;
+            state.OriginalNightVisionColor = nightVision.TintColor;
+        }
+
         state.OriginalEyeColor = GetCurrentEyeColor(vampire);
     }
 
@@ -280,10 +302,13 @@ public sealed partial class VampireSystem : SharedVampireSystem
         vampire.Comp.RejuvenateActionEntity = _action.AddAction(vampire, VampireComponent.RejuvenateActionPrototype);
         vampire.Comp.GlareActionEntity = _action.AddAction(vampire, VampireComponent.GlareActionPrototype);
 
-        if (!inferior)
+        if (!inferior && vampire.Comp.Variant == VampireVariant.Classic)
         {
             vampire.Comp.SelectClassActionEntity = _action.AddAction(vampire, VampireComponent.SelectClassActionPrototype);
         }
+
+        if (vampire.Comp.Variant == VampireVariant.Goon)
+            EnsureComp<ThrallOwnerComponent>(vampire);
 
         _alerts.ShowAlert(vampire.Owner, vampire.Comp.BloodAlert);
         _vampireRule.InitVampireRecord(vampire);
@@ -301,7 +326,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
         var toRemove = new[]
         {
-            typeof(SupremeVampireComponent), typeof(ThrallOwnerComponent), typeof(BestiaContainerComponent)
+            typeof(SupremeVampireComponent), typeof(ThrallOwnerComponent), typeof(BestiaContainerComponent),
+            typeof(ADTVirusImmuneComponent)
         };
 
         foreach (var type in toRemove)
@@ -333,6 +359,24 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (state.OriginalEyeColor is Color color)
             SetEyeColor(vampire.Owner, color);
 
+        if (state.OriginalDrawFov is bool drawFov)
+            _eye.SetDrawFov(vampire.Owner, drawFov);
+
+        if (state.OriginalNightVisionRadius is float radius && state.OriginalNightVisionColor is Color tint)
+        {
+            var nightVision = EnsureComp<NaturalNightVisionComponent>(vampire);
+            nightVision.VisionRadius = radius;
+            nightVision.TintColor = tint;
+            Dirty(vampire.Owner, nightVision);
+        }
+        else
+        {
+            RemComp<NaturalNightVisionComponent>(vampire);
+        }
+
+        if (vampire.Comp.CloakActive)
+            DisableCloakOfDarkness(vampire);
+
         RemComp<UnholyComponent>(vampire);
         RemComp<VampireInferiorComponent>(vampire);
         if (TryComp<ReactiveComponent>(vampire, out var reactive))
@@ -346,6 +390,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
             }
         }
         vampire.Comp.AcquiredSkills.Clear();
+        vampire.Comp.BaseActionDelays.Clear();
 
         _action.RemoveAction(vampire.Owner, vampire.Comp.DrinkActionEntity);
         _action.RemoveAction(vampire.Owner, vampire.Comp.SelectClassActionEntity);
@@ -384,6 +429,9 @@ public sealed partial class VampireSystem : SharedVampireSystem
     public void OnClassSelected(EntityUid uid, VampireClassEnum selectedClass, VampireComponent? vampire = null)
     {
         if (!Resolve(uid, ref vampire)) // It's like, "Hey man, what the hell?"
+            return;
+
+        if (vampire.Variant != VampireVariant.Classic)
             return;
 
         // Checking for repeated attempts to change the class.
@@ -435,10 +483,58 @@ public sealed partial class VampireSystem : SharedVampireSystem
                     break;
                 }
 
+            case VampireClassEnum.Ancient:
+                {
+                    var owner = EnsureComp<ThrallOwnerComponent>(uid);
+                    owner.MaxThrallCount = 150;
+                    owner.ThrallCountThresholds.Clear();
+                    Dirty(uid, owner);
+                    EnsureComp<BestiaContainerComponent>(uid);
+
+                    var ancientVision = EnsureComp<NaturalNightVisionComponent>(uid);
+                    ancientVision.VisionRadius = GetNightVisionRadiusForClass(selectedClass);
+                    ancientVision.TintColor = GetNightVisionColorForClass(selectedClass);
+                    Dirty(uid, ancientVision);
+                    break;
+                }
+
             default: break;
         }
 
         UpdatePowers((uid, vampire));
+    }
+
+    public bool SetVariant(EntityUid uid, VampireVariant variant)
+    {
+        if (!TryComp<VampireComponent>(uid, out var vampire))
+            return false;
+
+        vampire.Variant = variant;
+
+        if (variant != VampireVariant.Classic)
+        {
+            _action.RemoveAction(uid, vampire.SelectClassActionEntity);
+            vampire.SelectClassActionEntity = null;
+        }
+
+        if (variant == VampireVariant.Goon)
+            EnsureComp<ThrallOwnerComponent>(uid);
+
+        Dirty(uid, vampire);
+        UpdatePowers((uid, vampire));
+        return true;
+    }
+
+    public bool MakeAncient(EntityUid uid)
+    {
+        if (!TryComp<VampireComponent>(uid, out var vampire))
+            return false;
+
+        if (vampire.CurrentEvolution != VampireClassEnum.NonSelected || vampire.Variant != VampireVariant.Classic)
+            return false;
+
+        OnClassSelected(uid, VampireClassEnum.Ancient, vampire);
+        return true;
     }
 
     #endregion
@@ -589,13 +685,61 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
         _admin.Add(LogType.Damaged, LogImpact.Low, $"{ToPrettyString(uid):user} drank {volumeToConsume}u of {ToPrettyString(target):target}'s blood ({volumeToStomach}u to stomach)");
 
-        if (HasComp<HumanoidProfileComponent>(target) && !HasComp<DnaModifiedComponent>(target))
-            AddBloodEssence(uid, volumeToEssence);
+        if (HasComp<HumanoidProfileComponent>(target) && !HasComp<DnaModifiedComponent>(target)
+            && (!_mobState.IsDead(target) || HasComp<ActorComponent>(target)))
+        {
+            if (AddBloodEssence(uid, volumeToEssence))
+                component.DrainedVictims.Add(target);
+        }
 
         SetBloodConsumedByVampire(uid, target, bloodAlreadyConsumed + volumeToConsume);
+        ApplySuckClassEffects(uid, component, target);
         _popup.PopupEntity(Loc.GetString("vampire-blooddrink-countion-doafter"), target, target, PopupType.SmallCaution);
 
         args.Repeat = true;
+    }
+
+    private void ApplySuckClassEffects(EntityUid uid, VampireComponent component, EntityUid target)
+    {
+        var ancient = component.CurrentEvolution == VampireClassEnum.Ancient;
+
+        if (ancient || component.CurrentEvolution == VampireClassEnum.Hemomancer)
+        {
+            if (TryAddBlood(component, 5, out _))
+            {
+                Dirty(uid, component);
+                _alerts.UpdateAlert(uid, component.BloodAlert);
+            }
+        }
+
+        if (ancient || component.CurrentEvolution == VampireClassEnum.Umbrae)
+            DamageLightsInRange((uid, component), 4f, new DamageSpecifier
+            {
+                DamageDict = { { "Heat", 10 } }
+            });
+
+        if (ancient || component.CurrentEvolution is VampireClassEnum.Gargantua or VampireClassEnum.Bestia)
+        {
+            _damage.TryChangeDamage(uid, new DamageSpecifier
+            {
+                DamageDict = { { "Brute", -2 }, { "Burn", -2 } }
+            }, true);
+        }
+
+        if ((ancient || component.CurrentEvolution == VampireClassEnum.Dantalion)
+            && TryComp<ThrallOwnerComponent>(uid, out var owner))
+        {
+            foreach (var thrall in owner.ThrallOwned)
+            {
+                if (!Exists(thrall) || _mobState.IsDead(thrall))
+                    continue;
+
+                _damage.TryChangeDamage(thrall, new DamageSpecifier
+                {
+                    DamageDict = { { "Brute", -3 }, { "Burn", -3 } }
+                }, true);
+            }
+        }
     }
 
     private bool TryIngestBlood(EntityUid uid, Solution ingestedSolution)
@@ -674,6 +818,10 @@ public sealed partial class VampireSystem : SharedVampireSystem
         {
             Dirty(vampire.Owner, vampire.Comp);
             _alerts.UpdateAlert(vampire.Owner, vampire.Comp.BloodAlert);
+
+            if (vampire.Comp.CurrentBlood < 50)
+                _popup.PopupEntity(Loc.GetString("vampire-blood-low"), vampire, vampire, PopupType.SmallCaution);
+
             return true;
         }
 
@@ -694,10 +842,10 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (!Resolve(vampire, ref vampire.Comp, false))
             return;
 
-        if (vampire.Comp.CurrentEvolution == VampireClassEnum.NonSelected)
+        if (vampire.Comp.CurrentEvolution == VampireClassEnum.NonSelected && vampire.Comp.Variant == VampireVariant.Classic)
             return;
 
-        if (vampire.Comp.CurrentEvolution == VampireClassEnum.Dantalion)
+        if (vampire.Comp.CurrentEvolution == VampireClassEnum.Dantalion || vampire.Comp.Variant == VampireVariant.Goon)
             UpdateThrallCount(vampire);
 
         if (vampire.Comp.CurrentEvolution == VampireClassEnum.Bestia)
@@ -712,7 +860,17 @@ public sealed partial class VampireSystem : SharedVampireSystem
                 $"{ToPrettyString(vampire)}: added {skillProto} for {vampire.Comp.CurrentEvolution}.");
         }
 
-        if (ShouldHaveTruePower(vampire.Comp.CurrentBlood) && !HasTruePower(vampire))
+        if (vampire.Comp.CurrentBlood >= 100 && !HasComp<NaturalNightVisionComponent>(vampire))
+        {
+            var nightvision = EnsureComp<NaturalNightVisionComponent>(vampire);
+            nightvision.VisionRadius = GetNightVisionRadiusForClass(vampire.Comp.CurrentEvolution);
+            nightvision.TintColor = GetNightVisionColorForClass(vampire.Comp.CurrentEvolution);
+            Dirty(vampire.Owner, nightvision);
+        }
+
+        UpdateXrayVision(vampire);
+
+        if (ShouldHaveTruePower(vampire.Comp) && !HasTruePower(vampire))
             MakeImmuneToHoly((vampire.Owner, vampire.Comp));
 
         Dirty(vampire.Owner, vampire.Comp);
@@ -733,7 +891,76 @@ public sealed partial class VampireSystem : SharedVampireSystem
         }
 
         var actionEntity = _action.AddAction(uid, skillProto);
-        if (actionEntity != null) component.AcquiredSkills[skillProto] = actionEntity;
+        if (actionEntity != null)
+        {
+            component.AcquiredSkills[skillProto] = actionEntity;
+
+            if (TryComp<VampireDiablerieComponent>(uid, out var diablerie) && diablerie.DiablerieLevel > 0)
+                ApplyCooldownReduction((uid, component), diablerie.DiablerieLevel);
+        }
+    }
+
+    private void ApplyCooldownReduction(Entity<VampireComponent> vampire, int level)
+    {
+        TryComp<VampireDiablerieComponent>(vampire, out var diablerieComp);
+        var perLevel = diablerieComp?.CooldownReductionPerLevel ?? 0.05f;
+        var reduction = Math.Clamp(level * perLevel, 0f, 0.2f);
+        if (reduction <= 0)
+            return;
+
+        var actions = new List<EntityUid?>
+        {
+            vampire.Comp.DrinkActionEntity,
+            vampire.Comp.RejuvenateActionEntity,
+            vampire.Comp.GlareActionEntity
+        };
+        actions.AddRange(vampire.Comp.AcquiredSkills.Values);
+
+        if (diablerieComp != null)
+            actions.Add(diablerieComp.SacramentInitiationActionEntity);
+
+        foreach (var actionEntity in actions)
+        {
+            if (actionEntity is not { } action || !TryComp<ActionComponent>(action, out var actionComp))
+                continue;
+
+            if (actionComp.UseDelay is not { } useDelay)
+                continue;
+
+            if (!vampire.Comp.BaseActionDelays.TryGetValue(action, out var baseDelay))
+            {
+                baseDelay = useDelay;
+                vampire.Comp.BaseActionDelays[action] = baseDelay;
+            }
+
+            _action.SetUseDelay(action, baseDelay * (1 - reduction));
+        }
+    }
+
+    private void UpdateXrayVision(Entity<VampireComponent> vampire)
+    {
+        if (!TryComp<VampireOriginalStateComponent>(vampire, out var state))
+            return;
+
+        var shouldXray = vampire.Comp.CurrentEvolution == VampireClassEnum.Umbrae && vampire.Comp.CurrentBlood >= 300
+            || vampire.Comp.Variant != VampireVariant.Classic && vampire.Comp.CurrentBlood >= 500
+            || GetOrganTypeCount(vampire.Owner, BestiaOrganType.Eyes) >= 8;
+
+        if (shouldXray && state.OriginalDrawFov == null)
+        {
+            if (!TryComp<EyeComponent>(vampire, out var eye))
+                return;
+
+            state.OriginalDrawFov = eye.DrawFov;
+            _eye.SetDrawFov(vampire.Owner, false, eye);
+            Dirty(vampire.Owner, state);
+        }
+        else if (!shouldXray && state.OriginalDrawFov is bool drawFov)
+        {
+            _eye.SetDrawFov(vampire.Owner, drawFov);
+            state.OriginalDrawFov = null;
+            Dirty(vampire.Owner, state);
+        }
     }
 
     #endregion
@@ -742,6 +969,20 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
     private void DoSpaceDamage(EntityUid uid, VampireComponent component)
     {
+        if (HasTruePower(uid))
+            return;
+
+        if (component.CurrentBlood >= 10)
+        {
+            SubtractBloodEssence((uid, component), 10);
+            _damage.TryChangeDamage(uid, new DamageSpecifier
+            {
+                DamageDict = { { "Cellular", 2.5 } }
+            }, true);
+            _popup.PopupEntity(Loc.GetString("vampire-startlight-burning-blood"), uid, uid, PopupType.LargeCaution);
+            return;
+        }
+
         _damage.TryChangeDamage(uid, component.SpaceDamage, true);
         _popup.PopupEntity(Loc.GetString("vampire-startlight-burning"), uid, uid, PopupType.LargeCaution);
     }
@@ -777,6 +1018,10 @@ public sealed partial class VampireSystem : SharedVampireSystem
         EnsureComp<SupremeVampireComponent>(vampire);
         RemComp<NullDamageComponent>(vampire);
         RemComp<UnholyComponent>(vampire);
+
+        var virusImmune = EnsureComp<ADTVirusImmuneComponent>(vampire);
+        virusImmune.Absolute = true;
+        Dirty(vampire, virusImmune);
 
         var nightvision = EnsureComp<NaturalNightVisionComponent>(vampire);
         nightvision.VisionRadius = GetNightVisionRadiusForClass(vampire.Comp.CurrentEvolution, true);

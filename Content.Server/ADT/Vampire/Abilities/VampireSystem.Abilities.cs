@@ -24,6 +24,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Stealth;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Bible.Components;
+using Content.Shared.Humanoid;
 
 namespace Content.Server.Vampire;
 
@@ -47,6 +48,7 @@ public sealed partial class VampireSystem
         InitializeGargantua();
         InitializeDantalion();
         InitializeBestia();
+        InitializeVariants();
 
         // Basic Abilities
         SubscribeLocalEvent<VampireComponent, VampireRejuvenateActionEvent>(OnRejuvenate);
@@ -76,28 +78,52 @@ public sealed partial class VampireSystem
 
     private void OnVampireGlare(Entity<VampireComponent> ent, ref VampireGlareActionEvent args)
     {
-        var target = args.Target;
-		if (HasComp<VampireComponent>(target) || (HasComp<FlashImmunityComponent>(target) && !HasComp<BorgChassisComponent>(target)))
-			return;
+        var aoe = ent.Comp.Variant != VampireVariant.Classic
+            || TryComp<VampireDiablerieComponent>(ent, out var diablerie) && diablerie.DiablerieLevel >= 4;
 
-        if (HasComp<BibleUserComponent>(target) && !HasTruePower(ent))
+        if (aoe)
         {
-            _stun.TryUpdateParalyzeDuration(args.Performer, TimeSpan.FromSeconds(5f));
-            _chat.TryEmoteWithoutChat(args.Performer, ProtoMan.Index(Scream), true);
-            _damage.TryChangeDamage(args.Performer, ent.Comp.HolyDamage);
+            args.Handled = true;
+            var coords = Transform(ent).Coordinates;
+            foreach (var victim in _entityLookup.GetEntitiesInRange<HumanoidProfileComponent>(coords, 4f))
+            {
+                if (victim.Owner == ent.Owner || HasComp<ThrallComponent>(victim.Owner))
+                    continue;
+
+                TryGlareTarget(ent, victim.Owner, true);
+            }
             return;
         }
 
-        args.Handled = true;
+        if (TryGlareTarget(ent, args.Target, false))
+            args.Handled = true;
+    }
 
-        var ev = new FlashAttemptEvent(target, args.Performer, null);
+    private bool TryGlareTarget(Entity<VampireComponent> ent, EntityUid target, bool aoe)
+    {
+        if (HasComp<VampireComponent>(target) || (HasComp<FlashImmunityComponent>(target) && !HasComp<BorgChassisComponent>(target)))
+            return false;
+
+        if (HasComp<BibleUserComponent>(target) && !HasTruePower(ent))
+        {
+            if (!aoe)
+            {
+                _stun.TryUpdateParalyzeDuration(ent.Owner, TimeSpan.FromSeconds(5f));
+                _chat.TryEmoteWithoutChat(ent.Owner, ProtoMan.Index(Scream), true);
+                _damage.TryChangeDamage(ent.Owner, ent.Comp.HolyDamage);
+            }
+            return false;
+        }
+
+        var ev = new FlashAttemptEvent(target, ent.Owner, null);
         RaiseLocalEvent(target, ref ev, true);
-		if ((ev.Cancelled && TryComp<VampireDiablerieComponent>(ent, out var dieal) && dieal.DiablerieLevel < 2) || (ev.Cancelled && !HasComp<VampireDiablerieComponent>(ent)))
-			return;
-	
+        if (ev.Cancelled && (!TryComp<VampireDiablerieComponent>(ent, out var dieal) || dieal.DiablerieLevel < 2))
+            return false;
+
         _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(5f));
-        _flash.Flash(target, args.Performer, null, TimeSpan.FromSeconds(3f), 0.8f);
+        _flash.Flash(target, ent.Owner, null, TimeSpan.FromSeconds(3f), 0.8f);
         _status.TryAddStatusEffectDuration(target, Muted, TimeSpan.FromSeconds(8f));
+        return true;
     }
 
     #endregion

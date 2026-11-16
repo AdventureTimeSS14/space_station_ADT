@@ -55,6 +55,10 @@ public abstract partial class SharedVampireSystem : EntitySystem
     public bool TryGetThresholdsForClass(VampireComponent component, [NotNullWhen(true)] out Dictionary<float, List<EntProtoId>>? thresholds)
     {
         thresholds = null;
+
+        if (component.Variant != VampireVariant.Classic)
+            return component.VariantThresholds.TryGetValue(component.Variant, out thresholds);
+
         if (component.CurrentEvolution == VampireClassEnum.NonSelected)
             return false;
 
@@ -69,7 +73,7 @@ public abstract partial class SharedVampireSystem : EntitySystem
     public List<EntProtoId> GetNewSkillsToAdd(VampireComponent component)
     {
         var newSkills = new List<EntProtoId>();
-        if (component.CurrentEvolution == VampireClassEnum.NonSelected)
+        if (component.CurrentEvolution == VampireClassEnum.NonSelected && component.Variant == VampireVariant.Classic)
             return newSkills;
 
         if (!TryGetThresholdsForClass(component, out var thresholds))
@@ -145,9 +149,12 @@ public abstract partial class SharedVampireSystem : EntitySystem
 
     #region True Power Management
 
-    public bool ShouldHaveTruePower(FixedPoint2 currentBlood)
+    public bool ShouldHaveTruePower(VampireComponent component)
     {
-        return currentBlood >= 1000;
+        if (component.Variant != VampireVariant.Classic)
+            return component.CurrentBlood >= 500;
+
+        return component.CurrentBlood >= 1000 && component.DrainedVictims.Count >= 8;
     }
 
     public bool HasTruePower(EntityUid uid)
@@ -181,6 +188,7 @@ public abstract partial class SharedVampireSystem : EntitySystem
         return vampireClass switch
         {
             VampireClassEnum.Umbrae => 12,
+            VampireClassEnum.Ancient => 12,
             _ => 8
         };
     }

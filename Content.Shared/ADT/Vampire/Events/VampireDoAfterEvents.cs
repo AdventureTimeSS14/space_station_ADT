@@ -52,3 +52,16 @@ public sealed partial class VampireDissectDoAfterEvent : SimpleDoAfterEvent
         BloodCost = cost;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed partial class VampireHypnotiseDoAfterEvent : SimpleDoAfterEvent
+{
+    public FixedPoint2 BloodCost;
+    public TimeSpan SleepTime;
+
+    public VampireHypnotiseDoAfterEvent(FixedPoint2 cost, TimeSpan sleepTime)
+    {
+        BloodCost = cost;
+        SleepTime = sleepTime;
+    }
+}

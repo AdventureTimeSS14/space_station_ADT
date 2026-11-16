@@ -19,6 +19,8 @@ public sealed partial class ThrallComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? VampireOwner = default!;
 
+    public EntityUid? CommuneActionEntity;
+
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon = "ThrallFaction";
 }

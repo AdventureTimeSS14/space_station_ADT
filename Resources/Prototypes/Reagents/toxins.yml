@@ -599,6 +599,10 @@
         damage:
           types:
             Poison: 0.06
+      # ADT-Tweak start
+      - !type:ADTVampireGarlic
+        probability: 0.25
+      # ADT-Tweak end
 
 - type: reagent
   id: Honk

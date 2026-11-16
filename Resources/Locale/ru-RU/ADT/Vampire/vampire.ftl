@@ -157,3 +157,35 @@ vampire-bestia-bonus-metamorphosis-hound-heart = Здоровье {$health}, у�
 vampire-bestia-bonus-metamorphosis-hound-lungs = Скорость +{$value}%
 vampire-bestia-bonus-metamorphosis-hound-kidneys = Лечение ×{$value}
 vampire-bestia-bonus-metamorphosis-hound-liver = Вампир получает {$value} крови за укус
+
+# Paradise parity
+vampire-blood-low = Запас крови на исходе!
+vampire-startlight-burning-blood = Звёздный свет жжёт вас, кровь стремительно уходит!
+vampire-cloak-broken-fire = Огонь сорвал с вас покров тьмы!
+vampire-garlic-weakened = Чеснок разъедает вашу нечестивую плоть!
+vampire-bestia-ears = уши
+vampire-bestia-passive-bang-protection = Защита от светошумовых
+vampire-diablerie-level-four = Ваша власть достигает апогея: взгляд охватывает всех вокруг, а удары наливаются свинцовой тяжестью.
+vampire-thrall-commune-title = Общение с хозяином
+vampire-thrall-commune-prompt = Что вы хотите передать хозяину и другим слугам?
+vampire-thrall-commune-message = {$name} шепчет в вашем разуме: {$message}
+vampire-disease-success = Вы заразили жертву могильной лихорадкой.
+vampire-disease-failed = Эту цель нельзя заразить.
+vampire-hypnotise-success = Жертва погрузилась в глубокий сон.
+vampire-hypnotise-target = Вас непреодолимо клонит в сон...
+vampire-hypnotise-failed = Эту цель нельзя загипнотизировать.
+
+cmd-vampire_variant-desc = Устанавливает вариант вампира (classic/goon/devil) у указанной сущности.
+cmd-vampire_variant-help = Использование: vampire_variant <entityUid> <classic|goon|devil>
+cmd-vampire_variant-error-args = Ожидается 2 аргумента: entityUid и вариант.
+cmd-vampire_variant-error-target = Сущность не найдена или не является вампиром.
+cmd-vampire_variant-error-variant = Неизвестный вариант. Используйте classic, goon или devil.
+cmd-vampire_variant-success = Вариант вампира {$entity} установлен: {$variant}.
+cmd-vampire_variant-hint-target = <entityUid>
+cmd-vampire_variant-hint-variant = <classic|goon|devil>
+cmd-vampire_ancient-desc = Делает вампира Древним (все способности сразу, только для админов).
+cmd-vampire_ancient-help = Использование: vampire_ancient <entityUid>
+cmd-vampire_ancient-error-args = Ожидается 1 аргумент: entityUid.
+cmd-vampire_ancient-error-target = Сущность не найдена, не является вампиром или уже выбрала класс/вариант.
+cmd-vampire_ancient-success = {$entity} теперь Древний вампир.
+cmd-vampire_ancient-hint-target = <entityUid>

@@ -51,6 +51,7 @@ public sealed partial class VampireSystem
         SubscribeLocalEvent<VampireComponent, VampireMassHysteriaActionEvent>(OnMassHysteria);
         SubscribeLocalEvent<VampireComponent, VampireThrallHealActionEvent>(OnThrallHeal);
         SubscribeLocalEvent<VampireComponent, VampirePacifyNearbyActionEvent>(OnPacifyNearby);
+        SubscribeLocalEvent<ThrallComponent, VampireThrallCommuneActionEvent>(OnThrallCommune);
     }
 
     private void OnAfterEnthrall(Entity<VampireComponent> ent, ref VampireEnthrallActionEvent args)
@@ -119,6 +120,7 @@ public sealed partial class VampireSystem
         EnsureComp<BittenByVampireComponent>(target);
         var newTrall = EnsureComp<ThrallComponent>(target);
         newTrall.VampireOwner = ent.Owner;
+        newTrall.CommuneActionEntity = _action.AddAction(target, "ActionThrallCommune");
         Dirty(target, newTrall);
 
         if (TryAddThrall(thrallOwner, target))
@@ -156,6 +158,41 @@ public sealed partial class VampireSystem
 
                     _prayerSystem.SendSubtleMessage(thrallActor.PlayerSession, thrallActor.PlayerSession, finalMessage, Loc.GetString("vampire-commune-default-message"));
                     _chat.SendMessageToOne(thrallUid, finalMessage);
+                }
+
+                _chat.SendMessageToOne(ent, finalMessage);
+            });
+
+        args.Handled = true;
+    }
+
+    private void OnThrallCommune(Entity<ThrallComponent> ent, ref VampireThrallCommuneActionEvent args)
+    {
+        if (ent.Comp.VampireOwner is not { } owner || !TryComp<ThrallOwnerComponent>(owner, out var thrallOwner))
+            return;
+
+        if (!TryComp<ActorComponent>(ent, out var actor))
+            return;
+
+        _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("vampire-thrall-commune-title"), Loc.GetString("vampire-thrall-commune-prompt"),
+            (string message) =>
+            {
+                var finalMessage = string.IsNullOrWhiteSpace(message)
+                    ? Loc.GetString("vampire-commune-default-message")
+                    : FormattedMessage.EscapeText(message);
+
+                var formatted = Loc.GetString("vampire-thrall-commune-message",
+                    ("name", Identity.Name(ent, EntityManager)), ("message", finalMessage));
+
+                if (Exists(owner))
+                    _chat.SendMessageToOne(owner, formatted);
+
+                foreach (var thrallUid in thrallOwner.ThrallOwned)
+                {
+                    if (thrallUid == ent.Owner || !Exists(thrallUid))
+                        continue;
+
+                    _chat.SendMessageToOne(thrallUid, formatted);
                 }
 
                 _chat.SendMessageToOne(ent, finalMessage);

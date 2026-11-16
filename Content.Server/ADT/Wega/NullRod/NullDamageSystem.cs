@@ -12,6 +12,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Bible.Components;
+using Content.Shared.Vampire;
+using Content.Shared.Vampire.Components;
 
 namespace Content.Server.NullRod;
 
@@ -71,9 +73,19 @@ public sealed partial class NullDamageSystem : EntitySystem
             return;
 
         var nullDamage = EnsureComp<NullDamageComponent>(uid);
-        var damageToApply = nullDamage.NullDamage > 0
-            ? nullRodComp.NullDamage
-            : nullRodComp.FirstNullDamage;
+
+        FixedPoint2 damageToApply;
+        if (TryComp<VampireComponent>(uid, out var vampire) && vampire.Variant != VampireVariant.Classic)
+        {
+            damageToApply = nullDamage.NullDamage > 0 ? 2 : 5;
+            nullDamage.NullDamageRecoveryPerTick = 1;
+        }
+        else
+        {
+            damageToApply = nullDamage.NullDamage > 0
+                ? nullRodComp.NullDamage
+                : nullRodComp.FirstNullDamage;
+        }
 
         AddNullDamage(nullDamage, damageToApply);
 

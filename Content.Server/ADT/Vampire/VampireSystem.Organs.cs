@@ -24,6 +24,7 @@ public sealed partial class VampireSystem
     };
 
     private static readonly ProtoId<OrganCategoryPrototype> Eyes = "Eyes";
+    private static readonly ProtoId<OrganCategoryPrototype> EarsCategory = "Ears";
 
     private void InitializeOrgans()
     {
@@ -173,17 +174,9 @@ public sealed partial class VampireSystem
         });
 
         var eyesColor = GetOrganProgressColor(eyesCount, maxRegular);
-        // passives.Add(new()
-        // {
-        //     Name = Loc.GetString("vampire-bestia-passive-xray-vision"),
-        //     Value = eyesCount > 0 ? Loc.GetString("vampire-bestia-passive-unlocked")
-        //         : Loc.GetString("vampire-bestia-passive-locked"),
-        //     ValueColor = eyesCount > 0 ? eyesColor.color : Color.Orange,
-        //     IsMaxed = eyesColor.isMaxed
-        // });
         passives.Add(new()
         {
-            Name = Loc.GetString("vampire-bestia-passive-welding-protection"),
+            Name = Loc.GetString("vampire-bestia-passive-flash-protection"),
             Value = eyesCount > 1 ? Loc.GetString("vampire-bestia-passive-unlocked")
                 : Loc.GetString("vampire-bestia-passive-locked"),
             ValueColor = eyesCount > 1 ? eyesColor.color : Color.Orange,
@@ -191,11 +184,30 @@ public sealed partial class VampireSystem
         });
         passives.Add(new()
         {
-            Name = Loc.GetString("vampire-bestia-passive-flash-protection"),
-            Value = eyesCount > 5 ? Loc.GetString("vampire-bestia-passive-unlocked")
+            Name = Loc.GetString("vampire-bestia-passive-welding-protection"),
+            Value = eyesCount > 3 ? Loc.GetString("vampire-bestia-passive-unlocked")
                 : Loc.GetString("vampire-bestia-passive-locked"),
-            ValueColor = eyesCount > 5 ? eyesColor.color : Color.Orange,
+            ValueColor = eyesCount > 3 ? eyesColor.color : Color.Orange,
             IsMaxed = eyesColor.isMaxed
+        });
+        passives.Add(new()
+        {
+            Name = Loc.GetString("vampire-bestia-passive-xray-vision"),
+            Value = eyesCount > 7 ? Loc.GetString("vampire-bestia-passive-unlocked")
+                : Loc.GetString("vampire-bestia-passive-locked"),
+            ValueColor = eyesCount > 7 ? eyesColor.color : Color.Orange,
+            IsMaxed = eyesColor.isMaxed
+        });
+
+        var earsCount = GetOrganTypeCount(entity, BestiaOrganType.Ears);
+        var earsColor = GetOrganProgressColor(earsCount, maxRegular);
+        passives.Add(new()
+        {
+            Name = Loc.GetString("vampire-bestia-passive-bang-protection"),
+            Value = earsCount > 3 ? Loc.GetString("vampire-bestia-passive-unlocked")
+                : Loc.GetString("vampire-bestia-passive-locked"),
+            ValueColor = earsCount > 3 ? earsColor.color : Color.Orange,
+            IsMaxed = earsColor.isMaxed
         });
 
         var stomachColor = GetOrganProgressColor(stomachCount, maxRegular);
@@ -444,7 +456,7 @@ public sealed partial class VampireSystem
 
         foreach (var organ in body.Organs.ContainedEntities)
         {
-            if (!(TryComp<OrganComponent>(organ, out var organComp) && organComp.Category == Eyes)
+            if (!(TryComp<OrganComponent>(organ, out var organComp) && (organComp.Category == Eyes || organComp.Category == EarsCategory))
                 && !HasComp<MetabolizerComponent>(organ))
                 continue;
 
@@ -491,6 +503,7 @@ public sealed partial class VampireSystem
                 "Kidneys" => BestiaOrganType.Kidneys,
                 "Eyes" => BestiaOrganType.Eyes,
                 "Stomach" => BestiaOrganType.Stomach,
+                "Ears" => BestiaOrganType.Ears,
                 _ => BestiaOrganType.Unknown
             };
         }
@@ -547,10 +560,15 @@ public sealed partial class VampireSystem
     private void UpdateProtections(Entity<BestiaContainerComponent> ent)
     {
         var eyesCount = GetOrganTypeCount(ent, BestiaOrganType.Eyes);
-        if (eyesCount >= 2 && !HasComp<EyeProtectionComponent>(ent))
+        var earsCount = GetOrganTypeCount(ent, BestiaOrganType.Ears);
+
+        if ((eyesCount >= 2 || earsCount >= 4) && !HasComp<FlashImmunityComponent>(ent))
+            EnsureComp<FlashImmunityComponent>(ent);
+
+        if (eyesCount >= 4 && !HasComp<EyeProtectionComponent>(ent))
             EnsureComp<EyeProtectionComponent>(ent);
 
-        if (eyesCount >= 6 && !HasComp<FlashImmunityComponent>(ent))
-            EnsureComp<FlashImmunityComponent>(ent);
+        if (TryComp<VampireComponent>(ent, out var vampire))
+            UpdateXrayVision((ent.Owner, vampire));
     }
 }

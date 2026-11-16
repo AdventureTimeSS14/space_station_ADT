@@ -111,3 +111,15 @@ ent-ActionVampireResonantShriek = [color=purple]Резонирующий кри�
     .desc = Издаёте мощный крик, который разбивает окна, ломает лампы и оглушает всех вокруг. Длительность оглушения и дальность зависят от собранных органов.
 ent-ActionVampireLungeFinale = [color=purple]Финальный Рывок[/color]
     .desc = Выполняете серию рывков на случайных жертвах поблизости. Каждые 10 трофеев дают дополнительный прыжок. Дальность, длительность оглушения, кража крови и радиус зависят от собранных органов.
+
+# Variants
+ent-ActionThrallCommune = [color=purple]Общение[/color]
+    .desc = Мысленно обратиться к хозяину и другим слугам.
+ent-ActionVampireGoonDisease = [color=purple]Болезнь[/color]
+    .desc = Заражает гуманоид могильной лихорадкой.
+ent-ActionVampireBlink = [color=purple]Мерцание[/color]
+    .desc = Телепортирует на случайную клетку поблизости.
+ent-ActionVampireHypnotise = [color=purple]Гипноз[/color]
+    .desc = Погружает гуманоид в глубокий сон после недолгой концентрации.
+ent-ActionVampireScreech = [color=purple]Визг[/color]
+    .desc = Издаёт ужасный визг, разбивающий окна и оглушающий всех поблизости.

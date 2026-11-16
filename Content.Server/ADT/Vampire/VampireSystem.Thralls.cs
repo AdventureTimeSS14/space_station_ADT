@@ -22,6 +22,13 @@ public sealed partial class VampireSystem
         SubscribeLocalEvent<ThrallOwnerComponent, DamageDealtEvent>(OnVampireDamageChanged);
         SubscribeLocalEvent<ThrallComponent, DamageDealtEvent>(OnThrallDamageChanged);
         SubscribeLocalEvent<MindShieldComponent, ComponentStartup>(MindShieldImplanted); // TODO: Replace this with a specific event
+        SubscribeLocalEvent<ThrallComponent, ComponentShutdown>(OnThrallShutdown);
+    }
+
+    private void OnThrallShutdown(Entity<ThrallComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.CommuneActionEntity is { } action)
+            _action.RemoveAction(ent.Owner, action);
     }
 
     #region Damage Sharing Logic

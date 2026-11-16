@@ -1079,3 +1079,105 @@
     event: !type:VampireLungeFinaleActionEvent
       bloodCost: 80
 #endregion
+
+#region Variants
+- type: entity
+  id: ActionThrallCommune
+  parent: BaseAction
+  name: "[color=purple]Commune[/color]"
+  description: "Speak into the minds of your master and fellow thralls."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: communication
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireThrallCommuneActionEvent
+
+- type: entity
+  id: ActionVampireGoonDisease
+  parent: BaseAction
+  name: "[color=purple]Disease[/color]"
+  description: "Infect a humanoid with a grave fever."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: infected_trophy
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 7
+  - type: EntityTargetAction
+    event: !type:VampireGoonDiseaseActionEvent
+      bloodCost: 100
+
+- type: entity
+  id: ActionVampireBlink
+  parent: BaseAction
+  name: "[color=purple]Blink[/color]"
+  description: "Teleport to a random nearby tile."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    useDelay: 5
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: dark_passage
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBlinkActionEvent
+      bloodCost: 50
+
+- type: entity
+  id: ActionVampireHypnotise
+  parent: BaseAction
+  name: "[color=purple]Hypnotise[/color]"
+  description: "Put a humanoid into a deep sleep after a short concentration."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: enthrall
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 7
+  - type: EntityTargetAction
+    event: !type:VampireHypnotiseActionEvent
+      bloodCost: 75
+
+- type: entity
+  id: ActionVampireScreech
+  parent: BaseAction
+  name: "[color=purple]Screech[/color]"
+  description: "Emit a terrible shriek that shatters windows and stuns everyone nearby."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: shriek
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireScreechActionEvent
+      bloodCost: 100
+#endregion

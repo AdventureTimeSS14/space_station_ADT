@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Content.Shared.Actions;
+using Content.Shared.ADT.Virology.Prototypes;
 using Content.Shared.Alert;
 using Content.Shared.Cloning;
 using Content.Shared.Damage;
@@ -465,5 +466,65 @@ public sealed partial class VampireResonantShriekActionEvent : InstantActionEven
 
 public sealed partial class VampireLungeFinaleActionEvent : InstantActionEvent, IVampireActionEvent
 {
+    [DataField] public FixedPoint2 BloodCost { get; private set; }
+}
+
+// Thrall Abilities
+public sealed partial class VampireThrallCommuneActionEvent : InstantActionEvent { }
+
+// Variant Abilities
+public sealed partial class VampireGoonDiseaseActionEvent : EntityTargetActionEvent, IVampireActionEvent
+{
+    [DataField]
+    public ProtoId<ADTDiseasePrototype> Disease = "VampireGraveFever";
+
+    [DataField] public FixedPoint2 BloodCost { get; private set; }
+}
+
+public sealed partial class VampireBlinkActionEvent : InstantActionEvent, IVampireActionEvent
+{
+    [DataField]
+    public float InnerRadius = 2f;
+
+    [DataField]
+    public float OuterRadius = 6f;
+
+    [DataField]
+    public int Attempts = 12;
+
+    [DataField] public FixedPoint2 BloodCost { get; private set; }
+}
+
+public sealed partial class VampireHypnotiseActionEvent : EntityTargetActionEvent, IVampireActionEvent
+{
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(6);
+
+    [DataField]
+    public TimeSpan SleepTime = TimeSpan.FromSeconds(40);
+
+    [DataField] public FixedPoint2 BloodCost { get; private set; }
+}
+
+public sealed partial class VampireScreechActionEvent : InstantActionEvent, IVampireActionEvent
+{
+    [DataField]
+    public float Range = 4f;
+
+    [DataField]
+    public float StaminaDamage = 60f;
+
+    [DataField]
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public TimeSpan JitterTime = TimeSpan.FromSeconds(60);
+
+    [DataField]
+    public TimeSpan StutterTime = TimeSpan.FromSeconds(40);
+
+    [DataField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/Vampire/Effects/Vampire/creepyshriek.ogg");
+
     [DataField] public FixedPoint2 BloodCost { get; private set; }
 }
