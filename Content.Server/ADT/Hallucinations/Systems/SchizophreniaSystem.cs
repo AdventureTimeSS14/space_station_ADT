@@ -24,6 +24,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     [Dependency] private EntityQuery<SchizophreniaComponent> _schizQuery;
     [Dependency] private EntityQuery<HallucinationComponent> _hallucinationQuery;

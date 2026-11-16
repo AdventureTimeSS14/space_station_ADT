@@ -124,38 +124,78 @@ public sealed partial class SchizophreniaSystem
 
     private void OnBeforeChatMessage(ExpandICChatRecipientsEvent args)
     {
-        if (!_hallucinationQuery.TryGetComponent(args.Source, out var source))
-            return;
+        if (_hallucinationQuery.TryGetComponent(args.Source, out var source))
+        {
+            List<ICommonSession> toRemove = new();
 
-        List<ICommonSession> toRemove = new();
+            foreach (var recipient in args.Recipients)
+            {
+                if (_schizQuery.TryGetComponent(recipient.Key.AttachedEntity, out var schiz) && schiz.Idx == source.Idx)
+                    continue;
+
+                if (_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination) && hallucination.Idx == source.Idx)
+                    continue;
+
+                toRemove.Add(recipient.Key);
+            }
+
+            foreach (var item in toRemove)
+                args.Recipients.Remove(item);
+
+            return;
+        }
+
+        List<ICommonSession> hallucinationRecipients = new();
 
         foreach (var recipient in args.Recipients)
         {
-            if (_schizQuery.TryGetComponent(recipient.Key.AttachedEntity, out var schiz) && schiz.Idx == source.Idx)
+            if (!_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination))
                 continue;
 
-            if (_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination) && hallucination.Idx == source.Idx)
+            if (hallucination.Ent == args.Source)
                 continue;
 
-            toRemove.Add(recipient.Key);
+            var hostHeard = false;
+            foreach (var session in args.Recipients.Keys)
+            {
+                if (session.AttachedEntity != hallucination.Ent)
+                    continue;
+
+                hostHeard = true;
+                break;
+            }
+
+            if (!hostHeard)
+                hallucinationRecipients.Add(recipient.Key);
         }
 
-        foreach (var item in toRemove)
+        foreach (var item in hallucinationRecipients)
             args.Recipients.Remove(item);
     }
 
     private void OnListenerCanHearVoice(Entity<ActorComponent> ent, ref CanHearVoiceEvent args)
     {
-        if (!_hallucinationQuery.TryGetComponent(args.Source, out var source))
+        if (_hallucinationQuery.TryGetComponent(args.Source, out var source))
+        {
+            if (_schizQuery.TryGetComponent(ent.Owner, out var schiz) && schiz.Idx == source.Idx)
+                return;
+
+            if (_hallucinationQuery.TryGetComponent(ent.Owner, out var hallucination) && hallucination.Idx == source.Idx)
+                return;
+
+            args.Cancelled = true;
+            return;
+        }
+
+        if (!_hallucinationQuery.TryGetComponent(ent.Owner, out var listener))
             return;
 
-        if (_schizQuery.TryGetComponent(ent.Owner, out var schiz) && schiz.Idx == source.Idx)
+        if (listener.Ent == args.Source)
             return;
 
-        if (_hallucinationQuery.TryGetComponent(ent.Owner, out var hallucination) && hallucination.Idx == source.Idx)
-            return;
-
-        args.Cancelled = true;
+        var range = args.Whisper ? ChatSystem.WhisperMuffledRange : ChatSystem.VoiceRange;
+        if (!_transform.InRange(Transform(args.Source).Coordinates, Transform(listener.Ent).Coordinates, range))
+            args.Cancelled = true;
     }
 
     private void OverrideEmoteSound(Entity<HallucinationComponent> ent, ref OverrideEmoteSoundEvent args)
