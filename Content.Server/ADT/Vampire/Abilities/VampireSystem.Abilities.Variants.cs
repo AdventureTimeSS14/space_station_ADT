@@ -20,7 +20,7 @@ public sealed partial class VampireSystem
 {
     [Dependency] private ADTDiseaseSystem _disease = default!;
     [Dependency] private SharedJitteringSystem _jittering = default!;
-    [Dependency] private SharedTagSystem _tag = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
     private static readonly EntProtoId Stutter = "StatusEffectStutter";
