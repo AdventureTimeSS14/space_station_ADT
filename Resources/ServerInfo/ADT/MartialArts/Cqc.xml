@@ -8,6 +8,11 @@
 
   Ближний бой без изысков.
 
+  <Box>
+  Книга "кулинария ближнего боя" из снаряжения повара обучает тому же CQC,
+  но её приёмы работают только в зоне кухни.
+  </Box>
+
   ## Приёмы
 
   <ADTGuideCombo Combo="CQCSlam">
@@ -21,7 +26,7 @@
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="CQCRestrain">
-  Роняет цель на пол на [color=#E0A03C]3 секунды[/color] и наносит [color=#5BB8E0]55[/color] урона по выносливости.
+  Роняет цель на пол на [color=#E0A03C]4 секунды[/color] и наносит [color=#5BB8E0]60[/color] урона по выносливости.
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="CQCPressure">
