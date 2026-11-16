@@ -4,3 +4,5 @@ ent-ADTMachineMediumThrusterCircuitboard = средний ракетный дв�
 ent-ADTMegaCellRechargerCircuitboard = зарядник мегабатарей (машинная плата)
     .desc = Печатная плата зарядника мегабатарей.
 ent-ADTAdvancedMedicalBedCircuitboard = регенеративная койка (машинная плата)
+ent-CrystallizerMachineCircuitboard = кристаллизатор (машинная плата)
+    .desc = Печатная плата для кристаллизатора.

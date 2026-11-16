@@ -521,6 +521,9 @@ namespace Content.Shared.Cuffs
             if (TryComp<HandsComponent>(target, out var hands) && hands.Count <= component.CuffedHandCount)
                 return false;
 
+            var beforeEv = new BeforeTargetHandcuffedEvent(user);
+            RaiseLocalEvent(target, ref beforeEv);
+
             // Success!
             //ADT secborg start
             TrySpawnCuffSplitStack(handcuff, user, target, out EntityUid? handcuffsplit);
@@ -926,6 +929,19 @@ namespace Content.Shared.Cuffs
     /// </summary>
     [ByRefEvent]
     public record struct TargetHandcuffedEvent : IInventoryRelayEvent
+    {
+        /// <summary>
+        /// All slots to relay to
+        /// </summary>
+        public SlotFlags TargetSlots { get; set; }
+    }
+
+    /// <summary>
+    /// Raised on the target before they get handcuffed.
+    /// Relayed to their held items.
+    /// </summary>
+    [ByRefEvent]
+    public record struct BeforeTargetHandcuffedEvent(EntityUid User) : IInventoryRelayEvent
     {
         /// <summary>
         /// All slots to relay to

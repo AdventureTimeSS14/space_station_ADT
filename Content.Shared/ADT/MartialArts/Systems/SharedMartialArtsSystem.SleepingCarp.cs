@@ -16,7 +16,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
+using Content.Shared.Changeling.Components;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
@@ -50,7 +50,7 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        if (HasComp<ChangelingComponent>(args.User))
+        if (HasComp<ChangelingIdentityComponent>(args.User))
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), args.User, args.User);
             return;

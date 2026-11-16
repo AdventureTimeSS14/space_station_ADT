@@ -10,7 +10,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Buckle.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedBuckleSystem), typeof(Content.Shared.ADT.Vehicle.Systems.SharedADTVehicleSystem), typeof(Content.Shared.ADT.Bed.DoubleBedSystem))] // ADT-Tweak
+[Access(typeof(SharedBuckleSystem), typeof(Content.Shared.ADT.Bed.DoubleBedSystem))] // ADT-Tweak
 public sealed partial class StrapComponent : Component
 {
     /// <summary>

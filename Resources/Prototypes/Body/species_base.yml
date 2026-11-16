@@ -231,7 +231,6 @@
     - weight: 22
       popup: catch-breath-nothing
       sound: /Audio/ADT/Alerts/CatchBreath/catch-breath-nothing.ogg
-  - type: Absorbable
   - type: MobState
   - type: OfferItem
   - type: RadiationPopup
