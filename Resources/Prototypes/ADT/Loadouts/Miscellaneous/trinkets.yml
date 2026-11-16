@@ -21,6 +21,13 @@
   groupBy: "instruments"
 
 - type: loadout
+  id: FretlessBassGuitarInstrument
+  storage:
+    back:
+    - FretlessBassGuitarInstrument
+  groupBy: "instruments"
+
+- type: loadout
   id: HarmonicaInstrument
   storage:
     back:
