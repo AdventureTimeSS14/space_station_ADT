@@ -17,16 +17,18 @@
 
   <ADTGuideCombo Combo="CQCSlam">
   Роняет цель на пол на [color=#E0A03C]2 секунды[/color] и наносит [color=#E05B5B]15[/color] урона.
+  Не работает по лежачей цели.
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="CQCKick">
   По стоячей цели - [color=#E05B5B]20[/color] урона и [color=#5BB8E0]15[/color] урона по выносливости.
   По лежачей - [color=#E05B5B]30[/color]. Если цель в критическом состоянии по выносливости,
-  погружает её в сон на [color=#E0A03C]10 секунд[/color]. Отбрасывает.
+  погружает её в сон на [color=#E0A03C]6 секунд[/color]. Отбрасывает.
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="CQCRestrain">
   Роняет цель на пол на [color=#E0A03C]4 секунды[/color] и наносит [color=#5BB8E0]60[/color] урона по выносливости.
+  Не работает по лежачей цели.
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="CQCPressure">
