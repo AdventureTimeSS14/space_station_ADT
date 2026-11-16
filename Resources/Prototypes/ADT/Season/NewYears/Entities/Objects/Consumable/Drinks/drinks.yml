@@ -1,6 +1,6 @@
 #New Years
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTMulledWineGlass
   name: mulled-wine-name
   description: mulled-wine-desc
@@ -8,16 +8,15 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTMulledWine
         Quantity: 30
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: mulled_wine
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/mulled_wine.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTMulledWineColdGlass
   name: mulled-wine-cold-name
   description: mulled-wine-cold-desc
@@ -25,16 +24,15 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTMulledWineCold
         Quantity: 30
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: mulled_wine_cold
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/mulled_wine_cold.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTChampagneMandarinGlass
   name: champagne-mandarin-name
   description: champagne-mandarin-desc
@@ -42,7 +40,6 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTChampagneMandarin
         Quantity: 30
@@ -50,11 +47,11 @@
     maxFillLevels: 0
     inHandsMaxFillLevels: 0
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: champagne_mandarin
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/champagne_mandarin.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTChristmasMilkshakeGlass
   name: christmas-milkshake-name
   description: christmas-milkshake-desc
@@ -62,7 +59,6 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTChristmasMilkshake
         Quantity: 30
@@ -70,11 +66,11 @@
     maxFillLevels: 0
     inHandsMaxFillLevels: 0
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: christmas_milkshake
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/christmas_milkshake.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTTeaCinnamonLemonGlass
   name: tea-cinnamon-lemon-name
   description: tea-cinnamon-lemon-desc
@@ -82,16 +78,15 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTTeaCinnamonLemon
         Quantity: 30
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: warm_tea_cinnamon_lemon
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/warm_tea_cinnamon_lemon.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTSbitenCinnamonLemonGlass
   name: sbiten-cinnamon-lemon-name
   description: sbiten-cinnamon-lemon-desc
@@ -99,16 +94,15 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTSbitenCinnamonLemon
         Quantity: 30
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: sbiten_cinnamon_lemon
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/sbiten_cinnamon_lemon.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTHotCocoaGlass
   name: hot-cocoa-name
   description: hot-cocoa-desc
@@ -116,18 +110,17 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTHotCocoa
         Quantity: 30
   - type: SolutionContainerVisuals
     maxFillLevels: 0
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: hot_cocoa
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/hot_cocoa.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTHotChocolateGlass
   name: hot-chocolate-name
   description: hot-chocolate-desc
@@ -135,16 +128,15 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTHotChocolate
         Quantity: 30
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: hot_chocolate
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/hot_chocolate.rsi
+    state: icon
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: DrinkGlass
   id: ADTHotChocolateAllergicGlass
   name: hot-chocolate-name-allergic
   description: hot-chocolate-desc-allergic
@@ -152,10 +144,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: ADTHotChocolateAllergic
         Quantity: 30
   - type: Sprite
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: hot_chocolate
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/hot_chocolate.rsi
+    state: icon
