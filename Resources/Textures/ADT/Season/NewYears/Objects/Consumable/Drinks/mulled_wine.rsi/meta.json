@@ -15,6 +15,10 @@
             "name": "icon_empty"
         },
         {
+            "name": "fill-5",
+            "delays": [ [ 0.4, 0.4, 0.4, 0.4 ] ]
+        },
+        {
             "name": "fill-4",
             "delays": [ [ 0.4, 0.4, 0.4, 0.4 ] ]
         },
