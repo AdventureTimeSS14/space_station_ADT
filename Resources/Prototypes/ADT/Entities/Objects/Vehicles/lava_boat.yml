@@ -31,6 +31,8 @@
     baseFriction: 0.2
     baseWalkSpeed: 2.5
     baseSprintSpeed: 3.3
+    baseWeightlessModifier: 0
+  - type: GravityAffected
   - type: InteractionOutline
   - type: Pullable
   - type: Physics
