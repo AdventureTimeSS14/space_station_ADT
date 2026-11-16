@@ -9,6 +9,7 @@ ent-ActionDissociativeSetup = Настроить личность
 
 dissociative-not-in-control = Сейчас телом управляете не вы.
 dissociative-manifest-host-contained = Хозяин заперт, выйти не получится.
+dissociative-manifest-host-dead = Тело хозяина мертво, выйти не получится.
 dissociative-front-cooldown = Вы ещё не набрались сил. Осталось примерно { $minutes } мин.
 dissociative-front-suppressed = Таблетки глушат вас, пробиться не выходит.
 dissociative-front-mindshield = Что-то в голове хозяина не пускает вас наружу.

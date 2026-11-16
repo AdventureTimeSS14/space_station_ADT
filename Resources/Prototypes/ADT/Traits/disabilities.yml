@@ -391,6 +391,10 @@
     - Lawyer
   speciesBlacklist:
     - IPC
+    - NovakidSpecies
+    - SlimePerson
+    - Diona
+    - Vox
   effects:
     - !type:AddCompsEffect
       components:
@@ -406,7 +410,9 @@
                   radius: 0.35
                 density: 50
                 mask:
-                - MobMask
+                - Impassable
+                - LowImpassable
+                - BlobImpassable
                 layer:
                 - None
           - type: DissociativeAlterBody

@@ -5,6 +5,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Power.Components;
 using Content.Shared.Access.Components;
+using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.ADT.Radio.Components;
 using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.Chat;
@@ -108,6 +109,11 @@ public sealed partial class RadioSystem : SharedRadioSystem
 /// <inheritdoc/>
     public override void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
     {
+        // ADT-Tweak start
+        if (HasComp<HallucinationComponent>(messageSource))
+            return;
+        // ADT-Tweak end
+
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
             return;

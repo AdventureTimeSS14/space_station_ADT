@@ -22,5 +22,8 @@ public sealed partial class DissociativeAlterComponent : Component
     public EntityUid? SetupActionEntity;
 
     [ViewVariables]
+    public bool ChameleonImplantAdded;
+
+    [ViewVariables]
     public List<EntityUid> Clothing = new();
 }

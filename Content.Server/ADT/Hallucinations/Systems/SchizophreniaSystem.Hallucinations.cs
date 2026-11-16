@@ -1,4 +1,5 @@
 using Content.Server.ADT.Chat;
+using Content.Server.ADT.Dissociative.Components;
 using Content.Server.ADT.Pointing;
 using Content.Server.Chat.Systems;
 using Content.Shared.ADT.Actions;
@@ -196,8 +197,13 @@ public sealed partial class SchizophreniaSystem
 
     private void OnInteractionAttempt(Entity<HallucinationComponent> ent, ref InteractionAttemptEvent args)
     {
-        if (args.Target != ent.Owner)
-            args.Cancelled = true;
+        if (args.Target == ent.Owner)
+            return;
+
+        if (HasComp<DissociativeAlterComponent>(ent.Owner) && (args.Target == null || (!TerminatingOrDeleted(args.Target.Value) && Transform(args.Target.Value).ParentUid == ent.Owner)))
+            return;
+
+        args.Cancelled = true;
     }
     #endregion
 }
