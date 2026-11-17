@@ -13,6 +13,7 @@ using Content.Server.Cloning;
 using Content.Server.ADT.Hallucinations.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Prayer;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Vampire;
 using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Bible.Components;
@@ -71,7 +72,7 @@ public sealed partial class VampireSystem
             return;
         }
 
-        if (HasComp<VampireComponent>(target) || HasComp<MindShieldComponent>(target) || HasComp<BibleUserComponent>(target))
+        if (HasComp<VampireComponent>(target) || HasComp<MindShieldComponent>(target) || HasComp<BibleUserComponent>(target) || HasComp<ChaplainComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("vampire-enthall-failed", ("target", Identity.Name(target, EntityManager))), ent, ent);
             return;

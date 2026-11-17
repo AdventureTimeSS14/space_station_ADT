@@ -159,6 +159,13 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState != MobState.Alive &&
                     !HasComp<BorgChassisComponent>(target))
                 {
+                    if (HasComp<ChaplainComponent>(target))
+                    {
+                        if (_net.IsServer)
+                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-chaplain"), performer, performer);
+                        break;
+                    }
+
                     if (HasComp<GhoulComponent>(target))
                     {
                         if (_net.IsServer)
