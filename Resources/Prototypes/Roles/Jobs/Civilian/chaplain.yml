@@ -6,7 +6,6 @@
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
-  canBeAntag: false # ADT-Tweak
   access:
   - Chapel
   - Maintenance
@@ -17,6 +16,7 @@
       statusIcon: ChaplainFaction
     - type: BibleUser #Lets them heal with bibles
     # ADT-Tweak-Start
+    - type: AntagImmune
     - type: ADTVirusImmune
       absolute: true
     # ADT-Tweak-End

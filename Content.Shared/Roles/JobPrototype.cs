@@ -74,11 +74,6 @@ public sealed partial class JobPrototype : IPrototype
     [DataField]
     public bool ApplyTraits = true;
 
-    // ADT-Tweak-Start
-    [DataField]
-    public bool CanBeAntag = true;
-    // ADT-Tweak-End
-
     /// <summary>
     /// Whether this job should show in the ID Card Console.
     /// If set to null, it will default to SetPreference's value.
