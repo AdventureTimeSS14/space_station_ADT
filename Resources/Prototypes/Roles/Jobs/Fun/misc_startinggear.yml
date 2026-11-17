@@ -160,6 +160,7 @@
     - trayScanner
     - AccessConfiguratorUniversal
     - Multitool
+    - Omnitool #ADT-Tweak
 
 #Gladiator with spear
 - type: startingGear

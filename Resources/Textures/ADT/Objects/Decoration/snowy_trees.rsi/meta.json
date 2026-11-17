@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "netwy (discord: newssy_63727) for Adventure Time",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "snowy_tree1"
+        },
+        {
+            "name": "snowy_tree2"
+        },
+        {
+            "name": "snowy_tree3"
+        },
+        {
+            "name": "snowy_tree4"
+        },
+        {
+            "name": "snowy_tree5"
+        }
+    ]
+}
