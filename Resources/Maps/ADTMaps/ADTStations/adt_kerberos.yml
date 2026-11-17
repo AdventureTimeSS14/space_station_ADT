@@ -282620,7 +282620,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -33.5,-32.5
-...
 - proto: HolyPointMarker
   entities:
   - uid: 39878
@@ -282628,3 +282627,4 @@ entities:
     - type: Transform
       pos: -16.5,-71.5
       parent: 2
+...
