@@ -2,7 +2,6 @@
   id: BorgChassisSelectable
   parent: BaseBorgChassisNT
   components:
-  - type: SurgicalSkill # ADT-Tweak
   - type: Sprite
     layers:
     - state: robot

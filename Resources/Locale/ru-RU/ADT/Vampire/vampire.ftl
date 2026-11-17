@@ -21,7 +21,6 @@ vampire-ingest-holyblood = ВЫ НЕ МОЖЕТЕ ПИТЬ СВЯТУЮ КРОВ
 vampire-full-stomach = Вы не можете пить больше
 vampire-startlight-burning = ВАША КОЖА ПОЛЫХАЕТ!
 vampire-true-power = Вы чувствуете истинную силу
-vampire-bittenbyvampire-examine = [color=red]Кажется, на шее есть укус[/color]
 
 # Diablerie
 vampire-diablerie-aura-visible = [color=purple]Вокруг { $name } клубится тёмная, пульсирующая аура, которая пронизывает всё вокруг.[/color]

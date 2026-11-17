@@ -663,7 +663,6 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
         _audio.PlayPvs(component.BloodDrainSound, uid);
         _blood.TryModifyBloodLevel(target, -volumeToConsume);
-        EnsureComp<BittenByVampireComponent>(target);
 
         if (TryComp<VampireComponent>(target, out var targetVampire))
         {

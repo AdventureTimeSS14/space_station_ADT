@@ -121,7 +121,6 @@ public sealed partial class VampireSystem
             return;
 
         EnsureComp<UnholyComponent>(target);
-        EnsureComp<BittenByVampireComponent>(target);
         var newTrall = EnsureComp<ThrallComponent>(target);
         newTrall.VampireOwner = ent.Owner;
         newTrall.CommuneActionEntity = _action.AddAction(target, "ActionThrallCommune");
