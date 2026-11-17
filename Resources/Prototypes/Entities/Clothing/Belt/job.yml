@@ -351,6 +351,11 @@
       - Skewer
       - MonkeyCube
       - Mayo
+#ADT-Tweak Start
+      - ADTLadle
+      - ADTSpatula
+      - ADTPan 
+#ADT-Tweak End
       components:
       - Mousetrap
       - Smokable

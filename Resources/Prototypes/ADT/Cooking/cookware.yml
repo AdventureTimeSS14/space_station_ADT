@@ -66,6 +66,9 @@
       maxVol: 40
   - type: Spillable
     solution: cookware
+  - type: Tag
+    tags:
+    - ADTPan
 
 - type: entity
   parent: ADTBaseCookware
