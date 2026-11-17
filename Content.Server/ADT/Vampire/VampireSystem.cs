@@ -15,6 +15,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NullRod;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.ADT.Virology.Components;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
@@ -30,6 +31,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -937,13 +939,16 @@ public sealed partial class VampireSystem : SharedVampireSystem
         }
     }
 
-    private void UpdateXrayVision(Entity<VampireComponent> vampire)
+    private void UpdateXrayVision(Entity<VampireComponent?> vampire)
     {
+        if (vampire.Comp is not { } comp)
+            return;
+
         if (!TryComp<VampireOriginalStateComponent>(vampire, out var state))
             return;
 
-        var shouldXray = vampire.Comp.CurrentEvolution == VampireClassEnum.Umbrae && vampire.Comp.CurrentBlood >= 300
-            || vampire.Comp.Variant != VampireVariant.Classic && vampire.Comp.CurrentBlood >= 500
+        var shouldXray = comp.CurrentEvolution == VampireClassEnum.Umbrae && comp.CurrentBlood >= 300
+            || comp.Variant != VampireVariant.Classic && comp.CurrentBlood >= 500
             || GetOrganTypeCount(vampire.Owner, BestiaOrganType.Eyes) >= 8;
 
         if (shouldXray && state.OriginalDrawFov == null)
