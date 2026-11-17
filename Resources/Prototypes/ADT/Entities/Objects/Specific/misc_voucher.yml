@@ -81,7 +81,7 @@
   description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/blueshield_voucher.rsi
+    sprite: ADT/Objects/Specific/hos_voucher.rsi
     state: icon
   - type: Item
     size: Small
@@ -231,7 +231,7 @@
   description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/security_voucher.rsi
+    sprite: ADT/Objects/Specific/blueshield_voucher.rsi
     state: icon
   - type: Item
     size: Small
@@ -303,7 +303,7 @@
   description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/security_voucher.rsi
+    sprite: ADT/Objects/Specific/blueshield_voucher.rsi
     state: icon
   - type: Item
     size: Small
@@ -327,7 +327,7 @@
   description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/security_voucher.rsi
+    sprite: ADT/Objects/Specific/blueshield_voucher.rsi
     state: icon
   - type: Item
     size: Small

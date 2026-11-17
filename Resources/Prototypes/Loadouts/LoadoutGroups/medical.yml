@@ -7,6 +7,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - ADTClothingHeadHatBeretCommand #ADT-Tweak
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
