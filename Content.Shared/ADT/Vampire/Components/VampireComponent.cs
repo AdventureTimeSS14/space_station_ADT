@@ -42,8 +42,11 @@ public sealed partial class VampireComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public float NextSpaceDamageTick { get; set; }
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public VampireClassEnum CurrentEvolution { get; set; } = VampireClassEnum.NonSelected;
+
+    [ViewVariables]
+    public TimeSpan NextGunPopup;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public VampireVariant Variant = VampireVariant.Classic;
@@ -105,8 +108,8 @@ public sealed partial class VampireComponent : Component
         [VampireClassEnum.Gargantua] = new()
         {
             { 150f, new() { "ActionVampireBloodSwell" } },
-            { 250f, new() { "ActionVampireBloodRush", "ActionVampireSeismicStomp" } },
-            { 400f, new() { "ActionVampireBloodSwellAdvanced" } },
+            { 250f, new() { "ActionVampireBloodRush" } },
+            { 400f, new() { "ActionVampireBloodSwellAdvanced", "ActionVampireSeismicStomp" } },
             { 600f, new() { "ActionVampireOverwhelmingForce" } },
             { 800f, new() { "ActionDemonicGrasp" } },
             { 1000f, new() { "ActionVampireCharge" } }

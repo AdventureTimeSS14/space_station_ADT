@@ -14,7 +14,10 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.ADT.Vampire.Components;
+using Content.Shared.Popups;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Vampire;
 
@@ -22,6 +25,32 @@ public abstract partial class SharedVampireSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedPopupSystem _sharedPopup = default!;
+
+    private static readonly TimeSpan GunPopupDelay = TimeSpan.FromSeconds(1);
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<VampireComponent, ShotAttemptedEvent>(OnShotAttempted);
+    }
+
+    private void OnShotAttempted(Entity<VampireComponent> ent, ref ShotAttemptedEvent args)
+    {
+        if (ent.Comp.CurrentEvolution is not (VampireClassEnum.Hemomancer or VampireClassEnum.Gargantua))
+            return;
+
+        args.Cancel();
+
+        var now = _gameTiming.CurTime;
+        if (now < ent.Comp.NextGunPopup)
+            return;
+
+        ent.Comp.NextGunPopup = now + GunPopupDelay;
+        _sharedPopup.PopupClient(Loc.GetString("gun-disabled"), ent, ent, PopupType.LargeCaution);
+    }
 
     #region Blood Management
 

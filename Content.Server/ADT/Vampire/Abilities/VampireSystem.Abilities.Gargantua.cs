@@ -8,16 +8,22 @@
 // Modified by Adventure Time SS14 in 2026
 
 using System.Numerics;
+using Content.Server.ADT.Stunnable.Components;
+using Content.Shared.ADT.Interaction.Components;
 using Content.Shared.Body;
 using Content.Shared.CombatMode;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
+using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
 using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Map.Components;
@@ -34,6 +40,9 @@ public sealed partial class VampireSystem
     [Dependency] private SharedEnsnareableSystem _ensnareable = default!;
 
     public static readonly ProtoId<DamageModifierSetPrototype> BloodSwell = "VampireBloodSwell";
+    private static readonly TimeSpan BloodSwellStunInterval = TimeSpan.FromSeconds(1);
+    private static readonly TimeSpan BloodSwellStunReduction = TimeSpan.FromSeconds(3);
+    private const float BloodSwellStaminaCoefficient = 0.5f;
 
     private void InitializeGargantua()
     {
@@ -43,6 +52,7 @@ public sealed partial class VampireSystem
         SubscribeLocalEvent<VampireComponent, VampireOverwhelmingForceActionEvent>(OnOverwhelmingForce);
         SubscribeLocalEvent<VampireComponent, VampireDemonicGraspActionEvent>(OnDemonicGrasp);
         SubscribeLocalEvent<VampireComponent, VampireChargeActionEvent>(OnCharge);
+        SubscribeLocalEvent<StunOtherOnHitComponent, ThrowDoHitEvent>(OnStunOtherOnHit);
     }
 
     private void OnBloodSwell(Entity<VampireComponent> ent, ref VampireBloodSwellActionEvent args)
@@ -53,66 +63,113 @@ public sealed partial class VampireSystem
             return;
         }
 
-        _damage.SetDamageModifierSetId(ent.Owner, BloodSwell);
+        EnsureComp<BlockCombatModeInteractComponent>(ent.Owner);
+        ReduceBloodSwellStuns(ent.Owner, args.Time);
 
         if (args.Advanced)
+            ApplyAdvancedBloodSwell(ent, args.Time);
+
+        if (TryComp(ent, out MeleeWeaponComponent? meleeWeapon))
         {
-            if (TryComp(ent, out MeleeWeaponComponent? meleeWeapon))
+            var oldAutoAttack = meleeWeapon.AutoAttack;
+            var oldAttackRate = meleeWeapon.AttackRate;
+            var damageType = args.BonusDamageType;
+            var hadDamage = meleeWeapon.Damage.DamageDict.TryGetValue(damageType, out var oldDamage);
+
+            meleeWeapon.AutoAttack = true;
+            meleeWeapon.AttackRate = args.AttackRate;
+            meleeWeapon.Damage.DamageDict[damageType] = oldDamage + args.BonusDamageAmount;
+            Dirty(ent.Owner, meleeWeapon);
+
+            Timer.Spawn(args.Time, () =>
             {
-                FixedPoint2? oldDamageValue = null;
-                var damageDict = meleeWeapon.Damage.DamageDict;
+                if (Deleted(ent.Owner))
+                    return;
 
-                var oldattackrate = meleeWeapon.AttackRate;
-                var attackrate = args.AttackRate;
+                if (TryComp(ent, out MeleeWeaponComponent? weapon))
+                {
+                    if (hadDamage)
+                        weapon.Damage.DamageDict[damageType] = oldDamage;
+                    else
+                        weapon.Damage.DamageDict.Remove(damageType);
 
-                if (damageDict.ContainsKey(args.BonusDamageType))
-                {
-                    oldDamageValue = damageDict[args.BonusDamageType];
-					meleeWeapon.AttackRate = attackrate;
-                    damageDict[args.BonusDamageType] += args.BonusDamageAmount;
-                }
-                else
-                {
-                    damageDict[args.BonusDamageType] = args.BonusDamageAmount;
-					meleeWeapon.AttackRate = attackrate;
+                    weapon.AutoAttack = oldAutoAttack;
+                    weapon.AttackRate = oldAttackRate;
+                    Dirty(ent.Owner, weapon);
                 }
 
-                var savedOldDamage = oldDamageValue;
-                var damageType = args.BonusDamageType;
-                var bonusAmount = args.BonusDamageAmount;
-
-                Timer.Spawn(args.Time, () =>
-                {
-                    if (TryComp(ent, out MeleeWeaponComponent? weapon))
-                    {
-                        if (savedOldDamage.HasValue && weapon.Damage.DamageDict.ContainsKey(damageType))
-                        {
-                            weapon.Damage.DamageDict[damageType] = savedOldDamage.Value;
-							weapon.AttackRate = oldattackrate;
-                        }
-                        else if (!savedOldDamage.HasValue)
-                        {
-                            weapon.Damage.DamageDict.Remove(damageType);
-							weapon.AttackRate = oldattackrate;
-                        }
-                    }
-
-                    _damage.SetDamageModifierSetId(ent.Owner, VampireComponent.VampireDamageModifier);
-					_popup.PopupEntity(Loc.GetString("vampire-blood-swell-end"), ent, ent, PopupType.Medium);
-                });
-            }
+                RemComp<BlockCombatModeInteractComponent>(ent.Owner);
+                _popup.PopupEntity(Loc.GetString("vampire-blood-swell-end"), ent, ent, PopupType.Medium);
+            });
         }
         else
         {
             Timer.Spawn(args.Time, () =>
             {
-                _damage.SetDamageModifierSetId(ent.Owner, VampireComponent.VampireDamageModifier);
-				_popup.PopupEntity(Loc.GetString("vampire-blood-swell-end"), ent, ent, PopupType.Medium);
+                if (Deleted(ent.Owner))
+                    return;
+
+                RemComp<BlockCombatModeInteractComponent>(ent.Owner);
+                _popup.PopupEntity(Loc.GetString("vampire-blood-swell-end"), ent, ent, PopupType.Medium);
             });
         }
 
         SubtractBloodEssence(ent.Owner, args.BloodCost);
         args.Handled = true;
+    }
+
+    private void ApplyAdvancedBloodSwell(Entity<VampireComponent> ent, TimeSpan duration)
+    {
+        var hadResistance = TryComp<StaminaResistanceComponent>(ent, out var resistance);
+        var oldCoefficient = resistance?.DamageCoefficient ?? 1f;
+        var oldWorn = resistance?.Worn ?? false;
+
+        resistance ??= EnsureComp<StaminaResistanceComponent>(ent);
+        resistance.DamageCoefficient = BloodSwellStaminaCoefficient;
+        resistance.Worn = false;
+        Dirty(ent.Owner, resistance);
+
+        _damage.SetDamageModifierSetId(ent.Owner, BloodSwell);
+
+        Timer.Spawn(duration, () =>
+        {
+            if (Deleted(ent.Owner))
+                return;
+
+            _damage.SetDamageModifierSetId(ent.Owner, VampireComponent.VampireDamageModifier);
+
+            if (!TryComp<StaminaResistanceComponent>(ent, out var current))
+                return;
+
+            if (!hadResistance)
+            {
+                RemComp<StaminaResistanceComponent>(ent);
+                return;
+            }
+
+            current.DamageCoefficient = oldCoefficient;
+            current.Worn = oldWorn;
+            Dirty(ent.Owner, current);
+        });
+    }
+
+    private void ReduceBloodSwellStuns(EntityUid uid, TimeSpan remaining)
+    {
+        if (Deleted(uid) || remaining <= TimeSpan.Zero)
+            return;
+
+        _status.TryRemoveTime(uid, SharedStunSystem.StunId, BloodSwellStunReduction);
+        _stun.AddKnockdownTime(uid, -BloodSwellStunReduction);
+
+        Timer.Spawn(BloodSwellStunInterval, () => ReduceBloodSwellStuns(uid, remaining - BloodSwellStunInterval));
+    }
+
+    private void OnStunOtherOnHit(Entity<StunOtherOnHitComponent> ent, ref ThrowDoHitEvent args)
+    {
+        if (!HasComp<MobStateComponent>(args.Target))
+            return;
+
+        _stun.TryAddStunDuration(args.Target, ent.Comp.Duration, visualized: true);
     }
 
     private void OnBloodRush(Entity<VampireComponent> ent, ref VampireBloodRushActionEvent args)

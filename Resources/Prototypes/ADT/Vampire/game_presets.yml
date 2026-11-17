@@ -21,3 +21,45 @@
     - MeteorSwarmScheduler
     - CrewTransferScheduler
     - BasicRoundstartVariation
+
+- type: gamePreset
+  id: TraitorVamp
+  name: traitorvamp-title
+  description: traitorvamp-description
+  showInVote: false
+  rules:
+    - Traitor
+    - Vampire
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: TraitorLing
+  name: traitorling-title
+  description: traitorling-description
+  showInVote: false
+  rules:
+    - Traitor
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: VampLing
+  name: vampling-title
+  description: vampling-description
+  showInVote: false
+  rules:
+    - Vampire
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation

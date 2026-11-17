@@ -56,5 +56,7 @@
       types:
         Slash: 15
     animation: WeaponArcClaw
+  - type: ArmorPenetration
+    penetration: 0.4
   - type: BonusMeleeDamage
-    heavyDamageMultiplier: 1.5
+    heavyDamageMultiplier: 1.35

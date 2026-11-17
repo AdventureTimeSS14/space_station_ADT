@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ActionBlocker;
+using Content.Shared.ADT.Interaction.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -382,6 +383,11 @@ namespace Content.Shared.Interaction
 
             if (combatEv.Cancelled)
                 return false;
+
+            // ADT-Tweak-Start
+            if (HasComp<BlockCombatModeInteractComponent>(user))
+                return false;
+            // ADT-Tweak-End
 
             return true;
         }
