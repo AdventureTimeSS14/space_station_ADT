@@ -17,6 +17,7 @@ using Content.Shared.ADT.Vampire;
 using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Bible.Components;
 using Content.Shared.Body;
+using Content.Shared.Chat;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.DoAfter;
 using Content.Shared.EntityEffects.Effects.StatusEffects;
@@ -41,12 +42,6 @@ public sealed partial class VampireSystem
     [Dependency] private SchizophreniaSystem _hallucinations = default!;
     [Dependency] private PrayerSystem _prayerSystem = default!;
     [Dependency] private QuickDialogSystem _quickDialog = default!;
-
-    private void SendPrivateMessage(EntityUid target, string message)
-    {
-        if (TryComp<ActorComponent>(target, out var actor))
-            _chatManager.DispatchServerMessage(actor.PlayerSession, message);
-    }
 
     private void InitializeDantalion()
     {
@@ -165,10 +160,10 @@ public sealed partial class VampireSystem
                         continue;
 
                     _prayerSystem.SendSubtleMessage(thrallActor.PlayerSession, thrallActor.PlayerSession, finalMessage, Loc.GetString("vampire-commune-default-message"));
-                    SendPrivateMessage(thrallUid, finalMessage);
                 }
 
-                SendPrivateMessage(ent, finalMessage);
+                var recipients = Filter.Entities([.. thrallOwner.ThrallOwned, ent.Owner]);
+                _chatManager.ChatMessageToManyFiltered(recipients, ChatChannel.Server, finalMessage, finalMessage, ent, false, true, null);
             });
 
         args.Handled = true;
@@ -192,18 +187,9 @@ public sealed partial class VampireSystem
                 var formatted = Loc.GetString("vampire-thrall-commune-message",
                     ("name", Identity.Name(ent, EntityManager)), ("message", finalMessage));
 
-                if (Exists(owner))
-                    SendPrivateMessage(owner, formatted);
-
-                foreach (var thrallUid in thrallOwner.ThrallOwned)
-                {
-                    if (thrallUid == ent.Owner || !Exists(thrallUid))
-                        continue;
-
-                    SendPrivateMessage(thrallUid, formatted);
-                }
-
-                SendPrivateMessage(ent, finalMessage);
+                var recipients = Filter.Entities([.. thrallOwner.ThrallOwned.Where(thrall => thrall != ent.Owner), owner]);
+                _chatManager.ChatMessageToManyFiltered(recipients, ChatChannel.Server, formatted, formatted, ent, false, true, null);
+                _chatManager.ChatMessageToOne(ChatChannel.Server, finalMessage, finalMessage, ent, false, actor.PlayerSession.Channel);
             });
 
         args.Handled = true;
