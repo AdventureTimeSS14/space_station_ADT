@@ -1,12 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Chaplain.Prayers;
 using Content.Shared.ADT.Chaplain.Prototypes;
 using Content.Shared.ADT.Chat;
 using Content.Shared.ADT.Damage.Systems;
 using Content.Shared.ADT.HolyDamage;
-using Content.Shared.Chat;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Speech;
@@ -17,6 +17,7 @@ namespace Content.Shared.ADT.Chaplain.Systems;
 
 public abstract partial class SharedChaplainSystem
 {
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private GroupHealSystem _groupHeal = default!;
     [Dependency] private MovementModStatusSystem _movementMod = default!;
@@ -33,8 +34,26 @@ public abstract partial class SharedChaplainSystem
     {
         SubscribeLocalEvent<ChaplainComponent, GetSpeechVerbOverrideEvent>(OnChaplainSpeechVerb);
         SubscribeLocalEvent<ChaplainFollowerComponent, GetSpeechVerbOverrideEvent>(OnFollowerSpeechVerb);
-        SubscribeLocalEvent<ChaplainComponent, EntitySpokeEvent>(OnChaplainSpoke);
-        SubscribeLocalEvent<ChaplainFollowerComponent, EntitySpokeEvent>(OnFollowerSpoke);
+        SubscribeNetworkEvent<ChaplainPrayerRequestEvent>(OnPrayerRequest);
+    }
+
+    public void RequestPrayer(ChaplainPrayerPrototype prayer)
+    {
+        RaiseNetworkEvent(new ChaplainPrayerRequestEvent(prayer.ID));
+    }
+
+    private void OnPrayerRequest(ChaplainPrayerRequestEvent ev, EntitySessionEventArgs args)
+    {
+        if (_net.IsClient || args.SenderSession.AttachedEntity is not { } user)
+            return;
+
+        if (!_proto.TryIndex(ev.Prayer, out var prayer) || !CanUsePrayer(user, prayer) || !_actionBlocker.CanSpeak(user))
+            return;
+
+        if (TryComp<ChaplainComponent>(user, out var chaplain))
+            ChaplainPray((user, chaplain), prayer);
+        else if (TryComp<ChaplainFollowerComponent>(user, out var follower))
+            FollowerPray((user, follower), prayer);
     }
 
     private void OnChaplainSpeechVerb(Entity<ChaplainComponent> ent, ref GetSpeechVerbOverrideEvent args)
@@ -49,11 +68,8 @@ public abstract partial class SharedChaplainSystem
             args.SpeechVerb = PrayerSpeechVerb;
     }
 
-    private void OnChaplainSpoke(Entity<ChaplainComponent> ent, ref EntitySpokeEvent args)
+    private void ChaplainPray(Entity<ChaplainComponent> ent, ChaplainPrayerPrototype prayer)
     {
-        if (args.Channel != null || !TryMatchPrayer(ent, args.OriginalMessage, out var prayer))
-            return;
-
         if (!TryStartPrayer(ent, ent.Comp.PrayerCooldowns, prayer))
             return;
 
@@ -66,11 +82,8 @@ public abstract partial class SharedChaplainSystem
         ApplyPrayer(ent, ent, prayer);
     }
 
-    private void OnFollowerSpoke(Entity<ChaplainFollowerComponent> ent, ref EntitySpokeEvent args)
+    private void FollowerPray(Entity<ChaplainFollowerComponent> ent, ChaplainPrayerPrototype prayer)
     {
-        if (args.Channel != null || !TryMatchPrayer(ent, args.OriginalMessage, out var prayer))
-            return;
-
         if (ent.Comp.Chaplain is not { } chaplain || !TryComp<ChaplainComponent>(chaplain, out var chaplainComp) || _mobState.IsDead(chaplain))
         {
             _popup.PopupEntity(Loc.GetString("chaplain-prayer-no-chaplain"), ent, ent);

@@ -1,5 +1,7 @@
 using Content.Shared.Actions;
+using Content.Shared.ADT.Chaplain.Prototypes;
 using Content.Shared.DoAfter;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Chaplain.Components;
@@ -29,3 +31,14 @@ public sealed partial class ChaplainHolyTouchActionEvent : EntityTargetActionEve
 {
 }
 
+
+[Serializable, NetSerializable]
+public sealed class ChaplainPrayerRequestEvent : EntityEventArgs
+{
+    public readonly ProtoId<ChaplainPrayerPrototype> Prayer;
+
+    public ChaplainPrayerRequestEvent(ProtoId<ChaplainPrayerPrototype> prayer)
+    {
+        Prayer = prayer;
+    }
+}

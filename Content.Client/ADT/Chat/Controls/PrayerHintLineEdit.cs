@@ -19,6 +19,16 @@ public sealed class PrayerHintLineEdit : HistoryLineEdit
     {
         IoCManager.InjectDependencies(this);
         OnTextChanged += _ => UpdateHint();
+        OnTextEntered += OnPrayerEntered;
+    }
+
+    private void OnPrayerEntered(LineEditEventArgs args)
+    {
+        if (_player.LocalEntity is not { } local || !_systems.TryGetEntitySystem<SharedChaplainSystem>(out var chaplain))
+            return;
+
+        if (chaplain.TryMatchPrayer(local, args.Text, out var prayer))
+            chaplain.RequestPrayer(prayer);
     }
 
     public bool TryCompleteHint()
