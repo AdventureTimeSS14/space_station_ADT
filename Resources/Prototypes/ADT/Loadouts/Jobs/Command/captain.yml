@@ -59,3 +59,8 @@
   id: ADTClothingOuterCaptainCoat
   equipment:
     outerClothing: ADTClothingOuterCaptainCoat
+
+- type: loadout
+  id: ADTClothingHeadHatBeretCommand
+  equipment:
+    head: ClothingHeadHatBeretCommand
