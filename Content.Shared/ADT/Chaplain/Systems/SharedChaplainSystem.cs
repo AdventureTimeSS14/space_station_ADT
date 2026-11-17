@@ -3,6 +3,7 @@ using Content.Shared.Actions;
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Alert;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;

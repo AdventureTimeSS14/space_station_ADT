@@ -16,7 +16,7 @@ namespace Content.Shared.ADT.Chaplain.Components;
 public sealed partial class ChaplainComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public FixedPoint2 Faith = 5;
+    public FixedPoint2 Faith = 4;
 
     [DataField, AutoNetworkedField]
     public FixedPoint2 MaxFaith = 10;
