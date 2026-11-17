@@ -184,16 +184,16 @@ public abstract partial class SharedVampireSystem : EntitySystem
         };
     }
 
-    public float GetNightVisionRadiusForClass(VampireClassEnum vampireClass, bool hasTruePower = false)
+    public EntProtoId GetNightVisionEffectForClass(VampireClassEnum vampireClass, bool hasTruePower = false)
     {
         if (hasTruePower)
-            return 15;
+            return "ADTEffectNightVisionVampireSupreme";
 
         return vampireClass switch
         {
-            VampireClassEnum.Umbrae => 12,
-            VampireClassEnum.Ancient => 12,
-            _ => 8
+            VampireClassEnum.Umbrae => "ADTEffectNightVisionVampireStrong",
+            VampireClassEnum.Ancient => "ADTEffectNightVisionVampireStrong",
+            _ => "ADTEffectNightVisionVampire"
         };
     }
 

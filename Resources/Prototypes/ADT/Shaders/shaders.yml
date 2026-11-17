@@ -22,7 +22,8 @@
   params:
     NightVisionBoost: 2.2
     NightVisionThreshold: 0.28
-    BlueTintIntensity: 0.22
+    TintIntensity: 0.22
+    TintColor: "0.55,0.78,1.0"
     NightVisionLift: 0.03
     CompressStrength: 0.7
     MaxBrightness: 1.0
@@ -34,7 +35,8 @@
   params:
     NightVisionBoost: 2.6
     NightVisionThreshold: 0.32
-    BlueTintIntensity: 0.2
+    TintIntensity: 0.2
+    TintColor: "0.55,0.78,1.0"
     NightVisionLift: 0.035
     CompressStrength: 0.6
     MaxBrightness: 1.0
@@ -46,9 +48,23 @@
   params:
     NightVisionBoost: 2.55
     NightVisionThreshold: 0.32
-    BlueTintIntensity: 0.18
+    TintIntensity: 0.18
+    TintColor: "0.55,0.78,1.0"
     NightVisionLift: 0.03
     CompressStrength: 0.55
+    MaxBrightness: 1.0
+
+- type: shader
+  id: ADTVampireNightVisionShader
+  kind: source
+  path: "/Textures/ADT/Shaders/night.swsl"
+  params:
+    NightVisionBoost: 3.0
+    NightVisionThreshold: 0.35
+    TintIntensity: 0.45
+    TintColor: "0.68,0.68,0.68"
+    NightVisionLift: 0.04
+    CompressStrength: 0.6
     MaxBrightness: 1.0
 
 - type: shader

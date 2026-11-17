@@ -43,8 +43,23 @@ public sealed partial class VampireOriginalStateComponent : Component
     public bool? OriginalDrawFov;
 
     [DataField]
-    public float? OriginalNightVisionRadius;
+    public bool HadNightVision;
 
     [DataField]
-    public Color? OriginalNightVisionColor;
+    public string? OriginalNightVisionShader;
+
+    [DataField]
+    public EntProtoId? OriginalNightVisionEffect;
+
+    [DataField]
+    public Color? OriginalNightVisionTint;
+
+    [DataField]
+    public bool OriginalNightVisionOverlay;
+
+    [DataField]
+    public bool OriginalNightVisionInnate;
+
+    [DataField]
+    public EntProtoId? OriginalNightVisionToggleAction;
 }

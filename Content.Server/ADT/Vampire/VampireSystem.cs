@@ -54,7 +54,7 @@ using Content.Shared.NullRod.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
-using Content.Shared.Shaders;
+using Content.Shared.ADT.NightVision;
 using Content.Shared.SSDIndicator;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
@@ -108,12 +108,15 @@ public sealed partial class VampireSystem : SharedVampireSystem
     [Dependency] private VampireRuleSystem _vampireRule = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedNightVisionSystem _nightVision = default!;
 
     private const int MaxBloodToConsume = 200;
 
     private static readonly ProtoId<EmotePrototype> Scream = "Scream";
     private static readonly EntProtoId RejuvenateAdvanced = "ActionVampireRejuvenateAdvanced";
     private static readonly EntProtoId RejuvenateNoHeal = "ActionVampireRejuvenateNoHeal";
+    private static readonly EntProtoId NightVisionToggleAction = "ADTActionToggleNightVision";
+    private const string NightVisionShader = "ADTVampireNightVisionShader";
     private static readonly EntProtoId Clumsy = "StatusEffectClumsyClown";
 
     /// <summary>
@@ -250,10 +253,15 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (TryComp<EyeComponent>(vampire, out var eye))
             state.OriginalDrawFov = eye.DrawFov;
 
-        if (TryComp<NaturalNightVisionComponent>(vampire, out var nightVision))
+        if (TryComp<NightVisionComponent>(vampire, out var nightVision))
         {
-            state.OriginalNightVisionRadius = nightVision.VisionRadius;
-            state.OriginalNightVisionColor = nightVision.TintColor;
+            state.HadNightVision = true;
+            state.OriginalNightVisionShader = nightVision.Shader;
+            state.OriginalNightVisionEffect = nightVision.EffectPrototype;
+            state.OriginalNightVisionTint = nightVision.Tint;
+            state.OriginalNightVisionOverlay = nightVision.Overlay;
+            state.OriginalNightVisionInnate = nightVision.Innate;
+            state.OriginalNightVisionToggleAction = nightVision.ToggleAction;
         }
 
         state.OriginalEyeColor = GetCurrentEyeColor(vampire);
@@ -367,16 +375,20 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (state.OriginalDrawFov is bool drawFov)
             _eye.SetDrawFov(vampire.Owner, drawFov);
 
-        if (state.OriginalNightVisionRadius is float radius && state.OriginalNightVisionColor is Color tint)
+        if (state.HadNightVision && state.OriginalNightVisionShader != null && state.OriginalNightVisionEffect is { } effect)
         {
-            var nightVision = EnsureComp<NaturalNightVisionComponent>(vampire);
-            nightVision.VisionRadius = radius;
-            nightVision.TintColor = tint;
-            Dirty(vampire.Owner, nightVision);
+            var nightVision = EnsureComp<NightVisionComponent>(vampire);
+            _nightVision.SetVision((vampire.Owner, nightVision),
+                state.OriginalNightVisionShader,
+                effect,
+                state.OriginalNightVisionTint,
+                state.OriginalNightVisionOverlay,
+                state.OriginalNightVisionInnate);
+            _nightVision.SetToggleAction((vampire.Owner, nightVision), state.OriginalNightVisionToggleAction);
         }
         else
         {
-            RemComp<NaturalNightVisionComponent>(vampire);
+            RemComp<NightVisionComponent>(vampire);
         }
 
         if (vampire.Comp.CloakActive)
@@ -455,10 +467,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
         {
             case VampireClassEnum.Umbrae:
                 {
-                    var nightvision = EnsureComp<NaturalNightVisionComponent>(uid);
-                    nightvision.VisionRadius = GetNightVisionRadiusForClass(selectedClass);
-                    nightvision.TintColor = GetNightVisionColorForClass(selectedClass);
-                    Dirty(uid, nightvision);
+                    GrantNightVision(uid, selectedClass);
                     break;
                 }
 
@@ -496,10 +505,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
                     Dirty(uid, owner);
                     EnsureComp<BestiaContainerComponent>(uid);
 
-                    var ancientVision = EnsureComp<NaturalNightVisionComponent>(uid);
-                    ancientVision.VisionRadius = GetNightVisionRadiusForClass(selectedClass);
-                    ancientVision.TintColor = GetNightVisionColorForClass(selectedClass);
-                    Dirty(uid, ancientVision);
+                    GrantNightVision(uid, selectedClass);
                     break;
                 }
 
@@ -864,13 +870,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
                 $"{ToPrettyString(vampire)}: added {skillProto} for {vampire.Comp.CurrentEvolution}.");
         }
 
-        if (vampire.Comp.CurrentBlood >= 100 && !HasComp<NaturalNightVisionComponent>(vampire))
-        {
-            var nightvision = EnsureComp<NaturalNightVisionComponent>(vampire);
-            nightvision.VisionRadius = GetNightVisionRadiusForClass(vampire.Comp.CurrentEvolution);
-            nightvision.TintColor = GetNightVisionColorForClass(vampire.Comp.CurrentEvolution);
-            Dirty(vampire.Owner, nightvision);
-        }
+        if (vampire.Comp.CurrentBlood >= 100 && !HasVampireNightVision(vampire))
+            GrantNightVision(vampire, vampire.Comp.CurrentEvolution);
 
         UpdateXrayVision(vampire);
 
@@ -1030,12 +1031,31 @@ public sealed partial class VampireSystem : SharedVampireSystem
         virusImmune.Absolute = true;
         Dirty(vampire, virusImmune);
 
-        var nightvision = EnsureComp<NaturalNightVisionComponent>(vampire);
-        nightvision.VisionRadius = GetNightVisionRadiusForClass(vampire.Comp.CurrentEvolution, true);
-        nightvision.TintColor = GetNightVisionColorForClass(vampire.Comp.CurrentEvolution);
-        Dirty(vampire, nightvision);
+        GrantNightVision(vampire, vampire.Comp.CurrentEvolution, true);
 
         _popup.PopupEntity(Loc.GetString("vampire-true-power"), vampire, vampire, PopupType.Medium);
+    }
+
+    private bool HasVampireNightVision(EntityUid uid)
+    {
+        return TryComp<NightVisionComponent>(uid, out var nightVision) && nightVision.Shader == NightVisionShader;
+    }
+
+    private void GrantNightVision(EntityUid uid, VampireClassEnum vampireClass, bool hasTruePower = false)
+    {
+        var granted = !HasComp<NightVisionComponent>(uid);
+        var nightVision = EnsureComp<NightVisionComponent>(uid);
+
+        _nightVision.SetVision((uid, nightVision),
+            NightVisionShader,
+            GetNightVisionEffectForClass(vampireClass, hasTruePower),
+            GetNightVisionColorForClass(vampireClass),
+            true,
+            true);
+        _nightVision.SetToggleAction((uid, nightVision), NightVisionToggleAction);
+
+        if (granted)
+            _nightVision.SetActive((uid, nightVision), false);
     }
 
     #endregion
