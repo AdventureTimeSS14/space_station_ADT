@@ -180,7 +180,10 @@
   loadouts:
   - CaptainHead
   - CaptainCap
-  - ADTClothingAdmiralHat # ADT Loadout
+  # ADT-Loadout-Start
+  - ADTClothingAdmiralHat
+  - ADTClothingHeadHatBeretCommand
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -237,6 +240,7 @@
   - HoPHead
   # ADT-Loadouts-Start
   - ADTHatBeretHOP
+  - ADTClothingHeadHatBeretCommand
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -901,6 +905,7 @@
   - QuartermasterBeret
   # ADT-Loadouts-Start
   - ADTCargoTechnicianBeret
+  - ADTClothingHeadHatBeretCommand
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1067,8 +1072,11 @@
   name: loadout-group-chief-engineer-head
   minLimit: 0
   loadouts:
+  # ADT-Loadout-Start
   - ChiefEngineerHead
-  - ADTChiefEngineerBeret # ADT tweak
+  - ADTChiefEngineerBeret
+  - ADTClothingHeadHatBeretCommand
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -1272,6 +1280,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
+  - ADTClothingHeadHatBeretCommand #ADT-Tweak
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -1441,6 +1450,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - ADTClothingHeadHatBeretCommand  #ADT-Tweak
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
