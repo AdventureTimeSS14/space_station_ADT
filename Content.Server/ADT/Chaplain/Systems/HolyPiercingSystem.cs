@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.Chaplain.Systems;
 using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -9,6 +10,8 @@ namespace Content.Server.ADT.Chaplain;
 
 public sealed class HolyPiercingSystem : EntitySystem
 {
+    [Dependency] private SharedChaplainSystem _chaplain = default!;
+
     private const string HolyDamageType = "Holy";
 
     public override void Initialize()
@@ -29,6 +32,8 @@ public sealed class HolyPiercingSystem : EntitySystem
 
         if (TryComp<HolyDamageMultiplierComponent>(ent, out var multiplier))
             pierced *= multiplier.Multiplier;
+
+        pierced *= _chaplain.GetHolyMultiplier(origin);
 
         if (args.Damage.DamageDict.TryGetValue(HolyDamageType, out var current) && current >= pierced)
             return;

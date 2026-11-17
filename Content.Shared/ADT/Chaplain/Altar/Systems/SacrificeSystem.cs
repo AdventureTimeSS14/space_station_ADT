@@ -155,7 +155,7 @@ public sealed class SacrificeSystem : EntitySystem
         var transform = option.Transformation;
         FixedPoint2 totalCost = transform.PowerCost * option.Times;
 
-        if (chaplainComp.Power < totalCost)
+        if (chaplainComp.Faith < totalCost)
         {
             _popup.PopupEntity(Loc.GetString("chaplain-not-enough-power"), args.User, args.User);
             return;
@@ -177,7 +177,7 @@ public sealed class SacrificeSystem : EntitySystem
             QueueDel(args.Used);
         }
 
-        _chaplain.ChangePowerAmount((args.User, chaplainComp), -totalCost);
+        _chaplain.ChangeFaith((args.User, chaplainComp), -totalCost);
 
         for (int i = 0; i < option.Times; i++)
         {
@@ -189,13 +189,13 @@ public sealed class SacrificeSystem : EntitySystem
     {
         var transform = option.Transformation;
 
-        if (chaplainComp.Power < transform.PowerCost)
+        if (chaplainComp.Faith < transform.PowerCost)
         {
             _popup.PopupEntity(Loc.GetString("chaplain-not-enough-power"), args.User, args.User);
             return;
         }
 
-        _chaplain.ChangePowerAmount((args.User, chaplainComp), -transform.PowerCost);
+        _chaplain.ChangeFaith((args.User, chaplainComp), -transform.PowerCost);
 
         QueueDel(args.Used);
         ExecuteTransformation(altar, args, transform);

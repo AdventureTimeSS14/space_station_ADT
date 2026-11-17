@@ -1,0 +1,57 @@
+- type: chaplainPrayer
+  id: GloriaPatri
+  text: Gloria Patri
+  cooldown: 90
+  effect: ADTEffectPrayerLight
+  effects:
+  - !type:FaithPrayerEffect
+    amount: 1
+
+- type: chaplainPrayer
+  id: LuxAeterna
+  text: Lux aeterna
+  cost: 2
+  cooldown: 45
+  effect: ADTEffectPrayerLight
+  effects:
+  - !type:HealPrayerEffect
+    heal:
+      groups:
+        Brute: -10
+        Burn: -10
+
+- type: chaplainPrayer
+  id: VadeRetro
+  text: Vade retro
+  cost: 3
+  cooldown: 60
+  effect: ADTEffectPrayerFlash
+  effects:
+  - !type:RepelPrayerEffect
+    range: 3
+    throwDistance: 2
+    suppression: 15
+
+- type: chaplainPrayer
+  id: OraProNobis
+  text: Ora pro nobis
+  role: Follower
+  cooldown: 120
+  effect: ADTEffectPrayerLight
+  effects:
+  - !type:FaithPrayerEffect
+    amount: 1
+
+- type: chaplainPrayer
+  id: DominusVobiscum
+  text: Dominus vobiscum
+  role: Follower
+  cooldown: 90
+  chaplainRange: 7
+  effect: ADTEffectPrayerLight
+  effects:
+  - !type:HealPrayerEffect
+    heal:
+      groups:
+        Brute: -5
+        Burn: -5

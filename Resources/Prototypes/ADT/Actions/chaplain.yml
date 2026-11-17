@@ -19,24 +19,19 @@
     event: !type:ChaplainMakeBelieverActionEvent
 
 - type: entity
-  id: ActionChaplainTransfer
+  id: ActionChaplainHolyShield
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 30
+    useDelay: 60
     priority: -59
   - type: Sprite
     sprite: ADT/Interface/Actions/actions_chaplain.rsi
     layers:
     - state: hand_of_wololo
-  - type: TargetAction
-  - type: EntityTargetAction
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    event: !type:ChaplainPrayersHandActionEvent
+  - type: InstantAction
+    event: !type:ChaplainHolyShieldActionEvent
 
 - type: entity
   id: ActionChaplainHolyWater

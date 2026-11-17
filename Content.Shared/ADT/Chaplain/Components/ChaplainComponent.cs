@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Chaplain.Prototypes;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -13,10 +14,16 @@ namespace Content.Shared.ADT.Chaplain.Components;
 public sealed partial class ChaplainComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public FixedPoint2 Power = 5;
+    public FixedPoint2 Faith = 5;
 
     [DataField, AutoNetworkedField]
-    public FixedPoint2 PowerRegenCap = 5;
+    public FixedPoint2 MaxFaith = 10;
+
+    [DataField]
+    public FixedPoint2 BaseRegen = 0.5;
+
+    [DataField]
+    public FixedPoint2 FollowerRegen = 0.25;
 
     [DataField]
     public TimeSpan RegenDelay = TimeSpan.FromSeconds(30);
@@ -24,22 +31,28 @@ public sealed partial class ChaplainComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextRegen;
 
+    [DataField]
+    public float WeakenedHolyMultiplier = 0.5f;
+
     [DataField, AutoNetworkedField]
+    public List<EntityUid> Followers = new();
+
+    [DataField, AutoNetworkedField]
+    public int MaxFollowers = 3;
+
+    [DataField]
     public FixedPoint2 BelieverCost = 3;
-
-    [DataField, AutoNetworkedField]
-    public int Believers;
-
-    [DataField, AutoNetworkedField]
-    public int MaxBelievers = 2;
 
     [DataField]
     public TimeSpan MakeBelieverDuration = TimeSpan.FromSeconds(7);
 
-    [DataField, AutoNetworkedField]
-    public FixedPoint2 PowerTransfered = 1;
+    [DataField]
+    public FixedPoint2 ShieldCost = 4;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
+    public TimeSpan ShieldDuration = TimeSpan.FromSeconds(10);
+
+    [DataField]
     public FixedPoint2 HolyWaterCost = 2;
 
     [DataField]
@@ -67,13 +80,13 @@ public sealed partial class ChaplainComponent : Component
     public EntityUid? BelieverActionEntity;
 
     [DataField, AutoNetworkedField]
-    public EntityUid? TransferActionEntity;
+    public EntityUid? ShieldActionEntity;
 
     [DataField, AutoNetworkedField]
     public EntityUid? HolyTouchActionEntity;
 
-    [DataField, AutoNetworkedField]
-    public FixedPoint2 PowerPerPray = 1;
+    [ViewVariables]
+    public Dictionary<ProtoId<ChaplainPrayerPrototype>, TimeSpan> PrayerCooldowns = new();
 
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon = "BelieverFaction";

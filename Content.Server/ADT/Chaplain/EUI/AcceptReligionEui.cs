@@ -24,7 +24,7 @@ public sealed class AcceptReligionEui : BaseEui
         base.HandleMessage(msg);
 
         if (msg is AcceptReligionChoiceMessage { Button: AcceptReligionButton.Accept })
-            _system.MakeBeliever(_chaplain, _target);
+            _system.MakeFollower(_chaplain, _target);
 
         Close();
     }

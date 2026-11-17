@@ -19,10 +19,10 @@ using Content.Server.NPC.HTN;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Chaplain.Systems;
 using Content.Shared.ADT.Damage.Systems;
 using Content.Shared.ADT.Genetics.Components;
-using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.HolyDamage;
 using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Vampire;
@@ -90,7 +90,6 @@ public sealed partial class VampireSystem : SharedVampireSystem
     [Dependency] private MetabolizerSystem _metabolism = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedChaplainSystem _chaplain = default!;
-    [Dependency] private DivineInterventionSystem _divineIntervention = default!;
     [Dependency] private RottingSystem _rotting = default!;
     [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private SharedActionsSystem _action = default!;
@@ -1060,7 +1059,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
     private bool IsProtectedByFaith(EntityUid target, Entity<VampireComponent> vampire)
     {
-        return _divineIntervention.ShouldDeny(target) && !HasTruePower(vampire);
+        return HasComp<HolyShieldComponent>(target) && !HasTruePower(vampire);
     }
 
     private bool HasVampireNightVision(EntityUid uid)

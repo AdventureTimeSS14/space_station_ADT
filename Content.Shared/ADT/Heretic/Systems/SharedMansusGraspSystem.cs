@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Damage.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.ADT.Silicon.Components;
@@ -126,7 +127,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 }
 
                 // small stun if the person is looking away or laying down
-                if (_backstab.TryBackstab(target, performer, Angle.FromDegrees(45d)))
+                if (!HasComp<ChaplainComponent>(target) && _backstab.TryBackstab(target, performer, Angle.FromDegrees(45d)))
                 {
                     _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(1.5f));
                     _damage.TryChangeDamage(target,

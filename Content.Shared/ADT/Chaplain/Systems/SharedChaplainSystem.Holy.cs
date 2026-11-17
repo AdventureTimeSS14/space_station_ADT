@@ -1,4 +1,6 @@
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Bible.Components;
 using Content.Shared.Damage.Systems;
@@ -18,6 +20,12 @@ public abstract partial class SharedChaplainSystem
     {
         SubscribeLocalEvent<HolyAffectedComponent, DamageDealtEvent>(OnHolyAffectedDamageDealt);
         SubscribeLocalEvent<HolySuppressionComponent, RejuvenateEvent>(OnSuppressionRejuvenate);
+        SubscribeLocalEvent<HolyShieldComponent, BeforeCastTouchSpellEvent>(OnShieldTouchSpell);
+    }
+
+    private void OnShieldTouchSpell(Entity<HolyShieldComponent> ent, ref BeforeCastTouchSpellEvent args)
+    {
+        args.Cancel();
     }
 
     private void OnHolyAffectedDamageDealt(Entity<HolyAffectedComponent> ent, ref DamageDealtEvent args)
@@ -28,10 +36,24 @@ public abstract partial class SharedChaplainSystem
         if (!TryComp<HolyDamageComponent>(_hands.GetActiveItem(origin), out var weapon))
             return;
 
-        var suppression = EnsureComp<HolySuppressionComponent>(ent);
-        var amount = suppression.Amount > 0
+        var suppressed = TryComp<HolySuppressionComponent>(ent, out var current) && current.Amount > 0;
+        var amount = suppressed
             ? ent.Comp.SuppressionHit ?? weapon.SuppressionHit
             : ent.Comp.SuppressionFirstHit ?? weapon.SuppressionFirstHit;
+
+        amount *= GetHolyMultiplier(origin);
+        AddSuppression(ent, amount);
+
+        _adminLog.Add(LogType.Damaged, LogImpact.Low,
+            $"{ToPrettyString(ent):target} took {amount} holy suppression from {ToPrettyString(origin):attacker}");
+    }
+
+    public void AddSuppression(Entity<HolyAffectedComponent> ent, FixedPoint2 amount)
+    {
+        if (amount <= 0)
+            return;
+
+        var suppression = EnsureComp<HolySuppressionComponent>(ent);
 
         if (ent.Comp.SuppressionRecovery is { } recovery)
             suppression.Recovery = recovery;
@@ -41,9 +63,6 @@ public abstract partial class SharedChaplainSystem
 
         suppression.Amount = FixedPoint2.Min(suppression.Amount + amount, suppression.Max);
         Dirty(ent, suppression);
-
-        _adminLog.Add(LogType.Damaged, LogImpact.Low,
-            $"{ToPrettyString(ent):target} took {amount} holy suppression from {ToPrettyString(origin):attacker}");
     }
 
     private void OnSuppressionRejuvenate(Entity<HolySuppressionComponent> ent, ref RejuvenateEvent args)

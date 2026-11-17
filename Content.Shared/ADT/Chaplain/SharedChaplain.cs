@@ -13,12 +13,7 @@ public sealed partial class ChaplainMakeBelieverDoAfter : SimpleDoAfterEvent
 {
 }
 
-public sealed partial class ChaplainPrayersHandActionEvent : EntityTargetActionEvent
-{
-}
-
-[Serializable, NetSerializable]
-public sealed partial class ChaplainPrayersHandDoAfter : SimpleDoAfterEvent
+public sealed partial class ChaplainHolyShieldActionEvent : InstantActionEvent
 {
 }
 

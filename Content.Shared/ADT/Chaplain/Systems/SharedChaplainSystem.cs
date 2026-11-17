@@ -14,6 +14,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
 using Robust.Shared.Audio.Systems;
@@ -30,6 +31,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
@@ -38,7 +40,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
 
     private static readonly EntProtoId BelieverAction = "ActionChaplainBeliever";
-    private static readonly EntProtoId TransferAction = "ActionChaplainTransfer";
+    private static readonly EntProtoId ShieldAction = "ActionChaplainHolyShield";
     private static readonly EntProtoId HolyTouchAction = "ActionChaplainHolyWater";
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     private const string CandleId = "Candle";
@@ -51,16 +53,15 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         SubscribeLocalEvent<ChaplainComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChaplainComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChaplainComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ChaplainFollowerComponent, ComponentShutdown>(OnFollowerShutdown);
 
         SubscribeLocalEvent<ChaplainComponent, ChaplainMakeBelieverActionEvent>(OnMakeBeliever);
         SubscribeLocalEvent<ChaplainComponent, ChaplainMakeBelieverDoAfter>(OnMakeBelieverDoAfter);
-
-        SubscribeLocalEvent<ChaplainComponent, ChaplainPrayersHandActionEvent>(OnPrayersHand);
-        SubscribeLocalEvent<ChaplainComponent, ChaplainPrayersHandDoAfter>(OnPrayersHandDoAfter);
-
+        SubscribeLocalEvent<ChaplainComponent, ChaplainHolyShieldActionEvent>(OnHolyShield);
         SubscribeLocalEvent<ChaplainComponent, ChaplainHolyTouchActionEvent>(OnHolyTouch);
 
         InitializeHoly();
+        InitializePrayers();
     }
 
     public override void Update(float frameTime)
@@ -74,20 +75,17 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         var query = EntityQueryEnumerator<ChaplainComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.Power >= comp.PowerRegenCap)
-            {
-                comp.NextRegen = now + comp.RegenDelay;
-                continue;
-            }
-
             if (now < comp.NextRegen)
                 continue;
 
             comp.NextRegen = now + comp.RegenDelay;
-            ChangePowerAmount((uid, comp), 1);
+
+            if (comp.Faith < comp.MaxFaith)
+                ChangeFaith((uid, comp), comp.BaseRegen + comp.FollowerRegen * CountLivingFollowers(comp));
         }
 
         UpdateSuppression(now);
+        UpdateShields(now);
     }
 
     private void OnStartup(Entity<ChaplainComponent> ent, ref ComponentStartup args)
@@ -100,7 +98,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         ent.Comp.NextRegen = _timing.CurTime + ent.Comp.RegenDelay;
 
         _actions.AddAction(ent.Owner, ref ent.Comp.BelieverActionEntity, BelieverAction);
-        _actions.AddAction(ent.Owner, ref ent.Comp.TransferActionEntity, TransferAction);
+        _actions.AddAction(ent.Owner, ref ent.Comp.ShieldActionEntity, ShieldAction);
         _actions.AddAction(ent.Owner, ref ent.Comp.HolyTouchActionEntity, HolyTouchAction);
         Dirty(ent);
     }
@@ -108,43 +106,87 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     private void OnShutdown(Entity<ChaplainComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Owner, ent.Comp.BelieverActionEntity);
-        _actions.RemoveAction(ent.Owner, ent.Comp.TransferActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ShieldActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.HolyTouchActionEntity);
         _alerts.ClearAlert(ent.Owner, ent.Comp.Alert);
+
+        foreach (var follower in ent.Comp.Followers)
+        {
+            if (!TryComp<ChaplainFollowerComponent>(follower, out var followerComp) || followerComp.Chaplain != ent.Owner)
+                continue;
+
+            followerComp.Chaplain = null;
+            Dirty(follower, followerComp);
+        }
     }
 
-    public bool ChangePowerAmount(Entity<ChaplainComponent?> ent, FixedPoint2 amount)
+    private void OnFollowerShutdown(Entity<ChaplainFollowerComponent> ent, ref ComponentShutdown args)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!TryComp<ChaplainComponent>(ent.Comp.Chaplain, out var chaplain))
+            return;
+
+        chaplain.Followers.Remove(ent.Owner);
+        Dirty(ent.Comp.Chaplain.Value, chaplain);
+    }
+
+    public int CountLivingFollowers(ChaplainComponent chaplain)
+    {
+        var count = 0;
+        foreach (var follower in chaplain.Followers)
+        {
+            if (Exists(follower) && !_mobState.IsDead(follower))
+                count++;
+        }
+
+        return count;
+    }
+
+    public bool HasFaith(EntityUid uid)
+    {
+        return TryComp<ChaplainComponent>(uid, out var chaplain) && chaplain.Faith > 0;
+    }
+
+    public float GetHolyMultiplier(EntityUid? uid)
+    {
+        if (!TryComp<ChaplainComponent>(uid, out var chaplain) || chaplain.Faith > 0)
+            return 1f;
+
+        return chaplain.WeakenedHolyMultiplier;
+    }
+
+    public bool ChangeFaith(Entity<ChaplainComponent?> ent, FixedPoint2 amount)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        if (ent.Comp.Power + amount < 0)
+        if (ent.Comp.Faith + amount < 0)
             return false;
 
-        ent.Comp.Power = FixedPoint2.Min(ent.Comp.Power + amount, ent.Comp.PowerRegenCap);
+        ent.Comp.Faith = FixedPoint2.Min(ent.Comp.Faith + amount, ent.Comp.MaxFaith);
         Dirty(ent);
         UpdateAlert((ent.Owner, ent.Comp));
         return true;
     }
 
-    public bool TryUseAbility(Entity<ChaplainComponent> ent, FixedPoint2 cost)
+    public bool TryUseFaith(Entity<ChaplainComponent> ent, FixedPoint2 cost)
     {
-        if (ent.Comp.Power < cost)
+        if (ent.Comp.Faith < cost)
         {
             _popup.PopupClient(Loc.GetString("chaplain-not-enough-power"), ent, ent);
             return false;
         }
 
-        return ChangePowerAmount((ent.Owner, ent.Comp), -cost);
+        return ChangeFaith((ent.Owner, ent.Comp), -cost);
     }
 
     private void UpdateAlert(Entity<ChaplainComponent> ent)
     {
-        var severity = (short) Math.Clamp(Math.Round(ent.Comp.Power.Float()), 0, 5);
+        var ratio = ent.Comp.MaxFaith > 0 ? (ent.Comp.Faith / ent.Comp.MaxFaith).Float() : 0f;
+        var severity = (short) Math.Clamp(MathF.Round(ratio * 5f), 0, 5);
         _alerts.ShowAlert(ent.Owner, ent.Comp.Alert, severity);
     }
 
-    #region Believers
+    #region Followers
 
     private void OnMakeBeliever(Entity<ChaplainComponent> ent, ref ChaplainMakeBelieverActionEvent args)
     {
@@ -154,7 +196,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         args.Handled = true;
         var target = args.Target;
 
-        if (HasComp<ChaplainComponent>(target))
+        if (HasComp<ChaplainComponent>(target) || HasComp<ChaplainFollowerComponent>(target))
         {
             _popup.PopupClient(Loc.GetString("chaplain-believer-already", ("target", Identity.Entity(target, EntityManager))), ent, ent);
             return;
@@ -163,19 +205,27 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         if (!HasComp<HumanoidProfileComponent>(target))
             return;
 
-        if (ent.Comp.Believers >= ent.Comp.MaxBelievers)
+        if (ent.Comp.Followers.Count >= ent.Comp.MaxFollowers)
         {
             _popup.PopupClient(Loc.GetString("chaplain-believer-too-much"), ent, ent);
             return;
         }
 
-        if (!TryUseAbility(ent, ent.Comp.BelieverCost))
+        if (!TryUseFaith(ent, ent.Comp.BelieverCost))
             return;
 
         _popup.PopupClient(Loc.GetString("chaplain-believer-start-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
         _popup.PopupEntity(Loc.GetString("chaplain-believer-start-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
 
-        StartDoAfter(ent, target, new ChaplainMakeBelieverDoAfter());
+        var doAfter = new DoAfterArgs(EntityManager, ent, ent.Comp.MakeBelieverDuration, new ChaplainMakeBelieverDoAfter(), ent, target: target)
+        {
+            DistanceThreshold = 2,
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd
+        };
+
+        _doAfter.TryStartDoAfter(doAfter);
     }
 
     private void OnMakeBelieverDoAfter(Entity<ChaplainComponent> ent, ref ChaplainMakeBelieverDoAfter args)
@@ -187,11 +237,11 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
         if (args.Cancelled)
         {
-            ChangePowerAmount((ent.Owner, ent.Comp), ent.Comp.BelieverCost);
+            ChangeFaith((ent.Owner, ent.Comp), ent.Comp.BelieverCost);
             return;
         }
 
-        if (ent.Comp.Believers >= ent.Comp.MaxBelievers)
+        if (ent.Comp.Followers.Count >= ent.Comp.MaxFollowers)
         {
             _popup.PopupClient(Loc.GetString("chaplain-believer-too-much"), ent, ent);
             return;
@@ -204,18 +254,17 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     {
     }
 
-    public void MakeBeliever(Entity<ChaplainComponent> ent, EntityUid target)
+    public void MakeFollower(Entity<ChaplainComponent> ent, EntityUid target)
     {
-        ent.Comp.Believers += 1;
-        Dirty(ent);
+        if (HasComp<ChaplainComponent>(target) || HasComp<ChaplainFollowerComponent>(target))
+            return;
 
-        var believer = EnsureComp<ChaplainComponent>(target);
-        believer.MaxBelievers = 0;
-        believer.PowerRegenCap = 2;
-        believer.Power = 2;
-        believer.PowerPerPray = 1;
-        Dirty(target, believer);
-        UpdateAlert((target, believer));
+        var follower = EnsureComp<ChaplainFollowerComponent>(target);
+        follower.Chaplain = ent.Owner;
+        Dirty(target, follower);
+
+        ent.Comp.Followers.Add(target);
+        Dirty(ent);
 
         _popup.PopupEntity(Loc.GetString("chaplain-believer-success-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
         _popup.PopupEntity(Loc.GetString("chaplain-believer-success-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
@@ -223,63 +272,43 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
     #endregion
 
-    #region Power transfer
+    #region Holy shield
 
-    private void OnPrayersHand(Entity<ChaplainComponent> ent, ref ChaplainPrayersHandActionEvent args)
+    private void OnHolyShield(Entity<ChaplainComponent> ent, ref ChaplainHolyShieldActionEvent args)
     {
         if (args.Handled)
             return;
 
-        args.Handled = true;
-        var target = args.Target;
-
-        if (!CanTransferPower(ent, target))
-            return;
-
-        _popup.PopupClient(Loc.GetString("chaplain-transfer-start-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
-        _popup.PopupEntity(Loc.GetString("chaplain-transfer-start-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
-
-        StartDoAfter(ent, target, new ChaplainPrayersHandDoAfter());
-    }
-
-    private void OnPrayersHandDoAfter(Entity<ChaplainComponent> ent, ref ChaplainPrayersHandDoAfter args)
-    {
-        if (args.Handled || args.Cancelled || args.Args.Target is not { } target)
+        if (!TryUseFaith(ent, ent.Comp.ShieldCost))
             return;
 
         args.Handled = true;
-
-        if (!CanTransferPower(ent, target) || !TryComp<ChaplainComponent>(target, out var targetChaplain))
-            return;
-
-        ChangePowerAmount((target, targetChaplain), ent.Comp.PowerTransfered);
-        ChangePowerAmount((ent.Owner, ent.Comp), -ent.Comp.PowerTransfered);
-
-        _popup.PopupClient(Loc.GetString("chaplain-transfer-success-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
-        _popup.PopupEntity(Loc.GetString("chaplain-transfer-success-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
+        GrantHolyShield(ent, ent.Comp.ShieldDuration);
+        _audio.PlayPredicted(ent.Comp.HolyWaterSoundPath, ent, ent);
+        _popup.PopupClient(Loc.GetString("chaplain-holy-shield-start"), ent, ent);
     }
 
-    private bool CanTransferPower(Entity<ChaplainComponent> ent, EntityUid target)
+    public void GrantHolyShield(EntityUid uid, TimeSpan duration)
     {
-        if (!TryComp<ChaplainComponent>(target, out var targetChaplain))
-        {
-            _popup.PopupClient(Loc.GetString("chaplain-transfer-not-chaplain", ("target", Identity.Entity(target, EntityManager))), ent, ent);
-            return false;
-        }
+        var shield = EnsureComp<HolyShieldComponent>(uid);
+        var end = _timing.CurTime + duration;
+        if (end > shield.EndTime)
+            shield.EndTime = end;
 
-        if (targetChaplain.Power >= targetChaplain.PowerRegenCap)
-        {
-            _popup.PopupClient(Loc.GetString("chaplain-transfer-full", ("target", Identity.Entity(target, EntityManager))), ent, ent);
-            return false;
-        }
+        Dirty(uid, shield);
+    }
 
-        if (ent.Comp.Power < ent.Comp.PowerTransfered)
+    private void UpdateShields(TimeSpan now)
+    {
+        var query = EntityQueryEnumerator<HolyShieldComponent>();
+        while (query.MoveNext(out var uid, out var shield))
         {
-            _popup.PopupClient(Loc.GetString("chaplain-not-enough-power"), ent, ent);
-            return false;
-        }
+            if (now < shield.EndTime)
+                continue;
 
-        return true;
+            RemCompDeferred<HolyShieldComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("chaplain-holy-shield-end"), uid, uid);
+        }
     }
 
     #endregion
@@ -294,7 +323,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         args.Handled = true;
         var target = args.Target;
 
-        if (ent.Comp.Power < ent.Comp.HolyWaterCost)
+        if (ent.Comp.Faith < ent.Comp.HolyWaterCost)
         {
             _popup.PopupClient(Loc.GetString("chaplain-not-enough-power"), ent, ent);
             return;
@@ -342,7 +371,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         _transform.SetLocalRotation(candle, xform.LocalRotation);
         PredictedDel(target);
 
-        ChangePowerAmount((ent.Owner, ent.Comp), -ent.Comp.HolyWaterCost);
+        ChangeFaith((ent.Owner, ent.Comp), -ent.Comp.HolyWaterCost);
         _popup.PopupClient(Loc.GetString("chaplain-candle-transform-success", ("target", Identity.Entity(candle, EntityManager))), ent, ent);
         _audio.PlayPredicted(ent.Comp.HolyWaterSoundPath, ent, ent);
         return true;
@@ -369,7 +398,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
             return;
         }
 
-        ChangePowerAmount((ent.Owner, ent.Comp), -ent.Comp.HolyWaterCost);
+        ChangeFaith((ent.Owner, ent.Comp), -ent.Comp.HolyWaterCost);
         _popup.PopupClient(Loc.GetString("chaplain-holy-water-success", ("target", Identity.Entity(target, EntityManager))), ent, ent);
         _audio.PlayPredicted(ent.Comp.HolyWaterSoundPath, ent, ent);
     }
@@ -386,17 +415,4 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     }
 
     #endregion
-
-    private void StartDoAfter(Entity<ChaplainComponent> ent, EntityUid target, DoAfterEvent ev)
-    {
-        var doAfter = new DoAfterArgs(EntityManager, ent, ent.Comp.MakeBelieverDuration, ev, ent, target: target)
-        {
-            DistanceThreshold = 2,
-            BreakOnMove = true,
-            BreakOnDamage = true,
-            AttemptFrequency = AttemptFrequency.StartAndEnd
-        };
-
-        _doAfter.TryStartDoAfter(doAfter);
-    }
 }

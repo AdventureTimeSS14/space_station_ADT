@@ -210,3 +210,8 @@
   id: ADTHolySuppressionShader
   kind: source
   path: "/Textures/ADT/Shaders/holy_suppression.swsl"
+
+- type: shader
+  id: ADTHolyShieldShader
+  kind: source
+  path: "/Textures/ADT/Shaders/holy_shield.swsl"
