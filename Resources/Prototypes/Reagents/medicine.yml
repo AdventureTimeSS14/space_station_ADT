@@ -1441,6 +1441,11 @@
         factor: 3
       - !type:HealthChange
         conditions:
+        # ADT-Tweak start
+        - !type:MetabolizerTypeCondition
+          type: [ Vampire ]
+          inverted: true
+        # ADT-Tweak end
         damage:
           types:
             Blunt: -0.2
@@ -1462,6 +1467,17 @@
         damage:
           types:
             Holy: 0.5
+    # ADT-Tweak start
+    Unholy:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 5
+      - !type:Emote
+        emote: Scream
+    # ADT-Tweak end
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
