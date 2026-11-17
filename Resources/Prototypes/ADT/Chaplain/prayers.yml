@@ -28,7 +28,7 @@
   cost: 3
   cooldown: 60
   effect: ADTEffectPrayerFlash
-  sound: /Audio/ADT/Heretic/repulse.ogg
+  sound: /Audio/ADT/Chaplain/vade_retro.ogg
   effects:
   - !type:RepelPrayerEffect
     range: 3

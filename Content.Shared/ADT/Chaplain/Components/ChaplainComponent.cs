@@ -95,7 +95,7 @@ public sealed partial class ChaplainComponent : Component
     };
 
     [DataField]
-    public SoundSpecifier BlessingSound = new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg");
+    public SoundSpecifier BlessingSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/blessing.ogg");
 
     [DataField]
     public FixedPoint2 HolyWaterCost = 2;
