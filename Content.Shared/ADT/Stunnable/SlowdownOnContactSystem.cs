@@ -7,20 +7,25 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
-using Content.Shared.ADT.Stunnable;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Stunnable;
+namespace Content.Shared.ADT.Stunnable;
 
-public abstract partial class SharedStunSystem
+public sealed class SlowdownOnContactSystem : EntitySystem
 {
-    public static readonly EntProtoId SlowdownEffect = "BasicSlowdownStatusEffect";
-
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private MovementModStatusSystem _movementMod = default!;
 
-    private void OnSlowdownOnContactCollide(Entity<SlowdownOnContactComponent> ent, ref StartCollideEvent args)
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SlowdownOnContactComponent, StartCollideEvent>(OnStartCollide);
+    }
+
+    private void OnStartCollide(Entity<SlowdownOnContactComponent> ent, ref StartCollideEvent args)
     {
         if (args.OurFixtureId != ent.Comp.FixtureId)
             return;
@@ -28,6 +33,6 @@ public abstract partial class SharedStunSystem
         if (_entityWhitelist.IsWhitelistPass(ent.Comp.Blacklist, args.OtherEntity))
             return;
 
-        _movementMod.TryUpdateMovementSpeedModDuration(args.OtherEntity, SlowdownEffect, ent.Comp.Duration, ent.Comp.Multiplier);
+        _movementMod.TryUpdateMovementSpeedModDuration(args.OtherEntity, ent.Comp.Effect, ent.Comp.Duration, ent.Comp.Multiplier);
     }
 }

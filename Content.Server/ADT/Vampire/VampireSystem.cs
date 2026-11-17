@@ -20,6 +20,7 @@ using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.ADT.Chaplain.Systems;
+using Content.Shared.ADT.Damage.Systems;
 using Content.Shared.ADT.Genetics.Components;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.HolyDamage;
@@ -111,6 +112,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private SharedEyeSystem _eye = default!;
     [Dependency] private SharedNightVisionSystem _nightVision = default!;
+    [Dependency] private GroupHealSystem _groupHeal = default!;
 
     private const int MaxBloodToConsume = 200;
 
@@ -118,6 +120,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
     private static readonly EntProtoId RejuvenateAdvanced = "ActionVampireRejuvenateAdvanced";
     private static readonly EntProtoId RejuvenateNoHeal = "ActionVampireRejuvenateNoHeal";
     private static readonly EntProtoId NightVisionToggleAction = "ADTActionToggleNightVision";
+    private static readonly EntProtoId SlowdownStatusEffect = "BasicSlowdownStatusEffect";
     private const string NightVisionShader = "ADTVampireNightVisionShader";
     private static readonly EntProtoId Clumsy = "StatusEffectClumsyClown";
 
@@ -292,7 +295,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
                     if (HasComp<LungComponent>(organ)) // Микола, я трохи "I can't breathe".
                         continue;
 
-                    _metabolism.ClearMetabolizerTypes(meta);
+                    var metabolizerTypes = meta.MetabolizerTypes;
+                    metabolizerTypes?.Clear();
                     _metabolism.TryAddMetabolizerType(organ, VampireComponent.MetabolizerVampire);
                 }
             }
@@ -355,7 +359,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
         {
             if (TryComp<MetabolizerComponent>(organ, out var meta))
             {
-                _metabolism.ClearMetabolizerTypes(meta);
+                var metabolizerTypes = meta.MetabolizerTypes;
+                metabolizerTypes?.Clear();
                 foreach (var type in types)
                 {
                     _metabolism.TryAddMetabolizerType(organ, type);

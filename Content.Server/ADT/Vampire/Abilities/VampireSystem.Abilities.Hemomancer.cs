@@ -326,10 +326,7 @@ public sealed partial class VampireSystem
 
         if (nearbyEntities.Count > 0)
         {
-            var groupHealSpec = _damage.CreateHealFromGroups(ent.Owner, args.HealGroups);
-            var scaledHealingSpec = (args.Heal + groupHealSpec) * nearbyEntities.Count;
-
-            _damage.TryChangeDamage(ent.Owner, scaledHealingSpec, true, false, origin: ent);
+            _groupHeal.Heal(ent.Owner, args.Heal, args.HealGroups, nearbyEntities.Count, false, ent);
             _stamina.TakeStaminaDamage(ent, args.StaminaMod * nearbyEntities.Count, visual: false);
 
             foreach (var entity in nearbyEntities)

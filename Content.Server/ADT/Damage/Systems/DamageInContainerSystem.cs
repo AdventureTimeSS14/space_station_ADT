@@ -11,7 +11,7 @@ using System.Linq;
 using Content.Server.ADT.Damage.Components;
 using Content.Server.Damage.Components;
 using Content.Shared.ADT.Damage.Components;
-using Content.Shared.Damage;
+using Content.Shared.ADT.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
@@ -28,6 +28,7 @@ public sealed partial class DamageInContainerSystem : EntitySystem
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private GroupHealSystem _groupHeal = default!;
 
     public override void Initialize()
     {
@@ -64,46 +65,16 @@ public sealed partial class DamageInContainerSystem : EntitySystem
                 if (_whitelistSystem.IsWhitelistFail(comp.Whitelist, contained))
                     continue;
 
-                DamageSpecifier? finalDamage = null;
-                if (comp.Damage != null && !comp.Damage.Empty && comp.Damage.DamageDict.Values.Any(x => x < 0))
-                {
-                    finalDamage = comp.Damage.Clone();
-                    if (comp.DamageGroups != null && !comp.DamageGroups.Empty)
-                    {
-                        var groupsHeal = _damageable.CreateWeightedHealFromGroups(contained, comp.DamageGroups);
-                        finalDamage += groupsHeal;
-                    }
-                }
-                else if (comp.Damage != null && !comp.Damage.Empty)
-                {
-                    finalDamage = comp.Damage;
-                }
-                else if (comp.DamageGroups != null && !comp.DamageGroups.Empty)
-                {
-                    finalDamage = _damageable.CreateWeightedHealFromGroups(contained, comp.DamageGroups);
-                }
-                else
-                {
-                    continue;
-                }
-
-                if (finalDamage == null)
+                var hasDamage = comp.Damage != null && !comp.Damage.Empty;
+                var hasGroups = comp.DamageGroups != null && !comp.DamageGroups.Empty;
+                if (!hasDamage && !hasGroups)
                     continue;
 
-                if (TryComp<MobStateComponent>(contained, out var mobState))
-                {
-                    foreach (var allowedState in comp.AllowedStates)
-                    {
-                        if (allowedState == mobState.CurrentState)
-                        {
-                            _damageable.TryChangeDamage(contained, finalDamage, true, false);
-                            break;
-                        }
-                    }
+                if (TryComp<MobStateComponent>(contained, out var mobState) && !comp.AllowedStates.Contains(mobState.CurrentState))
                     continue;
-                }
 
-                _damageable.TryChangeDamage(contained, finalDamage, true, false);
+                var healsGroups = hasGroups && (!hasDamage || comp.Damage!.DamageDict.Values.Any(x => x < 0));
+                _groupHeal.Heal(contained, comp.Damage, healsGroups ? comp.DamageGroups : null);
             }
         }
     }

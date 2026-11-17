@@ -118,14 +118,4 @@ public sealed partial class ChatSystem
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownLangMessage, source, false, session.Channel);
         }
     }
-
-    // Ported from Wega (https://github.com/wega-team/ss14-wega) for the vampire, GPL-3.0-only.
-    public void SendMessageToOne(EntityUid target, string message, Color? colorOverride = null)
-    {
-        if (!TryComp<ActorComponent>(target, out var actor))
-            return;
-
-        var color = colorOverride ?? Color.White;
-        _chatManager.ChatMessageToOne(ChatChannel.Server, message, message, target, false, actor.PlayerSession.Channel, color);
-    }
 }

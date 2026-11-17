@@ -7,13 +7,13 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
-using Content.Shared.Stunnable;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Stunnable;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedStunSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SlowdownOnContactSystem))]
 public sealed partial class SlowdownOnContactComponent : Component
 {
     [DataField]
@@ -24,6 +24,9 @@ public sealed partial class SlowdownOnContactComponent : Component
 
     [DataField]
     public float Multiplier = 1f;
+
+    [DataField]
+    public EntProtoId Effect = "BasicSlowdownStatusEffect";
 
     [DataField]
     public EntityWhitelist Blacklist = new();

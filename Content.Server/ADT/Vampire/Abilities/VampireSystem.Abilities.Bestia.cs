@@ -470,7 +470,7 @@ public sealed partial class VampireSystem
         var burnChance = CalculateChance(heartCount, 0f, 0.1f, 0.6f);
         var burnCount = CalculateDamageBonus(heartCount, 0f, 1f, 6f);
 
-        _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.SlowdownEffect, TimeSpan.FromSeconds(markDuration), 0.5f);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, SlowdownStatusEffect, TimeSpan.FromSeconds(markDuration), 0.5f);
         ExecuteMarkPreyBurnTick(ent.Owner, target, 0, (int)markDuration, burnChance, burnCount, args.DamageType);
 
         SubtractBloodEssence(ent.Owner, bloodCost);

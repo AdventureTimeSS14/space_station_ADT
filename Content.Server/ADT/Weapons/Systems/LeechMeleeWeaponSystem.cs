@@ -8,10 +8,8 @@
 // Modified by Adventure Time SS14 in 2026
 
 using Content.Shared.ADT.Damage.Components;
+using Content.Shared.ADT.Damage.Systems;
 using Content.Shared.Body.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
@@ -21,7 +19,7 @@ namespace Content.Server.ADT.Weapons.Systems;
 public sealed partial class LeechMeleeWeaponSystem : EntitySystem
 {
     [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private GroupHealSystem _groupHeal = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private BloodstreamSystem _blood = default!;
 
@@ -36,27 +34,7 @@ public sealed partial class LeechMeleeWeaponSystem : EntitySystem
         if (args.HitEntities.Count == 0)
             return;
 
-        DamageSpecifier? heal = component.Heal?.Clone();
-        DamageSpecifier? groupsHeal = null;
-
-        if (component.HealGroups != null && !component.HealGroups.Empty)
-        {
-            if (component.Weighted)
-            {
-                groupsHeal = _damageable.CreateWeightedHealFromGroups(args.User, component.HealGroups);
-            }
-            else
-            {
-                groupsHeal = _damageable.CreateHealFromGroups(args.User, component.HealGroups);
-            }
-        }
-
-        if (heal == null && groupsHeal != null)
-            heal = groupsHeal;
-        else if (heal != null && groupsHeal != null)
-            heal += groupsHeal;
-
-        if (heal == null || heal.Empty)
+        if ((component.Heal == null || component.Heal.Empty) && (component.HealGroups == null || component.HealGroups.Empty))
             return;
 
         foreach (var hitEnt in args.HitEntities)
@@ -70,7 +48,7 @@ public sealed partial class LeechMeleeWeaponSystem : EntitySystem
             if (_mobState.IsDead(hitEnt))
                 continue;
 
-            _damageable.TryChangeDamage(args.User, heal, true, false, origin: args.Weapon);
+            _groupHeal.Heal(args.User, component.Heal, component.HealGroups, weighted: component.Weighted, origin: args.Weapon);
             _blood.TryModifyBloodLevel(args.User, component.ModifyBloodLevel);
             _blood.TryModifyBleedAmount(args.User, component.BloodlossModifier);
         }

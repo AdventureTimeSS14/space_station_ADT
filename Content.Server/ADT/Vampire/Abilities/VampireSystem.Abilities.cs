@@ -71,7 +71,7 @@ public sealed partial class VampireSystem
         }
 
         TryRemoveKnockdown(args.Performer);
-        _stamina.RemoveStaminaDamage(args.Performer);
+        ResetStamina(args.Performer);
 
         if (args.Advanced || ent.Comp.CurrentBlood >= args.BloodCost)
         {
@@ -140,6 +140,15 @@ public sealed partial class VampireSystem
         _popup.PopupEntity(Loc.GetString("vampire-blood-sacrifice-insufficient-blood"), uid, uid, PopupType.SmallCaution);
     }
 
+    private void ResetStamina(EntityUid uid)
+    {
+        if (!TryComp<StaminaComponent>(uid, out var stamina))
+            return;
+
+        _stamina.ExitStamCrit(uid, stamina);
+        _stamina.TakeStaminaDamage(uid, -stamina.StaminaDamage, stamina, visual: false, ignoreResist: true);
+    }
+
     private bool TryRemoveKnockdown(Entity<StaminaComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp, false))
@@ -155,52 +164,27 @@ public sealed partial class VampireSystem
         if (!Exists(uid) || currentTick >= args.Repeats)
             return;
 		
-		var healingSpec = new DamageSpecifier();
-
-		if (args.Advanced)
-		{
-			healingSpec = CalculateScaledHealing(uid, args.Heal, args.HealGroups);
-		}
-		else if (!args.NoHeal)
-		{
-			healingSpec = SimpleHealing(uid, args.Heal, args.HealGroups);
-		}
-
-        var stomachCount = GetOrganTypeCount(uid, BestiaOrganType.Stomach);
-        var bonus = stomachCount * 3;
-        if (bonus > 0)
+        if (args.Advanced || !args.NoHeal)
         {
-            var bonusMultiplier = 1f + (bonus / 100f);
-            healingSpec *= bonusMultiplier;
-        }
+            var multiplier = args.Advanced ? GetScaledHealModifier(uid) : 1f;
+            var stomachBonus = GetOrganTypeCount(uid, BestiaOrganType.Stomach) * 3;
+            multiplier *= 1f + stomachBonus / 100f;
 
-        _damage.TryChangeDamage(uid, healingSpec, true, false, origin: uid);
+            _groupHeal.Heal(uid, args.Heal, args.HealGroups, multiplier, origin: uid);
+        }
 
         Timer.Spawn(args.TimeInterval, () => ExecuteRejuvenateHealTick(uid, currentTick + 1, args));
     }
 
-    private DamageSpecifier CalculateScaledHealing(EntityUid uid, DamageSpecifier heal, GroupHealSpecifier healGroups)
+    private float GetScaledHealModifier(EntityUid uid)
     {
-        var totalDamage = _damage.GetTotalDamage(uid).Float();
         if (!_threshold.TryGetThresholdForState(uid, MobState.Dead, out var threshold))
-            return new DamageSpecifier();
+            return 0f;
 
+        var totalDamage = _damage.GetTotalDamage(uid).Float();
         var maxDamage = threshold.Value.Float();
-        var damagePercent = maxDamage > 0 ? (totalDamage / maxDamage) * 100 : 0;
-        var modifier = Math.Clamp(damagePercent / 20.0, 1.0, 5.0);
-
-        var groupHealSpec = _damage.CreateWeightedHealFromGroups(uid, healGroups);
-        var scaledHeal = (heal + groupHealSpec) * modifier;
-
-        return scaledHeal;
-    }
-
-    private DamageSpecifier SimpleHealing(EntityUid uid, DamageSpecifier heal, GroupHealSpecifier healGroups)
-    {
-        var groupHealSpec = _damage.CreateWeightedHealFromGroups(uid, healGroups);
-        var scaledHeal = (heal + groupHealSpec);
-
-        return scaledHeal;
+        var damagePercent = maxDamage > 0 ? totalDamage / maxDamage * 100 : 0;
+        return Math.Clamp(damagePercent / 20f, 1f, 5f);
     }
 
     private bool TrySpawnObjectAtPosition(EntityCoordinates coords, EntProtoId entityId, EntityUid uid)

@@ -11,6 +11,7 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Cloning;
 using Content.Server.ADT.Hallucinations.Systems;
+using Content.Server.Chat.Managers;
 using Content.Server.Prayer;
 using Content.Shared.ADT.Vampire;
 using Content.Shared.ADT.Vampire.Components;
@@ -35,10 +36,17 @@ namespace Content.Server.ADT.Vampire;
 
 public sealed partial class VampireSystem
 {
+    [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private CloningSystem _cloning = default!;
     [Dependency] private SchizophreniaSystem _hallucinations = default!;
     [Dependency] private PrayerSystem _prayerSystem = default!;
     [Dependency] private QuickDialogSystem _quickDialog = default!;
+
+    private void SendPrivateMessage(EntityUid target, string message)
+    {
+        if (TryComp<ActorComponent>(target, out var actor))
+            _chatManager.DispatchServerMessage(actor.PlayerSession, message);
+    }
 
     private void InitializeDantalion()
     {
@@ -157,10 +165,10 @@ public sealed partial class VampireSystem
                         continue;
 
                     _prayerSystem.SendSubtleMessage(thrallActor.PlayerSession, thrallActor.PlayerSession, finalMessage, Loc.GetString("vampire-commune-default-message"));
-                    _chat.SendMessageToOne(thrallUid, finalMessage);
+                    SendPrivateMessage(thrallUid, finalMessage);
                 }
 
-                _chat.SendMessageToOne(ent, finalMessage);
+                SendPrivateMessage(ent, finalMessage);
             });
 
         args.Handled = true;
@@ -185,17 +193,17 @@ public sealed partial class VampireSystem
                     ("name", Identity.Name(ent, EntityManager)), ("message", finalMessage));
 
                 if (Exists(owner))
-                    _chat.SendMessageToOne(owner, formatted);
+                    SendPrivateMessage(owner, formatted);
 
                 foreach (var thrallUid in thrallOwner.ThrallOwned)
                 {
                     if (thrallUid == ent.Owner || !Exists(thrallUid))
                         continue;
 
-                    _chat.SendMessageToOne(thrallUid, formatted);
+                    SendPrivateMessage(thrallUid, formatted);
                 }
 
-                _chat.SendMessageToOne(ent, finalMessage);
+                SendPrivateMessage(ent, finalMessage);
             });
 
         args.Handled = true;
@@ -257,7 +265,7 @@ public sealed partial class VampireSystem
         _transform.SetCoordinates(ent, targetCoords);
         _transform.SetCoordinates(target, currentCoords);
 
-        _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.SlowdownEffect, TimeSpan.FromSeconds(4f), 0.5f);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, SlowdownStatusEffect, TimeSpan.FromSeconds(4f), 0.5f);
         _hallucinations.AddOrAdjustHallucinations(target, "Vampire", 15f, StatusEffectMetabolismType.Set);
 
         SubtractBloodEssence(ent.Owner, args.BloodCost);
@@ -305,7 +313,7 @@ public sealed partial class VampireSystem
                 continue;
 
             TryRemoveKnockdown(thrallEntity.Owner);
-            _stamina.RemoveStaminaDamage(thrallEntity.Owner);
+            ResetStamina(thrallEntity.Owner);
             _status.TryRemoveStatusEffect(thrallEntity.Owner, ForceSleeping);
         }
 
@@ -459,8 +467,7 @@ public sealed partial class VampireSystem
         if (!Exists(thrallUid) || !Exists(vampire) || currentTick >= args.Repeats)
             return;
 
-        var healingSpec = CalculateScaledHealing(thrallUid, args.Heal, args.HealGroups);
-        _damage.TryChangeDamage(thrallUid, healingSpec, true, false, origin: vampire);
+        _groupHeal.Heal(thrallUid, args.Heal, args.HealGroups, GetScaledHealModifier(thrallUid), origin: vampire);
 
         Timer.Spawn(args.TimeInterval, () => ExecuteThrallHealTick(thrallUid, vampire, currentTick + 1, args));
     }

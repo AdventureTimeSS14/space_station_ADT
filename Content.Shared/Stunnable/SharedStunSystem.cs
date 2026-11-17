@@ -1,7 +1,6 @@
 using System.Globalization;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Stunnable;
 using Content.Shared.Alert;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
@@ -49,7 +48,6 @@ public abstract partial class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<StunnedComponent, ComponentShutdown>(OnStunShutdown);
 
         SubscribeLocalEvent<StunOnContactComponent, StartCollideEvent>(OnStunOnContactCollide);
-        SubscribeLocalEvent<SlowdownOnContactComponent, StartCollideEvent>(OnSlowdownOnContactCollide); // ADT-Tweak
 
         // Attempt event subscriptions.
         SubscribeLocalEvent<StunnedComponent, ChangeDirectionAttemptEvent>(OnAttempt);
