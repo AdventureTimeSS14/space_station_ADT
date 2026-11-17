@@ -1,9 +1,11 @@
 // SPDX-FileCopyrightText: 2021-2026 Corvax
 // SPDX-FileCopyrightText: 2024-2026 Wega Team
+// SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
 //
 // SPDX-License-Identifier: GPL-3.0-only
 //
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
+// Modified by Adventure Time SS14 in 2026
 
 using System.Linq;
 using System.Numerics;
@@ -23,7 +25,6 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Damage;
 using Content.Shared.Standing;
-using Content.Shared.Surgery.Components;
 using Content.Shared.Vampire;
 using Content.Shared.Vampire.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -61,9 +62,6 @@ public sealed partial class VampireSystem
 
         foreach (var hitEnt in args.HitEntities)
         {
-            if (HasComp<SyntheticOperatedComponent>(hitEnt))
-                continue;
-
             if (!HasComp<BloodstreamComponent>(hitEnt))
                 continue;
 
@@ -324,7 +322,7 @@ public sealed partial class VampireSystem
         SubtractBloodEssence(ent.Owner, args.BloodCost);
 
         var nearbyEntities = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, 7f)
-            .Where(entity => !_mobState.IsDead(entity.Owner) && !HasComp<SyntheticOperatedComponent>(entity.Owner))
+            .Where(entity => !_mobState.IsDead(entity.Owner))
             .ToList();
 
         if (nearbyEntities.Count > 0)

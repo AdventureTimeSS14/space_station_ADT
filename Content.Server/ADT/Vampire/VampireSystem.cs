@@ -58,7 +58,6 @@ using Content.Shared.Shaders;
 using Content.Shared.SSDIndicator;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
-using Content.Shared.Surgery.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Vampire;
@@ -584,7 +583,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
             return false;
         }
 
-        if (!_interaction.InRangeUnobstructed(ent.Owner, target, popup: true) || HasComp<SyntheticOperatedComponent>(target))
+        if (!_interaction.InRangeUnobstructed(ent.Owner, target, popup: true))
             return false;
 
         IngestionBlockerComponent? blocker;

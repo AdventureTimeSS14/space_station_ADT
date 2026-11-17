@@ -37,7 +37,6 @@ using Content.Shared.Projectiles;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
-using Content.Shared.Surgery.Components;
 using Content.Shared.Vampire;
 using Content.Shared.Vampire.Components;
 using Content.Shared.Weapons.Melee;
@@ -198,7 +197,7 @@ public sealed partial class VampireSystem
 
         _audio.PlayPvs(BestiaScream, coordinates);
         var nearbyEntities = _entityLookup.GetEntitiesInRange<MobStateComponent>(coordinates, 5f)
-            .Where(entity => !_mobState.IsDead(entity.Owner) && !HasComp<SyntheticOperatedComponent>(entity.Owner))
+            .Where(entity => !_mobState.IsDead(entity.Owner))
             .ToList();
 
         foreach (var entity in nearbyEntities)

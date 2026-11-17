@@ -25,7 +25,6 @@ using Content.Shared.NullRod.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Stunnable;
-using Content.Shared.Surgery.Components;
 using Content.Shared.Vampire;
 using Content.Shared.Vampire.Components;
 using Robust.Shared.Audio;
@@ -70,8 +69,7 @@ public sealed partial class VampireSystem
             return;
         }
 
-        if (HasComp<VampireComponent>(target) || HasComp<MindShieldComponent>(target) || HasComp<BibleUserComponent>(target)
-            || HasComp<SyntheticOperatedComponent>(target))
+        if (HasComp<VampireComponent>(target) || HasComp<MindShieldComponent>(target) || HasComp<BibleUserComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("vampire-enthall-failed", ("target", Identity.Name(target, EntityManager))), ent, ent);
             return;

@@ -7,7 +7,6 @@ using Content.Shared.Jittering;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Surgery.Components;
 using Content.Shared.Tag;
 using Content.Shared.Vampire;
 using Content.Shared.Vampire.Components;
@@ -38,8 +37,7 @@ public sealed partial class VampireSystem
     {
         var target = args.Target;
         if (!HasComp<HumanoidProfileComponent>(target) || _mobState.IsDead(target)
-            || HasComp<VampireComponent>(target) || HasComp<ThrallComponent>(target)
-            || HasComp<SyntheticOperatedComponent>(target))
+            || HasComp<VampireComponent>(target) || HasComp<ThrallComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("vampire-disease-failed"), ent, ent, PopupType.SmallCaution);
             return;
@@ -102,8 +100,7 @@ public sealed partial class VampireSystem
     {
         var target = args.Target;
         if (!HasComp<HumanoidProfileComponent>(target) || _mobState.IsDead(target)
-            || HasComp<VampireComponent>(target) || HasComp<ThrallComponent>(target)
-            || HasComp<SyntheticOperatedComponent>(target))
+            || HasComp<VampireComponent>(target) || HasComp<ThrallComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("vampire-hypnotise-failed"), ent, ent, PopupType.SmallCaution);
             return;

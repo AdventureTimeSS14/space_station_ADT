@@ -20,7 +20,6 @@ using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
-using Content.Shared.Surgery.Components;
 using Content.Shared.Vampire;
 using Content.Shared.Vampire.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -113,7 +112,7 @@ public sealed partial class VampireSystem
             return;
         }
 
-        if (HasComp<SyntheticOperatedComponent>(target) || HasComp<BibleUserComponent>(target))
+        if (HasComp<BibleUserComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("vampire-initiation-failed"), ent, ent, PopupType.SmallCaution);
             return;
