@@ -40,7 +40,7 @@ public sealed class ForTheWorthySystem : EntitySystem
 
     private void OnGettingUsed(Entity<ForTheWorthyComponent> ent, ref GettingUsedAttemptEvent args)
     {
-        if (IsWorthy(args.User))
+        if (HasComp<ChaplainComponent>(args.User))
             return;
 
         args.Cancel();
@@ -49,7 +49,7 @@ public sealed class ForTheWorthySystem : EntitySystem
 
     private void OnAttemptMelee(Entity<ForTheWorthyComponent> ent, ref AttemptMeleeEvent args)
     {
-        if (args.Cancelled || IsWorthy(args.User))
+        if (args.Cancelled || HasComp<ChaplainComponent>(args.User))
             return;
 
         args.Cancelled = true;
@@ -58,16 +58,11 @@ public sealed class ForTheWorthySystem : EntitySystem
 
     private void OnShotAttempted(Entity<ForTheWorthyComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (IsWorthy(args.User))
+        if (HasComp<ChaplainComponent>(args.User))
             return;
 
         args.Cancel();
         Punish(ent, args.User);
-    }
-
-    private bool IsWorthy(EntityUid user)
-    {
-        return HasComp<ChaplainComponent>(user);
     }
 
     private void Punish(Entity<ForTheWorthyComponent> ent, EntityUid user)
