@@ -1483,36 +1483,6 @@
       - !type:ADTCureDiseases
         conditions:
         - !type:ChaplainCondition
-    Bloodstream:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ChaplainCondition
-        damage:
-          types:
-            Heat: -1
-            Radiation: -1
-            Caustic: -1
-            Poison: -1
-            Asphyxiation: -1
-            Bloodloss: -1
-            Blunt: -1
-            Slash: -1
-            Piercing: -1
-            Cellular: -1
-            Cold: -1
-            Shock: -1
-      - !type:ModifyBleed
-        amount: -1.5
-        conditions:
-        - !type:ChaplainCondition
-      - !type:CleanBloodstream
-        cleanseRate: 1
-        conditions:
-        - !type:ChaplainCondition
-      - !type:ADTCureDiseases
-        conditions:
-        - !type:ChaplainCondition
       # ADT-Tweak-End
   reactiveEffects:
     Extinguish:
