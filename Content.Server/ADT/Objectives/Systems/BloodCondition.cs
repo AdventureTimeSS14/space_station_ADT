@@ -7,15 +7,14 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
-using Content.Server.Objectives.Components;
-using Content.Shared.ADT.Objectives.Components;
+using Content.Server.ADT.Objectives.Components;
 using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Random;
 
-namespace Content.Shared.ADT.Objectives.Systems;
+namespace Content.Server.ADT.Objectives.Systems;
 
-public sealed partial class DiablerieConditionSystem : EntitySystem
+public sealed partial class BloodConditionSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private MetaDataSystem _metaData = default!;
@@ -24,31 +23,31 @@ public sealed partial class DiablerieConditionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DiablerieConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-        SubscribeLocalEvent<DiablerieConditionComponent, ObjectiveAssignedEvent>(OnAssigned);
-        SubscribeLocalEvent<DiablerieConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
+        SubscribeLocalEvent<BloodConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
+        SubscribeLocalEvent<BloodConditionComponent, ObjectiveAssignedEvent>(OnAssigned);
+        SubscribeLocalEvent<BloodConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
     }
 
-    private void OnAssigned(EntityUid uid, DiablerieConditionComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnAssigned(EntityUid uid, BloodConditionComponent comp, ref ObjectiveAssignedEvent args)
     {
         if (args.Mind.OwnedEntity.HasValue)
         {
             var ownedEntity = args.Mind.OwnedEntity.Value;
-            comp.BloodTargets[ownedEntity] = _random.Next(1, 1);
+            comp.BloodTargets[ownedEntity] = _random.Next(comp.TargetMin, comp.TargetMax);
         }
     }
 
-    private void OnAfterAssign(EntityUid uid, DiablerieConditionComponent comp, ref ObjectiveAfterAssignEvent args)
+    private void OnAfterAssign(EntityUid uid, BloodConditionComponent comp, ref ObjectiveAfterAssignEvent args)
     {
         if (args.Mind.OwnedEntity.HasValue)
         {
             var ownedEntity = args.Mind.OwnedEntity.Value;
-            var description = Loc.GetString("objective-dilebry-description", ("condition", comp.BloodTargets[ownedEntity]));
+            var description = Loc.GetString("objective-condition-blood-description", ("condition", comp.BloodTargets[ownedEntity]));
             _metaData.SetEntityDescription(uid, description, args.Meta);
         }
     }
 
-    private void OnGetProgress(EntityUid uid, DiablerieConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    private void OnGetProgress(EntityUid uid, BloodConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         if (args.Mind.OwnedEntity.HasValue)
         {
@@ -57,13 +56,13 @@ public sealed partial class DiablerieConditionSystem : EntitySystem
         }
     }
 
-    private float GetProgress(EntityUid uid, DiablerieConditionComponent comp)
+    private float GetProgress(EntityUid uid, BloodConditionComponent comp)
     {
-        if (!TryComp<VampireDiablerieComponent>(uid, out var vampireComponent))
+        if (!TryComp<VampireComponent>(uid, out var vampireComponent))
             return 0f;
 
         float targetBlood = comp.BloodTargets.GetValueOrDefault(uid, 0);
-        float bloodDrank = vampireComponent.DiablerieLevel;
+        float bloodDrank = vampireComponent.TotalBloodDrank;
 
         return bloodDrank >= targetBlood ? 1f : bloodDrank / targetBlood;
     }

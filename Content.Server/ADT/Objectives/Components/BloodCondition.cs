@@ -7,10 +7,9 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
-using Content.Server.Objectives.Systems;
-using Content.Shared.ADT.Objectives.Systems;
+using Content.Server.ADT.Objectives.Systems;
 
-namespace Content.Shared.ADT.Objectives.Components;
+namespace Content.Server.ADT.Objectives.Components;
 
 [RegisterComponent, Access(typeof(BloodConditionSystem))]
 public sealed partial class BloodConditionComponent : Component
