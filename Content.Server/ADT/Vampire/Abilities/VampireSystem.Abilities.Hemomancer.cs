@@ -24,8 +24,7 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Damage;
 using Content.Shared.Standing;
-using Content.Shared.Vampire;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -33,8 +32,9 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Vampire;
 
-namespace Content.Server.Vampire;
+namespace Content.Server.ADT.Vampire;
 
 public sealed partial class VampireSystem
 {

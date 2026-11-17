@@ -40,7 +40,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
-using Content.Shared.Genetics;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -61,16 +60,17 @@ using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Throwing;
-using Content.Shared.Vampire;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
+using Content.Shared.ADT.Genetics.Components;
+using Content.Shared.ADT.Vampire;
 
-namespace Content.Server.Vampire;
+namespace Content.Server.ADT.Vampire;
 
 public sealed partial class VampireSystem : SharedVampireSystem
 {

@@ -17,7 +17,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Vampire.Components;
+namespace Content.Shared.ADT.Vampire.Components;
 
 /// <summary>
 /// The basic component that defines a vampire.

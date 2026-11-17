@@ -11,7 +11,7 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Vampire.Components;
+namespace Content.Shared.ADT.Vampire.Components;
 
 /// <summary>
 /// Determines what the entity is and who it belongs to.

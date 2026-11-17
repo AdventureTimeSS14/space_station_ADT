@@ -20,13 +20,13 @@ using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
-using Content.Shared.Vampire;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.ADT.Vampire;
 
-namespace Content.Server.Vampire;
+namespace Content.Server.ADT.Vampire;
 
 public sealed partial class VampireSystem
 {

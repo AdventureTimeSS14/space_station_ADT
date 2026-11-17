@@ -8,12 +8,12 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
-using Content.Shared.Vampire;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Vampire;
 
-namespace Content.Server.Vampire;
+namespace Content.Server.ADT.Vampire;
 
 public sealed partial class VampireSystem
 {

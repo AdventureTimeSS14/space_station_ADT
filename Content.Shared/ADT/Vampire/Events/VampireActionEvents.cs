@@ -19,8 +19,9 @@ using Content.Shared.Projectiles;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.ADT.Damage;
 
-namespace Content.Shared.Vampire;
+namespace Content.Shared.ADT.Vampire;
 
 /// <summary>
 /// Interface for vampire action events that require blood costs.

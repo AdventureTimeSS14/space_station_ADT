@@ -1,19 +1,21 @@
 // SPDX-FileCopyrightText: 2021-2026 Corvax
 // SPDX-FileCopyrightText: 2024-2026 Wega Team
+// SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
 //
 // SPDX-License-Identifier: GPL-3.0-only
 //
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
+// Modified by Adventure Time SS14 in 2026
 
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Vampire;
+namespace Content.Server.ADT.Vampire;
 
 public sealed partial class HolyPointSystem : EntitySystem
 {

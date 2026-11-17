@@ -13,10 +13,10 @@ using Content.Shared.Body;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Vampire;
+namespace Content.Shared.ADT.Vampire;
 
 public abstract partial class SharedVampireSystem : EntitySystem
 {

@@ -9,7 +9,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Vampire;
+namespace Content.Shared.ADT.Vampire;
 
 [Serializable, NetSerializable]
 public enum VampireClassEnum : byte

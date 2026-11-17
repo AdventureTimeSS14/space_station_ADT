@@ -10,8 +10,7 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Vampire;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -29,8 +28,10 @@ using Content.Shared.Stealth;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Bible.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.ADT.Damage;
+using Content.Shared.ADT.Vampire;
 
-namespace Content.Server.Vampire;
+namespace Content.Server.ADT.Vampire;
 
 public sealed partial class VampireSystem
 {

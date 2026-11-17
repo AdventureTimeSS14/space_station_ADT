@@ -20,8 +20,8 @@ using Content.Shared.GameTicking.Rules;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
-using Content.Shared.Vampire;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
+using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.GameTicking.Rules
 {

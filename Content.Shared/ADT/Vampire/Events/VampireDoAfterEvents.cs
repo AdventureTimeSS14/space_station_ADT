@@ -13,7 +13,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Vampire;
+namespace Content.Shared.ADT.Vampire;
 
 [Serializable, NetSerializable]
 public sealed partial class VampireDrinkingBloodDoAfterEvent : SimpleDoAfterEvent

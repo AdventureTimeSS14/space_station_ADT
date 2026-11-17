@@ -13,12 +13,12 @@ using Content.Client.Ghost;
 using Content.Shared.Administration;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
-using Content.Shared.Vampire;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
+using Content.Shared.ADT.Vampire;
 
-namespace Content.Client.Vampire;
+namespace Content.Client.ADT.Vampire;
 
 public sealed partial class VampireSystem : SharedVampireSystem
 {

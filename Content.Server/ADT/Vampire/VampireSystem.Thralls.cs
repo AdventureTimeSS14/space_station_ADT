@@ -15,9 +15,9 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
-using Content.Shared.Vampire.Components;
+using Content.Shared.ADT.Vampire.Components;
 
-namespace Content.Server.Vampire;
+namespace Content.Server.ADT.Vampire;
 
 public sealed partial class VampireSystem
 {

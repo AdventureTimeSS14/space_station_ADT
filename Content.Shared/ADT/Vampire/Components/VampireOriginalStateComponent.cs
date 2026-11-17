@@ -12,7 +12,7 @@ using Content.Shared.Metabolism;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Vampire.Components;
+namespace Content.Shared.ADT.Vampire.Components;
 
 /// <summary>
 /// Stores the creature's original data before it becomes a vampire.

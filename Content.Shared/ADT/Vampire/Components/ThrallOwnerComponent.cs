@@ -1,13 +1,15 @@
 // SPDX-FileCopyrightText: 2021-2026 Corvax
 // SPDX-FileCopyrightText: 2024-2026 Wega Team
+// SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
 //
 // SPDX-License-Identifier: GPL-3.0-only
 //
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
+// Modified by Adventure Time SS14 in 2026
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Vampire.Components;
+namespace Content.Shared.ADT.Vampire.Components;
 
 /// <summary>
 /// Determines whether an entity is the owner of the tralls and allows them to be manipulated.

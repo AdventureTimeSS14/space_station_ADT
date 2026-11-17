@@ -1,4 +1,4 @@
-<ui:RadialMenu x:Class="Content.Client._Wega.Vampire.Ui.DissectSelectionMenu"
+<ui:RadialMenu x:Class="Content.Client.ADT.Vampire.Ui.DissectSelectionMenu"
                xmlns="https://spacestation14.io"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
