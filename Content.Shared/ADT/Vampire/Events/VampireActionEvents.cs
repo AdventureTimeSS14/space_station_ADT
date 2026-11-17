@@ -8,6 +8,7 @@
 // Modified by Adventure Time SS14 in 2026
 
 using Content.Shared.Actions;
+using Content.Shared.ADT.Damage;
 using Content.Shared.ADT.Virology.Prototypes;
 using Content.Shared.Alert;
 using Content.Shared.Cloning;
@@ -19,7 +20,6 @@ using Content.Shared.Projectiles;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Content.Shared.ADT.Damage;
 
 namespace Content.Shared.ADT.Vampire;
 

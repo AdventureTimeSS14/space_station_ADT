@@ -7,8 +7,8 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
-using Content.Shared.FixedPoint;
 using Content.Shared.ADT.Vampire;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.GameTicking.Rules.Components;
 

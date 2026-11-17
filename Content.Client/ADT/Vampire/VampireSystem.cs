@@ -11,12 +11,12 @@ using Content.Client.Administration.Managers;
 using Content.Client.Alerts;
 using Content.Client.Ghost;
 using Content.Shared.Administration;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
-using Content.Shared.ADT.Vampire.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Client.ADT.Vampire;
 

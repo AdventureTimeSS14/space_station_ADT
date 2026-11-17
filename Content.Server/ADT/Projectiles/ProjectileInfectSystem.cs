@@ -8,9 +8,9 @@
 // Modified by Adventure Time SS14 in 2026
 
 using Content.Server.ADT.Virology;
+using Content.Shared.ADT.Projectiles;
 using Content.Shared.Projectiles;
 using Robust.Shared.Random;
-using Content.Shared.ADT.Projectiles;
 
 namespace Content.Server.ADT.Projectiles;
 

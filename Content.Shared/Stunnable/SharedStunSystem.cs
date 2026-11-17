@@ -1,6 +1,7 @@
 using System.Globalization;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Stunnable;
 using Content.Shared.Alert;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
@@ -23,7 +24,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Stunnable;
 
 namespace Content.Shared.Stunnable;
 

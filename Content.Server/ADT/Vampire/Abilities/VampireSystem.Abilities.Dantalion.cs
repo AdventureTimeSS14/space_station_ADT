@@ -12,6 +12,8 @@ using Content.Server.Administration;
 using Content.Server.Cloning;
 using Content.Server.ADT.Hallucinations.Systems;
 using Content.Server.Prayer;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Bible.Components;
 using Content.Shared.Body;
 using Content.Shared.CombatMode.Pacification;
@@ -24,12 +26,10 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Stunnable;
-using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 

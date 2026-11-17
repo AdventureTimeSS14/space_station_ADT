@@ -8,6 +8,8 @@
 // Modified by Adventure Time SS14 in 2026
 
 using Content.Shared.Administration.Systems;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Bible.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Damage;
@@ -20,11 +22,9 @@ using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
-using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 

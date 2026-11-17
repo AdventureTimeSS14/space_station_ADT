@@ -7,11 +7,11 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
+using Content.Shared.ADT.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
-using Content.Shared.ADT.Damage;
 
 namespace Content.Shared.Damage.Systems;
 

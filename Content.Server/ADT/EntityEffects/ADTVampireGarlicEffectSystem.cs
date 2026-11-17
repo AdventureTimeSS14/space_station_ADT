@@ -1,11 +1,11 @@
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.EntityEffects;
 

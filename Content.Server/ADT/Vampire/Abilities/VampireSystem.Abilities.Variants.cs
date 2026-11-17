@@ -1,4 +1,6 @@
 using Content.Server.ADT.Virology;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
@@ -8,10 +10,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
-using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 

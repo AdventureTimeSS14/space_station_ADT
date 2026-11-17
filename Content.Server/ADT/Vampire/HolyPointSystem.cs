@@ -9,10 +9,10 @@
 
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
-using Content.Shared.ADT.Vampire.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Vampire;

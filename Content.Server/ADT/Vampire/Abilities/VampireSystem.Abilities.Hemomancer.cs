@@ -9,6 +9,8 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Clothing;
@@ -24,7 +26,6 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Damage;
 using Content.Shared.Standing;
-using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -32,7 +33,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 

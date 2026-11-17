@@ -7,11 +7,11 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
-using Content.Shared.Objectives.Components;
-using Content.Shared.ADT.Vampire.Components;
 using Content.Server.Objectives.Components;
-using Robust.Shared.Random;
 using Content.Shared.ADT.Objectives.Components;
+using Content.Shared.ADT.Vampire.Components;
+using Content.Shared.Objectives.Components;
+using Robust.Shared.Random;
 
 namespace Content.Shared.ADT.Objectives.Systems;
 

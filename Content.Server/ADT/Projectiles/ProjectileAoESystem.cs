@@ -8,10 +8,10 @@
 // Modified by Adventure Time SS14 in 2026
 
 using System.Linq;
+using Content.Shared.ADT.Projectiles;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
-using Content.Shared.ADT.Projectiles;
 
 namespace Content.Server.ADT.Projectiles;
 

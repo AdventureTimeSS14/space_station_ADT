@@ -12,6 +12,8 @@ using System.Text;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Roles;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Antag;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
@@ -20,8 +22,6 @@ using Content.Shared.GameTicking.Rules;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
-using Content.Shared.ADT.Vampire.Components;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.GameTicking.Rules
 {

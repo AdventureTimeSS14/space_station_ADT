@@ -9,11 +9,11 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Body;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Prototypes;

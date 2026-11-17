@@ -7,11 +7,11 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
-using Robust.Shared.GameStates;
-using Content.Shared.Whitelist;
-using Content.Shared.Mobs;
-using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
+using Content.Shared.Mobs;
+using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Damage.Components;
 

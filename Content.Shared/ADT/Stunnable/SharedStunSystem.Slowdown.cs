@@ -7,10 +7,10 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
+using Content.Shared.ADT.Stunnable;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
-using Content.Shared.ADT.Stunnable;
 
 namespace Content.Shared.Stunnable;
 

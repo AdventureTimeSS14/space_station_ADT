@@ -9,6 +9,8 @@
 
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -20,11 +22,9 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
-using Content.Shared.ADT.Vampire.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 

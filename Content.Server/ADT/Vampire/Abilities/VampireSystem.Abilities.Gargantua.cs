@@ -10,6 +10,8 @@
 using System.Numerics;
 using Content.Server.ADT.Stunnable.Components;
 using Content.Shared.ADT.Interaction.Components;
+using Content.Shared.ADT.Vampire;
+using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Body;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
@@ -24,14 +26,12 @@ using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 

@@ -7,11 +7,11 @@
 // Ported from Wega (https://github.com/wega-team/ss14-wega).
 // Modified by Adventure Time SS14 in 2026
 
+using Content.Shared.ADT.Interaction.Components;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
-using Content.Shared.ADT.Interaction.Components;
 
 namespace Content.Server.ADT.Interaction;
 

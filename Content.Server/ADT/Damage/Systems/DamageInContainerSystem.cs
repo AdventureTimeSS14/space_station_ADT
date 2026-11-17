@@ -8,7 +8,9 @@
 // Modified by Adventure Time SS14 in 2026
 
 using System.Linq;
+using Content.Server.ADT.Damage.Components;
 using Content.Server.Damage.Components;
+using Content.Shared.ADT.Damage.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -17,8 +19,6 @@ using Content.Shared.Whitelist;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Content.Server.ADT.Damage.Components;
-using Content.Shared.ADT.Damage.Components;
 
 namespace Content.Server.ADT.Damage.Systems;
 

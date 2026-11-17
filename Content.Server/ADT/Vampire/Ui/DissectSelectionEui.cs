@@ -8,10 +8,10 @@
 // Modified by Adventure Time SS14 in 2026
 
 using Content.Server.EUI;
+using Content.Shared.ADT.Vampire;
 using Content.Shared.Eui;
 using JetBrains.Annotations;
 using Content.Shared.FixedPoint;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 

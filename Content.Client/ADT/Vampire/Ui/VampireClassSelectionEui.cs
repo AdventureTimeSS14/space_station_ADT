@@ -8,8 +8,8 @@
 // Modified by Adventure Time SS14 in 2026
 
 using Content.Client.Eui;
-using JetBrains.Annotations;
 using Content.Shared.ADT.Vampire;
+using JetBrains.Annotations;
 
 namespace Content.Client.ADT.Vampire.Ui;
 

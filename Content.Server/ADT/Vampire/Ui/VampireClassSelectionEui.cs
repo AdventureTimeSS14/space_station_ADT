@@ -8,8 +8,8 @@
 // Modified by Adventure Time SS14 in 2026
 
 using Content.Server.EUI;
-using Content.Shared.Eui;
 using Content.Shared.ADT.Vampire;
+using Content.Shared.Eui;
 
 namespace Content.Server.ADT.Vampire;
 

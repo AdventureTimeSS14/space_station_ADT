@@ -1,5 +1,6 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Bible.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Ghost;
@@ -9,7 +10,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Timing;

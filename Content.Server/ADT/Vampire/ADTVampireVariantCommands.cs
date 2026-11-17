@@ -1,8 +1,8 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
+using Content.Shared.ADT.Vampire;
 using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
-using Content.Shared.ADT.Vampire;
 
 namespace Content.Server.ADT.Vampire;
 
