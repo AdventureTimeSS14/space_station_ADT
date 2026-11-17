@@ -1,0 +1,19 @@
+- files: ["prayer.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from ParadiseSS13 (sound/effects/pray_chaplain.ogg)."
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["follower_prayer.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from ParadiseSS13 (sound/effects/pray.ogg)."
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["holy_shield.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from ParadiseSS13 (sound/magic/charge.ogg)."
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["exorcism.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from ParadiseSS13 (sound/magic/blind.ogg)."
+  source: "https://github.com/ParadiseSS13/Paradise"

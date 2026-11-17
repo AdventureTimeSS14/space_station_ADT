@@ -19,6 +19,13 @@ chaplain-prayer-chaplain-far = Ваш священник слишком дале
 chat-speech-verb-name-prayer = Молитва
 chat-speech-verb-prayer-1 = молится
 chat-speech-verb-prayer-2 = возносит молитву
+chaplain-believer-mindshield = Имплант защиты разума не даёт { CAPITALIZE($target) } принять вашу веру.
+chaplain-exorcism-self = Вы обрушиваете святую силу на { $target }.
+chaplain-exorcism-target = Святая сила жжёт вас изнутри!
+chaplain-blessing-self = Вы благословляете { $target }.
+chaplain-blessing-target = { CAPITALIZE($issuer) } благословляет вас.
+chaplain-briefing = Вы - священник. Ваша вера в бога столь сильна, что он одарил вас частью своих сил. Взамен вы должны защитить станцию от нечистых сил.
+chaplain-briefing-wrapped = [color=gold][bold]{ $message }[/bold][/color]
 # EUI
 accept-religion-window-title = Религия
 accept-religion-window-prompt-text-part = Согласитесь ли вы стать последователем религии?
@@ -27,3 +34,5 @@ accept-religion-window-deny-button = Отказаться
 # Обновление алтарей
 altar-only-chaplain-use = вы кладете предмет на алтарь, но ничего не происходит...
 chaplain-for-the-worthy = вы почувствовали шок от того, что не достойны этого орудия...
+
+reagent-comp-condition-chaplain = священник

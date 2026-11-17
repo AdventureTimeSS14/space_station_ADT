@@ -3,6 +3,7 @@
   text: Gloria Patri
   cooldown: 90
   effect: ADTEffectPrayerLight
+  sound: /Audio/ADT/Chaplain/prayer.ogg
   effects:
   - !type:FaithPrayerEffect
     amount: 1
@@ -13,6 +14,7 @@
   cost: 2
   cooldown: 45
   effect: ADTEffectPrayerLight
+  sound: /Audio/ADT/Chaplain/prayer.ogg
   effects:
   - !type:HealPrayerEffect
     heal:
@@ -26,6 +28,7 @@
   cost: 3
   cooldown: 60
   effect: ADTEffectPrayerFlash
+  sound: /Audio/ADT/Heretic/repulse.ogg
   effects:
   - !type:RepelPrayerEffect
     range: 3
@@ -38,6 +41,7 @@
   role: Follower
   cooldown: 120
   effect: ADTEffectPrayerLight
+  sound: /Audio/ADT/Chaplain/follower_prayer.ogg
   effects:
   - !type:FaithPrayerEffect
     amount: 1
@@ -49,9 +53,21 @@
   cooldown: 90
   chaplainRange: 7
   effect: ADTEffectPrayerLight
+  sound: /Audio/ADT/Chaplain/follower_prayer.ogg
   effects:
   - !type:HealPrayerEffect
     heal:
       groups:
         Brute: -5
         Burn: -5
+
+- type: chaplainPrayer
+  id: ScutumFidei
+  text: Scutum fidei
+  role: Follower
+  cooldown: 300
+  effect: ADTEffectPrayerLight
+  sound: /Audio/ADT/Chaplain/holy_shield.ogg
+  effects:
+  - !type:ShieldPrayerEffect
+    duration: 15

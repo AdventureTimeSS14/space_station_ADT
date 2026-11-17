@@ -1,6 +1,8 @@
 using Content.Shared.ADT.Chaplain.Prototypes;
+using Content.Shared.ADT.Damage;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
@@ -47,10 +49,53 @@ public sealed partial class ChaplainComponent : Component
     public TimeSpan MakeBelieverDuration = TimeSpan.FromSeconds(7);
 
     [DataField]
-    public FixedPoint2 ShieldCost = 4;
+    public FixedPoint2 ShieldCost = 5;
 
     [DataField]
-    public TimeSpan ShieldDuration = TimeSpan.FromSeconds(10);
+    public TimeSpan ShieldDuration = TimeSpan.FromSeconds(60);
+
+    [DataField]
+    public SoundSpecifier ShieldSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/holy_shield.ogg");
+
+    [DataField]
+    public FixedPoint2 ExorcismCost = 3;
+
+    [DataField]
+    public DamageSpecifier ExorcismDamage = new()
+    {
+        DamageDict = new()
+        {
+            { "Holy", 15 },
+        },
+    };
+
+    [DataField]
+    public FixedPoint2 ExorcismSuppression = 25;
+
+    [DataField]
+    public TimeSpan ExorcismSlowdown = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public float ExorcismSlowdownMultiplier = 0.5f;
+
+    [DataField]
+    public SoundSpecifier ExorcismSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/exorcism.ogg");
+
+    [DataField]
+    public FixedPoint2 BlessingCost = 2;
+
+    [DataField]
+    public GroupHealSpecifier BlessingHeal = new()
+    {
+        GroupHealDict = new()
+        {
+            { "Brute", -15 },
+            { "Burn", -15 },
+        },
+    };
+
+    [DataField]
+    public SoundSpecifier BlessingSound = new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg");
 
     [DataField]
     public FixedPoint2 HolyWaterCost = 2;
@@ -84,6 +129,12 @@ public sealed partial class ChaplainComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? HolyTouchActionEntity;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ExorcismActionEntity;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? BlessingActionEntity;
 
     [ViewVariables]
     public Dictionary<ProtoId<ChaplainPrayerPrototype>, TimeSpan> PrayerCooldowns = new();

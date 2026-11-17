@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Chaplain.Prayers;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Chaplain.Prototypes;
@@ -27,6 +28,9 @@ public sealed partial class ChaplainPrayerPrototype : IPrototype
 
     [DataField]
     public EntProtoId? Effect;
+
+    [DataField]
+    public SoundSpecifier? Sound;
 
     [DataField(required: true)]
     public List<ChaplainPrayerEffect> Effects = new();

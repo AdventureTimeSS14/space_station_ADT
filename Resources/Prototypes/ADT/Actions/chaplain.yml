@@ -24,7 +24,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 60
+    useDelay: 120
     priority: -59
   - type: Sprite
     sprite: ADT/Interface/Actions/actions_chaplain.rsi
@@ -49,3 +49,44 @@
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:ChaplainHolyTouchActionEvent
+
+- type: entity
+  id: ActionChaplainExorcism
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+    priority: -57
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/bible.rsi
+    layers:
+    - state: icon
+  - type: TargetAction
+    range: 5
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    event: !type:ChaplainExorcismActionEvent
+
+- type: entity
+  id: ActionChaplainBlessing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 45
+    priority: -56
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_chaplain.rsi
+    layers:
+    - state: holy_touch
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    event: !type:ChaplainBlessingActionEvent

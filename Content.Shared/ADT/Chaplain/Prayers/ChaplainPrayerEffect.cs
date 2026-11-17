@@ -35,3 +35,9 @@ public sealed partial class RepelPrayerEffect : ChaplainPrayerEffect
     [DataField]
     public float SlowdownMultiplier = 0.6f;
 }
+
+public sealed partial class ShieldPrayerEffect : ChaplainPrayerEffect
+{
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(15);
+}

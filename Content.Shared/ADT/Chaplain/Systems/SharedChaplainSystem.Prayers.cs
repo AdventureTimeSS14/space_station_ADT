@@ -107,6 +107,9 @@ public abstract partial class SharedChaplainSystem
         if (prayer.Effect is { } effect)
             SpawnAttachedTo(effect, Transform(user).Coordinates);
 
+        if (prayer.Sound is { } sound)
+            _audio.PlayPvs(sound, user);
+
         foreach (var prayerEffect in prayer.Effects)
         {
             switch (prayerEffect)
@@ -121,6 +124,10 @@ public abstract partial class SharedChaplainSystem
 
                 case RepelPrayerEffect repel:
                     Repel(user, repel);
+                    break;
+
+                case ShieldPrayerEffect shield:
+                    GrantHolyShield(user, shield.Duration);
                     break;
             }
         }

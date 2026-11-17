@@ -17,6 +17,14 @@ public sealed partial class ChaplainHolyShieldActionEvent : InstantActionEvent
 {
 }
 
+public sealed partial class ChaplainExorcismActionEvent : EntityTargetActionEvent
+{
+}
+
+public sealed partial class ChaplainBlessingActionEvent : EntityTargetActionEvent
+{
+}
+
 public sealed partial class ChaplainHolyTouchActionEvent : EntityTargetActionEvent
 {
 }

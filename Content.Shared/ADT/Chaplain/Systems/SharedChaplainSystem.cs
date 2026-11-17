@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Alert;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
@@ -14,6 +15,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
@@ -42,6 +44,9 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     private static readonly EntProtoId BelieverAction = "ActionChaplainBeliever";
     private static readonly EntProtoId ShieldAction = "ActionChaplainHolyShield";
     private static readonly EntProtoId HolyTouchAction = "ActionChaplainHolyWater";
+    private static readonly EntProtoId ExorcismAction = "ActionChaplainExorcism";
+    private static readonly EntProtoId BlessingAction = "ActionChaplainBlessing";
+    private static readonly EntProtoId ExorcismSlowdownEffect = "BasicSlowdownStatusEffect";
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     private const string CandleId = "Candle";
     private const string InfiniteCandleSuffix = "Infinite";
@@ -59,6 +64,8 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         SubscribeLocalEvent<ChaplainComponent, ChaplainMakeBelieverDoAfter>(OnMakeBelieverDoAfter);
         SubscribeLocalEvent<ChaplainComponent, ChaplainHolyShieldActionEvent>(OnHolyShield);
         SubscribeLocalEvent<ChaplainComponent, ChaplainHolyTouchActionEvent>(OnHolyTouch);
+        SubscribeLocalEvent<ChaplainComponent, ChaplainExorcismActionEvent>(OnExorcism);
+        SubscribeLocalEvent<ChaplainComponent, ChaplainBlessingActionEvent>(OnBlessing);
 
         InitializeHoly();
         InitializePrayers();
@@ -100,6 +107,8 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         _actions.AddAction(ent.Owner, ref ent.Comp.BelieverActionEntity, BelieverAction);
         _actions.AddAction(ent.Owner, ref ent.Comp.ShieldActionEntity, ShieldAction);
         _actions.AddAction(ent.Owner, ref ent.Comp.HolyTouchActionEntity, HolyTouchAction);
+        _actions.AddAction(ent.Owner, ref ent.Comp.ExorcismActionEntity, ExorcismAction);
+        _actions.AddAction(ent.Owner, ref ent.Comp.BlessingActionEntity, BlessingAction);
         Dirty(ent);
     }
 
@@ -108,6 +117,8 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         _actions.RemoveAction(ent.Owner, ent.Comp.BelieverActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.ShieldActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.HolyTouchActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ExorcismActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.BlessingActionEntity);
         _alerts.ClearAlert(ent.Owner, ent.Comp.Alert);
 
         foreach (var follower in ent.Comp.Followers)
@@ -205,6 +216,12 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         if (!HasComp<HumanoidProfileComponent>(target))
             return;
 
+        if (HasComp<MindShieldComponent>(target))
+        {
+            _popup.PopupClient(Loc.GetString("chaplain-believer-mindshield", ("target", Identity.Entity(target, EntityManager))), ent, ent);
+            return;
+        }
+
         if (ent.Comp.Followers.Count >= ent.Comp.MaxFollowers)
         {
             _popup.PopupClient(Loc.GetString("chaplain-believer-too-much"), ent, ent);
@@ -256,7 +273,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
     public void MakeFollower(Entity<ChaplainComponent> ent, EntityUid target)
     {
-        if (HasComp<ChaplainComponent>(target) || HasComp<ChaplainFollowerComponent>(target))
+        if (HasComp<ChaplainComponent>(target) || HasComp<ChaplainFollowerComponent>(target) || HasComp<MindShieldComponent>(target))
             return;
 
         var follower = EnsureComp<ChaplainFollowerComponent>(target);
@@ -284,8 +301,53 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
         args.Handled = true;
         GrantHolyShield(ent, ent.Comp.ShieldDuration);
-        _audio.PlayPredicted(ent.Comp.HolyWaterSoundPath, ent, ent);
+        _audio.PlayPredicted(ent.Comp.ShieldSound, ent, ent);
         _popup.PopupClient(Loc.GetString("chaplain-holy-shield-start"), ent, ent);
+    }
+
+    private void OnExorcism(Entity<ChaplainComponent> ent, ref ChaplainExorcismActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseFaith(ent, ent.Comp.ExorcismCost))
+            return;
+
+        args.Handled = true;
+        var target = args.Target;
+
+        _audio.PlayPredicted(ent.Comp.ExorcismSound, target, ent);
+        _popup.PopupClient(Loc.GetString("chaplain-exorcism-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
+
+        if (!TryComp<HolyAffectedComponent>(target, out var holy))
+            return;
+
+        _damageable.TryChangeDamage(target, ent.Comp.ExorcismDamage, origin: ent);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, ExorcismSlowdownEffect, ent.Comp.ExorcismSlowdown, ent.Comp.ExorcismSlowdownMultiplier);
+
+        if (holy.Suppressible)
+            AddSuppression((target, holy), ent.Comp.ExorcismSuppression);
+
+        _popup.PopupEntity(Loc.GetString("chaplain-exorcism-target"), target, target, PopupType.LargeCaution);
+    }
+
+    private void OnBlessing(Entity<ChaplainComponent> ent, ref ChaplainBlessingActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseFaith(ent, ent.Comp.BlessingCost))
+            return;
+
+        args.Handled = true;
+        var target = args.Target;
+
+        _audio.PlayPredicted(ent.Comp.BlessingSound, target, ent);
+        _popup.PopupClient(Loc.GetString("chaplain-blessing-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
+        _popup.PopupEntity(Loc.GetString("chaplain-blessing-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
+
+        if (!HasComp<HolyAffectedComponent>(target))
+            _groupHeal.Heal(target, null, ent.Comp.BlessingHeal, origin: ent);
     }
 
     public void GrantHolyShield(EntityUid uid, TimeSpan duration)
