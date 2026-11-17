@@ -18,7 +18,6 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Localizations;
 using Content.Shared.Mobs.Components;
-using Content.Shared.NullRod.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
@@ -253,7 +252,7 @@ public sealed partial class VampireSystem
 
             foreach (var targetEntity in entitiesOnPuddle)
             {
-                if (HasComp<NullRodOwnerComponent>(targetEntity.Owner) && !HasTruePower(ent))
+                if (IsProtectedByFaith(targetEntity.Owner, ent))
                     continue;
 
                 _damage.TryChangeDamage(targetEntity.Owner, args.Damage, origin: ent);
@@ -338,7 +337,7 @@ public sealed partial class VampireSystem
                 if (HasComp<VampireComponent>(entity.Owner))
                     continue;
 
-                if (HasComp<NullRodOwnerComponent>(entity.Owner) && !HasTruePower(ent))
+                if (IsProtectedByFaith(entity.Owner, ent))
                     continue;
 
                 _audio.PlayPvs(args.Sound, entity);

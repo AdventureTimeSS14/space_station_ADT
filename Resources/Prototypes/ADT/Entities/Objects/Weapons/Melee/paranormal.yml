@@ -62,7 +62,6 @@
     quickEquip: false
     slots:
     - suitstorage
-  - type: NullRod
 
 - type: entity
   name: brass whip

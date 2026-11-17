@@ -16,7 +16,6 @@ using Content.Server.EUI;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Humanoid.Components;
 using Content.Server.NPC.HTN;
-using Content.Server.NullRod;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
@@ -50,7 +49,9 @@ using Content.Shared.Maps;
 using Content.Shared.Metabolism;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.NullRod.Components;
+using Content.Shared.ADT.Chaplain.Systems;
+using Content.Shared.ADT.Heretic.Common;
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
@@ -87,7 +88,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
     [Dependency] private ISharedPlayerManager _player = default!;
     [Dependency] private MetabolizerSystem _metabolism = default!;
     [Dependency] private MobStateSystem _mobState = default!;
-    [Dependency] private NullDamageSystem _nullDamage = default!;
+    [Dependency] private SharedChaplainSystem _chaplain = default!;
+    [Dependency] private DivineInterventionSystem _divineIntervention = default!;
     [Dependency] private RottingSystem _rotting = default!;
     [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private SharedActionsSystem _action = default!;
@@ -299,7 +301,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (TryComp<TemperatureDamageComponent>(vampire, out var temp))
             temp.ColdDamageThreshold = Atmospherics.TCMB;
 
-        EnsureComp<UnholyComponent>(vampire);
+        MakeUnholy(vampire);
         _damage.SetDamageModifierSetId(vampire.Owner, VampireComponent.VampireDamageModifier);
 
         if (TryComp<ReactiveComponent>(vampire, out var reactive))
@@ -394,7 +396,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (vampire.Comp.CloakActive)
             DisableCloakOfDarkness(vampire);
 
-        RemComp<UnholyComponent>(vampire);
+        RemComp<HolyAffectedComponent>(vampire);
+        RemComp<HolySuppressionComponent>(vampire);
         RemComp<VampireInferiorComponent>(vampire);
         if (TryComp<ReactiveComponent>(vampire, out var reactive))
             reactive.ReactiveGroups?.Remove("Unholy");
@@ -530,6 +533,9 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
         if (variant == VampireVariant.Goon)
             EnsureComp<ThrallOwnerComponent>(uid);
+
+        if (HasComp<HolyAffectedComponent>(uid))
+            MakeUnholy(uid);
 
         Dirty(uid, vampire);
         UpdatePowers((uid, vampire));
@@ -823,8 +829,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (!Resolve(vampire, ref vampire.Comp, false) || quantity <= 0)
             return false;
 
-        var nullDamage = _nullDamage.GetNullDamage(vampire);
-        if (TrySubtractBlood(vampire.Comp, quantity, nullDamage))
+        var suppression = _chaplain.GetSuppression(vampire);
+        if (TrySubtractBlood(vampire.Comp, quantity, suppression))
         {
             Dirty(vampire.Owner, vampire.Comp);
             _alerts.UpdateAlert(vampire.Owner, vampire.Comp.BloodAlert);
@@ -843,8 +849,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
         if (!Resolve(vampire, ref vampire.Comp, false))
             return false;
 
-        var nullDamage = _nullDamage.GetNullDamage(vampire);
-        return CheckBloodEssence(vampire.Comp, quantity, nullDamage);
+        var suppression = _chaplain.GetSuppression(vampire);
+        return CheckBloodEssence(vampire.Comp, quantity, suppression);
     }
 
     private void UpdatePowers(Entity<VampireComponent?> vampire)
@@ -1024,8 +1030,8 @@ public sealed partial class VampireSystem : SharedVampireSystem
             reactive.ReactiveGroups?.Remove("Unholy");
 
         EnsureComp<SupremeVampireComponent>(vampire);
-        RemComp<NullDamageComponent>(vampire);
-        RemComp<UnholyComponent>(vampire);
+        RemComp<HolySuppressionComponent>(vampire);
+        RemComp<HolyAffectedComponent>(vampire);
 
         var virusImmune = EnsureComp<ADTVirusImmuneComponent>(vampire);
         virusImmune.Absolute = true;
@@ -1034,6 +1040,22 @@ public sealed partial class VampireSystem : SharedVampireSystem
         GrantNightVision(vampire, vampire.Comp.CurrentEvolution, true);
 
         _popup.PopupEntity(Loc.GetString("vampire-true-power"), vampire, vampire, PopupType.Medium);
+    }
+
+    private void MakeUnholy(EntityUid uid)
+    {
+        if (TryComp<VampireComponent>(uid, out var vampire) && vampire.Variant != VampireVariant.Classic)
+        {
+            _chaplain.SetHolyAffected(uid, false, true, true, 5, 2, 1);
+            return;
+        }
+
+        _chaplain.SetHolyAffected(uid, false, true, true);
+    }
+
+    private bool IsProtectedByFaith(EntityUid target, Entity<VampireComponent> vampire)
+    {
+        return _divineIntervention.ShouldDeny(target) && !HasTruePower(vampire);
     }
 
     private bool HasVampireNightVision(EntityUid uid)

@@ -16,7 +16,6 @@ using Content.Shared.Ensnaring.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.NullRod.Components;
 using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
 using Content.Shared.Vampire;
@@ -179,7 +178,7 @@ public sealed partial class VampireSystem
             var humanoidUid = humanoid.Owner;
             if (humanoidUid == ent.Owner) continue;
 
-            if (HasComp<NullRodOwnerComponent>(humanoidUid) && !HasTruePower(ent))
+            if (IsProtectedByFaith(humanoidUid, ent))
                 continue;
 
             if (!TryComp(humanoid, out PhysicsComponent? physics))
@@ -255,7 +254,7 @@ public sealed partial class VampireSystem
         }
 
         var target = args.Target;
-        if (HasComp<NullRodOwnerComponent>(target) && !HasTruePower(ent))
+        if (IsProtectedByFaith(target, ent))
             return;
 
         var vampirePosition = _transform.GetWorldPosition(ent);

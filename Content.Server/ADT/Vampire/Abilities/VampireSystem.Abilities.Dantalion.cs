@@ -21,7 +21,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.NullRod.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Stunnable;
@@ -118,7 +117,7 @@ public sealed partial class VampireSystem
         if (!TryComp<ThrallOwnerComponent>(ent, out var thrallOwner))
             return;
 
-        EnsureComp<UnholyComponent>(target);
+        MakeUnholy(target);
         var newTrall = EnsureComp<ThrallComponent>(target);
         newTrall.VampireOwner = ent.Owner;
         newTrall.CommuneActionEntity = _action.AddAction(target, "ActionThrallCommune");
@@ -213,7 +212,7 @@ public sealed partial class VampireSystem
         var target = args.Target;
         if (HasComp<HumanoidProfileComponent>(target))
         {
-            if (HasComp<NullRodOwnerComponent>(target) && !HasTruePower(ent) || HasComp<ThrallComponent>(target))
+            if (IsProtectedByFaith(target, ent) || HasComp<ThrallComponent>(target))
             {
                 _popup.PopupEntity(Loc.GetString("vampire-pacify-failed", ("target", Identity.Name(target, EntityManager))), ent, ent);
                 return;
@@ -250,7 +249,7 @@ public sealed partial class VampireSystem
             return;
         }
 
-        if (HasComp<NullRodOwnerComponent>(target) && !HasTruePower(ent))
+        if (IsProtectedByFaith(target, ent))
             return;
 
         var currentCoords = Transform(ent).Coordinates;
@@ -386,7 +385,7 @@ public sealed partial class VampireSystem
             if (HasComp<ThrallComponent>(person) || HasComp<VampireComponent>(person))
                 continue;
 
-            if (HasComp<NullRodOwnerComponent>(person) && !HasTruePower(ent))
+            if (IsProtectedByFaith(person, ent))
                 continue;
 
             if (_mobState.IsDead(person))
@@ -417,7 +416,7 @@ public sealed partial class VampireSystem
 
         foreach (var victimEntity in victimInRange)
         {
-            if (HasComp<NullRodOwnerComponent>(victimEntity) && !HasTruePower(ent))
+            if (IsProtectedByFaith(victimEntity, ent))
                 continue;
 
             _flash.Flash(victimEntity, ent, null, TimeSpan.FromSeconds(4f), 0.5f);

@@ -21,7 +21,7 @@ public sealed class HolyPiercingSystem : EntitySystem
 
     private void OnDamageModify(Entity<HolyAffectedComponent> ent, ref DamageModifyEvent args)
     {
-        if (args.Origin is not { } origin || !HasComp<ChaplainComponent>(origin))
+        if (!ent.Comp.Piercing || args.Origin is not { } origin || !HasComp<ChaplainComponent>(origin))
             return;
 
         if (!args.OriginalDamage.DamageDict.TryGetValue(HolyDamageType, out var pierced) || pierced <= FixedPoint2.Zero)

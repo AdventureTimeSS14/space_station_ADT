@@ -1,5 +1,6 @@
 /// Updated Sacrifice System with guaranteed priority handling
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.Chaplain.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction;
 using Content.Shared.Storage;
@@ -15,7 +16,6 @@ using Content.Shared.Tools.Systems;
 using System.Collections.Generic;
 using Robust.Shared.GameObjects;
 using Content.Shared.FixedPoint;
-using Content.Shared.Alert;
 using System;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -31,9 +31,8 @@ public sealed class SacrificeSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private INetManager _netManager = default!;
     [Dependency] private TagSystem _tagSystem = default!;
-    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private SharedChaplainSystem _chaplain = default!;
     [Dependency] private SharedStackSystem _stack = default!;
-    [Dependency] private AlertsSystem _alertsSystem = default!;
     [Dependency] private SharedToolSystem _toolSystem = default!;
 
     public override void Initialize()
@@ -178,8 +177,7 @@ public sealed class SacrificeSystem : EntitySystem
             QueueDel(args.Used);
         }
 
-        chaplainComp.Power -= totalCost;
-        UpdatePowerAlert(args.User, chaplainComp);
+        _chaplain.ChangePowerAmount((args.User, chaplainComp), -totalCost);
 
         for (int i = 0; i < option.Times; i++)
         {
@@ -197,18 +195,10 @@ public sealed class SacrificeSystem : EntitySystem
             return;
         }
 
-        chaplainComp.Power -= transform.PowerCost;
-        UpdatePowerAlert(args.User, chaplainComp);
+        _chaplain.ChangePowerAmount((args.User, chaplainComp), -transform.PowerCost);
 
         QueueDel(args.Used);
         ExecuteTransformation(altar, args, transform);
-    }
-
-    private void UpdatePowerAlert(EntityUid uid, ChaplainComponent component)
-    {
-        var level = (short)Math.Clamp(Math.Round(component.Power.Float()), 0, 5);
-        var alertType = _protoMan.Index<AlertPrototype>(component.Alert);
-        _alertsSystem.ShowAlert(uid, alertType, level);
     }
 
     private void ExecuteTransformation(EntityUid altar, InteractUsingEvent args, TransformationData transform)

@@ -1,8 +1,26 @@
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.HolyDamage;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HolyAffectedComponent : Component
 {
+    [DataField, AutoNetworkedField]
+    public bool Piercing = true;
+
+    [DataField, AutoNetworkedField]
+    public bool BibleSmite;
+
+    [DataField, AutoNetworkedField]
+    public bool Suppressible;
+
+    [DataField, AutoNetworkedField]
+    public FixedPoint2? SuppressionFirstHit;
+
+    [DataField, AutoNetworkedField]
+    public FixedPoint2? SuppressionHit;
+
+    [DataField, AutoNetworkedField]
+    public FixedPoint2? SuppressionRecovery;
 }

@@ -9,7 +9,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.NullRod.Components; // ADT-Tweak
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Timing;
@@ -106,7 +106,7 @@ public sealed partial class BibleSystem : EntitySystem
         }
 
         // ADT-Tweak-Start
-        if (HasComp<UnholyComponent>(args.Target))
+        if (TryComp<HolyAffectedComponent>(args.Target, out var holyAffected) && holyAffected.BibleSmite)
         {
             _damageable.TryChangeDamage(args.Target.Value, ent.Comp.DamageUnholy, true, origin: ent);
 

@@ -1,94 +1,86 @@
+using Content.Shared.Alert;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.StatusIcon;
-using Content.Shared.Antag;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
-using Content.Shared.Alert;
-using Robust.Shared.GameStates;  // ADT QWERTY's altar update
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Chaplain.Components;
 
-
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ChaplainComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 Power = 5;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 PowerRegenCap = 5;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool Regenerated = true;
+    [DataField]
+    public TimeSpan RegenDelay = TimeSpan.FromSeconds(30);
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextRegen;
+
+    [DataField, AutoNetworkedField]
     public FixedPoint2 BelieverCost = 3;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int Believers = 0;
+    [DataField, AutoNetworkedField]
+    public int Believers;
 
-    [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public int MaxBelievers = 2;
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int MakeBelieverDuration = 7;
+    public TimeSpan MakeBelieverDuration = TimeSpan.FromSeconds(7);
 
-    [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int TransferDuration = 2;
-
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 PowerTransfered = 1;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 HolyWaterCost = 2;
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier HolyWaterSoundPath = new SoundPathSpecifier("/Audio/Effects/holy.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string WaterSolution = "Water";
+    [DataField]
+    public ProtoId<ReagentPrototype> WaterSolution = "Water";
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string WaterReplaceSolution = "Holywater";
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string BloodSolution = "Blood";
+    public ProtoId<ReagentPrototype> WaterReplaceSolution = "Holywater";
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string BloodReplaceSolution = "Wine";
+    public ProtoId<ReagentPrototype> BloodSolution = "Blood";
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public ProtoId<ReagentPrototype> BloodReplaceSolution = "Wine";
+
+    [DataField]
+    public FixedPoint2 RevenantDamage = 50;
+
+    [DataField]
+    public FixedPoint2 RevenantSelfDamage = 10;
+
+    [DataField, AutoNetworkedField]
     public EntityUid? BelieverActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public EntityUid? TransferActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public EntityUid? HolyTouchActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 PowerPerPray = 1;
 
-    [ViewVariables]
-    public float Accumulator = 0;
-
-    [ViewVariables]
-    public float RegenDelay = 30f;
-
-    [DataField("statusIcon")]
-    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BelieverFaction";
+    [DataField]
+    public ProtoId<FactionIconPrototype> StatusIcon = "BelieverFaction";
 
     [DataField]
-    public bool IconVisibleToGhost { get; set; } = true;
+    public bool IconVisibleToGhost = true;
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<AlertPrototype> Alert = "ADTChaplain";
 }
-

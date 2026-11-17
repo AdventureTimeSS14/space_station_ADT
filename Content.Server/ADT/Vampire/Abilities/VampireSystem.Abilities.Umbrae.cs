@@ -17,7 +17,6 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
-using Content.Shared.NullRod.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
@@ -255,7 +254,7 @@ public sealed partial class VampireSystem
             return;
         }
 
-        if (HasComp<NullRodOwnerComponent>(targetCoords.EntityId) && !HasTruePower(ent))
+        if (IsProtectedByFaith(targetCoords.EntityId, ent))
             return;
 
         var currentCoords = Transform(ent).Coordinates;

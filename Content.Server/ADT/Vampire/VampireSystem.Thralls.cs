@@ -8,12 +8,12 @@
 // Modified by Adventure Time SS14 in 2026
 
 using System.Linq;
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
-using Content.Shared.NullRod.Components;
 using Content.Shared.Popups;
 using Content.Shared.Vampire.Components;
 
@@ -107,8 +107,8 @@ public sealed partial class VampireSystem
         }
 
         RemComp<ThrallComponent>(uid);
-        RemComp<UnholyComponent>(uid);
-        RemComp<NullDamageComponent>(uid);
+        RemComp<HolyAffectedComponent>(uid);
+        RemComp<HolySuppressionComponent>(uid);
         _stun.TryUpdateParalyzeDuration(uid, stunTime);
         _popup.PopupEntity(Loc.GetString("thrall-break-control", ("name", name)), uid);
     }
