@@ -119,32 +119,3 @@
     softness: 24
     falloff: 4.5
     castShadows: true
-
-- type: entity
-  id: ADTEffectPrayerLight
-  categories: [ HideSpawnMenu ]
-  name: prayer light
-  components:
-  - type: PointLight
-    color: "#FFE7A3"
-    energy: 3
-    radius: 2.5
-  - type: LightFade
-    duration: 1.5
-  - type: TimedDespawn
-    lifetime: 1.5
-
-- type: entity
-  parent: ADTEffectPrayerLight
-  id: ADTEffectPrayerFlash
-  categories: [ HideSpawnMenu ]
-  name: prayer flash
-  components:
-  - type: PointLight
-    color: "#FFF4D6"
-    energy: 8
-    radius: 4
-  - type: LightFade
-    duration: 0.8
-  - type: TimedDespawn
-    lifetime: 0.8

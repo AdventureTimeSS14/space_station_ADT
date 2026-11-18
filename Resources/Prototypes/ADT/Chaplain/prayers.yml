@@ -2,7 +2,7 @@
   id: GloriaPatri
   text: Gloria Patri
   cooldown: 90
-  effect: ADTEffectPrayerLight
+  effect: ADTEffectPrayerTwinkle
   sound: /Audio/ADT/Chaplain/prayer.ogg
   effects:
   - !type:FaithPrayerEffect
@@ -13,7 +13,7 @@
   text: Lux aeterna
   cost: 2
   cooldown: 45
-  effect: ADTEffectPrayerLight
+  effect: ADTEffectHolyBlessing
   sound: /Audio/ADT/Chaplain/prayer.ogg
   effects:
   - !type:HealPrayerEffect
@@ -27,7 +27,7 @@
   text: Vade retro
   cost: 3
   cooldown: 60
-  effect: ADTEffectPrayerFlash
+  effect: ADTEffectHolyWave
   sound: /Audio/ADT/Chaplain/vade_retro.ogg
   effects:
   - !type:RepelPrayerEffect
@@ -40,7 +40,7 @@
   text: Ora pro nobis
   role: Follower
   cooldown: 120
-  effect: ADTEffectPrayerLight
+  effect: ADTEffectPrayerTwinkle
   sound: /Audio/ADT/Chaplain/follower_prayer.ogg
   effects:
   - !type:FaithPrayerEffect
@@ -52,7 +52,7 @@
   role: Follower
   cooldown: 90
   chaplainRange: 7
-  effect: ADTEffectPrayerLight
+  effect: ADTEffectHolyBlessing
   sound: /Audio/ADT/Chaplain/follower_prayer.ogg
   effects:
   - !type:HealPrayerEffect
@@ -66,7 +66,7 @@
   text: Scutum fidei
   role: Follower
   cooldown: 300
-  effect: ADTEffectPrayerLight
+  effect: ADTEffectHolyWave
   sound: /Audio/ADT/Chaplain/holy_shield.ogg
   effects:
   - !type:ShieldPrayerEffect
