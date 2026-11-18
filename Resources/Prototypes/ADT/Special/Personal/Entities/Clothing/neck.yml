@@ -283,16 +283,3 @@
     sprite: ADT/Special/Personal/Shinoba/blueshield.rsi
   - type: Item
     size: Normal
-  - type: Storage
-    maxItemSize: Normal
-    defaultStorageOrientation: Vertical
-    grid:
-    - 0,0,1,1
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
