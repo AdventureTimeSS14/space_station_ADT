@@ -172,6 +172,14 @@ public sealed partial class BotanySystem : EntitySystem
         seedComp.HealthOverride = healthOverride;
         Dirty(seedItem, seedComp);
 
+        // ADT-Tweak start
+        if (seedComp.PlantData is { } cloned && TryComp<PlantComponent>(cloned, out var clonedPlant))
+        {
+            clonedPlant.Instability = Math.Max(0f, clonedPlant.Instability - 10f);
+            Dirty(cloned, clonedPlant);
+        }
+        // ADT-Tweak end
+
         var name = Loc.GetString(plantData.Name);
         var noun = Loc.GetString(plantData.Noun);
         _metaData.SetEntityName(seedItem, Loc.GetString("botany-seed-packet-name", ("seedName", name), ("seedNoun", noun)));

@@ -82,6 +82,144 @@
   - Hydroponics
 
 - type: technology
+  id: ADTGeneticEngineering
+  name: research-technology-adt-genetic-engineering
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  position: 2,-2
+  unlockedGenes:
+  - Seedless
+  - Ligneous
+  - CanScream
+  requiredTech:
+  - ADTHydroponicsAdvanced
+
+- type: technology
+  id: ADTGeneticEngineeringAtmos
+  name: research-technology-adt-genetic-engineering-atmos
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  position: -1,-2
+  unlockedGenes:
+  - IdealHeat
+  - HeatTolerance
+  - LowPressureTolerance
+  - HighPressureTolerance
+  requiredTech:
+  - ADTHydroponicsAdvanced
+
+- type: technology
+  id: ADTGeneticEngineeringPests
+  name: research-technology-adt-genetic-engineering-pests
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  position: 0,-3
+  unlockedGenes:
+  - PestTolerance
+  - WeedTolerance
+  requiredTech:
+  - ADTHydroponicsAdvanced
+
+- type: technology
+  id: ADTGeneticEngineeringReagents
+  name: research-technology-adt-genetic-engineering-reagents
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  position: -1,-3
+  unlockedGenes:
+  - ADTChemicals
+  requiredTech:
+  - ADTGeneticEngineeringAtmos
+  - ADTGeneticEngineeringPests
+
+- type: technology
+  id: ADTGeneticEngineeringYield
+  name: research-technology-adt-genetic-engineering-yield
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 10000
+  position: -1,-4
+  unlockedGenes:
+  - Yield
+  - HarvestRepeat
+  requiredTech:
+  - ADTGeneticEngineeringReagents
+
+- type: technology
+  id: ADTGeneticEngineeringGrowth
+  name: research-technology-adt-genetic-engineering-growth
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  position: 0,-1
+  unlockedGenes:
+  - Maturation
+  - Production
+  - Lifespan
+  - Viable
+  requiredTech:
+  - ADTGeneticEngineeringReagents
+
+- type: technology
+  id: ADTGeneticEngineeringPotency
+  name: research-technology-adt-genetic-engineering-potency
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 10000
+  position: -2,-4
+  unlockedGenes:
+  - Potency
+  - Endurance
+  requiredTech:
+  - ADTGeneticEngineeringReagents
+
+- type: technology
+  id: ADTGeneticEngineeringGases
+  name: research-technology-adt-genetic-engineering-gases
+  icon:
+    sprite: ADT/Objects/Misc/DNA_disk.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 10000
+  position: -1,-1
+  unlockedGenes:
+  - ADTGases
+  requiredTech:
+  - ADTGeneticEngineering
+  - ADTGeneticEngineeringAtmos
+  - ADTGeneticEngineeringPests
+  - ADTGeneticEngineeringReagents
+  - ADTGeneticEngineeringYield
+  - ADTGeneticEngineeringGrowth
+  - ADTGeneticEngineeringPotency
+
+- type: technology
   id: ADTWeaponLauncherHydra
   name: research-technology-hydra
   icon:
