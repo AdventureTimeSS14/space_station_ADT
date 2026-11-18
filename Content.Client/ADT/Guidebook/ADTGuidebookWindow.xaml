@@ -1,0 +1,50 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:guidebook="clr-namespace:Content.Client.ADT.Guidebook"
+                      Title="{Loc 'guidebook-window-title'}"
+                      MinSize="520 360">
+    <BoxContainer Name="WindowBody" Orientation="Vertical" SeparationOverride="4" Margin="2">
+        <BoxContainer Name="Toolbar" Orientation="Horizontal" SeparationOverride="4">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="0">
+                <Button Name="BackButton" Text="&lt;" ToolTip="{Loc 'adt-guidebook-back'}" StyleClasses="OpenRight" />
+                <Button Name="ForwardButton" Text="&gt;" ToolTip="{Loc 'adt-guidebook-forward'}" StyleClasses="OpenLeft" />
+            </BoxContainer>
+            <Button Name="HomeNav" Text="{Loc 'adt-guidebook-home'}" ToggleMode="True" />
+            <Button Name="BookmarksNav" Text="{Loc 'adt-guidebook-bookmarks'}" ToggleMode="True" />
+            <guidebook:ADTGuidebookCategoryMenu Name="CategoryMenu" SetWidth="180" Visible="False" />
+            <LineEdit Name="SearchBar" PlaceHolder="{Loc 'adt-guidebook-search-placeholder'}" HorizontalExpand="True" />
+            <Button Name="ClearSearchButton" Text="{Loc 'adt-guidebook-clear'}" Disabled="True" />
+            <Button Name="LegacyGuidebookButton" Text="{Loc 'adt-guidebook-legacy'}" />
+            <Button Name="PopoutButton" Text="{Loc 'adt-guidebook-pop-out'}" ToolTip="{Loc 'adt-guidebook-pop-out-tooltip'}" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="4">
+            <BoxContainer Name="CategorySidebar" Orientation="Vertical" SetWidth="250" SeparationOverride="4">
+                <ScrollContainer Name="SidebarScroll" HScrollEnabled="False" VerticalExpand="True">
+                    <BoxContainer Name="CategoryList" Orientation="Vertical" SeparationOverride="1" Margin="0 0 4 0" />
+                </ScrollContainer>
+            </BoxContainer>
+            <PanelContainer Name="SidebarDivider" StyleClasses="LowDivider" SetWidth="1" />
+            <BoxContainer Name="MainContent" Orientation="Vertical" HorizontalExpand="True" SeparationOverride="4">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                    <BoxContainer Name="PathBar" Orientation="Horizontal" SeparationOverride="2" HorizontalExpand="True" VerticalAlignment="Center" RectClipContent="True" />
+                    <Button Name="BookmarkButton" ToggleMode="True" Visible="False" />
+                </BoxContainer>
+                <BoxContainer Name="FilterTools" Orientation="Horizontal" SeparationOverride="4" Visible="False">
+                    <LineEdit Name="FilterBar" PlaceHolder="{Loc 'adt-guidebook-filter-placeholder'}" HorizontalExpand="True" />
+                    <Button Name="ClearFilterButton" Text="{Loc 'adt-guidebook-clear'}" />
+                </BoxContainer>
+                <PanelContainer StyleClasses="BorderedWindowPanel" HorizontalExpand="True" VerticalExpand="True">
+                    <ScrollContainer Name="ContentScroll" HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
+                        <BoxContainer Name="PageBody" Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" MaxWidth="900" Margin="8 4" />
+                    </ScrollContainer>
+                </PanelContainer>
+            </BoxContainer>
+            <BoxContainer Name="OutlinePanel" Orientation="Vertical" SetWidth="200" SeparationOverride="4" Visible="False">
+                <Label Text="{Loc 'adt-guidebook-outline'}" StyleClasses="LabelKeyText" />
+                <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+                    <BoxContainer Name="OutlineList" Orientation="Vertical" SeparationOverride="1" />
+                </ScrollContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

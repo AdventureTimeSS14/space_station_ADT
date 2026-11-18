@@ -1,0 +1,174 @@
+- type: adtGuidebookCategory
+  id: Basics
+  name: adt-guidebook-category-basics
+  description: adt-guidebook-category-basics-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/Passenger.png
+  order: 0
+  entries:
+  - NewPlayer
+  - Controls
+  - CharacterCreation
+  - YourFirstCharacter
+  - Survival
+  - Glossary
+  # - SS14
+
+- type: adtGuidebookCategory
+  id: MartialArts
+  name: adt-guidebook-category-martial-arts
+  description: adt-guidebook-category-martial-arts-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/Boxer.png
+  order: 1
+  entries:
+  - ADTMartialArts
+
+- type: adtGuidebookCategory
+  id: Crew
+  name: adt-guidebook-category-crew
+  description: adt-guidebook-category-crew-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/HeadOfPersonnel.png
+  order: 2
+  entries:
+  - Command
+  - Species
+  # - CorvaxVulpkanin
+  - Jobs
+
+- type: adtGuidebookCategory
+  id: Engineering
+  name: adt-guidebook-category-engineering
+  description: adt-guidebook-category-engineering-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/StationEngineer.png
+  order: 3
+  entries:
+  - Construction
+  - Power
+  - Atmospherics
+  - NuclearGenerator
+  - SupermatterGuideBook
+  - ShuttleCraft
+  - Networking
+  - Engineering
+
+- type: adtGuidebookCategory
+  id: Medical
+  name: adt-guidebook-category-medical
+  description: adt-guidebook-category-medical-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/MedicalDoctor.png
+  order: 4
+  entries:
+  - MedicalDoctor
+  - Chemist
+  - Cloning
+  - Cryogenics
+  - ADTVirology
+  - ADTAddictions
+  - Medical
+
+- type: adtGuidebookCategory
+  id: Science
+  name: adt-guidebook-category-science
+  description: adt-guidebook-category-science-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/Scientist.png
+  order: 5
+  entries:
+  # - Technologies
+  - AnomalousResearch
+  - Xenoarchaeology
+  - Xenobiology
+  - Robotics
+  - MachineParts
+  - Science
+
+- type: adtGuidebookCategory
+  id: Security
+  name: adt-guidebook-category-security
+  description: adt-guidebook-category-security-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/SecurityOfficer.png
+  order: 6
+  entries:
+  - Forensics
+  - Defusal
+  - CriminalRecords
+  - ADTCorporateLaw
+  # - SpaceLaw
+  - Security
+
+- type: adtGuidebookCategory
+  id: Cargo
+  name: adt-guidebook-category-cargo
+  description: adt-guidebook-category-cargo-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/CargoTechnician.png
+  order: 7
+  entries:
+  - CargoBounties
+  - Salvage
+  - Cargo
+
+- type: adtGuidebookCategory
+  id: Service
+  name: adt-guidebook-category-service
+  description: adt-guidebook-category-service-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/Bartender.png
+  order: 8
+  entries:
+  - Bartender
+  - Botany
+  - Chef
+  - Janitorial
+  - ADTChaplain
+  - Service
+
+- type: adtGuidebookCategory
+  id: References
+  name: adt-guidebook-category-references
+  description: adt-guidebook-category-references-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/Chemist.png
+  order: 9
+  entries:
+  - MedicinalRecipes
+  - Chemicals
+  - Drinks
+  - ADTNewCocktails
+  - FoodRecipes
+  - Writing
+  - Lawsets
+
+- type: adtGuidebookCategory
+  id: Antagonists
+  name: adt-guidebook-category-antagonists
+  description: adt-guidebook-category-antagonists-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/Syndicate.png
+  order: 10
+  entries:
+  - Traitors
+  - Changelings
+  - Thieves
+  - Revolutionaries
+  - NuclearOperatives
+  - SpaceNinja
+  - Zombies
+  - Xenoborgs
+  - ADTBlob
+  - ADTShadowling
+  - MinorAntagonists
+  - Heretics
+  - Antagonists
+
+- type: adtGuidebookCategory
+  id: Lavaland
+  name: adt-guidebook-category-lavaland
+  description: adt-guidebook-category-lavaland-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/ShaftMiner.png
+  order: 11
+  entries:
+  - ADTAshwalkers
+  - ADTWorldAnvil
+
+- type: adtGuidebookCategory
+  id: Rules
+  name: adt-guidebook-category-rules
+  description: adt-guidebook-category-rules-description
+  icon: /Textures/Interface/Misc/job_icons.rsi/Lawyer.png
+  order: 12
+  rules: true
