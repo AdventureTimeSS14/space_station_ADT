@@ -17760,3 +17760,9 @@ Entries:
     id: 2132
     pr_number: 3696
     time: '2026-11-18T18:21:18Z'
+  - author: Vepayn
+    changes:
+      - {message: Обновлены карты, type: Tweak}
+    id: 2133
+    pr_number: 3705
+    time: '2026-11-18T18:22:04Z'
