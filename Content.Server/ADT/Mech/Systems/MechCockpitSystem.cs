@@ -1,6 +1,8 @@
+using Content.Server.ADT.Mech.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -28,6 +30,7 @@ public sealed class MechCockpitSystem : EntitySystem
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private VehicleSystem _vehicle = default!;
+    [Dependency] private ADTMechSystem _adtMech = default!;
 
     public const string SeatSlotId = "adt-mech-cockpit-slot";
 
@@ -238,17 +241,16 @@ public sealed class MechCockpitSystem : EntitySystem
             EnsureComp<MechControlLockedComponent>(crew);
             RemComp<InteractionRelayComponent>(crew);
         }
+
+        _adtMech.UpdateMouseRotation(crew);
     }
 
-    public void RelayDamageToPassenger(EntityUid uid, MechComponent comp, DamageChangedEvent args)
+    public void RelayDamageToPassenger(EntityUid uid, float multiplier, DamageSpecifier delta)
     {
-        if (!args.DamageIncreased || args.DamageDelta == null)
+        if (multiplier <= 0f || GetPassenger(uid) is not { } passenger)
             return;
 
-        if (GetPassenger(uid) is not { } passenger)
-            return;
-
-        _damageable.ChangeDamage(passenger, args.DamageDelta * comp.MechToPilotDamageMultiplier);
+        _damageable.ChangeDamage(passenger, delta * multiplier);
     }
 
     public EntityUid? GetPassenger(EntityUid mech)

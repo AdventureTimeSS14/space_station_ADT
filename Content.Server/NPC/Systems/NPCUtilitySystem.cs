@@ -348,7 +348,7 @@ public sealed partial class NPCUtilitySystem : EntitySystem
             }
             case TargetIsAliveCon:
             {
-                return _mobState.IsAlive(targetUid) ? 1f : 0f;
+                return _mobState.IsAlive(targetUid) || IsActiveMech(targetUid) ? 1f : 0f; // ADT-Tweak
             }
             case TargetIsCritCon:
             {

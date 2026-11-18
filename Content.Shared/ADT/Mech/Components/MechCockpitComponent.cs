@@ -28,7 +28,7 @@ public sealed partial class MechCockpitComponent : Component
     public EntityUid? UiActionEntity;
 
     [DataField]
-    public EntProtoId CycleAction = "ActionMechCycleEquipment";
+    public EntProtoId CycleAction = "ADTActionMechCycleEquipment";
 
     [DataField, AutoNetworkedField]
     public EntityUid? CycleActionEntity;

@@ -36,16 +36,7 @@ public sealed partial class MechSoundboardSystem : EntitySystem
                 state.Sounds.Add(collection);
         }
 
-        // ADT-Tweak-Start
-        try
-        {
-            args.States.Add(GetNetEntity(uid), state);
-        }
-        catch
-        {
-            return;
-        }
-        // ADT-Tweak-End
+        args.States.Add(GetNetEntity(uid), state);
     }
 
     private void OnSoundboardMessage(EntityUid uid, MechSoundboardComponent comp, MechEquipmentUiMessageRelayEvent args)
@@ -65,6 +56,6 @@ public sealed partial class MechSoundboardSystem : EntitySystem
             return;
 
         // honk!!!!!
-        _audio.PlayPredicted(comp.Sounds[msg.Sound], uid, GetEntity(args.Pilot));   // ADT Mech predict
+        _audio.PlayPvs(comp.Sounds[msg.Sound], uid);
     }
 }

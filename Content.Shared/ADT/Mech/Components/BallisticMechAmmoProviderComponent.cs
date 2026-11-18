@@ -1,21 +1,17 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Audio;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Weapons.Ranged.Components;
 
-/// <summary>
-/// Позволяет оружию меха стрелять проджектайлами.
-/// Использует специальные магазины, которые помещаются в хранилище меха.
-/// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class BallisticMechAmmoProviderComponent : MechAmmoProviderComponent
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true)]
     public EntProtoId Prototype = default!;
 
-    [DataField]
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public int Shots = 30;
 
     [DataField]
@@ -24,11 +20,11 @@ public sealed partial class BallisticMechAmmoProviderComponent : MechAmmoProvide
     [DataField]
     public float ReloadTime = 10f;
 
-    [ViewVariables]
-    public TimeSpan ReloadEnd = TimeSpan.Zero;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan ReloadEnd;
 
-    [ViewVariables]
-    public bool Reloading = false;
+    [DataField, AutoNetworkedField]
+    public int PendingRounds;
 
     [DataField]
     public string AmmoContainerId = "storagebase";
