@@ -59,15 +59,12 @@ public abstract class SharedSeedDnaConsoleSystem : EntitySystem
 
         var growth = TryGet<PlantGrowthComponent>(snapshot, protoId, out var g) ? g : new PlantGrowthComponent();
         var atmos = TryGet<PlantAtmosphericComponent>(snapshot, protoId, out var a) ? a : new PlantAtmosphericComponent();
-        var gases = TryGet<PlantConsumeExudeGasComponent>(snapshot, protoId, out var cg) ? cg : new PlantConsumeExudeGasComponent();
         var toxins = TryGet<PlantToxinsComponent>(snapshot, protoId, out var t) ? t : new PlantToxinsComponent();
         var weedPest = TryGet<PlantWeedPestComponent>(snapshot, protoId, out var w) ? w : new PlantWeedPestComponent();
         var harvest = TryGet<PlantHarvestComponent>(snapshot, protoId, out var h) ? h : new PlantHarvestComponent();
 
         var dto = new SeedDataDto
         {
-            ConsumeGasses = new(gases.ConsumeGasses),
-            ExudeGasses = new(gases.ExudeGasses),
             NutrientConsumption = growth.NutrientConsumption,
             WaterConsumption = growth.WaterConsumption,
             IdealHeat = (atmos.LowHeatTolerance + atmos.HighHeatTolerance) / 2f,
@@ -159,13 +156,6 @@ public abstract class SharedSeedDnaConsoleSystem : EntitySystem
         if (dto.HighPressureTolerance != null)
             atmos.HighPressureTolerance = dto.HighPressureTolerance.Value;
         Dirty(snapshot, atmos);
-
-        var gases = EnsureComp<PlantConsumeExudeGasComponent>(snapshot);
-        if (dto.ConsumeGasses != null)
-            gases.ConsumeGasses = new(dto.ConsumeGasses);
-        if (dto.ExudeGasses != null)
-            gases.ExudeGasses = new(dto.ExudeGasses);
-        Dirty(snapshot, gases);
 
         var toxins = EnsureComp<PlantToxinsComponent>(snapshot);
         if (dto.ToxinsTolerance != null)

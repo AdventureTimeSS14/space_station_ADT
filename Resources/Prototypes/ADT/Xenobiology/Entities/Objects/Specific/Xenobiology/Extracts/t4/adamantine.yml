@@ -11,26 +11,11 @@
       shader: XenoMetallic
   - type: SlimeExtract
     extractReactions:
-    - AdamantineSlimeExtractWaterReaction
     - AdamantineSlimeExtractPlasmaReaction
     - AdamantineSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyAdamantineExtract
-
-- type: extractReaction
-  id: AdamantineSlimeExtractWaterReaction
-  requirements:
-    Water: 1
-  effects:
-  - effect: !type:CreateGas
-      gas: Healium
-      moles: 55
-    scalingOffset: 1
-  - effect: !type:PlaySoundEffect
-      sound: /Audio/Effects/Chemistry/bubbles.ogg
-    scalingOffset: 0
-  shouldDelete: false
 
 - type: extractReaction
   id: AdamantineSlimeExtractPlasmaReaction
@@ -63,7 +48,7 @@
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
   - effect: !type:AddReagentToSolution
-      reagent: RegenerativeJelly
+      reagent: XenobioJellyAdamantine
       solution: extract
     scalingFactor: 1
     scalingOffset: 0
