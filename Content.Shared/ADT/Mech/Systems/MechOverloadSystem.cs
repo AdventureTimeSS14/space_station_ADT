@@ -1,98 +1,110 @@
 using Content.Shared.Actions;
+using Content.Shared.ADT.Mech.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
-using Content.Shared.ADT.Mech.Components;
+using Content.Shared.Popups;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Mech.EntitySystems;
 
-/// <summary>
-/// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
-/// </summary>
 public sealed class MechOverloadSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
-    /// <inheritdoc/>
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<MechOverloadComponent, MechOverloadEvent>(OnToggleOverload);
         SubscribeLocalEvent<MechOverloadComponent, DamageChangedEvent>(OnDamage);
         SubscribeLocalEvent<MechOverloadComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
         SubscribeLocalEvent<MechOverloadComponent, RefreshFrictionModifiersEvent>(OnRefreshFrictionModifiers);
     }
 
-    private void OnToggleOverload(EntityUid uid, MechOverloadComponent comp, MechOverloadEvent args)
+    private void OnToggleOverload(Entity<MechOverloadComponent> ent, ref MechOverloadEvent args)
     {
-        if (!TryComp<MechComponent>(uid, out var mech))
-            return;
-        if (mech.Integrity <= comp.MinIng)
+        if (args.Handled)
             return;
 
-        if (!comp.Overload)
+        args.Handled = true;
+
+        if (!TryComp<MechComponent>(ent, out var mech))
+            return;
+
+        if (!ent.Comp.Overload && mech.Integrity <= ent.Comp.MinIng)
         {
-            comp.Overload = true;
-            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
-            _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
-            mech.MechEnergyWaste += 20;
-            Spawn("EffectSparks", Transform(uid).Coordinates);
-            _damageable.TryChangeDamage(uid, comp.DamagePerSpeed, ignoreResistances: true);
+            _popup.PopupClient(Loc.GetString("adt-mech-overload-too-damaged"), ent, args.Performer);
+            return;
         }
-        else
+
+        SetOverload(ent, !ent.Comp.Overload);
+
+        if (ent.Comp.Overload && _net.IsServer)
         {
-            comp.Overload = false;
-            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
-            _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
-            mech.MechEnergyWaste -= 20;
+            Spawn("EffectSparks", Transform(ent).Coordinates);
+            _damageable.TryChangeDamage(ent.Owner, ent.Comp.DamagePerSpeed, ignoreResistances: true);
         }
     }
-    private void OnDamage(EntityUid uid, MechOverloadComponent component, DamageChangedEvent args)
-    {
-        if (!TryComp<MechComponent>(uid, out var mech))
-            return;
-        if (mech.Integrity > component.MinIng)
-            return;
-        if (!component.Overload)
-            return;
 
-        component.Overload = false;
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
-        _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
-        mech.MechEnergyWaste -= 20;
+    private void SetOverload(Entity<MechOverloadComponent> ent, bool value)
+    {
+        ent.Comp.Overload = value;
+        ent.Comp.NextDamage = _timing.CurTime + ent.Comp.DamageInterval;
+        Dirty(ent);
+
+        _actions.SetToggled(ent.Comp.MechOverloadActionEntity, value);
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(ent.Owner);
+        _movementSpeedModifier.RefreshFrictionModifiers(ent.Owner);
     }
 
-    private void OnRefreshMovementSpeedModifiers(EntityUid uid, MechOverloadComponent comp, RefreshMovementSpeedModifiersEvent args)
+    private void OnDamage(Entity<MechOverloadComponent> ent, ref DamageChangedEvent args)
     {
-        if (!comp.Overload)
+        if (!ent.Comp.Overload || !TryComp<MechComponent>(ent, out var mech))
             return;
 
-        args.ModifySpeed(comp.WalkSpeedMultiplier, comp.SprintSpeedMultiplier);
+        if (mech.Integrity > ent.Comp.MinIng)
+            return;
+
+        SetOverload(ent, false);
     }
 
-    private void OnRefreshFrictionModifiers(EntityUid uid, MechOverloadComponent comp, ref RefreshFrictionModifiersEvent args)
+    private void OnRefreshMovementSpeedModifiers(Entity<MechOverloadComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (!comp.Overload)
-            return;
+        if (ent.Comp.Overload)
+            args.ModifySpeed(ent.Comp.WalkSpeedMultiplier, ent.Comp.SprintSpeedMultiplier);
+    }
 
-        args.ModifyAcceleration(comp.AccelerationMultiplier);
+    private void OnRefreshFrictionModifiers(Entity<MechOverloadComponent> ent, ref RefreshFrictionModifiersEvent args)
+    {
+        if (ent.Comp.Overload)
+            args.ModifyAcceleration(ent.Comp.AccelerationMultiplier);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<MechOverloadComponent, MechComponent>();
-        while (query.MoveNext(out var uid, out var overload, out var mech))
-        {
-            if (!overload.Overload)
-                continue;
-            overload.Accumulator += frameTime;
-            if (overload.Accumulator < 1f)
-                continue;
-            overload.Accumulator = 0f;
+        if (_net.IsClient)
+            return;
 
-            _damageable.SetDamage(uid, _damageable.GetAllDamage(uid) + overload.DamagePerSpeed);
+        var now = _timing.CurTime;
+        var query = EntityQueryEnumerator<MechOverloadComponent>();
+        while (query.MoveNext(out var uid, out var overload))
+        {
+            if (!overload.Overload || overload.NextDamage > now)
+                continue;
+
+            overload.NextDamage = now + overload.DamageInterval;
+            Dirty(uid, overload);
+
+            _damageable.TryChangeDamage(uid, overload.DamagePerSpeed, ignoreResistances: true, interruptsDoAfters: false);
         }
     }
 }
@@ -100,4 +112,3 @@ public sealed class MechOverloadSystem : EntitySystem
 public sealed partial class MechOverloadEvent : InstantActionEvent
 {
 }
-

@@ -19,11 +19,6 @@ public sealed partial class MechEquipmentComponent : Component
     /// The mech that the equipment is inside of.
     /// </summary>
     [ViewVariables] public EntityUid? EquipmentOwner;
-
-    // ADT Content start
-    [DataField("canBeUsed")]
-    public bool CanBeUsed = true;
-    // ADT Content end
 }
 
 /// <summary>
@@ -56,9 +51,3 @@ public sealed partial class InsertEquipmentEvent : SimpleDoAfterEvent
 {
 }
 
-// ADT Content start
-[Serializable, NetSerializable]
-public sealed partial class MechDrillDoAfterEvent : SimpleDoAfterEvent
-{
-}
-// ADT Content end

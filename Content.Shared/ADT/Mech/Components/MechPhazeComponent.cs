@@ -41,7 +41,7 @@ public sealed partial class MechPhazeComponent : Component
     public string State = "phazon";
 
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Phazed = false;
 
     public float Accumulator = 0f;

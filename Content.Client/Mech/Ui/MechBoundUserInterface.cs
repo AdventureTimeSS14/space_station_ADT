@@ -38,7 +38,7 @@ public sealed class MechBoundUserInterface : BoundUserInterface
             return;
         UpdateEquipmentControls(msg);
         _menu?.UpdateMechStats();
-        _menu?.UpdateEquipmentView(msg);    // ADT Mech UI Fix
+        _menu?.UpdateEquipmentView();
     }
 
     public void UpdateEquipmentControls(MechBoundUiState state)
@@ -53,8 +53,7 @@ public sealed class MechBoundUserInterface : BoundUserInterface
                 continue;
             foreach (var (attached, estate) in state.EquipmentStates)
             {
-                if (ent == EntMan.GetEntity(attached) &&
-                    estate != null) // ADT Mech UI Fix
+                if (ent == EntMan.GetEntity(attached))
                     ui.UpdateState(estate);
             }
         }
