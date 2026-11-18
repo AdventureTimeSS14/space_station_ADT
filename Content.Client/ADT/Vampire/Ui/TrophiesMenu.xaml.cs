@@ -35,7 +35,8 @@ public sealed partial class TrophiesMenu : FancyWindow
         { BestiaOrganType.Liver, "OrganHumanLiver" },
         { BestiaOrganType.Kidneys, "OrganHumanKidneys" },
         { BestiaOrganType.Eyes, "OrganHumanEyes" },
-        { BestiaOrganType.Stomach, "OrganHumanStomach" }
+        { BestiaOrganType.Stomach, "OrganHumanStomach" },
+        { BestiaOrganType.Ears, "OrganHumanEars" }
     };
 
     private static readonly Regex ColorTagRegex = new Regex(

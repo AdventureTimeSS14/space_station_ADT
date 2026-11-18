@@ -180,6 +180,9 @@ public sealed partial class VampireSystem : SharedVampireSystem
                     UpdateCloakOfDarkness(uid, vampireComponent);
                 }
             }
+
+            if (ShouldHaveTruePower(vampireComponent) && !HasTruePower(uid))
+                MakeImmuneToHoly((uid, vampireComponent));
         }
     }
 
@@ -709,7 +712,10 @@ public sealed partial class VampireSystem : SharedVampireSystem
             && (!_mobState.IsDead(target) || HasComp<ActorComponent>(target)))
         {
             if (AddBloodEssence(uid, volumeToEssence))
+            {
                 component.DrainedVictims.Add(target);
+                UpdatePowers((uid, component));
+            }
         }
 
         SetBloodConsumedByVampire(uid, target, bloodAlreadyConsumed + volumeToConsume);
