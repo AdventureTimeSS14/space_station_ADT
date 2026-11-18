@@ -1,8 +1,8 @@
 <Document>
-# Foods
+# Еда
 
-These reagents are mostly used in the kitchen. Very helpful for Chefs and/or Service Workers.
+Эти реагенты в основном используют на кухне, поэтому они особенно пригодятся поварам и сервисным работникам.
 
-<GuideReagentGroupEmbed Group="Foods"/>
+<GuideADTReagentGroupEmbed Group="Foods"/>
 
 </Document>

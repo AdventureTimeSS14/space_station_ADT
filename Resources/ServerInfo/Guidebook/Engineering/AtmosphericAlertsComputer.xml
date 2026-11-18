@@ -1,30 +1,30 @@
 ﻿<Document>
-  # Atmospheric Alerts Computer
-  The Atmospheric Alerts Computer is a computer that shows information on all air alarms and fire alarms across the station.
+  # Консоль атмосферных тревог
+  Консоль атмосферных тревог показывает сведения обо всех воздушных и пожарных сигнализациях станции.
 
   <Box>
     <GuideEntityEmbed Entity="ComputerAlert"/>
   </Box>
 
-  It is a useful tool for quickly identifying areas that require attention.
+  С её помощью удобно быстро находить места, которые требуют внимания.
 
-  The Atmospheric Alerts Computer is often found in Atmospherics, and is used by Atmospherics Technicians to monitor atmospheres across the entire station.
-  However, it is also a good indicator for general engineers to gauge station damage.
+  Обычно эта консоль стоит в атмосферном отделе, и атмосферные техники следят по ней за атмосферой всей станции.
+  Однако и обычным инженерам она хорошо показывает, насколько повреждена станция.
 
-  The computer displays lists of Air Alarms in [color=orange]Warning[/color] and [color=red]Danger[/color] levels. Additionally, the computer displays the location of all air alarms, color-coded based on their current status.
+  Консоль выводит списки воздушных сигнализаций в состоянии [color=orange]предупреждения[/color] и [color=red]опасности[/color]. Кроме того, она показывает на карте все воздушные сигнализации, окрашенные в цвет их текущего состояния.
 
-  Air alarms with the normal status are hidden by default.
-  You can toggle the visibility of normal air alarms by adjusting the filters at the bottom of the interface.
+  Сигнализации в нормальном состоянии по умолчанию скрыты.
+  Чтобы их показать, измените фильтры в нижней части окна.
 
-  The map draws a box around the area that the air alarm is monitoring, which can help identify the area that is in danger.
-  This box will change color based on the status of the air alarm.
+  На карте вокруг помещения, за которым следит сигнализация, рисуется рамка, чтобы было легче понять, где именно опасно.
+  Цвет рамки меняется вместе с состоянием сигнализации.
 
-  If an Air Alarm is unpowered, it is shown as greyed out on the list and on the map.
+  Обесточенные сигнализации показываются серыми и в списке, и на карте.
 
-  Clicking on an air alarm on the list or on the map will show detailed information about the atmosphere in that area, which can help gauge the type of emergency that is occurring.
+  Если выбрать сигнализацию в списке или на карте, консоль покажет подробные сведения об атмосфере в этом помещении, по которым можно понять, что за авария там происходит.
 
-  A list of triggered [textlink="fire alarms" link="FireAndGasControl"] is also displayed on the Atmospheric Alerts Computer in a separate tab, which can be used to quickly identify areas that might be on fire.
+  На отдельной вкладке консоль показывает список сработавших [textlink="пожарных сигнализаций" link="FireAndGasControl"], чтобы быстро находить места, где может быть пожар.
 
-  You can silence specific alarms (such as alarms that monitor burn chambers and freezers) by clicking on the alarm in the list and pressing the "Silence alerts" button.
-  This will hide the alarm from the list, but it will still be visible on the map.
+  Отдельные сигнализации, например те, что следят за камерами сгорания и морозильниками, можно заглушить. Для этого выберите сигнализацию в списке и нажмите "Заглушить тревоги".
+  Она пропадёт из списка, но останется на карте.
 </Document>
