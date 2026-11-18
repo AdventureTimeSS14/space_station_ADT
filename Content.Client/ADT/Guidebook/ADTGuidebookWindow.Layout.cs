@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.ADT.UserInterface.Autoscroll;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
@@ -23,6 +24,7 @@ public sealed partial class ADTGuidebookWindow
 
     private void InitializeLayout()
     {
+        WindowBody.AddStyleClass(ADTMiddleClickAutoscrollController.StyleClassAutoscroll);
         WindowBody.OnResized += UpdateResponsiveLayout;
         PopoutButton.OnPressed += _ => TogglePopout();
     }
