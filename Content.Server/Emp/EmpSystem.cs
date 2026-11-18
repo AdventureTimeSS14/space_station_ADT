@@ -9,7 +9,7 @@ using Content.Shared.Power.Components;
 
 namespace Content.Server.Emp;
 
-public sealed class EmpSystem : SharedEmpSystem
+public sealed partial class EmpSystem : SharedEmpSystem // ADT-Tweak: partial class
 {
     [Dependency] private readonly SharedBatterySystem _battery = default!; // ADT-Tweak
 
@@ -23,6 +23,8 @@ public sealed class EmpSystem : SharedEmpSystem
         SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
 
         SubscribeLocalEvent<EmpOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); // ADT-Tweak
+
+        InitializeADT();    // ADT-Tweak
     }
     private void OnRadioSendAttempt(EntityUid uid, EmpDisabledComponent component, ref RadioSendAttemptEvent args)
     {

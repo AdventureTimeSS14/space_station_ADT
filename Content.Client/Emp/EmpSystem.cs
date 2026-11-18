@@ -3,7 +3,7 @@ using Robust.Shared.Random;
 
 namespace Content.Client.Emp;
 
-public sealed class EmpSystem : SharedEmpSystem
+public sealed partial class EmpSystem : SharedEmpSystem // ADT-Tweak: partial class
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -12,6 +12,8 @@ public sealed class EmpSystem : SharedEmpSystem
         base.Initialize();
 
         SubscribeLocalEvent<EmpDisabledComponent, ComponentStartup>(OnStartup);
+
+        InitializeADT();    // ADT-Tweak
     }
 
     private void OnStartup(Entity<EmpDisabledComponent> ent, ref ComponentStartup args)
