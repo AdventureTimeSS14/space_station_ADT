@@ -1,10 +1,13 @@
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Mech.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
+using Content.Shared.DragDrop;
+using Content.Shared.Electrocution;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction.Events;
@@ -13,6 +16,8 @@ using Content.Shared.Mech.Components;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Storage;
 using Content.Shared.Vehicle;
@@ -31,6 +36,7 @@ namespace Content.Shared.ADT.Mech.EntitySystems;
 public abstract class SharedADTMechSystem : EntitySystem
 {
     [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -52,6 +58,8 @@ public abstract class SharedADTMechSystem : EntitySystem
         SubscribeLocalEvent<ADTMechComponent, ContainerVehicleEntryAttemptEvent>(OnEntryAttempt);
         SubscribeLocalEvent<ADTMechComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
         SubscribeLocalEvent<ADTMechComponent, BoundUserInterfaceMessageAttempt>(OnUiMessageAttempt);
+        SubscribeLocalEvent<ADTMechComponent, CanDropTargetEvent>(OnCanDrop, after: new[] { typeof(VehicleSystem) });
+        SubscribeLocalEvent<ADTMechComponent, DragDropTargetEvent>(OnDragDrop, before: new[] { typeof(VehicleSystem) });
         SubscribeLocalEvent<ADTMechComponent, StorageInteractAttemptEvent>(OnStorageInteract);
         SubscribeLocalEvent<ADTMechComponent, MechTurnLightsEvent>(OnToggleLights);
         SubscribeLocalEvent<ADTMechComponent, MechInhaleEvent>(OnToggleSeal);
@@ -61,6 +69,8 @@ public abstract class SharedADTMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, GetMeleeWeaponEvent>(OnPilotGetMeleeWeapon);
         SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnPilotCanAttackFromContainer);
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnPilotAttackAttempt);
+        SubscribeLocalEvent<MechPilotComponent, ElectrocutionAttemptEvent>(OnPilotElectrocutionAttempt);
+        SubscribeLocalEvent<MechPilotComponent, EntRemovedFromContainerMessage>(OnPilotStatusRemoved, after: new[] { typeof(StatusEffectsSystem) });
 
         SubscribeLocalEvent<MechEquipmentDurabilityComponent, ExaminedEvent>(OnDurabilityExamined);
 
@@ -83,11 +93,11 @@ public abstract class SharedADTMechSystem : EntitySystem
         _lights.SetEnabled(ent, ent.Comp.LightsOn);
         Dirty(ent);
 
-        if (!ent.Comp.Sealed)
-            return;
-
-        var ev = new MechSealToggledEvent(true);
-        RaiseLocalEvent(ent, ref ev);
+        if (ent.Comp.Sealed)
+        {
+            var ev = new MechSealToggledEvent(true);
+            RaiseLocalEvent(ent, ref ev);
+        }
     }
 
     private void OnOperatorSet(Entity<ADTMechComponent> ent, ref VehicleOperatorSetEvent args)
@@ -176,6 +186,24 @@ public abstract class SharedADTMechSystem : EntitySystem
             args.Cancelled = true;
     }
 
+    private void OnCanDrop(Entity<ADTMechComponent> ent, ref CanDropTargetEvent args)
+    {
+        if (!TryComp<MechComponent>(ent, out var mech) || mech.Broken)
+            return;
+
+        args.CanDrop |= _vehicle.CanEnter(ent.Owner, args.Dragged);
+        args.Handled = true;
+    }
+
+    private void OnDragDrop(Entity<ADTMechComponent> ent, ref DragDropTargetEvent args)
+    {
+        if (args.Handled || HasMechAccess(ent, args.Dragged))
+            return;
+
+        args.Handled = true;
+        NotifyAccessDenied(ent, args.User);
+    }
+
     private void OnGetAltVerbs(Entity<ADTMechComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
@@ -210,8 +238,13 @@ public abstract class SharedADTMechSystem : EntitySystem
             return;
 
         args.Cancel();
-        _popup.PopupEntity(Loc.GetString("adt-mech-access-denied"), ent, args.Actor);
-        _audio.PlayPredicted(ent.Comp.AccessDeniedSound, ent, args.Actor);
+        NotifyAccessDenied(ent, args.Actor);
+    }
+
+    private void NotifyAccessDenied(Entity<ADTMechComponent> ent, EntityUid user)
+    {
+        _popup.PopupEntity(Loc.GetString("adt-mech-access-denied"), ent, user);
+        _audio.PlayPredicted(ent.Comp.AccessDeniedSound, ent, user);
     }
 
     private void OnStorageInteract(Entity<ADTMechComponent> ent, ref StorageInteractAttemptEvent args)
@@ -385,6 +418,21 @@ public abstract class SharedADTMechSystem : EntitySystem
 
         if (HasComp<MechControlLockedComponent>(ent))
             args.Cancel();
+    }
+
+    private void OnPilotElectrocutionAttempt(Entity<MechPilotComponent> ent, ref ElectrocutionAttemptEvent args)
+    {
+        if (HasComp<ADTMechComponent>(ent.Comp.Mech))
+            args.Cancel();
+    }
+
+    private void OnPilotStatusRemoved(Entity<MechPilotComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID != StatusEffectContainerComponent.ContainerId)
+            return;
+
+        _actionBlocker.UpdateCanMove(ent);
+        _vehicle.RefreshCanRun(ent.Comp.Mech);
     }
 
     public EntityUid? GetEquipmentMech(EntityUid equipment)

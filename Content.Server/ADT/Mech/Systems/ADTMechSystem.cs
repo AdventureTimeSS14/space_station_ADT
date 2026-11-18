@@ -1,9 +1,9 @@
 using System.Linq;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
 using Content.Server.Mech.Systems;
 using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Mech.EntitySystems;
-using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
@@ -23,6 +23,7 @@ namespace Content.Server.ADT.Mech.Systems;
 public sealed class ADTMechSystem : SharedADTMechSystem
 {
     [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private MechCockpitSystem _cockpit = default!;
@@ -127,17 +128,25 @@ public sealed class ADTMechSystem : SharedADTMechSystem
 
     private void OnSealToggled(Entity<ADTMechComponent> ent, ref MechSealToggledEvent args)
     {
-        if (!args.Sealed || !TryComp<MechAirComponent>(ent, out var air))
+        if (!TryComp<MechAirComponent>(ent, out var air))
             return;
 
-        if (air.Air.Pressure >= Atmospherics.OneAtmosphere * 0.8f)
+        var environment = _atmosphere.GetContainingMixture(ent.Owner, ignoreExposed: true, excite: true);
+
+        if (!args.Sealed)
+        {
+            var released = air.Air.RemoveRatio(1f);
+            if (environment != null)
+                _atmosphere.Merge(environment, released);
+
+            return;
+        }
+
+        if (environment == null || environment.Pressure <= air.Air.Pressure)
             return;
 
-        var moles = Atmospherics.OneAtmosphere * air.Air.Volume / (Atmospherics.R * Atmospherics.T20C);
-        air.Air.Clear();
-        air.Air.Temperature = Atmospherics.T20C;
-        air.Air.AdjustMoles(Gas.Oxygen, moles * Atmospherics.OxygenStandard);
-        air.Air.AdjustMoles(Gas.Nitrogen, moles * Atmospherics.NitrogenStandard);
+        var moles = _atmosphere.MolesToEqualizePressure(environment, air.Air);
+        _atmosphere.Merge(air.Air, environment.Remove(moles));
     }
 
     private void OnRepaired(Entity<ADTMechComponent> ent, ref RepairedEvent args)
