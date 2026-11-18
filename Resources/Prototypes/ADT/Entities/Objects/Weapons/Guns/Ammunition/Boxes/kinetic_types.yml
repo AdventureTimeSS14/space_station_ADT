@@ -1,0 +1,119 @@
+- type: entity
+  parent: MagazineBoxPistol
+  id: MagazineBoxPistolSP
+  name: ammunition box (.35 auto SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolSP
+
+- type: entity
+  parent: MagazineBoxPistol
+  id: MagazineBoxPistolHP
+  name: ammunition box (.35 auto HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolHP
+
+- type: entity
+  parent: MagazineBoxPistol
+  id: MagazineBoxPistolFMJ
+  name: ammunition box (.35 auto FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolFMJ
+
+- type: entity
+  parent: MagazineBoxPistol
+  id: MagazineBoxPistolAP
+  name: ammunition box (.35 auto AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolAP
+
+- type: entity
+  parent: MagazineBoxMagnum
+  id: MagazineBoxMagnumSP
+  name: ammunition box (.45 magnum SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumSP
+
+- type: entity
+  parent: MagazineBoxMagnum
+  id: MagazineBoxMagnumHP
+  name: ammunition box (.45 magnum HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumHP
+
+- type: entity
+  parent: MagazineBoxMagnum
+  id: MagazineBoxMagnumFMJ
+  name: ammunition box (.45 magnum FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumFMJ
+
+- type: entity
+  parent: MagazineBoxLightRifle
+  id: MagazineBoxLightRifleSP
+  name: ammunition box (.30 rifle SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleSP
+
+- type: entity
+  parent: MagazineBoxLightRifle
+  id: MagazineBoxLightRifleHP
+  name: ammunition box (.30 rifle HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleHP
+
+- type: entity
+  parent: MagazineBoxLightRifle
+  id: MagazineBoxLightRifleFMJ
+  name: ammunition box (.30 rifle FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleFMJ
+
+- type: entity
+  parent: MagazineBoxLightRifle
+  id: MagazineBoxLightRifleAP
+  name: ammunition box (.30 rifle AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleAP
+
+- type: entity
+  parent: MagazineBoxRifle
+  id: MagazineBoxRifleSP
+  name: ammunition box (.20 rifle SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleSP
+
+- type: entity
+  parent: MagazineBoxRifle
+  id: MagazineBoxRifleHP
+  name: ammunition box (.20 rifle HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleHP
+
+- type: entity
+  parent: MagazineBoxRifle
+  id: MagazineBoxRifleFMJ
+  name: ammunition box (.20 rifle FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleFMJ
+
+- type: entity
+  parent: MagazineBoxRifle
+  id: MagazineBoxRifleAP
+  name: ammunition box (.20 rifle AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleAP

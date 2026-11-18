@@ -135,6 +135,36 @@
   # - SpeedLoaderMagnumUranium # ADT-Tweak - вырезан крафт урановых патронов
   - ADTSpeedLoaderMagnumLesserIncendiary # ADT tweak
   # - ADTSpeedLoaderMagnumLesserUranium # ADT tweak # ADT-Tweak - вырезан крафт урановых патронов
+  - MagazineBoxPistolSP
+  - MagazineBoxPistolHP
+  - MagazineBoxPistolFMJ
+  - MagazineBoxPistolAP
+  - MagazineBoxMagnumSP
+  - MagazineBoxMagnumHP
+  - MagazineBoxMagnumFMJ
+  - MagazineBoxLightRifleSP
+  - MagazineBoxLightRifleHP
+  - MagazineBoxLightRifleFMJ
+  - MagazineBoxLightRifleAP
+  - MagazineBoxRifleSP
+  - MagazineBoxRifleHP
+  - MagazineBoxRifleFMJ
+  - MagazineBoxRifleAP
+  - MagazinePistolSP
+  - MagazinePistolHP
+  - MagazinePistolFMJ
+  - MagazinePistolAP
+  - MagazineLightRifleSP
+  - MagazineLightRifleHP
+  - MagazineLightRifleFMJ
+  - MagazineLightRifleAP
+  - MagazineRifleSP
+  - MagazineRifleHP
+  - MagazineRifleFMJ
+  - MagazineRifleAP
+  - SpeedLoaderMagnumSP
+  - SpeedLoaderMagnumHP
+  - SpeedLoaderMagnumFMJ
 
 - type: latheRecipePack
   id: SecurityWeapons

@@ -1,0 +1,327 @@
+- type: entity
+  parent: MagazinePistol
+  id: MagazinePistolSP
+  name: pistol magazine (.35 auto SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolSP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#e0c36a"
+
+- type: entity
+  parent: MagazinePistol
+  id: MagazinePistolHP
+  name: pistol magazine (.35 auto HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ff4d4d"
+
+- type: entity
+  parent: MagazinePistol
+  id: MagazinePistolFMJ
+  name: pistol magazine (.35 auto FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#c8c8c8"
+
+- type: entity
+  parent: MagazinePistol
+  id: MagazinePistolAP
+  name: pistol magazine (.35 auto AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#1a1a1a"
+
+- type: entity
+  parent: MagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunSP
+  name: SMG magazine (.35 auto SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolSP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#e0c36a"
+
+- type: entity
+  parent: MagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunHP
+  name: SMG magazine (.35 auto HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ff4d4d"
+
+- type: entity
+  parent: MagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunFMJ
+  name: SMG magazine (.35 auto FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#c8c8c8"
+
+- type: entity
+  parent: MagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunAP
+  name: SMG magazine (.35 auto AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#1a1a1a"
+
+- type: entity
+  parent: MagazineMagnum
+  id: MagazineMagnumSP
+  name: pistol magazine (.45 magnum SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumSP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#e0c36a"
+
+- type: entity
+  parent: MagazineMagnum
+  id: MagazineMagnumHP
+  name: pistol magazine (.45 magnum HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ff4d4d"
+
+- type: entity
+  parent: MagazineMagnum
+  id: MagazineMagnumFMJ
+  name: pistol magazine (.45 magnum FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#c8c8c8"
+
+- type: entity
+  parent: SpeedLoaderMagnum
+  id: SpeedLoaderMagnumSP
+  name: speed loader (.45 magnum SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumSP
+
+- type: entity
+  parent: SpeedLoaderMagnum
+  id: SpeedLoaderMagnumHP
+  name: speed loader (.45 magnum HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumHP
+
+- type: entity
+  parent: SpeedLoaderMagnum
+  id: SpeedLoaderMagnumFMJ
+  name: speed loader (.45 magnum FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumFMJ
+
+- type: entity
+  parent: MagazineLightRifle
+  id: MagazineLightRifleSP
+  name: magazine (.30 rifle SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleSP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#e0c36a"
+
+- type: entity
+  parent: MagazineLightRifle
+  id: MagazineLightRifleHP
+  name: magazine (.30 rifle HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ff4d4d"
+
+- type: entity
+  parent: MagazineLightRifle
+  id: MagazineLightRifleFMJ
+  name: magazine (.30 rifle FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#c8c8c8"
+
+- type: entity
+  parent: MagazineLightRifle
+  id: MagazineLightRifleAP
+  name: magazine (.30 rifle AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#1a1a1a"
+
+- type: entity
+  parent: MagazineRifle
+  id: MagazineRifleSP
+  name: magazine (.20 rifle SP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleSP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#e0c36a"
+
+- type: entity
+  parent: MagazineRifle
+  id: MagazineRifleHP
+  name: magazine (.20 rifle HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ff4d4d"
+
+- type: entity
+  parent: MagazineRifle
+  id: MagazineRifleFMJ
+  name: magazine (.20 rifle FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#c8c8c8"
+
+- type: entity
+  parent: MagazineRifle
+  id: MagazineRifleAP
+  name: magazine (.20 rifle AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#1a1a1a"

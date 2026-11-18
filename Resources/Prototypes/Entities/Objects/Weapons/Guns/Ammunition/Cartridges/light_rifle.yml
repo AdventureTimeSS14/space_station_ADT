@@ -8,7 +8,10 @@
     tags:
     - CartridgeLightRifle
   - type: CartridgeAmmo
-    proto: BulletLightRifle
+    # ADT-Tweak Start
+    # proto: BulletLightRifle
+    # ADT-Tweak End
+    proto: BulletLightRifleTraceSP # ADT tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -24,7 +27,10 @@
   description: A classic intermediate cartridge used by many combat rifles and LMGs. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRifle
+    # ADT-Tweak Start
+    # proto: BulletLightRifle
+    # ADT-Tweak End
+    proto: BulletLightRifleTraceSP # ADT tweak
 
 - type: entity
   parent: BaseCartridgeLightRifle
@@ -33,7 +39,10 @@
   description: A classic intermediate cartridge used by many combat rifles and LMGs. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRiflePractice
+    # ADT-Tweak Start
+    # proto: BulletLightRiflePractice
+    # ADT-Tweak End
+    proto: BulletLightRifleTracePractice # ADT tweak
   - type: Sprite
     layers:
       - state: base
@@ -49,7 +58,10 @@
   description: A classic intermediate cartridge used by many combat rifles and LMGs. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRifleIncendiary
+    # ADT-Tweak Start
+    # proto: BulletLightRifleIncendiary
+    # ADT-Tweak End
+    proto: BulletLightRifleTraceIncendiary # ADT tweak
   - type: Sprite
     layers:
       - state: base
@@ -65,7 +77,10 @@
   description: A classic intermediate cartridge used by many combat rifles and LMGs. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRifleUranium
+    # ADT-Tweak Start
+    # proto: BulletLightRifleUranium
+    # ADT-Tweak End
+    proto: BulletLightRifleTraceUranium # ADT tweak
   - type: Sprite
     layers:
       - state: base
