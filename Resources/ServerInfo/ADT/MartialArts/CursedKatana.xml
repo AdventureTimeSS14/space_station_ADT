@@ -37,7 +37,7 @@
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="CursedKatanaHiltStrike">
-  Наносит [color=#E05B5B]17[/color] урона мимо брони, оглушает на [color=#E0A03C]2 секунды[/color]
+  Наносит [color=#E05B5B]17[/color] урона, оглушает на [color=#E0A03C]2 секунды[/color]
   и отбрасывает цель. При ударе о препятствие она получает ещё [color=#E05B5B]5[/color] урона.
   </ADTGuideCombo>
 
@@ -48,7 +48,7 @@
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="CursedKatanaDarkHeal">
-  Наносит цели [color=#E05B5B]15[/color] урона мимо брони, а вас клинок заживляет:
+  Наносит цели [color=#E05B5B]15[/color] урона, а вас клинок заживляет:
   [color=#6FCF6F]15[/color] физического и [color=#6FCF6F]15[/color] ожогового урона в секунду
   на протяжении [color=#E0A03C]3 секунд[/color].
   </ADTGuideCombo>
