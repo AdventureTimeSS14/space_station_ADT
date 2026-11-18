@@ -7,6 +7,6 @@
 
 <GuideADTCookingGroupEmbed Group="Pizza"/>
 
-<GuideMicrowaveGroupEmbed Group="Pizza"/>
+<GuideADTMicrowaveGroupEmbed Group="Pizza"/>
 
 </Document>

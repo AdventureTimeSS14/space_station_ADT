@@ -59,7 +59,7 @@
   - type: GuideHelp
     openOnActivation: true
     guides:
-    - SS14
+    - Jobs # ADT-Tweak
   - type: MeleeWeapon  # Should write it again since BaseGuidebook doesn't inherit BookBase
     soundHit:
       collection: Punch
@@ -89,7 +89,7 @@
       color: "#42b6f5"
   - type: GuideHelp
     guides:
-    - SS14
+    - Jobs # ADT-Tweak
 
 - type: entity
   id: BookTheBookOfControl

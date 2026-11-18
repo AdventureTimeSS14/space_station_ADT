@@ -1,7 +1,7 @@
 - type: guideEntry
   id: Species
   name: guide-entry-species
-  text: "/ServerInfo/Guidebook/Mobs/Species.xml"
+  text: "/ServerInfo/ADT/Guidebook/Mobs/Species.xml" # ADT-Tweak
   children:
   - Arachnid
   - Diona
@@ -13,6 +13,18 @@
   - Vox
   - Vulpkanin
   - Shadekin # ADT-Tweak
+  # ADT-Tweak-Start
+  - ADTArkana
+  - ADTDrask
+  - ADTKobolt
+  - ADTCelecern
+  - ADTTajaran
+  - ADTUrsus
+  - ADTFelinid
+  - ADTIPC
+  - ADTNovakid
+  - ADTResomi
+  # ADT-Tweak-End
 
 - type: guideEntry
   id: Arachnid

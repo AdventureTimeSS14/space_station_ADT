@@ -1,9 +1,9 @@
 ﻿<Document>
-  # Solar Panels
-  Solar Panels are a low-maintenance passive power source that generates power from incoming sunlight.
+  # Солнечные панели
+  Солнечные панели - это пассивный источник энергии, который почти не требует обслуживания и вырабатывает энергию из солнечного света.
 
-  They are a renewable source of power that can be used to supplement generators in the station's power grid.
-  This is extremely useful, as while most generators burn through some type of fuel in some form or fashion, solar panels generate power for free.
+  Это возобновляемый источник, который дополняет генераторы в энергосети станции.
+  Это очень полезно, потому что большинство генераторов так или иначе сжигают топливо, а солнечные панели вырабатывают энергию бесплатно.
 
   <Box>
     <GuideEntityEmbed Entity="SolarPanel" Caption=""/>
@@ -11,62 +11,61 @@
     <GuideEntityEmbed Entity="SolarPanel" Caption=""/>
   </Box>
 
-  ## Power Generation
-  Solar panels generate power based on their relative angle to the sun, and if they are occluded by other objects.
+  ## Выработка энергии
+  Выработка солнечной панели зависит от её угла к солнцу и от того, заслоняют ли её другие объекты.
 
-  Because of this, you might see some panels generating 0 W of power, while others generate a lot more.
-  This is because the station is occluding some panels, so don't worry about it too much.
-  Most stations have solar arrays placed at all sides of the station, so there's always some power being generated.
+  Поэтому одни панели могут выдавать 0 Вт, а другие намного больше.
+  Обычно это значит, что часть панелей заслоняет сама станция, и волноваться тут не о чем.
+  На большинстве станций солнечные массивы стоят со всех сторон, поэтому какая-то часть панелей всегда вырабатывает энергию.
 
-  When directly facing the sun with no object occlusion, regular solar panels can generate [color=orange][protodata="SolarPanel" comp="SolarPanel" member="MaxSupply" format="N0"] W[/color] of power.
+  Если обычная панель направлена прямо на солнце и ничем не заслонена, она выдаёт [color=orange][protodata="SolarPanel" comp="SolarPanel" member="MaxSupply" format="N0"] Вт[/color].
 
-  Solar panels generate [color=orange]HV power[/color], and as such require an [color=orange]HV wire[/color] running underneath them to connect to the station's power grid.
+  Солнечные панели вырабатывают [color=orange]энергию высокого напряжения[/color], поэтому под ними должен проходить [color=orange]провод ВВ[/color], подключённый к энергосети станции.
 
-  ## Power Bridge
-  Solar panels might seem like an unnecessary power source at first glance.
-  After all, we have this giant black hole in the center of the station.
-  Why bother setting up solars when we can use that?
+  ## Мост к основным источникам
+  На первый взгляд солнечные панели кажутся ненужными.
+  В конце концов, в центре станции есть огромная чёрная дыра.
+  Зачем возиться с панелями, если можно пользоваться ей?
 
-  It's ideal to set up solars alongside the [textlink="AME" link="AME"] for a few reasons:
-  - Having active solar panels alongside the [textlink="AME" link="AME"] increases the runtime of the station's batteries significantly more than just the [textlink="AME" link="AME"] alone. This can buy engineers more time to setup bigger power sources.
-  - Having active solar panels can reduce load on other grid producers. For example, if the solar arrays are producing enough power to satisfy half the station's needs, that is reflected in a reduced load on other engines, which can reduce the amount of fuel they burn.
+  Солнечные панели стоит запускать вместе с [textlink="ДАМ" link="AME"] по нескольким причинам:
+  - Если вместе с [textlink="ДАМ" link="AME"] работают солнечные панели, батареи станции держатся гораздо дольше, чем с одним ДАМ. Так у инженеров появляется больше времени, чтобы построить более мощные источники.
+  - Работающие панели снижают нагрузку на остальные источники. Например, если панели покрывают половину потребностей станции, нагрузка на другие двигатели становится меньше, и они сжигают меньше топлива.
 
 
-  ## Adjusting Panels
-  Because the station is orbiting a star, the sun's position in space changes over time.
-  Solar panels need to be pointing straight at the sun to generate power efficiently, and they need to move over time to keep up with the sun's position.
+  ## Наведение панелей
+  Станция вращается вокруг звезды, поэтому положение солнца со временем меняется.
+  Чтобы вырабатывать энергию эффективно, панели должны смотреть прямо на солнце и поворачиваться вслед за ним.
 
-  The angle at which solar panels face to can be adjusted at a Solar Control Computer.
+  Угол поворота панелей настраивается на консоли управления солнечными панелями.
   <Box>
     <GuideEntityEmbed Entity="ComputerSolarControl"/>
   </Box>
 
-  You can also adjust the rate at which the panels move to track the sun.
+  Там же можно задать скорость, с которой панели поворачиваются за солнцем.
 
-  The rate at which the sun moves around the station changes each shift, so time the sun's position and adjust the rate accordingly.
+  Скорость движения солнца меняется от смены к смене, поэтому засеките, как оно движется, и подстройте скорость под него.
 
-  The Solar Control Computer also reports on the total power generated by the solar panels.
+  Консоль также показывает, сколько энергии вырабатывают все солнечные панели.
 
-  ## Construction
+  ## Постройка
 
-  Solar panels can be constructed by using two glass sheets on a solar assembly.
+  Чтобы построить солнечную панель, используйте два листа стекла на каркасе солнечной панели.
   <Box>
     <GuideEntityEmbed Entity="SolarAssembly" Caption=""/>
     <GuideEntityEmbed Entity="SheetGlass10" Caption=""/>
     <GuideEntityEmbed Entity="SolarPanel" Caption=""/>
   </Box>
 
-  You can purchase solar assemblies from Cargo.
+  Каркасы солнечных панелей можно заказать у снабжения.
 
-  ## Repairs
-  Solar panels can sometimes be damaged, and require repair.
+  ## Ремонт
+  Иногда солнечные панели повреждаются, и их приходится чинить.
 
   <Box>
     <GuideEntityEmbed Entity="SolarPanelBroken"/>
   </Box>
 
-  To fix them, you can use a crowbar to pry the broken glass shards out of the panel.
-  Weld these glass shards into glass sheets, and then use them to make a new panel.
+  Чтобы починить панель, выломайте ломом осколки стекла. Затем переплавьте осколки сваркой в листы стекла и сделайте из них новую панель.
 
   <Box>
     <GuideEntityEmbed Entity="SolarPanelBroken" Caption=""/>
@@ -80,33 +79,33 @@
     <GuideEntityEmbed Entity="SolarPanel" Caption=""/>
   </Box>
 
-  ## Setting Up Solar Panel Arrays
-  Solar panel arrays are commonly found on the exterior of the station, and are used to generate large amounts of free power for the station.
+  ## Запуск солнечных массивов
+  Солнечные массивы обычно стоят снаружи станции и дают ей много бесплатной энергии.
 
-  You can either spacewalk to them from the outside or you can run a loop through the station's maintenance tunnels to reach them.
-  Solar array machine rooms are often marked with signs, and locked behind engineering access.
+  До них можно добраться через открытый космос или проложить путь через технические тоннели станции.
+  Машинные помещения солнечных массивов обычно отмечены табличками и закрыты инженерным доступом.
   <Box>
     <GuideEntityEmbed Entity="SignDirectionalSolar" Caption=""/>
     <GuideEntityEmbed Entity="AirlockEngineering" Caption=""/>
   </Box>
 
-  At the start of the shift solar panels are misaligned and disconnected from the grid.
-  You will need to align them and connect them to the station's power grid to start generating power.
+  В начале смены панели не наведены на солнце и не подключены к сети.
+  Чтобы они начали вырабатывать энергию, их нужно навести и подключить к энергосети станции.
 
-  This usually involves running a line of [color=orange]HV wire[/color] to the pannels from the solar array machine room, and then using a Solar Control Computer to align the panels.
+  Для этого обычно прокладывают [color=orange]провод ВВ[/color] от машинного помещения массива к панелям, а затем наводят панели через консоль управления.
 
-  Solar array machine rooms frequently have a Solar Control Computer nearby, as well as an [textlink="SMES" link="PowerStorage"] to store the power generated by the panels for later use.
+  Рядом с машинным помещением массива часто стоит консоль управления солнечными панелями и [textlink="СМЭС" link="PowerStorage"], который хранит выработанную панелями энергию.
 
-  ## Upgrading Solar Panels
-  Solar panels can be upgraded to increase their power output.
+  ## Улучшение панелей
+  Солнечные панели можно улучшить, чтобы они вырабатывали больше энергии.
 
   <Box>
     <GuideEntityEmbed Entity="SolarPanelPlasma" Caption=""/>
     <GuideEntityEmbed Entity="SolarPanelUranium" Caption=""/>
   </Box>
 
-  This can be done by replacing the glass sheets in the solar assembly with plasma or uranium glass sheets.
+  Для этого при постройке используйте вместо обычного стекла плазменное или урановое.
 
-  Plasma and Uranium solar panels generate [color=orange][protodata="SolarPanelPlasma" comp="SolarPanel" member="MaxSupply" format="N0"] W[/color] and [color=orange][protodata="SolarPanelUranium" comp="SolarPanel" member="MaxSupply" format="N0"] W[/color] of power respectively.
-  They also are much tougher than regular solar panels.
+  Плазменные панели выдают [color=orange][protodata="SolarPanelPlasma" comp="SolarPanel" member="MaxSupply" format="N0"] Вт[/color], а урановые выдают [color=orange][protodata="SolarPanelUranium" comp="SolarPanel" member="MaxSupply" format="N0"] Вт[/color].
+  Кроме того, они намного прочнее обычных панелей.
 </Document>

@@ -6,6 +6,6 @@
 
 <GuideADTCookingGroupEmbed Group="Soup"/>
 
-<GuideMicrowaveGroupEmbed Group="Soup"/>
+<GuideADTMicrowaveGroupEmbed Group="Soup"/>
 
 </Document>
