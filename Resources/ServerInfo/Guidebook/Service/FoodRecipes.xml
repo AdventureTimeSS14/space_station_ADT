@@ -5,10 +5,10 @@
 Это последняя опубликованная версия сборника рецептов "NanoTrasen Central Command Kitchen de Cuisine's", предназначенного для шеф-поваров, готовящих блюда на судах NanoTrasen.
 
 ## Пицца
-<GuideMicrowaveGroupEmbed Group="Pizza"/>
+<GuideADTMicrowaveGroupEmbed Group="Pizza"/>
 
 ## Вкусные блюда
-<GuideMicrowaveGroupEmbed Group="Savory"/>
+<GuideADTMicrowaveGroupEmbed Group="Savory"/>
 
 БЗЗЗ! Не забудьте про диету расы ниан!
 - Хлопковое тесто = 5 муки, 10 ткани, 10 воды
@@ -16,39 +16,39 @@
 - Хлопковая пицца: приготовьте в микроволновке 1 хлопковое тесто и 4 хлопковых шарика на протяжении 30 секунд
 
 ## Завтраки
-<GuideMicrowaveGroupEmbed Group="Breakfast"/>
+<GuideADTMicrowaveGroupEmbed Group="Breakfast"/>
 
 ## Еда для Нианов
-<GuideMicrowaveGroupEmbed Group="Moth"/>
+<GuideADTMicrowaveGroupEmbed Group="Moth"/>
 
 ## Пасты & Лапша
-<GuideMicrowaveGroupEmbed Group="Pasta"/>
+<GuideADTMicrowaveGroupEmbed Group="Pasta"/>
 
 ## Выпечка & Десерты
-<GuideMicrowaveGroupEmbed Group="Dessert"/>
+<GuideADTMicrowaveGroupEmbed Group="Dessert"/>
 
 ## Супы & Рагу
-<GuideMicrowaveGroupEmbed Group="Soup"/>
+<GuideADTMicrowaveGroupEmbed Group="Soup"/>
 
 ## Пироги & Тарталетки
-<GuideMicrowaveGroupEmbed Group="Pie"/>
+<GuideADTMicrowaveGroupEmbed Group="Pie"/>
 
 ## Батончики & Печенье
-<GuideMicrowaveGroupEmbed Group="BarsAndCookies"/>
+<GuideADTMicrowaveGroupEmbed Group="BarsAndCookies"/>
 
 ## Торты
-<GuideMicrowaveGroupEmbed Group="Cake"/>
+<GuideADTMicrowaveGroupEmbed Group="Cake"/>
 
 ## Салаты
-<GuideMicrowaveGroupEmbed Group="Salad"/>
+<GuideADTMicrowaveGroupEmbed Group="Salad"/>
 
 ## Лекарства
-<GuideMicrowaveGroupEmbed Group="Medicinal"/>
+<GuideADTMicrowaveGroupEmbed Group="Medicinal"/>
 
 ## Другие
-<GuideMicrowaveGroupEmbed Group="Other"/>
+<GuideADTMicrowaveGroupEmbed Group="Other"/>
 
 ## Секрет
-<GuideMicrowaveGroupEmbed Group="Secret"/>
+<GuideADTMicrowaveGroupEmbed Group="Secret"/>
 
 </Document>

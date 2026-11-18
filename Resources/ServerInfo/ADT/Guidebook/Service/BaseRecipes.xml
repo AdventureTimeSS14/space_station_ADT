@@ -38,5 +38,5 @@
 
 <GuideADTCookingGroupEmbed Group="Base"/>
 
-<GuideMicrowaveGroupEmbed Group="Base"/>
+<GuideADTMicrowaveGroupEmbed Group="Base"/>
 </Document>

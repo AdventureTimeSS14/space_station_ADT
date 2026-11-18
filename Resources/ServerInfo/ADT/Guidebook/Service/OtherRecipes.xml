@@ -5,6 +5,6 @@
 Центральное управление кулинарии NanoTrasen все еще обдумывает классификацию этих рецептов.
 <GuideADTCookingGroupEmbed Group="Other"/>
 
-<GuideMicrowaveGroupEmbed Group="Other"/>
+<GuideADTMicrowaveGroupEmbed Group="Other"/>
 
 </Document>
