@@ -389,13 +389,6 @@ entities:
     - type: Transform
       pos: 4.5,12.5
       parent: 1
-- proto: ADTHeliumCanister
-  entities:
-  - uid: 59
-    components:
-    - type: Transform
-      pos: 7.5,13.5
-      parent: 1
 - proto: ADTRailingRusty
   entities:
   - uid: 60

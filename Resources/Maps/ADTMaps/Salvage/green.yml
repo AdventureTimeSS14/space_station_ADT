@@ -6072,13 +6072,6 @@ entities:
     - type: Transform
       pos: 33.866394,6.5646276
       parent: 1
-- proto: TritiumCanister
-  entities:
-  - uid: 1044
-    components:
-    - type: Transform
-      pos: 41.5,19.5
-      parent: 1
 - proto: WallReinforced
   entities:
   - uid: 1045
