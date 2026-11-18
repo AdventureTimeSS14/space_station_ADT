@@ -1,23 +1,23 @@
 ﻿<Document>
-  # Spacing
-  Spacing is the most common form of atmospheric upset that can occur on the station.
+  # Разгерметизация
+  Разгерметизация - самая частая атмосферная неполадка на станции.
 
-  While the damage that caused the spacing is often time-consuming to [textlink="fix" link="ExpandingRepairingStation"], the actual spacing problem can be quickly resolved by simply repressurizing the area.
+  Устранить повреждение, которое к ней привело, часто бывает долго, но с самой разгерметизацией можно быстро справиться, если просто снова наполнить помещение воздухом. О ремонте читайте в разделе [textlink="расширения и ремонта станции" link="ExpandingRepairingStation"].
 
-  Fixing spacing generally follows two simple steps:
+  Обычно разгерметизацию устраняют в два простых шага:
 
-  1. Identify the area that has been spaced and [textlink="seal the hole." link="ExpandingRepairingStation"]
+  1. Найдите разгерметизированное помещение и [textlink="заделайте дыру" link="ExpandingRepairingStation"].
 
-  - If you're having trouble finding the hole, you can carefully listen for the flow of air rushing by you, if air is currently leaking to space.
-  - Look for any holes underneath girders that may be hard to see.
+  - Если дыра никак не находится, а воздух всё ещё утекает в космос, прислушайтесь к потоку воздуха, который проносится мимо вас.
+  - Поищите дыры под балками, где их трудно заметить.
 
-  2. Repressurize the area.
+  2. Снова наполните помещение воздухом.
 
-  - [textlink="Air vents" link="AirVent"] enter pressure lockout in order not to lose more air to spacing, so you'll need to override the vents to repressurize the area. You can do this by setting the connected [textlink="air alarm" link="AirAlarms"] to fill, or by right-clicking on the vent and selecting 'Release pressure lock out' to manually override it temporarily.
+  - [textlink="Вентиляции" link="AirVent"] блокируются по давлению, чтобы не терять ещё больше воздуха в космос, поэтому их блокировку нужно снять. Для этого переведите подключённую [textlink="воздушную сигнализацию" link="AirAlarms"] в режим заполнения или нажмите на вентиляцию правой кнопкой и выберите "Снять блокировку по давлению", чтобы временно снять её вручную.
 
-  ## Things to Avoid
-  - Keep in mind that while you have an infinite supply of [textlink="mined gas" link="GasMiningAndStorage"], it is not quick enough to fill up multiple rooms at once. Setting [textlink="air alarms" link="AirAlarms"] to fill first [italic]before[/italic] fixing the root problem will often lead to wasted time and gas.
+  ## Чего не стоит делать
+  - Помните, что запас [textlink="добываемого газа" link="GasMiningAndStorage"] бесконечен, но поступает он не настолько быстро, чтобы заполнить сразу несколько комнат. Если перевести [textlink="воздушные сигнализации" link="AirAlarms"] в режим заполнения [italic]до того[/italic], как устранена причина, вы обычно потратите впустую и время, и газ.
 
-  - Leaving [textlink="air alarms" link="AirAlarms"] on the Fill mode unsupervised may lead to overpressuring a room, which can potentially harm crew if it gets out of hand.
+  - Если оставить [textlink="воздушные сигнализации" link="AirAlarms"] в режиме заполнения без присмотра, давление в комнате может стать слишком высоким, и если вовремя этого не заметить, оно может навредить экипажу.
 
 </Document>

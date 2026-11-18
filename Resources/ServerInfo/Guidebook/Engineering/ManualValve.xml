@@ -1,15 +1,15 @@
 ﻿<Document>
-  # Manual Valve
-  The manual valve is as simple as it gets.
-  Allows or blocks the flow of gasses depending on if it's open or closed.
+  # Ручной клапан
+  Ручной клапан - самый простой из всех.
+  Если он открыт, газ проходит, а если закрыт, нет.
   <Box>
     <GuideEntityEmbed Entity="GasValve"/>
   </Box>
 
-  Gas can freely flow between both sides with no restrictions.
+  Газ свободно проходит через открытый клапан в обе стороны.
 
-  Manual valves are used in a variety of applications, for example:
-  - Allowing or blocking the bypass of a recyclernet, to space waste gas directly
-  - Connecting or isolating heaters/coolers from the station's distro
+  Ручные клапаны применяются для разных задач, например:
+  - чтобы открывать или перекрывать обход сети переработки, когда отработанный газ нужно сразу выпустить в космос;
+  - чтобы подключать нагреватели и охладители к распределительной сети станции или отключать их от неё.
 
 </Document>

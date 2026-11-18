@@ -170,10 +170,6 @@
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
-  # ADT-Tweak-Start
-  - type: ADTInjectionSlowdown
-    requiresHelmet: false
-  # ADT-Tweak-End
   - type: PressureProtection
     highPressureMultiplier: 0.3
   - type: ClothingSpeedModifier

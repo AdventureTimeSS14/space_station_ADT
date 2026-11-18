@@ -31,6 +31,6 @@
 
 Это список всех имеющихся лекарств, включая ранее перечисленные.
 
-<GuideReagentGroupEmbed Group="Medicine"/>
+<GuideADTReagentGroupEmbed Group="Medicine"/>
 
 </Document>
