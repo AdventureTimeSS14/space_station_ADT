@@ -4,7 +4,7 @@ ent-ActionVampireSelectClass = [color=purple]Выбрать класс[/color]
 ent-ActionDrinkBlood = [color=purple]Укус[/color]
     .desc = Попытаться выпить кровь у гуманоидной цели.
 ent-ActionVampireRejuvenate = [color=purple]Восстановление[/color]
-    .desc = Твой второй шанс, твое второе дыхание.
+    .desc = Твой второй шанс, твое второе дыхание. Снимает оглушение и болы, восстанавливает стамину.
 ent-ActionVampireGlare = [color=purple]Взгляд[/color]
     .desc = Поразите свою жертву лучом яркого света так, чтобы она потеряла сознание.
 

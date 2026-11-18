@@ -9,6 +9,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -42,11 +43,6 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
-    private static readonly EntProtoId BelieverAction = "ActionChaplainBeliever";
-    private static readonly EntProtoId ShieldAction = "ActionChaplainHolyShield";
-    private static readonly EntProtoId HolyTouchAction = "ActionChaplainHolyWater";
-    private static readonly EntProtoId ExorcismAction = "ActionChaplainExorcism";
-    private static readonly EntProtoId BlessingAction = "ActionChaplainBlessing";
     private static readonly EntProtoId ExorcismSlowdownEffect = "BasicSlowdownStatusEffect";
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     private const string CandleId = "Candle";
@@ -105,21 +101,23 @@ public abstract partial class SharedChaplainSystem : EntitySystem
     {
         ent.Comp.NextRegen = _timing.CurTime + ent.Comp.RegenDelay;
 
-        _actions.AddAction(ent.Owner, ref ent.Comp.BelieverActionEntity, BelieverAction);
-        _actions.AddAction(ent.Owner, ref ent.Comp.ShieldActionEntity, ShieldAction);
-        _actions.AddAction(ent.Owner, ref ent.Comp.HolyTouchActionEntity, HolyTouchAction);
-        _actions.AddAction(ent.Owner, ref ent.Comp.ExorcismActionEntity, ExorcismAction);
-        _actions.AddAction(ent.Owner, ref ent.Comp.BlessingActionEntity, BlessingAction);
+        foreach (var action in ent.Comp.Actions)
+        {
+            if (_actions.AddAction(ent.Owner, action) is { } added)
+                ent.Comp.ActionEntities.Add(added);
+        }
+
         Dirty(ent);
     }
 
     private void OnShutdown(Entity<ChaplainComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent.Owner, ent.Comp.BelieverActionEntity);
-        _actions.RemoveAction(ent.Owner, ent.Comp.ShieldActionEntity);
-        _actions.RemoveAction(ent.Owner, ent.Comp.HolyTouchActionEntity);
-        _actions.RemoveAction(ent.Owner, ent.Comp.ExorcismActionEntity);
-        _actions.RemoveAction(ent.Owner, ent.Comp.BlessingActionEntity);
+        foreach (var action in ent.Comp.ActionEntities)
+        {
+            _actions.RemoveAction(ent.Owner, action);
+        }
+
+        ent.Comp.ActionEntities.Clear();
         _alerts.ClearAlert(ent.Owner, ent.Comp.Alert);
 
         foreach (var follower in ent.Comp.Followers)
@@ -193,9 +191,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
     private void UpdateAlert(Entity<ChaplainComponent> ent)
     {
-        var ratio = ent.Comp.MaxFaith > 0 ? (ent.Comp.Faith / ent.Comp.MaxFaith).Float() : 0f;
-        var severity = (short) Math.Clamp(MathF.Round(ratio * 5f), 0, 5);
-        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert, severity);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     #region Followers
@@ -283,6 +279,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
         ent.Comp.Followers.Add(target);
         Dirty(ent);
+        SpawnHolyEffect(ent.Comp.BelieverEffect, target);
 
         _popup.PopupEntity(Loc.GetString("chaplain-believer-success-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
         _popup.PopupEntity(Loc.GetString("chaplain-believer-success-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
@@ -303,6 +300,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         args.Handled = true;
         GrantHolyShield(ent, ent.Comp.ShieldDuration);
         _audio.PlayPredicted(ent.Comp.ShieldSound, ent, ent);
+        SpawnHolyEffect(ent.Comp.ShieldEffect, ent);
         _popup.PopupClient(Loc.GetString("chaplain-holy-shield-start"), ent, ent);
     }
 
@@ -318,12 +316,14 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         var target = args.Target;
 
         _audio.PlayPredicted(ent.Comp.ExorcismSound, target, ent);
+        SpawnHolyEffect(ent.Comp.ExorcismEffect, target);
         _popup.PopupClient(Loc.GetString("chaplain-exorcism-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
 
         if (!TryComp<HolyAffectedComponent>(target, out var holy))
             return;
 
         _damageable.TryChangeDamage(target, ent.Comp.ExorcismDamage, origin: ent);
+        TryDealHolyDamage(target, ent.Comp.ExorcismDamage, ent);
         _movementMod.TryUpdateMovementSpeedModDuration(target, ExorcismSlowdownEffect, ent.Comp.ExorcismSlowdown, ent.Comp.ExorcismSlowdownMultiplier);
 
         if (holy.Suppressible)
@@ -344,11 +344,18 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         var target = args.Target;
 
         _audio.PlayPredicted(ent.Comp.BlessingSound, target, ent);
+        SpawnHolyEffect(ent.Comp.BlessingEffect, target);
         _popup.PopupClient(Loc.GetString("chaplain-blessing-self", ("target", Identity.Entity(target, EntityManager))), ent, ent);
         _popup.PopupEntity(Loc.GetString("chaplain-blessing-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
 
         if (!HasComp<HolyAffectedComponent>(target))
             _groupHeal.Heal(target, null, ent.Comp.BlessingHeal, origin: ent);
+    }
+
+    private void SpawnHolyEffect(EntProtoId? effect, EntityUid target)
+    {
+        if (effect is { } proto)
+            PredictedSpawnAttachedTo(proto, target.ToCoordinates());
     }
 
     public void GrantHolyShield(EntityUid uid, TimeSpan duration)
@@ -436,6 +443,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
         ChangeFaith((ent.Owner, ent.Comp), -ent.Comp.HolyWaterCost);
         _popup.PopupClient(Loc.GetString("chaplain-candle-transform-success", ("target", Identity.Entity(candle, EntityManager))), ent, ent);
+        SpawnHolyEffect(ent.Comp.HolyTouchEffect, candle);
         _audio.PlayPredicted(ent.Comp.HolyWaterSoundPath, ent, ent);
         return true;
     }
@@ -463,6 +471,7 @@ public abstract partial class SharedChaplainSystem : EntitySystem
 
         ChangeFaith((ent.Owner, ent.Comp), -ent.Comp.HolyWaterCost);
         _popup.PopupClient(Loc.GetString("chaplain-holy-water-success", ("target", Identity.Entity(target, EntityManager))), ent, ent);
+        SpawnHolyEffect(ent.Comp.HolyTouchEffect, target);
         _audio.PlayPredicted(ent.Comp.HolyWaterSoundPath, ent, ent);
     }
 

@@ -9,6 +9,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.ADT.Chaplain.Systems;
 using Content.Shared.ADT.Vampire.Components;
 using Content.Shared.Body;
 using Content.Shared.Damage;
@@ -24,6 +25,7 @@ namespace Content.Shared.ADT.Vampire;
 public abstract partial class SharedVampireSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedChaplainSystem _sharedChaplain = default!;
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private SharedPopupSystem _sharedPopup = default!;
@@ -60,14 +62,15 @@ public abstract partial class SharedVampireSystem : EntitySystem
         return component.CurrentBlood >= adjustedQuantity;
     }
 
-    public bool TryAddBlood(VampireComponent component, FixedPoint2 quantity, out FixedPoint2 newAmount)
+    public bool TryAddBlood(Entity<VampireComponent> ent, FixedPoint2 quantity, out FixedPoint2 newAmount)
     {
-        newAmount = component.CurrentBlood + quantity;
+        newAmount = ent.Comp.CurrentBlood + quantity;
         if (quantity <= 0)
             return false;
 
-        component.CurrentBlood = newAmount;
-        component.TotalBloodDrank += (float)quantity;
+        ent.Comp.CurrentBlood = newAmount;
+        ent.Comp.TotalBloodDrank += (float)quantity;
+        _sharedChaplain.SetHolyPower(ent, ent.Comp.TotalBloodDrank);
         return true;
     }
 

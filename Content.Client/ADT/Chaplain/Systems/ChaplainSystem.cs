@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Chaplain.Systems;
+using Content.Shared.Alert.Components;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -23,6 +24,15 @@ public sealed class ChaplainSystem : SharedChaplainSystem
         SubscribeLocalEvent<ChaplainFollowerComponent, GetStatusIconsEvent>(OnFollowerStatusIcons);
         SubscribeLocalEvent<HolyShieldComponent, ComponentStartup>(OnShieldStartup);
         SubscribeLocalEvent<HolyShieldComponent, ComponentShutdown>(OnShieldShutdown);
+        SubscribeLocalEvent<ChaplainComponent, GetGenericAlertCounterAmountEvent>(OnGetFaithCounter);
+    }
+
+    private void OnGetFaithCounter(Entity<ChaplainComponent> ent, ref GetGenericAlertCounterAmountEvent args)
+    {
+        if (args.Handled || args.Alert.ID != ent.Comp.Alert)
+            return;
+
+        args.Amount = ent.Comp.Faith.Int();
     }
 
     private void OnChaplainStatusIcons(Entity<ChaplainComponent> ent, ref GetStatusIconsEvent args)

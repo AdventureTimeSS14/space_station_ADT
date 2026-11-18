@@ -118,7 +118,7 @@ public abstract partial class SharedChaplainSystem
     private void ApplyPrayer(EntityUid user, Entity<ChaplainComponent> chaplain, ChaplainPrayerPrototype prayer)
     {
         if (prayer.Effect is { } effect)
-            SpawnAttachedTo(effect, Transform(user).Coordinates);
+            SpawnHolyEffect(effect, user);
 
         if (prayer.Sound is { } sound)
             _audio.PlayPvs(sound, user);

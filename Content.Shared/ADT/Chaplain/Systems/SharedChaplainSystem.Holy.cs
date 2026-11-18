@@ -3,6 +3,7 @@ using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Bible.Components;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
@@ -16,11 +17,51 @@ public abstract partial class SharedChaplainSystem
     [Dependency] private ISharedAdminLogManager _adminLog = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
 
+    private const string HolyDamageType = "Holy";
+    private const string HolyBurnDamageType = "Heat";
+
     private void InitializeHoly()
     {
         SubscribeLocalEvent<HolyAffectedComponent, DamageDealtEvent>(OnHolyAffectedDamageDealt);
         SubscribeLocalEvent<HolySuppressionComponent, RejuvenateEvent>(OnSuppressionRejuvenate);
         SubscribeLocalEvent<HolyShieldComponent, BeforeCastTouchSpellEvent>(OnShieldTouchSpell);
+    }
+
+    public float GetHolyVulnerability(EntityUid target)
+    {
+        if (!TryComp<HolyAffectedComponent>(target, out var holy) || holy.Power < holy.MinPower)
+            return 0f;
+
+        var vulnerability = holy.BaseVulnerability + (holy.Power - holy.MinPower) * holy.VulnerabilityPerPower;
+        return MathF.Min(vulnerability, holy.MaxVulnerability);
+    }
+
+    public void SetHolyPower(EntityUid target, float power)
+    {
+        if (!TryComp<HolyAffectedComponent>(target, out var holy) || holy.Power == power)
+            return;
+
+        holy.Power = power;
+        Dirty(target, holy);
+    }
+
+    public bool TryDealHolyDamage(EntityUid target, DamageSpecifier damage, EntityUid? origin)
+    {
+        return damage.DamageDict.TryGetValue(HolyDamageType, out var holy) && TryDealHolyDamage(target, holy, origin);
+    }
+
+    public bool TryDealHolyDamage(EntityUid target, FixedPoint2 holy, EntityUid? origin)
+    {
+        if (holy <= FixedPoint2.Zero)
+            return false;
+
+        var multiplier = GetHolyVulnerability(target) * GetHolyMultiplier(origin);
+        if (multiplier <= 0f)
+            return false;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add(HolyBurnDamageType, holy * multiplier);
+        return _damageable.TryChangeDamage(target, damage, ignoreResistances: true, origin: origin);
     }
 
     private void OnShieldTouchSpell(Entity<HolyShieldComponent> ent, ref BeforeCastTouchSpellEvent args)

@@ -23,4 +23,19 @@ public sealed partial class HolyAffectedComponent : Component
 
     [DataField, AutoNetworkedField]
     public FixedPoint2? SuppressionRecovery;
+
+    [DataField, AutoNetworkedField]
+    public float Power;
+
+    [DataField, AutoNetworkedField]
+    public float MinPower;
+
+    [DataField, AutoNetworkedField]
+    public float BaseVulnerability = 1f;
+
+    [DataField, AutoNetworkedField]
+    public float VulnerabilityPerPower;
+
+    [DataField, AutoNetworkedField]
+    public float MaxVulnerability = 1f;
 }

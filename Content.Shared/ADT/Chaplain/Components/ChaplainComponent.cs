@@ -58,6 +58,9 @@ public sealed partial class ChaplainComponent : Component
     public SoundSpecifier ShieldSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/holy_shield.ogg");
 
     [DataField]
+    public EntProtoId? ShieldEffect = "ADTEffectHolyWave";
+
+    [DataField]
     public FixedPoint2 ExorcismCost = 3;
 
     [DataField]
@@ -82,6 +85,9 @@ public sealed partial class ChaplainComponent : Component
     public SoundSpecifier ExorcismSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/exorcism.ogg");
 
     [DataField]
+    public EntProtoId? ExorcismEffect = "ADTEffectHolySmite";
+
+    [DataField]
     public FixedPoint2 BlessingCost = 2;
 
     [DataField]
@@ -98,10 +104,19 @@ public sealed partial class ChaplainComponent : Component
     public SoundSpecifier BlessingSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/blessing.ogg");
 
     [DataField]
+    public EntProtoId? BlessingEffect = "ADTEffectHolyBlessing";
+
+    [DataField]
     public FixedPoint2 HolyWaterCost = 2;
 
     [DataField]
     public SoundSpecifier HolyWaterSoundPath = new SoundPathSpecifier("/Audio/Effects/holy.ogg");
+
+    [DataField]
+    public EntProtoId? HolyTouchEffect = "ADTEffectHolyTwinkle";
+
+    [DataField]
+    public EntProtoId? BelieverEffect = "ADTEffectHolyHalo";
 
     [DataField]
     public ProtoId<ReagentPrototype> WaterSolution = "Water";
@@ -121,20 +136,18 @@ public sealed partial class ChaplainComponent : Component
     [DataField]
     public FixedPoint2 RevenantSelfDamage = 10;
 
-    [DataField, AutoNetworkedField]
-    public EntityUid? BelieverActionEntity;
+    [DataField]
+    public List<EntProtoId> Actions = new()
+    {
+        "ActionChaplainBeliever",
+        "ActionChaplainHolyShield",
+        "ActionChaplainHolyWater",
+        "ActionChaplainExorcism",
+        "ActionChaplainBlessing",
+    };
 
     [DataField, AutoNetworkedField]
-    public EntityUid? ShieldActionEntity;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? HolyTouchActionEntity;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ExorcismActionEntity;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? BlessingActionEntity;
+    public List<EntityUid> ActionEntities = new();
 
     [ViewVariables]
     public Dictionary<ProtoId<ChaplainPrayerPrototype>, TimeSpan> PrayerCooldowns = new();

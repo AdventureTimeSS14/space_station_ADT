@@ -72,6 +72,7 @@ public sealed partial class VampireSystem
 
         TryRemoveKnockdown(args.Performer);
         ResetStamina(args.Performer);
+        _ensnareable.ForceFreeAll(args.Performer);
 
         if (args.Advanced || ent.Comp.CurrentBlood >= args.BloodCost)
         {

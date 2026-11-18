@@ -58,6 +58,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.SSDIndicator;
 using Content.Shared.StatusEffectNew;
@@ -157,6 +158,35 @@ public sealed partial class VampireSystem : SharedVampireSystem
         // Drinking Blood
         SubscribeLocalEvent<VampireComponent, VampireDrinkingBloodActionEvent>(OnDrinkBlood);
         SubscribeLocalEvent<VampireComponent, VampireDrinkingBloodDoAfterEvent>(DrinkDoAfter);
+
+        SubscribeLocalEvent<VampireComponent, PolymorphedEvent>(OnVampirePolymorphed);
+    }
+
+    private void OnVampirePolymorphed(Entity<VampireComponent> ent, ref PolymorphedEvent args)
+    {
+        if (args.IsRevert)
+            return;
+
+        CopyVision(ent.Owner, args.NewEntity);
+    }
+
+    private void CopyVision(EntityUid from, EntityUid to)
+    {
+        if (TryComp<EyeComponent>(from, out var fromEye) && TryComp<EyeComponent>(to, out var toEye))
+            _eye.SetDrawFov(to, fromEye.DrawFov, toEye);
+
+        if (!TryComp<NightVisionComponent>(from, out var fromVision))
+            return;
+
+        var toVision = EnsureComp<NightVisionComponent>(to);
+        _nightVision.SetVision((to, toVision),
+            fromVision.Shader,
+            fromVision.EffectPrototype,
+            fromVision.Tint,
+            fromVision.Overlay,
+            fromVision.Innate);
+        _nightVision.SetActive((to, toVision), fromVision.State == NightVisionState.Full, fromVision.Overlay);
+        _nightVision.SetToggleAction((to, toVision), fromVision.ToggleAction);
     }
 
     public override void Update(float frameTime)
@@ -725,7 +755,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
         if (ancient || component.CurrentEvolution == VampireClassEnum.Hemomancer)
         {
-            if (TryAddBlood(component, 5, out _))
+            if (TryAddBlood((uid, component), 5, out _))
             {
                 Dirty(uid, component);
                 _alerts.UpdateAlert(uid, component.BloodAlert);
@@ -815,7 +845,7 @@ public sealed partial class VampireSystem : SharedVampireSystem
         var bonus = stomachCount * 0.25;
         quantity += bonus;
 
-        if (TryAddBlood(vampire.Comp, quantity, out _))
+        if (TryAddBlood((vampire.Owner, vampire.Comp), quantity, out _))
         {
             Dirty(vampire.Owner, vampire.Comp);
             _alerts.UpdateAlert(vampire.Owner, vampire.Comp.BloodAlert);
@@ -1048,13 +1078,18 @@ public sealed partial class VampireSystem : SharedVampireSystem
 
     private void MakeUnholy(EntityUid uid)
     {
-        if (TryComp<VampireComponent>(uid, out var vampire) && vampire.Variant != VampireVariant.Classic)
+        if (!TryComp<VampireComponent>(uid, out var vampire))
         {
-            _chaplain.SetHolyAffected(uid, false, true, true, 5, 2, 1);
+            _chaplain.SetHolyAffected(uid, false, true, true);
             return;
         }
 
-        _chaplain.SetHolyAffected(uid, false, true, true);
+        if (vampire.Variant != VampireVariant.Classic)
+            _chaplain.SetHolyAffected(uid, false, true, true, 5, 2, 1);
+        else
+            _chaplain.SetHolyAffected(uid, false, true, true);
+
+        _chaplain.SetHolyPower(uid, vampire.TotalBloodDrank);
     }
 
     private bool IsProtectedByFaith(EntityUid target, Entity<VampireComponent> vampire)

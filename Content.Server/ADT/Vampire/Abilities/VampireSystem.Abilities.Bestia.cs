@@ -14,6 +14,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.Polymorph.Components;
 using Content.Shared.ADT.Damage.Components;
 using Content.Shared.ADT.Genetics.Components;
+using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Projectiles;
 using Content.Shared.ADT.Vampire;
 using Content.Shared.ADT.Vampire.Components;
@@ -737,6 +738,9 @@ public sealed partial class VampireSystem
 
         if (TryComp(args.NewEntity, out VampireComponent? vampire))
             AddActions((args.NewEntity, vampire), args.NewEntity);
+
+        if (TryComp<NightVisionComponent>(ent, out var formVision) && TryComp<NightVisionComponent>(args.NewEntity, out var bodyVision))
+            _nightVision.SetActive((args.NewEntity, bodyVision), formVision.State == NightVisionState.Full, bodyVision.Overlay);
     }
 
     private void OnResonantShriek(Entity<VampirePolymorphComponent> ent, ref VampireResonantShriekActionEvent args)

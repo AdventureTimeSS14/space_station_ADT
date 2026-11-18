@@ -35,6 +35,12 @@
     - MobIpc
     - NovakidGlowing
   components:
+  - type: HolyAffected
+    piercing: false
+    bibleSmite: true
+    suppressible: true
+    vulnerabilityPerPower: 0.001
+    maxVulnerability: 2
   - type: Vampire
   - type: RevolutionaryImmune
   - type: ZombieImmune
