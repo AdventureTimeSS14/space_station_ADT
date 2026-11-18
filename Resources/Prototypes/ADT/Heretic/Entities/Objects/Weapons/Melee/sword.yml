@@ -4,7 +4,6 @@
   parent: [ BaseSword, BaseMagicContraband ]
   id: RaggedSword
   components:
-  - type: RaggedSword
   - type: Sprite
     sprite: ADT/Heretic/Entities/sword.rsi
     state: icon

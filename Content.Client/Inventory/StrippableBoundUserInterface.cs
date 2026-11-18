@@ -297,6 +297,11 @@ namespace Content.Client.Inventory
 
             var entity = container.ContainedEntity;
 
+            // ADT-Tweak-Start
+            if (entity != null && EntMan.HasComponent<Content.Shared.ADT.Heretic.Components.StripMenuInvisibleComponent>(entity.Value))
+                return;
+            // ADT-Tweak-End
+
             // If this is a full pocket, obscure the real entity
             // this does not work for modified clients because they are still sent the real entity
             if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity))

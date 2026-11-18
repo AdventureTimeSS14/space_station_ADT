@@ -1,76 +1,47 @@
-using System.Linq;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Humanoid;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Timing;
+using Content.Shared.Hands;
+using Content.Shared.StatusEffectNew;
+using Robust.Shared.Network;
 
 namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed partial class RaggedSwordSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RaggedSwordComponent, MeleeHitEvent>(OnMeleeHit, after: new[] { typeof(MobStateSystem) });
+        SubscribeLocalEvent<RaggedSwordComponent, GotEquippedHandEvent>(OnEquippedHand);
+        SubscribeLocalEvent<RaggedSwordComponent, GotUnequippedHandEvent>(OnUnequippedHand);
+        SubscribeLocalEvent<RaggedSwordComponent, ComponentRemove>(OnRemove);
     }
 
-    private void OnMeleeHit(Entity<RaggedSwordComponent> ent, ref MeleeHitEvent args)
+    private void OnEquippedHand(Entity<RaggedSwordComponent> ent, ref GotEquippedHandEvent args)
     {
-        var owner = args.User;
-        var amount = ent.Comp.MaxHealthPerKill;
-        var victims = args.HitEntities.ToList();
+        if (!_net.IsServer)
+            return;
 
-        Timer.Spawn(50, () => GrantForKills(owner, amount, victims));
+        ent.Comp.User = args.User;
+        _status.TrySetStatusEffectDuration(args.User, ent.Comp.StatusEffect);
     }
 
-    private void GrantForKills(EntityUid owner, float amount, List<EntityUid> victims)
+    private void OnUnequippedHand(Entity<RaggedSwordComponent> ent, ref GotUnequippedHandEvent args)
     {
-        if (TerminatingOrDeleted(owner))
+        if (!_net.IsServer)
             return;
 
-        var killed = false;
-
-        foreach (var victim in victims)
-        {
-            if (TerminatingOrDeleted(victim) || victim == owner)
-                continue;
-
-            if (!HasComp<HumanoidProfileComponent>(victim))
-                continue;
-
-            if (TryComp<MobStateComponent>(victim, out var state) && _mobState.IsDead(victim, state))
-                killed = true;
-        }
-
-        if (killed)
-            GrantMaxHealth(owner, amount);
+        _status.TryRemoveStatusEffect(args.User, ent.Comp.StatusEffect);
+        ent.Comp.User = null;
     }
 
-    private void GrantMaxHealth(EntityUid owner, float amount)
+    private void OnRemove(Entity<RaggedSwordComponent> ent, ref ComponentRemove args)
     {
-        if (!TryComp<MobThresholdsComponent>(owner, out var thresholds))
+        if (!_net.IsServer || ent.Comp.User is not { } user)
             return;
 
-        foreach (var (damage, state) in thresholds.Thresholds.ToList())
-            _threshold.SetMobStateThreshold(owner, damage + amount, state, thresholds);
-
-        if (!TryComp<DamageableComponent>(owner, out var damageable))
-            return;
-
-        var heal = new DamageSpecifier();
-        foreach (var key in damageable.Damage.DamageDict.Keys.ToList())
-            heal.DamageDict[key] = -amount;
-
-        _damage.TryChangeDamage(owner, heal, true);
+        _status.TryRemoveStatusEffect(user, ent.Comp.StatusEffect);
     }
 }

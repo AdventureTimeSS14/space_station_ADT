@@ -146,3 +146,17 @@
   - type: GrantComponentsStatusEffect
     components:
     - type: BlurryVision
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectRaggedSwordRegen
+  name: ragged sword regen
+  components:
+  - type: ADTPeriodicEffectsStatusEffect
+    effects:
+    - !type:EvenHealthChange
+      damage:
+        Brute: -0.25
+        Burn: -0.25
+        Toxin: -0.25
+        Airloss: -0.25

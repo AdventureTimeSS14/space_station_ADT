@@ -431,7 +431,7 @@
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticRaggedSword
   name: ragged sword
-  description: This blade feels cold and faintly resonant. Its surface swims with impossible, fleeting geometries.
+  description: This blade feels cold and faintly resonant. Its surface swims with impossible, fleeting geometries. While held in hand, it slowly knits its wielder's wounds.
   components:
   - type: HereticMagicItem
   - type: Sprite
@@ -463,7 +463,6 @@
   - type: UseDelay
     delay: 0.8
   - type: RaggedSword
-    maxHealthPerKill: 25
   - type: Tag
     tags:
     - HereticItem

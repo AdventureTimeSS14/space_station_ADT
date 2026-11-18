@@ -47,7 +47,7 @@ public sealed partial class HereticInfluenceDreamSystem : EntitySystem
         if (!_heretic.TryGetHereticComponent(ent.Owner, out _, out _))
             return;
 
-        if (_random.Prob(_random.NextFloat(MinDreamChance, MaxDreamChance)))
+        if (!_random.Prob(_random.NextFloat(MinDreamChance, MaxDreamChance)))
             return;
 
         var here = _xform.GetMapCoordinates(ent.Owner);
@@ -65,13 +65,13 @@ public sealed partial class HereticInfluenceDreamSystem : EntitySystem
             var toShift = there.Position - here.Position;
             var distance = toShift.Length();
 
-            var direction = toShift.X switch
+            var direction = toShift switch
             {
-                > 0f when MathF.Abs(toShift.Y) < MathF.Abs(toShift.X) * 0.5f => Loc.GetString("heretic-track-east"),
-                < 0f when MathF.Abs(toShift.Y) < MathF.Abs(toShift.X) * 0.5f => Loc.GetString("heretic-track-west"),
-                > 0f when toShift.Y > 0f => Loc.GetString("heretic-track-northeast"),
-                < 0f when toShift.Y > 0f => Loc.GetString("heretic-track-northwest"),
-                > 0f => Loc.GetString("heretic-track-southeast"),
+                var v when MathF.Abs(v.X) < MathF.Abs(v.Y) * 0.5f => Loc.GetString(v.Y > 0f ? "heretic-track-north" : "heretic-track-south"),
+                var v when MathF.Abs(v.Y) < MathF.Abs(v.X) * 0.5f => Loc.GetString(v.X > 0f ? "heretic-track-east" : "heretic-track-west"),
+                var v when v.X > 0f && v.Y > 0f => Loc.GetString("heretic-track-northeast"),
+                var v when v.X < 0f && v.Y > 0f => Loc.GetString("heretic-track-northwest"),
+                var v when v.X > 0f => Loc.GetString("heretic-track-southeast"),
                 _ => Loc.GetString("heretic-track-southwest"),
             };
 

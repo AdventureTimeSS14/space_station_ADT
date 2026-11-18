@@ -281,6 +281,7 @@ knowledge-path-side-t1-bottle-desc =
 knowledge-path-side-t1-sword-name = ragged sword
 knowledge-path-side-t1-sword-desc =
     A blade that hums with something that is not quite a mind.
+    While held in hand, it slowly regenerates its wielder's health.
 knowledge-path-side-t1-envy-name = envy's knife
 knowledge-path-side-t1-envy-desc =
     Their success will be yours.
