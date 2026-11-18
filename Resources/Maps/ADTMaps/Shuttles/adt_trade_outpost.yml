@@ -245,8 +245,6 @@ entities:
             1: 1
         chunkSize: 4
     - type: GasTileOverlay
-    - type: IFF
-      flags: HideLabel
     - type: NavMap
     - type: RadiationGridResistance
     - type: ExplosionAirtightGrid
@@ -379,6 +377,7 @@ entities:
       - 44
       - 42
       - 45
+      - 533
       - 536
       - 537
       - 620
@@ -728,11 +727,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 12.5,-6.5
-  - uid: 67
-    components:
-    - type: Transform
-      parent: 2
-      pos: 10.5,-6.5
   - uid: 68
     components:
     - type: Transform
@@ -2438,12 +2432,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -1.5,-10.5
-  - uid: 397
-    components:
-    - type: Transform
-      parent: 2
-      rot: 3.141592653589793 rad
-      pos: 8.5,-5.5
   - uid: 398
     components:
     - type: Transform
@@ -2456,12 +2444,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 11.5,-6.5
-  - uid: 402
-    components:
-    - type: Transform
-      parent: 2
-      rot: 3.141592653589793 rad
-      pos: 8.5,-5.5
   - uid: 403
     components:
     - type: Transform
@@ -2492,12 +2474,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 8.5,-2.5
-  - uid: 412
-    components:
-    - type: Transform
-      parent: 2
-      rot: 3.141592653589793 rad
-      pos: 8.5,-5.5
   - uid: 413
     components:
     - type: Transform
@@ -3030,12 +3006,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 21.5,-3.5
-  - uid: 572
-    components:
-    - type: Transform
-      parent: 2
-      rot: 3.141592653589793 rad
-      pos: 8.5,-5.5
   - uid: 935
     components:
     - type: Transform
@@ -4582,6 +4552,9 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 10.5,-6.5
+    - type: DeviceNetwork
+      deviceLists:
+      - 19
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 625
@@ -7038,6 +7011,16 @@ entities:
     - type: Transform
       parent: 2
       pos: -8.5,-7.5
+- proto: WarpPoint
+  entities:
+  - uid: 397
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-3.5
+      parent: 2
+    - type: WarpPoint
+      location: Торговая Станция
 - proto: WindoorCargoLocked
   entities:
   - uid: 521
