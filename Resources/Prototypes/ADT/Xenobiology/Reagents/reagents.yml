@@ -163,6 +163,13 @@
 
 - type: reagent
   parent: BaseXenobioReagent
+  id: XenobioJellyAdamantine
+  name: xenobio-reagent-jelly-adamantine-name
+  desc: xenobio-reagent-jelly-adamantine-desc
+  color: "#005c33"
+
+- type: reagent
+  parent: BaseXenobioReagent
   id: XenobioHumanToxin
   name: xenobio-reagent-toxin-human-name
   desc: xenobio-reagent-toxin-human-desc
