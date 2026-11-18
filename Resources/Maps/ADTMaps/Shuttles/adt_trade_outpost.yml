@@ -553,6 +553,8 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 20
+      configurators:
+      - invalid
 - proto: APCBasic
   entities:
   - uid: 47
@@ -3877,6 +3879,8 @@ entities:
       deviceLists:
       - 18
       - 20
+      configurators:
+      - invalid
 - proto: FoodBoxDonkpocket
   entities:
   - uid: 164
@@ -4572,6 +4576,8 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 20
+      configurators:
+      - invalid
     - type: AtmosPipeColor
       color: '#0000FFFF'
 - proto: GasVentScrubber
@@ -4593,6 +4599,8 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 20
+      configurators:
+      - invalid
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 626
