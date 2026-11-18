@@ -39,7 +39,7 @@
 - type: guideEntry
   id: Changelings
   name: guide-entry-changelings
-  text: "/ServerInfo/ADT/Guidebook/Antagonist/Changelings.xml" # ADT-Tweak
+  text: "/ServerInfo/Guidebook/Antagonist/Changelings.xml"
 
 - type: guideEntry
   id: MinorAntagonists
