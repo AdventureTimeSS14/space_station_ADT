@@ -1,4 +1,4 @@
-﻿﻿using System.IO;
+﻿using System.IO;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -48,6 +48,7 @@ public sealed class MsgSponsorListInfo : NetMessage
     {
         var _listSponsors = new List<SponsorInfo>();
         var _itemsCount = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize((long) _itemsCount * NetMessageExt.MinSizeOfString);
         buffer.ReadPadBits();
         for (int i = 0; i <= _itemsCount - 1; i++)
         {

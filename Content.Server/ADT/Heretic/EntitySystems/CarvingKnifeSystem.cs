@@ -78,12 +78,15 @@ public sealed class CarvingKnifeSystem : EntitySystem
         SubscribeNetworkEvent<ButtonTagPressedEvent>(OnPressed);
     }
 
-    private void OnPressed(ButtonTagPressedEvent ev)
+    private void OnPressed(ButtonTagPressedEvent ev, EntitySessionEventArgs args)
     {
         if (ev.Id != CarvingAlertedStatusEffectComponent.Id)
             return;
 
-        if (!TryGetEntity(ev.User, out var ent))
+        if (args.SenderSession.AttachedEntity is not { Valid: true } user)
+            return;
+
+        if (!TryGetEntity(ev.User, out var ent) || ent != user)
             return;
 
         if (!_statusNew.TryEffectsWithComp<CarvingAlertedStatusEffectComponent>(ent.Value, out var effects) ||

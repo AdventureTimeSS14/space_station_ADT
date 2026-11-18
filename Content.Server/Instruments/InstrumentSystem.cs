@@ -149,6 +149,9 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         if (!TryComp(uid, out InstrumentComponent? instrument))
             return;
 
+        if (args.SenderSession.AttachedEntity != GetInstrumentPlayer(uid)) // ADT-Fix
+            return;
+
         instrument.MinVolume = msg.MinVolume;
 
         Dirty(uid, instrument);

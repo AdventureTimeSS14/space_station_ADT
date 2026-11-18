@@ -148,7 +148,7 @@ public sealed class MsgCanvasManifest : NetMessage
         Height = buffer.ReadUInt16();
 
         var count = buffer.ReadVariableInt32();
-        if (count < 0 || count > CanvasConstants.MaxTiles)
+        if (count < 0 || count > CanvasConstants.MaxTiles || !CanvasNetIO.HasBits(buffer, count * 10L))
         {
             Malformed = true;
             buffer.Position = buffer.LengthBits;
@@ -335,7 +335,7 @@ public sealed class MsgCanvasBlobRequest : NetMessage
         Painting = buffer.ReadGuid();
 
         var count = buffer.ReadVariableInt32();
-        if (count < 0 || count > CanvasConstants.MaxBlobRequest)
+        if (count < 0 || count > CanvasConstants.MaxBlobRequest || !CanvasNetIO.HasBits(buffer, count * 16L))
         {
             Malformed = true;
             buffer.Position = buffer.LengthBits;
@@ -478,7 +478,7 @@ public sealed class MsgCanvasViewInfo : NetMessage
         Thumb = CanvasNetIO.ReadContent(buffer);
 
         var count = buffer.ReadVariableInt32();
-        if (count < 0 || count > CanvasConstants.MaxTiles * 2)
+        if (count < 0 || count > CanvasConstants.MaxTiles * 2 || !CanvasNetIO.HasBits(buffer, count * 7L))
         {
             Malformed = true;
             buffer.Position = buffer.LengthBits;
@@ -530,7 +530,7 @@ public sealed class MsgCanvasInvalidate : NetMessage
         Painting = buffer.ReadGuid();
 
         var count = buffer.ReadVariableInt32();
-        if (count < 0 || count > CanvasConstants.MaxTiles * 2 + 1)
+        if (count < 0 || count > CanvasConstants.MaxTiles * 2 + 1 || !CanvasNetIO.HasBits(buffer, count * 16L))
         {
             Malformed = true;
             buffer.Position = buffer.LengthBits;
