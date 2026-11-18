@@ -3,3 +3,9 @@
   kind: source
   path: "/Textures/ADT/Shaders/light_visibility.swsl"
   light_mode: normal
+
+- type: shader
+  id: Datamosh
+  kind: source
+  path: "/Textures/ADT/Shaders/datamosh.swsl"
+  light_mode: normal

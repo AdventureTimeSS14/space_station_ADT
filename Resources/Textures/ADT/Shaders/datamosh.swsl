@@ -1,0 +1,128 @@
+uniform sampler2D PREV_TEXTURE;
+uniform sampler2D SCREEN_TEXTURE;
+
+uniform highp vec2  uResolution;              // viewport size in pixels
+uniform highp float uProgress;                // 0..1 transition
+uniform highp float uBlockSize;               // macroblock size in pixels
+uniform highp float uMotionStrength;          // how far old pixels get dragged
+uniform highp float uSmear;                   // 0..1 length of the motion trail
+uniform highp float uGlitch;                  // 0..1 block color artifacts / chroma bleed
+
+// --------------------------------------------------------------------- utils
+highp float hash21(highp vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
+
+highp float luma(highp vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
+
+highp vec3 samplePrev(highp vec2 uv) {
+    uv = clamp(uv, 0.0, 1.0);
+    uv.y = 1.0 - uv.y;
+
+    return texture(PREV_TEXTURE, uv).rgb;
+}
+
+highp vec3 sampleCurr(highp vec2 uv) {
+    return texture(SCREEN_TEXTURE, clamp(uv, 0.0, 1.0)).rgb;
+}
+
+// ------------------------------------------------- block motion estimation
+// Lucas-Kanade over a 3x3 tap grid inside the block. Returns motion in UV units.
+highp vec2 estimateMotion(highp vec2 blockCenterUV, highp vec2 blockUV) {
+    highp vec2 px = 1.0 / uResolution;
+    highp vec2 d  = px * 2.0;                       // gradient step
+
+    highp float sxx = 0.0, sxy = 0.0, syy = 0.0, sxt = 0.0, syt = 0.0;
+
+    for (int j = -1; j <= 1; j++) {
+        for (int i = -1; i <= 1; i++) {
+            vec2 p = blockCenterUV + vec2(float(i), float(j)) * blockUV * 0.33;
+
+            highp float ix = luma(sampleCurr(p + vec2(d.x, 0.0))) - luma(sampleCurr(p - vec2(d.x, 0.0)));
+            highp float iy = luma(sampleCurr(p + vec2(0.0, d.y))) - luma(sampleCurr(p - vec2(0.0, d.y)));
+            highp float it = luma(sampleCurr(p)) - luma(samplePrev(p));
+
+            sxx += ix * ix;  sxy += ix * iy;  syy += iy * iy;
+            sxt += ix * it;  syt += iy * it;
+        }
+    }
+
+    // Solve [sxx sxy; sxy syy] * v = -[sxt; syt], regularised so flat areas give ~0
+    highp float reg = 0.002;
+    highp float det = (sxx + reg) * (syy + reg) - sxy * sxy;
+    highp vec2 v = vec2(
+        -((syy + reg) * sxt - sxy * syt),
+        -((sxx + reg) * syt - sxy * sxt)
+    ) / det;
+
+    return clamp(v, vec2(-1.0), vec2(1.0));   // in "gradient step" units
+}
+
+// -------------------------------------------------------------------- main
+void fragment() {
+    highp vec2 uv = UV;
+
+    highp float progress = clamp(uProgress, 0.0, 1.0);
+
+    // Early outs: guarantee untouched source frames at the ends
+    if (progress <= 0.0) { COLOR = vec4(samplePrev(uv), 1.0); return; }
+    if (progress >= 1.0) { COLOR = vec4(sampleCurr(uv), 1.0); return; }
+
+    // ---- macroblock grid
+    highp vec2 blockUV     = uBlockSize / uResolution;
+    highp vec2 blockId     = floor(uv / blockUV);
+    highp vec2 blockCenter = (blockId + 0.5) * blockUV;
+
+    // Re-roll block noise a few times a second for a stuttery codec feel
+    highp float tick  = floor(TIME * 12.0);
+    highp float hBlk  = hash21(blockId);
+    highp float hTick = hash21(blockId + tick * 17.31);
+
+    // ---- motion vectors (per block)
+    highp vec2 mv = estimateMotion(blockCenter, blockUV);
+    highp vec2 drag = mv * (2.0 / uResolution) * uMotionStrength * 8.0;
+
+    // Mosh intensity peaks mid-transition, vanishes at both ends
+    highp float moshAmt = 4.0 * progress * (1.0 - progress);
+
+    // ---- drag the old frame along the motion (with a short trail)
+    highp vec3 moshed = vec3(0.0);
+    const int TAPS = 6;
+    for (int i = 0; i < TAPS; i++) {
+        highp float t = float(i) / float(TAPS - 1);
+        highp vec2 off = drag * moshAmt * (1.0 + t * uSmear * 3.0);
+        moshed += samplePrev(uv - off);
+    }
+    moshed /= float(TAPS);
+
+    // ---- chroma bleed + block colour artifacts
+    if (uGlitch > 0.0) {
+        highp vec2 ca = drag * moshAmt * 0.5 * uGlitch;
+        moshed.r = mix(moshed.r, samplePrev(uv - drag * moshAmt - ca).r, uGlitch);
+        moshed.b = mix(moshed.b, samplePrev(uv - drag * moshAmt + ca).b, uGlitch);
+
+        // Occasional blocks get crushed colour (broken macroblock look)
+        highp float bad = step(1.0 - 0.15 * uGlitch * moshAmt, hTick);
+        highp vec3 crushed = floor(moshed * 5.0) / 5.0;
+        moshed = mix(moshed, crushed.gbr * 0.9 + 0.05, bad);
+    }
+
+    // ---- block-wise refresh to the live frame
+    // Each block gets its own threshold; pixels inside a block get a soft edge.
+    highp float threshold = hBlk * 0.8;                       // 0..0.8, so all finish before 1.0
+    highp float local     = (progress - threshold) / 0.2;     // 0.2 = refresh window
+    highp float reveal    = smoothstep(0.0, 1.0, local);
+
+    // The live frame is itself pushed a little by the motion while it is
+    // being revealed, which hides the hard block seams.
+    highp vec3 live = sampleCurr(uv - drag * moshAmt * 0.25 * (1.0 - reveal));
+
+    highp vec3 col = mix(moshed, live, reveal);
+
+    // Last stretch: fade any leftover moshed pixels into the clean live frame
+    col = mix(col, sampleCurr(uv), smoothstep(0.9, 1.0, progress));
+
+    COLOR = vec4(col, 1.0);
+}
