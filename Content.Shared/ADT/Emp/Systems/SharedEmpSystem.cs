@@ -1,6 +1,4 @@
 using Content.Shared.ADT.EMP;
-using Content.Shared.Power.Components;
-using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Emp;
