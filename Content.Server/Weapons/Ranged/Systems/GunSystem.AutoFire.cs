@@ -33,7 +33,10 @@ public sealed partial class GunSystem
             {
                 var parent = TransformSystem.GetParentUid(uid);
                 if (HasComp<DamageableComponent>(parent))
-                    AttemptShoot(parent, (uid, gun), gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
+// ADT-Tweak Start
+//                     AttemptShoot(parent, (uid, gun), gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
+// ADT-Tweak End
+                    ContinueBurst(parent, (uid, gun)); // Starlight-edit: keep the burst's aim and shot counter
                 else
                     AttemptShoot((uid, gun));
             }

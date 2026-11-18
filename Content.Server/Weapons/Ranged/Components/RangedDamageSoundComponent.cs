@@ -7,7 +7,9 @@ namespace Content.Server.Weapons.Ranged.Components;
 /// <summary>
 /// Plays the specified sound upon receiving damage of that type.
 /// </summary>
-[RegisterComponent]
+// ADT-Tweak Start
+// [RegisterComponent]
+// ADT-Tweak End
 public sealed partial class RangedDamageSoundComponent : Component
 {
     // TODO: Limb damage changing sound type.

@@ -4,6 +4,8 @@ gun-selector-verb = Изменить на { $mode }
 gun-selected-mode = Выбран { $mode }
 gun-disabled = Вы не можете использовать оружие!
 gun-set-fire-mode = Выбран режим { $mode }
+Magazine = Магазин
+Chamber = Патронник
 gun-magazine-whitelist-fail = Это не помещается в оружие!
 gun-magazine-fired-empty = Нет патронов!
 # SelectiveFire
