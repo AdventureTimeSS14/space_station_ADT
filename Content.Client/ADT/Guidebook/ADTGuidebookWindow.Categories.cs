@@ -84,7 +84,7 @@ public sealed partial class ADTGuidebookWindow
             "Other",
             Loc.GetString("adt-guidebook-other"),
             Loc.GetString("adt-guidebook-other-description"),
-            new ResPath("/Textures/Interface/Misc/job_icons.rsi/Librarian.png"),
+            new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Librarian"),
             remaining.Where(id => !children.Contains(id)).OrderBy(GetEntryName).ToList());
         _categories.Add(other.Id, other);
 
@@ -168,5 +168,5 @@ public sealed partial class ADTGuidebookWindow
         return string.Join(" / ", names);
     }
 
-    private sealed record Category(string Id, string Name, string Description, ResPath Icon, List<string> Roots);
+    private sealed record Category(string Id, string Name, string Description, SpriteSpecifier Icon, List<string> Roots);
 }

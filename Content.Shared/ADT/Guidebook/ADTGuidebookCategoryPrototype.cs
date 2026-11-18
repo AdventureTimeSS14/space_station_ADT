@@ -17,7 +17,7 @@ public sealed partial class ADTGuidebookCategoryPrototype : IPrototype
     public LocId Description = default!;
 
     [DataField(required: true)]
-    public ResPath Icon;
+    public SpriteSpecifier Icon = default!;
 
     [DataField]
     public int Order;

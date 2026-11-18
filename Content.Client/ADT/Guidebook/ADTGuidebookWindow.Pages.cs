@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls.FancyTree;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -12,6 +13,8 @@ namespace Content.Client.ADT.Guidebook;
 
 public sealed partial class ADTGuidebookWindow
 {
+    [Dependency] private IEntityManager _entities = default!;
+
     private const int TreeIndent = 14;
     private const int MaxTreeDepth = 8;
 
@@ -168,7 +171,7 @@ public sealed partial class ADTGuidebookWindow
         };
         row.AddChild(new TextureRect
         {
-            Texture = _cache.GetTexture(category.Icon),
+            Texture = _entities.System<SpriteSystem>().Frame0(category.Icon),
             Stretch = TextureRect.StretchMode.KeepAspectCentered,
             SetSize = new Vector2(20, 20),
             VerticalAlignment = VAlignment.Center,
@@ -261,7 +264,7 @@ public sealed partial class ADTGuidebookWindow
         {
             row.AddChild(new TextureRect
             {
-                Texture = _cache.GetTexture(category.Icon),
+                Texture = _entities.System<SpriteSystem>().Frame0(category.Icon),
                 Stretch = TextureRect.StretchMode.KeepAspectCentered,
                 SetSize = new Vector2(28, 28),
                 VerticalAlignment = VAlignment.Center,

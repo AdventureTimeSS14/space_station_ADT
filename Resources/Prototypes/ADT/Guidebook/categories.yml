@@ -2,7 +2,9 @@
   id: Basics
   name: adt-guidebook-category-basics
   description: adt-guidebook-category-basics-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/Passenger.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Passenger
   order: 0
   entries:
   - NewPlayer
@@ -17,7 +19,9 @@
   id: MartialArts
   name: adt-guidebook-category-martial-arts
   description: adt-guidebook-category-martial-arts-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/Boxer.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Boxer
   order: 1
   entries:
   - ADTMartialArts
@@ -26,7 +30,9 @@
   id: Crew
   name: adt-guidebook-category-crew
   description: adt-guidebook-category-crew-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/HeadOfPersonnel.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: HeadOfPersonnel
   order: 2
   entries:
   - Command
@@ -38,7 +44,9 @@
   id: Engineering
   name: adt-guidebook-category-engineering
   description: adt-guidebook-category-engineering-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/StationEngineer.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: StationEngineer
   order: 3
   entries:
   - Construction
@@ -54,7 +62,9 @@
   id: Medical
   name: adt-guidebook-category-medical
   description: adt-guidebook-category-medical-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/MedicalDoctor.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: MedicalDoctor
   order: 4
   entries:
   - MedicalDoctor
@@ -69,7 +79,9 @@
   id: Science
   name: adt-guidebook-category-science
   description: adt-guidebook-category-science-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/Scientist.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Scientist
   order: 5
   entries:
   # - Technologies
@@ -84,7 +96,9 @@
   id: Security
   name: adt-guidebook-category-security
   description: adt-guidebook-category-security-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/SecurityOfficer.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: SecurityOfficer
   order: 6
   entries:
   - Forensics
@@ -98,7 +112,9 @@
   id: Cargo
   name: adt-guidebook-category-cargo
   description: adt-guidebook-category-cargo-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/CargoTechnician.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: CargoTechnician
   order: 7
   entries:
   - CargoBounties
@@ -109,7 +125,9 @@
   id: Service
   name: adt-guidebook-category-service
   description: adt-guidebook-category-service-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/Bartender.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Bartender
   order: 8
   entries:
   - Bartender
@@ -123,7 +141,9 @@
   id: References
   name: adt-guidebook-category-references
   description: adt-guidebook-category-references-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/Chemist.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Chemist
   order: 9
   entries:
   - MedicinalRecipes
@@ -138,7 +158,9 @@
   id: Antagonists
   name: adt-guidebook-category-antagonists
   description: adt-guidebook-category-antagonists-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/Syndicate.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Syndicate
   order: 10
   entries:
   - Traitors
@@ -159,7 +181,9 @@
   id: Lavaland
   name: adt-guidebook-category-lavaland
   description: adt-guidebook-category-lavaland-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/ShaftMiner.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: ShaftMiner
   order: 11
   entries:
   - ADTAshwalkers
@@ -169,6 +193,8 @@
   id: Rules
   name: adt-guidebook-category-rules
   description: adt-guidebook-category-rules-description
-  icon: /Textures/Interface/Misc/job_icons.rsi/Lawyer.png
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Lawyer
   order: 12
   rules: true
