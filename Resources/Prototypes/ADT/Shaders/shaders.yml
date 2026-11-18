@@ -215,3 +215,8 @@
   id: ADTHolyShieldShader
   kind: source
   path: "/Textures/ADT/Shaders/holy_shield.swsl"
+
+- type: shader
+  id: ADTVampirePoolShader
+  kind: source
+  path: "/Textures/ADT/Shaders/vampire_pool.swsl"
