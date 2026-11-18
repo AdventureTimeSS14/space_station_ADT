@@ -4,6 +4,7 @@ using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
+using Content.Shared.StatusEffectNew;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -24,7 +25,7 @@ public sealed class ADTMechSystem : SharedADTMechSystem
         base.Initialize();
 
         SubscribeLocalEvent<ADTMechComponent, EntInsertedIntoContainerMessage>(OnEquipmentInserted);
-        SubscribeLocalEvent<ADTMechComponent, EntRemovedFromContainerMessage>(OnEquipmentRemoved);
+        SubscribeLocalEvent<ADTMechComponent, EntRemovedFromContainerMessage>(OnEquipmentRemoved, after: new[] { typeof(StatusEffectsSystem) });
         SubscribeLocalEvent<MechThrusterComponent, AppearanceChangeEvent>(OnThrusterAppearance, after: new[] { typeof(MechSystem) });
     }
 
