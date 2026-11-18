@@ -313,6 +313,11 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private void OnActionsUpdated()
     {
+        // ADT-Tweak-Start
+        if (SelectingTargetFor is { } selecting)
+            _actionsSystem?.SetToggled(selecting, true);
+        // ADT-Tweak-End
+
         QueueWindowUpdate();
 
         if (_actionsSystem != null)
