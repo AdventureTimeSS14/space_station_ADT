@@ -36,6 +36,12 @@
   dummyPrototype: BorgChassisService
 
 - type: borgSubtype
+  parentBorgType: science
+  id: default_science
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisScience
+
+- type: borgSubtype
   parentBorgType: security
   id: default_security
   sprite: Mobs/Silicon/chassis.rsi
