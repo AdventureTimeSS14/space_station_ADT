@@ -34,5 +34,8 @@ accept-religion-window-deny-button = Отказаться
 # Обновление алтарей
 altar-only-chaplain-use = вы кладете предмет на алтарь, но ничего не происходит...
 chaplain-for-the-worthy = вы почувствовали шок от того, что не достойны этого орудия...
+chaplain-for-the-worthy-equip = Лишь достойный слуга веры может облачиться в это.
+chaplain-relic-required = Без святого креста вы бессильны.
 
 reagent-comp-condition-chaplain = священник
+unholy-ward-examine = [color=gold]Освящённый доспех ослабляет удары нечисти, пока на носителе святой крест.[/color]

@@ -2,6 +2,7 @@
   id: ActionChaplainBeliever
   categories: [ HideSpawnMenu ]
   components:
+  - type: RelicRequiredAction
   - type: Action
     itemIconStyle: BigAction
     useDelay: 5
@@ -22,6 +23,7 @@
   id: ActionChaplainHolyShield
   categories: [ HideSpawnMenu ]
   components:
+  - type: RelicRequiredAction
   - type: Action
     itemIconStyle: BigAction
     useDelay: 120
@@ -37,6 +39,7 @@
   id: ActionChaplainHolyWater
   categories: [ HideSpawnMenu ]
   components:
+  - type: RelicRequiredAction
   - type: Action
     itemIconStyle: BigAction
     useDelay: 30
@@ -54,6 +57,7 @@
   id: ActionChaplainExorcism
   categories: [ HideSpawnMenu ]
   components:
+  - type: RelicRequiredAction
   - type: Action
     itemIconStyle: BigAction
     useDelay: 30
@@ -75,6 +79,7 @@
   id: ActionChaplainBlessing
   categories: [ HideSpawnMenu ]
   components:
+  - type: RelicRequiredAction
   - type: Action
     itemIconStyle: BigAction
     useDelay: 45
@@ -90,3 +95,9 @@
       - MobState
     canTargetSelf: false
     event: !type:ChaplainBlessingActionEvent
+
+- type: entity
+  parent: ActionKnock
+  id: ADTActionCrusaderKnock
+  components:
+  - type: RelicRequiredAction

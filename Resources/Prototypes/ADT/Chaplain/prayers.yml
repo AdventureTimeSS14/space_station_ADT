@@ -71,3 +71,20 @@
   effects:
   - !type:ShieldPrayerEffect
     duration: 15
+
+- type: chaplainPrayer
+  id: DeusVult
+  text: Deus vult
+  role: Follower
+  cooldown: 180
+  chaplainRange: 10
+  whitelist:
+    components:
+    - Crusader
+  effect: ADTEffectHolyWave
+  sound: /Audio/ADT/Chaplain/follower_prayer.ogg
+  effects:
+  - !type:RallyPrayerEffect
+    range: 5
+    duration: 6
+    speedMultiplier: 1.25

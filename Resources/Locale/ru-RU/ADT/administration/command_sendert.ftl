@@ -27,7 +27,7 @@ ert-send-medical-announcer = оперцентра Департамента Сп�
 ert-send-janitor-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кратчайшие сроки.
 ert-send-janitor-announcer = оперцентра Департамента Специальных Операций NanoTrasen
 # ERT type: chaplain
-ert-send-chaplain-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кратчайшие сроки.
+ert-send-chaplain-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кратчайшие сроки.  Deus vult!
 ert-send-chaplain-announcer = оперцентра Департамента Специальных Операций NanoTrasen
 # ERT type: cbun
 ert-send-cbun-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кратчайшие сроки.
@@ -46,7 +46,7 @@ send-ert-hint-type-security = Отряд СБ ОБР
 send-ert-hint-type-engineer = Отряд инженеров ОБР
 send-ert-hint-type-medical = Отряд медиков ОБР
 send-ert-hint-type-janitor = Отряд уборщиков ОБР
-send-ert-hint-type-chaplain = Отряд священников ОБР
+send-ert-hint-type-chaplain = Орден крестоносцев
 send-ert-hint-type-cbrn = Отряд РХБЗЗ
 send-ert-hint-type-deathsquad = Отряд Эскадрона смерти
 send-ert-hint-type-denial = Отказ в вызове ОБР
