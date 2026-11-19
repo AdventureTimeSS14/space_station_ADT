@@ -1,5 +1,4 @@
-﻿#Пу-пу, чтобы сделать нормальную коллизию приходится не использовать паренты, увы
-- type: entity
+﻿- type: entity
   id: ADTThrusterMedium
   name: medium thruster
   parent: BaseThruster
@@ -31,8 +30,8 @@
   - type: ApcPowerReceiver
     powerLoad: 5000
   - type: Thruster
-    thrust: 480000 # ADT-Tweak 2560000 > 480000
-    basePowerLoad: 5000 # ADT-Tweak 10000 > 4500
+    thrust: 480000
+    basePowerLoad: 5000
     burnShape: ["-0.4,0.5","-0.1,1.7","1.1,1.7","1.4,0.5"]
     damage:
       types:
@@ -75,7 +74,7 @@
       machine_board: !type:Container
 
 - type: entity
-  id: ADTADTThrusterMediumDebug
+  id: ADTThrusterMediumDebug
   parent: ADTThrusterMedium
   name: medium thruster
   description: Big fuckin boy, BBBRRRROOOOOM.
@@ -195,8 +194,6 @@
         - LargeMobMask
         layer:
         - WallLayer
-  - type: ApcPowerReceiver
-    powerLoad: 1200
   - type: Sprite
     sprite: ADT/Structures/Machines/Thrusters/medium_long_thruster.rsi
     offset: 0, -1
@@ -219,7 +216,6 @@
       - -0.3,2.5
       - 0.3,2.5
       - 0.4,0.5
-    thrust: 170
   - type: Machine
     board: ADTMachineMediumLongThrusterCircuitboard
   - type: Construction
