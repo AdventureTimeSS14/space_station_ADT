@@ -16835,16 +16835,6 @@ entities:
     - type: Transform
       pos: 4.5,-352.5
       parent: 2
-- proto: ADTBarbellBenchOverlay
-  entities:
-  - uid: 25659
-    components:
-    - type: Transform
-      parent: 25658
-  - uid: 25661
-    components:
-    - type: Transform
-      parent: 25660
 - proto: ADTBarbellChair
   entities:
   - uid: 25660
