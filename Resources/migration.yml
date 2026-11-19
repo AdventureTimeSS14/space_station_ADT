@@ -559,7 +559,7 @@ RiotBulletShield: null
 ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
 
 # ADT 2024-08-15
-NesBigThruster: ADTBigThruster
+NesBigThruster: ADTThrusterBig
 NesMiniGyroscope: Gyroscope
 
 #ADT 2024-12-23
@@ -1197,3 +1197,8 @@ ADTClothingNeckArmband: ADTClothingNeckArmbandWhite
 # ADT-Tweak 2026-11-12
 Vaccinator: ADTPandemic
 VaccinatorMachineCircuitboard: ADTPandemicMachineCircuitboard
+
+# ADT-Tweak 2026-11-19
+ThrusterLarge: ADTThrusterMedium
+ADTMediumThruster: ADTThrusterMedium
+ADTBigThruster: ADTThrusterBig
