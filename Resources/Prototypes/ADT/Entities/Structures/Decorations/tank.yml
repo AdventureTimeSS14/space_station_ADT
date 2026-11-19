@@ -65,6 +65,15 @@
     footstepSoundCollection:
       path: /Audio/ADT/Misc/tank.ogg
   - type: Mech
+    maxIntegrity: 432
+    baseState: t34tank
+    openState: t34tank-open
+    brokenState: t34tank-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: ADTMech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.1
@@ -74,15 +83,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.1
-    maxintegrity: 360
-    baseState: t34tank
-    openState: t34tank-open
-    brokenState: t34tank-broken
-    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
+    pilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -105,7 +106,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 450
+        damage: 540
       behaviors:
       - !type:PlaySoundBehavior
         sound:

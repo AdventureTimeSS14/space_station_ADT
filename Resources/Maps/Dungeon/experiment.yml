@@ -194,13 +194,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 29.5,4.5
-- proto: ADTHealiumCanister
-  entities:
-  - uid: 1649
-    components:
-    - type: Transform
-      parent: 1
-      pos: 42.5,16.5
 - proto: ADTSpawnMechGygax
   entities:
   - uid: 1650

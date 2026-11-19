@@ -21,7 +21,7 @@
     state: ripleyupgrade
   - type: MechCockpit
   - type: MechEquipment
-    canBeUsed: false
+  - type: MechPassiveEquipment
   - type: Tag
     tags:
     - ADTMechEquipmentScience

@@ -1,28 +1,28 @@
 ﻿<Document>
-  # Radiators
-  Radiators are a device that enables the exchange of heat energy between a [textlink="pipenet" link="PipeNetworks"] and the environment.
+  # Радиаторы
+  Радиатор - это устройство, через которое [textlink="сеть труб" link="PipeNetworks"] обменивается теплом с окружающей средой.
 
   <Box>
     <GuideEntityEmbed Entity="HeatExchanger"/>
   </Box>
 
-  Radiators are completely passive: they do not require power to function.
-  They will always equalize the temperature of the gas in the [textlink="pipenet" link="PipeNetworks"] with the environment.
+  Радиаторы полностью пассивны, то есть им не нужно питание.
+  Они всегда выравнивают температуру газа в [textlink="сети труб" link="PipeNetworks"] с температурой окружающей среды.
 
-  Radiators have two methods of transferring heat: convection and radiation.
-  - Convection is the transfer of heat through the movement of gas.
-  - Radiation is the transfer of heat through electromagnetic waves.
+  Радиатор передаёт тепло двумя способами: конвекцией и излучением.
+  - Конвекция - это передача тепла за счёт движения газа.
+  - Излучение - это передача тепла электромагнитными волнами.
 
-  If a radiator is in a vacuum, it will only be able to transfer heat through radiation.
-  If it is in an atmosphere, it will be able to transfer heat through both convection and radiation.
+  В вакууме радиатор передаёт тепло только излучением.
+  В атмосфере он передаёт тепло и конвекцией, и излучением.
 
-  Under convection, you can only get as cold or as hot as the atmosphere or [textlink="pipenet" link="PipeNetworks"] you're exchanging heat with (given the temperature of the gas in the [textlink="pipenet" link="PipeNetworks"] or atmosphere stays the same).
+  При конвекции газ не может стать холоднее или горячее той атмосферы или [textlink="сети труб" link="PipeNetworks"], с которой идёт теплообмен (если их температура не меняется).
 
-  If you're exchanging heat with space, you can only get as cold as space.
-  To increase the efficiency of radiation, you can build radiators on lattice, which will allow the radiator to radiate more heat, compared to being directly attached to hull tile.
+  Если теплообмен идёт с космосом, газ не станет холоднее космоса.
+  Чтобы радиатор излучал больше тепла, стройте его на решётке, а не прямо на обшивке.
 
-  Gas will flow naturally through the radiator via differences in pressure, but you can use a gas pump to increase the flow rate.
+  Газ сам проходит через радиатор за счёт разницы давлений, но поток можно ускорить газовым насосом.
 
-  Increasing the flow rate of gas through the radiator will increase the rate of heat exchange.
+  Чем быстрее газ проходит через радиатор, тем быстрее идёт теплообмен.
 
   </Document>

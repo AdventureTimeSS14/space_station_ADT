@@ -33,7 +33,6 @@ guide-entry-martialarts-ninjutsu-ADT = Ниндзюцу
 guide-entry-martialarts-hellrip-ADT = Разрыв Ада
 guide-entry-martialarts-judo-ADT = Корпоративное Дзюдо
 guide-entry-martialarts-ptsd-ADT = Как получить ПТСР
-guide-entry-martialarts-cookbook-ADT = Кулинарная техника
 guide-entry-martialarts-kravmaga-ADT = Крав-мага
 guide-entry-martialarts-weapons-ADT = Боевые искусства оружия
 guide-entry-martialarts-tonfa-ADT = Тонфа

@@ -38,16 +38,14 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] protected VehicleSystem Vehicle = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
-    // ADT-Tweak-Start
-    // [SubscribeLocalEvent]
-    // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
-    // {
-    //     if (args.Handled)
-    //         return;
-    //     args.Handled = true;
-    //     CycleEquipment(uid);
-    // }
-    // ADT-Tweak-End
+    [SubscribeLocalEvent]
+    private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
+        CycleEquipment(uid);
+    }
 
     [SubscribeLocalEvent]
     private void OnEjectPilotEvent(EntityUid uid, MechComponent component, MechEjectPilotEvent args)
@@ -62,17 +60,12 @@ public abstract partial class SharedMechSystem : EntitySystem
     private void OnOpenUi(EntityUid uid, MechComponent component, MechOpenUiEvent args)
     {
         args.Handled = true;
-        ToggleMechUi(uid, component, args.Performer); // ADT-Tweak
+        ToggleMechUi(uid, component);
     }
 
     [SubscribeLocalEvent]
     private void OnAlternativeVerb(EntityUid uid, MechComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        // ADT-Tweak-Start
-        if (args.CanAccess && args.CanInteract && !component.Broken)
-            AddAlternativeVerbsADT(uid, component, args);
-        // ADT-Tweak-End
-
         if (!args.CanAccess ||
             !args.CanInteract ||
             component.Broken ||
@@ -97,11 +90,6 @@ public abstract partial class SharedMechSystem : EntitySystem
         // TODO why is this being blocked?
         if (!_timing.IsFirstTimePredicted)
             return;
-
-        // ADT-Tweak-Start
-        if (component.Energy <= 0)
-            return;
-        // ADT-Tweak-End
 
         if (component.CurrentSelectedEquipment != null)
         {
@@ -139,22 +127,18 @@ public abstract partial class SharedMechSystem : EntitySystem
         var irelay = EnsureComp<InteractionRelayComponent>(pilot);
         _interaction.SetRelay(pilot, mech, irelay);
 
-        SetupUserADT(mech, pilot, component); // ADT-Tweak
-
         if (_net.IsClient)
             return;
 
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
-        SetupUserActionsADT(mech, pilot, component); // ADT-Tweak
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
     {
         RemComp<InteractionRelayComponent>(pilot);
         _actions.RemoveProvidedActions(pilot, mech);
-        RemoveUserADT(mech, pilot); // ADT-Tweak
     }
 
     /// <summary>
@@ -201,15 +185,6 @@ public abstract partial class SharedMechSystem : EntitySystem
         component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
             ? null
             : allEquipment[equipmentIndex];
-        // ADT-Tweak-Start
-        while (TryComp<MechEquipmentComponent>(component.CurrentSelectedEquipment, out var equipment) && equipment.CanBeUsed == false)
-        {
-            equipmentIndex++;
-            component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
-                ? null
-                : allEquipment[equipmentIndex];
-        }
-        // ADT-Tweak-End
 
         var popupString = component.CurrentSelectedEquipment != null
             ? Loc.GetString("mech-equipment-select-popup", ("item", component.CurrentSelectedEquipment))
@@ -306,15 +281,12 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        // ADT-Tweak-Start
-        // if (component.Energy + delta < 0)
-        //     return false;
-        // ADT-Tweak-End
+        if (component.Energy + delta < 0)
+            return false;
 
         component.Energy = FixedPoint2.Clamp(component.Energy + delta, 0, component.MaxEnergy);
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
-        Vehicle.RefreshCanRun(uid); // ADT-Tweak
         return true;
     }
 

@@ -10,8 +10,6 @@ seed-dna-eject-btn = Извлечь
 seed-dna-insert-btn = Вставить
 seed-dna-extract-btn = Извлечь
 seed-dna-replace-btn = Перезаписать
-seed-dna-row-consume-gas = Потребляемый газ: { $gas }
-seed-dna-row-exude-gas = Выделяемый газ: { $gas }
 
 # -------------------------------------------------
 
@@ -47,8 +45,4 @@ seed-dna-row-CanScream = Может издавать крик
 # seed-dna-chemicalProp-Max = Максимальное значение
 # seed-dna-chemicalProp-PotencyDivisor = Делитель потенции
 # seed-dna-chemicalProp-Inherent = Врождённый
-
-
-# Локализация газов — заполнить по необходимости
-# seed-dna-gas-??? = ???
 

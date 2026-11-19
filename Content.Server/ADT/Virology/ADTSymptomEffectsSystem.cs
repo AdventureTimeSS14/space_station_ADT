@@ -139,13 +139,14 @@ public sealed class ADTSymptomEffectsSystem : EntitySystem
             return;
 
         var effect = args.Effect;
-        if (effect.MaxExisting < float.MaxValue
-            && _disease.GetReagentAmount(ent, effect.Reagent).Float() >= effect.MaxExisting)
-        {
-            return;
-        }
+        var amount = effect.Amount;
+        if (effect.MaxExisting < float.MaxValue)
+            amount = MathF.Min(amount, effect.MaxExisting - _disease.GetReagentAmount(ent, effect.Reagent).Float());
 
-        var solution = new Solution(effect.Reagent, effect.Amount);
+        if (amount <= 0f)
+            return;
+
+        var solution = new Solution(effect.Reagent, amount);
         _bloodstream.TryAddToBloodstream((ent.Owner, null), solution);
     }
 

@@ -16,18 +16,10 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.75
-        Heat: 0.75
-        Structural: 1.0
-    maxintegrity: 185
+    maxIntegrity: 222
     baseState: archimedes
     openState: archimedes-open
     brokenState: archimedes-broken
-    mechToPilotDamageMultiplier: 0.5
     airtight: true
     maxEquipmentAmount: 10
     equipmentWhitelist:
@@ -44,6 +36,15 @@
     - ADTMechEquipmentToolWrench
     - ADTMechEquipmentToolCrowbar
     - MechEquipmentGrabberSmall
+  - type: ADTMech
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Structural: 1.0
+    pilotDamageMultiplier: 0.5
   - type: Vehicle
     operatorWhitelist:
       components:

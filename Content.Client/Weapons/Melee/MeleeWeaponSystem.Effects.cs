@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client.Animations;
 using Content.Client.Weapons.Melee.Components;
+using Content.Shared.Mech.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -22,6 +23,11 @@ public sealed partial class MeleeWeaponSystem
     {
         if (!Timing.IsFirstTimePredicted)
             return;
+
+        // ADT-Tweak-Start
+        if (TryComp<MechPilotComponent>(user, out var mechPilot))
+            user = mechPilot.Mech;
+        // ADT-Tweak-End
 
         var lunge = GetLungeAnimation(localPos);
 
