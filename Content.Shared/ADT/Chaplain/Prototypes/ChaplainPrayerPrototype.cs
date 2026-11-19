@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Chaplain.Prayers;
 using Content.Shared.FixedPoint;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -25,6 +26,9 @@ public sealed partial class ChaplainPrayerPrototype : IPrototype
 
     [DataField]
     public float ChaplainRange;
+
+    [DataField]
+    public EntityWhitelist? Whitelist;
 
     [DataField]
     public EntProtoId? Effect;

@@ -9,8 +9,12 @@ using Content.Shared.ADT.Damage.Systems;
 using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Speech;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Chaplain.Systems;
@@ -20,6 +24,9 @@ public abstract partial class SharedChaplainSystem
     [Dependency] private ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private GroupHealSystem _groupHeal = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private HolyRelicSystem _relic = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
     [Dependency] private MovementModStatusSystem _movementMod = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
 
@@ -29,6 +36,7 @@ public abstract partial class SharedChaplainSystem
     private static readonly char[] PrayerPunctuation = { '.', '!', '?', ',', ' ' };
 
     private readonly HashSet<Entity<HolyAffectedComponent>> _repelTargets = new();
+    private readonly HashSet<Entity<MobStateComponent>> _rallyTargets = new();
 
     private void InitializePrayers()
     {
@@ -49,6 +57,12 @@ public abstract partial class SharedChaplainSystem
 
         if (!_proto.TryIndex(ev.Prayer, out var prayer) || !CanUsePrayer(user, prayer) || !_actionBlocker.CanSpeak(user))
             return;
+
+        if (!_relic.HasRelic(user))
+        {
+            _popup.PopupEntity(Loc.GetString("chaplain-relic-required"), user, user, PopupType.MediumCaution);
+            return;
+        }
 
         if (TryComp<ChaplainComponent>(user, out var chaplain))
             ChaplainPray((user, chaplain), prayer);
@@ -142,6 +156,10 @@ public abstract partial class SharedChaplainSystem
                 case ShieldPrayerEffect shield:
                     GrantHolyShield(user, shield.Duration);
                     break;
+
+                case RallyPrayerEffect rally:
+                    Rally(user, chaplain, rally);
+                    break;
             }
         }
     }
@@ -168,6 +186,27 @@ public abstract partial class SharedChaplainSystem
 
             if (target.Comp.Suppressible)
                 AddSuppression(target, repel.Suppression * multiplier);
+        }
+    }
+
+    private void Rally(EntityUid user, Entity<ChaplainComponent> chaplain, RallyPrayerEffect rally)
+    {
+        _rallyTargets.Clear();
+        _lookup.GetEntitiesInRange(Transform(user).Coordinates, rally.Range, _rallyTargets);
+
+        foreach (var target in _rallyTargets)
+        {
+            if (_mobState.IsDead(target))
+                continue;
+
+            var isBrother = target.Owner == chaplain.Owner
+                || TryComp<ChaplainFollowerComponent>(target, out var follower) && follower.Chaplain == chaplain.Owner;
+
+            if (!isBrother)
+                continue;
+
+            _status.TryRemoveStatusEffect(target, SharedStunSystem.StunId);
+            _movementMod.TryUpdateMovementSpeedModDuration(target, rally.SpeedEffect, rally.Duration, rally.SpeedMultiplier);
         }
     }
 
@@ -210,6 +249,9 @@ public abstract partial class SharedChaplainSystem
 
     private bool CanUsePrayer(EntityUid speaker, ChaplainPrayerPrototype prayer)
     {
+        if (!_whitelist.IsWhitelistPassOrNull(prayer.Whitelist, speaker))
+            return false;
+
         return prayer.Role switch
         {
             ChaplainPrayerRole.Chaplain => HasComp<ChaplainComponent>(speaker),

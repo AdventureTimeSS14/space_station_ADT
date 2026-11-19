@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Damage;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Chaplain.Prayers;
 
@@ -40,4 +41,19 @@ public sealed partial class ShieldPrayerEffect : ChaplainPrayerEffect
 {
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(15);
+}
+
+public sealed partial class RallyPrayerEffect : ChaplainPrayerEffect
+{
+    [DataField]
+    public float Range = 5f;
+
+    [DataField]
+    public EntProtoId SpeedEffect = "ADTCrusaderRallySpeedStatusEffect";
+
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(6);
+
+    [DataField]
+    public float SpeedMultiplier = 1.25f;
 }

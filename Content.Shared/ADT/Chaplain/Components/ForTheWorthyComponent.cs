@@ -8,6 +8,12 @@ namespace Content.Shared.ADT.Chaplain.Components;
 public sealed partial class ForTheWorthyComponent : Component
 {
     [DataField]
+    public bool AllowFollowers;
+
+    [DataField]
+    public bool RestrictEquip;
+
+    [DataField]
     public SoundSpecifier ElectrocutionSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 
     [DataField]

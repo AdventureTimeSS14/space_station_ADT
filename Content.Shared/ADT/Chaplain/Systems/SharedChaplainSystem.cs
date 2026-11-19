@@ -285,6 +285,24 @@ public abstract partial class SharedChaplainSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("chaplain-believer-success-target", ("issuer", Identity.Entity(ent, EntityManager))), target, target);
     }
 
+    public void LinkFollower(Entity<ChaplainComponent> ent, EntityUid target)
+    {
+        if (HasComp<ChaplainComponent>(target))
+            return;
+
+        var follower = EnsureComp<ChaplainFollowerComponent>(target);
+        if (follower.Chaplain == ent.Owner)
+            return;
+
+        follower.Chaplain = ent.Owner;
+        Dirty(target, follower);
+
+        if (!ent.Comp.Followers.Contains(target))
+            ent.Comp.Followers.Add(target);
+
+        Dirty(ent);
+    }
+
     #endregion
 
     #region Holy shield
