@@ -122,22 +122,41 @@ public sealed class CanvasDocument : IDisposable
             FlushDeferred();
     }
 
-    public bool MergeLayer(CanvasLayer layer)
+    public bool CanMergeLayer(CanvasLayer layer)
     {
         var layers = Layers.Layers;
-        var top = -1;
+        var top = IndexOfLayer(layer);
+        if (top < 0 || !layer.Own)
+            return false;
+
+        for (var i = 0; i < top; i++)
+        {
+            if (!layers[i].Own && layers[i].Visible)
+                return false;
+        }
+
+        return true;
+    }
+
+    private int IndexOfLayer(CanvasLayer layer)
+    {
+        var layers = Layers.Layers;
         for (var i = 0; i < layers.Count; i++)
         {
             if (layers[i] == layer)
-                top = i;
+                return i;
         }
 
-        if (top < 0)
+        return -1;
+    }
+
+    public bool MergeLayer(CanvasLayer layer)
+    {
+        if (!CanMergeLayer(layer))
             return false;
 
-        if (!layer.Own)
-            return false;
-
+        var layers = Layers.Layers;
+        var top = IndexOfLayer(layer);
         var group = new List<CanvasLayer>();
         for (var i = 0; i <= top; i++)
         {
@@ -729,6 +748,16 @@ public sealed class CanvasDocument : IDisposable
         layer.Synced[index] = layer.Surface.TileRevision(index) - 1;
         layer.SyncPending = true;
         ModifiedChanged?.Invoke();
+    }
+
+    public void FailLayerCommit(CanvasLayer layer, int index)
+    {
+        RejectLayerCommit(layer, index, null);
+        layer.SyncPending = false;
+        layer.SyncFailed = true;
+
+        if (!HasPendingWork)
+            WorkSettled?.Invoke();
     }
 
     public bool IsLayerStale(CanvasLayer layer, int index, uint version)

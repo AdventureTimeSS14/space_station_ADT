@@ -30,6 +30,7 @@ public sealed class CanvasLayer : IDisposable
     public sbyte LastMove;
     public bool OpacityPending;
     public bool SyncPending;
+    public bool SyncFailed;
     public bool UseServerCopy;
 
     public CanvasLayer(int id, bool own, string name, int width, int height, BrushSettings brush)
@@ -86,6 +87,7 @@ public sealed class CanvasLayer : IDisposable
     {
         Dirty = true;
         SyncPending = true;
+        SyncFailed = false;
         Edited?.Invoke();
     }
 
@@ -101,11 +103,35 @@ public sealed class CanvasLayer : IDisposable
 
         for (var i = 0; i < InFlight.Length; i++)
         {
-            if (InFlight[i] || Surface.TileRevision(i) != Synced[i])
+            if (InFlight[i] || !SyncFailed && Surface.TileRevision(i) != Synced[i])
                 return true;
         }
 
         return false;
+    }
+
+    public void RestorePendingStrokes(int index, uint[] ids)
+    {
+        if (ids.Length == 0)
+            return;
+
+        if (!PendingStrokes.TryGetValue(index, out var pending))
+        {
+            pending = new List<uint>();
+            PendingStrokes[index] = pending;
+        }
+
+        var insert = 0;
+        foreach (var id in ids)
+        {
+            if (pending.Count >= CanvasConstants.MaxStrokeIds)
+                break;
+
+            if (pending.Contains(id))
+                continue;
+
+            pending.Insert(insert++, id);
+        }
     }
 
     public void MarkSynced(int index)
@@ -132,6 +158,8 @@ public sealed class CanvasLayerStack : IDisposable
     public const int MaxLayers = CanvasConstants.MaxLayersPerMember;
 
     private readonly List<CanvasLayer> _layers = new();
+    private readonly HashSet<int> _deletedUnregistered = new();
+    private readonly HashSet<int> _orphanDeleteSent = new();
     private readonly int _width;
     private readonly int _height;
     private readonly BrushSettings _brush;
@@ -159,6 +187,8 @@ public sealed class CanvasLayerStack : IDisposable
     public event Action<CanvasLayer>? LayerAdded;
 
     public event Action<CanvasLayerActionKind, CanvasLayer>? ActionRequested;
+
+    public event Action<byte>? OrphanDeleteRequested;
 
     public int OwnCount()
     {
@@ -212,6 +242,9 @@ public sealed class CanvasLayerStack : IDisposable
     {
         if (!_layers.Contains(layer) || !CanManage(layer))
             return;
+
+        if (layer.Own && !layer.Registered && layer.CreateSent)
+            _deletedUnregistered.Add(layer.Id);
 
         ActionRequested?.Invoke(CanvasLayerActionKind.Delete, layer);
         Detach(layer);
@@ -300,10 +333,20 @@ public sealed class CanvasLayerStack : IDisposable
     {
         var ordered = new List<CanvasLayer>(infos.Count + _layers.Count);
         var seen = new HashSet<CanvasLayer>();
+        var orphans = new HashSet<int>();
 
         foreach (var info in infos)
         {
             CanvasLayer? layer;
+            if (info.Owner == local && _deletedUnregistered.Contains(info.LocalId))
+            {
+                orphans.Add(info.LocalId);
+                if (_orphanDeleteSent.Add(info.LocalId))
+                    OrphanDeleteRequested?.Invoke(info.Id);
+
+                continue;
+            }
+
             if (info.Owner == local)
             {
                 layer = _layers.Find(l => l.Own && l.Id == info.LocalId);
@@ -370,6 +413,15 @@ public sealed class CanvasLayerStack : IDisposable
             layer.Dispose();
             Dirty = true;
         }
+
+        _orphanDeleteSent.RemoveWhere(id =>
+        {
+            if (orphans.Contains(id))
+                return false;
+
+            _deletedUnregistered.Remove(id);
+            return true;
+        });
 
         _layers.Clear();
         _layers.AddRange(ordered);

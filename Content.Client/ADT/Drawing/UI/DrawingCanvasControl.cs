@@ -284,7 +284,11 @@ public sealed partial class DrawingCanvasControl : Control
 
         var canvasAnchor = ScreenToCanvas(anchorControlPixels);
         Zoom = Math.Clamp(zoom, MinZoom, MaxZoom);
-        Offset += Unrotate(anchorControlPixels - CanvasToScreen(canvasAnchor));
+        var shift = Unrotate(anchorControlPixels - CanvasToScreen(canvasAnchor));
+        Offset += shift;
+        if (_panning)
+            _panOrigin += shift;
+
         OnViewChanged?.Invoke();
     }
 

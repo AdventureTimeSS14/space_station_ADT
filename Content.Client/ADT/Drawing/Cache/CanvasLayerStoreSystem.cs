@@ -47,17 +47,19 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
     {
         public readonly Guid Painting;
         public readonly CanvasLayerStack Stack;
-        public readonly int LayerId;
+        public readonly CanvasLayer Layer;
         public readonly int Index;
+        public readonly uint Revision;
         public Task Task = Task.CompletedTask;
         public Rgba32[]? Result;
 
-        public PendingLoad(Guid painting, CanvasLayerStack stack, int layerId, int index)
+        public PendingLoad(Guid painting, CanvasLayerStack stack, CanvasLayer layer, int index)
         {
             Painting = painting;
             Stack = stack;
-            LayerId = layerId;
+            Layer = layer;
             Index = index;
+            Revision = layer.Surface.TileRevision(index);
         }
     }
 
@@ -220,7 +222,7 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
 
                     var data = ReadAll(layerDir / entry);
                     var size = request.TileSize(index);
-                    var load = new PendingLoad(request.Painting, stack, layer.Id, index);
+                    var load = new PendingLoad(request.Painting, stack, layer, index);
                     load.Task = Task.Run(() =>
                     {
                         load.Result = Decode(data, size);
@@ -246,9 +248,12 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
                 continue;
 
             _loads.RemoveAt(i);
+            var layer = load.Layer;
             if (load.Result is { } pixels &&
-                load.Stack.Find(load.LayerId) is { Own: true, UseServerCopy: false } layer &&
-                !layer.Surface.InStroke)
+                !layer.UseServerCopy &&
+                load.Stack.Find(layer.Id) == layer &&
+                !layer.Surface.InStroke &&
+                layer.Surface.TileRevision(load.Index) == load.Revision)
             {
                 layer.Surface.AdoptTile(load.Index, pixels);
                 layer.SyncPending = true;
@@ -307,6 +312,16 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
                 }
 
                 stack.HiddenRemote.Add((owner, localId));
+            }
+
+            foreach (var layer in stack.Layers)
+            {
+                if (!layer.Own &&
+                    layer.Owner is { } user &&
+                    stack.HiddenRemote.Contains((user.UserId, layer.OwnerLocalId)))
+                {
+                    stack.SetLocalHidden(layer, true);
+                }
             }
         }
         catch (Exception e)

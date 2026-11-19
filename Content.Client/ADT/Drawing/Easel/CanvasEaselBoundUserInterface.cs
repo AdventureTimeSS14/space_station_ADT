@@ -154,6 +154,12 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
             return;
 
         ClearPendingSubmit();
+        if (session.Collaboration.LocalRole != CanvasRole.Host)
+        {
+            _panel?.ShowHint(Loc.GetString("adt-canvas-submit-not-host"));
+            return;
+        }
+
         _flushSubmit = (title, description);
         _sync.RequestFlush(session.Painting);
         _panel?.ShowHint(Loc.GetString("adt-canvas-submit-collecting"));

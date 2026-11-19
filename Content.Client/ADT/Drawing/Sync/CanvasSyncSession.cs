@@ -117,7 +117,9 @@ public sealed class CanvasSyncSession
     public TimeSpan NextLayerMeta;
     public uint FlushId;
     public bool Flushing;
-    public bool FlushRequested;
+    public int ServerLayers;
+    public uint FlushRequest;
+    public uint NextFlushRequest = 1;
     public bool FlushReadyPending;
     public double UpTokens;
     public TimeSpan LastRefill;

@@ -273,13 +273,8 @@ public sealed partial class CanvasSessionSystem
         var baseLayer = msg.Key.Layer == CanvasConstants.BaseLayer;
         if (blob != null)
         {
-            var oldBytes = tile.Content.Kind == CanvasTileKind.Blob && session.Blobs.TryGetValue(tile.Content.Hash, out var old)
-                ? old.Length
-                : 0;
-
-            var used = baseLayer ? session.BaseBytes() : session.LayerBytes();
             var limit = baseLayer ? _maxPaintingBytes : _maxLayerBytes;
-            if (used - oldBytes + blob.Length > limit)
+            if (session.BytesAfterReplace(msg.Key.Layer, index, content.Hash, blob.Length) > limit)
             {
                 Reply(player, msg, CanvasCommitResult.TooLarge, session);
                 return;

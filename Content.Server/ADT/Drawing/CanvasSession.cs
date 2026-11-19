@@ -116,6 +116,7 @@ public sealed class CanvasSession
     public byte NextIndex;
     public byte NextLayerId = 1;
     public uint FlushId;
+    public uint FlushRequest;
     public uint NextFlushId = 1;
     public TimeSpan FlushDeadline;
     public readonly HashSet<NetUserId> FlushWaiting = new();
@@ -280,20 +281,26 @@ public sealed class CanvasSession
             CanvasConstants.TileExtent(Height, index / TilesX));
     }
 
-    public long BaseBytes()
-    {
-        return BytesOf(BaseHashes());
-    }
-
-    public long LayerBytes()
+    public long BytesAfterReplace(byte layer, int index, CanvasHash hash, int length)
     {
         var hashes = new HashSet<CanvasHash>();
-        foreach (var layer in Layers)
+        if (layer == CanvasConstants.BaseLayer)
         {
-            AddHashes(hashes, layer.Tiles);
+            AddHashes(hashes, Tiles, index);
+        }
+        else
+        {
+            foreach (var other in Layers)
+            {
+                AddHashes(hashes, other.Tiles, other.Id == layer ? index : -1);
+            }
         }
 
-        return BytesOf(hashes);
+        var total = BytesOf(hashes);
+        if (!hashes.Contains(hash))
+            total += length;
+
+        return total;
     }
 
     private long BytesOf(HashSet<CanvasHash> hashes)
@@ -326,12 +333,12 @@ public sealed class CanvasSession
         return result;
     }
 
-    private static void AddHashes(HashSet<CanvasHash> result, CanvasSessionTile[] tiles)
+    private static void AddHashes(HashSet<CanvasHash> result, CanvasSessionTile[] tiles, int skip = -1)
     {
-        foreach (var tile in tiles)
+        for (var i = 0; i < tiles.Length; i++)
         {
-            if (tile.Content.Kind == CanvasTileKind.Blob)
-                result.Add(tile.Content.Hash);
+            if (i != skip && tiles[i].Content.Kind == CanvasTileKind.Blob)
+                result.Add(tiles[i].Content.Hash);
         }
     }
 

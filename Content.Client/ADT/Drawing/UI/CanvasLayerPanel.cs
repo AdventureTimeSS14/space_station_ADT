@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.ADT.Drawing.Canvas;
 using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
@@ -365,8 +366,11 @@ public sealed class CanvasLayerPanel : BoxContainer
         _removeButton.Disabled = active == null;
         _upButton.Disabled = active == null || index >= layers.Count - 1;
         _downButton.Disabled = active == null || index <= 0;
-        _mergeButton.Disabled = active == null || !_canMerge;
-        _mergeButton.ToolTip = Loc.GetString(_canMerge ? "adt-drawing-layer-merge-tooltip" : "adt-drawing-layer-merge-denied");
+        var mergeBlocked = active != null && !_document.CanMergeLayer(active);
+        _mergeButton.Disabled = active == null || !_canMerge || mergeBlocked;
+        _mergeButton.ToolTip = Loc.GetString(!_canMerge
+            ? "adt-drawing-layer-merge-denied"
+            : mergeBlocked ? "adt-drawing-layer-merge-blocked" : "adt-drawing-layer-merge-tooltip");
 
         _syncing = true;
         _globalVisible.Visible = active != null;

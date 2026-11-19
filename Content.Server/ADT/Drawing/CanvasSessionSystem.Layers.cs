@@ -30,6 +30,7 @@ public sealed partial class CanvasSessionSystem
                 if (player.UserId != session.Host || session.Submitting)
                     return;
 
+                session.FlushRequest = msg.Id;
                 StartFlush(session);
                 break;
 
@@ -84,7 +85,7 @@ public sealed partial class CanvasSessionSystem
         {
             Painting = session.PaintingUid,
             Phase = CanvasFlushPhase.Ready,
-            Id = session.FlushId,
+            Id = session.FlushRequest,
         };
 
         session.FlushId = 0;
@@ -156,13 +157,34 @@ public sealed partial class CanvasSessionSystem
 
                 session.Layers.Remove(layer);
                 session.DropUnreferencedBlobs();
-                break;
+                BroadcastLayers(session);
+                FailLayerCommits(session, layer);
+                return;
 
             default:
                 return;
         }
 
         BroadcastLayers(session);
+    }
+
+    private void FailLayerCommits(CanvasSession session, CanvasSessionLayer layer)
+    {
+        if (!_peers.TryGetValue(layer.Owner, out var peer))
+            return;
+
+        var stale = new List<uint>();
+        foreach (var (id, pending) in peer.PendingCommits)
+        {
+            if (pending.Message.Painting == session.PaintingUid && pending.Message.Key.Layer == layer.Id)
+                stale.Add(id);
+        }
+
+        foreach (var id in stale)
+        {
+            peer.Incoming.Remove(id);
+            FailPending(peer, id, CanvasCommitResult.NotAllowed);
+        }
     }
 
     private void CreateLayer(CanvasSession session, CanvasMember member, ICommonSession player, MsgCanvasLayerAction msg)
