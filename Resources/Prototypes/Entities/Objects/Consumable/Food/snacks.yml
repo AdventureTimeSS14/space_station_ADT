@@ -477,6 +477,11 @@
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
+  - type: Solution # ADT-tweak start
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20 # ADT-tweak 10 -> 20
 
 - type: entity
   parent: BaseItem
@@ -520,9 +525,9 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5
+        Quantity: 15 # ADT-tweak 5 -> 15
       - ReagentId: Theobromine
-        Quantity: 1
+        Quantity: 3
 
 - type: entity
   parent: FoodSnackBase
