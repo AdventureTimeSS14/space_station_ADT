@@ -389,12 +389,6 @@
     - ADTBlueShieldOfficer
     - IAA
     - Lawyer
-  speciesBlacklist:
-    - IPC
-    - NovakidSpecies
-    - SlimePerson
-    - Diona
-    - Vox
   effects:
     - !type:AddCompsEffect
       components:
