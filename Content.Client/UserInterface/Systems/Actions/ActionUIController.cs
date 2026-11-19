@@ -313,11 +313,6 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private void OnActionsUpdated()
     {
-        // ADT-Tweak-Start
-        if (SelectingTargetFor is { } selecting)
-            _actionsSystem?.SetToggled(selecting, true);
-        // ADT-Tweak-End
-
         QueueWindowUpdate();
 
         if (_actionsSystem != null)
@@ -1044,6 +1039,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
         _actionsSystem?.SetToggled(oldAction, false);
 
         SelectingTargetFor = null;
+        EntityManager.System<ADTTargetActionIconSystem>().ResetIcon(oldAction); // ADT-Tweak
 
         _targetOutline?.Disable();
         _interactionOutline?.SetEnabled(true);
