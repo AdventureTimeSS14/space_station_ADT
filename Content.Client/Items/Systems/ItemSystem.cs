@@ -102,7 +102,17 @@ public sealed partial class ItemSystem : SharedItemSystem
             : $"{item.HeldPrefix}-{defaultKey}";
 
         if (!rsi.TryGetState(state, out var _))
-            return false;
+// ADT-Tweak Start
+//             return false;
+// ADT-Tweak End
+        {
+            // Starlight-start: fallback for no sprite situations
+            if (item.HeldPrefix == null || !rsi.TryGetState(defaultKey, out _))
+                return false;
+
+            state = defaultKey;
+            // Starlight-end
+        }
 
         var layer = new PrototypeLayerData();
         layer.RsiPath = rsi.Path.ToString();

@@ -16,13 +16,24 @@ namespace Content.Client.Options.UI
             IoCManager.InjectDependencies(this);
 
             Tabs.SetTabTitle(0, Loc.GetString("ui-options-tab-misc"));
-            Tabs.SetTabTitle(1, Loc.GetString("ui-options-tab-graphics"));
-            Tabs.SetTabTitle(2, Loc.GetString("ui-options-tab-controls"));
-            Tabs.SetTabTitle(3, Loc.GetString("ui-options-tab-audio"));
+// ADT-Tweak Start
+//             Tabs.SetTabTitle(1, Loc.GetString("ui-options-tab-graphics"));
+//             Tabs.SetTabTitle(2, Loc.GetString("ui-options-tab-controls"));
+//             Tabs.SetTabTitle(3, Loc.GetString("ui-options-tab-audio"));
+// ADT-Tweak End
+            Tabs.SetTabTitle(1, Loc.GetString("ui-options-tab-ui"));
+            Tabs.SetTabTitle(2, Loc.GetString("ui-options-tab-graphics"));
+            Tabs.SetTabTitle(3, Loc.GetString("ui-options-tab-controls"));
+            Tabs.SetTabTitle(4, Loc.GetString("ui-options-tab-audio"));
             // ADT-Tweak-Start
-            Tabs.SetTabTitle(4, Loc.GetString("ui-options-tab-tts"));
-            Tabs.SetTabTitle(5, Loc.GetString("ui-options-tab-accessibility"));
-            Tabs.SetTabTitle(6, Loc.GetString("ui-options-tab-admin"));
+// ADT-Tweak Start
+//             Tabs.SetTabTitle(4, Loc.GetString("ui-options-tab-tts"));
+//             Tabs.SetTabTitle(5, Loc.GetString("ui-options-tab-accessibility"));
+//             Tabs.SetTabTitle(6, Loc.GetString("ui-options-tab-admin"));
+// ADT-Tweak End
+            Tabs.SetTabTitle(5, Loc.GetString("ui-options-tab-tts"));
+            Tabs.SetTabTitle(6, Loc.GetString("ui-options-tab-accessibility"));
+            Tabs.SetTabTitle(7, Loc.GetString("ui-options-tab-admin"));
             // ADT-Tweak-End
             UpdateTabs();
         }
@@ -30,10 +41,14 @@ namespace Content.Client.Options.UI
         public void UpdateTabs()
         {
             var isAdmin = _adminManager.IsAdmin(true);
-            Tabs.SetTabVisible(6, isAdmin); // ADT-Tweak-Start
+// ADT-Tweak Start
+//             Tabs.SetTabVisible(6, isAdmin); // ADT-Tweak-Start
+// ADT-Tweak End
+            Tabs.SetTabVisible(7, isAdmin); // ADT-Tweak-Start
 
             GraphicsTab.Control.ReloadValues();
             MiscTab.Control.ReloadValues();
+            UITab.Control.ReloadValues();
             AccessibilityTab.Control.ReloadValues();
             AudioTab.Control.ReloadValues();
             TTSOptionsTab.Control.ReloadValues(); // ADT-Tweak-Start
