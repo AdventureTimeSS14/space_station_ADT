@@ -65,20 +65,18 @@ public sealed class MechThrusterSystem : EntitySystem
         {
             if (comp.Fuel <= 0f)
             {
-                if (_netMan.IsServer)
-                    _popup.PopupEntity(Loc.GetString("adt-mech-thruster-no-fuel"), uid, args.Performer);
+                _popup.PopupClient(Loc.GetString("adt-mech-thruster-no-fuel"), uid, args.Performer);
                 return;
             }
 
             if (TryComp<TransformComponent>(uid, out var xform) && !CanEnableOnGrid(xform.GridUid))
             {
-                if (_netMan.IsServer)
-                    _popup.PopupEntity(Loc.GetString("adt-mech-thruster-only-space"), uid, args.Performer);
+                _popup.PopupClient(Loc.GetString("adt-mech-thruster-only-space"), uid, args.Performer);
                 return;
             }
         }
 
-        Toggle(uid, comp, args.Performer);
+        Toggle(uid, comp, args.Performer, true);
     }
 
     private bool CanEnableOnGrid(EntityUid? gridUid)
@@ -88,7 +86,7 @@ public sealed class MechThrusterSystem : EntitySystem
         return !grav.Enabled;
     }
 
-    private void Toggle(EntityUid uid, MechThrusterComponent comp, EntityUid? user = null)
+    private void Toggle(EntityUid uid, MechThrusterComponent comp, EntityUid? user = null, bool predicted = false)
     {
         comp.Active = !comp.Active;
 
@@ -111,17 +109,21 @@ public sealed class MechThrusterSystem : EntitySystem
         var flightEv = new MechFlightModeChangedEvent(comp.Active);
         RaiseLocalEvent(uid, ref flightEv);
 
-        if (_netMan.IsServer)
+        var popup = comp.Active
+            ? Loc.GetString("adt-mech-thruster-on")
+            : Loc.GetString("adt-mech-thruster-off");
+
+        if (predicted)
+        {
+            _audio.PlayPredicted(comp.ToggleSound, uid, user);
+            if (user != null)
+                _popup.PopupClient(popup, uid, user.Value);
+        }
+        else
         {
             _audio.PlayPvs(comp.ToggleSound, uid);
-
             if (user != null)
-            {
-                var popup = comp.Active
-                    ? Loc.GetString("adt-mech-thruster-on")
-                    : Loc.GetString("adt-mech-thruster-off");
                 _popup.PopupEntity(popup, uid, user.Value);
-            }
         }
 
         Dirty(uid, comp);

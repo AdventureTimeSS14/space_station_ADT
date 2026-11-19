@@ -863,13 +863,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-- proto: ADTProtoNitrateCanister
-  entities:
-  - uid: 2
-    components:
-    - type: Transform
-      pos: -12.5,24.5
-      parent: 1
 - proto: AirAlarm
   entities:
   - uid: 3

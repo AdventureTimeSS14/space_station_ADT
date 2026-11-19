@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
-using Content.Shared.ADT.Mech.Components;
-using Content.Shared.Mech.Components;
+using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
@@ -17,6 +16,7 @@ public abstract partial class SharedCombatModeSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private SharedNPCSystem _npc = default!;
+    [Dependency] private SharedADTMechSystem _adtMech = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -92,22 +92,14 @@ public abstract partial class SharedCombatModeSystem : EntitySystem
         {
             EnsureComp<MouseRotatorComponent>(uid);
             EnsureComp<NoRotateOnMoveComponent>(uid);
-
-            // ADT-Mech-Start
-            if (TryComp<MechPilotComponent>(uid, out var pilot) && !HasComp<MechControlLockedComponent>(uid))
-                EnsureComp<NoRotateOnMoveComponent>(pilot.Mech);
-            // ADT-Mech-End
         }
         else
         {
             RemComp<MouseRotatorComponent>(uid);
             RemComp<NoRotateOnMoveComponent>(uid);
-
-            // ADT-Mech-Start
-            if (TryComp<MechPilotComponent>(uid, out var pilot) && !HasComp<MechControlLockedComponent>(uid))
-                RemComp<NoRotateOnMoveComponent>(pilot.Mech);
-            // ADT-Mech-End
         }
+
+        _adtMech.UpdateMouseRotation(uid); // ADT-Tweak
     }
 }
 

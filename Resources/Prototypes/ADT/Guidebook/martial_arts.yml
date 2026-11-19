@@ -20,7 +20,6 @@
   - ADTMaHellRip
   - ADTMaJudo
   - ADTMaPtsd
-  - ADTMaCookbook
   - ADTMaKravMaga
 
 - type: guideEntry
@@ -62,11 +61,6 @@
   id: ADTMaPtsd
   name: guide-entry-martialarts-ptsd-ADT
   text: "/ServerInfo/ADT/MartialArts/Ptsd.xml"
-
-- type: guideEntry
-  id: ADTMaCookbook
-  name: guide-entry-martialarts-cookbook-ADT
-  text: "/ServerInfo/ADT/MartialArts/Cookbook.xml"
 
 - type: guideEntry
   id: ADTMaKravMaga

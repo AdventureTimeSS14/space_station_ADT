@@ -4,7 +4,6 @@ using Content.Shared.Containers;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.EntityTable.ValueSelector;
 using Content.Shared.VendingMachines.Components;
-using Robust.Shared.Log;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cargo.Systems;
@@ -19,10 +18,6 @@ public sealed partial class CargoSystem
 
     private readonly Dictionary<ProtoId<VendingMachineInventoryPrototype>, int> AdtRestockPacks = new();
 
-    private ISawmill _restockSawmill = default!;
-
-    [Dependency] private ILogManager _logManager = default!;
-
     public int AdtProductCost(CargoProductPrototype product)
     {
         return AdtRestockCosts.TryGetValue(product.ID, out var cost) ? cost : product.Cost;
@@ -30,8 +25,6 @@ public sealed partial class CargoSystem
 
     private void AdtInitializeRestockPricing()
     {
-        _restockSawmill = _logManager.GetSawmill("cargo.restock");
-
         foreach (var product in ProtoMan.EnumeratePrototypes<CargoProductPrototype>())
         {
             if (product.Abstract || !ProtoMan.TryIndex(product.Product, out var entityProto))
@@ -50,9 +43,6 @@ public sealed partial class CargoSystem
             if (total <= 0)
                 continue;
 
-            if (total != product.Cost)
-                _restockSawmill.Info($"{product.ID}: cost {product.Cost} -> {total} (packs: {string.Join(", ", AdtRestockPacks)})");
-
             AdtRestockCosts[product.ID] = total;
         }
     }
@@ -60,10 +50,7 @@ public sealed partial class CargoSystem
     private void AdtCollectRestockPacks(EntityPrototype proto, string context, Dictionary<ProtoId<VendingMachineInventoryPrototype>, int> packs, int depth)
     {
         if (depth > AdtMaxTableDepth)
-        {
-            _restockSawmill.Warning($"Max table depth exceeded while pricing {context} (proto: {proto.ID})");
             return;
-        }
 
         if (proto.Components.TryGetValue(Factory.GetComponentName<VendingMachineRestockComponent>(), out var restock) &&
             restock.Component is VendingMachineRestockComponent vRestock)
@@ -97,10 +84,7 @@ public sealed partial class CargoSystem
     private void AdtCollectRestockPacks(EntityTableSelector selector, string context, Dictionary<ProtoId<VendingMachineInventoryPrototype>, int> packs, int depth)
     {
         if (depth > AdtMaxTableDepth)
-        {
-            _restockSawmill.Warning($"Max table depth exceeded while pricing {context}");
             return;
-        }
 
         switch (selector)
         {
@@ -131,9 +115,6 @@ public sealed partial class CargoSystem
                     AdtCollectRestockPacks(tableProto.Table, context, packs, depth + 1);
                 break;
             case NoneSelector:
-                break;
-            default:
-                _restockSawmill.Warning($"Unsupported entity table selector {selector.GetType().Name} while pricing {context}");
                 break;
         }
     }

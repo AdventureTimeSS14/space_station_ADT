@@ -12,7 +12,6 @@
     extractReactions:
     - PurpleSlimeExtractWaterReaction
     - PurpleSlimeExtractPlasmaReaction
-    - PurpleSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyPurpleExtract
@@ -51,23 +50,4 @@
       entity: SlimeSteroidPotion
       number: 1
     scalingOffset: 1
-  shouldDelete: false
-
-- type: extractReaction
-  id: PurpleSlimeExtractBloodReaction
-  requirements:
-    Blood: 1
-  effects:
-  - effect: !type:PopupMessage
-      type: Pvs
-      messages: [ "xeno-extract-reaction-reagent" ]
-    scalingOffset: 0
-  - effect: !type:PlaySoundEffect
-      sound: /Audio/Effects/Chemistry/bubbles.ogg
-    scalingOffset: 0
-  - effect: !type:AddReagentToSolution
-      reagent: Omnizine
-      solution: extract
-    scalingFactor: 1
-    scalingOffset: 0
   shouldDelete: false

@@ -225,7 +225,7 @@
   - PlantChemicals
   - PlantGrowth
   - PlantAtmospheric
-  - PlantConsumeExudeGas
+  # - PlantConsumeExudeGas ADT-Tweak
   - PlantWeedPest
   - PlantToxins
   # traits

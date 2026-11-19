@@ -109,27 +109,21 @@
   id: ADTBoxAmmoSpaceFighterGAU32
   name: ammo box GAU32
   components:
-  - type: BallisticAmmoProvider
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Mech/sniper_box.rsi
     state: icon
   - type: MechMagazine
     magazinetype: gau32
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
+    capacity: 200
 
 - type: entity
   parent: BaseItem
   id: ADTBoxAmmoSpaceFighterDS30
   name: ammo box DS30
   components:
-  - type: BallisticAmmoProvider
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Mech/hades_box.rsi
     state: icon
   - type: MechMagazine
     magazinetype: ds30
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
+    capacity: 50

@@ -21,8 +21,8 @@
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="HeadRip">
-  Только по мёртвой цели, которую вы удерживаете. Наносит [color=#E05B5B]100[/color]
-  Slash-урона и [color=#E05B5B]300[/color] Blunt-урона.
+  Только по мёртвой цели. Наносит [color=#E05B5B]100[/color] Slash-урона
+  и [color=#E05B5B]300[/color] Blunt-урона, пробивающего броню.
   </ADTGuideCombo>
 
 </Document>

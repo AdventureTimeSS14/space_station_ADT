@@ -1,0 +1,11 @@
+- type: reaction
+  id: XenobioRegenJellyMix
+  impact: Low
+  quantized: true
+  reactants:
+    XenobioJellyAdamantine:
+      amount: 2
+    Omnizine:
+      amount: 2
+  products:
+    RegenerativeJelly: 1
