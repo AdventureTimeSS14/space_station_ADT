@@ -72,6 +72,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         SubscribeLocalEvent<ProtectiveBladeComponent, ComponentStartup>(OnStartup);
 
         SubscribeLocalEvent<ProtectiveBladesComponent, InteractHandEvent>(OnHereticInteract, after: [typeof(BuckleSystem)]);
+        SubscribeLocalEvent<ShadowCloakEntityComponent, InteractHandEvent>(OnShadowInteract, after: [typeof(BuckleSystem)]);
         SubscribeLocalEvent<ProtectiveBladesComponent, BeforeDamageChangedEvent>(OnTakeDamage);
         SubscribeLocalEvent<ProtectiveBladesComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction,
             after: [typeof(HereticAbilitySystem), typeof(RiposteeSystem)]);
@@ -115,6 +116,15 @@ public sealed class ProtectiveBladeSystem : EntitySystem
             return;
 
         if (TryThrowProtectiveBlade(ent, null))
+            args.Handled = true;
+    }
+
+    private void OnShadowInteract(Entity<ShadowCloakEntityComponent> ent, ref InteractHandEvent args)
+    {
+        if (args.Handled || ent.Comp.User is not { } user || args.User != user)
+            return;
+
+        if (TryThrowProtectiveBlade(user, null))
             args.Handled = true;
     }
 

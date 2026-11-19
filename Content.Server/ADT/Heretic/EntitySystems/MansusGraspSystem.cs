@@ -190,6 +190,9 @@ public sealed partial class MansusGraspSystem : SharedMansusGraspSystem
 
     private bool GraspTarget(Entity<MansusGraspComponent> grasp, EntityUid user, EntityUid target)
     {
+        if (TryComp<ShadowCloakEntityComponent>(target, out var shadow) && shadow.User is { } shadowUser)
+            target = shadowUser;
+
         if (!_heretic.TryGetHereticComponent(user, out var hereticComp, out _))
         {
             QueueDel(grasp);

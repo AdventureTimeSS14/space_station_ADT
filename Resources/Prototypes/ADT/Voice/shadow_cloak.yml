@@ -1,0 +1,36 @@
+- type: speechSounds
+  id: ShadowCloak
+  saySound:
+    collection: HissSay
+  askSound:
+    path: /Audio/ADT/Heretic/hiss/hiss3.ogg
+  exclaimSound:
+    path: /Audio/ADT/Heretic/hiss/hiss4.ogg
+
+- type: emoteSounds
+  id: ShadowCloak
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Laugh:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Sneeze:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Cough:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Yawn:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Snore:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Sigh:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Crying:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Whistle:
+      path: /Audio/ADT/Heretic/hiss/hiss5.ogg
+    Gasp:
+      collection: HissGasp
+    DefaultDeathgasp:
+      path: /Audio/ADT/Heretic/hiss/lowHiss1.ogg

@@ -143,7 +143,7 @@ heretic-influence-dream-silent = In your dreams, reality is still. Nothing shift
 heretic-gate-examine-move = The rift is anchored to nothing. You can drag it anywhere, but its twin stays where it was left.
 heretic-influence-dream-at = Somewhere close by, reality is folding. You feel it: {$place}.
 heretic-void-blink-none = No marked quarry stirs within your reach.
-heretic-void-blink-verb = Pull to me
+heretic-void-blink-verb = Void step
 heretic-blade-no-guns = The blade rejects ranged cowardice. Steel only.
 
 ## Stargazer grab & smash

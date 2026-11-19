@@ -133,7 +133,7 @@ heretic-influence-dream-at = Где-то рядом реальность скл�
 
 ## blink system (хрень пути пустоты)
 heretic-void-blink-none = Ни одна помеченная жертва не шевелится рядом.
-heretic-void-blink-verb = Стянуть к себе
+heretic-void-blink-verb = Шаг пустоты
 
 ## ne strelyai yrod system(описание само за себя говорит)
 heretic-blade-no-guns = Клинок отвергает трусость дальнего боя. Только сталь.
