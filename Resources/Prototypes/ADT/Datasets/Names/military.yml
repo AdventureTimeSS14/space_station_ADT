@@ -45,3 +45,9 @@
 #   values:
 #     prefix: names-military-deadsquad-first-dataset-
 #     count: 2
+
+- type: localizedDataset
+  id: ADTNamesCrusader
+  values:
+    prefix: names-ADTNamesCrusader-
+    count: 40

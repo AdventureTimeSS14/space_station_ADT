@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.ADT.FiringPin;
 using Content.Shared.ADT.Heretic.Common;
@@ -173,7 +174,7 @@ public sealed partial class HereticAbilitySystem
         FixedPoint2 hp,
         EntityUid? hostile)
     {
-        if (_mobstate.IsDead(uid) || HasComp<GhoulComponent>(uid) || HasComp<BorgChassisComponent>(uid))
+        if (_mobstate.IsDead(uid) || HasComp<GhoulComponent>(uid) || HasComp<BorgChassisComponent>(uid) || HasComp<ChaplainComponent>(uid))
             return null;
 
         var xform = Transform(uid);

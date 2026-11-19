@@ -2,7 +2,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Armor;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
@@ -18,7 +20,20 @@ public sealed partial class ArmorPenetrationSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ArmorPenetrationComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<ArmorPenetrationComponent, DamageExamineEvent>(OnDamageExamine, after: [typeof(SharedMeleeWeaponSystem)]);
         SubscribeLocalEvent<ArmorPenetrationComponent, ProjectileHitEvent>(OnProjectileHit);
+    }
+
+    private void OnDamageExamine(Entity<ArmorPenetrationComponent> ent, ref DamageExamineEvent args)
+    {
+        var penetration = MathF.Round(Math.Clamp(ent.Comp.Penetration, 0f, 1f) * 100f);
+        if (penetration <= 0f)
+            return;
+
+        if (!args.Message.IsEmpty)
+            args.Message.PushNewline();
+
+        args.Message.AddMarkupOrThrow(Loc.GetString("armor-penetration-examine", ("penetration", penetration)));
     }
 
     private void OnMeleeHit(Entity<ArmorPenetrationComponent> ent, ref MeleeHitEvent args)

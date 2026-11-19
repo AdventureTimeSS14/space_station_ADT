@@ -1,0 +1,90 @@
+- type: chaplainPrayer
+  id: GloriaPatri
+  text: Gloria Patri
+  cooldown: 90
+  effect: ADTEffectPrayerTwinkle
+  sound: /Audio/ADT/Chaplain/prayer.ogg
+  effects:
+  - !type:FaithPrayerEffect
+    amount: 1
+
+- type: chaplainPrayer
+  id: LuxAeterna
+  text: Lux aeterna
+  cost: 2
+  cooldown: 45
+  effect: ADTEffectHolyBlessing
+  sound: /Audio/ADT/Chaplain/prayer.ogg
+  effects:
+  - !type:HealPrayerEffect
+    heal:
+      groups:
+        Brute: -10
+        Burn: -10
+
+- type: chaplainPrayer
+  id: VadeRetro
+  text: Vade retro
+  cost: 3
+  cooldown: 60
+  effect: ADTEffectHolyWave
+  sound: /Audio/ADT/Chaplain/vade_retro.ogg
+  effects:
+  - !type:RepelPrayerEffect
+    range: 3
+    throwDistance: 2
+    suppression: 15
+
+- type: chaplainPrayer
+  id: OraProNobis
+  text: Ora pro nobis
+  role: Follower
+  cooldown: 120
+  effect: ADTEffectPrayerTwinkle
+  sound: /Audio/ADT/Chaplain/follower_prayer.ogg
+  effects:
+  - !type:FaithPrayerEffect
+    amount: 1
+
+- type: chaplainPrayer
+  id: DominusVobiscum
+  text: Dominus vobiscum
+  role: Follower
+  cooldown: 90
+  chaplainRange: 7
+  effect: ADTEffectHolyBlessing
+  sound: /Audio/ADT/Chaplain/follower_prayer.ogg
+  effects:
+  - !type:HealPrayerEffect
+    heal:
+      groups:
+        Brute: -5
+        Burn: -5
+
+- type: chaplainPrayer
+  id: ScutumFidei
+  text: Scutum fidei
+  role: Follower
+  cooldown: 300
+  effect: ADTEffectHolyWave
+  sound: /Audio/ADT/Chaplain/holy_shield.ogg
+  effects:
+  - !type:ShieldPrayerEffect
+    duration: 15
+
+- type: chaplainPrayer
+  id: DeusVult
+  text: Deus vult
+  role: Follower
+  cooldown: 180
+  chaplainRange: 10
+  whitelist:
+    components:
+    - Crusader
+  effect: ADTEffectHolyWave
+  sound: /Audio/ADT/Chaplain/follower_prayer.ogg
+  effects:
+  - !type:RallyPrayerEffect
+    range: 5
+    duration: 6
+    speedMultiplier: 1.25

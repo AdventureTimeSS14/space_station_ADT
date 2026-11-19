@@ -13,6 +13,7 @@ public sealed class CanvasDocument : IDisposable
     private readonly Dictionary<int, DeferredTile> _deferred = new();
     private uint _nextOperationId = 1;
     private CanvasLayer? _strokeLayer;
+    private int _strokeLayerTag;
 
     public CanvasDocument(int width, int height, Color background, BrushSettings brush)
     {
@@ -76,6 +77,12 @@ public sealed class CanvasDocument : IDisposable
                     return true;
             }
 
+            foreach (var layer in Layers.Layers)
+            {
+                if (layer.HasPendingWork())
+                    return true;
+            }
+
             return false;
         }
     }
@@ -86,7 +93,11 @@ public sealed class CanvasDocument : IDisposable
             return;
 
         if (sample.Phase == PenPhase.Down)
-            _strokeLayer = Layers.Active;
+        {
+            _strokeLayer = Layers.Active is { Own: true } active ? active : null;
+            if (_strokeLayer != null)
+                _strokeLayerTag = (int) _nextOperationId++;
+        }
 
         if (_strokeLayer is { } layer)
         {
@@ -97,7 +108,7 @@ public sealed class CanvasDocument : IDisposable
             }
 
             layer.Stroker.TaperOutLength = taperOutLength;
-            layer.Stroker.Handle(sample, 0);
+            layer.Stroker.Handle(sample, _strokeLayerTag);
             if (sample.Phase == PenPhase.Up)
                 _strokeLayer = null;
 
@@ -111,35 +122,57 @@ public sealed class CanvasDocument : IDisposable
             FlushDeferred();
     }
 
-    public bool MergeLayer(CanvasLayer layer)
+    public bool CanMergeLayer(CanvasLayer layer)
     {
         var layers = Layers.Layers;
-        var top = -1;
+        var top = IndexOfLayer(layer);
+        if (top < 0 || !layer.Own)
+            return false;
+
+        for (var i = 0; i < top; i++)
+        {
+            if (!layers[i].Own && layers[i].Visible)
+                return false;
+        }
+
+        return true;
+    }
+
+    private int IndexOfLayer(CanvasLayer layer)
+    {
+        var layers = Layers.Layers;
         for (var i = 0; i < layers.Count; i++)
         {
             if (layers[i] == layer)
-                top = i;
+                return i;
         }
 
-        if (top < 0)
+        return -1;
+    }
+
+    public bool MergeLayer(CanvasLayer layer)
+    {
+        if (!CanMergeLayer(layer))
             return false;
 
+        var layers = Layers.Layers;
+        var top = IndexOfLayer(layer);
         var group = new List<CanvasLayer>();
         for (var i = 0; i <= top; i++)
         {
-            if (layers[i] == layer || layers[i].Visible)
+            if (layers[i] == layer || layers[i].Own && layers[i].Shown)
                 group.Add(layers[i]);
         }
 
-        return MergeLayers(group, layer);
+        return MergeLayers(group);
     }
 
     public bool MergeVisibleLayers()
     {
-        return MergeLayers(Layers.Layers.Where(l => l.Visible).ToList(), null);
+        return MergeLayers(Layers.Layers.Where(l => l.Visible).ToList());
     }
 
-    private bool MergeLayers(List<CanvasLayer> group, CanvasLayer? selected)
+    private bool MergeLayers(List<CanvasLayer> group)
     {
         if (Stroker.Active || group.Any(l => l.Stroker.Active))
             return false;
@@ -147,7 +180,7 @@ public sealed class CanvasDocument : IDisposable
         var tiles = new Dictionary<int, Rgba32[]>();
         foreach (var layer in group)
         {
-            if ((layer != selected && !layer.Visible) || layer.Opacity <= 0f)
+            if (layer.Opacity <= 0f)
                 continue;
 
             foreach (var index in layer.Surface.AllocatedTiles())
@@ -330,7 +363,7 @@ public sealed class CanvasDocument : IDisposable
         if (tiles.Count == 0)
             return false;
 
-        if (Layers.Active is { } layer)
+        if (Layers.Active is { Own: true } layer)
         {
             layer.Surface.CompositeTiles(tiles, opacity, 0);
             return true;
@@ -438,8 +471,13 @@ public sealed class CanvasDocument : IDisposable
     {
         foreach (var layer in Layers.Layers)
         {
+            if (!layer.Own)
+                continue;
+
             layer.Surface.HistoryChanged -= OnLayerHistory;
             layer.Surface.HistoryChanged += OnLayerHistory;
+            layer.Edited -= OnLayerEdited;
+            layer.Edited += OnLayerEdited;
         }
 
         HistoryChanged?.Invoke();
@@ -450,9 +488,14 @@ public sealed class CanvasDocument : IDisposable
         HistoryChanged?.Invoke();
     }
 
+    private void OnLayerEdited()
+    {
+        Edited?.Invoke();
+    }
+
     public void Undo()
     {
-        if (Layers.Active is { } layer)
+        if (Layers.Active is { Own: true } layer)
         {
             layer.Surface.Undo(out _, out _);
             return;
@@ -481,7 +524,7 @@ public sealed class CanvasDocument : IDisposable
 
     public void Redo()
     {
-        if (Layers.Active is { } layer)
+        if (Layers.Active is { Own: true } layer)
         {
             layer.Surface.Redo(out _, out _);
             return;
@@ -530,6 +573,16 @@ public sealed class CanvasDocument : IDisposable
     {
         index = -1;
         if (key.Layer != 0 || key.X >= Surface.TilesX || key.Y >= Surface.TilesY)
+            return false;
+
+        index = Surface.TileIndex(key.X, key.Y);
+        return true;
+    }
+
+    public bool TryGetTileIndex(CanvasTileKey key, out int index)
+    {
+        index = -1;
+        if (key.X >= Surface.TilesX || key.Y >= Surface.TilesY)
             return false;
 
         index = Surface.TileIndex(key.X, key.Y);
@@ -622,6 +675,114 @@ public sealed class CanvasDocument : IDisposable
         }
 
         Apply(index, version, content, pixels);
+    }
+
+    #endregion
+
+    #region Слои
+
+    public IEnumerable<(CanvasLayer Layer, int Index)> ModifiedLayerTiles()
+    {
+        foreach (var layer in Layers.Layers)
+        {
+            if (!layer.Own || !layer.Registered || !layer.SyncPending || layer.Stroker.Active)
+                continue;
+
+            var any = false;
+            for (var i = 0; i < layer.Synced.Length; i++)
+            {
+                if (layer.InFlight[i])
+                {
+                    any = true;
+                    continue;
+                }
+
+                if (!layer.TileModified(i))
+                    continue;
+
+                any = true;
+                yield return (layer, i);
+            }
+
+            if (!any)
+                layer.SyncPending = false;
+        }
+    }
+
+    public CanvasTilePrepared PrepareLayerCommit(CanvasLayer layer, int index)
+    {
+        var (x, y) = Surface.TileCoords(index);
+        var size = layer.Surface.GetTileSize(index);
+        var pixels = layer.Surface.IsAllocated(index)
+            ? (Rgba32[]) layer.Surface.GetTilePixels(index).Clone()
+            : new Rgba32[size.X * size.Y];
+
+        var strokes = Array.Empty<uint>();
+        if (layer.PendingStrokes.Remove(index, out var ids))
+            strokes = ids.ToArray();
+
+        layer.InFlight[index] = true;
+        layer.InFlightRevision[index] = layer.Surface.TileRevision(index);
+        var key = new CanvasTileKey(layer.ServerId, (ushort) x, (ushort) y);
+        return new CanvasTilePrepared(key, layer.Versions[index], size, pixels, strokes);
+    }
+
+    public void ConfirmLayerCommit(CanvasLayer layer, int index, uint version)
+    {
+        layer.Versions[index] = version;
+        layer.Synced[index] = layer.InFlightRevision[index];
+        layer.InFlight[index] = false;
+        if (layer.TileModified(index))
+            layer.SyncPending = true;
+
+        if (!HasPendingWork)
+            WorkSettled?.Invoke();
+    }
+
+    public void RejectLayerCommit(CanvasLayer layer, int index, uint? version)
+    {
+        if (version is { } current && current > layer.Versions[index])
+            layer.Versions[index] = current;
+
+        layer.InFlight[index] = false;
+        layer.Synced[index] = layer.Surface.TileRevision(index) - 1;
+        layer.SyncPending = true;
+        ModifiedChanged?.Invoke();
+    }
+
+    public void FailLayerCommit(CanvasLayer layer, int index)
+    {
+        RejectLayerCommit(layer, index, null);
+        layer.SyncPending = false;
+        layer.SyncFailed = true;
+
+        if (!HasPendingWork)
+            WorkSettled?.Invoke();
+    }
+
+    public bool IsLayerStale(CanvasLayer layer, int index, uint version)
+    {
+        return version <= layer.Versions[index];
+    }
+
+    public void ApplyLayerTile(CanvasLayer layer, int index, uint version, CanvasTileContent content, Rgba32[]? pixels)
+    {
+        if (IsLayerStale(layer, index, version))
+            return;
+
+        layer.Versions[index] = version;
+        if (layer.Own && !layer.UseServerCopy)
+            return;
+
+        if (pixels != null)
+            layer.Surface.AdoptTile(index, pixels);
+        else if (content.Kind == CanvasTileKind.Solid)
+            layer.Surface.FillTile(index, CanvasTileCodec.UnpackRgba(content.Rgba));
+        else
+            layer.Surface.ResetTile(index);
+
+        if (layer.Own)
+            layer.MarkSynced(index);
     }
 
     #endregion

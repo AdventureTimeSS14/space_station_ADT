@@ -1022,7 +1022,7 @@ public sealed class PaintSurface : IDisposable
                 pixels = (Rgba32[]) pixels.Clone();
                 foreach (var layer in layers)
                 {
-                    if (layer.Visible && layer.Surface.IsAllocated(i))
+                    if (layer.Shown && layer.Surface.IsAllocated(i))
                         CompositePixels(pixels, layer.Surface.GetTilePixels(i), layer.Opacity);
                 }
             }
@@ -1075,6 +1075,11 @@ public sealed class PaintSurface : IDisposable
         }
     }
 
+    public uint TileRevision(int index)
+    {
+        return _tiles[index].Revision;
+    }
+
     public Texture? TileTexture(int index)
     {
         return _tiles[index].Texture;
@@ -1110,7 +1115,19 @@ public sealed class PaintSurface : IDisposable
 
         private Rgba32[]? _pixels;
         public OwnedTexture? Texture;
-        public bool Dirty = true;
+        public uint Revision;
+        private bool _dirty = true;
+
+        public bool Dirty
+        {
+            get => _dirty;
+            set
+            {
+                _dirty = value;
+                if (value)
+                    Revision++;
+            }
+        }
 
         public Rgba32[]? StrokeBase;
         public float[]? StrokeMask;

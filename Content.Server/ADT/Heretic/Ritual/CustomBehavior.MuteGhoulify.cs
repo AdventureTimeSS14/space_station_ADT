@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Heretic;
@@ -23,6 +24,8 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
                 break;
 
             var uid = uids[i];
+            if (args.EntityManager.HasComponent<ChaplainComponent>(uid))
+                continue;
 
             var minion = args.EntityManager.EnsureComponent<HereticMinionComponent>(uid);
             minion.BoundHeretic = args.Performer;

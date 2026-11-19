@@ -48,6 +48,11 @@ public abstract partial class SharedArmorSystem : EntitySystem
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
             return;
 
+        // ADT-Tweak-Start
+        if (!CanProtect(ent, args.Owner))
+            return;
+        // ADT-Tweak-End
+
         foreach (var armorCoefficient in ent.Comp.Modifiers.Coefficients)
         {
             args.Args.DamageModifiers.Coefficients[armorCoefficient.Key] = args.Args.DamageModifiers.Coefficients.TryGetValue(armorCoefficient.Key, out var coefficient) ? coefficient * armorCoefficient.Value : armorCoefficient.Value;
@@ -58,6 +63,11 @@ public abstract partial class SharedArmorSystem : EntitySystem
     {
         if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
             return;
+
+        // ADT-Tweak-Start
+        if (!CanProtect(uid, args.Owner))
+            return;
+        // ADT-Tweak-End
 
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
     }

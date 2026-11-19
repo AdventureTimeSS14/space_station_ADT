@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Aurorastation/Aurora.3/blob/HEAD/icons/hud/hud.dmi",
+  "size": {
+    "x": 11,
+    "y": 7
+  },
+  "states": [
+    {
+      "name": "Vampire"
+    },
+    {
+      "name": "Thrall"
+    }
+  ]
+}

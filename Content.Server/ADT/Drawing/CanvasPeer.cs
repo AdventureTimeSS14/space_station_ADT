@@ -29,13 +29,11 @@ public sealed class CanvasIncomingTransfer
 public sealed class CanvasPendingCommit
 {
     public readonly MsgCanvasTileCommit Message;
-    public readonly int Index;
     public readonly TimeSpan Started;
 
-    public CanvasPendingCommit(MsgCanvasTileCommit message, int index, TimeSpan started)
+    public CanvasPendingCommit(MsgCanvasTileCommit message, TimeSpan started)
     {
         Message = message;
-        Index = index;
         Started = started;
     }
 }

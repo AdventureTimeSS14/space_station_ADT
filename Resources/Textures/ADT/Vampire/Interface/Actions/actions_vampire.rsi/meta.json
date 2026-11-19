@@ -1,0 +1,149 @@
+{
+  "copyright": "Taken from https://github.com/ss220-space/Paradise/commit/c2f89a840f7b72ac0cf1ea9e14740d2fe6985ae6 & New sprites have been created by svarshiksatanist",
+  "license": "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bg_vampire"
+    },
+    {
+      "name": "blood"
+    },
+    {
+      "name": "bite"
+    },
+    {
+      "name": "bite-on"
+    },
+    {
+      "name": "store"
+    },
+    {
+      "name": "rejuvenate"
+    },
+    {
+      "name": "glare"
+    },
+    {
+      "name": "select_class"
+    },
+    {
+      "name": "claws"
+    },
+    {
+      "name": "tendrils"
+    },
+    {
+      "name": "barrier"
+    },
+    {
+      "name": "bloodpool"
+    },
+    {
+      "name": "predator_sense"
+    },
+    {
+      "name": "spikes"
+    },
+    {
+      "name": "bringers_rite"
+    },
+    {
+      "name": "cloak"
+    },
+    {
+      "name": "shadow_snare"
+    },
+    {
+      "name": "anchor"
+    },
+    {
+      "name": "dark_passage"
+    },
+    {
+      "name": "extinguish"
+    },
+    {
+      "name": "shadow_boxing"
+    },
+    {
+      "name": "eternal_darkness"
+    },
+    {
+      "name": "swell"
+    },
+    {
+      "name": "rush"
+    },
+    {
+      "name": "seismic_stomp"
+    },
+    {
+      "name": "overwhelming_force"
+    },
+    {
+      "name": "demonic_grasp"
+    },
+    {
+      "name": "charge"
+    },
+    {
+      "name": "enthrall"
+    },
+    {
+      "name": "communication"
+    },
+    {
+      "name": "pacify"
+    },
+    {
+      "name": "subspace_swap"
+    },
+    {
+      "name": "decoy"
+    },
+    {
+      "name": "thralls_up"
+    },
+    {
+      "name": "blood_bond"
+    },
+    {
+      "name": "hysteria"
+    },
+    {
+      "name": "thrallheal"
+    },
+    {
+      "name": "pacifynearby"
+    },
+    {
+      "name": "lunge_finale"
+    },
+    {
+      "name": "meta_bats"
+    },
+    {
+      "name": "blood_hound"
+    },
+    {
+      "name": "bats"
+    },
+    {
+      "name": "infected_trophy"
+    },
+    {
+      "name": "shriek"
+    },
+    {
+      "name": "coffin"
+    },
+    {
+      "name": "revive"
+    }
+  ]
+}

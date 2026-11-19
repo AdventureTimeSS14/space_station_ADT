@@ -49,6 +49,7 @@
           Blunt: 9
       soundHit:
         collection: MetalThud
+    - type: ADTNoWideAttack
     - type: ADTShieldBash
       distance: 1.5
       raisedDistance: 3
@@ -527,6 +528,7 @@
           Blunt: 3
       soundHit:
         collection: MetalThud
+    - type: ADTNoWideAttack
     - type: ItemToggleMeleeWeapon
       activatedSoundOnHit:
         path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
