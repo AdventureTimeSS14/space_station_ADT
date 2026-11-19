@@ -1202,3 +1202,6 @@ VaccinatorMachineCircuitboard: ADTPandemicMachineCircuitboard
 ThrusterLarge: ADTThrusterMedium
 ADTMediumThruster: ADTThrusterMedium
 ADTBigThruster: ADTThrusterBig
+ADTVendingMachineCiviMedVend: ADTVendingMachineCiviMed
+ADTVendingMachinePill: ADTVendingMachineCiviMed
+VendingMachineMedicalBase: ADTVendingMachineCiviMed

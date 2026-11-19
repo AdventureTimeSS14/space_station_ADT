@@ -2,7 +2,7 @@
   id: ADTCiviMedAds
   values:
     prefix: advertisement-civimed-
-    count: 9
+    count: 13
 
 - type: localizedDataset
   id: IceCreammatAds
