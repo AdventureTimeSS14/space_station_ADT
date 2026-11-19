@@ -732,16 +732,6 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/hallelujah.ogg
         powerCost: 3
-      - requiredTag: ADTArmorSacrafice
-        resultProto: ADTClothingOuterArmorCrusader
-        effectProto: BulletImpactEffectOrangeDisabler
-        soundPath: /Audio/Effects/hallelujah.ogg
-        powerCost: 3
-      - requiredProto: ClothingHeadHelmetBasic
-        resultProto: ADTClothingHeadHelmetTrueTemplar
-        effectProto: BulletImpactEffectOrangeDisabler
-        soundPath: /Audio/Effects/hallelujah.ogg
-        powerCost: 3
       - requiredProto: ClothingUniformJumpsuitMonasticRobeLight
         resultProto: ADTClothingCoatMonkRobe
         soundPath: /Audio/Effects/hallelujah.ogg

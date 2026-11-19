@@ -31,6 +31,11 @@ those terms. In particular:
 
 - files carrying an SPDX identifier retain it (for example, `AGPL-3.0-or-later`
   in code originating from Goobstation);
+- the vampire antagonist and related code (`ADT/Vampire`, `ADT/Wega` and
+  `Resources/Prototypes/ADT/Vampire`) is ported from Wega
+  (https://github.com/wega-team/ss14-wega) and is licensed under
+  `GPL-3.0-only`; files modified by Adventure Time SS14 are marked as such in
+  their headers;
 - the `RobustToolbox` submodule is licensed as described in
   `RobustToolbox/legal.md`.
 
@@ -80,6 +85,10 @@ License версии 3 (SPDX: `AGPL-3.0-only`). Полный текст — в `
 
 - файлы с идентификатором SPDX сохраняют его (например, `AGPL-3.0-or-later` в
   коде, происходящем из Goobstation);
+- антагонист-вампир и связанный с ним код (`ADT/Vampire`, `ADT/Wega` и
+  `Resources/Prototypes/ADT/Vampire`) перенесены из Wega
+  (https://github.com/wega-team/ss14-wega) и лицензируются на условиях
+  `GPL-3.0-only`; файлы, изменённые Adventure Time SS14, отмечены в заголовках;
 - подмодуль `RobustToolbox` лицензируется на условиях, описанных в
   `RobustToolbox/legal.md`.
 

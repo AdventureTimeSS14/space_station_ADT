@@ -1039,6 +1039,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
         _actionsSystem?.SetToggled(oldAction, false);
 
         SelectingTargetFor = null;
+        EntityManager.System<ADTTargetActionIconSystem>().ResetIcon(oldAction); // ADT-Tweak
 
         _targetOutline?.Disable();
         _interactionOutline?.SetEnabled(true);

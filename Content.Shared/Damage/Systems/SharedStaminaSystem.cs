@@ -25,6 +25,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist; // ADT-Tweak
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -55,6 +56,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     [Dependency] private ItemToggleSystem _itemToggle = default!;
     [Dependency] protected SharedStunSystem StunSystem = default!;
     [Dependency] private MeleeBatteryHitsLeftSystem _meleeBattery = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!; // ADT-Tweak
 
     [Dependency] private EntityQuery<StaminaComponent> _stamQuery = default!;
 
@@ -196,6 +198,11 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         {
             if (!_stamQuery.TryGetComponent(ent, out var stam))
                 continue;
+
+            // ADT-Tweak-Start
+            if (_whitelistSystem.IsWhitelistFail(component.Whitelist, ent) || _whitelistSystem.IsWhitelistPass(component.Blacklist, ent))
+                continue;
+            // ADT-Tweak-End
 
             toHit.Add((ent, stam));
         }

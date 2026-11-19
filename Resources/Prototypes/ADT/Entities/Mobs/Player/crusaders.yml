@@ -1,0 +1,133 @@
+- type: randomHumanoidSettings
+  id: ADTERTCrusaderBase
+  parent: EventHumanoidCentcomm
+  randomizeName: false
+  speciesBlacklist:
+  - Diona
+  - Vox
+  - KoboltSpecies
+  - DemonSpecies
+  - CelecernSpecies
+  - NovakidSpecies
+  - TajaranSpecies
+  - UrsusSpecies
+  - Moth
+  - VulpkaninSpecies
+  - Shadekin
+  - Arachnid
+  - Reptilian
+  - Felinid
+  - Resomi
+  - SlimePerson
+  - Dwarf
+  - IPC
+  - DraskSpecies
+  components:
+  - type: RelicBound
+  - type: ADTVirusImmune
+    absolute: true
+  - type: ReplacementAccent
+    accent: adtMedieval
+
+- type: randomHumanoidSettings
+  id: ADTERTCrusaderMaster
+  parent: ADTERTCrusaderBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ADTERTCrusaderMaster-name
+    description: ghost-role-information-ADTERTCrusaderMaster-description
+    rules: ghost-role-information-nonantagonist-rules
+    job: ADTERTCrusaderMaster
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ ADTERTCrusaderMasterGear ]
+  - type: Chaplain
+    statusIcon: ChaplainFaction
+    faith: 10
+    maxFollowers: 4
+    actions:
+    - ActionChaplainBeliever
+    - ActionChaplainHolyShield
+    - ActionChaplainHolyWater
+    - ActionChaplainExorcism
+    - ActionChaplainBlessing
+    - ADTActionCrusaderKnock
+  - type: BibleUser
+  - type: Crusader
+    master: true
+
+- type: randomHumanoidSettings
+  id: ADTERTCrusaderKnight
+  parent: ADTERTCrusaderBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ADTERTCrusaderKnight-name
+    description: ghost-role-information-ADTERTCrusaderKnight-description
+    rules: ghost-role-information-nonantagonist-rules
+    job: ADTERTCrusaderKnight
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ ADTERTCrusaderKnightGear ]
+  - type: Crusader
+
+- type: randomHumanoidSettings
+  id: ADTERTCrusaderHospitaller
+  parent: ADTERTCrusaderBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ADTERTCrusaderHospitaller-name
+    description: ghost-role-information-ADTERTCrusaderHospitaller-description
+    rules: ghost-role-information-nonantagonist-rules
+    job: ADTERTCrusaderHospitaller
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ ADTERTCrusaderHospitallerGear ]
+  - type: Crusader
+
+- type: entity
+  id: ADTRandomHumanoidSpawnerERTCrusaderMaster
+  name: crusader master
+  suffix: ERTRole, Crusaders
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: ertchaplain
+  - type: RandomMetadata
+    nameSegments:
+    - ADTNamesCrusader
+    nameFormat: name-format-ADTCrusaderMaster
+  - type: RandomHumanoidSpawner
+    settings: ADTERTCrusaderMaster
+
+- type: entity
+  id: ADTRandomHumanoidSpawnerERTCrusaderKnight
+  name: crusader knight
+  suffix: ERTRole, Crusaders
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: ertchaplain
+  - type: RandomMetadata
+    nameSegments:
+    - ADTNamesCrusader
+    nameFormat: name-format-ADTCrusaderBrother
+  - type: RandomHumanoidSpawner
+    settings: ADTERTCrusaderKnight
+
+- type: entity
+  id: ADTRandomHumanoidSpawnerERTCrusaderHospitaller
+  name: crusader hospitaller
+  suffix: ERTRole, Crusaders
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: ertmedical
+  - type: RandomMetadata
+    nameSegments:
+    - ADTNamesCrusader
+    nameFormat: name-format-ADTCrusaderBrother
+  - type: RandomHumanoidSpawner
+    settings: ADTERTCrusaderHospitaller

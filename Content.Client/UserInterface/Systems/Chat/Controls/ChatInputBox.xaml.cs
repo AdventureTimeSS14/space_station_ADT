@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Client.ADT.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controls;
@@ -39,7 +40,7 @@ public class ChatInputBox : PanelContainer
             MinWidth = 75
         };
         Container.AddChild(ChannelSelector);
-        Input = new HistoryLineEdit
+        Input = new PrayerHintLineEdit // ADT-Tweak
         {
             Name = "Input",
             PlaceHolder = GetChatboxInfoPlaceholder(),

@@ -39,6 +39,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
     private static readonly EntProtoId DefaultBlobRule = "BlobGameMode"; // ADT-tweak
     private static readonly EntProtoId DefaultShadowlingRule = "ADTShadowlingSpawn"; // ADT-tweak
+    private static readonly EntProtoId DefaultVampireRule = "Vampire"; // ADT-Tweak
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -226,6 +227,23 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", changelingName, Loc.GetString("admin-verb-make-changeling")),
         };
         args.Verbs.Add(changeling);
+
+        // ADT-Tweak start: vampires
+        var vampireName = Loc.GetString("admin-verb-text-make-vampire");
+        Verb vampire = new()
+        {
+            Text = vampireName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Vampire/Interface/Misc/vampire_icons.rsi"), "Vampire"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<VampireRuleComponent>(targetPlayer, DefaultVampireRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", vampireName, Loc.GetString("admin-verb-make-vampire")),
+        };
+        args.Verbs.Add(vampire);
+        // ADT-Tweak end
 
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
         Verb paradox = new()

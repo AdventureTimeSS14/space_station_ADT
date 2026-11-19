@@ -167,6 +167,7 @@
           Blunt: 3
       soundHit:
         collection: MetalThud
+    - type: ADTNoWideAttack
     - type: ItemToggleMeleeWeapon
       activatedSoundOnHit:
         path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg

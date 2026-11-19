@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.DoAfter;
@@ -113,6 +114,14 @@ public sealed partial class ADTShadowlingAbilitySystem
         {
             if (!quiet)
                 _popup.PopupEntity(Loc.GetString("shadowling-enthrall-mindshield"), user, user, PopupType.MediumCaution);
+
+            return false;
+        }
+
+        if (HasComp<ChaplainComponent>(target))
+        {
+            if (!quiet)
+                _popup.PopupEntity(Loc.GetString("shadowling-enthrall-chaplain"), user, user, PopupType.MediumCaution);
 
             return false;
         }
