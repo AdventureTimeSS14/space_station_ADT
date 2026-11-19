@@ -10,6 +10,11 @@
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
+  id: ADTBorgModuleVirology
+  result: ADTBorgModuleVirology
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
   id: ADTBorgModuleAdvancedChemical
   result: ADTBorgModuleAdvancedChemical
   materials:

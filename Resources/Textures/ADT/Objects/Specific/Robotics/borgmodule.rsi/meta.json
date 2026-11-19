@@ -1,7 +1,7 @@
 {
     "version": 2,
-    "license": "CC0-1.0",
-    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147)",
+    "license": "CC-BY-SA-3.0",
+    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147), icon-virology by Richard Blonski",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,9 @@
         },
         {
             "name": "icon-rpd"
+        },
+        {
+            "name": "icon-virology"
         },
         {
             "name": "base-icon-inhand-left",

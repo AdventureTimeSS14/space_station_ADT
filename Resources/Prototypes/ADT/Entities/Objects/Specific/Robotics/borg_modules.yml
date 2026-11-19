@@ -218,3 +218,33 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-anomaly-module }
 
+- type: entity
+  id: ADTBorgModuleVirology
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: virology cyborg module
+  description: Medical module for virology research. Comes with an unpowered health analyzer, a dropper, and hands for a syringe, a virus culture and a beaker.
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-virology
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: Dropper
+    droppableItems:
+    - id: Syringe
+      whitelist:
+        tags:
+        - Syringe
+    - id: ADTVirusCultureBottle
+      whitelist:
+        components:
+        - ADTDiseaseCulture
+    - id: Beaker
+      whitelist:
+        components:
+        - FitsInDispenser
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: viro-module }

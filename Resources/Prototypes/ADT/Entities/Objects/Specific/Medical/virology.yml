@@ -32,6 +32,9 @@
           True: { visible: False }
           False: { visible: True }
   - type: Label
+  - type: Tag
+    tags:
+    - ADTVirusCulture
 
 - type: entity
   parent: BaseChemistryEmptyBottle

@@ -171,6 +171,7 @@
   - ADTBorgModuleRescue
   - ADTBorgModuleAdvancedChemical
   - ADTBorgModuleChemical
+  - ADTBorgModuleVirology
   - ADTBorgModuleJanicartBuffer
   - ADTBorgModuleJanicartVacuum
   - BorgModuleRPED
