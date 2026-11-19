@@ -77,6 +77,8 @@
     # Start ADT Tweak
       enum.BorgInfoUiKey.BorgInfo:
         type: BorgInfoBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: CrewManifestViewer
     ownerKey: enum.BorgInfoUiKey.BorgInfo
   - type: BorgInfo
@@ -89,9 +91,11 @@
     - ActionViewLaws
   - type: EmagSiliconLaw
     stunTime: 5
-  - type: SiliconLawProvider
-    laws: NTDefault # Corvax-NTDefault
-  - type: IonStormTarget
+  # ADT-Tweak start: законы и взлом хранятся в мозге (MMI/позитрон),
+  #- type: SiliconLawProvider
+  #  laws: NTDefault # Corvax-NTDefault
+  #- type: IonStormTarget
+  # ADT-Tweak-End
   - type: Inventory
     templateId: borg
   - type: Hands
@@ -112,10 +116,24 @@
     - Science
   - type: ZombieImmune
   - type: Repairable
-    damageValue: -10 # 10 seconds to repair from crit
+    # ADT-Tweak start
+    damage:
+      Blunt: -10
+      Slash: -10
+      Piercing: -10
+      Shock: -10
+    # ADT-Tweak end
     doAfterDelay: 1
     fuelCost: 0.5
     allowSelfRepair: false
+  # ADT-Tweak start
+  - type: ADTBorgBurnRepairable
+    damage:
+      types:
+        Heat: -10
+    delay: 1
+    repairSound: /Audio/Effects/sparks4.ogg
+  # ADT-Tweak end
   - type: BorgChassis
   - type: LockingWhitelist
     blacklist:
@@ -123,6 +141,12 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
+  # ADT-Tweak start
+  - type: Wires
+    boardName: adt-borg-wires-board-name
+    layoutId: ADTBorg
+  - type: ADTBorgAiLink
+  # ADT-Tweak end
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -270,7 +294,7 @@
   parent: BaseBorgChassisNotIonStormable
   id: BaseBorgChassis
   components:
-  - type: IonStormTarget
+  # - type: IonStormTarget # ADT-Tweak
   - type: RadioJobIconOverride # ADT-Tweak
     iconId: JobIconBorg
   - type: Destructible
@@ -392,6 +416,17 @@
   # ADT-Tweak start
   - type: BorgFlashStun
     stunDuration: 4
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    transmitFrequencyId: SurveillanceCamera
+    receiveFrequencyId: SurveillanceCameraGeneral
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: true
+    id: borg
+    useEntityNameAsCameraId: true
+    setupAvailableNetworks:
+    - SurveillanceCameraGeneral
   # ADT-Tweak end
 
 - type: entity

@@ -8,6 +8,7 @@
   - SciFlash
   - CyborgEndoskeleton
   - ProximitySensor # ADT
+  - NanopasteRecipe # ADT
 
 - type: latheRecipePack
   id: BorgModulesStatic

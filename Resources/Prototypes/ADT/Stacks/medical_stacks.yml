@@ -4,3 +4,10 @@
   icon: { sprite: "/Textures/ADT/Objects/Specific/Medical/medical.rsi", state: antib_ointment }
   spawn: ADTAntibioticOintment
   maxCount: 10
+
+- type: stack
+  id: Nanopaste
+  name: stack-name-nanopaste
+  icon: { sprite: "/Textures/ADT/Objects/Specific/Medical/medical.rsi", state: nanopaste }
+  spawn: Nanopaste1
+  maxCount: 10

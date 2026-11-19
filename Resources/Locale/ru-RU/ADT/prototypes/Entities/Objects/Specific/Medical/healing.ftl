@@ -25,3 +25,10 @@ ent-ADTOintmentAdvanced1 = { ent-RegenerativeMesh }
 ent-PillCanisterAmbuzolPlus = баночка для таблеток
     .suffix = Амбузол+ 5 ед, 5 шт
     .desc = { ent-PillCanister.desc }
+
+ent-Nanopaste = нанопаста
+    .desc = Баллончик с самособирающимися наномашинами.
+ent-Nanopaste1 = { ent-Nanopaste }
+    .desc = { ent-Nanopaste.desc }
+ent-Nanopaste5 = { ent-Nanopaste }
+    .desc = { ent-Nanopaste.desc }

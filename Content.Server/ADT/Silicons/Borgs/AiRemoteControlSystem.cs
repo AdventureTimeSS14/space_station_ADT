@@ -1,4 +1,5 @@
 using Content.Server.Silicons.Laws;
+using Content.Server.ADT.Silicons.Borgs.Components;
 using Content.Shared.Radio.Components;
 using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.ADT.Silicons.Borgs.Components;
@@ -107,38 +108,44 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         ReturnMindIntoAi(entity.Owner);
     }
 
-    public void AiTakeControl(EntityUid ai, EntityUid entity)
+    public bool AiTakeControl(EntityUid ai, EntityUid entity)
     {
         if (!TryComp<StationAiHeldComponent>(ai, out var stationAiHeldComp))
-            return;
+            return false;
 
         if (!TryComp<AiRemoteControllerComponent>(entity, out var aiRemoteComp))
-            return;
+            return false;
 
         if (aiRemoteComp.AiHolder != null)
         {
             _popup.PopupEntity(Loc.GetString("ai-remote-control-occupied"), ai, ai, PopupType.MediumCaution);
-            return;
+            return false;
+        }
+
+        if (TryComp<ADTBorgAiLinkComponent>(entity, out var aiLink) && !aiLink.AiLinkEnabled)
+        {
+            _popup.PopupEntity(Loc.GetString("ai-remote-control-link-severed"), ai, ai, PopupType.MediumCaution);
+            return false;
         }
 
         if (_mobState.IsIncapacitated(entity))
-            return;
+            return false;
 
         if (!_stationAiSystem.TryGetCore(ai, out var stationAiCore) ||
             !_stationAiSystem.TryGetHeld(stationAiCore, out var aiBrain) ||
             aiBrain == null)
         {
-            return;
+            return false;
         }
 
         if (!TryComp<MetaDataComponent>(aiBrain.Value, out var aiMeta))
         {
-            return;
+            return false;
         }
 
         if (!_mind.TryGetMind(aiBrain.Value, out var mindId, out _))
         {
-            return;
+            return false;
         }
 
         if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter))
@@ -168,6 +175,8 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         _stationAiSystem.SwitchRemoteEntityMode(stationAiCore!, false);
 
         RewriteLaws(aiBrain.Value, entity);
+
+        return true;
     }
 
     private void OnBorgDestroyed(Entity<AiRemoteControllerComponent> entity, ref DestructionEventArgs args)
@@ -273,17 +282,25 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     public void RewriteLaws(EntityUid from, EntityUid to)
     {
-        if (!TryComp<SiliconLawProviderComponent>(from, out var fromLawsComp))
+        var fromSource = from;
+        if (TryComp<BorgChassisComponent>(from, out var fromChassis) && fromChassis.BrainEntity is { } fromBrain)
+            fromSource = fromBrain;
+
+        var toSource = to;
+        if (TryComp<BorgChassisComponent>(to, out var toChassis) && toChassis.BrainEntity is { } toBrain)
+            toSource = toBrain;
+
+        if (!TryComp<SiliconLawProviderComponent>(fromSource, out var fromLawsComp))
             return;
 
-        if (!HasComp<SiliconLawProviderComponent>(to))
+        if (!HasComp<SiliconLawProviderComponent>(toSource))
             return;
 
         if (fromLawsComp.Lawset == null)
             return;
 
-        var fromLaws = _lawSystem.GetLaws(from);
+        var fromLaws = _lawSystem.GetLaws(fromSource);
 
-        _lawSystem.SetLawsSilent(fromLaws.Laws, to);
+        _lawSystem.SetLawsSilent(fromLaws.Laws, toSource);
     }
 }

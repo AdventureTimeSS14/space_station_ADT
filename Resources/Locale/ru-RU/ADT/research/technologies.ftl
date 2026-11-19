@@ -24,3 +24,4 @@ research-technology-adt-quantum-parts = Квантовые машинные ча
 research-technology-adt-rped = РПЕД
 research-technology-adt-bluespace-rped = Блюспейс-РПЕД
 research-technology-adt-bluespace-rpd = Блюспейс-РРТ
+research-technology-adt-nanopaste = Робототехническая нанопаста

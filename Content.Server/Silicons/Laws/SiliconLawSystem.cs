@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Administration;
+using Content.Server.ADT.Silicons.Borgs.Components; // ADT-Tweak
 using Content.Server.Chat.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.ADT.Silicons.Borgs.Components;
@@ -17,6 +18,7 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Silicons.Borgs.Components; // ADT-Tweak
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -156,7 +158,7 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
     private void OnIonStormLaws(Entity<SiliconLawProviderComponent> ent, ref IonStormLawsEvent args)
     {
         // Emagged borgs are immune to ion storm
-        if (!_emag.CheckFlag(ent, EmagType.Interaction))
+        if (!_emag.CheckFlag(ent, EmagType.Interaction) && !IsHostBorgEmagged(ent)) // ADT-Tweak
         {
             ent.Comp.Lawset = args.Lawset;
 
@@ -165,11 +167,16 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
 
             // Show the silicon has been subverted.
             ent.Comp.Subverted = true;
+            NotifyHostBorgSubverted(ent); // ADT-Tweak
 
             // new laws may allow antagonist behaviour so make it clear for admins
-            if(_mind.TryGetMind(ent, out var mindId, out _))
+            // ADT-Tweak start
+            if (_mind.TryGetMind(ent, out var mindId, out _)
+                || TryGetHostBorgChassis(ent, out var chassis) && _mind.TryGetMind(chassis, out mindId, out _))
+            {
                 EnsureSubvertedSiliconRole(mindId);
-
+            }
+            // ADT-Tweak end
         }
     }
 
@@ -180,6 +187,7 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
 
         // Show the silicon has been subverted.
         component.Subverted = true;
+        NotifyHostBorgSubverted(uid); // ADT-Tweak
 
         // Add the first emag law before the others
         component.Lawset?.Laws.Insert(0, new SiliconLaw
@@ -195,6 +203,32 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
     }
+
+    // ADT-Tweak start
+    private bool IsHostBorgEmagged(EntityUid uid)
+    {
+        return TryGetHostBorgChassis(uid, out var chassis) && _emag.CheckFlag(chassis, EmagType.Interaction);
+    }
+
+    private bool TryGetHostBorgChassis(EntityUid uid, out EntityUid chassis)
+    {
+        chassis = Transform(uid).ParentUid;
+        return HasComp<BorgChassisComponent>(chassis);
+    }
+
+    public void NotifyHostBorgSubverted(EntityUid providerUid)
+    {
+        if (!TryGetHostBorgChassis(providerUid, out var chassis))
+            return;
+
+        if (!TryComp<ActorComponent>(chassis, out var actor))
+            return;
+
+        var msg = Loc.GetString("laws-notify-subverted");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
+        _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
+    }
+    // ADT-Tweak end
 
     protected override void EnsureSubvertedSiliconRole(EntityUid mindId)
     {
@@ -325,7 +359,7 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
             return;
-        var newLaws = _prototype.Index(proto).Laws.Select(law => (SiliconLaw)_prototype.Index<SiliconLawPrototype>(law)).ToList();
+        var newLaws = _prototype.Index(proto).Laws.Select(law => _prototype.Index<SiliconLawPrototype>(law).ShallowClone()).ToList();
 
         if (component.Lawset == null)
             component.Lawset = new SiliconLawset();
@@ -334,6 +368,33 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
         NotifyLawsChanged((target, component), cue);
     }
     // ADT SAI Custom end
+
+    // ADT-Tweak start
+    public bool TryResetLaws(EntityUid uid, SiliconLawProviderComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return false;
+
+        SetLaws(component.Laws, uid);
+
+        if (component.Subverted)
+        {
+            component.Subverted = false;
+            Dirty(uid, component);
+
+            if (!_mind.TryGetMind(uid, out var mindId, out _)
+                && TryGetHostBorgChassis(uid, out var chassis))
+            {
+                _mind.TryGetMind(chassis, out mindId, out _);
+            }
+
+            if (mindId != default)
+                RemoveSubvertedSiliconRole(mindId);
+        }
+
+        return true;
+    }
+    // ADT-Tweak end
 
     protected override void OnUpdaterInsert(Entity<SiliconLawUpdaterComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
@@ -355,9 +416,14 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
             SetLaws(lawset.Laws, update, provider.LawUploadSound);
 
             // ADT-Tweak-AiRemoteControl-Start
-            if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp) && stationAiHeldComp.CurrentConnectedEntity != null && HasComp<SiliconLawProviderComponent>(stationAiHeldComp.CurrentConnectedEntity))
+            if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp) && stationAiHeldComp.CurrentConnectedEntity != null)
             {
-                SetLawsSilent(lawset.Laws, stationAiHeldComp.CurrentConnectedEntity.Value);
+                var linkedBorg = stationAiHeldComp.CurrentConnectedEntity.Value;
+                if (TryComp<ADTBorgAiLinkComponent>(linkedBorg, out var link) && (!link.AiLinkEnabled || !link.LawSyncEnabled))
+                    continue;
+
+                if (TryComp<BorgChassisComponent>(linkedBorg, out var chassis) && chassis.BrainEntity is { } brain)
+                    SetLawsSilent(lawset.Laws, brain);
             }
             // ADT-Tweak-AiRemoteControl-End
         }
@@ -369,9 +435,23 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
         var headRevs = AllEntityQuery<SiliconLawProviderComponent, NpcFactionMemberComponent>();
         while (headRevs.MoveNext(out var uid, out var lawprov, out _))
         {
+    // ADT-Tweak start
             if (_faction.IsMember(uid, "NanoTrasen") && lawprov.Lawset != null)
-                lawprov.Lawset.Laws = newLaws;
+                SetLawsSilent(newLaws, uid);
         }
+
+        var borgs = AllEntityQuery<BorgChassisComponent, NpcFactionMemberComponent>();
+        while (borgs.MoveNext(out var uid, out var chassis, out _))
+        {
+            if (TryComp<ADTBorgAiLinkComponent>(uid, out var link) && (!link.AiLinkEnabled || !link.LawSyncEnabled))
+                continue;
+
+            if (chassis.BrainEntity is not { } brain || !HasComp<SiliconLawProviderComponent>(brain))
+                continue;
+
+            SetLawsSilent(newLaws, brain);
+        }
+    // ADT-Tweak end
         return;
     }
     ///ADT AI Custom law end
@@ -384,7 +464,7 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
         if (component.Lawset == null)
             component.Lawset = new SiliconLawset();
 
-        component.Lawset.Laws = newLaws;
+        component.Lawset.Laws = newLaws.Select(law => law.ShallowClone()).ToList();
     }
 // ADT-Tweak-AiRemoteControl-End
 

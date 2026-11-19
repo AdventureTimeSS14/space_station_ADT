@@ -1,3 +1,4 @@
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -26,12 +27,27 @@ public sealed partial class StartIonStormedSystem : EntitySystem
         if (!TryComp<IonStormTargetComponent>(ent.Owner, out var target))
             return;
 
+        // ADT-Tweak start
+        var stormUid = ent.Owner;
+        var stormBound = lawBound;
+        var stormComp = target;
+        if (TryComp<BorgChassisComponent>(ent.Owner, out var chassis)
+            && chassis.BrainEntity is { } brain
+            && TryComp<SiliconLawBoundComponent>(brain, out var brainBound)
+            && TryComp<IonStormTargetComponent>(brain, out var brainTarget))
+        {
+            stormUid = brain;
+            stormBound = brainBound;
+            stormComp = brainTarget;
+        }
+        // ADT-Tweak end
+
         for (int currentIonStorm = 0; currentIonStorm < ent.Comp.IonStormAmount; currentIonStorm++)
         {
-            _ionStorm.IonStormTarget((ent.Owner, lawBound, target));
+            _ionStorm.IonStormTarget((stormUid, stormBound, stormComp)); // ADT-Tweak 
         }
 
-        var laws = _siliconLaw.GetLaws(ent.Owner, lawBound);
+        var laws = _siliconLaw.GetLaws(stormUid, stormBound); // ADT-Tweak 
         _adminLogger.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(ent.Owner):silicon} spawned with ion stormed laws: {laws.LoggingString()}");
     }
 }

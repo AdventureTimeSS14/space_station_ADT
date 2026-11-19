@@ -1,0 +1,9 @@
+- type: wireLayout
+  id: ADTBorg
+  wires:
+  - !type:ADTBorgAiLinkWireAction
+  - !type:ADTBorgLawSyncWireAction
+  - !type:ADTBorgCameraWireAction
+  - !type:ADTBorgResetModuleWireAction
+  - !type:ADTBorgResetLawsWireAction
+  dummyWires: 3
