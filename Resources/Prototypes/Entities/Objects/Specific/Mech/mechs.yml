@@ -6,13 +6,6 @@
   - type: MobMover
   - type: Mech
     mechCycleAction: ADTActionMechCycleEquipment # ADT-Tweak
-  # ADT-Tweak-Start
-  - type: ADTMech
-  - type: PointLight
-    enabled: false
-    radius: 6
-    energy: 1.5
-  # ADT-Tweak-End
   - type: MechAir
   - type: Vehicle
     canAttack: true
@@ -20,10 +13,6 @@
   - type: ContainerVehicle
     containerId: "mech-pilot-slot"
   - type: ContainerVehicleEntry
-# ADT-Tweak-start
-  - type: Prying
-    pryPowered: false
-# ADT-Tweak-end
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
@@ -132,6 +121,15 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # ADT-tweak-Start
+  - type: ADTMech
+  - type: PointLight
+    enabled: false
+    radius: 9
+    energy: 2
+    lightMask: ADTLightMaskCircleCone
+    autoRot: true
+  - type: Prying
+    pryPowered: false
   - type: NpcFactionMember
     factions:
     - NanoTrasen

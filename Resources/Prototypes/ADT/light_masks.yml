@@ -77,3 +77,11 @@
   - direction: 0
     innerWidth: 30
     outerWidth: 60
+
+- type: lightMask
+  id: ADTLightMaskCircleCone
+  maskPath: /Textures/ADT/Effects/Lightmasks/circle_cone.png
+  lightCones:
+  - direction: 0
+    innerWidth: 30
+    outerWidth: 60
