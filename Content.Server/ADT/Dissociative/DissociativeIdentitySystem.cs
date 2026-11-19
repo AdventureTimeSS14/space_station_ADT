@@ -1,6 +1,5 @@
 using Content.Server.ADT.Dissociative.Components;
 using Content.Server.ADT.Hallucinations.Systems;
-using Content.Server.Antag.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Implants;
 using Content.Server.Mind;
@@ -16,6 +15,8 @@ using Content.Shared.Database;
 using Content.Shared.Ghost.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Implants;
+using Content.Shared.Implants.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -132,8 +133,6 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
         alterComp.Host = ent;
         ent.Comp.Alter = alter;
 
-        EnsureComp<AntagImmuneComponent>(alter);
-
         RemComp<GhostOnMoveComponent>(alter);
         _eye.SetTarget(alter, ent);
         _visualBody.CopyAppearanceFrom(ent.Owner, alter);
@@ -221,24 +220,25 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
         _container.Remove(ent.Owner, host.Value.Comp.Container);
         ent.Comp.Manifested = true;
 
-        try
-        {
-            EnsureChameleonClothing(host.Value, ent);
-            EnsureChameleonImplant(ent);
-        }
-        catch (Exception e)
-        {
-            Log.Error($"Failed to set up chameleon gear for dissociative alter {ToPrettyString(ent)}: {e}");
-        }
+        EnsureChameleonClothing(host.Value, ent);
+        EnsureChameleonImplant(host.Value, ent);
     }
 
-    private void EnsureChameleonImplant(Entity<DissociativeAlterComponent> alter)
+    private void EnsureChameleonImplant(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter)
     {
-        if (alter.Comp.ChameleonImplantAdded)
+        if (host.Comp.ChameleonImplant is not { } implant)
             return;
 
-        if (_implants.AddImplant(alter, "ChameleonControllerImplant") != null)
-            alter.Comp.ChameleonImplantAdded = true;
+        if (TryComp<ImplantedComponent>(alter, out var implanted))
+        {
+            foreach (var entity in implanted.ImplantContainer.ContainedEntities)
+            {
+                if (HasComp<ChameleonControllerImplantComponent>(entity))
+                    return;
+            }
+        }
+
+        _implants.AddImplant(alter, implant);
     }
 
     private void Retract(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter)

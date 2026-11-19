@@ -2,6 +2,7 @@ using Content.Server.ADT.Chat;
 using Content.Server.ADT.Dissociative.Components;
 using Content.Server.ADT.Pointing;
 using Content.Server.Chat.Systems;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.ADT.Actions;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Systems;
@@ -12,6 +13,11 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Content.Shared.ADT.Chat;
 using Content.Shared.ADT.Hallucinations.Components;
+using Content.Shared.ADT.Radio.Components;
+using Content.Shared.Chat;
+using Content.Shared.Radio.Components;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 
 namespace Content.Server.ADT.Hallucinations.Systems;
 
@@ -31,6 +37,9 @@ public sealed partial class SchizophreniaSystem
         SubscribeLocalEvent<HallucinationComponent, ComponentShutdown>(OnHallucinationShutdown);
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnBeforeChatMessage);
+        SubscribeLocalEvent<HallucinationComponent, EntitySpokeEvent>(OnHallucinationSpoke,
+            before: new[] { typeof(HeadsetSystem), typeof(RadioSystem) });
+        SubscribeLocalEvent<ActiveListenerComponent, ListenAttemptEvent>(OnRadioListenAttempt);
         SubscribeLocalEvent<ActorComponent, CanHearVoiceEvent>(OnListenerCanHearVoice);
         SubscribeLocalEvent<HallucinationComponent, OverrideEmoteSoundEvent>(OverrideEmoteSound);
         SubscribeLocalEvent<HallucinationComponent, SetupPointingArrowEvent>(OnSetupPointer);
@@ -171,6 +180,20 @@ public sealed partial class SchizophreniaSystem
 
         foreach (var item in hallucinationRecipients)
             args.Recipients.Remove(item);
+    }
+
+    private void OnHallucinationSpoke(Entity<HallucinationComponent> ent, ref EntitySpokeEvent args)
+    {
+        args.Channel = null;
+    }
+
+    private void OnRadioListenAttempt(Entity<ActiveListenerComponent> ent, ref ListenAttemptEvent args)
+    {
+        if (!_hallucinationQuery.HasComp(args.Source))
+            return;
+
+        if (HasComp<RadioMicrophoneComponent>(ent) || HasComp<ADTTunableRadioComponent>(ent))
+            args.Cancel();
     }
 
     private void OnListenerCanHearVoice(Entity<ActorComponent> ent, ref CanHearVoiceEvent args)

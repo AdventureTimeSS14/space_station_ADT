@@ -399,6 +399,12 @@
     - !type:AddCompsEffect
       components:
         - type: DissociativeIdentity
+          chameleonClothing:
+            jumpsuit: ClothingUniformJumpsuitChameleon
+            outerClothing: ClothingOuterChameleon
+            shoes: ClothingShoesChameleon
+            head: ClothingHeadHatChameleon
+          chameleonImplant: ChameleonControllerImplant
           alterComponents:
           - type: Physics
             bodyType: KinematicController
@@ -416,6 +422,7 @@
                 layer:
                 - None
           - type: DissociativeAlterBody
+          - type: AntagImmune
           - type: ADTVirusImmune
             absolute: true
           - type: StatusIcon
