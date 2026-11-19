@@ -5,6 +5,11 @@
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedAnomaly
+  result: BorgModuleAdvancedAnomaly
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
   id: ADTBorgModuleAdvancedChemical
   result: ADTBorgModuleAdvancedChemical
   materials:

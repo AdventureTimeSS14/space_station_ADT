@@ -1047,16 +1047,20 @@
   - type: ItemBorgModule
     hands:
     - item: NodeScanner
-    - item: SprayBottle
     - item: GasAnalyzer
+    - item: HolofanProjectorBorg # ADT-Tweak
     - item: BorgDropper
-    - item: ChemistryEmptyVial
+    # ADT-Tweak start
+    - item: Beaker
       hand:
-        emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: ChemistryEmptyVial
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
         whitelist:
           components:
           - FitsInDispenser
+          tags:
+          - ChemDispensable
+      # ADT-Tweak end
     - item: GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
@@ -1071,23 +1075,26 @@
     - state: science
     - state: icon-anomalies
   - type: ItemBorgModule
+    # ADT-Tweak start: порт space-wizards PR #40522 — вторая рука строительства
+    # заменена на руку под ядро аномалии, репрезентатив первой — плазма
     hands:
     - item: AnomalyScanner
     - item: AnomalyLocatorUnpowered
     - item: AnomalyLocatorWideUnpowered
     - item: HandLabeler
     - hand:
-        emptyRepresentative: SheetRGlass
+        emptyRepresentative: SheetPlasma
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:
           - ConstructionMaterial
     - hand:
-        emptyRepresentative: SheetRPGlass
-        emptyLabel: borg-slot-construction-empty
+        emptyRepresentative: AnomalyCoreBluespaceInert
+        emptyLabel: borg-slot-anomaly-core
         whitelist:
           tags:
-          - ConstructionMaterial
+          - AnomalyCore
+    # ADT-Tweak end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: anomaly-module }
 

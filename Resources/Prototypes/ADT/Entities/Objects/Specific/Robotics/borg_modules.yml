@@ -183,3 +183,38 @@
     - item: RapidPartExchangerBorg
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: rped-module }
+
+- type: entity
+  id: WeaponPistolCHIMPBorg
+  parent: WeaponPistolCHIMP
+  name: integrated C.H.I.M.P.
+  description: An even smaller particle handcannon, designed for cyborg use.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+
+- type: entity
+  id: BorgModuleAdvancedAnomaly
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: advanced anomaly cyborg module
+  description: A module for the truly dedicated anomaly researcher.
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - state: icon-anomalies-adv
+  - type: ItemBorgModule
+    hands:
+    - item: AnomalyScanner
+    - item: WeaponPistolCHIMPBorg
+    - item: WeaponGauntletGorilla
+    - hand:
+        emptyRepresentative: AnomalyCoreBluespaceInert
+        emptyLabel: borg-slot-anomaly-core
+        whitelist:
+          tags:
+          - AnomalyCore
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-anomaly-module }
+

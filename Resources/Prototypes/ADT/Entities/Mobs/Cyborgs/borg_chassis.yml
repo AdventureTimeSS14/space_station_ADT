@@ -12,6 +12,14 @@
     borgSubtype: default_security
 
 - type: entity
+  id: BorgChassisScience
+  parent: BorgChassisSelectable
+  name: science cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: science
+
+- type: entity
   id: ADTBorgChassisKerfusNT
   parent: BaseBorgChassisNT
   name: kerfus cyborg

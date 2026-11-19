@@ -132,6 +132,7 @@
   recipeUnlocks:
   - WeaponPistolCHIMP
   - AnomalySynchronizerCircuitboard
+  - BorgModuleAdvancedAnomaly # ADT-Tweak
   # - AnomalyVesselExperimentalCircuitboard # ADT-Tweak
   technologyPrerequisites:
   - BasicAnomalousResearch

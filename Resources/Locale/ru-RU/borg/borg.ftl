@@ -29,7 +29,8 @@ borg-select-type-menu-select-type = Выберите тип шасси для п
 borg-select-type-menu-confirm = Подтвердите выбор
 borg-select-type-menu-guidebook = Руководство
 borg-type-generic-name = Универсал
-borg-type-generic-desc = Может всё, но одинаково не очень хорошо. Выполняйте различные случайные поручения на станции, или, быть может, окажите помощь научному отделу, который вас построил.
+# ADT-Tweak: порт space-wizards PR #40522 — наука теперь у отдельного сциборга
+borg-type-generic-desc = Может всё, но одинаково не очень хорошо. Выполняйте различные случайные поручения на станции.
 borg-type-generic-transponder = обычный киборг
 borg-type-engineering-name = Инженер
 borg-type-engineering-desc = Помогайте команде инженеров в строительстве станции, ликвидации повреждений или исправлении проблем с электричеством и атмосферой.

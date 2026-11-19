@@ -10,14 +10,14 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
-    - BorgModuleScience #until sciborgs are added
+    # - BorgModuleScience #until sciborgs are added
 
   defaultModules:
 #  - BorgModulePrying
   - BorgModuleTool
   - BorgModuleInflatable
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
+  # - BorgModuleArtifact
+  # - BorgModuleAnomaly
   radioChannels:
   - Science
 

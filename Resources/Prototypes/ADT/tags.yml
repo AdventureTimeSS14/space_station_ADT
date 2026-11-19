@@ -1104,3 +1104,6 @@
 
 - type: Tag
   id: ADTCoaltreeLog
+
+- type: Tag
+  id: AnomalyCore
