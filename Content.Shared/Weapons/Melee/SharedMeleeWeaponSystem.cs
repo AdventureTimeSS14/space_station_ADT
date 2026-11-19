@@ -267,6 +267,11 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
+        // ADT-Tweak-Start
+        var userEv = new GetUserMeleeDamageEvent(uid, ev.Modifiers);
+        RaiseLocalEvent(user, ref userEv);
+        // ADT-Tweak-End
+
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
     }
 

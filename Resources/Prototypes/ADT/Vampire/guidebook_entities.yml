@@ -1,0 +1,366 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+# Basic
+- type: entity
+  id: GuidebookVampireSelectClass
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: select_class
+
+- type: entity
+  id: GuidebookVampireRejuvenate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: rejuvenate
+
+- type: entity
+  id: GuidebookVampireGlare
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: glare
+
+# Hemomancer
+- type: entity
+  id: GuidebookVampireClaws
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: claws
+
+- type: entity
+  id: GuidebookVampireBloodTendrils
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: tendrils
+
+- type: entity
+  id: GuidebookVampireBloodBarrier
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: barrier
+
+- type: entity
+  id: GuidebookVampireSanguinePool
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: bloodpool
+
+- type: entity
+  id: GuidebookVampirePredatorSenses
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: predator_sense
+
+- type: entity
+  id: GuidebookVampireBloodEruption
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: spikes
+
+- type: entity
+  id: GuidebookVampireBloodBringersRite
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: bringers_rite
+
+# Umbrae
+- type: entity
+  id: GuidebookVampireCloakOfDarkness
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: cloak
+
+- type: entity
+  id: GuidebookVampireShadowSnare
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: shadow_snare
+
+- type: entity
+  id: GuidebookVampireSoulAnchor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: anchor
+
+- type: entity
+  id: GuidebookVampireDarkPassage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: dark_passage
+
+- type: entity
+  id: GuidebookVampireExtinguish
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: extinguish
+
+- type: entity
+  id: GuidebookVampireShadowBoxing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: shadow_boxing
+
+- type: entity
+  id: GuidebookVampireEternalDarkness
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: eternal_darkness
+
+# Gargantua
+- type: entity
+  id: GuidebookVampireBloodSwell
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: swell
+
+- type: entity
+  id: GuidebookVampireBloodRush
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: rush
+
+- type: entity
+  id: GuidebookVampireSeismicStomp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: seismic_stomp
+
+- type: entity
+  id: GuidebookVampireOverwhelmingForce
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: overwhelming_force
+
+- type: entity
+  id: GuidebookVampireDemonicGrasp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: demonic_grasp
+
+- type: entity
+  id: GuidebookVampireCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: charge
+
+# Dantalion
+- type: entity
+  id: GuidebookVampireEnthrall
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: enthrall
+
+- type: entity
+  id: GuidebookVampireCommune
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: communication
+
+- type: entity
+  id: GuidebookVampirePacify
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: pacify
+
+- type: entity
+  id: GuidebookVampireSubspaceSwap
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: subspace_swap
+
+- type: entity
+  id: GuidebookVampireDeployDecoy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: decoy
+
+- type: entity
+  id: GuidebookVampireRallyThralls
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: thralls_up
+
+- type: entity
+  id: GuidebookVampireBloodBond
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: blood_bond
+
+- type: entity
+  id: GuidebookVampireMassHysteria
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: hysteria
+
+- type: entity
+  id: GuidebookVampirePacifyNearby
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: pacifynearby
+
+- type: entity
+  id: GuidebookVampireThrallHeal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: thrallheal
+
+# Bestia
+- type: entity
+  id: GuidebookVampireCheckTrophies
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: rush
+
+- type: entity
+  id: GuidebookVampireDissect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: claws
+
+- type: entity
+  id: GuidebookVampireInfectedTrophy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: infected_trophy
+
+- type: entity
+  id: GuidebookVampireLunge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: charge
+
+- type: entity
+  id: GuidebookVampireMarkPrey
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: predator_sense
+
+- type: entity
+  id: GuidebookVampireMetamorphosisBats
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: meta_bats
+
+- type: entity
+  id: GuidebookVampireAnabiosis
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: coffin
+
+- type: entity
+  id: GuidebookVampireSummonBats
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: bats
+
+- type: entity
+  id: GuidebookVampireMetamorphosisHound
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: blood_hound
+
+- type: entity
+  id: GuidebookVampireResonantShriek
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: shriek
+
+- type: entity
+  id: GuidebookVampireLungeFinale
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    state: lunge_finale

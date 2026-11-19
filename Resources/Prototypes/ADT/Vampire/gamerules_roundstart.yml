@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseVampireRule
+  components:
+  - type: VampireRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: VampireObjectiveGroups
+    maxDifficulty: 5
+  - type: AntagSelection
+    agentName: vampire-round-end-name
+  - type: DynamicRuleCost
+    cost: 100
+
+- type: entity
+  parent: [BaseVampireRule, BaseRoundstartAntagRule]
+  id: Vampire
+  components:
+  - type: GameRule
+    minPlayers: 5
+    delay:
+      min: 240
+      max: 420
+  - type: AntagObjectives
+    objectives:
+      - EscapeVampirefShuttleObjective
+  - type: AntagSelection
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Vampire
+      range:
+        min: 1
+        max: 4

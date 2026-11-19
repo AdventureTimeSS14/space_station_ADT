@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+#Vampire
+
+- type: polymorph
+  id: VampireBlood
+  configuration:
+    entity: MobPuddleBlood
+    forced: true
+    duration: 8
+    polymorphSound:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+
+- type: polymorph
+  id: VampireBats
+  configuration:
+    entity: MobBats
+    forced: true
+    polymorphSound:
+      path: "/Audio/ADT/Vampire/Effects/Vampire/wings_flapping.ogg"
+    exitPolymorphSound:
+      path: "/Audio/ADT/Vampire/Effects/Vampire/wings_flapping.ogg"
+
+- type: polymorph
+  id: VampireHound
+  configuration:
+    entity: MobHellHound
+    forced: true
+    polymorphSound:
+      path: "/Audio/ADT/Vampire/Effects/Vampire/wings_flapping.ogg"
+    exitPolymorphSound:
+      path: "/Audio/ADT/Vampire/Effects/Vampire/wings_flapping.ogg"
+
+#Xenobiology

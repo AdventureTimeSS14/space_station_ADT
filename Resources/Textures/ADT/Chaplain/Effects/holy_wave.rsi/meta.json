@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by Inconnu(discord:inconnu1337)",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "wave",
+            "delays": [
+                [
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07
+                ]
+            ]
+        }
+    ]
+}

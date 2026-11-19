@@ -1,6 +1,7 @@
 //
 
 using System.Linq;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Server.Chat.Systems;
 using Content.Server.Heretic.Abilities;
@@ -232,6 +233,9 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         // upgraded grasp
         if (!TryApplyGraspEffectAndMark(user, hereticComp, target, grasp, out var triggerGrasp))
             return false;
+
+        if (HasComp<ChaplainComponent>(target))
+            triggerGrasp = false;
 
         if (triggerGrasp && TryComp(target, out StatusEffectsComponent? status))
         {

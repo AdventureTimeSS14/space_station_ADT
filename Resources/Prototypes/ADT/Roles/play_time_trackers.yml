@@ -63,3 +63,12 @@
 
 - type: playTimeTracker
   id: JobADTSODOfficer
+
+- type: playTimeTracker
+  id: JobADTERTCrusaderMaster
+
+- type: playTimeTracker
+  id: JobADTERTCrusaderKnight
+
+- type: playTimeTracker
+  id: JobADTERTCrusaderHospitaller

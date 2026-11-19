@@ -1,0 +1,264 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: entity
+  id: BloodTentacle
+  name: tentacle
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/bloodtentacle.rsi
+    layers:
+    - state: blood_tendril
+  - type: SlowdownOnContact
+    multiplier: 0
+    duration: 8
+    blacklist:
+      components:
+      - Vampire
+  - type: Fixtures
+    fixtures:
+      fix:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - Impassable
+        layer:
+        - Impassable
+        hard: false
+  - type: TimedDespawn
+    lifetime: 6
+  - type: SpawnOnDespawn
+    prototype: EffectBloodTentacleRetract
+
+- type: entity
+  id: BaseEffectBloodTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: tentacle
+  abstract: true
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/bloodtentacle.rsi
+  - type: InteractionOutline
+  - type: TimedDespawn
+    lifetime: 0.1
+
+- type: entity
+  id: EffectBloodTentacleSpawn
+  parent: BaseEffectBloodTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: tentacle
+  components:
+  - type: Sprite
+    state: blood_tendril
+  - type: SpawnOnDespawn
+    prototype: BloodTentacle
+
+- type: entity
+  id: EffectBloodTentacleRetract
+  parent: BaseEffectBloodTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: blood_tendril
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: BloodBarrier
+  name: blood barrier
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/bloodbarrier.rsi
+    state: blood_barrier
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+          - FullTileMask
+        layer:
+          - WallLayer
+  - type: Airtight
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PuddleBlood:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/drink.ogg
+  - type: TimedDespawn
+    lifetime: 25
+  - type: SpawnOnDespawn
+    prototype: PuddleBlood
+
+- type: entity
+  parent: [ CollideFloorTrap, BaseShadow ]
+  id: ShadowTrap
+  name: shadow trap
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/shadowtrap.rsi
+    state: trap
+  - type: Stealth
+    lastVisibility: 0.1
+  - type: FlashOnTrigger
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SpawnOnDespawn
+    prototype: ShadowTrapTrue
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Items/Handcuffs/cuff_end.ogg
+      params:
+        variation: 0.3
+  - type: Photophobia
+    applyShadowWeakness: true
+    damagePerLight: 5
+    speedModifier: 1
+    interval: 0.5
+
+- type: entity
+  parent: [ CollideFloorTrap, BaseShadow ]
+  id: ShadowTrapTrue
+  categories: [ HideSpawnMenu ]
+  name: shadow trap
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/shadowtrap.rsi
+    state: trap
+  - type: Stealth
+    lastVisibility: 0.1
+  - type: TriggerOnCollide
+    fixtureID: floortrap
+    maxTriggers: 1
+  - type: FlashOnTrigger
+  - type: DamageOnTrigger
+    targetUser: true
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 20
+    blacklist:
+      components:
+      - Vampire
+  - type: StunOnContact
+    fixtureId: floortrap
+    duration: 2
+    blacklist:
+      components:
+      - Vampire
+
+- type: entity
+  parent: BaseStructure
+  id: BeaconSoul
+  name: beacon soul
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/soulbeacon.rsi
+    state: beacon
+  - type: TimedDespawn
+    lifetime: 250.0 # 130s CD + 120s action
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - TableMask
+
+- type: entity
+  id: VampireMistEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/misteffects.rsi
+    state: mist
+  - type: TimedDespawn
+    lifetime: 1.4
+
+- type: entity
+  id: VampireMistReappearEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/misteffects.rsi
+    state: mist_reappear
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  parent: BaseShadowMob
+  id: MobFollowerShadow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Effects/shadowboxing.rsi
+    state: shadow
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 20
+    baseSprintSpeed: 20
+  - type: CombatMode
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+  - type: DamageOnHit
+    damage:
+      types:
+        Blunt: 20
+  - type: NPCIgnoringOptimize
+  - type: NpcFactionMember
+    factions:
+    - Vampire
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: TimedDespawn
+    lifetime: 20.0
