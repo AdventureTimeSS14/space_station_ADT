@@ -1,6 +1,7 @@
 using Content.Server.ADT.Dissociative.Components;
 using Content.Server.ADT.Hallucinations.Systems;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server.Implants;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Shared.Actions;
@@ -14,6 +15,8 @@ using Content.Shared.Database;
 using Content.Shared.Ghost.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Implants;
+using Content.Shared.Implants.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -43,6 +46,7 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
     [Dependency] private MindSystem _mind = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private SchizophreniaSystem _schizophrenia = default!;
+    [Dependency] private SubdermalImplantSystem _implants = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
@@ -195,6 +199,12 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
             return;
         }
 
+        if (_mobState.IsDead(host.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("dissociative-manifest-host-dead"), ent, ent);
+            return;
+        }
+
         if (IsSuppressed(host.Value.Comp))
         {
             _popup.PopupEntity(Loc.GetString("dissociative-front-suppressed"), ent, ent);
@@ -207,18 +217,37 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
             return;
         }
 
-        RefreshClothing(host.Value, ent);
         _container.Remove(ent.Owner, host.Value.Comp.Container);
         ent.Comp.Manifested = true;
+
+        EnsureChameleonClothing(host.Value, ent);
+        EnsureChameleonImplant(host.Value, ent);
+    }
+
+    private void EnsureChameleonImplant(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter)
+    {
+        if (host.Comp.ChameleonImplant is not { } implant)
+            return;
+
+        if (TryComp<ImplantedComponent>(alter, out var implanted))
+        {
+            foreach (var entity in implanted.ImplantContainer.ContainedEntities)
+            {
+                if (HasComp<ChameleonControllerImplantComponent>(entity))
+                    return;
+            }
+        }
+
+        _implants.AddImplant(alter, implant);
     }
 
     private void Retract(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter)
     {
-        if (!alter.Comp.Manifested)
+        if (!alter.Comp.Manifested || TerminatingOrDeleted(host) || TerminatingOrDeleted(alter))
             return;
 
-        _container.Insert(alter.Owner, host.Comp.Container);
         alter.Comp.Manifested = false;
+        _container.Insert(alter.Owner, host.Comp.Container);
     }
 
     private void OnHostMove(Entity<DissociativeIdentityComponent> ent, ref MoveEvent args)
@@ -238,30 +267,25 @@ public sealed partial class DissociativeIdentitySystem : EntitySystem
         if (!alter.Comp.Manifested || TerminatingOrDeleted(host) || TerminatingOrDeleted(alter))
             return;
 
-        if (_container.IsEntityInContainer(host.Owner) ||
+        if (_mobState.IsDead(host) ||
+            _container.IsEntityInContainer(host.Owner) ||
             !_transform.InRange(Transform(alter).Coordinates, Transform(host).Coordinates, host.Comp.LeashRange))
             Retract(host, alter);
     }
 
-    private void RefreshClothing(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter)
+    private void EnsureChameleonClothing(Entity<DissociativeIdentityComponent> host, Entity<DissociativeAlterComponent> alter)
     {
-        foreach (var item in alter.Comp.Clothing)
-            Del(item);
+        if (alter.Comp.Clothing.Count > 0)
+            return;
 
-        alter.Comp.Clothing.Clear();
-
-        foreach (var slot in host.Comp.CopiedSlots)
+        foreach (var (slot, proto) in host.Comp.ChameleonClothing)
         {
-            if (!_inventory.TryGetSlotEntity(host, slot, out var worn) ||
-                Prototype(worn.Value) is not { } proto)
+            if (!_inventory.SpawnItemInSlot(alter, slot, proto, silent: true, force: true) ||
+                !_inventory.TryGetSlotEntity(alter, slot, out var item))
                 continue;
 
-            if (!_inventory.SpawnItemInSlot(alter, slot, proto.ID, silent: true, force: true) ||
-                !_inventory.TryGetSlotEntity(alter, slot, out var copy))
-                continue;
-
-            EnsureComp<UnremoveableComponent>(copy.Value);
-            alter.Comp.Clothing.Add(copy.Value);
+            EnsureComp<UnremoveableComponent>(item.Value);
+            alter.Comp.Clothing.Add(item.Value);
         }
     }
     #endregion
