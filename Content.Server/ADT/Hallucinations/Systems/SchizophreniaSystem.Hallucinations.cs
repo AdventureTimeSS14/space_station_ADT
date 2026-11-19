@@ -1,6 +1,8 @@
 using Content.Server.ADT.Chat;
+using Content.Server.ADT.Dissociative.Components;
 using Content.Server.ADT.Pointing;
 using Content.Server.Chat.Systems;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.ADT.Actions;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Systems;
@@ -11,6 +13,11 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Content.Shared.ADT.Chat;
 using Content.Shared.ADT.Hallucinations.Components;
+using Content.Shared.ADT.Radio.Components;
+using Content.Shared.Chat;
+using Content.Shared.Radio.Components;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 
 namespace Content.Server.ADT.Hallucinations.Systems;
 
@@ -30,6 +37,9 @@ public sealed partial class SchizophreniaSystem
         SubscribeLocalEvent<HallucinationComponent, ComponentShutdown>(OnHallucinationShutdown);
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnBeforeChatMessage);
+        SubscribeLocalEvent<HallucinationComponent, EntitySpokeEvent>(OnHallucinationSpoke,
+            before: new[] { typeof(HeadsetSystem), typeof(RadioSystem) });
+        SubscribeLocalEvent<ActiveListenerComponent, ListenAttemptEvent>(OnRadioListenAttempt);
         SubscribeLocalEvent<ActorComponent, CanHearVoiceEvent>(OnListenerCanHearVoice);
         SubscribeLocalEvent<HallucinationComponent, OverrideEmoteSoundEvent>(OverrideEmoteSound);
         SubscribeLocalEvent<HallucinationComponent, SetupPointingArrowEvent>(OnSetupPointer);
@@ -123,38 +133,92 @@ public sealed partial class SchizophreniaSystem
 
     private void OnBeforeChatMessage(ExpandICChatRecipientsEvent args)
     {
-        if (!_hallucinationQuery.TryGetComponent(args.Source, out var source))
-            return;
+        if (_hallucinationQuery.TryGetComponent(args.Source, out var source))
+        {
+            List<ICommonSession> toRemove = new();
 
-        List<ICommonSession> toRemove = new();
+            foreach (var recipient in args.Recipients)
+            {
+                if (_schizQuery.TryGetComponent(recipient.Key.AttachedEntity, out var schiz) && schiz.Idx == source.Idx)
+                    continue;
+
+                if (_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination) && hallucination.Idx == source.Idx)
+                    continue;
+
+                toRemove.Add(recipient.Key);
+            }
+
+            foreach (var item in toRemove)
+                args.Recipients.Remove(item);
+
+            return;
+        }
+
+        List<ICommonSession> hallucinationRecipients = new();
 
         foreach (var recipient in args.Recipients)
         {
-            if (_schizQuery.TryGetComponent(recipient.Key.AttachedEntity, out var schiz) && schiz.Idx == source.Idx)
+            if (!_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination))
                 continue;
 
-            if (_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination) && hallucination.Idx == source.Idx)
+            if (hallucination.Ent == args.Source)
                 continue;
 
-            toRemove.Add(recipient.Key);
+            var hostHeard = false;
+            foreach (var session in args.Recipients.Keys)
+            {
+                if (session.AttachedEntity != hallucination.Ent)
+                    continue;
+
+                hostHeard = true;
+                break;
+            }
+
+            if (!hostHeard)
+                hallucinationRecipients.Add(recipient.Key);
         }
 
-        foreach (var item in toRemove)
+        foreach (var item in hallucinationRecipients)
             args.Recipients.Remove(item);
+    }
+
+    private void OnHallucinationSpoke(Entity<HallucinationComponent> ent, ref EntitySpokeEvent args)
+    {
+        args.Channel = null;
+    }
+
+    private void OnRadioListenAttempt(Entity<ActiveListenerComponent> ent, ref ListenAttemptEvent args)
+    {
+        if (!_hallucinationQuery.HasComp(args.Source))
+            return;
+
+        if (HasComp<RadioMicrophoneComponent>(ent) || HasComp<ADTTunableRadioComponent>(ent))
+            args.Cancel();
     }
 
     private void OnListenerCanHearVoice(Entity<ActorComponent> ent, ref CanHearVoiceEvent args)
     {
-        if (!_hallucinationQuery.TryGetComponent(args.Source, out var source))
+        if (_hallucinationQuery.TryGetComponent(args.Source, out var source))
+        {
+            if (_schizQuery.TryGetComponent(ent.Owner, out var schiz) && schiz.Idx == source.Idx)
+                return;
+
+            if (_hallucinationQuery.TryGetComponent(ent.Owner, out var hallucination) && hallucination.Idx == source.Idx)
+                return;
+
+            args.Cancelled = true;
+            return;
+        }
+
+        if (!_hallucinationQuery.TryGetComponent(ent.Owner, out var listener))
             return;
 
-        if (_schizQuery.TryGetComponent(ent.Owner, out var schiz) && schiz.Idx == source.Idx)
+        if (listener.Ent == args.Source)
             return;
 
-        if (_hallucinationQuery.TryGetComponent(ent.Owner, out var hallucination) && hallucination.Idx == source.Idx)
-            return;
-
-        args.Cancelled = true;
+        var range = args.Whisper ? ChatSystem.WhisperMuffledRange : ChatSystem.VoiceRange;
+        if (!_transform.InRange(Transform(args.Source).Coordinates, Transform(listener.Ent).Coordinates, range))
+            args.Cancelled = true;
     }
 
     private void OverrideEmoteSound(Entity<HallucinationComponent> ent, ref OverrideEmoteSoundEvent args)
@@ -196,8 +260,13 @@ public sealed partial class SchizophreniaSystem
 
     private void OnInteractionAttempt(Entity<HallucinationComponent> ent, ref InteractionAttemptEvent args)
     {
-        if (args.Target != ent.Owner)
-            args.Cancelled = true;
+        if (args.Target == ent.Owner)
+            return;
+
+        if (HasComp<DissociativeAlterComponent>(ent.Owner) && (args.Target == null || (!TerminatingOrDeleted(args.Target.Value) && Transform(args.Target.Value).ParentUid == ent.Owner)))
+            return;
+
+        args.Cancelled = true;
     }
     #endregion
 }
