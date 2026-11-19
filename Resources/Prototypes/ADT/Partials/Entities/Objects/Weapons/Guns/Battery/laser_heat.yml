@@ -1,0 +1,83 @@
+- type: !PartialOnly entity
+  id: WeaponLaserSvalinn
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponLaserGun
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponMakeshiftLaser
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponLaserCarbinePractice
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponPulsePistol
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponPulseCarbine
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponPulseRifle
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponLaserCannon
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponAntiqueLaser
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponAdvancedLaser
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: WeaponBehonkerLaser
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: ADTWeaponLaserSecPistol
+  components:
+  - type: GunHeat
+    heatRate: 10
+    coolRate: 5

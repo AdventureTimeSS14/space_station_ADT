@@ -1,0 +1,6 @@
+- type: !PartialOnly entity
+  id: BaseWeaponLightMachineGun
+  components:
+  - type: GunHeat
+    heatPerShot: 500
+    maxJamChance: 0.25

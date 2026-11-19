@@ -1,0 +1,6 @@
+- type: !PartialOnly entity
+  id: WeaponSniperMosin
+  components:
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2

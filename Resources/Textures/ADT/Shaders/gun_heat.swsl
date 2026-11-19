@@ -1,0 +1,26 @@
+// One heat gradient for the whole weapon. Gun sprites point right. `tipX` is the outer
+// muzzle in tile space, including a barrel module when one is attached, so the glow
+// starts there and falls off toward the receiver without a second hot spot.
+uniform highp float heat;
+uniform highp float tipX;
+uniform highp float originX;
+uniform highp float spanX;
+uniform highp float hotEnd;
+uniform highp float fadeEnd;
+
+void fragment() {
+    highp vec4 col = zTexture(UV);
+
+    highp float localX = originX + UV2.x * spanX;
+    highp float dist = tipX - localX;
+    highp float mask = 1.0 - smoothstep(hotEnd, fadeEnd, dist);
+    highp float intensity = mask * (0.45 + 0.55 * heat);
+
+    highp float tip = (1.0 - smoothstep(0.0, 0.08, dist)) * heat;
+    highp vec3 glow = mix(vec3(0.75, 0.08, 0.02), vec3(1.0, 0.55, 0.15), tip);
+
+    col.rgb = mix(col.rgb, glow, intensity * 0.75);
+    COLOR = col;
+
+    lightSample = mix(lightSample, vec3(1.0), intensity);
+}
