@@ -208654,14 +208654,6 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 43.42473,-42.512604
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 50
-          reagents: []
-        food:
-          reagents: []
-      containers: []
 - proto: OrganHumanHeart
   entities:
   - uid: 27112

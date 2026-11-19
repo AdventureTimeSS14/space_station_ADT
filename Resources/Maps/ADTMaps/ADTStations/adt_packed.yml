@@ -43625,22 +43625,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 7
   - uid: 6431
     components:
     - type: Transform
@@ -44194,24 +44180,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 5
-        adt-accessories: !type:Container
-          ents: []
 - proto: ClothingUniformJumpsuitRecruitSyndie
   entities:
   - uid: 6525
@@ -78261,20 +78231,6 @@ entities:
     components:
     - type: Transform
       parent: 6655
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          temperature: 293.15
-          canReact: True
-          maxVol: 80
-          name: null
-          reagents: []
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage

@@ -188109,20 +188109,6 @@ entities:
     - type: Transform
       pos: 11.810583,-61.2302
       parent: 2
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          temperature: 293.15
-          canReact: True
-          maxVol: 50
-          name: null
-          reagents: []
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
 - proto: OrganHumanTongue
   entities:
   - uid: 26522

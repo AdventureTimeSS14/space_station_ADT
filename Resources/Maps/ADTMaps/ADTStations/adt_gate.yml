@@ -160951,20 +160951,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -69.96949,166.53644
       parent: 2
-- proto: RightFootSkeleton
-  entities:
-  - uid: 26332
-    components:
-    - type: Transform
-      pos: -129.75058,82.76152
-      parent: 2
-- proto: RightLegArachnid
-  entities:
-  - uid: 35973
-    components:
-    - type: Transform
-      pos: -43.763634,54.1556
-      parent: 2
 - proto: RightLegBorg
   entities:
   - uid: 11270
@@ -160978,13 +160964,6 @@ entities:
     components:
     - type: Transform
       pos: -21.34799,-9.323975
-      parent: 2
-- proto: RipleyChassis
-  entities:
-  - uid: 3059
-    components:
-    - type: Transform
-      pos: -13.543303,0.5368974
       parent: 2
 - proto: RipleyPeripheralsElectronics
   entities:

@@ -281537,15 +281537,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 41.411263,-37.54011
-    - type: SolutionContainerManager
-      solutions:
-        Lung:
-          maxVol: 100
-          reagents: []
-          canReact: False
-        food:
-          reagents: []
-      containers: []
 - proto: OrganHumanStomach
   entities:
   - uid: 36428
@@ -281554,14 +281545,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -71.505356,-63.591743
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 50
-          reagents: []
-        food:
-          reagents: []
-      containers: []
 - proto: OrganHumanTongue
   entities:
   - uid: 36429
@@ -281924,12 +281907,6 @@ entities:
 
 
         С уважением строители станции.
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Fixtures
       fixtures:
         fix1:
