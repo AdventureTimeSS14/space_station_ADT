@@ -20,7 +20,6 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
     private DropPodNavMapControl? _mapControl;
 
     private Label? _tcLabel;
-    private Label? _warStatusLabel;
 
     private NetEntity? _selectedBeacon;
     private string? _selectedBeaconName;
@@ -29,6 +28,7 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
     private bool _alreadyLaunched;
     private int _tcBalance;
     private int _tcCost;
+    private int _warCooldownRemaining;
 
     protected override void Open()
     {
@@ -49,19 +49,7 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
         _alreadyLaunched = s.AlreadyLaunched;
         _tcBalance = s.TcBalance;
         _tcCost = s.CurrentCost;
-
-        if (_warStatusLabel != null)
-        {
-            if (s.IsAtWar)
-            {
-                _warStatusLabel.Text = Loc.GetString("drop-pod-console-war-active", ("time", s.WarCooldownRemaining));
-                _warStatusLabel.FontColorOverride = Color.OrangeRed;
-            }
-            else
-            {
-                _warStatusLabel.Text = string.Empty;
-            }
-        }
+        _warCooldownRemaining = s.WarCooldownRemaining;
 
         if (_mapControl != null && s.StationGrid.HasValue)
         {
@@ -133,12 +121,6 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
             Margin = new Thickness(0, 0, 0, 8),
         };
         panel.AddChild(_tcLabel);
-
-        _warStatusLabel = new Label
-        {
-            Margin = new Thickness(0, 0, 0, 8),
-        };
-        panel.AddChild(_warStatusLabel);
 
         panel.AddChild(new Label
         {
@@ -253,6 +235,11 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
             {
                 _statusLabel.Text = Loc.GetString("drop-pod-console-status-launched");
                 _statusLabel.FontColorOverride = Color.Gray;
+            }
+            else if (_warCooldownRemaining > 0)
+            {
+                _statusLabel.Text = Loc.GetString("drop-pod-console-status-war", ("time", _warCooldownRemaining));
+                _statusLabel.FontColorOverride = Color.OrangeRed;
             }
             else if (!_canLaunch)
             {

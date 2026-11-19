@@ -23,7 +23,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float FlightTime = 90f;
+    public float FlightTime = 60f;
 
     [DataField]
     public TimeSpan Cooldown = TimeSpan.FromSeconds(0);
@@ -48,13 +48,13 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Cost of launching the drop pod in peacetime.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int PeaceCost = 60;
+    public int PeaceCost = 30;
 
     /// <summary>
     /// Cost of launching the drop pod during war (discounted).
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int WarCost = 30;
+    public int WarCost = 10;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? WarDeclaredTime;

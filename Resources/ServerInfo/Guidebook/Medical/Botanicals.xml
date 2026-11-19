@@ -11,7 +11,7 @@
 <GuideEntityEmbed Entity="Nettle"/>
 </Box>
 
-<GuideReagentGroupEmbed Group="Botanical"/>
+<GuideADTReagentGroupEmbed Group="Botanical"/>
 <GuideReagentEmbed Reagent="UnstableMutagen"/>
 <GuideReagentEmbed Reagent="Cryoxadone"/>
 <GuideReagentEmbed Reagent="Dylovene"/>

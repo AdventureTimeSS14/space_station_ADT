@@ -4,6 +4,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.UserInterface.Controls;
+
 public sealed class ADTMarqueeLabel : Control
 {
     private readonly Label _first;

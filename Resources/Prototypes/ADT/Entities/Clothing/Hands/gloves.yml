@@ -181,6 +181,11 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  - type: ADTVirusProtection
+    permeability: 0.01
+    zones:
+    - arms
+    - hands
 
 # Тактические перчатки горничной (проводят электричество)
 - type: entity
