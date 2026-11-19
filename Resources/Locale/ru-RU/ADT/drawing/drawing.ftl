@@ -59,7 +59,7 @@ adt-drawing-save = Сохранить PNG
 adt-drawing-open-folder = Папка
 adt-drawing-saved = Сохранено: {$path}
 adt-drawing-save-failed = Не удалось сохранить, см. лог.
-adt-drawing-status = {$width}×{$height} · {$zoom}% · ЛКМ - рисовать, ПКМ - двигать, колесо - масштаб
+adt-drawing-status = {$width}×{$height} · {$zoom}% · ЛКМ - рисовать, ПКМ или пробел - двигать, колесо или Ctrl +/- - масштаб
 
 adt-drawing-layers-header = Слои
 adt-drawing-layer-canvas = Холст (общий)
@@ -116,3 +116,6 @@ adt-drawing-action-rotatecanvas = Поворот холста (удержива�
 adt-drawing-action-rotateleft = Повернуть влево на 15 градусов
 adt-drawing-action-rotateright = Повернуть вправо на 15 градусов
 adt-drawing-action-resetrotation = Сбросить поворот
+adt-drawing-action-zoomin = Приблизить
+adt-drawing-action-zoomout = Отдалить
+adt-drawing-action-pan = Рука (удерживать и тянуть ЛКМ)
