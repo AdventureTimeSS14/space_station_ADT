@@ -94,6 +94,47 @@ public static class CanvasNetIO
         }
     }
 
+    public static void WriteLayers(NetOutgoingMessage buffer, List<CanvasLayerInfo> layers)
+    {
+        buffer.WriteVariableInt32(layers.Count);
+        foreach (var layer in layers)
+        {
+            buffer.Write(layer.Id);
+            buffer.Write(layer.Owner.UserId);
+            buffer.WriteVariableInt32(layer.LocalId);
+            buffer.Write(layer.Name);
+            buffer.Write(CanvasLayerInfo.PackOpacity(layer.Opacity));
+            buffer.Write(layer.Visible);
+        }
+    }
+
+    public static bool TryReadLayers(NetIncomingMessage buffer, out List<CanvasLayerInfo> layers)
+    {
+        var count = buffer.ReadVariableInt32();
+        if (count < 0 || count > CanvasConstants.MaxSessionLayers)
+        {
+            layers = new List<CanvasLayerInfo>();
+            return false;
+        }
+
+        layers = new List<CanvasLayerInfo>(count);
+        for (var i = 0; i < count; i++)
+        {
+            var id = buffer.ReadByte();
+            var owner = new NetUserId(buffer.ReadGuid());
+            var localId = buffer.ReadVariableInt32();
+            var name = CanvasLayerInfo.SanitizeName(buffer.ReadString());
+            var opacity = buffer.ReadByte() / 255f;
+            var visible = buffer.ReadBoolean();
+            if (id == CanvasConstants.BaseLayer)
+                return false;
+
+            layers.Add(new CanvasLayerInfo(id, owner, localId, name, opacity, visible));
+        }
+
+        return true;
+    }
+
     public static bool HasBits(NetIncomingMessage buffer, long bytes)
     {
         return bytes >= 0 && bytes * 8 <= buffer.LengthBits - buffer.Position;
@@ -138,6 +179,7 @@ public sealed class MsgCanvasManifest : NetMessage
     public Guid Painting;
     public int Width;
     public int Height;
+    public List<CanvasLayerInfo> Layers = new();
     public List<CanvasTileEntry> Tiles = new();
     public bool Malformed;
 
@@ -147,8 +189,15 @@ public sealed class MsgCanvasManifest : NetMessage
         Width = buffer.ReadUInt16();
         Height = buffer.ReadUInt16();
 
+        if (!CanvasNetIO.TryReadLayers(buffer, out Layers))
+        {
+            Malformed = true;
+            buffer.Position = buffer.LengthBits;
+            return;
+        }
+
         var count = buffer.ReadVariableInt32();
-        if (count < 0 || count > CanvasConstants.MaxTiles)
+        if (count < 0 || count > CanvasConstants.MaxManifestTiles)
         {
             Malformed = true;
             buffer.Position = buffer.LengthBits;
@@ -170,6 +219,7 @@ public sealed class MsgCanvasManifest : NetMessage
         buffer.Write(Painting);
         buffer.Write((ushort) Width);
         buffer.Write((ushort) Height);
+        CanvasNetIO.WriteLayers(buffer, Layers);
         buffer.WriteVariableInt32(Tiles.Count);
         foreach (var tile in Tiles)
         {
