@@ -14,6 +14,7 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
 {
     private static readonly ResPath Root = ADTUserData.Root / "canvas" / "layers";
     private const string ManifestName = "layers.txt";
+    private const string HiddenName = "hidden.txt";
     private const int MaxNameLength = 32;
 
     [Dependency] private readonly IResourceManager _res = default!;
@@ -22,7 +23,7 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
     private readonly List<PendingLoad> _loads = new();
     private readonly List<LoadRequest> _deferred = new();
 
-    private sealed record LayerSnapshot(int Id, string Name, bool Visible, float Opacity, Dictionary<int, (Rgba32[] Pixels, Vector2i Size)> Tiles);
+    private sealed record LayerSnapshot(int Id, string Name, bool Visible, bool LocalHidden, float Opacity, Dictionary<int, (Rgba32[] Pixels, Vector2i Size)> Tiles);
 
     private sealed record LoadRequest(Guid Painting, CanvasLayerStack Stack, int TileCount, Func<int, Vector2i> TileSize);
 
@@ -30,13 +31,15 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
     {
         public readonly Guid Painting;
         public readonly List<LayerSnapshot> Layers;
+        public readonly List<(Guid Owner, int LocalId)> Hidden;
         public Task Task = Task.CompletedTask;
         public List<(int Layer, int Index, byte[] Png)>? Result;
 
-        public PendingSave(Guid painting, List<LayerSnapshot> layers)
+        public PendingSave(Guid painting, List<LayerSnapshot> layers, List<(Guid Owner, int LocalId)> hidden)
         {
             Painting = painting;
             Layers = layers;
+            Hidden = hidden;
         }
     }
 
@@ -95,18 +98,21 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
         var layers = new List<LayerSnapshot>();
         foreach (var layer in stack.Layers)
         {
+            if (!layer.Own)
+                continue;
+
             var tiles = new Dictionary<int, (Rgba32[], Vector2i)>();
             foreach (var index in layer.Surface.AllocatedTiles())
             {
                 tiles[index] = ((Rgba32[]) layer.Surface.GetTilePixels(index).Clone(), layer.Surface.GetTileSize(index));
             }
 
-            layers.Add(new LayerSnapshot(layer.Id, layer.Name, layer.Visible, layer.Opacity, tiles));
+            layers.Add(new LayerSnapshot(layer.Id, layer.Name, layer.Visible, layer.LocalHidden, layer.Opacity, tiles));
         }
 
         stack.ClearDirty();
 
-        var save = new PendingSave(painting, layers);
+        var save = new PendingSave(painting, layers, new List<(Guid Owner, int LocalId)>(stack.HiddenRemote));
         save.Task = Task.Run(() =>
         {
             save.Result = Encode(layers);
@@ -160,10 +166,12 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
     {
         var dir = DirOf(request.Painting);
         var manifest = dir / ManifestName;
+        var stack = request.Stack;
+        LoadHidden(dir / HiddenName, stack);
+
         if (!_res.UserData.Exists(manifest))
             return;
 
-        var stack = request.Stack;
         try
         {
             using (var reader = _res.UserData.OpenText(manifest))
@@ -186,7 +194,8 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
                     if (layer == null)
                         break;
 
-                    layer.Visible = parts[1] == "1";
+                    layer.Visible = parts[1].StartsWith('1');
+                    layer.LocalHidden = parts[1].Contains('h');
                     layer.Opacity = Math.Clamp(opacity, 0f, 1f);
                 }
             }
@@ -238,10 +247,11 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
 
             _loads.RemoveAt(i);
             if (load.Result is { } pixels &&
-                load.Stack.Find(load.LayerId) is { } layer &&
+                load.Stack.Find(load.LayerId) is { Own: true, UseServerCopy: false } layer &&
                 !layer.Surface.InStroke)
             {
                 layer.Surface.AdoptTile(load.Index, pixels);
+                layer.SyncPending = true;
             }
         }
     }
@@ -261,7 +271,7 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
                 continue;
             }
 
-            Write(save.Painting, save.Layers, tiles);
+            Write(save.Painting, save.Layers, save.Hidden, tiles);
         }
     }
 
@@ -278,7 +288,35 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
         }
     }
 
-    private void Write(Guid painting, List<LayerSnapshot> layers, List<(int Layer, int Index, byte[] Png)> tiles)
+    private void LoadHidden(ResPath path, CanvasLayerStack stack)
+    {
+        try
+        {
+            if (!_res.UserData.Exists(path))
+                return;
+
+            using var reader = _res.UserData.OpenText(path);
+            while (reader.ReadLine() is { } line)
+            {
+                var parts = line.Split('\t');
+                if (parts.Length < 2 ||
+                    !Guid.TryParse(parts[0], out var owner) ||
+                    !int.TryParse(parts[1], NumberStyles.Integer, CultureInfo.InvariantCulture, out var localId))
+                {
+                    continue;
+                }
+
+                stack.HiddenRemote.Add((owner, localId));
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Warning($"Failed to read hidden canvas layers: {e.Message}");
+        }
+    }
+
+    private void Write(Guid painting, List<LayerSnapshot> layers, List<(Guid Owner, int LocalId)> hidden,
+        List<(int Layer, int Index, byte[] Png)> tiles)
     {
         var dir = DirOf(painting);
         var temp = Root / (painting.ToString("N") + ".tmp");
@@ -288,7 +326,7 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
             if (_res.UserData.Exists(temp))
                 _res.UserData.Delete(temp);
 
-            if (layers.Count == 0)
+            if (layers.Count == 0 && hidden.Count == 0)
             {
                 if (_res.UserData.Exists(dir))
                     _res.UserData.Delete(dir);
@@ -305,6 +343,9 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
                 manifest.Append(layer.Id.ToString(CultureInfo.InvariantCulture));
                 manifest.Append('\t');
                 manifest.Append(layer.Visible ? "1" : "0");
+                if (layer.LocalHidden)
+                    manifest.Append('h');
+
                 manifest.Append('\t');
                 manifest.Append(layer.Opacity.ToString("0.###", CultureInfo.InvariantCulture));
                 manifest.Append('\t');
@@ -314,6 +355,17 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
             }
 
             _res.UserData.WriteAllText(temp / ManifestName, manifest.ToString());
+
+            var hiddenText = new StringBuilder();
+            foreach (var (owner, localId) in hidden)
+            {
+                hiddenText.Append(owner.ToString());
+                hiddenText.Append('\t');
+                hiddenText.Append(localId.ToString(CultureInfo.InvariantCulture));
+                hiddenText.Append('\n');
+            }
+
+            _res.UserData.WriteAllText(temp / HiddenName, hiddenText.ToString());
 
             var files = new List<ResPath>(tiles.Count);
             foreach (var (layer, index, png) in tiles)
@@ -338,6 +390,7 @@ public sealed class CanvasLayerStoreSystem : EntitySystem
                 _res.UserData.Rename(temp / path, dir / path);
             }
 
+            _res.UserData.Rename(temp / HiddenName, dir / HiddenName);
             _res.UserData.Rename(temp / ManifestName, dir / ManifestName);
             _res.UserData.Delete(temp);
         }

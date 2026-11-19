@@ -977,7 +977,7 @@ public sealed partial class DrawingCanvasControl : Control
 
         foreach (var layer in Document.Layers.Layers)
         {
-            if (layer.Visible && layer.Opacity > 0f)
+            if (layer.Shown && layer.Opacity > 0f)
                 DrawTarget(handle, layer.Surface, Color.White.WithAlpha(layer.Opacity));
         }
 

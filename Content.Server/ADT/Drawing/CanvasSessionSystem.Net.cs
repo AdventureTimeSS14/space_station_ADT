@@ -47,11 +47,23 @@ public sealed partial class CanvasSessionSystem
             Painting = session.PaintingUid,
             Width = session.Width,
             Height = session.Height,
+            Layers = session.LayerInfos(),
         };
 
         for (var i = 0; i < session.Tiles.Length; i++)
         {
             msg.Tiles.Add(new CanvasTileEntry(session.KeyOf(i), session.Tiles[i].Version, session.Tiles[i].Content));
+        }
+
+        foreach (var layer in session.Layers)
+        {
+            for (var i = 0; i < layer.Tiles.Length; i++)
+            {
+                if (layer.Tiles[i].Version == 0)
+                    continue;
+
+                msg.Tiles.Add(new CanvasTileEntry(session.KeyOf(i, layer.Id), layer.Tiles[i].Version, layer.Tiles[i].Content));
+            }
         }
 
         _net.ServerSendMessage(msg, player.Channel);
@@ -68,7 +80,7 @@ public sealed partial class CanvasSessionSystem
         _net.ServerSendMessage(msg, player.Channel);
     }
 
-    private void Reply(ICommonSession player, MsgCanvasTileCommit commit, CanvasCommitResult result, CanvasSession? session, int index)
+    private void Reply(ICommonSession player, MsgCanvasTileCommit commit, CanvasCommitResult result, CanvasSession? session)
     {
         var msg = new MsgCanvasCommitResult
         {
@@ -78,13 +90,19 @@ public sealed partial class CanvasSessionSystem
             Result = result,
         };
 
-        if (session != null && index >= 0)
+        if (session != null && session.TryGetTiles(commit.Key, out var tiles, out var index))
         {
-            msg.Version = session.Tiles[index].Version;
-            msg.Content = session.Tiles[index].Content;
+            msg.Version = tiles[index].Version;
+            msg.Content = tiles[index].Content;
         }
 
         _net.ServerSendMessage(msg, player.Channel);
+    }
+
+    private static void SetBusy(CanvasSession session, CanvasTileKey key, bool busy)
+    {
+        if (session.TryGetTiles(key, out var tiles, out var index))
+            tiles[index].Busy = busy;
     }
 
     #endregion
@@ -98,50 +116,50 @@ public sealed partial class CanvasSessionSystem
 
         if (msg.Malformed)
         {
-            Reply(player, msg, CanvasCommitResult.Invalid, null, -1);
+            Reply(player, msg, CanvasCommitResult.Invalid, null);
             return;
         }
 
         if (!_sessions.TryGetValue(msg.Painting, out var session) ||
             session.State == CanvasSessionState.Loading ||
-            !session.CanCommit(player.UserId))
+            !session.CanCommit(player.UserId, msg.Key.Layer))
         {
-            Reply(player, msg, CanvasCommitResult.NotAllowed, null, -1);
+            Reply(player, msg, CanvasCommitResult.NotAllowed, null);
             return;
         }
 
-        if (!session.TryGetIndex(msg.Key, out var index))
+        if (!session.TryGetTiles(msg.Key, out var tiles, out var index))
         {
-            Reply(player, msg, CanvasCommitResult.Invalid, null, -1);
+            Reply(player, msg, CanvasCommitResult.Invalid, null);
             return;
         }
 
-        if (session.Tiles[index].Busy || session.Submitting)
+        if (tiles[index].Busy || session.Submitting)
         {
-            Reply(player, msg, CanvasCommitResult.Busy, session, index);
+            Reply(player, msg, CanvasCommitResult.Busy, session);
             return;
         }
 
-        if (msg.BaseVersion != session.Tiles[index].Version)
+        if (msg.BaseVersion != tiles[index].Version)
         {
-            Reply(player, msg, CanvasCommitResult.VersionMismatch, session, index);
+            Reply(player, msg, CanvasCommitResult.VersionMismatch, session);
             return;
         }
 
         switch (msg.Content.Kind)
         {
             case CanvasTileKind.Empty:
-                Apply(session, index, msg, CanvasTileContent.Empty, null, player);
+                Apply(session, msg, CanvasTileContent.Empty, null, player);
                 return;
 
             case CanvasTileKind.Solid:
-                Apply(session, index, msg, CanvasTileContent.Solid(msg.Content.Rgba), null, player);
+                Apply(session, msg, CanvasTileContent.Solid(msg.Content.Rgba), null, player);
                 return;
         }
 
         if (msg.Size <= 0 || msg.Size > CanvasConstants.MaxTileBytes)
         {
-            Reply(player, msg, CanvasCommitResult.TooLarge, session, index);
+            Reply(player, msg, CanvasCommitResult.TooLarge, session);
             return;
         }
 
@@ -149,40 +167,46 @@ public sealed partial class CanvasSessionSystem
         if (peer.Incoming.TryGetValue(msg.TransferId, out var transfer) && transfer.Complete)
         {
             peer.Incoming.Remove(msg.TransferId);
-            ValidateAndApply(session, index, msg, transfer, player);
+            ValidateAndApply(session, msg, transfer, player);
             return;
         }
 
         if (peer.PendingCommits.Count >= MaxPendingPerPeer || peer.PendingCommits.ContainsKey(msg.TransferId))
         {
-            Reply(player, msg, CanvasCommitResult.Busy, session, index);
+            Reply(player, msg, CanvasCommitResult.Busy, session);
             return;
         }
 
-        peer.PendingCommits[msg.TransferId] = new CanvasPendingCommit(msg, index, _timing.RealTime);
-        session.Tiles[index].Busy = true;
+        peer.PendingCommits[msg.TransferId] = new CanvasPendingCommit(msg, _timing.RealTime);
+        tiles[index].Busy = true;
     }
 
-    private async void ValidateAndApply(CanvasSession session, int index, MsgCanvasTileCommit msg,
+    private async void ValidateAndApply(CanvasSession session, MsgCanvasTileCommit msg,
         CanvasIncomingTransfer transfer, ICommonSession player)
     {
         try
         {
             if (transfer.Total != msg.Size)
             {
-                session.Tiles[index].Busy = false;
-                Reply(player, msg, CanvasCommitResult.Invalid, session, index);
+                SetBusy(session, msg.Key, false);
+                Reply(player, msg, CanvasCommitResult.Invalid, session);
                 return;
             }
 
             if (_validating >= MaxValidating)
             {
-                session.Tiles[index].Busy = false;
-                Reply(player, msg, CanvasCommitResult.Busy, session, index);
+                SetBusy(session, msg.Key, false);
+                Reply(player, msg, CanvasCommitResult.Busy, session);
                 return;
             }
 
-            session.Tiles[index].Busy = true;
+            if (!session.TryGetIndex(msg.Key, out var index))
+            {
+                Reply(player, msg, CanvasCommitResult.Invalid, session);
+                return;
+            }
+
+            SetBusy(session, msg.Key, true);
             _validating++;
 
             var size = session.TileSize(index);
@@ -200,54 +224,64 @@ public sealed partial class CanvasSessionSystem
             if (session.Closed)
                 return;
 
-            session.Tiles[index].Busy = false;
+            SetBusy(session, msg.Key, false);
 
             if (!result.Valid)
             {
-                Reply(player, msg, CanvasCommitResult.Invalid, session, index);
+                Reply(player, msg, CanvasCommitResult.Invalid, session);
                 return;
             }
 
             var blob = result.Content.Kind == CanvasTileKind.Blob ? data : null;
-            Apply(session, index, msg, result.Content, blob, player);
+            Apply(session, msg, result.Content, blob, player);
         }
         catch (Exception e)
         {
             Log.Error($"Failed to validate canvas tile {msg.Key} of {msg.Painting}: {e}");
             if (!session.Closed)
             {
-                session.Tiles[index].Busy = false;
-                Reply(player, msg, CanvasCommitResult.Invalid, session, index);
+                SetBusy(session, msg.Key, false);
+                Reply(player, msg, CanvasCommitResult.Invalid, session);
             }
         }
     }
 
-    private void Apply(CanvasSession session, int index, MsgCanvasTileCommit msg, CanvasTileContent content,
+    private void Apply(CanvasSession session, MsgCanvasTileCommit msg, CanvasTileContent content,
         byte[]? blob, ICommonSession player)
     {
-        ref var tile = ref session.Tiles[index];
+        if (!session.TryGetTiles(msg.Key, out var tiles, out var index))
+        {
+            Reply(player, msg, CanvasCommitResult.NotAllowed, session);
+            return;
+        }
+
+        ref var tile = ref tiles[index];
 
         if (session.State == CanvasSessionState.Loading || msg.BaseVersion != tile.Version)
         {
-            Reply(player, msg, CanvasCommitResult.VersionMismatch, session, index);
+            Reply(player, msg, CanvasCommitResult.VersionMismatch, session);
             return;
         }
 
-        if (!session.Members.TryGetValue(player.UserId, out var member) || !member.CanDraw)
+        if (!session.CanCommit(player.UserId, msg.Key.Layer) ||
+            !session.Members.TryGetValue(player.UserId, out var member))
         {
-            Reply(player, msg, CanvasCommitResult.NotAllowed, session, index);
+            Reply(player, msg, CanvasCommitResult.NotAllowed, session);
             return;
         }
 
+        var baseLayer = msg.Key.Layer == CanvasConstants.BaseLayer;
         if (blob != null)
         {
             var oldBytes = tile.Content.Kind == CanvasTileKind.Blob && session.Blobs.TryGetValue(tile.Content.Hash, out var old)
                 ? old.Length
                 : 0;
 
-            if (session.ReferencedBytes() - oldBytes + blob.Length > _maxPaintingBytes)
+            var used = baseLayer ? session.BaseBytes() : session.LayerBytes();
+            var limit = baseLayer ? _maxPaintingBytes : _maxLayerBytes;
+            if (used - oldBytes + blob.Length > limit)
             {
-                Reply(player, msg, CanvasCommitResult.TooLarge, session, index);
+                Reply(player, msg, CanvasCommitResult.TooLarge, session);
                 return;
             }
 
@@ -256,11 +290,16 @@ public sealed partial class CanvasSessionSystem
 
         tile.Version++;
         tile.Content = content;
-        session.Changes++;
-        session.Contributions[player.UserId] = session.Contributions.GetValueOrDefault(player.UserId) + 1;
+
+        if (baseLayer)
+        {
+            session.Changes++;
+            session.Contributions[player.UserId] = session.Contributions.GetValueOrDefault(player.UserId) + 1;
+        }
+
         session.DropUnreferencedBlobs();
 
-        Reply(player, msg, CanvasCommitResult.Ok, session, index);
+        Reply(player, msg, CanvasCommitResult.Ok, session);
 
         var update = new MsgCanvasTileUpdated
         {
@@ -374,14 +413,14 @@ public sealed partial class CanvasSessionSystem
         if (!_sessions.TryGetValue(pending.Message.Painting, out var session) || session.Closed)
             return;
 
-        if (session.State == CanvasSessionState.Loading || !session.CanCommit(player.UserId))
+        if (session.State == CanvasSessionState.Loading || !session.CanCommit(player.UserId, pending.Message.Key.Layer))
         {
-            session.Tiles[pending.Index].Busy = false;
-            Reply(player, pending.Message, CanvasCommitResult.NotAllowed, session, pending.Index);
+            SetBusy(session, pending.Message.Key, false);
+            Reply(player, pending.Message, CanvasCommitResult.NotAllowed, session);
             return;
         }
 
-        ValidateAndApply(session, pending.Index, pending.Message, transfer, player);
+        ValidateAndApply(session, pending.Message, transfer, player);
     }
 
     private void FailPending(CanvasPeer peer, uint transferId, CanvasCommitResult result)
@@ -391,9 +430,9 @@ public sealed partial class CanvasSessionSystem
 
         _sessions.TryGetValue(pending.Message.Painting, out var session);
         if (session != null)
-            session.Tiles[pending.Index].Busy = false;
+            SetBusy(session, pending.Message.Key, false);
 
-        Reply(peer.Session, pending.Message, result, session, session != null ? pending.Index : -1);
+        Reply(peer.Session, pending.Message, result, session);
     }
 
     private void OnBlobRequest(MsgCanvasBlobRequest msg)

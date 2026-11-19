@@ -5,11 +5,13 @@ using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Client.ADT.Drawing.Sync;
 
-public readonly record struct CanvasWaitingTile(int Index, uint Version, CanvasTileContent Content);
+public readonly record struct CanvasWaitingTile(int Index, uint Version, CanvasTileContent Content,
+    CanvasLayer? Layer = null, byte Author = CanvasConstants.NoAuthor, uint[]? StrokeIds = null);
 
 public readonly record struct CanvasConfirmation(uint Version, byte Author, uint[] StrokeIds);
 
-public readonly record struct CanvasDecodeJob(int Index, uint Version, CanvasTileContent Content, byte[]? Png);
+public readonly record struct CanvasDecodeJob(int Index, uint Version, CanvasTileContent Content, byte[]? Png,
+    CanvasLayer? Layer = null, byte Author = CanvasConstants.NoAuthor, uint[]? StrokeIds = null);
 
 public sealed class CanvasDecodeRun
 {
@@ -28,12 +30,14 @@ public sealed class CanvasDecodeRun
 public sealed class CanvasEncodeRun
 {
     public readonly int Index;
+    public readonly CanvasLayer? Layer;
     public Task Task = Task.CompletedTask;
     public CanvasTileCommit? Result;
 
-    public CanvasEncodeRun(int index)
+    public CanvasEncodeRun(int index, CanvasLayer? layer = null)
     {
         Index = index;
+        Layer = layer;
     }
 }
 
@@ -42,12 +46,14 @@ public sealed class CanvasClientCommit
     public readonly int Index;
     public readonly CanvasTileCommit Commit;
     public readonly uint TransferId;
+    public readonly CanvasLayer? Layer;
 
-    public CanvasClientCommit(int index, CanvasTileCommit commit, uint transferId)
+    public CanvasClientCommit(int index, CanvasTileCommit commit, uint transferId, CanvasLayer? layer = null)
     {
         Index = index;
         Commit = commit;
         TransferId = transferId;
+        Layer = layer;
     }
 }
 
@@ -108,6 +114,11 @@ public sealed class CanvasSyncSession
     public TimeSpan DirtySince;
     public TimeSpan RetryAfter;
     public TimeSpan NextLayerSave;
+    public TimeSpan NextLayerMeta;
+    public uint FlushId;
+    public bool Flushing;
+    public bool FlushRequested;
+    public bool FlushReadyPending;
     public double UpTokens;
     public TimeSpan LastRefill;
     public uint NextCommitId = 1;

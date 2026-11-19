@@ -618,6 +618,9 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> CanvasMaxPaintingMb =
         CVarDef.Create("adt.canvas.max_painting_mb", 24, CVar.SERVERONLY);
 
+    public static readonly CVarDef<int> CanvasMaxLayersMb =
+        CVarDef.Create("adt.canvas.max_layers_mb", 48, CVar.SERVERONLY);
+
     public static readonly CVarDef<int> CanvasMaxSessions =
         CVarDef.Create("adt.canvas.max_sessions", 12, CVar.SERVERONLY);
 
