@@ -25,6 +25,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
@@ -1085,8 +1086,14 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     private void DoLungeAnimation(EntityUid user, EntityUid weapon, Angle angle, MapCoordinates coordinates, float length, string? animation)
     {
         // TODO: Assert that offset eyes are still okay.
-        if (!TryComp(user, out TransformComponent? userXform))
+        // ADT-Tweak-Start
+        var lungeOrigin = user;
+        if (TryComp<MechPilotComponent>(user, out var mechPilot))
+            lungeOrigin = mechPilot.Mech;
+
+        if (!TryComp(lungeOrigin, out TransformComponent? userXform))
             return;
+        // ADT-Tweak-End
 
         var invMatrix = TransformSystem.GetInvWorldMatrix(userXform);
         var localPos = Vector2.Transform(coordinates.Position, invMatrix);
