@@ -526,8 +526,8 @@
         acts: ["Destruction"]
   - type: DeviceNetwork
     deviceNetId: Wired
-    receiveFrequencyId: TurretControl
-    transmitFrequencyId: Turret
+    receiveFrequencyId: TurretControlAI
+    transmitFrequencyId: TurretAI
     sendBroadcastAttemptEvent: true
     prefix: device-address-prefix-turret
     examinableAddress: true
@@ -557,6 +557,3 @@
     - BasicSilicon
   - type: Machine
     board: WeaponEnergyTurretAIMachineCircuitboard
-  - type: DeviceNetwork
-    receiveFrequencyId: TurretControlAI
-    transmitFrequencyId: TurretAI
