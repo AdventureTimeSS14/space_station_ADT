@@ -481,7 +481,7 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 20 # ADT-tweak 10 -> 20
+        Quantity: 20 # ADT-tweak end 10 -> 20
 
 - type: entity
   parent: BaseItem
@@ -507,7 +507,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: [SolutionVeryTiny, FoodSnackBase]
+  parent: [SolutionTiny, FoodSnackBase] # ADT-tweak VeryTiny -> Tiny
   id: FoodSnackMREBrownieOpen
   name: brownie
   suffix: MRE
