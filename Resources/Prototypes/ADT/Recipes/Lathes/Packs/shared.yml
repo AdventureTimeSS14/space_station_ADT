@@ -13,6 +13,7 @@
   id: PartsDynamic
   recipes:
   # Tier 2
+  - SMESCoilCapacitanceStockPart
   - AdvancedCapacitorStockPart
   - AdvancedScanningModuleStockPart
   - NanoServoStockPart
@@ -20,21 +21,17 @@
   - AdvancedMatterBinStockPart
   - RapidPartExchanger
   # Tier 3
+  - SMESCoilTransmissionStockPart
   - SuperCapacitorStockPart
   - PhasicScanningModuleStockPart
   - PicoServoStockPart
   - UltraHighPowerMicroLaserStockPart
   - SuperMatterBinStockPart
   # Tier 4
+  - SMESCoilCryoStockPart
   - BluespaceCapacitorStockPart
   - TriphasicScanningModuleStockPart
   - FemtoServoStockPart
   - QuadUltraMicroLaserStockPart
   - BluespaceMatterBinStockPart
   - BluespaceRapidPartExchanger
-  # Tier 5
-  - QuantumCapacitorStockPart
-  - QuantumScanningModuleStockPart
-  - QuantumServoStockPart
-  - QuantumMicroLaserStockPart
-  - QuantumMatterBinStockPart

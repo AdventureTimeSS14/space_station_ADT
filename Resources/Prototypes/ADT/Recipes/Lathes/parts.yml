@@ -16,6 +16,21 @@
 
 - type: latheRecipe
   parent: BaseStockPartRecipe
+  id: SubspaceTransmitterStockPart
+  result: SubspaceTransmitterStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: TreatmentDiskStockPart
+  result: TreatmentDiskStockPart
+  materials:
+    Steel: 50
+    Plastic: 50
+    Copper: 50
+    Silver: 25
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
   id: MicroLaserStockPart
   result: MicroLaserStockPart
 
@@ -150,40 +165,47 @@
     Silver: 125
     ADTBScrystal: 150
 
-# Tier 5
 - type: latheRecipe
-  id: QuantumScanningModuleStockPart
-  result: QuantumScanningModuleStockPart
+  parent: BaseStockPartRecipe
+  id: SMESCoilStockPart
+  result: SMESCoilStockPart
+
+- type: latheRecipe
+  id: SMESCoilCapacitanceStockPart
+  result: SMESCoilCapacitanceStockPart
   categories:
   - Parts
-  completetime: 20
+  completetime: 1.5
   materials:
-    Steel: 500
-    Plastic: 500
-    Copper: 300
-    Gold: 300
-    Uranium: 500
-    ADTBScrystal: 300
-    Diamond: 200
-  reagentCost:
-    ADTQuantumCatalyst: 100
+    Steel: 50
+    Plastic: 50
+    Copper: 100
+    Silver: 75
+    Gold: 25
 
 - type: latheRecipe
-  parent: QuantumScanningModuleStockPart
-  id: QuantumCapacitorStockPart
-  result: QuantumCapacitorStockPart
+  id: SMESCoilTransmissionStockPart
+  result: SMESCoilTransmissionStockPart
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 75
+    Plastic: 75
+    Copper: 150
+    Plasma: 75
+    Uranium: 25
 
 - type: latheRecipe
-  parent: QuantumScanningModuleStockPart
-  id: QuantumServoStockPart
-  result: QuantumServoStockPart
-
-- type: latheRecipe
-  parent: QuantumScanningModuleStockPart
-  id: QuantumMicroLaserStockPart
-  result: QuantumMicroLaserStockPart
-
-- type: latheRecipe
-  parent: QuantumScanningModuleStockPart
-  id: QuantumMatterBinStockPart
-  result: QuantumMatterBinStockPart
+  id: SMESCoilCryoStockPart
+  result: SMESCoilCryoStockPart
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 75
+    Plastic: 75
+    Copper: 150
+    ADTBScrystal: 75
+    Gold: 50
+    Uranium: 50

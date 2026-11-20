@@ -136,68 +136,21 @@
 <GuideEntityEmbed Entity="PowerCellHyper"/>
 </Box>
 
-## Квантовые детали (тир 5)
+## Омни-детали (тир 5)
 
-Высшая ступень машиностроения: печатаются на протолате после исследования [bold]«Квантовые машинные части»[/bold]. [bold]Правило тира 5: бонус удваивается[/bold] относительно тира 4.
-
-<Table Columns="2">
-<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Машина[/bold]</Box></ColorBox>
-<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Тир 4 → Тир 5[/bold]</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сосуд аномалий</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% очков[/color]</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Анализатор артефактов</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% очков[/color]</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Криопод</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]×1.4 → ×1.8 метаболизм[/color]</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Портативный генератор</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+50% → +100% выработки[/color]</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Продвинутая медкровать</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% метаболизм[/color]</Box></ColorBox>
-</Table>
+Вершина машиностроения. Омни-детали [bold]не печатаются на протолате[/bold]: их можно найти в ящиках на [bold]экспедициях[/bold] или получить из реакций [bold]артефактов[/bold] - но шанс крайне мал. [bold]Уникальное свойство омни:[/bold] деталь даёт только бонусы - штрафы своего типа она не даёт вовсе, а бонус удваивается относительно тира 4.
 
 <Box>
-<GuideEntityEmbed Entity="QuantumCapacitorStockPart"/>
-<GuideEntityEmbed Entity="QuantumScanningModuleStockPart"/>
+<GuideEntityEmbed Entity="OmniCapacitorStockPart"/>
+<GuideEntityEmbed Entity="OmniScanningModuleStockPart"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="QuantumServoStockPart"/>
-<GuideEntityEmbed Entity="QuantumMicroLaserStockPart"/>
+<GuideEntityEmbed Entity="OmniServoStockPart"/>
+<GuideEntityEmbed Entity="OmniMicroLaserStockPart"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="QuantumMatterBinStockPart"/>
+<GuideEntityEmbed Entity="OmniMatterBinStockPart"/>
 </Box>
-
-## Квантовый катализатор
-
-Реагент для печати квантовых деталей - [bold]50 единиц на деталь[/bold]. Синтез - шестиэтапная цепочка: каждый этап требует нагрева смеси до своей температуры на [bold]хим-плитке[/bold] (чем дальше этап, тем горячее) и дополнительных ингредиентов, включая реагенты из тиров энерго-химраздатчика. Улучшенная плитка (микро-лазер) греет быстрее. Нагрев зависит от объёма раствора: чем меньше мензурка, тем быстрее. Готовый катализатор заливается в мензурку и вставляется в слот протолата.
-
-[head=2]Этапы синтеза[/head]
-
-<Table Columns="3">
-<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Этап[/bold]</Box></ColorBox>
-<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Реагент[/bold]</Box></ColorBox>
-<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Температура[/bold]</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">1. Горючий прекурсор</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor1"/></Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">400 К</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">2. Электролитный прекурсор</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor2"/></Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">450 К</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">3. Эфирный прекурсор</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor3"/></Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">500 К</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">4. Сульфаминовый прекурсор</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor4"/></Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">600 К</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">5. Радиоактивный прекурсор</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor5"/></Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">750 К</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">6. Квантовый катализатор</Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTQuantumCatalyst"/></Box></ColorBox>
-<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">900 К</Box></ColorBox>
-</Table>
-
-Рецепт каждого этапа виден в описании реагента. Улучшенный протолат расходует меньше материалов и катализатора - скидка растёт с тиром установленных деталей.
 
 ## Устройство быстрой замены (RPED)
 

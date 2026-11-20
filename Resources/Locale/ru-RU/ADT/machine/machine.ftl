@@ -10,6 +10,13 @@ machine-part-name-micro-laser-t4 = квад-ультра микро-лазер
 machine-part-name-capacitor-t4 = блюспейс-конденсатор
 machine-part-name-matter-bin-t4 = блюспейс-ёмкость материи
 
+machine-part-name-smes-coil = Катушка СМЭС
+machine-part-name-subspace-ansible = Блюспейс-ансибль
+machine-part-name-hyperwave-filter = Гиперволновой фильтр
+machine-part-name-subspace-transmitter = Лазерный передатчик данных
+machine-part-name-treatment-disk = Блюспейс-диск обработки
+machine-part-name-wavelength-analyzer = Анализатор блюспейс-передач
+
 machine-upgrade-increased-by-percentage-extra = Параметр [color=yellow]{ $upgraded }[/color] увеличен на [color={ $color }]{ $percent }%[/color].
 machine-upgrade-decreased-by-percentage-extra = Параметр [color=yellow]{ $upgraded }[/color] уменьшен на [color={ $color }]{ $percent }%[/color].
 machine-upgrade-not-upgraded-extra = Параметр [color=yellow]{ $upgraded }[/color] не изменился.

@@ -17,9 +17,11 @@ public sealed class GeneratorMachinePartsSystem : EntitySystem
     {
         var laserTier = args.GetPartRating(MachinePartIds.MicroLaser, 1f);
         var matterTier = args.GetPartRating(MachinePartIds.MatterBin, 1f);
+        var nonOmniLaserTier = args.GetNonOmniRating(MachinePartIds.MicroLaser, 1f);
+        var nonOmniMatterTier = args.GetNonOmniRating(MachinePartIds.MatterBin, 1f);
 
-        component.OutputMultiplier = GetLaserOutput(laserTier) * GetMatterOutput(matterTier);
-        component.ConsumptionMultiplier = GetLaserConsumption(laserTier) * GetMatterConsumption(matterTier);
+        component.OutputMultiplier = GetLaserOutput(laserTier) * GetMatterOutput(nonOmniMatterTier);
+        component.ConsumptionMultiplier = GetLaserConsumption(nonOmniLaserTier) * GetMatterConsumption(matterTier);
     }
 
     private void OnUpgradeExamine(EntityUid uid, GeneratorMachinePartsComponent component, UpgradeExamineEvent args)

@@ -24,6 +24,7 @@ public struct MachinePartState
 public sealed class RefreshPartsEvent : EntityEventArgs
 {
     public Dictionary<ProtoId<MachinePartPrototype>, float> PartRatings = new();
+    public Dictionary<ProtoId<MachinePartPrototype>, float> NonOmniPartRatings = new();
     public Dictionary<MachineStat, float> StatMultipliers = new();
 
     public float GetPartRating(ProtoId<MachinePartPrototype> partId, float defaultValue = 1f)
@@ -31,9 +32,24 @@ public sealed class RefreshPartsEvent : EntityEventArgs
         return PartRatings.GetValueOrDefault(partId, defaultValue);
     }
 
+    public float GetNonOmniRating(ProtoId<MachinePartPrototype> partId, float defaultValue = 1f)
+    {
+        return NonOmniPartRatings.GetValueOrDefault(partId, defaultValue);
+    }
+
     public float GetStatMultiplier(MachineStat stat)
     {
         return StatMultipliers.GetValueOrDefault(stat, 1f);
+    }
+
+    public static bool IsInverseStat(MachineStat stat)
+    {
+        return stat is MachineStat.ResourceCost or MachineStat.EnergyCost or MachineStat.PowerDraw;
+    }
+
+    public static bool IsDebuffValue(MachineStat stat, float value)
+    {
+        return value != 0f && (IsInverseStat(stat) ? value > 0f : value < 0f);
     }
 
     /// <summary>

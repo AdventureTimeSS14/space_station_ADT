@@ -97,9 +97,10 @@
   cost: 15100
   recipeUnlocks:
   - ArtilleryComputerCircuitboard
-  position: 4,-4
+  position: 3,-4
   requiredTech:
-  - ADTQuantumPartsTech
+  - ADTBluespacePartsTech
+  - ADTBluespaceMining
 
 - type: technology
   id: ADTAdvancedPartsTech
@@ -144,7 +145,7 @@
   name: research-technology-adt-bluespace-parts
   icon:
     sprite: ADT/Objects/Misc/stock_parts.rsi
-    state: bluespace_matter_bin
+    state: hyper_matter_bin
   discipline: Experimental
   tier: 4
   cost: 25000
@@ -157,27 +158,6 @@
   position: 1,-4
   requiredTech:
   - ADTSuperPartsTech
-
-- type: technology
-  id: ADTQuantumPartsTech
-  name: research-technology-adt-quantum-parts
-  icon:
-    sprite: ADT/Objects/Misc/stock_parts.rsi
-    state: quantum_matter_bin
-  discipline: Experimental
-  tier: 5
-  cost: 42500
-  recipeUnlocks:
-  - QuantumCapacitorStockPart
-  - QuantumScanningModuleStockPart
-  - QuantumServoStockPart
-  - QuantumMicroLaserStockPart
-  - QuantumMatterBinStockPart
-  position: 3,-4
-  requiredTech:
-  - ADTBluespacePartsTech
-  - ADTBluespaceMining
-
 
 - type: technology
   id: ADTRpedTech

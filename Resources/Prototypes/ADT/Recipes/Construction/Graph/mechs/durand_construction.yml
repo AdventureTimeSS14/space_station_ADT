@@ -97,7 +97,7 @@
         name: machine-part-name-servo-t3
         icon:
           sprite: "ADT/Objects/Misc/stock_parts.rsi"
-          state: pico_servo
+          state: pico_mani
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"

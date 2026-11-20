@@ -22,6 +22,9 @@ public sealed partial class MachinePartPrototype : IPrototype
     public Dictionary<MachineStat, float> Stats = new();
 
     [DataField]
+    public int OmniTier = 0;
+
+    [DataField]
     public int SortPriority = 0;
 
     public EntProtoId GetTierPrototype(int tier)
