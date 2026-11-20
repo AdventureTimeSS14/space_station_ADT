@@ -537,3 +537,17 @@
       amount: 5
   products:
     ADTYupiWatermelon: 6
+
+- type: reaction
+  id: ADTScientificAle
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Plasma:
+      amount: 1
+    Ale:
+      amount: 3
+    Tequila:
+      amount: 1
+  products:
+    ADTScientificAle: 4
