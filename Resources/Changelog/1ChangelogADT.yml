@@ -17864,3 +17864,14 @@ Entries:
     id: 2140
     pr_number: 3716
     time: '2026-11-20T16:56:31Z'
+  - author: Remalid
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: 'Воксы, новакиды, слаймолюды и дионы снова могут выбрать трейт "Диссоциативное
+          расстройство личности"', type: Tweak}
+    id: 2141
+    pr_number: 3712
+    time: '2026-11-20T17:06:55Z'
