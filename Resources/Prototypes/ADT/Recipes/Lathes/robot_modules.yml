@@ -42,3 +42,8 @@
   parent: BaseGoldBorgModuleRecipe
   id: ADTBorgModuleJanicartVacuum
   result: ADTBorgModuleJanicartVacuum
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: ADTBorgModuleStorageDuffel
+  result: ADTBorgModuleStorageDuffel

@@ -91,6 +91,10 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
                 var moduleEntity = Spawn(module);
                 var borgModule = Comp<BorgModuleComponent>(moduleEntity);
                 _borgSystem.SetBorgModuleDefault((moduleEntity, borgModule), true);
+                // ADT-Tweak start
+                if (HasComp<ADTBorgStorageModuleComponent>(moduleEntity))
+                    _borgSystem.SetBorgModuleDefault((moduleEntity, borgModule), false);
+                // ADT-Tweak end
                 _borgSystem.InsertModule(chassisEnt, moduleEntity);
             }
         }

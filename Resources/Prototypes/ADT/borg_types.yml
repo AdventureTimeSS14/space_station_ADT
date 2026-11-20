@@ -11,6 +11,7 @@
     - BorgModuleGeneric
     - ADTBorgModuleSecurity
   defaultModules:
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - ADTBorgModuleDetention
 
@@ -49,6 +50,7 @@
     - BorgModuleScience
 
   defaultModules:
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - BorgModuleArtifact
   - BorgModuleAnomaly

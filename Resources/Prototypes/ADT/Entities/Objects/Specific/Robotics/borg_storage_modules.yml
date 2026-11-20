@@ -1,0 +1,62 @@
+- type: entity
+  parent: BaseBorgModule
+  id: BaseADTBorgStorageModule
+  abstract: true
+  components:
+  - type: ADTBorgStorageModule
+  - type: Item
+    size: Colossal
+  - type: Storage
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: BaseADTBorgStorageModule
+  id: ADTBorgModuleStorage
+  name: storage cyborg module
+  description: A basic module providing internal item storage, like a backpack.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+    state: icon-storage
+  - type: Storage
+    grid:
+    - 0,0,6,3
+
+- type: entity
+  parent: BaseADTBorgStorageModule
+  id: ADTBorgModuleStorageDuffel
+  name: duffel storage cyborg module
+  description: An improved storage module with extra room for tools and supplies.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+    state: icon-storage-duffel
+  - type: Storage
+    grid:
+    - 0,0,7,4
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseADTBorgStorageModule
+  id: ADTBorgModuleStorageBluespace
+  name: bluespace storage cyborg module
+  description: A module using bluespace technology for near-limitless internal storage.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+    state: icon-storage-bs
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,11,7
+  - type: StaticPrice
+    price: 2000

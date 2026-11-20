@@ -14,6 +14,7 @@
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - BorgModuleInflatable
   # - BorgModuleArtifact
@@ -49,6 +50,7 @@
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - BorgModuleConstruction
   - BorgModuleRCD
@@ -93,6 +95,7 @@
 # ADT-Tweak-End
   - BorgModuleAppraisal
   - ADTBorgModuleSalvage #ADT-Tweak
+  - ADTBorgModuleStorage # ADT-Tweak
 
   radioChannels:
   - Supply
@@ -127,6 +130,7 @@
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool # ADT-Tweak
   - BorgModuleCleaning
   - BorgModuleCustodial
@@ -169,6 +173,7 @@
   - ADTBorgModuleChemical
   - BorgModuleTopicals
   - ADTBorgModuleRescue
+  - ADTBorgModuleStorage
   # ADT-Tweak-end
 
   radioChannels:
@@ -225,6 +230,7 @@
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService

@@ -1,7 +1,7 @@
 {
     "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147), icon-virology by Richard Blonski",
+    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147), icon-virology by Richard Blonski, icon-storage/icon-storage-duffel/icon-storage-bs are hue-shifted variants of the upstream borgmodule generic icon",
     "size": {
         "x": 32,
         "y": 32
@@ -15,6 +15,15 @@
         },
         {
             "name": "icon-virology"
+        },
+        {
+            "name": "icon-storage"
+        },
+        {
+            "name": "icon-storage-duffel"
+        },
+        {
+            "name": "icon-storage-bs"
         },
         {
             "name": "base-icon-inhand-left",
