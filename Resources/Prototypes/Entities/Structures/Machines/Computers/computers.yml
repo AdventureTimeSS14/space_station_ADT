@@ -131,6 +131,7 @@
   abstract: true
   components:
   - type: ShuttleConsole
+  - type: TargetSeekingTarget # ADT-Tweak: Mono homing missiles lock onto the shuttle
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key
   - type: UserInterface

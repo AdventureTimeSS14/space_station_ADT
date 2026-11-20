@@ -1,0 +1,127 @@
+# 14x97mm
+
+- type: Tag
+  id: Magazine20mm
+
+- type: Tag
+  id: 20mmCartridge
+
+# 20x141mm
+
+- type: Tag
+  id: Magazine30mm
+
+- type: Tag
+  id: 30mmCartridge
+
+# 25x170mm
+
+- type: Tag
+  id: Magazine35mm
+
+- type: Tag
+  id: 35mmCartridge
+
+# 40x360mm
+
+- type: Tag
+  id: Magazine57mm
+
+- type: Tag
+  id: 57mmCartridge
+
+# 57x460mm
+
+- type: Tag
+  id: Magazine90mm
+
+- type: Tag
+  id: 90mmCartridge
+  
+# 120mm
+
+# 140mm
+
+# 100x650mm
+
+- type: Tag
+  id: 120mmCartridge
+
+# 85x680mm
+
+- type: Tag
+  id: Magazine140mm
+
+- type: Tag
+  id: 140mmCartridge
+
+# 130x820mm
+
+- type: Tag
+  id: 220mmCartridge
+
+# 203x940mm
+
+- type: Tag
+  id: 255mmCartridge
+
+# 90x630mm
+
+- type: Tag
+  id: 150mmShell
+
+# 430mm
+
+- type: Tag
+  id: R300Shell
+
+# Railguns
+
+- type: Tag
+  id: CharonSlug
+
+# Missiles
+
+- type: Tag
+  id: VanykCartridge
+
+- type: Tag
+  id: VanykCartridgeUnguided
+
+- type: Tag
+  id: VanykMagazine
+
+- type: Tag
+  id: MissileCartridge50mm
+
+- type: Tag
+  id: MissileMagazine50mm
+
+- type: Tag
+  id: TovekCartridge
+
+- type: Tag
+  id: Asm220Torpedo
+
+- type: Tag
+  id: SandboxCruiseMissiles
+
+- type: Tag
+  id: LightFighterOrdinance
+
+- type: Tag
+  id: VanquisherMagazine
+
+- type: Tag
+  id: MissileCartridge250mm
+
+- type: Tag
+  id: PaladinMagazine
+
+# Other
+
+- type: Tag
+  id: SunnyCartridge
+
+- type: Tag
+  id: SunnyMagazine

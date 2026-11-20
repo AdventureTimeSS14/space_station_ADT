@@ -1,0 +1,57 @@
+<!-- Copyright Rane (elijahrane@gmail.com) 2025 -->
+<!-- All rights reserved. Relicensed under AGPL with permission -->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+            xmlns:ui="clr-namespace:Content.Client._Mono.FireControl.UI"
+            xmlns:shields="clr-namespace:Content.Client._Crescent.ShipShields.UI"
+            Title="{Loc 'gunnery-window-title'}"
+            SetSize="980 720"
+            MinSize="980 720">
+    <!-- ADT-Tweak: stock console look instead of the Dead Space 14 style classes -->
+    <BoxContainer Orientation="Horizontal" Margin="5">
+        <BoxContainer Orientation="Vertical" MinWidth="280" MaxWidth="280" Margin="0 0 5 0" SeparationOverride="4">
+            <!-- Status Section -->
+            <controls:StripeBack MinSize="48 48">
+                <Label Name="ServerStatus" Text="{Loc 'gunnery-window-disconnected'}"
+                       VerticalExpand="True" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <Button Name="RefreshButton" Access="Public" Text="{Loc 'gunnery-refresh'}"/>
+
+            <!-- Shield status -->
+            <BoxContainer Name="ShieldPanel" Orientation="Vertical" Visible="False" Margin="0 4 0 0">
+                <Label Text="{Loc 'gunnery-shield-label'}"/>
+                <shields:ShipShieldBar Name="ShieldBar" HorizontalExpand="True" MinHeight="20"/>
+            </BoxContainer>
+
+            <!-- Weapons Control Section -->
+            <controls:StripeBack MinSize="48 48">
+                <Label Name="WeaponsLabel" Text="{Loc 'gunnery-guns'}" VerticalExpand="True" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                <Button Name="SelectAllButton" Access="Public" Text="{Loc 'gunnery-select-all'}"
+                        HorizontalExpand="True" StyleClasses="OpenRight"/>
+                <Button Name="UnselectAllButton" Access="Public" Text="{Loc 'gunnery-unselect-all'}"
+                        HorizontalExpand="True" StyleClasses="OpenLeft"/>
+            </BoxContainer>
+            <Button Name="SelectBallisticButton" Access="Public" Text="{Loc 'gunnery-select-ballistic'}"/>
+            <Button Name="SelectEnergyButton" Access="Public" Text="{Loc 'gunnery-select-energy'}"/>
+            <Button Name="SelectMissileButton" Access="Public" Text="{Loc 'gunnery-select-missiles'}"/>
+            <Button Name="IFFToggle" Access="Public" Text="{Loc 'shuttle-console-iff-toggle'}" ToggleMode="True"/>
+
+            <!-- Weapons List -->
+            <PanelContainer StyleClasses="AngleRect" VerticalExpand="True">
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="ControllablesBox" Orientation="Vertical"
+                                  HorizontalExpand="True" Margin="2"/>
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <!-- Radar Display -->
+        <ui:FireControlNavControl Name="NavRadar"
+                                  MouseFilter="Stop"
+                                  HorizontalExpand="True"
+                                  VerticalExpand="True"/>
+    </BoxContainer>
+</controls:FancyWindow>

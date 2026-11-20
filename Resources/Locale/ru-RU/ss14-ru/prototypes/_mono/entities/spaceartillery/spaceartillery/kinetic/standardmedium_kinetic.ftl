@@ -1,0 +1,11 @@
+ent-WeaponTurretAK570 = AK-570 «Узник»
+    .desc = Двуствольная тяжёлая 57-мм автопушка, стреляющая универсальными осколочно-фугасными снарядами. Эффективна для продолжительного огня по целям среднего класса. Может активироваться дистанционно или подключаться к GCS.
+ent-WeaponTurretDravon = ADBP-7 «Дравон»
+    .suffix = Средний, Т2, Фугасный
+    .desc = Одноствольная автопушка производства Aetherion Dynamics. Среднекалиберное орудие с высокой скорострельностью и относительно низкой отдачей, стреляет кумулятивными снарядами по броне и системам корабля. Может активироваться дистанционно или подключаться к GCS.
+ent-WeaponTurretDravonFlak = ADBP-7 «Дравон»
+    .suffix = Средний, Т2, Зенитный
+    .desc = Одноствольная автопушка производства Aetherion Dynamics. Среднекалиберное орудие с высокой скорострельностью и относительно низкой отдачей, стреляет зенитными снарядами для поражения воздушных целей. Может активироваться дистанционно или подключаться к GCS.
+ent-WeaponTurretAC-35 = AC-35 Chaingun
+    .desc = A quad-barrel, 25x170mm chaingun firing solid shot AP rounds, designed to be mounted upon fighters by Armamenti Corvus. Can be remotely activated or linked up to a GCS.
+    .suffix = { ent-BallisticArtilleryTier3HP.suffix }

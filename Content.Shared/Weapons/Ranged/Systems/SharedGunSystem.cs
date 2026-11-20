@@ -290,6 +290,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         return result;
     }
 
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Mono - attempts to shoot at the target coordinates for specified duration, or refreshes duration if already shooting.
+    /// </summary>
+    public void AttemptShots(EntityUid user, Entity<GunComponent> gun, EntityCoordinates toCoordinates, TimeSpan duration)
+    {
+        gun.Comp.ShootCoordinates = toCoordinates;
+        var autoShoot = EnsureComp<AutoShootGunComponent>(gun);
+        if (autoShoot.RemainingTime < duration)
+            autoShoot.RemainingTime = duration;
+    }
+    // ADT-Tweak-End
+
     /// <summary>
     /// Shoots by assuming the gun is the user at default coordinates.
     /// </summary>
