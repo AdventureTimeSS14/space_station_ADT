@@ -163,3 +163,4 @@ construction-graph-toolbox = ящик для инструментов
 construction-graph-heart = сердце
 construction-graph-penguin-toy = игрушечный пингвин
 construction-graph-tag-centrifuge-compatible = ёмкость для центрифуги
+construction-graph-tag-genericborgmodule = базовый модуль киборга

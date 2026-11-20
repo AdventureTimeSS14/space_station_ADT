@@ -227,3 +227,15 @@
     slots:
     - suitStorage
     - Belt
+
+- type: entity
+  name: industrial kinetic accelerator
+  parent: WeaponProtoKineticAccelerator
+  id: WeaponMechIndustrialKineticAccelerator
+  description: An industrial-grade proto-kinetic accelerator. Hits way harder and recharges on its own.
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletIndustrialKineticAccelerator
+  - type: BatterySelfRecharger
+    autoRechargeRate: 20
+

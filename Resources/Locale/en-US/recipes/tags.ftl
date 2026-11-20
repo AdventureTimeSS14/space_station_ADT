@@ -166,3 +166,4 @@ construction-graph-tag-backpack = backpack
 
 # chemistry
 construction-graph-tag-centrifuge-compatible = centrifugable container
+construction-graph-tag-genericborgmodule = a generic borg module

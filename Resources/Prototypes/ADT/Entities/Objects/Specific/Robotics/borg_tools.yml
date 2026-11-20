@@ -36,3 +36,16 @@
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 6.25
+
+- type: entity
+  parent: JetpackXenoborg
+  name: experimental jetpack
+  description: an experimental borg jetpack that does not require fuel to operate
+  id: JetpackCrewBorg
+  components:
+  - type: Item
+    sprite: Objects/Tanks/Jetpacks/blue.rsi
+  - type: Sprite
+    sprite: Objects/Tanks/Jetpacks/blue.rsi
+  - type: Clothing
+    sprite: Objects/Tanks/Jetpacks/blue.rsi

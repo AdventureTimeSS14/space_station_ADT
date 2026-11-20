@@ -105,3 +105,61 @@
     size: Huge
 
 
+
+- type: entity
+  parent: WeaponTetherGun
+  id: WeaponTetherGunRecharging
+  suffix: Recharging
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true
+        swap: false
+
+- type: entity
+  parent: WeaponForceGun
+  id: WeaponForceGunRecharging
+  suffix: Recharging
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true
+        swap: false
+
+- type: entity
+  name: experimental lube cannon
+  parent: BaseWeaponBattery
+  id: ADTBorgLauncherLubenade
+  description: This has been modified to recharge and fire lubenades instead, but odds are the borgs won't notice.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    layers:
+    - state: icon
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    clumsyProof: true
+  - type: BatteryAmmoProvider
+    proto: ADTBulletGrenadeLubenade
+    fireCost: 60
+  - type: Battery
+    maxCharge: 180
+    startingCharge: 180
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1
+  - type: AmmoCounter
+  - type: Item
+    size: Normal
+

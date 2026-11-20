@@ -10,6 +10,7 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
+    - BorgModuleBasic # ADT-Tweak
     # - BorgModuleScience #until sciborgs are added
 
   defaultModules:
@@ -172,7 +173,7 @@
   # ADT-Tweak-Start: "MedborgModuleUpdate"
   - ADTBorgModuleChemical
   - BorgModuleTopicals
-  - ADTBorgModuleRescue
+  - BorgModuleRescue
   - ADTBorgModuleStorage
   # ADT-Tweak-end
 

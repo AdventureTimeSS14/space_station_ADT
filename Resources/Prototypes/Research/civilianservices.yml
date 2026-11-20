@@ -91,6 +91,8 @@
     - ADTSpaceVillainArcadeComputerCircuitboard
     - ADTMinesweeperCircuitboard
     - ADTJukeBoxPlayerVintage
+    - BorgModuleLibrarian # ADT-Tweak
+    - BorgModuleComedicViolence # ADT-Tweak
     # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 
@@ -286,6 +288,7 @@
   recipeUnlocks:
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
+  - BorgModuleSpraying # ADT-Tweak
   # ADT Research Console Rework start
   position: 0,0
   requiredTech:

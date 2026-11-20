@@ -126,10 +126,41 @@
     hands:
     - item: HandheldHealthAnalyzer
     - item: Syringe
+      hand:
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Syringe
     - item: Syringe
-    - item: ADTBorgDrinkGlass
-    - item: ADTBorgDrinkGlass
-    - item: ADTBorgDrinkGlass
+      hand:
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Syringe
+    - item: Beaker
+      hand:
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
+    - item: Beaker
+      hand:
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
+    - item: Beaker
+      hand:
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
 
 - type: entity
   id: ADTBorgModuleAdvancedChemical
@@ -150,23 +181,6 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
 
-- type: entity
-  id: ADTBorgModuleRescue
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: rescue cyborg module
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Robotics/borgmodule.rsi
-    layers:
-    - state: medical
-  - type: ItemBorgModule
-    hands:
-    - item: HandheldHealthAnalyzer
-    - item: BorgFireExtinguisher
-    - item: BorgHandheldGPSBasic
-    - item: HandheldStationMapUnpowered
-    - item: WeaponGrapplingGun
-    - item: DefibrillatorOneHandedUnpowered
 
 - type: entity
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
@@ -241,10 +255,663 @@
     - id: ADTVirusCultureBottle
       whitelist:
         components:
-        - FitsInDispensers
+        - FitsInDispenser
     - id: Beaker
       whitelist:
         components:
         - FitsInDispenser
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: viro-module }
+
+- type: entity
+  id: BaseBorgModuleCargoBasic
+  parent: [ BaseBorgModuleCargo ]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-salvage
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleCargo
+
+- type: entity
+  id: BaseBorgModuleEngineeringBasic
+  parent: [ BaseBorgModuleEngineering ]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-engineer
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleEngineering
+
+- type: entity
+  id: BaseBorgModuleJanitorBasic
+  parent: [ BaseBorgModuleJanitor ]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-janitor
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleJanitor
+
+- type: entity
+  id: BaseBorgModuleMedicalBasic
+  parent: [ BaseBorgModuleMedical ]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-medical
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleMedical
+
+- type: entity
+  id: BaseBorgModuleScienceBasic
+  parent: [ BaseBorgModuleScience ]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-science
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleScience
+
+- type: entity
+  id: BaseBorgModuleServiceBasic
+  parent: [ BaseBorgModuleService ]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-service
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleService
+
+# Universal
+- type: entity
+  id: BorgModuleGravity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: gravity manipulation cyborg module
+  description: A cyborg module to break the laws of gravity.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tethergun
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponTetherGunRecharging
+    - item: WeaponForceGunRecharging
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: gravity-module }
+
+- type: entity
+  id: BorgModuleYEET
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: Y.E.E.T. cyborg module
+  description: How to reload is apparently an exercise left to the cyborg.
+  components:
+  - type: Construction
+    graph: BorgModuleYeetCraft
+    node: borgmoduleyeet
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-yeet
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponImprovisedPneumaticCannon
+      hand:
+        emptyRepresentative: WeaponImprovisedPneumaticCannon
+        whitelist:
+          components:
+          - PneumaticCannon
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: yeet-module }
+
+- type: entity
+  id: BorgModuleAggressiveLube
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: aggressive cleaning cyborg module
+  description: A janitorial module to deploy cleaning ordnance to the station. This one's been tampered with.
+  components:
+  - type: Sprite
+    layers:
+    - state: janitor
+    - state: icon-cleanade
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: ADTBorgLauncherLubenade
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: cleanade-module }
+
+# Science
+- type: entity
+  id: BorgModuleXenobio
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: xenobio cyborg module
+  description: A science module to manage xenobiological research.
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - state: icon-xenobio
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: ClothingBeltChemBagXenobiology
+    - item: WeaponXenoVacNozzle
+    - item: ClothingBackpackXenoBioTank
+    - item: SlimeScannerXenobio
+    - item: Syringe
+    - item: SprayBottle
+    - item: MonkeyCube
+      hand:
+        emptyRepresentative: MonkeyCube
+        whitelist:
+          components:
+          - Rehydratable
+          - SlimeExtract
+          tags:
+          - MonkeyCube
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: xenobio-module }
+
+- type: entity
+  id: BorgModuleAdvancedXenobio
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: advanced xenobio cyborg module
+  description: A science module to manage advanced xenobiological research.
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - state: icon-xenobio
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: ClothingBeltChemBagXenobiologyHolding
+    - item: WeaponXenoVacNozzle
+    - item: ClothingBackpackXenoBioTank
+    - item: SlimeScannerXenobio
+    - item: Syringe
+    - item: MegaSprayBottle
+    - item: MonkeyCube
+      hand:
+        emptyRepresentative: MonkeyCube
+        whitelist:
+          components:
+          - Rehydratable
+          - SlimeExtract
+          tags:
+          - MonkeyCube
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: advancedxenobio-module }
+
+# Janitorial
+- type: entity
+  id: BorgModuleSpraying
+  parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
+  name: nozzle cyborg module
+  description: A janitorial module to rapidly spray chemicals of dubious value all over the station.
+  components:
+  - type: Sprite
+    layers:
+    - state: janitor
+    - state: icon-spraying
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponSprayNozzle
+      hand:
+        emptyRepresentative: WeaponSprayNozzle
+        whitelist:
+          tags:
+          - SprayNozzle
+    - item: ClothingBackpackWaterTank
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: spray-module }
+
+# Service
+- type: entity
+  id: BorgModuleComedicViolence
+  parent: [ BaseBorgModuleServiceBasic, BaseProviderBorgModule ]
+  name: comedic violence cyborg module
+  description: A service module for committing VIOLENCE..... with foam.
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-foam
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponBorgRifleFoam
+    - item: RubberChicken
+    - item: ToyHammer
+    - item: WhoopieCushion
+      hand:
+        emptyRepresentative: WhoopieCushion
+        whitelist:
+          tags:
+          - FunnyNoiseWhenWalkedOn
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: foam-module }
+
+- type: entity
+  id: BorgModuleLibrarian
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: librarian cyborg module
+  description: A service module for when a tider throws 3072 books around the station.
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-books
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: BookHowToCookForFortySpaceman
+      hand:
+        emptyRepresentative: BookHowToCookForFortySpaceman
+        whitelist:
+          tags:
+          - Book
+    - item: BookBartendersManual
+      hand:
+        emptyRepresentative: BookBartendersManual
+        whitelist:
+          tags:
+          - Book
+    - item: BookEngineersHandbook
+      hand:
+        emptyRepresentative: BookEngineersHandbook
+        whitelist:
+          tags:
+          - Book
+    - item: BookMedicalReferenceBook
+      hand:
+        emptyRepresentative: BookMedicalReferenceBook
+        whitelist:
+          tags:
+          - Book
+    - item: BookSpaceLaw
+      hand:
+        emptyRepresentative: BookSpaceLaw
+        whitelist:
+          tags:
+          - Book
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: book-module }
+
+- type: entity
+  id: BorgModuleAdvancedBotany
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: advanced botany cyborg module
+  description: A service module for advanced plant work.
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-tree
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: ADTPlantAnalyzerRecharging
+    - item: HydroponicsToolMiniHoe
+    - item: HydroponicsToolSpade
+    - item: HydroponicsToolClippers
+    - item: HydroponicsToolHatchet
+    - item: ADTBotanistBagOfHolding
+    - item: BorgBucket
+    - item: AppleSeeds
+      hand:
+        emptyRepresentative: AppleSeeds
+        whitelist:
+          components:
+          - Seed
+    - item: FoodApple
+      hand:
+        emptyRepresentative: FoodApple
+        whitelist:
+          components:
+          - Produce
+    - item: DiseaseSwab
+      hand:
+        emptyRepresentative: DiseaseSwab
+        whitelist:
+          components:
+          - BotanySwab
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: botany-module }
+
+- type: entity
+  id: BorgModuleCooking
+  parent: [ BaseBorgModuleServiceBasic, BaseProviderBorgModule ]
+  name: chef cyborg module
+  description: A service module to allow a borg to cook delicious meals for the crew.
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-knife
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: KitchenKnife
+    - item: RollingPin
+    - item: Beaker
+      hand:
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
+    - item: ReagentContainerFlour
+      hand:
+        emptyRepresentative: ReagentContainerFlour
+        whitelist:
+          components:
+          - Produce
+          - SolutionContainerManager
+          tags:
+          - Meat
+          - Slice
+    - item: MonkeyCube
+      hand:
+        emptyRepresentative: MonkeyCube
+        whitelist:
+          components:
+          - Rehydratable
+          tags:
+          - MonkeyCube
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: chef-module }
+
+# Salvage
+- type: entity
+  id: BorgModuleBFG
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: B.F.G. cyborg module
+  description: A salvage module that gives cyborgs a REALLY BIG GUN. Install with caution.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-BFG
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponMechIndustrialKineticAccelerator
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: BFG-module }
+
+- type: entity
+  id: BorgModuleFulton
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: fulton cyborg module
+  description: A salvage module for rapid extraction of valuables back to the hoard.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-fulton
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: Fulton
+      hand:
+        emptyRepresentative: Fulton
+        whitelist:
+          components:
+          - Fulton
+    - item: Fulton
+      hand:
+        emptyRepresentative: Fulton
+        whitelist:
+          components:
+          - Fulton
+    - item: FultonBeacon
+      hand:
+        emptyRepresentative: FultonBeacon
+        whitelist:
+          components:
+          - FultonBeacon
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: fulton-module }
+
+# Engineering
+- type: entity
+  id: BorgModuleNuclear
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: nuclear engineering cyborg module
+  description: An engineering module for establishing nuclear power and probably not melting down.
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-radiation
+  - type: ItemBorgModule
+    hands:
+    - item: GeigerCounter
+    - item: SteelReactorHeatExchanger
+      hand:
+        emptyRepresentative: SteelReactorHeatExchanger
+        whitelist:
+          components:
+          - ReactorPart
+    - item: SteelReactorHeatExchanger
+      hand:
+        emptyRepresentative: SteelReactorHeatExchanger
+        whitelist:
+          components:
+          - ReactorPart
+    - item: SteelReactorGasChannel
+      hand:
+        emptyRepresentative: SteelReactorGasChannel
+        whitelist:
+          components:
+          - ReactorPart
+    - item: SteelReactorGasChannel
+      hand:
+        emptyRepresentative: SteelReactorGasChannel
+        whitelist:
+          components:
+          - ReactorPart
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: nuclear-module }
+
+- type: entity
+  id: BorgModuleFlatpack
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: flatpack cyborg module
+  description: An engineering module for rapidly constructing prefabricated structures.
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-flatpack
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: flatpack-module }
+
+# Medical
+- type: entity
+  id: BorgModuleSyringeGun
+  suffix: Awaiting Bugfix, do not map
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: syringe gun cyborg module
+  description: A medical module for injecting chemicals into unruly patients.
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-paramed
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: LauncherSyringe
+    droppableItems:
+    - id: Syringe
+      whitelist:
+        tags:
+        - Syringe
+
+- type: entity
+  id: BorgModuleAdvancedRescue
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced rescue cyborg module
+  description: A medical module for recovering even the most distant lost soul.
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-paramed
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: BorgHypo
+    - item: HandheldHealthAnalyzer
+    - item: DefibrillatorOneHandedUnpowered
+    - item: HandheldCrewMonitorRecharging
+    - item: JetpackCrewBorg
+    - item: BodyBagFolded
+      hand:
+        emptyRepresentative: BodyBagFolded
+        whitelist:
+          tags:
+          - BodyBag
+          - RollerBed
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: advancedrescue-module }
+
+- type: entity
+  id: BorgModuleJetpack
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: jetpack cyborg module
+  description: A universal module with an experimental jetpack that does not require fuel to operate.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-jet
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: JetpackCrewBorg
+      hand:
+        emptyRepresentative: JetpackCrewBorg
+        whitelist:
+          components:
+          - Jetpack
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: jetpack-module }
+
+- type: entity
+  id: BorgModuleMedgun
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: medbeam cyborg module
+  description: A medical module with a medbeam gun. Heals crew members by draining the cyborg's power cell.
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-medgun
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: ADTWeaponMedbeamCivil
+      hand:
+        emptyRepresentative: ADTWeaponMedbeamCivil
+        whitelist:
+          components:
+          - ADTMedbeam
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: medgun-module }
+
+- type: entity
+  id: BorgModuleDetective
+  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: detective cyborg module
+  description: A security module for investigations. Comes with a forensic scanner, a forensic pad, a pen and paper.
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-detective
+      sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: ForensicScanner
+    - item: ForensicPad
+      hand:
+        emptyRepresentative: ForensicPad
+        whitelist:
+          components:
+          - ForensicPad
+    droppableItems:
+    - id: Pen
+      whitelist:
+        tags:
+        - Pen
+    - id: Paper
+      whitelist:
+        components:
+        - Paper
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: detective-module }

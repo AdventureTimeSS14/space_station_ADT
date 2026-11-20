@@ -1,4 +1,13 @@
 - type: Tag
+  id: BorgModuleBasic
+
+- type: Tag
+  id: FunnyNoiseWhenWalkedOn
+
+- type: Tag
+  id: RollerBed
+
+- type: Tag
   id: ADTMothFriendlyFood
 
 - type: Tag

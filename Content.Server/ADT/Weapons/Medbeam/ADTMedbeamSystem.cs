@@ -13,6 +13,8 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mech.Components;
+using Content.Shared.PowerCell;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Map;
 
 namespace Content.Server.ADT.Weapons.Medbeam;
@@ -25,6 +27,7 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
     [Dependency] private ExplosionSystem _explosion = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private MechSystem _mech = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
 
     public override void Update(float frameTime)
@@ -101,6 +104,18 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
                 }
 
                 _mech.TryChangeEnergy(holder, -energyUsage, mech);
+            }
+        }
+        else if (HasComp<BorgChassisComponent>(holder))
+        {
+            if (hasSomethingToHeal)
+            {
+                var energyUsage = ent.Comp.EnergyUsage * ent.Comp.UpdateInterval;
+                if (!_powerCell.TryUseCharge((holder, null), energyUsage))
+                {
+                    DetachBeam(ent);
+                    return;
+                }
             }
         }
         else if (ent.Comp.RequireMech || !_mobState.IsAlive(holder))

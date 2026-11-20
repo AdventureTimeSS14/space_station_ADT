@@ -410,6 +410,7 @@
   - type: Tag
     tags:
     - Payload
+    - FunnyNoiseWhenWalkedOn # ADT-Tweak
   - type: EmitSoundOnUse
     sound: &SoundParp
       collection: Parp

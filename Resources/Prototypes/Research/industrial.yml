@@ -237,6 +237,7 @@
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
     - ADTBorgModuleAdvancedSalvage # ADT-Tweak
+    - BorgModuleFulton # ADT-Tweak
   # ADT Research Console Rework start
   position: 5,-1
   requiredTech:
@@ -259,6 +260,7 @@
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
   - ADTBotanistBagOfHolding #ADT-Tweak
+  - BorgModuleFlatpack # ADT-Tweak
 # ADT Research Console Rework start
   position: 2,-3
   requiredTech:

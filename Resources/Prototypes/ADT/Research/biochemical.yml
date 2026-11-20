@@ -75,6 +75,7 @@
   cost: 12000
   recipeUnlocks:
   - ADTWeaponMedbeamCivil
+  - BorgModuleMedgun
   position: 0,-1
   requiredTech:
   - ADTCloning
@@ -160,10 +161,10 @@
   # - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
   # закомментил строчку выше тк дефиб уже есть в другом исследовании # ADT-Tweak "MedborgModuleUpdate"
   # ADT-Tweak-Start: "MedborgModuleUpdate"   # новые модули сделал отдельно в папке ADT
-  - BorgModuleTopicals
-  - ADTBorgModuleRescue
+  # ADT: ADTBorgModuleRescue удалён (объединён с базовым BorgModuleRescue, теперь статичный)
   - ADTBorgModuleAdvancedChemical # позже сделаю отдельное исследование, а пока просто сделаю крафт подороже тк мне лень
   - ADTBorgModuleChemical
+  - BorgModuleAdvancedRescue
   # ADT-Tweak-end
   position: 6,0
   requiredTech:

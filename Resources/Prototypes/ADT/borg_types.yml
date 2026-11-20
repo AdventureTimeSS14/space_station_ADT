@@ -50,8 +50,9 @@
     - BorgModuleScience
 
   defaultModules:
-  - ADTBorgModuleStorage # ADT-Tweak
+  - ADTBorgModuleStorage
   - BorgModuleTool
+  - BorgModuleConstruction
   - BorgModuleArtifact
   - BorgModuleAnomaly
   radioChannels:

@@ -167,8 +167,6 @@
   id: ADTBorgModules
   recipes:
   - ADTAiRemoteBrain
-  - BorgModuleTopicals
-  - ADTBorgModuleRescue
   - ADTBorgModuleAdvancedChemical
   - ADTBorgModuleChemical
   - ADTBorgModuleVirology
@@ -182,3 +180,37 @@
   - ADTJanicartUpgradeBuffer
   - ADTJanicartUpgradeVacuum
   - ADTJanicartUpgradeSpeed
+
+- type: latheRecipePack
+  id: ADTBorgModulesBasic
+  recipes:
+  - BorgModuleXenobio
+  - BorgModuleCooking
+  - BorgModuleAppraisal
+  - BorgModuleTraversal
+  - BorgModuleConstruction
+  - BorgModuleCustodial
+  - BorgModuleCleaning
+  - BorgModuleRescue
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
+  - BorgModuleService
+  - BorgModuleMusique
+  - BorgModuleJetpack
+  - BorgModuleDetective
+
+- type: latheRecipePack
+  id: ADTBorgModulesAdvanced
+  recipes:
+  - BorgModuleGravity
+  - BorgModuleAdvancedXenobio
+  - BorgModuleSpraying
+  - BorgModuleLibrarian
+  - BorgModuleAdvancedBotany
+  - BorgModuleComedicViolence
+  - BorgModuleBFG
+  - BorgModuleFulton
+  - BorgModuleNuclear
+  - BorgModuleFlatpack
+  - BorgModuleAdvancedRescue
+  - BorgModuleMedgun

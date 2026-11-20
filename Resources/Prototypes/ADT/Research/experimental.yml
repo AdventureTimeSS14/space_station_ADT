@@ -82,6 +82,7 @@
   - SlimeScannerXenobio
   - ClothingBackpackXenoBioTank
   - ClothingBeltChemBagXenobiologyHolding
+  - BorgModuleAdvancedXenobio
   position: 3,0
   requiredTech:
   - AlternativeResearch

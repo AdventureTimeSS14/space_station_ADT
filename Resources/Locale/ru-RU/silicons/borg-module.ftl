@@ -6,6 +6,7 @@ borg-type-generic = [color= #666680]стандартные киборги[/color
 borg-type-janitor = [color= #a747c0]уборочные киборги[/color]
 borg-type-medical = [color= #5995ba]медицинские киборги[/color]
 borg-type-service = [color= #508242]сервисные киборги[/color]
+borg-type-science = [color= #682A87]научные киборги[/color]
 borg-type-syndicate = [color= #962023]киборги Синдиката[/color]
 borg-type-syndicate-assault = [color= #680a0d]штурмовые киборги Синдиката[/color]
 xenoborg-type-all = [color= #3d94ff]любые ксеноборги[/color]

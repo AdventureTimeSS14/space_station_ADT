@@ -23,15 +23,6 @@
     Plastic: 300
     Gold: 100
 
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: ADTBorgModuleRescue
-  result: ADTBorgModuleRescue
-
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleTopicals
-  result: BorgModuleTopicals
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
@@ -47,3 +38,151 @@
   parent: BaseGoldBorgModuleRecipe
   id: ADTBorgModuleStorageDuffel
   result: ADTBorgModuleStorageDuffel
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseBorgModuleRecipe
+  id: BaseDiamondBorgModuleRecipe
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Diamond: 100
+
+# Static basic modules (generic borg can equip these too)
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleXenobio
+  result: BorgModuleXenobio
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCooking
+  result: BorgModuleCooking
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleAppraisal
+  result: BorgModuleAppraisal
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleTraversal
+  result: BorgModuleTraversal
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleConstruction
+  result: BorgModuleConstruction
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCustodial
+  result: BorgModuleCustodial
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCleaning
+  result: BorgModuleCleaning
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleTopicals
+  result: BorgModuleTopicals
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleRescue
+  result: BorgModuleRescue
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleArtifact
+  result: BorgModuleArtifact
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleAnomaly
+  result: BorgModuleAnomaly
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleService
+  result: BorgModuleService
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleMusique
+  result: BorgModuleMusique
+
+# Research-gated advanced modules
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleGravity
+  result: BorgModuleGravity
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedXenobio
+  result: BorgModuleAdvancedXenobio
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSpraying
+  result: BorgModuleSpraying
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleLibrarian
+  result: BorgModuleLibrarian
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedBotany
+  result: BorgModuleAdvancedBotany
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleComedicViolence
+  result: BorgModuleComedicViolence
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleBFG
+  result: BorgModuleBFG
+
+- type: latheRecipe
+  parent: BaseDiamondBorgModuleRecipe
+  id: BorgModuleFulton
+  result: BorgModuleFulton
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleNuclear
+  result: BorgModuleNuclear
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleFlatpack
+  result: BorgModuleFlatpack
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedRescue
+  result: BorgModuleAdvancedRescue
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleJetpack
+  result: BorgModuleJetpack
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleMedgun
+  result: ADTBorgModuleMedgun
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleDetective
+  result: BorgModuleDetective

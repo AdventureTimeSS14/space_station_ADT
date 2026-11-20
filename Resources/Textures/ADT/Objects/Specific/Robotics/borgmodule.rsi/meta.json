@@ -1,7 +1,7 @@
 {
     "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147), icon-virology by Richard Blonski, icon-storage/icon-storage-duffel/icon-storage-bs are hue-shifted variants of the upstream borgmodule generic icon",
+    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147), icon-virology by Richard Blonski, icon-storage/icon-storage-duffel/icon-storage-bs are hue-shifted variants of the upstream borgmodule generic icon, Byrd module icons ported from OmuStation (art-module By EchoOfNothing, others modified by Balenar)",
     "size": {
         "x": 32,
         "y": 32
@@ -24,6 +24,54 @@
         },
         {
             "name": "icon-storage-bs"
+        },
+        {
+            "name": "icon-BFG"
+        },
+        {
+            "name": "icon-books"
+        },
+        {
+            "name": "icon-brush"
+        },
+        {
+            "name": "icon-chimp"
+        },
+        {
+            "name": "icon-cleanade"
+        },
+        {
+            "name": "icon-drill"
+        },
+        {
+            "name": "icon-flatpack"
+        },
+        {
+            "name": "icon-foam"
+        },
+        {
+            "name": "icon-fulton"
+        },
+        {
+            "name": "icon-knife"
+        },
+        {
+            "name": "icon-paramed"
+        },
+        {
+            "name": "icon-spraying"
+        },
+        {
+            "name": "icon-tethergun"
+        },
+        {
+            "name": "icon-tree"
+        },
+        {
+            "name": "icon-xenobio"
+        },
+        {
+            "name": "icon-yeet"
         },
         {
             "name": "base-icon-inhand-left",
@@ -56,6 +104,15 @@
         {
             "name": "base-stripes-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "icon-medgun"
+        },
+        {
+            "name": "icon-detective"
+        },
+        {
+            "name": "icon-jet"
         }
     ]
 }
