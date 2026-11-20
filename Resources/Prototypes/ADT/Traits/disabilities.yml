@@ -380,6 +380,8 @@
   description: trait-dissociative-identity-desc
   category: Disabilities
   cost: 1
+  speciesBlacklist:
+    - IPC
   departmentBlacklist:
     - Command
     - Security
