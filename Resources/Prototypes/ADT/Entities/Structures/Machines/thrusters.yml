@@ -1,69 +1,49 @@
-﻿#Пу-пу, чтобы сделать нормальную коллизию приходится не использовать паренты, увы
-- type: entity
-  id: ADTMediumThruster
-  parent: BaseStructureDynamic
+﻿- type: entity
+  id: ADTThrusterMedium
   name: medium thruster
-  description: A thruster that allows a shuttle to move.
+  parent: BaseThruster
   placement:
     mode: AlignTileAny
   components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.5,-1.5,0.5,0.5"
-        density: 160
+          bounds: "-0.45,-1.45,1.45,0.45"
+        density: 1750
         mask:
-        - LargeMobMask
+        - MachineMask
         layer:
-        - WallLayer
-  - type: AmbientSound
-    enabled: false
-    range: 4
-    volume: -4
-    sound:
-      path: /Audio/Effects/shuttle_thruster.ogg
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Rotatable
-    rotateWhileAnchored: false
-  - type: InteractionOutline
-  - type: Appearance
+        - MachineLayer
   - type: ApcPowerReceiver
-    powerLoad: 2000
-  - type: ExtensionCableReceiver
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Injurable
-    damageContainer: Inorganic
-  - type: Repairable
-    fuelCost: 10
-    doAfterDelay: 5
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500  #Тебе придется его бить ооочень сука долго, инженер со сваркой чад сигма гейминг на космо боях
-      behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalBreak
-        - !type:ExplodeBehavior
-  - type: StaticPrice
-    price: 600
+    powerLoad: 5000
+  - type: Thruster
+    thrust: 480000
+    basePowerLoad: 5000
+    burnShape: ["-0.4,0.5","-0.1,1.7","1.1,1.7","1.4,0.5"]
+    damage:
+      types:
+        Heat: 90
   - type: Explosive
     explosionType: Default
     maxIntensity: 60
     intensitySlope: 2
     totalIntensity: 60
   - type: Sprite
-    sprite: ADT/Structures/Machines/Thrusters/medi_thruster.rsi
-    offset: -0.5, -0.5
+    sprite: Structures/Shuttles/thruster_large.rsi
+    offset: 0.5,-0.5
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -75,15 +55,11 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1.9
-      scale: 0.7, 1
-  - type: Thruster
-    burnShape:
-      - -1.4,0.5
-      - -1.1,1.2
-      - 0.1,1.2
-      - 0.4,0.5
-    thrust: 250
+      offset: 0, 2
+  - type: Anchorable
+    flags: None
+  - type: StaticPrice
+    price: 1500
   - type: Machine
     board: ADTMachineMediumThrusterCircuitboard
   - type: Construction
@@ -98,31 +74,50 @@
       machine_board: !type:Container
 
 - type: entity
-  id: ADTBigThruster
-  parent: ADTMediumThruster
+  id: ADTThrusterMediumDebug
+  parent: ADTThrusterMedium
+  name: medium thruster
+  description: Big fuckin boy, BBBRRRROOOOOM.
+  suffix: DEBUG
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Thruster
+    requireSpace: false
+
+- type: entity
+  id: ADTThrusterBig
+  parent: BaseThruster
   name: big thruster
   description: Big fuckin boy, BBBRRRROOOOOM.
   placement:
     mode: AlignTileAny
   components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
           bounds: "-1.5,-2.5,1.5,0.5"
-        density: 160
+        density: 2750
         mask:
-        - LargeMobMask
+        - MachineMask
         layer:
-        - WallLayer
-  - type: ApcPowerReceiver
-    powerLoad: 2500
+        - MachineLayer
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5
-  - type: StaticPrice
-    price: 1000
   - type: Explosive
     explosionType: Default
     maxIntensity: 100
@@ -144,13 +139,15 @@
       visible: false
       offset: 0, 2.7
       scale: 0.7, 1
+  - type: ApcPowerReceiver
+    powerLoad: 20000
   - type: Thruster
-    burnShape:
-      - -1.4,0.5
-      - -1.1,2.5
-      - 1.1,2.5
-      - 1.4,0.5
-    thrust: 500
+    thrust: 1440000
+    basePowerLoad: 20000
+    damage:
+      types:
+        Heat: 150
+    burnShape: ["-1.4,0.5","-1.1,2.5","1.1,2.5","1.4,0.5"]
   - type: Machine
     board: ADTMachineBigThrusterCircuitboard
   - type: Construction
@@ -163,10 +160,12 @@
     containers:
       machine_parts: !type:Container
       machine_board: !type:Container
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
-  id: ADTBigDebugThruster
-  parent: ADTBigThruster
+  id: ADTThrusterBigDebug
+  parent: ADTThrusterBig
   name: big thruster
   description: Big fuckin boy, BBBRRRROOOOOM.
   suffix: DEBUG
@@ -178,7 +177,7 @@
 
 - type: entity
   id: ADTMediumLongThruster
-  parent: ADTMediumThruster
+  parent: ADTThrusterMedium
   name: medium long thruster
   description: Standard medium thruster.
   placement:
@@ -195,8 +194,6 @@
         - LargeMobMask
         layer:
         - WallLayer
-  - type: ApcPowerReceiver
-    powerLoad: 1200
   - type: Sprite
     sprite: ADT/Structures/Machines/Thrusters/medium_long_thruster.rsi
     offset: 0, -1
@@ -219,7 +216,6 @@
       - -0.3,2.5
       - 0.3,2.5
       - 0.4,0.5
-    thrust: 170
   - type: Machine
     board: ADTMachineMediumLongThrusterCircuitboard
   - type: Construction

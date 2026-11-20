@@ -84,6 +84,14 @@
     - type: StealthOnMove
       passiveVisibilityRate: -1 # very useful for going around the station concealed, if you start jitterstrafing you get seen
       movementVisibilityRate: 0.20
+    - type: Destructible # ADT-Tweak start
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ] # ADT-Tweak end
 
 - type: entity
   id: BigBox
