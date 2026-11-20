@@ -1,6 +1,7 @@
 //
 
 using Content.Server.Store.Systems;
+using Content.Shared.ADT.Chaplain.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Eye;
 using Content.Shared.Heretic;
@@ -55,6 +56,7 @@ namespace Content.Server.Heretic.EntitySystems;
 public sealed partial class HereticSystem : SharedHereticSystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedChaplainSystem _chaplain = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private StoreSystem _store = default!;
     [Dependency] private ChatSystem _chat = default!;

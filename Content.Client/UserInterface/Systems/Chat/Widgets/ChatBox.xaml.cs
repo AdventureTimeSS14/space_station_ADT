@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.Chat.Controls;
 using Content.Client.ADT.UI.Chat; 
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
@@ -249,6 +250,14 @@ public partial class ChatBox : UIWidget
 
         if (args.Function == ContentKeyFunctions.CycleChatChannelForward)
         {
+            // ADT-Tweak-Start
+            if (ChatInput.Input is PrayerHintLineEdit prayerInput && prayerInput.TryCompleteHint())
+            {
+                args.Handle();
+                return;
+            }
+            // ADT-Tweak-End
+
             CycleChatChannel(true);
             args.Handle();
             return;

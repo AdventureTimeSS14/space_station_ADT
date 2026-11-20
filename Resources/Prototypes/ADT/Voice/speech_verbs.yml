@@ -22,3 +22,12 @@
   - chat-speech-verb-echo-2
   - chat-speech-verb-echo-3
   - chat-speech-verb-echo-4
+
+- type: speechVerb
+  id: ADTPrayer
+  name: chat-speech-verb-name-prayer
+  fontId: CaesarDressing
+  fontSize: 14
+  speechVerbStrings:
+  - chat-speech-verb-prayer-1
+  - chat-speech-verb-prayer-2

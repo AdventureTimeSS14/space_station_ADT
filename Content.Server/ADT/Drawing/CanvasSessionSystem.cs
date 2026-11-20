@@ -50,6 +50,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
 
     private bool _enabled;
     private long _maxPaintingBytes;
+    private long _maxLayerBytes;
     private int _maxSessions;
     private int _maxSessionsPerPlayer;
     private TimeSpan _hostGrace;
@@ -87,6 +88,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
 
         Subs.CVar(_cfg, ADTCCVars.CanvasEnabled, v => _enabled = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasMaxPaintingMb, v => _maxPaintingBytes = v * 1024L * 1024L, true);
+        Subs.CVar(_cfg, ADTCCVars.CanvasMaxLayersMb, v => _maxLayerBytes = v * 1024L * 1024L, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasMaxSessions, v => _maxSessions = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasMaxSessionsPerPlayer, v => _maxSessionsPerPlayer = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasHostGrace, v => _hostGrace = TimeSpan.FromSeconds(v), true);
@@ -102,6 +104,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
         _players.PlayerStatusChanged += OnPlayerStatusChanged;
         InitializeNet();
         InitializeLive();
+        InitializeLayers();
     }
 
     public override void Shutdown()
@@ -137,6 +140,9 @@ public sealed partial class CanvasSessionSystem : EntitySystem
                 CloseSession(session, CanvasCloseReason.HostAway);
                 continue;
             }
+
+            if (session.FlushId != 0)
+                UpdateFlush(session, now);
 
             if (session.Dirty && !session.Saving && now >= session.NextAutosave)
                 Autosave(session);
@@ -655,7 +661,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
     {
         foreach (var tile in snapshot.Tiles)
         {
-            if (!session.TryGetIndex(tile.Key, out var index))
+            if (tile.Key.Layer != CanvasConstants.BaseLayer || !session.TryGetIndex(tile.Key, out var index))
                 continue;
 
             var content = tile.Content;
@@ -819,7 +825,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
 
         var newBlobs = new Dictionary<CanvasHash, byte[]>();
         long bytes = 0;
-        foreach (var hash in session.ReferencedHashes())
+        foreach (var hash in session.BaseHashes())
         {
             if (!session.Blobs.TryGetValue(hash, out var data))
                 continue;

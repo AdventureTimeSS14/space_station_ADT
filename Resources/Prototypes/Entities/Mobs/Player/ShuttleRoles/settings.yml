@@ -398,6 +398,7 @@
   components:
     - type: BibleUser
     - type: Chaplain
+      maxFaith: 20 # ADT
     - type: GhostRole
       name: job-name-chaplain
     - type: Loadout

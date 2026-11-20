@@ -1,0 +1,108 @@
+- type: entity
+  id: ADTEffectHolyBase
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Chaplain/Effects/holy_effects.rsi
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FFE7A3"
+    energy: 3
+    radius: 2.5
+  - type: LightFade
+    duration: 0.8
+  - type: TimedDespawn
+    lifetime: 0.8
+
+- type: entity
+  parent: ADTEffectHolyBase
+  id: ADTEffectHolySmite
+  name: holy smite
+  components:
+  - type: Sprite
+    layers:
+    - state: smite
+      shader: unshaded
+  - type: PointLight
+    color: "#FFF4D6"
+    energy: 6
+    radius: 3
+  - type: LightFade
+    duration: 0.64
+  - type: TimedDespawn
+    lifetime: 0.64
+
+- type: entity
+  parent: ADTEffectHolyBase
+  id: ADTEffectHolyBlessing
+  name: blessing
+  components:
+  - type: Sprite
+    layers:
+    - state: blessing
+      shader: unshaded
+
+- type: entity
+  parent: ADTEffectHolyBase
+  id: ADTEffectHolyTwinkle
+  name: holy twinkle
+  components:
+  - type: Sprite
+    layers:
+    - state: twinkle
+      shader: unshaded
+  - type: PointLight
+    energy: 2
+    radius: 1.5
+  - type: LightFade
+    duration: 0.6
+  - type: TimedDespawn
+    lifetime: 0.6
+
+- type: entity
+  parent: ADTEffectHolyTwinkle
+  id: ADTEffectPrayerTwinkle
+  name: prayer twinkle
+  components:
+  - type: PointLight
+    energy: 3
+    radius: 2.5
+
+- type: entity
+  parent: ADTEffectHolyBase
+  id: ADTEffectHolyHalo
+  name: halo
+  components:
+  - type: Sprite
+    layers:
+    - state: halo
+      shader: unshaded
+  - type: PointLight
+    energy: 2
+    radius: 2
+  - type: LightFade
+    duration: 1.2
+  - type: TimedDespawn
+    lifetime: 1.2
+
+- type: entity
+  parent: ADTEffectHolyBase
+  id: ADTEffectHolyWave
+  name: holy wave
+  components:
+  - type: Sprite
+    sprite: ADT/Chaplain/Effects/holy_wave.rsi
+    layers:
+    - state: wave
+      shader: unshaded
+  - type: PointLight
+    color: "#FFF4D6"
+    energy: 6
+    radius: 4
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5

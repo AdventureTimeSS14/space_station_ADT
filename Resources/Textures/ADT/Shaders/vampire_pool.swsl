@@ -1,0 +1,14 @@
+void fragment() {
+    highp vec2 ps = TEXTURE_PIXEL_SIZE;
+    highp vec2 pixel = UV / ps;
+    highp vec2 uv = UV;
+
+    uv.x += sin(pixel.y * 0.8 + TIME * 5.0) * ps.x * 0.6;
+    uv.y += sin(pixel.x * 0.55 + TIME * 3.5) * ps.y * 0.4;
+
+    highp vec4 col = zTexture(uv);
+    highp float gloss = sin((pixel.x + pixel.y) * 0.3 - TIME * 3.0);
+    col.rgb *= 1.0 + 0.15 * smoothstep(0.9, 1.0, gloss);
+
+    COLOR = col;
+}

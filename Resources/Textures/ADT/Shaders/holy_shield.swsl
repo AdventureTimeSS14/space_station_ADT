@@ -1,0 +1,17 @@
+const highp vec3 holyColor = vec3(1.0, 0.86, 0.45);
+
+void fragment() {
+    highp vec4 col = zTexture(UV);
+    highp vec2 ps = TEXTURE_PIXEL_SIZE;
+
+    highp float around = texture2D(TEXTURE, UV + vec2(ps.x, 0.0)).a;
+    around = max(around, texture2D(TEXTURE, UV - vec2(ps.x, 0.0)).a);
+    around = max(around, texture2D(TEXTURE, UV + vec2(0.0, ps.y)).a);
+    around = max(around, texture2D(TEXTURE, UV - vec2(0.0, ps.y)).a);
+
+    highp float pulse = 0.65 + 0.35 * sin(TIME * 4.0 + UV.y * 12.0);
+    highp float outline = max(around - col.a, 0.0) * pulse;
+
+    highp vec3 tinted = mix(col.rgb, holyColor, 0.3 * pulse * col.a);
+    COLOR = vec4(tinted * col.a + holyColor * outline, max(col.a, outline));
+}

@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: entity
+  id: MobPuddleBlood
+  name: pool of blood
+  description: A pool of thick dark blood. It seems to be moving.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Clickable
+  - type: Sprite
+    sprite: ADT/Vampire/Mobs/sanguine_pool.rsi
+    drawdepth: HighFloorObjects
+    color: "#730000"
+    layers:
+    - state: pool
+      map: [ "movement" ]
+      shader: ADTVampirePoolShader
+    - state: pool_hidden
+      map: [ "pool_fx" ]
+      shader: ADTVampirePoolShader
+      visible: false
+  - type: VampirePool
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: pool_moving
+    noMovementLayers:
+      movement:
+        state: pool
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Eye
+  - type: ContentEye
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 8
+    baseSprintSpeed: 8

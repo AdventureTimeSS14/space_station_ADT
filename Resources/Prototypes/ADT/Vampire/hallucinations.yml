@@ -1,0 +1,202 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: hallucinationsPack
+  id: Vampire
+  data:
+  - !type:MobHallucinations
+    entities:
+    - HallucinationMobVampV1
+    - HallucinationMobVampV2
+    range:
+      min: 0
+      max: 28
+    spawnCount:
+      min: 3
+      max: 5
+    delay:
+      min: 15
+      max: 15
+
+- type: hallucinationsPack
+  id: VampireUlt
+  data:
+  - !type:MobHallucinations
+    entities:
+    - HallucinationMobVampUV1
+    - HallucinationMobVampUV2
+    range:
+      min: 0
+      max: 28
+    spawnCount:
+      min: 3
+      max: 5
+    delay:
+      min: 15
+      max: 15
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: HallucinationMobVampV1
+  name: "???"
+  description: "???"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Mobs/Hallucination/greytide_stanbaton.rsi
+    state: icon
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Vampire
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Effects/silence.ogg
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 5
+    sound: /Audio/Weapons/egloves.ogg
+    whitelist:
+      components:
+      - Hallucinating
+    blacklist:
+      components:
+      - Thrall
+      - ThrallOwner
+  - type: TimedDespawn
+    lifetime: 30.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: HallucinationMobVampV2
+  name: "???"
+  description: "???"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Mobs/Hallucination/greytide_toolbox.rsi
+    state: icon
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Vampire
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Effects/silence.ogg
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 5
+    sound: /Audio/Weapons/egloves.ogg
+    whitelist:
+      components:
+      - Hallucinating
+    blacklist:
+      components:
+      - Thrall
+      - ThrallOwner
+  - type: TimedDespawn
+    lifetime: 30.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: HallucinationMobVampUV1
+  name: "???"
+  description: "???"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Mobs/Hallucination/greytide_stanbaton.rsi
+    state: icon
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Vampire
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Effects/silence.ogg
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 3
+    sound: /Audio/Weapons/egloves.ogg
+    whitelist:
+      components:
+      - Hallucinating
+    blacklist:
+      components:
+      - Thrall
+      - ThrallOwner
+  - type: TimedDespawn
+    lifetime: 30.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: HallucinationMobVampUV2
+  name: "???"
+  description: "???"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Mobs/Hallucination/greytide_toolbox.rsi
+    state: icon
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Vampire
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Effects/silence.ogg
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 3
+    sound: /Audio/Weapons/egloves.ogg
+    whitelist:
+      components:
+      - Hallucinating
+    blacklist:
+      components:
+      - Thrall
+      - ThrallOwner
+  - type: TimedDespawn
+    lifetime: 30.0

@@ -24,6 +24,14 @@
     damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
       types:
         Heat: 10
+    # ADT-Tweak start
+    damageOnUnholyUse:
+      types:
+        Heat: 30
+    damageUnholy:
+      types:
+        Heat: 20
+    # ADT-Tweak end
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -83,6 +91,14 @@
     damageOnUntrainedUse:
       types:
         Caustic: 50
+    # ADT-Tweak start
+    damageOnUnholyUse:
+      types:
+        Caustic: 50
+    damageUnholy:
+      types:
+        Caustic: 20
+    # ADT-Tweak end
     failChance: 0
     healFailOthersText: necro-heal-fail-others
     healFailSelfText: necro-heal-fail-self

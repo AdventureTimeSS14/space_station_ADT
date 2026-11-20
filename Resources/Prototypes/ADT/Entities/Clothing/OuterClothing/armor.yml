@@ -396,6 +396,9 @@
     sprite: ADT/Clothing/OuterClothing/Armor/crusader_armor.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/crusader_armor.rsi
+  - type: ForTheWorthy
+    allowFollowers: true
+    restrictEquip: true
   - type: Armor
     modifiers:
       coefficients:
@@ -403,10 +406,28 @@
         Slash: 0.55
         Piercing: 0.65
         Heat: 0.9
+  - type: UnholyWard
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+        Cold: 0.75
+        Shock: 0.75
+        Caustic: 0.75
+        Poison: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: HolySpaceProtection
+    heatCoefficient: 0.1
   - type: GroupExamine
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.85
+    sprintModifier: 0.85
 
 - type: entity
   parent: ClothingOuterArmorBasic

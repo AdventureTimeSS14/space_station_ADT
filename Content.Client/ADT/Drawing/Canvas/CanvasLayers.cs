@@ -1,3 +1,5 @@
+using Content.Shared.ADT.Drawing;
+using Robust.Shared.Network;
 using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Client.ADT.Drawing.Canvas;
@@ -5,26 +7,144 @@ namespace Content.Client.ADT.Drawing.Canvas;
 public sealed class CanvasLayer : IDisposable
 {
     public readonly int Id;
+    public readonly bool Own;
     public readonly PaintSurface Surface;
     public readonly BrushStroker Stroker;
 
+    public readonly uint[] Versions;
+    public readonly uint[] Synced;
+    public readonly bool[] InFlight;
+    public readonly uint[] InFlightRevision;
+    public readonly Dictionary<int, List<uint>> PendingStrokes = new();
+
     public string Name;
     public bool Visible = true;
+    public bool LocalHidden;
     public float Opacity = 1f;
     public bool Dirty;
+    public byte ServerId;
+    public NetUserId? Owner;
+    public int OwnerLocalId;
+    public string OwnerName = string.Empty;
+    public bool CreateSent;
+    public sbyte LastMove;
+    public bool OpacityPending;
+    public bool SyncPending;
+    public bool SyncFailed;
+    public bool UseServerCopy;
 
-    public CanvasLayer(int id, string name, int width, int height, BrushSettings brush)
+    public CanvasLayer(int id, bool own, string name, int width, int height, BrushSettings brush)
     {
         Id = id;
+        Own = own;
         Name = name;
         Surface = new PaintSurface(width, height, Color.Transparent, sparse: true)
         {
             EraseToPaper = false,
             UndoBudget = 64L * 1024 * 1024,
+            History = own,
         };
         Stroker = new BrushStroker(Surface, brush);
-        Stroker.StrokeFinished += (_, _, _) => Dirty = true;
-        Surface.HistoryChanged += () => Dirty = true;
+
+        Versions = new uint[Surface.TileCount];
+        Synced = new uint[Surface.TileCount];
+        InFlight = new bool[Surface.TileCount];
+        InFlightRevision = new uint[Surface.TileCount];
+
+        if (!own)
+            return;
+
+        Stroker.StrokeFinished += OnStrokeFinished;
+        Surface.HistoryChanged += MarkEdited;
+    }
+
+    public bool Shown => Visible && !LocalHidden;
+
+    public bool Registered => ServerId != CanvasConstants.BaseLayer;
+
+    public event Action? Edited;
+
+    private void OnStrokeFinished(StrokeRecord stroke, int tag, int[] tiles)
+    {
+        MarkEdited();
+        if (tag == 0)
+            return;
+
+        foreach (var index in tiles)
+        {
+            if (!PendingStrokes.TryGetValue(index, out var ids))
+            {
+                ids = new List<uint>();
+                PendingStrokes[index] = ids;
+            }
+
+            if (ids.Count < CanvasConstants.MaxStrokeIds)
+                ids.Add((uint) tag);
+        }
+    }
+
+    public void MarkEdited()
+    {
+        Dirty = true;
+        SyncPending = true;
+        SyncFailed = false;
+        Edited?.Invoke();
+    }
+
+    public bool TileModified(int index)
+    {
+        return !InFlight[index] && Surface.TileRevision(index) != Synced[index];
+    }
+
+    public bool HasPendingWork()
+    {
+        if (!Own || !Registered)
+            return false;
+
+        for (var i = 0; i < InFlight.Length; i++)
+        {
+            if (InFlight[i] || !SyncFailed && Surface.TileRevision(i) != Synced[i])
+                return true;
+        }
+
+        return false;
+    }
+
+    public void RestorePendingStrokes(int index, uint[] ids)
+    {
+        if (ids.Length == 0)
+            return;
+
+        if (!PendingStrokes.TryGetValue(index, out var pending))
+        {
+            pending = new List<uint>();
+            PendingStrokes[index] = pending;
+        }
+
+        var insert = 0;
+        foreach (var id in ids)
+        {
+            if (pending.Count >= CanvasConstants.MaxStrokeIds)
+                break;
+
+            if (pending.Contains(id))
+                continue;
+
+            pending.Insert(insert++, id);
+        }
+    }
+
+    public void MarkSynced(int index)
+    {
+        Synced[index] = Surface.TileRevision(index);
+    }
+
+    public void MarkAllSynced()
+    {
+        for (var i = 0; i < Synced.Length; i++)
+        {
+            MarkSynced(i);
+        }
     }
 
     public void Dispose()
@@ -35,9 +155,11 @@ public sealed class CanvasLayer : IDisposable
 
 public sealed class CanvasLayerStack : IDisposable
 {
-    public const int MaxLayers = 8;
+    public const int MaxLayers = CanvasConstants.MaxLayersPerMember;
 
     private readonly List<CanvasLayer> _layers = new();
+    private readonly HashSet<int> _deletedUnregistered = new();
+    private readonly HashSet<int> _orphanDeleteSent = new();
     private readonly int _width;
     private readonly int _height;
     private readonly BrushSettings _brush;
@@ -56,30 +178,79 @@ public sealed class CanvasLayerStack : IDisposable
 
     public bool Dirty { get; set; }
 
+    public bool IsHost { get; set; }
+
+    public HashSet<(Guid Owner, int LocalId)> HiddenRemote { get; } = new();
+
     public event Action? Changed;
+
+    public event Action<CanvasLayer>? LayerAdded;
+
+    public event Action<CanvasLayerActionKind, CanvasLayer>? ActionRequested;
+
+    public event Action<byte>? OrphanDeleteRequested;
+
+    public int OwnCount()
+    {
+        var count = 0;
+        foreach (var layer in _layers)
+        {
+            if (layer.Own)
+                count++;
+        }
+
+        return count;
+    }
 
     public CanvasLayer? Find(int id)
     {
         return _layers.Find(l => l.Id == id);
     }
 
+    public CanvasLayer? FindServer(byte serverId)
+    {
+        if (serverId == CanvasConstants.BaseLayer)
+            return null;
+
+        return _layers.Find(l => l.ServerId == serverId);
+    }
+
     public CanvasLayer? Add(string name, int? id = null)
     {
-        if (_layers.Count >= MaxLayers)
+        if (OwnCount() >= MaxLayers)
             return null;
 
         var layerId = id ?? _nextId;
         _nextId = Math.Max(_nextId, layerId + 1);
 
-        var layer = new CanvasLayer(layerId, name, _width, _height, _brush);
+        var layer = new CanvasLayer(layerId, true, name, _width, _height, _brush);
         _layers.Add(layer);
         Active = layer;
         Dirty = true;
+        LayerAdded?.Invoke(layer);
+        ActionRequested?.Invoke(CanvasLayerActionKind.Create, layer);
         Changed?.Invoke();
         return layer;
     }
 
+    public bool CanManage(CanvasLayer layer)
+    {
+        return layer.Own || IsHost && layer.Registered;
+    }
+
     public void Remove(CanvasLayer layer)
+    {
+        if (!_layers.Contains(layer) || !CanManage(layer))
+            return;
+
+        if (layer.Own && !layer.Registered && layer.CreateSent)
+            _deletedUnregistered.Add(layer.Id);
+
+        ActionRequested?.Invoke(CanvasLayerActionKind.Delete, layer);
+        Detach(layer);
+    }
+
+    private void Detach(CanvasLayer layer)
     {
         if (!_layers.Remove(layer))
             return;
@@ -94,20 +265,25 @@ public sealed class CanvasLayerStack : IDisposable
 
     public void Move(CanvasLayer layer, int delta)
     {
+        if (!layer.Own)
+            return;
+
         var index = _layers.IndexOf(layer);
-        var target = index + delta;
-        if (index < 0 || target < 0 || target >= _layers.Count)
+        var target = index + Math.Sign(delta);
+        if (index < 0 || delta == 0 || target < 0 || target >= _layers.Count)
             return;
 
         _layers.RemoveAt(index);
         _layers.Insert(target, layer);
+        layer.LastMove = (sbyte) Math.Sign(delta);
         Dirty = true;
+        ActionRequested?.Invoke(CanvasLayerActionKind.Move, layer);
         Changed?.Invoke();
     }
 
     public void Select(CanvasLayer? layer)
     {
-        if (layer != null && !_layers.Contains(layer))
+        if (layer != null && (!_layers.Contains(layer) || !layer.Own))
             return;
 
         Active = layer;
@@ -116,15 +292,151 @@ public sealed class CanvasLayerStack : IDisposable
 
     public void SetVisible(CanvasLayer layer, bool visible)
     {
+        if (!CanManage(layer) || layer.Visible == visible)
+            return;
+
         layer.Visible = visible;
+        Dirty = true;
+        ActionRequested?.Invoke(CanvasLayerActionKind.Visible, layer);
+        Changed?.Invoke();
+    }
+
+    public void SetLocalHidden(CanvasLayer layer, bool hidden)
+    {
+        if (layer.LocalHidden == hidden)
+            return;
+
+        layer.LocalHidden = hidden;
+        if (!layer.Own && layer.Owner is { } owner)
+        {
+            if (hidden)
+                HiddenRemote.Add((owner.UserId, layer.OwnerLocalId));
+            else
+                HiddenRemote.Remove((owner.UserId, layer.OwnerLocalId));
+        }
+
         Dirty = true;
         Changed?.Invoke();
     }
 
     public void SetOpacity(CanvasLayer layer, float opacity)
     {
+        if (!layer.Own)
+            return;
+
         layer.Opacity = Math.Clamp(opacity, 0f, 1f);
+        layer.OpacityPending = true;
         Dirty = true;
+    }
+
+    public void ApplyServer(List<CanvasLayerInfo> infos, NetUserId? local, bool manifest, Func<NetUserId, string> ownerName)
+    {
+        var ordered = new List<CanvasLayer>(infos.Count + _layers.Count);
+        var seen = new HashSet<CanvasLayer>();
+        var orphans = new HashSet<int>();
+
+        foreach (var info in infos)
+        {
+            CanvasLayer? layer;
+            if (info.Owner == local && _deletedUnregistered.Contains(info.LocalId))
+            {
+                orphans.Add(info.LocalId);
+                if (_orphanDeleteSent.Add(info.LocalId))
+                    OrphanDeleteRequested?.Invoke(info.Id);
+
+                continue;
+            }
+
+            if (info.Owner == local)
+            {
+                layer = _layers.Find(l => l.Own && l.Id == info.LocalId);
+                if (layer == null)
+                {
+                    layer = new CanvasLayer(info.LocalId, true, info.Name, _width, _height, _brush)
+                    {
+                        UseServerCopy = true,
+                    };
+                    _nextId = Math.Max(_nextId, info.LocalId + 1);
+                    Dirty = true;
+                    LayerAdded?.Invoke(layer);
+                }
+                else if (manifest && !layer.Registered)
+                {
+                    layer.UseServerCopy = true;
+                    layer.Surface.ReleaseAll();
+                    layer.PendingStrokes.Clear();
+                    layer.MarkAllSynced();
+                }
+            }
+            else
+            {
+                layer = _layers.Find(l => !l.Own && l.ServerId == info.Id);
+                if (layer == null)
+                {
+                    layer = new CanvasLayer(-info.Id, false, info.Name, _width, _height, _brush)
+                    {
+                        LocalHidden = HiddenRemote.Contains((info.Owner.UserId, info.LocalId)),
+                    };
+                    LayerAdded?.Invoke(layer);
+                }
+            }
+
+            if (!seen.Add(layer))
+                continue;
+
+            layer.ServerId = info.Id;
+            layer.Owner = info.Owner;
+            layer.OwnerLocalId = info.LocalId;
+            layer.OwnerName = ownerName(info.Owner);
+            layer.Name = info.Name;
+            layer.Visible = info.Visible;
+            if (!layer.OpacityPending)
+                layer.Opacity = info.Opacity;
+
+            ordered.Add(layer);
+        }
+
+        foreach (var layer in _layers)
+        {
+            if (seen.Contains(layer))
+                continue;
+
+            if (layer.Own && !layer.Registered)
+            {
+                ordered.Add(layer);
+                continue;
+            }
+
+            if (Active == layer)
+                Active = null;
+
+            layer.Dispose();
+            Dirty = true;
+        }
+
+        _orphanDeleteSent.RemoveWhere(id =>
+        {
+            if (orphans.Contains(id))
+                return false;
+
+            _deletedUnregistered.Remove(id);
+            return true;
+        });
+
+        _layers.Clear();
+        _layers.AddRange(ordered);
+        Changed?.Invoke();
+    }
+
+    public void RefreshOwnerNames(Func<NetUserId, string> ownerName)
+    {
+        foreach (var layer in _layers)
+        {
+            if (layer.Owner is { } owner)
+                layer.OwnerName = ownerName(owner);
+        }
+
+        Changed?.Invoke();
     }
 
     public Rgba32 Compose(Rgba32 basePixel, int x, int y)
@@ -132,7 +444,7 @@ public sealed class CanvasLayerStack : IDisposable
         var result = basePixel;
         foreach (var layer in _layers)
         {
-            if (!layer.Visible)
+            if (!layer.Shown)
                 continue;
 
             var src = layer.Surface.GetPixelRaw(x, y);
@@ -150,7 +462,7 @@ public sealed class CanvasLayerStack : IDisposable
 
         foreach (var layer in _layers)
         {
-            if (layer.Dirty)
+            if (layer.Own && layer.Dirty)
                 return true;
         }
 

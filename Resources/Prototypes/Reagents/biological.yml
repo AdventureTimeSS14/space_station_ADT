@@ -29,13 +29,19 @@
       - !type:EvenHealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Bloodsucker ]
+          type: [ Bloodsucker, Vampire ] # ADT-Tweak
         damage:
           Brute: -3
           Burn: -1.25
     Bloodstream: # Don't inject someone else's blood into yourself! Your own blood won't actually metabolise.
       effects:
       - !type:HealthChange
+        # ADT-Tweak start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Vampire ]
+          inverted: true
+        # ADT-Tweak end
         damage:
           types:
             Poison: 0.2

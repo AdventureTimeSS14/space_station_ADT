@@ -447,6 +447,7 @@ public sealed partial class DrawingWindow : DefaultWindow
         _canvas.Locked = locked;
         _canvas.BaseLocked = baseLocked;
         _layerPanel.CanMerge = !locked && !baseLocked;
+        _layerPanel.CanEdit = !locked;
         UpdateHistoryButtons();
     }
 

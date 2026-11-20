@@ -28,6 +28,9 @@ public enum DrawingAction : byte
     RotateLeft,
     RotateRight,
     ResetRotation,
+    ZoomIn,
+    ZoomOut,
+    Pan,
 }
 
 public readonly record struct DrawingKeyBinding(Keyboard.Key Key, bool Ctrl = false, bool Shift = false, bool Alt = false)
@@ -215,6 +218,9 @@ public sealed class DrawingHotkeyMap
         Default(DrawingAction.RotateLeft, new(Keyboard.Key.Num4), new(Keyboard.Key.LBracket, Ctrl: true));
         Default(DrawingAction.RotateRight, new(Keyboard.Key.Num6), new(Keyboard.Key.RBracket, Ctrl: true));
         Default(DrawingAction.ResetRotation, new(Keyboard.Key.Num5));
+        Default(DrawingAction.ZoomIn, new(Keyboard.Key.Equal, Ctrl: true), new(Keyboard.Key.NumpadAdd, Ctrl: true));
+        Default(DrawingAction.ZoomOut, new(Keyboard.Key.Minus, Ctrl: true), new(Keyboard.Key.NumpadSubtract, Ctrl: true));
+        Default(DrawingAction.Pan, new(Keyboard.Key.Space));
         Changed?.Invoke();
     }
 

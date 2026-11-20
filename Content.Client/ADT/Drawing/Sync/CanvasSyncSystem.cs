@@ -4,6 +4,7 @@ using Content.Client.ADT.Drawing.Cache;
 using Content.Client.ADT.Drawing.Canvas;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Drawing;
+using Robust.Client.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -23,6 +24,7 @@ public sealed class CanvasSyncSystem : EntitySystem
     private static readonly TimeSpan DetachTimeout = TimeSpan.FromSeconds(10);
     private static readonly TimeSpan RetryDelay = TimeSpan.FromSeconds(1);
     private static readonly TimeSpan LayerSaveInterval = TimeSpan.FromSeconds(30);
+    private static readonly TimeSpan LayerMetaInterval = TimeSpan.FromMilliseconds(150);
 
     [Dependency] private readonly CanvasNetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -31,18 +33,22 @@ public sealed class CanvasSyncSystem : EntitySystem
     [Dependency] private readonly CanvasBlobSystem _blobs = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CanvasLayerStoreSystem _layerStore = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private readonly BrushSettings _brush = new();
     private CanvasSyncSession? _active;
     private TimeSpan _debounce;
     private double _upRate;
     private (Guid Painting, List<CanvasParticipantInfo> List, NetUserId? Local)? _participants;
+    private readonly Dictionary<NetUserId, string> _names = new();
 
     public CanvasSyncSession? Active => _active;
 
     public event Action<CanvasSyncSession>? SessionStarted;
     public event Action<CanvasSyncSession>? SessionUpdated;
     public event Action<CanvasSyncSession, CanvasCloseReason>? SessionClosed;
+    public event Action<CanvasSyncSession, string>? LayerSyncFailed;
+    public event Action<CanvasSyncSession>? FlushReady;
 
     public override void Initialize()
     {
@@ -54,6 +60,8 @@ public sealed class CanvasSyncSystem : EntitySystem
         _net.TileUpdated += OnTileUpdated;
         _net.StrokeReceived += OnStroke;
         _net.CursorReceived += OnCursor;
+        _net.LayersReceived += OnLayers;
+        _net.FlushReceived += OnFlush;
         _blobs.BlobArrived += OnBlobArrived;
 
         Subs.CVar(_cfg, ADTCCVars.CanvasCommitDebounceMs, v => _debounce = TimeSpan.FromMilliseconds(Math.Max(0, v)), true);
@@ -70,6 +78,8 @@ public sealed class CanvasSyncSystem : EntitySystem
         _net.TileUpdated -= OnTileUpdated;
         _net.StrokeReceived -= OnStroke;
         _net.CursorReceived -= OnCursor;
+        _net.LayersReceived -= OnLayers;
+        _net.FlushReceived -= OnFlush;
         _blobs.BlobArrived -= OnBlobArrived;
 
         if (_active != null)
@@ -79,8 +89,24 @@ public sealed class CanvasSyncSystem : EntitySystem
     public void SetParticipants(Guid painting, List<CanvasParticipantInfo> participants, NetUserId? localUser)
     {
         _participants = (painting, participants, localUser);
-        if (_active is { } session && session.Painting == painting)
-            session.Collaboration.SetParticipants(participants, localUser);
+        foreach (var participant in participants)
+        {
+            _names[participant.User] = participant.Name;
+        }
+
+        if (_active is not { } session || session.Painting != painting)
+            return;
+
+        session.Collaboration.SetParticipants(participants, localUser);
+        var layers = session.Document.Layers;
+        layers.IsHost = session.Collaboration.LocalRole == CanvasRole.Host;
+        layers.RefreshOwnerNames(OwnerName);
+        RegisterLayers(session);
+    }
+
+    private string OwnerName(NetUserId user)
+    {
+        return _names.TryGetValue(user, out var name) ? name : Loc.GetString("adt-drawing-layer-owner-unknown");
     }
 
     public void Detach(Guid painting)
@@ -111,12 +137,19 @@ public sealed class CanvasSyncSystem : EntitySystem
         session.Collaboration.Update();
         PumpDecodes(session);
         PumpEncodes(session);
+        UpdateFlush(session);
 
         if (now >= session.NextLayerSave)
         {
             session.NextLayerSave = now + LayerSaveInterval;
             if (session.Document.Layers.AnyDirty())
                 _layerStore.Save(session.Painting, session.Document.Layers);
+        }
+
+        if (now >= session.NextLayerMeta)
+        {
+            session.NextLayerMeta = now + LayerMetaInterval;
+            SendPendingOpacity(session);
         }
 
         if (!session.Loaded || session.Error != null)
@@ -130,7 +163,7 @@ public sealed class CanvasSyncSystem : EntitySystem
 
         var idle = now - session.LastEdit >= _debounce;
         var overdue = session.DirtySince != TimeSpan.Zero && now - session.DirtySince >= MaxCommitDelay;
-        if (!idle && !overdue && !session.Detached)
+        if (!idle && !overdue && !session.Detached && !session.Flushing)
             return;
 
         foreach (var index in document.ModifiedTiles().ToList())
@@ -139,6 +172,14 @@ public sealed class CanvasSyncSystem : EntitySystem
                 break;
 
             StartCommit(session, index);
+        }
+
+        foreach (var (layer, index) in document.ModifiedLayerTiles().ToList())
+        {
+            if (session.Commits.Count + session.Encoding.Count >= MaxCommitsInFlight || session.Encoding.Count >= MaxEncodes)
+                break;
+
+            StartLayerCommit(session, layer, index);
         }
 
         if (!document.ModifiedTiles().Any())
@@ -191,10 +232,18 @@ public sealed class CanvasSyncSystem : EntitySystem
             _active = session;
             session.NextLayerSave = _timing.RealTime + LayerSaveInterval;
             _layerStore.Load(msg.Painting, document.Layers, document.Surface.TileCount, document.Surface.GetTileSize);
+            document.Layers.ActionRequested += (kind, layer) => OnLayerAction(session, kind, layer);
+            document.Layers.OrphanDeleteRequested += serverId => DeleteOrphan(session, serverId);
 
             if (_participants is { } participants && participants.Painting == msg.Painting)
+            {
                 collaboration.SetParticipants(participants.List, participants.Local);
+                document.Layers.IsHost = collaboration.LocalRole == CanvasRole.Host;
+            }
         }
+
+        session.Document.Layers.ApplyServer(msg.Layers, _player.LocalSession?.UserId, true, OwnerName);
+        session.ServerLayers = msg.Layers.Count;
 
         session.Waiting.Clear();
         session.DecodeQueue.Clear();
@@ -207,6 +256,7 @@ public sealed class CanvasSyncSystem : EntitySystem
         }
 
         session.TotalBlobs = session.DecodeQueue.Count;
+        RegisterLayers(session, true);
         SessionStarted?.Invoke(session);
     }
 
@@ -240,6 +290,12 @@ public sealed class CanvasSyncSystem : EntitySystem
     private void ApplyRemote(CanvasSyncSession session, CanvasTileKey key, uint version, CanvasTileContent content,
         byte author = CanvasConstants.NoAuthor, uint[]? strokeIds = null)
     {
+        if (key.Layer != CanvasConstants.BaseLayer)
+        {
+            ApplyRemoteLayer(session, key, version, content, author, strokeIds);
+            return;
+        }
+
         var document = session.Document;
         if (!document.TryGetIndex(key, out var index))
             return;
@@ -273,6 +329,40 @@ public sealed class CanvasSyncSystem : EntitySystem
         session.DecodeQueue.Enqueue(new CanvasDecodeJob(index, version, content, null));
     }
 
+    private void ApplyRemoteLayer(CanvasSyncSession session, CanvasTileKey key, uint version, CanvasTileContent content,
+        byte author, uint[]? strokeIds)
+    {
+        var document = session.Document;
+        if (document.Layers.FindServer(key.Layer) is not { } layer || !document.TryGetTileIndex(key, out var index))
+            return;
+
+        if (document.IsLayerStale(layer, index, version) ||
+            content.Kind != CanvasTileKind.Blob ||
+            layer.Own && !layer.UseServerCopy)
+        {
+            document.ApplyLayerTile(layer, index, version, content, null);
+            ConfirmPreview(session, author, strokeIds, index);
+            return;
+        }
+
+        session.DecodeQueue.Enqueue(new CanvasDecodeJob(index, version, content, null, layer, author, strokeIds));
+    }
+
+    private static void ConfirmPreview(CanvasSyncSession session, byte author, uint[]? strokeIds, int index)
+    {
+        if (author != CanvasConstants.NoAuthor && strokeIds is { Length: > 0 })
+            session.Collaboration.TileConfirmed(author, strokeIds, index);
+    }
+
+    private bool IsStale(CanvasSyncSession session, CanvasDecodeJob job)
+    {
+        var document = session.Document;
+        if (job.Layer == null)
+            return document.IsStale(job.Index, job.Version);
+
+        return !document.Layers.Layers.Contains(job.Layer) || document.IsLayerStale(job.Layer, job.Index, job.Version);
+    }
+
     private void Wait(CanvasSyncSession session, CanvasDecodeJob job)
     {
         if (!session.Waiting.TryGetValue(job.Content.Hash, out var waiting))
@@ -281,7 +371,7 @@ public sealed class CanvasSyncSystem : EntitySystem
             session.Waiting[job.Content.Hash] = waiting;
         }
 
-        waiting.Add(new CanvasWaitingTile(job.Index, job.Version, job.Content));
+        waiting.Add(new CanvasWaitingTile(job.Index, job.Version, job.Content, job.Layer, job.Author, job.StrokeIds));
     }
 
     private void PumpDecodes(CanvasSyncSession session)
@@ -302,6 +392,15 @@ public sealed class CanvasSyncSystem : EntitySystem
             var pixels = run.Task.IsCompletedSuccessfully ? run.Result : null;
             if (pixels != null)
             {
+                if (run.Job.Layer is { } layer)
+                {
+                    if (document.Layers.Layers.Contains(layer))
+                        document.ApplyLayerTile(layer, run.Job.Index, run.Job.Version, run.Job.Content, pixels);
+
+                    ConfirmPreview(session, run.Job.Author, run.Job.StrokeIds, run.Job.Index);
+                    continue;
+                }
+
                 document.ApplyAuthoritative(run.Job.Index, run.Job.Version, run.Job.Content, pixels);
                 continue;
             }
@@ -320,8 +419,11 @@ public sealed class CanvasSyncSystem : EntitySystem
         var waited = false;
         while (session.Decoding.Count < MaxDecodes && session.DecodeQueue.TryDequeue(out var job))
         {
-            if (document.IsStale(job.Index, job.Version))
+            if (IsStale(session, job))
             {
+                if (job.Layer != null && document.Layers.Layers.Contains(job.Layer))
+                    ConfirmPreview(session, job.Author, job.StrokeIds, job.Index);
+
                 session.LoadedBlobs++;
                 changed = true;
                 continue;
@@ -405,7 +507,185 @@ public sealed class CanvasSyncSystem : EntitySystem
 
         foreach (var tile in tiles)
         {
-            session.DecodeQueue.Enqueue(new CanvasDecodeJob(tile.Index, tile.Version, tile.Content, data));
+            session.DecodeQueue.Enqueue(new CanvasDecodeJob(tile.Index, tile.Version, tile.Content, data,
+                tile.Layer, tile.Author, tile.StrokeIds));
+        }
+    }
+
+    public void RequestFlush(Guid painting)
+    {
+        if (_active is not { } session || session.Painting != painting)
+            return;
+
+        session.FlushRequest = session.NextFlushRequest++;
+        session.FlushReadyPending = false;
+        _net.Send(new MsgCanvasFlush
+        {
+            Painting = painting,
+            Phase = CanvasFlushPhase.Request,
+            Id = session.FlushRequest,
+        });
+    }
+
+    public void CancelFlush(Guid painting)
+    {
+        if (_active is not { } session || session.Painting != painting)
+            return;
+
+        session.FlushRequest = 0;
+        session.FlushReadyPending = false;
+    }
+
+    private void OnFlush(MsgCanvasFlush msg)
+    {
+        if (msg.Malformed || _active is not { } session || session.Painting != msg.Painting)
+            return;
+
+        switch (msg.Phase)
+        {
+            case CanvasFlushPhase.Flush:
+                session.FlushId = msg.Id;
+                session.Flushing = true;
+                break;
+
+            case CanvasFlushPhase.Ready:
+                session.FlushId = 0;
+                session.Flushing = false;
+                if (session.FlushRequest != 0 && msg.Id == session.FlushRequest)
+                {
+                    session.FlushRequest = 0;
+                    session.FlushReadyPending = true;
+                }
+                break;
+
+            default:
+                return;
+        }
+
+        SessionUpdated?.Invoke(session);
+    }
+
+    private void UpdateFlush(CanvasSyncSession session)
+    {
+        if (session.FlushId != 0 &&
+            !session.Document.ActiveStroke &&
+            !session.Document.HasPendingWork)
+        {
+            SendPendingOpacity(session);
+            _net.Send(new MsgCanvasFlush
+            {
+                Painting = session.Painting,
+                Phase = CanvasFlushPhase.Done,
+                Id = session.FlushId,
+            });
+            session.FlushId = 0;
+        }
+
+        if (session.FlushReadyPending && session.Loaded && session.Error == null)
+        {
+            session.FlushReadyPending = false;
+            FlushReady?.Invoke(session);
+        }
+    }
+
+    private void OnLayers(MsgCanvasLayers msg)
+    {
+        if (msg.Malformed || _active is not { } session || session.Painting != msg.Painting)
+            return;
+
+        session.Document.Layers.ApplyServer(msg.Layers, _player.LocalSession?.UserId, false, OwnerName);
+        session.ServerLayers = msg.Layers.Count;
+        RegisterLayers(session, true);
+        SessionUpdated?.Invoke(session);
+    }
+
+    private bool CanCreateLayers(CanvasSyncSession session)
+    {
+        return session.Collaboration.LocalRole != CanvasRole.Viewer;
+    }
+
+    private void RegisterLayers(CanvasSyncSession session, bool listReceived = false)
+    {
+        if (!CanCreateLayers(session))
+            return;
+
+        var full = session.ServerLayers >= CanvasConstants.MaxSessionLayers;
+        foreach (var layer in session.Document.Layers.Layers.ToList())
+        {
+            if (!layer.Own || layer.Registered)
+                continue;
+
+            if (!full)
+            {
+                if (!layer.CreateSent)
+                    OnLayerAction(session, CanvasLayerActionKind.Create, layer);
+
+                continue;
+            }
+
+            if (!listReceived || !layer.CreateSent)
+                continue;
+
+            layer.CreateSent = false;
+            LayerSyncFailed?.Invoke(session, Loc.GetString("adt-canvas-layer-create-full", ("name", layer.Name)));
+        }
+    }
+
+    private void OnLayerAction(CanvasSyncSession session, CanvasLayerActionKind kind, CanvasLayer layer)
+    {
+        if (_active != session)
+            return;
+
+        var msg = new MsgCanvasLayerAction
+        {
+            Painting = session.Painting,
+            Action = kind,
+            Layer = layer.ServerId,
+            LocalId = layer.Own ? layer.Id : layer.OwnerLocalId,
+            Name = layer.Name,
+            Opacity = layer.Opacity,
+            Visible = layer.Visible,
+            Delta = layer.LastMove,
+        };
+
+        if (kind == CanvasLayerActionKind.Create)
+        {
+            if (!layer.Own || layer.Registered || layer.CreateSent || !CanCreateLayers(session))
+                return;
+
+            layer.CreateSent = true;
+            _net.Send(msg);
+            return;
+        }
+
+        if (!layer.Registered)
+            return;
+
+        _net.Send(msg);
+    }
+
+    private void DeleteOrphan(CanvasSyncSession session, byte serverId)
+    {
+        if (_active != session)
+            return;
+
+        _net.Send(new MsgCanvasLayerAction
+        {
+            Painting = session.Painting,
+            Action = CanvasLayerActionKind.Delete,
+            Layer = serverId,
+        });
+    }
+
+    private void SendPendingOpacity(CanvasSyncSession session)
+    {
+        foreach (var layer in session.Document.Layers.Layers)
+        {
+            if (!layer.OpacityPending || !layer.Registered)
+                continue;
+
+            layer.OpacityPending = false;
+            OnLayerAction(session, CanvasLayerActionKind.Opacity, layer);
         }
     }
 
@@ -417,6 +697,17 @@ public sealed class CanvasSyncSystem : EntitySystem
     {
         var prepared = session.Document.PrepareCommit(index);
         var run = new CanvasEncodeRun(index);
+        run.Task = Task.Run(() =>
+        {
+            run.Result = CanvasDocument.Encode(prepared);
+        });
+        session.Encoding.Add(run);
+    }
+
+    private void StartLayerCommit(CanvasSyncSession session, CanvasLayer layer, int index)
+    {
+        var prepared = session.Document.PrepareLayerCommit(layer, index);
+        var run = new CanvasEncodeRun(index, layer);
         run.Task = Task.Run(() =>
         {
             run.Result = CanvasDocument.Encode(prepared);
@@ -436,16 +727,23 @@ public sealed class CanvasSyncSystem : EntitySystem
             if (!run.Task.IsCompletedSuccessfully || run.Result is not { } commit)
             {
                 Log.Error($"Failed to encode canvas tile {run.Index} of {session.Painting}");
-                session.Document.RejectCommit(run.Index);
+                if (run.Layer is { } layer)
+                    session.Document.RejectLayerCommit(layer, run.Index, null);
+                else
+                    session.Document.RejectCommit(run.Index);
+
                 session.RetryAfter = _timing.RealTime + RetryDelay;
                 continue;
             }
 
-            SendCommit(session, run.Index, commit);
+            if (run.Layer is { } target && (!session.Document.Layers.Layers.Contains(target) || !target.Registered))
+                continue;
+
+            SendCommit(session, run.Index, commit, run.Layer);
         }
     }
 
-    private void SendCommit(CanvasSyncSession session, int index, CanvasTileCommit commit)
+    private void SendCommit(CanvasSyncSession session, int index, CanvasTileCommit commit, CanvasLayer? layer = null)
     {
         var msg = new MsgCanvasTileCommit
         {
@@ -466,7 +764,7 @@ public sealed class CanvasSyncSystem : EntitySystem
             session.Uploads.Enqueue(new CanvasClientUpload(transferId, commit.Png));
         }
 
-        session.Commits[msg.CommitId] = new CanvasClientCommit(index, commit, transferId);
+        session.Commits[msg.CommitId] = new CanvasClientCommit(index, commit, transferId, layer);
         _net.Send(msg);
     }
 
@@ -482,6 +780,12 @@ public sealed class CanvasSyncSystem : EntitySystem
         var document = session.Document;
         if (msg.Result != CanvasCommitResult.Ok)
             CancelUpload(session, commit.TransferId);
+
+        if (commit.Layer is { } layer)
+        {
+            OnLayerCommitResult(session, commit, layer, msg);
+            return;
+        }
 
         switch (msg.Result)
         {
@@ -531,6 +835,42 @@ public sealed class CanvasSyncSystem : EntitySystem
                 document.RejectCommit(commit.Index);
                 session.Error = "adt-canvas-sync-error-invalid";
                 SessionUpdated?.Invoke(session);
+                break;
+        }
+    }
+
+    private void OnLayerCommitResult(CanvasSyncSession session, CanvasClientCommit commit, CanvasLayer layer,
+        MsgCanvasCommitResult msg)
+    {
+        var document = session.Document;
+        if (!document.Layers.Layers.Contains(layer))
+            return;
+
+        switch (msg.Result)
+        {
+            case CanvasCommitResult.Ok:
+                document.ConfirmLayerCommit(layer, commit.Index, msg.Version);
+                if (commit.Commit.Png != null && msg.Content.Kind == CanvasTileKind.Blob)
+                    _cache.Put(msg.Content.Hash, commit.Commit.Png);
+                break;
+
+            case CanvasCommitResult.VersionMismatch:
+                layer.RestorePendingStrokes(commit.Index, commit.Commit.Operations);
+                document.RejectLayerCommit(layer, commit.Index, msg.Version);
+                break;
+
+            case CanvasCommitResult.Busy:
+                layer.RestorePendingStrokes(commit.Index, commit.Commit.Operations);
+                document.RejectLayerCommit(layer, commit.Index, null);
+                session.RetryAfter = _timing.RealTime + RetryDelay;
+                break;
+
+            default:
+                document.FailLayerCommit(layer, commit.Index);
+                var error = msg.Result == CanvasCommitResult.TooLarge
+                    ? "adt-canvas-layer-sync-too-large"
+                    : "adt-canvas-layer-sync-failed";
+                LayerSyncFailed?.Invoke(session, Loc.GetString(error, ("name", layer.Name)));
                 break;
         }
     }

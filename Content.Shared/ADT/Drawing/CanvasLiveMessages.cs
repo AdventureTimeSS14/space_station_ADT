@@ -38,6 +38,7 @@ public sealed class MsgCanvasStroke : NetMessage
 
     public Guid Painting;
     public byte Author = CanvasConstants.NoAuthor;
+    public byte Layer;
     public uint StrokeId;
     public uint Time;
     public CanvasStrokePhase Phase;
@@ -58,6 +59,7 @@ public sealed class MsgCanvasStroke : NetMessage
     {
         Painting = buffer.ReadGuid();
         Author = buffer.ReadByte();
+        Layer = buffer.ReadByte();
         StrokeId = buffer.ReadUInt32();
         Time = buffer.ReadUInt32();
         Phase = (CanvasStrokePhase) buffer.ReadByte();
@@ -145,6 +147,7 @@ public sealed class MsgCanvasStroke : NetMessage
     {
         buffer.Write(Painting);
         buffer.Write(Author);
+        buffer.Write(Layer);
         buffer.Write(StrokeId);
         buffer.Write(Time);
         buffer.Write((byte) Phase);

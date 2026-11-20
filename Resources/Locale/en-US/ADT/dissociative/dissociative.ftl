@@ -9,6 +9,7 @@ ent-ActionDissociativeSetup = Shape personality
 
 dissociative-not-in-control = You are not in control of the body right now.
 dissociative-manifest-host-contained = Your host is shut in, you can't get out.
+dissociative-manifest-host-dead = The host's body is dead, you can't get out.
 dissociative-front-cooldown = You are not strong enough yet. About { $minutes } min left.
 dissociative-front-suppressed = The pills muffle you, you can't break through.
 dissociative-front-mindshield = Something in the host's head keeps you from surfacing.

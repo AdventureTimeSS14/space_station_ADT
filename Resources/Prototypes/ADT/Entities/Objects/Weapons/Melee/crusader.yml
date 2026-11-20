@@ -1,0 +1,80 @@
+- type: entity
+  parent: [ BaseItem, ADTBaseHolyWeapon ]
+  id: ADTCrusaderSword
+  name: crusader sword
+  description: A blessed longsword of the Order. It obeys only the faithful who wear the holy cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/crusader_sword.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/crusader_sword.rsi
+    size: Large
+    shape:
+    - 0,0,1,3
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Slash: 10
+        Holy: 8
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: ForTheWorthy
+    allowFollowers: true
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/crusader_sword.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
+  - type: DisarmMalus
+
+- type: entity
+  parent: [ BaseRepairableShield, BaseShieldDestructible ]
+  id: ADTCrusaderShield
+  name: crusader shield
+  description: A heater shield of the Order, painted with a red cross. It obeys only the faithful who wear the holy cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/crusader_shield.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/crusader_shield.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+    size: Ginormous
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.85
+        Cold: 0.85
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.7
+        Cold: 0.7
+      flatReductions:
+        Blunt: 10
+        Slash: 10
+        Piercing: 5
+        Heat: 5
+        Cold: 5
+  - type: ForTheWorthy
+    allowFollowers: true
+
+- type: entity
+  parent: ClothingHandsGlovesLeather
+  id: ADTClothingHandsGlovesCrusader
+  name: crusader gloves
+  description: Thick leather gloves of the Order with insulated lining. Neither thorns nor current pass through them.
+  components:
+  - type: Insulated

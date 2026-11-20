@@ -379,7 +379,7 @@
   name: trait-dissociative-identity-name
   description: trait-dissociative-identity-desc
   category: Disabilities
-  cost: -1
+  cost: 1
   departmentBlacklist:
     - Command
     - Security
@@ -391,10 +391,20 @@
     - Lawyer
   speciesBlacklist:
     - IPC
+    - NovakidSpecies
+    - SlimePerson
+    - Diona
+    - Vox
   effects:
     - !type:AddCompsEffect
       components:
         - type: DissociativeIdentity
+          chameleonClothing:
+            jumpsuit: ClothingUniformJumpsuitChameleon
+            outerClothing: ClothingOuterChameleon
+            shoes: ClothingShoesChameleon
+            head: ClothingHeadHatChameleon
+          chameleonImplant: ChameleonControllerImplant
           alterComponents:
           - type: Physics
             bodyType: KinematicController
@@ -406,10 +416,15 @@
                   radius: 0.35
                 density: 50
                 mask:
-                - MobMask
+                - Impassable
+                - LowImpassable
+                - BlobImpassable
                 layer:
                 - None
           - type: DissociativeAlterBody
+          - type: AntagImmune
+          - type: ADTVirusImmune
+            absolute: true
           - type: StatusIcon
             bounds: -0.5,-0.5,0.5,0.5
           - type: InputMover
