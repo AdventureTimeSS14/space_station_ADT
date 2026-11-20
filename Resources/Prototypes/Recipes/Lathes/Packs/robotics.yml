@@ -18,6 +18,7 @@
   - BorgModuleFireExtinguisher
   - BorgModuleInflatable
   - BorgModuleArtistry
+  - ADTBorgModuleStorageDuffel # ADT-Tweak
 
 - type: latheRecipePack
   id: BorgLimbsStatic
