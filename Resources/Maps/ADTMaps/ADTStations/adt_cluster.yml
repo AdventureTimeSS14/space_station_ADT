@@ -46489,16 +46489,6 @@ entities:
         stampedName: Максим Соко
       content: Я прокладываю эти трубы уже 1000 лет, помогите
       editingDisabled: True
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -46535,10 +46525,6 @@ entities:
           hard: False
           restitution: 0
           friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 5
     - type: InsideEntityStorage
   - uid: 3186
     components:

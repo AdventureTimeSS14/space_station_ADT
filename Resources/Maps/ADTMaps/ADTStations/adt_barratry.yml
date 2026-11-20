@@ -92985,22 +92985,7 @@ entities:
   - uid: 16562
     components:
     - type: Transform
-      pos: 7.5,24.5
-      parent: 2
-  - uid: 16563
-    components:
-    - type: Transform
-      pos: 8.5,24.5
-      parent: 2
-  - uid: 16564
-    components:
-    - type: Transform
-      pos: 9.5,24.5
-      parent: 2
-  - uid: 16565
-    components:
-    - type: Transform
-      pos: 8.5,23.5
+      pos: 10.5,15.5
       parent: 2
 - proto: SpawnPointMedicalIntern
   entities:

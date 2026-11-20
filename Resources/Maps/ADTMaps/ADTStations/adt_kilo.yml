@@ -150509,83 +150509,12 @@ entities:
     - type: Transform
       pos: -56.633244,64.60432
       parent: 2
-- proto: LeftArmSkeleton
-  entities:
-  - uid: 22126
-    components:
-    - type: Transform
-      pos: -21.39453,23.895758
-      parent: 2
-- proto: LeftFootReptilian
-  entities:
-  - uid: 22127
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -41.169468,22.208986
-      parent: 2
-- proto: LeftFootSkeleton
-  entities:
-  - uid: 22128
-    components:
-    - type: Transform
-      pos: -21.472654,23.833258
-      parent: 2
-- proto: LeftHandHuman
-  entities:
-  - uid: 22129
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -39.200718,24.240236
-      parent: 2
-- proto: LeftHandSkeleton
-  entities:
-  - uid: 22130
-    components:
-    - type: Transform
-      pos: -21.36328,23.911383
-      parent: 2
 - proto: LeftLegBorg
   entities:
   - uid: 22131
     components:
     - type: Transform
       pos: -2.6328177,-38.509598
-      parent: 2
-- proto: LeftLegHuman
-  entities:
-  - uid: 22132
-    components:
-    - type: Transform
-      pos: -39.19514,25.071976
-      parent: 2
-  - uid: 22133
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -42.153843,21.974611
-      parent: 2
-- proto: LeftLegReptilian
-  entities:
-  - uid: 22134
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -40.231968,23.662111
-      parent: 2
-  - uid: 22135
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -41.716343,22.833986
-      parent: 2
-- proto: LeftLegSkeleton
-  entities:
-  - uid: 22136
-    components:
-    - type: Transform
-      pos: -21.42578,23.911383
       parent: 2
 - proto: LightBulb
   entities:
@@ -150762,17 +150691,6 @@ entities:
         - 0
         - 0
         - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 12791
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 22157
     components:
     - type: Transform
@@ -177606,13 +177524,6 @@ entities:
     components:
     - type: Transform
       pos: -88.5,61.5
-      parent: 2
-- proto: SpawnPointADTGuardOfficer
-  entities:
-  - uid: 26046
-    components:
-    - type: Transform
-      pos: -27.5,-52.5
       parent: 2
 - proto: SpawnPointADTPathologist
   entities:

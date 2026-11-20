@@ -192578,12 +192578,7 @@ entities:
     components:
     - type: Transform
       parent: 2
-      pos: -18.5,-29.5
-  - uid: 31006
-    components:
-    - type: Transform
-      parent: 2
-      pos: -17.5,-29.5
+      pos: -44.5,-26.5
 - proto: SpawnPointBartender
   entities:
   - uid: 22030

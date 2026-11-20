@@ -165490,22 +165490,7 @@ entities:
   - uid: 28784
     components:
     - type: Transform
-      pos: 48.5,-11.5
-      parent: 2
-  - uid: 28785
-    components:
-    - type: Transform
-      pos: 48.5,-12.5
-      parent: 2
-  - uid: 28786
-    components:
-    - type: Transform
-      pos: 48.5,-9.5
-      parent: 2
-  - uid: 28787
-    components:
-    - type: Transform
-      pos: 48.5,-10.5
+      pos: 51.5,-30.5
       parent: 2
 - proto: SpawnPointMedicalIntern
   entities:
