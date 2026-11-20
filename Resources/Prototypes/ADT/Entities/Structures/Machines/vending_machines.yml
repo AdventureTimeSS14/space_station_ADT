@@ -99,14 +99,15 @@
 
 - type: entity
   parent: VendingMachine
-  id: ADTVendingMachinePill
-  name: Pill-O-Mat
-  description: (Almost) A practical solution to many of your sores.
+  id: ADTVendingMachineCiviMed
+  name: CiviMedVend
+  description: CiviMed, distributing lifesaving meds harder than the rocks you break! Miners, DON'T DIE!
   components:
   - type: ADTVendingMachine
-    pack: PillInventory
+    pack: ADTCiviMedVendInventory
+    priceMultiplier: 1.2
     discountAccount: Medical
-    discountPercent: 0.5
+    discountPercent: 0.25
   - type: VendingMachineVisuals
     offState: off
     brokenState: broken
@@ -116,7 +117,7 @@
   - type: VendingMachineEject
     ejectDelay: 0.6
   - type: DatasetVocalizer
-    dataset: PillAds
+    dataset: ADTCiviMedAds
   - type: Speech
   - type: Sprite
     sprite: ADT/Structures/Machines/VendingMachines/pillomat.rsi
@@ -133,7 +134,7 @@
     energy: 1.6
     color: "#a1e1f0"
   - type: StaticPrice
-    price: 2600
+    price: -3500
 
 # Парашкаф
 
@@ -168,43 +169,42 @@
     energy: 1.6
     color: "#1ca9d4"
 
-# ГраждоМед
+# ГраждоМед ненужен и убран
 
-- type: entity
-  parent: VendingMachine
-  id: ADTVendingMachineCiviMedVend
-  name: CiviMedVend
-  description: CiviMed, distributing lifesaving meds harder than the rocks you break! Miners, DON'T DIE!
-  components:
-  - type: ADTVendingMachine
-    pack: ADTCiviMedVendInventory
-    priceMultiplier: 1.1
-    # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
-  - type: VendingMachineVisuals
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-  - type: VendingMachineEject
-    ejectDelay: 0.6
-  - type: DatasetVocalizer
-    dataset: ADTCiviMedAds
-  - type: Sprite
-    sprite: ADT/Structures/Machines/VendingMachines/civimed.rsi
-    layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: PointLight
-    radius: 1.5
-    energy: 1.6
-    color: "#4b93ad"
-  - type: StaticPrice
-    price: -2000
-
+# - type: entity
+#   parent: VendingMachine
+#   id: ADTVendingMachineCiviMedVend
+#   name: CiviMedVend
+#   description: CiviMed, distributing lifesaving meds harder than the rocks you break! Miners, DON'T DIE!
+#   components:
+#   - type: ADTVendingMachine
+#     pack: ADTCiviMedVendInventory
+#     priceMultiplier: 1.1
+#     # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
+#   - type: VendingMachineVisuals
+#     offState: off
+#     brokenState: broken
+#     normalState: normal-unshaded
+#   - type: VendingMachineEject
+#     ejectDelay: 0.6
+#   - type: DatasetVocalizer
+#     dataset: ADTCiviMedAds
+#   - type: Sprite
+#     sprite: ADT/Structures/Machines/VendingMachines/civimed.rsi
+#     layers:
+#     - state: "off"
+#       map: ["enum.VendingMachineVisualLayers.Base"]
+#     - state: "off"
+#       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+#       shader: unshaded
+#     - state: panel
+#       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#   - type: PointLight
+#     radius: 1.5
+#     energy: 1.6
+#     color: "#4b93ad"
+#   - type: StaticPrice
+#     price: -2000
 
 # Автомат с мороженкой.
 

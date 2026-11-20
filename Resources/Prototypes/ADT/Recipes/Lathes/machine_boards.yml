@@ -5,7 +5,7 @@
   parent: ThrusterMachineCircuitboard
   abstract: true
   id: ADTBaseThrusterCircuitboard
-  result: ADTMediumThruster
+  result: ADTThrusterMedium
   completetime: 10
   materials:
     Steel: 500

@@ -903,6 +903,7 @@
   parent: VendingMachine
   id: VendingMachineMedicalBase
   name: NanoMed Civilian
+  abstract: true # ADT-Tweak убираем лишнее
   description: It's a medical drug dispenser. Natural chemicals only!
   components:
   - type: ADTVendingMachine
