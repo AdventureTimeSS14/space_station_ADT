@@ -4252,20 +4252,6 @@ entities:
     components:
     - type: Transform
       parent: 21
-- proto: ActionToggleLight
-  entities:
-  - uid: 24
-    components:
-    - type: Transform
-      parent: 23
-  - uid: 26
-    components:
-    - type: Transform
-      parent: 25
-  - uid: 28
-    components:
-    - type: Transform
-      parent: 27
 - proto: ADTArmchairBlack
   entities:
   - uid: 29
@@ -127892,58 +127878,16 @@ entities:
     - type: Transform
       parent: 2
       pos: -16.436357,12.431917
-    - type: HandheldLight
-      toggleActionEntity: 24
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 24
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 25
     components:
     - type: Transform
       parent: 2
       pos: -16.698572,12.373435
-    - type: HandheldLight
-      toggleActionEntity: 26
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 26
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 27
     components:
     - type: Transform
       parent: 2
       pos: -6.5119405,-25.88627
-    - type: HandheldLight
-      toggleActionEntity: 28
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 28
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 16266
     components:
     - type: Transform

@@ -74061,20 +74061,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -22.537727,-41.25155
-    - type: HandheldLight
-      toggleActionEntity: 43
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 43
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 11211
     components:
     - type: Transform

@@ -4,8 +4,8 @@ meta:
   engineVersion: 294.0.3
   forkId: ""
   forkVersion: ""
-  time: 11/19/2026 19:06:51
-  entityCount: 30863
+  time: 11/20/2026 02:49:07
+  entityCount: 30862
 maps:
 - 1
 grids:
@@ -9735,7 +9735,7 @@ entities:
       pos: 20.5,-88.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -120317.26
+      secondsUntilStateChange: -120333.35
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -11004,7 +11004,7 @@ entities:
       pos: -17.5,-3.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -189306.1
+      secondsUntilStateChange: -189322.19
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -11533,7 +11533,7 @@ entities:
       pos: 54.5,5.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -438802.9
+      secondsUntilStateChange: -438819
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -11816,7 +11816,7 @@ entities:
       pos: -58.5,-14.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -90297.38
+      secondsUntilStateChange: -90313.48
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -11834,7 +11834,7 @@ entities:
       pos: -59.5,-15.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -85546.62
+      secondsUntilStateChange: -85562.71
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -171360,22 +171360,12 @@ entities:
     - type: Transform
       parent: 2
       pos: 0.55697536,-37.452625
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers: []
   - uid: 18600
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -2.6148996,-38.15575
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers: []
 - proto: ParticleAcceleratorComputerCircuitboard
   entities:
   - uid: 18601
@@ -177651,21 +177641,11 @@ entities:
     - type: Transform
       parent: 2
       pos: -53.72166,-28.431938
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers: []
   - uid: 19402
     components:
     - type: Transform
       parent: 2
       pos: -53.72166,-28.463188
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers: []
 - proto: PrinterDoc
   entities:
   - uid: 15887

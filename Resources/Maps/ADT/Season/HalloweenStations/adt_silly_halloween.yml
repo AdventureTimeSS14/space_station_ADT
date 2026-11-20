@@ -36027,18 +36027,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 14
     - type: InsideEntityStorage
 - proto: ClothingHeadHatBeretWarden
   entities:
@@ -36087,18 +36077,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 10
     - type: InsideEntityStorage
 - proto: ClothingHeadHatMimesoft
   entities:
@@ -36344,18 +36324,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 12
     - type: InsideEntityStorage
 - proto: ClothingNeckScarfStripedSyndieRed
   entities:
@@ -36534,33 +36504,8 @@ entities:
       parent: 3
     - type: ToggleableClothing
       clothingUid: 6
-    - type: ContainerContainer
-      containers:
-        toggleable-clothing: !type:ContainerSlot
-          ent: 6
-          showEnts: False
-          occludes: True
-        storagebase: !type:Container
-          ents: []
-          showEnts: False
-          occludes: True
-        solution@food: !type:ContainerSlot
-          ent: 5
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents: []
-          showEnts: False
-          occludes: True
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ActionsContainer
     - type: InsideEntityStorage
 - proto: ClothingShoesBootsJackFilled
   entities:
@@ -36827,18 +36772,8 @@ entities:
       deviceLists: []
       configurators: []
       address: 4F5B-785D
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 8
     - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitLoungewear
   entities:
@@ -58860,12 +58795,7 @@ entities:
 
         =============================================
                                     ⠀[italic]Место для печатей[/italic]
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
+
     - type: EmitSoundOnCollide
       nextSound: -1055.2613391
     - type: Fixtures
@@ -58902,10 +58832,6 @@ entities:
           - InteractImpassable
           - Opaque
           layer: []
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 20
     - type: Forensics
       residues: []
       fingerprints: []

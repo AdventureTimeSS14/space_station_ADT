@@ -1692,12 +1692,6 @@ entities:
       container: 10
 - proto: ActionToggleLight
   entities:
-  - uid: 14
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 13
   - uid: 16
     mapInit: true
     paused: true
@@ -1714,12 +1708,6 @@ entities:
       parent: 17
     - type: Action
       container: 17
-  - uid: 20
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 19
   - uid: 22
     mapInit: true
     paused: true
@@ -44369,20 +44357,6 @@ entities:
       parent: 2
       rot: 12.566370614359172 rad
       pos: 4.5881667,32.543884
-    - type: HandheldLight
-      toggleActionEntity: 14
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 14
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 6430
     components:
     - type: Transform
@@ -62774,22 +62748,8 @@ entities:
     - type: Transform
       parent: 2
       pos: 7.620697,-28.110237
-    - type: HandheldLight
-      toggleActionEntity: 20
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 20
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 9059
     components:
     - type: Transform
