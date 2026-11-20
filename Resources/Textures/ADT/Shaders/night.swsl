@@ -6,8 +6,11 @@ uniform highp float NightVisionBoost;
 // Luminance below this is treated as "dark" and gets boost/lift/tint
 uniform highp float NightVisionThreshold;
 
-// Cool tint strength in dark areas (does NOT desaturate midtones)
-uniform highp float BlueTintIntensity;
+// Tint strength in dark areas (does NOT desaturate midtones)
+uniform highp float TintIntensity;
+
+// Tint color applied to dark areas
+uniform highp vec3 TintColor;
 
 // Soft additive floor in near-black so dim lit sprites stay readable
 uniform highp float NightVisionLift;
@@ -18,7 +21,6 @@ uniform highp float CompressStrength;
 // Soft clamp for highlights only (1.0 = no hard gray wash)
 uniform highp float MaxBrightness;
 
-const highp vec3 coolTint = vec3(0.55, 0.78, 1.0);
 const highp vec3 lumaWeights = vec3(0.299, 0.587, 0.114);
 
 // Only compress bright pixels; leave midtones alone so colors stay vivid
@@ -36,7 +38,7 @@ void fragment()
     highp float boost = mix(1.0, NightVisionBoost, darkFactor);
     finalColor *= boost;
 
-    finalColor += coolTint * (NightVisionLift * darkFactor);
+    finalColor += TintColor * (NightVisionLift * darkFactor);
 
     highp float lum = dot(finalColor, lumaWeights);
     highp float over = max(lum - CompressStart, 0.0);
@@ -49,11 +51,11 @@ void fragment()
         finalColor *= MaxBrightness / peak;
 
     highp float afterLum = dot(finalColor, lumaWeights);
-    highp vec3 cool = finalColor * coolTint;
+    highp vec3 cool = finalColor * TintColor;
     // Renormalize cool mix so it doesn't darken reds into gray
     highp float coolLum = max(dot(cool, lumaWeights), 0.0001);
     cool *= afterLum / coolLum;
-    finalColor = mix(finalColor, cool, darkFactor * BlueTintIntensity);
+    finalColor = mix(finalColor, cool, darkFactor * TintIntensity);
 
     COLOR.rgb = finalColor;
 }

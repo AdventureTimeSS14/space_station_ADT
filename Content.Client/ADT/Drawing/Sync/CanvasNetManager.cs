@@ -16,6 +16,8 @@ public sealed class CanvasNetManager
     public event Action<MsgCanvasInvalidate>? InvalidateReceived;
     public event Action<MsgCanvasStroke>? StrokeReceived;
     public event Action<MsgCanvasCursor>? CursorReceived;
+    public event Action<MsgCanvasLayers>? LayersReceived;
+    public event Action<MsgCanvasFlush>? FlushReceived;
 
     public void Initialize()
     {
@@ -32,6 +34,9 @@ public sealed class CanvasNetManager
         _net.RegisterNetMessage<MsgCanvasViewRequest>();
         _net.RegisterNetMessage<MsgCanvasViewInfo>(m => ViewInfoReceived?.Invoke(m));
         _net.RegisterNetMessage<MsgCanvasInvalidate>(m => InvalidateReceived?.Invoke(m));
+        _net.RegisterNetMessage<MsgCanvasLayers>(m => LayersReceived?.Invoke(m));
+        _net.RegisterNetMessage<MsgCanvasLayerAction>();
+        _net.RegisterNetMessage<MsgCanvasFlush>(m => FlushReceived?.Invoke(m));
     }
 
     public void Send(NetMessage message)

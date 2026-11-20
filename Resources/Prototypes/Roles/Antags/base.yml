@@ -38,6 +38,9 @@
   - ADTCentcomConsultant
   - ADTCentcomInspector
   - ADTCentcomInquisitor
+  - ADTERTCrusaderMaster
+  - ADTERTCrusaderKnight
+  - ADTERTCrusaderHospitaller
   - ADTCentcomOfficer
   - ADTSODOfficer
   - ADTCentcomOperator

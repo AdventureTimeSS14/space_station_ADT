@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileInfectedTrophy
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: skull
+  - type: ProjectileInfect
+    infection: VampireGraveFever
+  - type: ProjectileAoE
+    damageRadius: 1
+    damageMultiplier: 1
+  - type: Projectile
+    ignoreResistances: true
+    ignoreTargeted: true
+    damage:
+      types:
+        Blunt: 5
+  - type: TimedDespawn
+    lifetime: 0.175

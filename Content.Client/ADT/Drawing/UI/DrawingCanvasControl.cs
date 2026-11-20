@@ -41,6 +41,7 @@ public sealed partial class DrawingCanvasControl : Control
     private const int MaxUploadsPerFrame = 16;
     private const float RightClickSlop = 4f;
     private const float RotationStep = MathF.PI / 12f;
+    private const float ZoomStep = 1.2f;
 
     private static readonly Color BackdropColor = Color.FromHex("#2a2a2e");
     private static readonly Color PaperColor = Color.White;
@@ -73,6 +74,8 @@ public sealed partial class DrawingCanvasControl : Control
     private float _rotateStartAngle;
     private float _rotateOrigin;
     private bool _rawView;
+    private bool _panHeld;
+    private bool _handPanning;
 
     public DrawingCanvasControl(CanvasDocument document, PenInputSystem penSystem,
         IGameTiming timing, IClyde clyde, IInputManager inputManager)
@@ -281,7 +284,11 @@ public sealed partial class DrawingCanvasControl : Control
 
         var canvasAnchor = ScreenToCanvas(anchorControlPixels);
         Zoom = Math.Clamp(zoom, MinZoom, MaxZoom);
-        Offset += Unrotate(anchorControlPixels - CanvasToScreen(canvasAnchor));
+        var shift = Unrotate(anchorControlPixels - CanvasToScreen(canvasAnchor));
+        Offset += shift;
+        if (_panning)
+            _panOrigin += shift;
+
         OnViewChanged?.Invoke();
     }
 
@@ -337,6 +344,16 @@ public sealed partial class DrawingCanvasControl : Control
             return;
 
         args.Handle();
+
+        if (_panHeld)
+        {
+            _panning = true;
+            _handPanning = true;
+            _panMoved = true;
+            _panStart = args.RelativePixelPosition;
+            _panOrigin = Offset;
+            return;
+        }
 
         if (_rotateHeld)
         {
@@ -407,6 +424,13 @@ public sealed partial class DrawingCanvasControl : Control
                 PickColor(_hover ?? args.RelativePixelPosition);
 
             _panning = false;
+            _handPanning = false;
+            return;
+        }
+
+        if (IsDrawFunction(args.Function) && _handPanning)
+        {
+            StopHandPan();
             return;
         }
 
@@ -454,6 +478,21 @@ public sealed partial class DrawingCanvasControl : Control
         SetHotkeys(false);
         _rotateHeld = false;
         _rotating = false;
+        _panHeld = false;
+        StopHandPan();
+    }
+
+    private void StopHandPan()
+    {
+        if (_handPanning)
+            _panning = false;
+
+        _handPanning = false;
+    }
+
+    private void ZoomByStep(float factor)
+    {
+        SetZoom(Zoom * factor, _hover ?? (Vector2) PixelSize / 2f);
     }
 
     private void SetHotkeys(bool enabled)
@@ -476,6 +515,13 @@ public sealed partial class DrawingCanvasControl : Control
             {
                 _rotateHeld = false;
                 _rotating = false;
+                args.Handle();
+            }
+
+            if (_panHeld && Hotkeys.UsesKey(DrawingAction.Pan, args.Key))
+            {
+                _panHeld = false;
+                StopHandPan();
                 args.Handle();
             }
 
@@ -612,6 +658,19 @@ public sealed partial class DrawingCanvasControl : Control
             case DrawingAction.ResetRotation:
                 if (!IsPointerBusy)
                     Rotation = 0f;
+                break;
+
+            case DrawingAction.ZoomIn:
+                ZoomByStep(ZoomStep);
+                break;
+
+            case DrawingAction.ZoomOut:
+                ZoomByStep(1f / ZoomStep);
+                break;
+
+            case DrawingAction.Pan:
+                if (!IsPointerBusy)
+                    _panHeld = true;
                 break;
 
             default:
@@ -761,6 +820,9 @@ public sealed partial class DrawingCanvasControl : Control
         var screen = args.RelativePixelPosition;
         _hover = screen;
 
+        if (_handPanning && !_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
+            StopHandPan();
+
         if (_panning)
         {
             if (RightClickPicker && !_panMoved && Vector2.Distance(screen, _panStart) < RightClickSlop)
@@ -872,7 +934,7 @@ public sealed partial class DrawingCanvasControl : Control
         if (args.Delta.Y == 0f)
             return;
 
-        var factor = MathF.Pow(1.2f, args.Delta.Y);
+        var factor = MathF.Pow(ZoomStep, args.Delta.Y);
         SetZoom(Zoom * factor, args.RelativePixelPosition);
         args.Handle();
     }
@@ -888,6 +950,7 @@ public sealed partial class DrawingCanvasControl : Control
     {
         base.ControlFocusExited();
         _panning = false;
+        _handPanning = false;
         _rotating = false;
         _shaping = false;
         _lassoing = false;
@@ -977,7 +1040,7 @@ public sealed partial class DrawingCanvasControl : Control
 
         foreach (var layer in Document.Layers.Layers)
         {
-            if (layer.Visible && layer.Opacity > 0f)
+            if (layer.Shown && layer.Opacity > 0f)
                 DrawTarget(handle, layer.Surface, Color.White.WithAlpha(layer.Opacity));
         }
 
@@ -1023,6 +1086,7 @@ public sealed partial class DrawingCanvasControl : Control
         return Tool is not (DrawingTool.Picker or DrawingTool.Fill or DrawingTool.Lasso or DrawingTool.Transform) &&
                !_panning &&
                !_rotateHeld &&
+               !_panHeld &&
                CanDrawActive;
     }
 

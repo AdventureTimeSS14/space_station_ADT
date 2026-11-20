@@ -60,4 +60,10 @@ public sealed partial class NightVisionItemComponent : Component
     /// </summary>
     [ViewVariables]
     public EntProtoId? PreviousEffectPrototype;
+
+    [ViewVariables]
+    public Color? PreviousTint;
+
+    [ViewVariables]
+    public bool PreviousOverlay;
 }

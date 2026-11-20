@@ -1,0 +1,14 @@
+ent-ADTCrusaderSword = меч крестоносца
+    .desc = Освящённый длинный меч ордена. Подчиняется лишь верным, на ком святой крест.
+ent-ADTCrusaderShield = щит крестоносца
+    .desc = Треугольный щит ордена с красным крестом. Подчиняется лишь верным, на ком святой крест.
+ent-ADTActionCrusaderKnock = Стук
+    .desc = Молитва отворяет ближайшие двери.
+ent-ADTCrusaderRallySpeedStatusEffect = Deus vult
+ent-ADTRandomHumanoidSpawnerERTCrusaderMaster = магистр ордена
+ent-ADTRandomHumanoidSpawnerERTCrusaderKnight = брат-рыцарь
+ent-ADTRandomHumanoidSpawnerERTCrusaderHospitaller = брат-госпитальер
+ent-ADTBannerCrusader = знамя ордена крестоносцев
+    .desc = Знамя святого ордена.
+ent-ADTClothingHandsGlovesCrusader = перчатки крестоносца
+    .desc = Толстые кожаные перчатки ордена на изолирующей подкладке.

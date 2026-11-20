@@ -313,6 +313,10 @@ public sealed partial class DissociativeIdentitySystem
     {
         if (ent.Comp.Fronting && args.NewMobState != MobState.Alive)
             ent.Comp.FrontEnd = _timing.CurTime;
+
+        if (args.NewMobState == MobState.Dead && TryComp<DissociativeAlterComponent>(ent.Comp.Alter, out var alter))
+            Retract(ent, (ent.Comp.Alter.Value, alter));
+
     }
 
     private void OnHostMindRemoved(Entity<DissociativeIdentityComponent> ent, ref MindRemovedMessage args)

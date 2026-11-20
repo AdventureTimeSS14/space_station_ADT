@@ -768,3 +768,32 @@
   - type: Construction
     graph: ADTBannerHumanFlag
     node: banner
+
+- type: entity
+  id: ADTBannerCrusader
+  parent: BannerBase
+  name: crusader banner
+  description: The banner of the holy Order. A red cross on white cloth - wherever it stands, the unholy grow restless.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: crusader
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: crusader-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal

@@ -77,6 +77,9 @@ public sealed partial class HereticSystem
         if (data.Stage > ent.Comp.PathStage && data.Path == ent.Comp.CurrentPath)
             ent.Comp.PathStage = data.Stage;
 
+        if (body is { } holyBody)
+            _chaplain.SetHolyPower(holyBody, ent.Comp.PathStage);
+
         // ADT: Dirty after CurrentPath/PathStage write, not before
         Dirty(ent);
 

@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: gamePreset
+  id: Vampire
+  alias:
+    - vampire
+  name: vampire-title
+  description: vampire-description
+  showInVote: false
+  rules:
+    - Vampire
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: TraitorVamp
+  name: traitorvamp-title
+  description: traitorvamp-description
+  showInVote: false
+  rules:
+    - Traitor
+    - Vampire
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: TraitorLing
+  name: traitorling-title
+  description: traitorling-description
+  showInVote: false
+  rules:
+    - Traitor
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: VampLing
+  name: vampling-title
+  description: vampling-description
+  showInVote: false
+  rules:
+    - Vampire
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - BasicRoundstartVariation
