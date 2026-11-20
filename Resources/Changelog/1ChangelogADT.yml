@@ -17855,3 +17855,12 @@ Entries:
     id: 2139
     pr_number: 3715
     time: '2026-11-20T05:37:04Z'
+  - author: Filokini
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+    id: 2140
+    pr_number: 3716
+    time: '2026-11-20T16:56:31Z'
