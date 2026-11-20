@@ -259,8 +259,8 @@
     statePrefix: excable_
   - type: Explosive
     explosionType: DemolitionCharge
-    totalIntensity: 10
-    intensitySlope: 5
+    totalIntensity: 20 # ADT tweak 10 > 20
+    intensitySlope: 15 # ADT-tweak 15 > 20
     maxIntensity: 5
     canCreateVacuum: false
   - type: ExplodeOnTrigger
