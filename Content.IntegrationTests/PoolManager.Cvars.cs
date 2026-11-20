@@ -45,5 +45,6 @@ public static partial class PoolManager
         (ADTCCVars.LobbyAutoVote.Name, "false"), // ADT-Tweak: голосование в лобби само выбирает карту и ломает тесты
         (ADTCCVars.LobbyWarmupEnabled.Name, "false"), // ADT-Tweak
         (ADTCCVars.MapRotationEnabled.Name, "false"), // ADT-Tweak
+        (ADTAdminLogCVars.AdminLogsWriteLegacy.Name, "true"), // ADT-Tweak
     };
 }

@@ -7,6 +7,7 @@ using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Logs;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 
 namespace Content.IntegrationTests.Tests.Administration.Logs;
@@ -35,9 +36,9 @@ public sealed class LogWindowTest : InteractionTest
         // Find the log search field and refresh buttons
         var search = logWindow.Logs.LogSearch;
         var refresh = logWindow.Logs.RefreshButton;
-        var cont = logWindow.Logs.LogsContainer;
 
-        async Task<AdminLogLabel[]> SearchForLog(Guid logGuid)
+        // ADT-Tweak-Start
+        async Task<SharedAdminLog[]> SearchForLog(Guid logGuid)
         {
             await Client.WaitPost(() => search.Text = logGuid.ToString());
             await ClickControl(refresh);
@@ -45,16 +46,14 @@ public sealed class LogWindowTest : InteractionTest
             await RunUntilSynced();
             await RunTicks(10);
 
-            return cont.Children
-                .Where(x => x.Visible && x is AdminLogLabel)
-                .Cast<AdminLogLabel>()
-                .ToArray();
+            return logWindow.Logs.GetShownLogs().ToArray();
         }
+        // ADT-Tweak-End
 
         // Search for the log we added earlier.
         var searchResult = await SearchForLog(guid);
         Assert.That(searchResult, Has.Length.EqualTo(1));
-        Assert.That(searchResult[0].Log.Message, Contains.Substring($" test log 1: {guid}"));
+        Assert.That(searchResult[0].Message, Contains.Substring($" test log 1: {guid}")); // ADT-Tweak
 
         // Add a new log
         guid = Guid.NewGuid();
@@ -63,6 +62,6 @@ public sealed class LogWindowTest : InteractionTest
         // Update the search and refresh
         searchResult = await SearchForLog(guid);
         Assert.That(searchResult, Has.Length.EqualTo(1));
-        Assert.That(searchResult[0].Log.Message, Contains.Substring($" test log 2: {guid}"));
+        Assert.That(searchResult[0].Message, Contains.Substring($" test log 2: {guid}")); // ADT-Tweak
     }
 }
