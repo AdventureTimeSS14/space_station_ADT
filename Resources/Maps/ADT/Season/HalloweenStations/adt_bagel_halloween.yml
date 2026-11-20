@@ -5296,21 +5296,10 @@ entities:
     components:
     - type: Transform
       parent: 68
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -5886.5941914
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 72
-        replaced-clothing: !type:ContainerSlot {}
 - proto: ADTClothingHeadHatClownArmor
   entities:
   - uid: 29063
@@ -5401,21 +5390,10 @@ entities:
     components:
     - type: Transform
       parent: 68
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -5886.5941914
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 74
-        replaced-clothing: !type:ContainerSlot {}
 - proto: ADTClothingNeckFacescarfBlue
   entities:
   - uid: 28754
@@ -17460,62 +17438,11 @@ entities:
       parent: 312
     - type: Physics
       canCollide: False
-    - type: Storage
-      storedItems:
-        320:
-          position: 0,0
-          _rotation: South
-        321:
-          position: 1,0
-          _rotation: South
-        322:
-          position: 2,0
-          _rotation: South
-        323:
-          position: 3,0
-          _rotation: South
-        324:
-          position: 4,0
-          _rotation: South
-        325:
-          position: 5,0
-          _rotation: South
-        326:
-          position: 0,2
-          _rotation: South
-        327:
-          position: 1,2
-          _rotation: South
-        328:
-          position: 2,2
-          _rotation: South
-        329:
-          position: 3,2
-          _rotation: South
-        330:
-          position: 4,2
-          _rotation: South
-        331:
-          position: 5,2
-          _rotation: South
-    - type: ContainerContainer
+    - type: EntityTableContainerFill
       containers:
-        storagebase: !type:Container
-          ents:
-          - 320
-          - 321
-          - 322
-          - 323
-          - 324
-          - 325
-          - 326
-          - 327
-          - 328
-          - 329
-          - 330
-          - 331
-          showEnts: False
-          occludes: True
+        storagebase:
+          id: SodiumLightTube
+          amount: 12
     - type: InsideEntityStorage
   - uid: 1722
     components:
@@ -82131,12 +82058,6 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -5110.414078
     - type: Physics
@@ -82146,10 +82067,6 @@ entities:
       fingerprints: []
       fibers: []
       dNAs: []
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 58
     - type: InsideEntityStorage
   - uid: 332
     components:
@@ -83072,12 +82989,6 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -5110.414078
     - type: Physics
@@ -83088,9 +82999,6 @@ entities:
       fibers: []
       dNAs: []
     - type: InsideEntityStorage
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot {}
   - uid: 10383
     components:
     - type: Transform
@@ -157753,12 +157661,6 @@ entities:
         =============================================
                                     ⠀[italic]Место для печатей[/italic]
 
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -22879.0629014
     - type: Fixtures
@@ -157795,10 +157697,6 @@ entities:
           - InteractImpassable
           - Opaque
           layer: []
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 4
     - type: Forensics
       residues: []
       fingerprints: []
