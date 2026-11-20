@@ -915,6 +915,12 @@
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
+  - type: PointLight
+    enabled: false
+    radius: 15
+    energy: 3
+    lightMask: ADTLightMaskCircleCone
+    autoRot: true
     maxEquipmentAmount: 5
   - type: ADTMech
     modifiers:

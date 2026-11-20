@@ -477,6 +477,11 @@
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
+  - type: Solution # ADT-tweak start
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20 # ADT-tweak end 10 -> 20
 
 - type: entity
   parent: BaseItem
@@ -502,7 +507,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: [SolutionVeryTiny, FoodSnackBase]
+  parent: [SolutionTiny, FoodSnackBase] # ADT-tweak VeryTiny -> Tiny
   id: FoodSnackMREBrownieOpen
   name: brownie
   suffix: MRE
@@ -520,9 +525,9 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5
+        Quantity: 15 # ADT-tweak 5 -> 15
       - ReagentId: Theobromine
-        Quantity: 1
+        Quantity: 3 # ADT-tweak 1 -> 3
 
 - type: entity
   parent: FoodSnackBase

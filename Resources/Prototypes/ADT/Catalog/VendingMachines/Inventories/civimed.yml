@@ -1,9 +1,9 @@
 - type: vendingMachineInventory
   id: ADTCiviMedVendInventory
   startingInventory:
-    ADTBrutepack1: 40
-    ADTOintment1: 40
-    ADTGauze1: 40
+    ADTBrutepack1: 50
+    ADTOintment1: 50
+    ADTGauze1: 50
     ADTPillTricordrazine: 20
     ADTPatchHealingMini: 15
     ADTPatchBurnMini: 15
@@ -21,10 +21,10 @@
     ADTEthylredoxrazinePack: 5
     ADTEthyloxyephedrinePack: 5
   emaggedInventory:
-    ADTBrutepackAdvanced1: 10
-    ADTOintmentAdvanced1: 10
-    ADTEphedrinePill: 3
-    ADTHappinessPill: 3
-    ADTToxinPill: 3
-    ADTMorphineBottle: 3
-    ADTOpiumBottle: 3
+    ADTBrutepackAdvanced1: 20
+    ADTOintmentAdvanced1: 20
+    ADTEphedrinePill: 10
+    ADTHappinessPill: 10
+    ADTToxinPill: 5
+    ADTMorphineBottle: 4
+    ADTOpiumBottle: 4
