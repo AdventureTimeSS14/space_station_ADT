@@ -9,6 +9,11 @@ namespace Content.Shared.ADT.CCVar;
 [CVarDefs]
 public sealed class ADTCCVars
 {
+    //ADT-tweak-start
+    public static readonly CVarDef<bool> ChatRunechat =
+        CVarDef.Create("chat.runechat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    //adt-tweak-end
     /*
     * Exploitable Info
     */
