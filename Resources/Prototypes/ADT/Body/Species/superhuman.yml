@@ -1,0 +1,219 @@
+- type: entity
+  parent:
+  - AppearanceHuman
+  - BaseSpeciesMob
+  id: ADTMobSuperHuman
+  name: Urist McHands
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Critical
+      500: Dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      120: 0.8
+      200: 0.6
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: MetalThud
+    damage:
+      types:
+        Blunt: 5
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: PassiveDamage
+    intervalHaltOnDamageTaken: 5s
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: -0.07
+        Blunt: -0.05
+        Piercing: -0.05
+        Slash: -0.05
+  - type: Fingerprint
+  - type: MobState
+  - type: OfferItem
+  - type: RadiationPopup
+  - type: PickupHumans
+    handsRequired: 1
+  - type: TimeDespawnDamage
+  - type: Blindable
+  - type: Temperature
+    specificHeat: 42
+    thermalConductivity: 100
+  - type: TemperatureDamage
+    heatDamageThreshold: 365
+    coldDamageThreshold: 220
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 0.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      220: 0.9
+      150: 0.8
+      70: 0.7
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 7500
+    shiveringHeatRegulation: 7500
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 2
+  - type: Internals
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.2
+    damageRecovery:
+      types:
+        Asphyxiation: -4
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    damage: #per second, scales with number of fire 'stacks'
+      types:
+        Heat: 0.1 # goob edit - ash heretic must weep
+  # ADT-Tweak-Start
+  - type: RMCStopDropRollVisuals
+  - type: CanBeFirePatted
+  - type: FirePatter
+    stacks: -1
+  - type: StunVisuals
+  - type: StatusEffects
+    allowed:
+    - Stutter
+    - Electrocution
+    - Pacified
+    - Flashed
+    - Adrenaline
+    # ADT-Tweak start
+    - Weakness
+    - ADTStarvation
+    # ADT-Tweak end
+  - type: SolutionManager
+  - type: InjectableSolution
+    solution: bloodstream
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+    # ADT-Tweak start
+    bloodRefreshAmount: 0.3
+    bleedReductionAmount: 0.3
+    # ADT-Tweak end
+- type: entity
+  abstract: true
+  id: BaseMobDestructible
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 750
+      behaviors:
+      - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 3000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 15
+      behaviors:
+      - !type:PopupBehavior
+        popup: mouth-taste-metal
+        popupType: LargeCaution
+        targetOnly: true
+  - type: ADTLavalandHumanResists
+    reference: ADTMobSuperHuman
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+  - type: LightningTarget
+    priority: 5
+    lightningExplode: false
+  - type: GhostOnMove
+    mustBeDead: true
+  - type: Pullable
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus
+  - type: RotationVisuals
+    defaultRotation: -90 # ADT-Tweak
+    horizontalRotation: -90 # ADT-Tweak
+  - type: HumanoidProfile
+  - type: TypingIndicator
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 450
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: SpeechBarks
+  - type: Posing
+  - type: TTS
+    ttsVoice: space_marines_2_dow
+  - type: Puller
+  - type: GrabIntent
+  - type: Grabbable
+  - type: Speech
+    speechSounds: Alto
+  - type: DamageForceSay
+  - type: Vocal
+    emoteSounds: MaleHuman
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: MobPrice
+    price: 1500 # Kidnapping a living person and selling them for cred is a good move.
+    deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+  - type: RandomPrice
+    maxRandomPrice: 20000
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+  # ADT-Tweak start
