@@ -122,6 +122,7 @@
           - MobLayer
   - type: Reactive
     groups:
+      ADTMakeupSkin: [Touch] ## adt-tweak
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
       Acidic: [ Touch, Ingestion ] # ADT-Tweak
@@ -130,6 +131,13 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPie
+    ## adt-tweak-start
+    - reagents: [Water]
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect
+        proto: ADTMakeupClearBasic
+    ## adt-tweak-end
     - reagents: [ Milk, MilkGoat, MilkSoy, MilkSpoiled ]
       # add new types of milk to reagents as they appear, oat milk isn't on the list
       # because turns out oat milk has 1/30th the amount of calcium in it compared to the rest

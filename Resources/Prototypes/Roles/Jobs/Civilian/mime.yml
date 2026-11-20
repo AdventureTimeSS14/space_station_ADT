@@ -38,6 +38,10 @@
   storage:
     back:
     - RubberStampMime
+    ## adt-tweak-start
+    - ADTMakeupPaletteTheatrical
+    - ADTMakeupPaletteBasic
+    ## adt-tweak-end
 
 - type: entity
   parent: BaseAction

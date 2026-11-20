@@ -54,6 +54,10 @@
     - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
 
     # Stuff that goes in front of stuff that goes in front of equipment
+    ## adt-tweak-start
+    - map: [ "adt_face_makeup" ]
+      visible: false
+    ## adt-tweak-end
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]

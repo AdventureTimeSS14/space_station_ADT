@@ -681,6 +681,21 @@
   name: clown locker
   parent: LockerBase
   components:
+  ## adt-tweak-start
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTMakeupPaletteBasic
+        - id: ADTMakeupPaletteTheatrical
+        - id: ADTClownWigClown
+        - id: ADTClownWigBananaClown
+        - id: ADTClownWigSecurityClown
+        - id: ADTClownWigBlushingClown
+        - id: ADTClownWigAbyssClown
+        - id: ADTClownWigCluwne
+        - id: ADTClownWigBallisticClown
+  ## adt-tweak-end
   - type: Appearance
   - type: AccessReader
     access: [["Theatre"]]
@@ -695,6 +710,14 @@
   name: mime locker
   parent: LockerBase
   components:
+  ## adt-tweak-start
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTMakeupPaletteBasic
+        - id: ADTMakeupPaletteTheatrical
+  ## adt-tweak-end
   - type: Appearance
   - type: AccessReader
     access: [["Theatre"]]

@@ -183,6 +183,7 @@
   - type: VoxAccent
   - type: Tag
     tags:
+      - ADTMakeupFaceVox ## adt-tweak
       - ADTVoxEmotes
       - CanPilot
       - DoorBumpOpener
