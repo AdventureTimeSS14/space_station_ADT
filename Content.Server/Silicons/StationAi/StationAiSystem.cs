@@ -384,7 +384,11 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
     {
-        var sourceXform = Transform(ev.Source);
+        // ADT-Tweak-Start
+        if (!TryComp<TransformComponent>(ev.Source, out var sourceXform))
+            return;
+        // ADT-Tweak-End
+
         var sourcePos = _xforms.GetWorldPosition(sourceXform);
 
         // This function ensures that chat popups appear on camera views that have connected microphones.
@@ -399,7 +403,10 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
             if (stationAiCore.Comp?.RemoteEntity == null || stationAiCore.Comp.Remote)
                 continue;
 
-            var xform = Transform(stationAiCore.Comp.RemoteEntity.Value);
+            // ADT-Tweak-Start
+            if (!TryComp<TransformComponent>(stationAiCore.Comp.RemoteEntity.Value, out var xform))
+                continue;
+            // ADT-Tweak-End
 
             var range = (xform.MapID != sourceXform.MapID)
                 ? -1
