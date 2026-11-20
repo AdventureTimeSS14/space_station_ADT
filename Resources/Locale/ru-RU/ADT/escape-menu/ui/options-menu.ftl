@@ -47,4 +47,6 @@ ui-options-chat-highlight-sound-5 = Уведомление 5
 
 ui-options-function-smart-equip-neck = Умная экипировка на шею
 
-ui-options-key-conflict = Эта клавиша уже назначена другому действию
+ui-options-key-conflict = Конфликтует с:
+
+ui-options-function-escape-menu = Открыть меню игры
