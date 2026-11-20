@@ -17875,3 +17875,10 @@ Entries:
     id: 2141
     pr_number: 3712
     time: '2026-11-20T17:06:55Z'
+  - author: Vepayn
+    changes:
+      - {message: Добавлена вирусология на Памп, type: Add}
+      - {message: Удалена карта Гемене (она была копией Гемини), type: Remove}
+    id: 2142
+    pr_number: 3713
+    time: '2026-11-20T17:07:31Z'
