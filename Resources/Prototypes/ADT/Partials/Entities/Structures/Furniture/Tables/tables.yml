@@ -1,0 +1,5 @@
+- type: !PartialOnly entity
+  id: CounterBase
+  components:
+  - type: ProjectileCover
+    proneOnly: true
