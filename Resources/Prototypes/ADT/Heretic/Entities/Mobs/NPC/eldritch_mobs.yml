@@ -74,7 +74,19 @@
   description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
   components:
   - type: Ghoul
-    totalHealth: 150
+    totalHealth: 200
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.6
+    baseSprintSpeed: 3.8
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    attackRate: 1.4
+    damage:
+      types:
+        Slash: 16
+        Piercing: 10
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
   - type: Sprite
     sprite: ADT/Heretic/eldritch_mobs.rsi
     state: stalker
@@ -99,7 +111,19 @@
   description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
   components:
   - type: Ghoul
-    totalHealth: 75
+    totalHealth: 110
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.4
+    baseSprintSpeed: 3.6
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    attackRate: 1.3
+    damage:
+      types:
+        Slash: 12
+        Piercing: 8
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
   - type: Sprite
     noRot: true
     sprite: ADT/Heretic/eldritch_mobs.rsi
@@ -188,7 +212,6 @@
     description: ghostrole-fire-shark-desc
     mindRoles:
     - MindRoleGhoul
-  # ADT: BodyComponent is organ container only
   - type: IgniteOnMeleeHit
     fireStacks: 2
   - type: MovementSpeedModifier
@@ -210,7 +233,6 @@
     damage:
       types:
         Heat: 0
-  # ADT: no heatDamage, use thresholds
   - type: Temperature
   - type: PointLight
     radius: 3
@@ -218,7 +240,6 @@
     color: "#ff8227"
   - type: Damageable
     damageModifierSet: FireShark
-  # ADT: bloodReferenceSolution instead
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -226,3 +247,22 @@
         Quantity: 10
     bleedReductionAmount: 0.1
     maxBleedAmount: 0.5
+
+
+- type: entity
+  id: MobMoonApparition
+  name: moon mass
+  suffix: Hallucination
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    color: "#B79CFF99"
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: moon_mass
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: MoonHallucination
+    duration: 15

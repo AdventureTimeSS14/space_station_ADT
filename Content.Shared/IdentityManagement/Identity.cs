@@ -1,3 +1,5 @@
+using Content.Shared.ADT.Heretic.Common;
+using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Ghost.Components;
 using Content.Shared.IdentityManagement.Components;
 
@@ -66,6 +68,17 @@ public static class Identity
 
         if (viewer != null && CanSeeThroughIdentity(uid, viewer.Value, ent))
             return uid;
+
+        // ADT-Tweak-start
+        // bro, it’s basically to hide the name of the heretics shadow, okay?
+        if (ent.HasComponent<ShadowCloakedComponent>(uid))
+        {
+            var ev = new GetIdentityRepresentationEntityEvent();
+            ent.EventBus.RaiseLocalEvent(uid, ref ev);
+            if (ev.Uid is { } representation)
+                return representation;
+        }
+        // ADT-Tweak-end
 
         return identity.IdentityEntitySlot?.ContainedEntity ?? uid;
     }

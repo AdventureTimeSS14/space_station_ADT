@@ -59,3 +59,18 @@ heretic-ascension-cosmos =
     WITNESS MY ASCENSION!
     
 heretic-ascension-bingle = bungle
+
+heretic-ascension-moon =
+    Laugh aloud, the Ringleader takes the sky,
+    The pale parade marches ever high!
+    The Moon looks down, the threads come undone,
+    The lies we cherished come all unspun!
+
+    The music rises, a roaring sea,
+    A thousand voices sing with me!
+    The masks fall down, the faces glow,
+    All eyes with tears of laughter flow!
+
+    The truth at last devours the lie,
+    No shuttered mind, no tearless eye!
+    WITNESS MY ASCENSION, THE MOON SMILES ONCE MORE AND FOREVER MORE IT SHALL!

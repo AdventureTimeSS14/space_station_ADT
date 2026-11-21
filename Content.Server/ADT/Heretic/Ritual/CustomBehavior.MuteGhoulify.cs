@@ -2,6 +2,7 @@
 
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Speech.Muting;
@@ -15,8 +16,13 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
         if (args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit)
             return;
 
+        var grasp = args.EntityManager.System<SharedMansusGraspSystem>();
+
         for (var i = 0; i < Math.Min(uids.Count, Max); i++)
         {
+            if (grasp.CountBoundGhouls(args.Performer) >= grasp.GetGhoulLimit(args.Performer))
+                break;
+
             var uid = uids[i];
             if (args.EntityManager.HasComponent<ChaplainComponent>(uid))
                 continue;

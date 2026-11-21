@@ -88,6 +88,24 @@
     - Ash
 
 - type: listing
+  id: HereticSidePath3ArmorLock
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/lock_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualLock
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Lock
+
+- type: listing
   id: HereticSidePath3Flask
   name: knowledge-path-side-s3-flask-name
   description: knowledge-path-side-s3-flask-desc
@@ -120,6 +138,54 @@
     stage: 2
 
 - type: listing
+  id: HereticSidePath3Ether
+  name: knowledge-path-side-t1-ether-name
+  description: knowledge-path-side-t1-ether-desc
+  icon: { sprite: ADT/Heretic/Entities/ether.rsi, state: icon }
+  productHereticKnowledge: EtherOfTheNewborn
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3Coin
+  name: knowledge-path-side-t1-coin-name
+  description: knowledge-path-side-t1-coin-desc
+  icon: { sprite: ADT/Heretic/Entities/eldritch_coin.rsi, state: heretic }
+  productHereticKnowledge: EldritchCoin
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3Curio
+  name: knowledge-path-side-t1-curio-name
+  description: knowledge-path-side-t1-curio-desc
+  icon: { sprite: ADT/Heretic/Clothing/Belt/curio.rsi, state: icon }
+  productHereticKnowledge: UnfathomableCurio
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
   id: HereticSidePathKnowledge
   name: knowledge-path-side-knowledge-name
   description: knowledge-path-side-knowledge-desc
@@ -134,7 +200,6 @@
   - !type:HereticPathCondition
     stage: 0
 
-# ADT: Cosmos/Rust armor
 - type: listing
   id: HereticSidePath3ArmorCosmos
   name: knowledge-path-side-s3-armor-name
@@ -171,7 +236,88 @@
     whitelist:
     - Rust
 
-# ADT: side listings from Goob
+- type: listing
+  id: HereticSidePath3ArmorMoon
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/moon_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualMoon
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticSideSoulBottle
+  name: knowledge-path-side-t1-bottle-name
+  description: knowledge-path-side-t1-bottle-desc
+  icon: { sprite: ADT/Heretic/items.rsi, state: soul_bottle_full }
+  productEntity: HereticSoulBottleFull
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: HereticSideT2Crucible
+  name: knowledge-path-side-t2-crucible-name
+  description: knowledge-path-side-t2-crucible-desc
+  icon: { sprite: ADT/Heretic/items.rsi, state: crucible }
+  productHereticKnowledge: MawedCrucible
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+
+- type: listing
+  id: HereticSideT2RustGrenade
+  name: knowledge-path-side-t2-rustgrenade-name
+  description: knowledge-path-side-t2-rustgrenade-desc
+  icon: { sprite: ADT/Heretic/Entities/rustgrenade.rsi, state: icon }
+  productHereticKnowledge: RustSowerGrenade
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Rust
+
+- type: listing
+  id: HereticSidePath3Phylactery
+  name: knowledge-path-ritual-phylactery-name
+  description: knowledge-path-ritual-phylactery-desc
+  icon: { sprite: ADT/Heretic/Entities/phylactery.rsi, state: icon }
+  productHereticKnowledge: PhylacteryOfDamnation
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+
 - type: listing
   id: HereticSidePath3VoidCloak
   name: knowledge-path-side-s3-void-cloak-name
@@ -253,6 +399,38 @@
     stage: 5
 
 - type: listing
+  id: HereticSidePath6Rifle
+  name: knowledge-path-side-s6-rifle-name
+  description: knowledge-path-side-s6-rifle-desc
+  icon: { sprite: ADT/Heretic/Entities/lionhunter-icon.rsi, state: base }
+  productHereticKnowledge: LionhunterRifle
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6RifleAmmo
+  name: knowledge-path-side-s6-rifle-ammo-name
+  description: knowledge-path-side-s6-rifle-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi, state: base }
+  productHereticKnowledge: LionhunterRifleAmmunition
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
   id: HereticSidePath6IceSpear
   name: knowledge-path-side-s6-ice-spear-name
   description: knowledge-path-side-s6-ice-spear-desc
@@ -283,3 +461,251 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+
+- type: listing
+  id: HereticSidePath4Maid
+  name: knowledge-path-side-t4-maid-name
+  description: knowledge-path-side-t4-maid-desc
+  icon: { sprite: ADT/Heretic/eldritch_mobs.rsi, state: maid }
+  productHereticKnowledge: MaidInTheMirror
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+
+- type: listing
+  id: HereticSideT2Morbus
+  name: knowledge-path-side-t2-morbus-name
+  description: knowledge-path-side-t2-morbus-desc
+  icon: { sprite: ADT/Heretic/book_morbus.rsi, state: icon }
+  productHereticKnowledge: CodexMorbus
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+
+- type: listing
+  id: HereticSideT2Greaves
+  name: knowledge-path-side-t2-greaves-name
+  description: knowledge-path-side-t2-greaves-desc
+  icon: { sprite: ADT/Heretic/Clothing/Shoes/greaves.rsi, state: icon }
+  productHereticKnowledge: GreavesOfTheProphet
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+
+- type: listing
+  id: HereticSideT1Bookworm
+  name: knowledge-path-side-t1-bookworm-name
+  description: knowledge-path-side-t1-bookworm-desc
+  icon: { sprite: Objects/Misc/id_cards.rsi, state: gold }
+  productHereticKnowledge: BookwormWelcome
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+
+- type: listing
+  id: HereticSideT1Mirror
+  name: knowledge-path-side-t1-mirror-name
+  description: knowledge-path-side-t1-mirror-desc
+  icon: { sprite: Structures/Wallmounts/mirror.rsi, state: mirror }
+  productHereticKnowledge: MiraculousMirror
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+
+- type: listing
+  id: HereticSideT2Wave
+  name: knowledge-path-side-t2-wave-name
+  description: knowledge-path-side-t2-wave-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: cleave }
+  productHereticKnowledge: WaveOfDesperation
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSideT2Unsealed
+  name: knowledge-path-side-t2-unsealed-name
+  description: knowledge-path-side-t2-unsealed-desc
+  icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
+  productHereticKnowledge: UnsealedArts
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSideT2Unwrap
+  name: knowledge-path-side-t2-unwrap-name
+  description: knowledge-path-side-t2-unwrap-desc
+  icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
+  productHereticKnowledge: UnwrapMinds
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSideT3Ashen
+  name: knowledge-path-side-t3-ashen-name
+  description: knowledge-path-side-t3-ashen-desc
+  icon: { sprite: ADT/Heretic/eldritch_mobs.rsi, state: ash_walker }
+  productHereticKnowledge: AshenRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+
+- type: listing
+  id: HereticSideT3Shattered
+  name: knowledge-path-side-t3-shattered-name
+  description: knowledge-path-side-t3-shattered-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: ghoul_shattered }
+  productHereticKnowledge: ShatteredRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+
+- type: listing
+  id: HereticSideT3Gate
+  name: knowledge-path-side-t3-gate-name
+  description: knowledge-path-side-t3-gate-desc
+  icon: { sprite: Structures/Storage/closet.rsi, state: generic }
+  productHereticKnowledge: MansusGate
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+
+- type: listing
+  id: HereticSideT4Phase
+  name: knowledge-path-side-t4-phase-name
+  description: knowledge-path-side-t4-phase-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: ashen_shift }
+  productHereticKnowledge: SpacePhase
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+
+- type: listing
+  id: HereticSideRaggedSword
+  name: knowledge-path-side-t1-sword-name
+  description: knowledge-path-side-t1-sword-desc
+  icon: { sprite: ADT/Heretic/Entities/sword.rsi, state: icon }
+  productEntity: HereticRaggedSword
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: HereticSideEnvyKnife
+  name: knowledge-path-side-t1-envy-name
+  description: knowledge-path-side-t1-envy-desc
+  icon: { sprite: ADT/Heretic/Entities/envy_knife.rsi, state: icon }
+  productEntity: EnvyKnife
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: HereticSideSharpMedal
+  name: knowledge-path-side-t1-medal-name
+  description: knowledge-path-side-t1-medal-desc
+  icon: { sprite: ADT/Heretic/Entities/sharp_medal.rsi, state: icon }
+  productEntity: ClothingNeckSharpMedal
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: HereticSideEldritchCrown
+  name: knowledge-path-side-t3-crown-name
+  description: knowledge-path-side-t3-crown-desc
+  icon: { sprite: ADT/Heretic/Effects/crown.rsi, state: arena_victor }
+  productEntity: HereticEldritchCrown
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

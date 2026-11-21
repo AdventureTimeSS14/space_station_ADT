@@ -1,0 +1,60 @@
+- type: alert
+  id: MoonHide
+  icons:
+  - sprite: /Textures/Interface/Alerts/moon.rsi
+    state: moon_hide
+  name: alerts-moon-hide-name
+  description: alerts-moon-hide-desc
+
+- type: alert
+  id: MoonConverted
+  icons:
+  - sprite: /Textures/Interface/Alerts/moon.rsi
+    state: moon_insanity
+  name: alerts-moon-converted-name
+  description: alerts-moon-converted-desc
+
+- type: alert
+  id: MoonSlept
+  icons:
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/eldritch_slumber.rsi
+    state: eldritch_slumber
+  name: alerts-moon-slept-name
+  description: alerts-moon-slept-desc
+
+- type: alert
+  id: CrucibleActive
+  icons:
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/crucible.rsi
+    state: crucible
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/crucible.rsi
+    state: crucible_cooldown
+  name: alerts-crucible-active-name
+  description: alerts-crucible-active-desc
+
+- type: alert
+  id: MoonConfused
+  icons:
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/moon_sanity.rsi
+    state: moon_hud_5
+  name: alerts-moon-confused-name
+  description: alerts-moon-confused-desc
+
+- type: alert
+  id: MoonBrain
+  icons:
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/moon_sanity.rsi
+    state: moon_hud_1
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/moon_sanity.rsi
+    state: moon_hud_2
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/moon_sanity.rsi
+    state: moon_hud_3
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/moon_sanity.rsi
+    state: moon_hud_4
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/moon_sanity.rsi
+    state: moon_hud_5
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/moon_sanity.rsi
+    state: moon_hud_6
+  name: alerts-moon-brain-name
+  description: alerts-moon-brain-desc
+  maxSeverity: 6

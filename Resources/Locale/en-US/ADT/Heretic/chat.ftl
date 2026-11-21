@@ -1,5 +1,8 @@
 # influence gain and fracture examine messages must have newlimes because otherwise they wouldn't fit
 
+blade-arena-crit-message = The mansus is pleased with your performance, you may leave now.
+blade-arena-crit-message-heretic = You have done well, you may leave now.
+
 influence-base-message = [textshader="{$text}" font="DefaultBold" size={$size} shader="Eldritch"]
 
 influence-gain-message-1 =

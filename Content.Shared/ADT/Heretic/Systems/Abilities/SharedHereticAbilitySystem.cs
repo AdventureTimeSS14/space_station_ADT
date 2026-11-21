@@ -110,6 +110,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeVoid();
         SubscribeFlesh();
         SubscribeSide();
+        SubscribeLock();
 
         SubscribeLocalEvent<HereticActionComponent, BeforeCastSpellEvent>(OnBeforeCast);
     }
@@ -167,7 +168,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer))
+        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer) || HasComp<Content.Shared.ADT.Heretic.Components.Moon.MoonLunaticComponent>(args.Performer))
             return;
 
         if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _))

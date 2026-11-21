@@ -26,3 +26,16 @@ public readonly record struct RitualData(
     IEntityManager EntityManager,
     List<EntityUid>? Limited,
     int Limit);
+
+public sealed partial class UnknownRitualBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+    }
+}

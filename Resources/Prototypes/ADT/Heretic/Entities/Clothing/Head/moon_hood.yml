@@ -1,0 +1,11 @@
+- type: entity
+  id: ADTClothingHeadHatHoodHereticMoon
+  parent: ClothingHeadHatHoodHeretic
+  name: resplendent heretic hood
+  description: A hood that hides you from distant eyes, and keeps the screaming of the crowd from reaching you.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Head/moon_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Head/moon_hood.rsi

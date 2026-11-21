@@ -3,3 +3,5 @@ ent-ClothingNeckAmberFocus = amber focus
     .suffix = MagicItem
 ent-ClothingEldritchMedalion = warm eldritch medallion
     .desc = A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulsing of a thousand others.
+ent-ClothingNeckSharpMedal = sharp medal
+    .desc = Issued many times to those who have proven their strength, cutting off the fingers of those who have strayed once.
