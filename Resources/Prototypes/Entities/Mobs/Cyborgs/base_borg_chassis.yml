@@ -116,24 +116,10 @@
     - Science
   - type: ZombieImmune
   - type: Repairable
-    # ADT-Tweak start
-    damage:
-      Blunt: -10
-      Slash: -10
-      Piercing: -10
-      Shock: -10
-    # ADT-Tweak end
+    damageValue: -10 # 10 seconds to repair from crit
     doAfterDelay: 1
     fuelCost: 0.5
     allowSelfRepair: false
-  # ADT-Tweak start
-  - type: ADTBorgBurnRepairable
-    damage:
-      types:
-        Heat: -10
-    delay: 1
-    repairSound: /Audio/Effects/sparks4.ogg
-  # ADT-Tweak end
   - type: BorgChassis
   - type: LockingWhitelist
     blacklist:

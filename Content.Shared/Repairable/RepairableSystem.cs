@@ -1,5 +1,4 @@
 using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -45,7 +44,7 @@ public sealed partial class RepairableSystem : EntitySystem
 
         totalDamage = _damageableSystem.GetTotalDamage((ent.Owner, damageable));
 
-        args.Repeat = ent.Comp.AutoDoAfter && totalDamage > 0 && HasRepairableDamage(ent); // ADT-Tweak
+        args.Repeat = ent.Comp.AutoDoAfter && totalDamage > 0;
         args.Args.Event.Repeat = args.Repeat;
         args.Handled = true;
 
@@ -105,9 +104,6 @@ public sealed partial class RepairableSystem : EntitySystem
         if (_damageableSystem.GetTotalDamage(ent.Owner) == 0)
             return;
 
-        if (ent.Comp.Damage != null && !HasRepairableDamage(ent)) // ADT-Tweak
-            return;
-
         float delay = ent.Comp.DoAfterDelay;
 
         // Add a penalty to how long it takes if the user is repairing itself
@@ -122,20 +118,8 @@ public sealed partial class RepairableSystem : EntitySystem
         // Run the repairing doafter
         args.Handled = _toolSystem.UseTool(args.Used, args.User, ent.Owner, delay, ent.Comp.QualityNeeded, new RepairDoAfterEvent(), ent.Comp.FuelCost);
     }
-
-    // ADT-Tweak start
-    private bool HasRepairableDamage(Entity<RepairableComponent> ent)
-    {
-        if (ent.Comp.Damage == null)
-            return true;
-
-        if (!TryComp(ent.Owner, out DamageableComponent? damageable))
-            return false;
-
-        return ent.Comp.Damage.HasHealableDamage(_damageableSystem.GetAllDamage((ent.Owner, damageable)));
-    }
-    // ADT-Tweak end
 }
+
 /// <summary>
 /// Event raised on an entity when its successfully repaired.
 /// </summary>
