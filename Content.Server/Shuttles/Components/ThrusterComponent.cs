@@ -14,7 +14,7 @@ namespace Content.Server.Shuttles.Components
         /// If the thruster can be toggled on or off via interaction
         /// </summary>
         [DataField]
-        public bool CanToggle = true;
+        public bool CanToggle = false; // ADT-Tweak true > false
 
         /// <summary>
         /// Whether the thruster has been force to be enabled / disabled (e.g. VV, interaction, etc.)

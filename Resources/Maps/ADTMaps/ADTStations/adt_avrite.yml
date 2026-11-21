@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 294.0.1
-  forkId: SS14_DEV
-  forkVersion: 76104939883115bdfb989d95a82366981fb318cc
-  time: 11/06/2026 13:55:21
+  engineVersion: 294.0.3
+  forkId: ""
+  forkVersion: ""
+  time: 11/20/2026 03:25:43
   entityCount: 56140
 maps:
 - 1
@@ -6756,10 +6756,6 @@ entities:
     components:
     - type: Transform
       parent: 69
-  - uid: 72
-    components:
-    - type: Transform
-      parent: 71
   - uid: 74
     components:
     - type: Transform
@@ -7404,7 +7400,7 @@ entities:
       pos: -20.5,44.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -13121.685
+      secondsUntilStateChange: -13234.352
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -9247,41 +9243,6 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 69.5,7.5
-- proto: computerBodyScanner
-  entities:
-  - uid: 20537
-    components:
-    - type: Transform
-      parent: 2
-      pos: 50.5,-17.5
-  - uid: 20538
-    components:
-    - type: Transform
-      parent: 2
-      pos: -42.5,20.5
-  - uid: 20539
-    components:
-    - type: Transform
-      parent: 2
-      rot: -1.5707963267948966 rad
-      pos: 42.5,-35.5
-  - uid: 20540
-    components:
-    - type: Transform
-      parent: 2
-      rot: 1.5707963267948966 rad
-      pos: 17.5,-66.5
-  - uid: 20541
-    components:
-    - type: Transform
-      parent: 2
-      rot: -1.5707963267948966 rad
-      pos: 41.5,-59.5
-  - uid: 20542
-    components:
-    - type: Transform
-      parent: 2
-      pos: 0.5,-47.5
 - proto: ADTComputerXenobiologyControl
   entities:
   - uid: 20531
@@ -10333,6 +10294,13 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -42.5,38.5
+- proto: ADTPandemic
+  entities:
+  - uid: 46410
+    components:
+    - type: Transform
+      parent: 2
+      pos: -56.5,-67.5
 - proto: ADTPaperPack
   entities:
   - uid: 730
@@ -10950,6 +10918,18 @@ entities:
     - type: Transform
       parent: 2
       pos: -46.5,-32.5
+- proto: ADTSpawnMobFrog
+  entities:
+  - uid: 43431
+    components:
+    - type: Transform
+      parent: 2
+      pos: 5.5,-20.5
+  - uid: 43432
+    components:
+    - type: Transform
+      parent: 2
+      pos: 5.5,-21.5
 - proto: ADTSpawnPointRoboticist
   entities:
   - uid: 844
@@ -170086,6 +170066,41 @@ entities:
     - type: Transform
       parent: 2
       pos: 31.5,47.5
+- proto: computerBodyScanner
+  entities:
+  - uid: 20537
+    components:
+    - type: Transform
+      parent: 2
+      pos: 50.5,-17.5
+  - uid: 20538
+    components:
+    - type: Transform
+      parent: 2
+      pos: -42.5,20.5
+  - uid: 20539
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 42.5,-35.5
+  - uid: 20540
+    components:
+    - type: Transform
+      parent: 2
+      rot: 1.5707963267948966 rad
+      pos: 17.5,-66.5
+  - uid: 20541
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 41.5,-59.5
+  - uid: 20542
+    components:
+    - type: Transform
+      parent: 2
+      pos: 0.5,-47.5
 - proto: ComputerBroken
   entities:
   - uid: 20543
@@ -174610,7 +174625,7 @@ entities:
       pos: -12.5,61.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -470552.3
+      secondsUntilStateChange: -470664.97
 - proto: CurtainsPurple
   entities:
   - uid: 21218
@@ -209701,7 +209716,7 @@ entities:
       pos: -68.5,0.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -85931.234
+      secondsUntilStateChange: -86043.9
     - type: DeviceNetwork
       deviceLists:
       - 1152
@@ -209986,20 +210001,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 34.432213,21.54427
-    - type: HandheldLight
-      toggleActionEntity: 76
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 76
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 26410
     components:
     - type: Transform
@@ -256463,8 +256464,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 1289
-      # configurators:
-      # - invalid
   - uid: 32519
     components:
     - type: Transform
@@ -256474,8 +256473,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 1289
-      # configurators:
-      # - invalid
   - uid: 32520
     components:
     - type: Transform
@@ -259571,8 +259568,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 1289
-      # configurators:
-      # - invalid
   - uid: 55925
     components:
     - type: Transform
@@ -274221,106 +274216,36 @@ entities:
     - type: Transform
       parent: 2
       pos: 16.388885,-55.312786
-    - type: HandheldLight
-      toggleActionEntity: 70
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 70
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 73
     components:
     - type: Transform
       parent: 2
       pos: 25.495367,-56.364426
-    - type: HandheldLight
-      toggleActionEntity: 74
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 74
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 77
     components:
     - type: Transform
       parent: 2
       pos: -45.53949,-26.33919
-    - type: HandheldLight
-      toggleActionEntity: 78
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 78
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 79
     components:
     - type: Transform
       parent: 2
       pos: -54.433254,-4.3183427
-    - type: HandheldLight
-      toggleActionEntity: 80
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 80
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 81
     components:
     - type: Transform
       parent: 2
       pos: -59.5481,-23.354498
-    - type: HandheldLight
-      toggleActionEntity: 82
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 82
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 35520
     components:
     - type: Transform
@@ -274600,20 +274525,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 27.493835,-58.623566
-    - type: HandheldLight
-      toggleActionEntity: 72
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 72
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 104
     components:
     - type: Transform
@@ -281537,15 +281448,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 41.411263,-37.54011
-    - type: SolutionContainerManager
-      solutions:
-        Lung:
-          maxVol: 100
-          reagents: []
-          canReact: False
-        food:
-          reagents: []
-      containers: []
 - proto: OrganHumanStomach
   entities:
   - uid: 36428
@@ -281554,14 +281456,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -71.505356,-63.591743
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 50
-          reagents: []
-        food:
-          reagents: []
-      containers: []
 - proto: OrganHumanTongue
   entities:
   - uid: 36429
@@ -281924,12 +281818,6 @@ entities:
 
 
         С уважением строители станции.
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Fixtures
       fixtures:
         fix1:
@@ -323133,18 +323021,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 6.5,-4.5
-- proto: SpawnMobFrog
-  entities:
-  - uid: 43431
-    components:
-    - type: Transform
-      parent: 2
-      pos: 5.5,-20.5
-  - uid: 43432
-    components:
-    - type: Transform
-      parent: 2
-      pos: 5.5,-21.5
 - proto: SpawnMobGorillaLargo
   entities:
   - uid: 43433
@@ -323443,6 +323319,63 @@ entities:
     - type: Transform
       parent: 2
       pos: 36.5,-59.5
+- proto: SpawnPointADTVirologist
+  entities:
+  - uid: 56130
+    components:
+    - type: Transform
+      parent: 2
+      pos: -30.5,-73.5
+  - uid: 56131
+    components:
+    - type: Transform
+      parent: 2
+      pos: -26.5,-73.5
+  - uid: 56132
+    components:
+    - type: Transform
+      parent: 2
+      pos: -27.5,-76.5
+  - uid: 56133
+    components:
+    - type: Transform
+      parent: 2
+      pos: -29.5,-76.5
+  - uid: 56134
+    components:
+    - type: Transform
+      parent: 2
+      pos: 15.5,-60.5
+  - uid: 56135
+    components:
+    - type: Transform
+      parent: 2
+      pos: 10.5,-57.5
+  - uid: 56136
+    components:
+    - type: Transform
+      parent: 2
+      pos: 19.5,-57.5
+  - uid: 56137
+    components:
+    - type: Transform
+      parent: 2
+      pos: -1.5,-60.5
+  - uid: 56138
+    components:
+    - type: Transform
+      parent: 2
+      pos: 2.5,-58.5
+  - uid: 56139
+    components:
+    - type: Transform
+      parent: 2
+      pos: 17.5,-54.5
+  - uid: 56140
+    components:
+    - type: Transform
+      parent: 2
+      pos: 2.5,-40.5
 - proto: SpawnPointAtmos
   entities:
   - uid: 43484
@@ -323851,63 +323784,6 @@ entities:
       parent: 2
       pos: 17.5,-54.5
   - uid: 43557
-    components:
-    - type: Transform
-      parent: 2
-      pos: 2.5,-40.5
-- proto: SpawnPointADTVirologist
-  entities:
-  - uid: 56130
-    components:
-    - type: Transform
-      parent: 2
-      pos: -30.5,-73.5
-  - uid: 56131
-    components:
-    - type: Transform
-      parent: 2
-      pos: -26.5,-73.5
-  - uid: 56132
-    components:
-    - type: Transform
-      parent: 2
-      pos: -27.5,-76.5
-  - uid: 56133
-    components:
-    - type: Transform
-      parent: 2
-      pos: -29.5,-76.5
-  - uid: 56134
-    components:
-    - type: Transform
-      parent: 2
-      pos: 15.5,-60.5
-  - uid: 56135
-    components:
-    - type: Transform
-      parent: 2
-      pos: 10.5,-57.5
-  - uid: 56136
-    components:
-    - type: Transform
-      parent: 2
-      pos: 19.5,-57.5
-  - uid: 56137
-    components:
-    - type: Transform
-      parent: 2
-      pos: -1.5,-60.5
-  - uid: 56138
-    components:
-    - type: Transform
-      parent: 2
-      pos: 2.5,-58.5
-  - uid: 56139
-    components:
-    - type: Transform
-      parent: 2
-      pos: 17.5,-54.5
-  - uid: 56140
     components:
     - type: Transform
       parent: 2
@@ -341722,13 +341598,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -76.5,66.5
-- proto: Vaccinator
-  entities:
-  - uid: 46410
-    components:
-    - type: Transform
-      parent: 2
-      pos: -56.5,-67.5
 - proto: Vape
   entities:
   - uid: 46411
