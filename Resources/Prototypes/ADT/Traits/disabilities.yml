@@ -380,6 +380,8 @@
   description: trait-dissociative-identity-desc
   category: Disabilities
   cost: 1
+  speciesBlacklist:
+    - IPC
   departmentBlacklist:
     - Command
     - Security
@@ -389,12 +391,6 @@
     - ADTBlueShieldOfficer
     - IAA
     - Lawyer
-  speciesBlacklist:
-    - IPC
-    - NovakidSpecies
-    - SlimePerson
-    - Diona
-    - Vox
   effects:
     - !type:AddCompsEffect
       components:

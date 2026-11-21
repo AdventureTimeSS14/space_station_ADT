@@ -42186,20 +42186,6 @@ entities:
       parent: 2
       rot: 12.566370614359172 rad
       pos: 4.5881667,32.543884
-    - type: HandheldLight
-      toggleActionEntity: 17
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 17
-          showEnts: False
-          occludes: True
-    - type: ActionsContainer
   - uid: 6127
     components:
     - type: Transform

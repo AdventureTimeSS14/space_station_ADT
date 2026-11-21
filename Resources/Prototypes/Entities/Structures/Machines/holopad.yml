@@ -24,7 +24,7 @@
     needsAnchoring: true
   - type: Sprite
     sprite: Structures/Machines/holopad.rsi
-    drawdepth: HighFloorObjects
+    drawdepth: FloorObjects # ADT-tweak
     snapCardinals: true
     layers:
     - state: base

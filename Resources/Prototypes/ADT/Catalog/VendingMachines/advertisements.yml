@@ -2,7 +2,7 @@
   id: ADTCiviMedAds
   values:
     prefix: advertisement-civimed-
-    count: 9
+    count: 13
 
 - type: localizedDataset
   id: IceCreammatAds
@@ -21,9 +21,3 @@
   values:
     prefix: advertisement-patholog-
     count: 3
-
-- type: localizedDataset
-  id: PillAds
-  values:
-    prefix: advertisement-pill-
-    count: 4
