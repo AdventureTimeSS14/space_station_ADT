@@ -35,6 +35,7 @@ guide-entry-martialarts-judo-ADT = Корпоративное Дзюдо
 guide-entry-martialarts-ptsd-ADT = Как получить ПТСР
 guide-entry-martialarts-kravmaga-ADT = Крав-мага
 guide-entry-martialarts-weapons-ADT = Боевые искусства оружия
+guide-entry-ammo-types = Типы боеприпасов
 guide-entry-martialarts-tonfa-ADT = Тонфа
 guide-entry-martialarts-axe-ADT = Топор синдиката
 guide-entry-martialarts-katana-ADT = Проклятая катана
