@@ -409,7 +409,6 @@
     - ADTBoxSurvivalSiliconSecurity
 
 - type: entity
-  abstract: true
   parent: [BaseWeaponEnergyTurretIndestructible, ConstructibleMachine]
   id: ADTWeaponEnergyTurretStationAIEvent
   name: sentry turret
