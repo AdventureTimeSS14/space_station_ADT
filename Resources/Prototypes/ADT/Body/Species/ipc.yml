@@ -63,6 +63,10 @@
   - type: EmpGlitch
     durationMultiplier: 0.4
     smear: 1.2
+  - type: EmpSpeech
+    durationMultiplier: 0.55
+  - type: EmpSlowdown
+    durationMultiplier: 0.35
   - type: Lock
     locked: true
     lockOnClick: false
