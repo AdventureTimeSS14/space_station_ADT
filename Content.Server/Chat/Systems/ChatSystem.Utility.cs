@@ -113,6 +113,13 @@ public sealed partial class ChatSystem
                         unknownPlain = unknownLanguageMessage ?? unknownPlain;
                         unknownWrapped = wrappedUnknownLanguageMessage ?? wrappedUnknownMessage;
                     }
+
+                    if (listener != source && _deafness.TryGetDeafenedMessage(listener, unknownPlain, out var deafenedUnknown))
+                    {
+                        _chatManager.ChatMessageToOne(channel, deafenedUnknown, deafenedUnknown, source, entHideChat, session.Channel, author: author);
+                        continue;
+                    }
+
                     _chatManager.ChatMessageToOne(channel, unknownPlain, unknownWrapped, source, entHideChat, session.Channel, author: author);
                 }
                 continue;
