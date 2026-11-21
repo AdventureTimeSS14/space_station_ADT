@@ -43,7 +43,7 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
 
     private const float BlinkDamage = 15f;
     private const float KnockdownTime = 2f;
-    private static readonly TimeSpan BlinkCooldown = TimeSpan.FromSeconds(5);
+    private static readonly TimeSpan BlinkCooldown = TimeSpan.FromSeconds(10);
 
     private readonly Dictionary<EntityUid, Dictionary<EntityUid, TimeSpan>> _blinkCooldowns = new();
 
@@ -141,7 +141,6 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
         EntityUid? best = null;
         var bestDist = float.MaxValue;
 
-        // First check in immediate vicinity of clicked coords (e.g. for people lying down)
         foreach (var entity in _lookup.GetEntitiesInRange(searchMapCoords, 3.0f))
         {
             if (!IsValidBlinkTarget(entity) || IsOnCooldown(user, entity))
