@@ -26,3 +26,7 @@ ent-ADTHighSecCyborgLocked = бронированная дверь
 ent-ADTHighSecAILocked = бронированная дверь
     .desc = Удерживает плохих снаружи, а хороших внутри.
     .suffix = ИИ, Закрыт
+
+ent-ADTWeaponEnergyTurretStationAIEvent = { ent-WeaponEnergyTurretAI }
+    .desc = { ent-WeaponEnergyTurretAI.desc }
+    .suffix = Ивент, Синтетики
