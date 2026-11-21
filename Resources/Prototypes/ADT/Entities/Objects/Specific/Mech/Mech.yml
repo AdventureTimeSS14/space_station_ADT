@@ -389,6 +389,10 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: EmpPowerDrainCap
+    capPercentage: 0.25
+  - type: MechEmpGlitch
+    cameraGlitchDurationMultiplier: 0.3
 
 - type: entity
   id: ADTMechGygaxBattery
@@ -470,6 +474,10 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: EmpPowerDrainCap
+    capPercentage: 0.15
+  - type: MechEmpGlitch
+    cameraGlitchDurationMultiplier: 0.7
 
 - type: entity
   id: ADTMechDurandBattery

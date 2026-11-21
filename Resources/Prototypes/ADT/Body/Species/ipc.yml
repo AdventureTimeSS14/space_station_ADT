@@ -55,6 +55,14 @@
         #  tags:
         #  - ADTMegaCell
       # ADT-tweak-end
+  - type: EmpContainerProtection
+    multiplier: 1
+    capEnergyConsumption: true
+    capRelativeToMaxCharge: false
+    capPercentage: 0.5
+  - type: EmpGlitch
+    durationMultiplier: 0.4
+    smear: 1.2
   - type: Lock
     locked: true
     lockOnClick: false

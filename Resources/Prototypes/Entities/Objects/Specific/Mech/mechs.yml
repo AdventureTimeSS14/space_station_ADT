@@ -6,10 +6,6 @@
   - type: MobMover
   - type: Mech
   - type: MechAir
-# ADT-Tweak-start
-  - type: Prying
-    pryPowered: false
-# ADT-Tweak-end
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
@@ -129,6 +125,13 @@
   - type: ZombieImmune
   - type: NoSlip
   - type: ProtectedFromStepTriggers
+  - type: Prying
+    pryPowered: false
+  - type: EmpPowerDrainCap
+    capPercentage: 0.35
+  - type: MechEmpGlitch
+    cameraGlitchDurationMultiplier: 0.5
+    cameraGlitchAmount: 1.2
   # ADT-tweak-End
 
 - type: entity
