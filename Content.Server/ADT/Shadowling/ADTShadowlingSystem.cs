@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Body;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Shadowling;
@@ -129,7 +130,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
             || HasComp<ADTAscendantShadowlingComponent>(target))
             return false;
 
-        if (IsMindShielded(target))
+        if (IsMindShielded(target) || HasComp<ChaplainComponent>(target))
             return false;
 
         var thrall = EnsureComp<ADTShadowlingThrallComponent>(target);

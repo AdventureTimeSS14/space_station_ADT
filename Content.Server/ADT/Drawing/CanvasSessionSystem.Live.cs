@@ -69,6 +69,9 @@ public sealed partial class CanvasSessionSystem
                 if (member.OpenStrokes.Count >= MaxOpenStrokes && !member.OpenStrokes.Contains(msg.StrokeId))
                     return;
 
+                if (!session.CanCommit(player.UserId, msg.Layer))
+                    return;
+
                 member.OpenStrokes.Add(msg.StrokeId);
                 break;
 

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.ADT.Drawing.Canvas;
 using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
@@ -15,16 +16,20 @@ public sealed class CanvasLayerPanel : BoxContainer
     private readonly Button _upButton;
     private readonly Button _downButton;
     private readonly Button _mergeButton;
+    private readonly CheckBox _globalVisible;
     private readonly Slider _opacity;
     private readonly SliderEntry _opacityEntry;
     private readonly Label _opacityLabel;
     private readonly BoxContainer _opacityRow;
     private readonly List<LayerRow> _rows = new();
     private bool _canMerge = true;
+    private bool _canEdit = true;
+    private bool _builtHost;
     private bool _syncing;
     private bool _rebuild;
+    private (CanvasLayer Layer, bool Delete)? _armed;
 
-    private sealed record LayerRow(CanvasLayer? Layer, Button Select, CheckBox? Visible);
+    private sealed record LayerRow(CanvasLayer? Layer, Button Select, CheckBox? Eye, ConfirmButton? Hide, ConfirmButton? Delete);
 
     public CanvasLayerPanel(CanvasDocument document)
     {
@@ -37,7 +42,7 @@ public sealed class CanvasLayerPanel : BoxContainer
             Text = Loc.GetString("adt-drawing-layers-header"),
             StyleClasses = { "LabelHeading" },
         });
-        AddChild(DrawingWindow.WrapLabel(Loc.GetString("adt-drawing-layers-private"), Color.Gray));
+        AddChild(DrawingWindow.WrapLabel(Loc.GetString("adt-drawing-layers-shared"), Color.Gray));
 
         _list = new BoxContainer
         {
@@ -66,6 +71,18 @@ public sealed class CanvasLayerPanel : BoxContainer
         AddChild(Row(_addButton, _removeButton));
         AddChild(Row(_upButton, _downButton));
         AddChild(_mergeButton);
+
+        _globalVisible = new CheckBox
+        {
+            Text = Loc.GetString("adt-drawing-layer-global-visible"),
+            ToolTip = Loc.GetString("adt-drawing-layer-global-visible-tooltip"),
+        };
+        _globalVisible.OnToggled += args =>
+        {
+            if (!_syncing && _document.Layers.Active is { } layer)
+                _document.Layers.SetVisible(layer, args.Pressed);
+        };
+        AddChild(_globalVisible);
 
         _opacityLabel = new Label
         {
@@ -105,6 +122,19 @@ public sealed class CanvasLayerPanel : BoxContainer
         }
     }
 
+    public bool CanEdit
+    {
+        get => _canEdit;
+        set
+        {
+            if (_canEdit == value)
+                return;
+
+            _canEdit = value;
+            UpdateStates();
+        }
+    }
+
     protected override void ExitedTree()
     {
         base.ExitedTree();
@@ -129,17 +159,26 @@ public sealed class CanvasLayerPanel : BoxContainer
 
     private bool SameStructure()
     {
+        if (_builtHost != _document.Layers.IsHost)
+            return false;
+
         var layers = _document.Layers.Layers;
         if (layers.Count != _rows.Count - 1)
             return false;
 
         for (var i = 0; i < layers.Count; i++)
         {
-            if (_rows[layers.Count - 1 - i].Layer != layers[i])
+            var row = _rows[layers.Count - 1 - i];
+            if (row.Layer != layers[i] || (row.Delete != null) != HostControls(layers[i]))
                 return false;
         }
 
         return true;
+    }
+
+    private bool HostControls(CanvasLayer layer)
+    {
+        return !layer.Own && layer.Registered && _document.Layers.IsHost;
     }
 
     private int NextNumber()
@@ -151,7 +190,7 @@ public sealed class CanvasLayerPanel : BoxContainer
             var taken = false;
             foreach (var layer in _document.Layers.Layers)
             {
-                if (layer.Name == name)
+                if (layer.Own && layer.Name == name)
                 {
                     taken = true;
                     break;
@@ -180,6 +219,7 @@ public sealed class CanvasLayerPanel : BoxContainer
     private void Rebuild()
     {
         _rebuild = false;
+        _builtHost = _document.Layers.IsHost;
         _list.RemoveAllChildren();
         _rows.Clear();
 
@@ -189,20 +229,68 @@ public sealed class CanvasLayerPanel : BoxContainer
             var layer = layers[i];
             var select = SelectButton(layer.Name, layer);
 
-            var visible = new CheckBox
+            var eye = new CheckBox
             {
-                Pressed = layer.Visible,
-                ToolTip = Loc.GetString("adt-drawing-layer-visible"),
+                Pressed = !layer.LocalHidden,
+                ToolTip = Loc.GetString("adt-drawing-layer-local-visible"),
             };
-            visible.OnToggled += args => _document.Layers.SetVisible(layer, args.Pressed);
+            eye.OnToggled += args => _document.Layers.SetLocalHidden(layer, !args.Pressed);
 
-            _rows.Add(new LayerRow(layer, select, visible));
-            _list.AddChild(Row(visible, select));
+            ConfirmButton? hide = null;
+            ConfirmButton? delete = null;
+            if (HostControls(layer))
+            {
+                hide = HostButton(layer, false);
+                delete = HostButton(layer, true);
+            }
+
+            _rows.Add(new LayerRow(layer, select, eye, hide, delete));
+
+            var row = Row(eye, select);
+            if (hide != null && delete != null)
+            {
+                row.AddChild(hide);
+                row.AddChild(delete);
+            }
+
+            _list.AddChild(row);
         }
 
         var canvas = SelectButton(Loc.GetString("adt-drawing-layer-canvas"), null);
-        _rows.Add(new LayerRow(null, canvas, null));
+        _rows.Add(new LayerRow(null, canvas, null, null, null));
         _list.AddChild(canvas);
+
+        UpdateStates();
+    }
+
+    private ConfirmButton HostButton(CanvasLayer layer, bool delete)
+    {
+        var button = new ConfirmButton
+        {
+            ConfirmationText = Loc.GetString("adt-canvas-session-confirm"),
+            ToolTip = Loc.GetString(delete ? "adt-drawing-layer-host-delete-tooltip" : "adt-drawing-layer-host-hide-tooltip"),
+        };
+        button.OnPressed += _ => OnHostPressed(layer, delete);
+        return button;
+    }
+
+    private void OnHostPressed(CanvasLayer layer, bool delete)
+    {
+        if (!_document.Layers.IsHost)
+            return;
+
+        if (_armed is not { } armed || armed.Layer != layer || armed.Delete != delete)
+        {
+            _armed = (layer, delete);
+            UpdateStates();
+            return;
+        }
+
+        _armed = null;
+        if (delete)
+            _document.Layers.Remove(layer);
+        else
+            _document.Layers.SetVisible(layer, !layer.Visible);
 
         UpdateStates();
     }
@@ -224,27 +312,69 @@ public sealed class CanvasLayerPanel : BoxContainer
         return button;
     }
 
+    private string RowText(CanvasLayer layer)
+    {
+        var text = layer.Own
+            ? layer.Name
+            : Loc.GetString("adt-drawing-layer-foreign", ("name", layer.Name), ("owner", layer.OwnerName));
+
+        if (!layer.Visible)
+            text = Loc.GetString("adt-drawing-layer-hidden-all", ("name", text));
+
+        return text;
+    }
+
     private void UpdateStates()
     {
         var layers = _document.Layers.Layers;
         var active = _document.Layers.Active;
 
+        if (_armed is { } armed && !layers.Contains(armed.Layer))
+            _armed = null;
+
         foreach (var row in _rows)
         {
             row.Select.Pressed = row.Layer == active;
-            if (row.Visible != null && row.Layer != null)
-                row.Visible.Pressed = row.Layer.Visible;
+            if (row.Layer == null)
+                continue;
+
+            var layer = row.Layer;
+            row.Select.Text = RowText(layer);
+            row.Select.Disabled = !layer.Own;
+            row.Select.ToolTip = layer.Own ? null : Loc.GetString("adt-drawing-layer-locked");
+
+            if (row.Eye != null)
+                row.Eye.Pressed = !layer.LocalHidden;
+
+            if (row.Hide != null)
+            {
+                var confirming = _armed is { Delete: false } a && a.Layer == layer;
+                row.Hide.Text = Loc.GetString(confirming
+                    ? "adt-drawing-layer-host-again"
+                    : layer.Visible ? "adt-drawing-layer-host-hide" : "adt-drawing-layer-host-show");
+            }
+
+            if (row.Delete != null)
+            {
+                var confirming = _armed is { Delete: true } d && d.Layer == layer;
+                row.Delete.Text = Loc.GetString(confirming ? "adt-drawing-layer-host-again" : "adt-drawing-layer-host-delete");
+            }
         }
 
         var index = active == null ? -1 : IndexOf(active);
-        _addButton.Disabled = layers.Count >= CanvasLayerStack.MaxLayers;
+        _addButton.Disabled = !_canEdit || _document.Layers.OwnCount() >= CanvasLayerStack.MaxLayers;
         _removeButton.Disabled = active == null;
         _upButton.Disabled = active == null || index >= layers.Count - 1;
         _downButton.Disabled = active == null || index <= 0;
-        _mergeButton.Disabled = active == null || !_canMerge;
-        _mergeButton.ToolTip = Loc.GetString(_canMerge ? "adt-drawing-layer-merge-tooltip" : "adt-drawing-layer-merge-denied");
+        var mergeBlocked = active != null && !_document.CanMergeLayer(active);
+        _mergeButton.Disabled = active == null || !_canMerge || mergeBlocked;
+        _mergeButton.ToolTip = Loc.GetString(!_canMerge
+            ? "adt-drawing-layer-merge-denied"
+            : mergeBlocked ? "adt-drawing-layer-merge-blocked" : "adt-drawing-layer-merge-tooltip");
 
         _syncing = true;
+        _globalVisible.Visible = active != null;
+        _globalVisible.Pressed = active?.Visible ?? true;
         _opacityRow.Visible = active != null;
         _opacity.Value = (active?.Opacity ?? 1f) * 100f;
         _opacityLabel.Text = Loc.GetString("adt-drawing-layer-opacity", ("value", (int) _opacity.Value));

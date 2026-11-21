@@ -14,7 +14,10 @@ public sealed partial class DissociativeIdentityComponent : Component
     public ComponentRegistry AlterComponents = new();
 
     [DataField]
-    public List<string> CopiedSlots = new() { "jumpsuit", "outerClothing", "shoes", "gloves", "head", "mask", "eyes", "neck" };
+    public Dictionary<string, EntProtoId> ChameleonClothing = new();
+
+    [DataField]
+    public EntProtoId? ChameleonImplant;
 
     [DataField]
     public HashSet<HumanoidVisualLayers> AlterLayers = new() { HumanoidVisualLayers.Hair, HumanoidVisualLayers.FacialHair };

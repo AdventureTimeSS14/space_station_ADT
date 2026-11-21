@@ -72,6 +72,7 @@ heretic-ability-fail-tile-underneath-not-rusted = Плитка, на котор�
 heretic-ability-fail-tile-occupied = Покрытие занято!
 heretic-ability-fail-rust-stage-low = Вы недостаточно сильны чтобы покрыть ржавчиной данное покрытие!
 heretic-ability-fail-target-ghoul = Цель уже гуль!
+heretic-ability-fail-target-chaplain = Святая сила не даёт превратить его в гуля.
 heretic-ability-fail-target-no-mind = У цели нет души!
 heretic-ability-fail-space-phase-not-space = Вы должны стоять в космосе или на открытой местности с низким давлением!
 heretic-ability-fail-mirror-jaunt-no-mirrors = Рядом нет отражающих поверхностей!

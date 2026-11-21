@@ -70,6 +70,11 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
             }
             // ADT ALW Tweak
 
+            // ADT-Tweak-Start
+            if (projectile.IgnoreTargeted)
+                return;
+            // ADT-Tweak-End
+
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)

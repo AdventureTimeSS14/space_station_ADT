@@ -70,6 +70,9 @@ public sealed partial class BlockingSystem
             return;
 
         //ADT-Tweak-Start
+        if (!CanShieldProtect(item, entity))
+            return;
+
         if (blocking.IsToggle)
         {
             if (TryComp<ItemToggleComponent>(item, out var itemToggle) && !itemToggle.Activated)

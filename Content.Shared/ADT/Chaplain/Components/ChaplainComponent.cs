@@ -1,94 +1,163 @@
+using Content.Shared.ADT.Chaplain.Prototypes;
+using Content.Shared.ADT.Damage;
+using Content.Shared.Alert;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.StatusIcon;
-using Content.Shared.Antag;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
-using Content.Shared.Alert;
-using Robust.Shared.GameStates;  // ADT QWERTY's altar update
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Chaplain.Components;
 
-
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ChaplainComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 Power = 5;
+    [DataField, AutoNetworkedField]
+    public FixedPoint2 Faith = 4;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 PowerRegenCap = 5;
+    [DataField, AutoNetworkedField]
+    public FixedPoint2 MaxFaith = 10;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool Regenerated = true;
+    [DataField]
+    public FixedPoint2 BaseRegen = 0.5;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public FixedPoint2 FollowerRegen = 0.25;
+
+    [DataField]
+    public TimeSpan RegenDelay = TimeSpan.FromSeconds(30);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextRegen;
+
+    [DataField]
+    public float WeakenedHolyMultiplier = 0.5f;
+
+    [DataField, AutoNetworkedField]
+    public List<EntityUid> Followers = new();
+
+    [DataField, AutoNetworkedField]
+    public int MaxFollowers = 3;
+
+    [DataField]
     public FixedPoint2 BelieverCost = 3;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int Believers = 0;
+    [DataField]
+    public TimeSpan MakeBelieverDuration = TimeSpan.FromSeconds(7);
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int MaxBelievers = 2;
+    public FixedPoint2 ShieldCost = 5;
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int MakeBelieverDuration = 7;
+    public TimeSpan ShieldDuration = TimeSpan.FromSeconds(60);
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int TransferDuration = 2;
+    public SoundSpecifier ShieldSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/holy_shield.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 PowerTransfered = 1;
+    [DataField]
+    public EntProtoId? ShieldEffect = "ADTEffectHolyWave";
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public FixedPoint2 ExorcismCost = 3;
+
+    [DataField]
+    public DamageSpecifier ExorcismDamage = new()
+    {
+        DamageDict = new()
+        {
+            { "Holy", 15 },
+        },
+    };
+
+    [DataField]
+    public FixedPoint2 ExorcismSuppression = 25;
+
+    [DataField]
+    public TimeSpan ExorcismSlowdown = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public float ExorcismSlowdownMultiplier = 0.5f;
+
+    [DataField]
+    public SoundSpecifier ExorcismSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/exorcism.ogg");
+
+    [DataField]
+    public EntProtoId? ExorcismEffect = "ADTEffectHolySmite";
+
+    [DataField]
+    public FixedPoint2 BlessingCost = 2;
+
+    [DataField]
+    public GroupHealSpecifier BlessingHeal = new()
+    {
+        GroupHealDict = new()
+        {
+            { "Brute", -15 },
+            { "Burn", -15 },
+        },
+    };
+
+    [DataField]
+    public SoundSpecifier BlessingSound = new SoundPathSpecifier("/Audio/ADT/Chaplain/blessing.ogg");
+
+    [DataField]
+    public EntProtoId? BlessingEffect = "ADTEffectHolyBlessing";
+
+    [DataField]
     public FixedPoint2 HolyWaterCost = 2;
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier HolyWaterSoundPath = new SoundPathSpecifier("/Audio/Effects/holy.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string WaterSolution = "Water";
+    [DataField]
+    public EntProtoId? HolyTouchEffect = "ADTEffectHolyTwinkle";
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string WaterReplaceSolution = "Holywater";
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string BloodSolution = "Blood";
+    public EntProtoId? BelieverEffect = "ADTEffectHolyHalo";
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string BloodReplaceSolution = "Wine";
+    public ProtoId<ReagentPrototype> WaterSolution = "Water";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public EntityUid? BelieverActionEntity;
+    [DataField]
+    public ProtoId<ReagentPrototype> WaterReplaceSolution = "Holywater";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public EntityUid? TransferActionEntity;
+    [DataField]
+    public ProtoId<ReagentPrototype> BloodSolution = "Blood";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public EntityUid? HolyTouchActionEntity;
+    [DataField]
+    public ProtoId<ReagentPrototype> BloodReplaceSolution = "Wine";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 PowerPerPray = 1;
+    [DataField]
+    public FixedPoint2 RevenantDamage = 50;
+
+    [DataField]
+    public FixedPoint2 RevenantSelfDamage = 10;
+
+    [DataField]
+    public List<EntProtoId> Actions = new()
+    {
+        "ActionChaplainBeliever",
+        "ActionChaplainHolyShield",
+        "ActionChaplainHolyWater",
+        "ActionChaplainExorcism",
+        "ActionChaplainBlessing",
+    };
+
+    [DataField, AutoNetworkedField]
+    public List<EntityUid> ActionEntities = new();
 
     [ViewVariables]
-    public float Accumulator = 0;
-
-    [ViewVariables]
-    public float RegenDelay = 30f;
-
-    [DataField("statusIcon")]
-    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BelieverFaction";
+    public Dictionary<ProtoId<ChaplainPrayerPrototype>, TimeSpan> PrayerCooldowns = new();
 
     [DataField]
-    public bool IconVisibleToGhost { get; set; } = true;
+    public ProtoId<FactionIconPrototype> StatusIcon = "BelieverFaction";
 
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
+    public bool IconVisibleToGhost = true;
+
+    [DataField]
     public ProtoId<AlertPrototype> Alert = "ADTChaplain";
 }
-

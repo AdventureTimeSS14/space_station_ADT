@@ -1,0 +1,62 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: entity
+  parent: BaseItem
+  id: WeaponVampireClaws
+  name: vampire claws
+  description: "Seething streams of fresh blood formed sharp claws."
+  components:
+  - type: Sprite
+    sprite: ADT/Vampire/Objects/Weapons/Melee/vampireclaws.rsi
+    state: icon
+  - type: MultiHandedItem
+  - type: DeleteOnDrop
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/Fluids/splat.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PuddleBlood:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnHit
+    damage:
+      types:
+        Blunt: 1
+  - type: VampireClaws
+    damage:
+      types:
+        Heat: -1
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 2.5
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Slash: 15
+    animation: WeaponArcClaw
+  - type: ArmorPenetration
+    penetration: 0.4
+  - type: BonusMeleeDamage
+    heavyDamageMultiplier: 1.35

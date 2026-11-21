@@ -52,3 +52,8 @@ reagent-effect-guidebook-adt-cure-diseases =
         [true] все вирусы
        *[false] все болезни
     }
+reagent-effect-guidebook-vampire-garlic =
+    { $chance ->
+        [1] Ослабляет
+       *[other] ослабляют
+    } вампиров-неклассиков: роняет с ног и вызывает дрожь

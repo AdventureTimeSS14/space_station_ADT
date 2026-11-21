@@ -6,3 +6,6 @@ ent-AreaXenobio = ксенобиология
 
 ent-AreaKitchen = кухня
     .desc = Зона кухни.
+
+ent-ADTAreaChapel = церковь
+    .desc = Зона церкви. Святая земля жжёт вампиров.
