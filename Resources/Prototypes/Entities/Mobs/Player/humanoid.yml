@@ -43,35 +43,9 @@
       - NamesFirstDeadSquad
       - NamesLastDeadSquadCallsign
       nameFormat: name-format-standard
-    - type: RandomHumanoidSpawner
-      settings: DeathSquad
-
-- type: randomHumanoidSettings
-  id: DeathSquad
-  parent: EventHumanoidCentcomm
-  randomizeName: false
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
-  components:
-    - type: GhostRole
+    # - type: RandomHumanoidSpawner
+    #   settings: DeathSquad
+    - type: GhostRole # ADT-Tweak start
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
       rules: ghost-role-information-Death-Squad-rules
@@ -83,12 +57,51 @@
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
-    - type: GrantHellRip
-    - type: RandomMetadata
-      nameSegments:
-      - NamesFirstDeadSquad
-      - NamesLastDeadSquadCallsign
-      nameFormat: name-format-standard
+    - type: GrantHellRip # ADT-Tweak end
+
+# - type: randomHumanoidSettings # ADT tweak start
+#   id: DeathSquad
+#   parent: EventHumanoidCentcomm
+#   randomizeName: false
+#   speciesBlacklist: # ADT-Tweak-start
+#     - Diona
+#     - Vox
+#     - KoboltSpecies
+#     - DemonSpecies
+#     - CelecernSpecies
+#     - NovakidSpecies
+#     - TajaranSpecies
+#     - UrsusSpecies
+#     - Moth
+#     - VulpkaninSpecies
+#     - Shadekin
+#     - Arachnid
+#     - Reptilian
+#     - SlimePerson
+#     - Felinid
+#     - Resomi
+#     - Dwarf
+#     - IPC
+#     - DraskSpecies # ADT-Tweak-end
+#   components:
+#     - type: GhostRole
+#       name: ghost-role-information-Death-Squad-name
+#       description: ghost-role-information-Death-Squad-description
+#       rules: ghost-role-information-Death-Squad-rules
+#       raffle:
+#         settings: short
+#       mindRoles:
+#       - MindRoleGhostRoleFamiliar
+#       job: DeathSquad
+#     - type: Loadout
+#       prototypes: [ DeathSquadGear ]
+#       roleLoadout: [ RoleSurvivalEVA ]
+#     - type: GrantHellRip
+#     - type: RandomMetadata
+#       nameSegments:
+#       - NamesFirstDeadSquad
+#       - NamesLastDeadSquadCallsign
+#       nameFormat: name-format-standard  # ADT tweak end
 
 
 # ## ERT Leader

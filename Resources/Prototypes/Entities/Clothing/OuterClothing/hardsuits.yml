@@ -1216,7 +1216,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.15
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
@@ -1228,12 +1228,9 @@
         Slash: 0.1
         Piercing: 0.1
         Heat: 0.1
-        Radiation: 0.1
+        Radiation: 0.05
         Caustic: 0.1
-  # ADT-Tweak-Start
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0 # Чтобы админы не выдавали амбузол ручками.
-  # ADT-Tweak-End
+        Shock: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -1241,10 +1238,15 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
   # ADT-Tweak-start
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0 # Чтобы админы не выдавали амбузол ручками.
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
+    - type: GrabProtection
   - type: SupermatterImmune
+  - type: DNALocker
+  - type: Unremoveable
   # ADT-Tweak-end
 
 #CBURN Hardsuit

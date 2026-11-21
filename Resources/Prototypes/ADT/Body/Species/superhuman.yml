@@ -4,11 +4,12 @@
   - BaseSpeciesMob
   id: ADTMobSuperHuman
   name: Urist McHands
+  suffix: event, DeathSquad
   components:
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Critical
+      250: Critical
       500: Dead
   - type: Butcherable
     spawned:
@@ -24,27 +25,37 @@
       collection: MetalThud
     damage:
       types:
-        Blunt: 5
+        Blunt: 20
+        Structural: 10
+    bluntStaminaDamageFactor: 1.5
   - type: Barotrauma
+    maxDamage: 500
     damage:
       types:
         Blunt: 0.1
   - type: PassiveDamage
-    intervalHaltOnDamageTaken: 5s
+    intervalHaltOnDamageTaken: 0s
     allowedStates:
     - Alive
     damage:
       types:
-        Heat: -0.07
-        Blunt: -0.05
-        Piercing: -0.05
-        Slash: -0.05
+        Heat: -0.1
+        Blunt: -0.2
+        Piercing: -0.2
+        Slash: -0.3
+        Poison: -0.1
+        Shock: -0.1
+        Caustic: -0.02
+        Cellular: 0.1
   - type: Fingerprint
   - type: MobState
   - type: OfferItem
   - type: RadiationPopup
   - type: PickupHumans
     handsRequired: 1
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
   - type: TimeDespawnDamage
   - type: Blindable
   - type: Temperature
@@ -101,10 +112,8 @@
     - Pacified
     - Flashed
     - Adrenaline
-    # ADT-Tweak start
     - Weakness
     - ADTStarvation
-    # ADT-Tweak end
   - type: SolutionManager
   - type: InjectableSolution
     solution: bloodstream
@@ -115,10 +124,9 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -1
-    # ADT-Tweak start
-    bloodRefreshAmount: 0.3
-    bleedReductionAmount: 0.3
-    # ADT-Tweak end
+    bloodRefreshAmount: 1
+    bleedReductionAmount: 1
+    damageBleedModifiers: ADTBloodlossSuperHuman
 - type: entity
   abstract: true
   id: BaseMobDestructible
@@ -190,7 +198,7 @@
   - type: SpeechBarks
   - type: Posing
   - type: TTS
-    ttsVoice: space_marines_2_dow
+    voice: space_marines_2_dow
   - type: Puller
   - type: GrabIntent
   - type: Grabbable
@@ -217,3 +225,16 @@
     - DoorBumpOpener
     - AnomalyHost
   # ADT-Tweak start
+  - type: Damageable
+    damageModifierSet: ADTSuperHuman
+  - type: Injurable
+    damageContainer: Biological
+  - type: DamageOverlay
+  - type: RadiationReceiver
+  - type: Stamina
+    baseCritThreshold: 300
+    stunTime: 3s
+    decay: 9
+  - type: StunVisuals
+  - type: MobState
+  - type: ZombieImmune

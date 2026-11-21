@@ -36,7 +36,7 @@
     ears: ClothingHeadsetAltCentCom
     neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
-    # outerClothing: ClothingOuterHardsuitDeathsquad #ADT tweak: выбор скаф/МОД через ваучер
+    outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ADTClothingShoesBootsMagERT #ADT tweak
     id: DeathsquadPDA
     pocket1: EnergySword
@@ -45,7 +45,7 @@
     inhand: JetpackBlackFilled
   storage:
     back:
-    - ADTDeathSquadVoucher #ADT tweak: выбор скаф/МОД
+    # - ADTDeathSquadVoucher #ADT tweak Скаф теперь вшит в тело
     - WeaponPulsePistol
     - WeaponRevolverMatebaAP
     - SpeedLoaderMagnumAP
