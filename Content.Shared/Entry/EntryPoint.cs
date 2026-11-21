@@ -31,6 +31,7 @@ namespace Content.Shared.Entry
         public override void Init()
         {
             IgnorePrototypes();
+            _prototypeManager.PartialDirectory(new ResPath("/Prototypes/ADT/Partials"), 0);
         }
 
         public override void PostInit()
