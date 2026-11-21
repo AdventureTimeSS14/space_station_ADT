@@ -2,6 +2,7 @@
 
 using Content.Shared.Body;
 using System.Linq;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Overlays;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
@@ -109,6 +110,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private CloningSystem _cloning = default!;
     [Dependency] private MovementSpeedModifierSystem _modifier = default!;
     [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SleepingSystem _sleep = default!;
 
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
@@ -465,7 +467,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         }
 
         var rustBringerQuery = EntityQueryEnumerator<RustbringerComponent, TransformComponent>();
-        while (rustBringerQuery.MoveNext(out var rustBringer, out var xform))
+        while (rustBringerQuery.MoveNext(out var rustBringerUid, out var rustBringer, out var xform))
         {
             rustBringer.Accumulator += frameTime;
 
@@ -478,6 +480,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 continue;
 
             Spawn(rustBringer.Effect, xform.Coordinates);
+            CleanseRustStatusEffects(rustBringerUid);
         }
 
         _accumulator += frameTime;

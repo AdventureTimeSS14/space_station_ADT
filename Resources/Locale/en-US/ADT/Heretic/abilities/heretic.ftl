@@ -144,6 +144,7 @@ heretic-gate-examine-move = The rift is anchored to nothing. You can drag it any
 heretic-influence-dream-at = Somewhere close by, reality is folding. You feel it: {$place}.
 heretic-void-blink-none = No marked quarry stirs within your reach.
 heretic-void-blink-verb = Void step
+heretic-void-blink-cooldown = The void still holds this quarry. Step to another.
 heretic-blade-no-guns = The blade rejects ranged cowardice. Steel only.
 
 ## Stargazer grab & smash

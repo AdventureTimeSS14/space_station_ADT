@@ -18,6 +18,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Heretic.Systems;
@@ -34,6 +35,7 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private const string VoidPath = "Void";
     private static readonly ProtoId<DamageTypePrototype> ColdDamageType = "Cold";
@@ -41,6 +43,9 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
 
     private const float BlinkDamage = 15f;
     private const float KnockdownTime = 2f;
+    private static readonly TimeSpan BlinkCooldown = TimeSpan.FromSeconds(5);
+
+    private readonly Dictionary<EntityUid, Dictionary<EntityUid, TimeSpan>> _blinkCooldowns = new();
 
     public override void Initialize()
     {
@@ -116,7 +121,7 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
 
     public void BlinkToBestTarget(EntityUid user, EntityUid target, EntityCoordinates coords)
     {
-        if (IsValidBlinkTarget(target))
+        if (IsValidBlinkTarget(target) && !IsOnCooldown(user, target))
         {
             BlinkTarget(user, target);
             return;
@@ -139,7 +144,7 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
         // First check in immediate vicinity of clicked coords (e.g. for people lying down)
         foreach (var entity in _lookup.GetEntitiesInRange(searchMapCoords, 3.0f))
         {
-            if (!IsValidBlinkTarget(entity))
+            if (!IsValidBlinkTarget(entity) || IsOnCooldown(user, entity))
                 continue;
 
             var dist = (_xform.ToMapCoordinates(Transform(entity).Coordinates).Position - searchMapCoords.Position).LengthSquared();
@@ -150,13 +155,12 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
             }
         }
 
-        // If not found right under cursor, search wider radius around click up to 16 tiles
         if (best == null)
         {
             bestDist = float.MaxValue;
             foreach (var entity in _lookup.GetEntitiesInRange(searchMapCoords, 16.0f))
             {
-                if (!IsValidBlinkTarget(entity))
+                if (!IsValidBlinkTarget(entity) || IsOnCooldown(user, entity))
                     continue;
 
                 var dist = (_xform.ToMapCoordinates(Transform(entity).Coordinates).Position - searchMapCoords.Position).LengthSquared();
@@ -186,11 +190,22 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
             return;
         }
 
+        if (IsOnCooldown(user, target))
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-void-blink-cooldown"), user, user);
+            return;
+        }
+
         var dest = Transform(target).Coordinates;
 
         _audio.PlayPvs(BlinkSound, user);
         _xform.SetCoordinates(user, dest);
         _audio.PlayPvs(BlinkSound, user);
+
+        if (!_blinkCooldowns.TryGetValue(user, out var targets))
+            _blinkCooldowns[user] = targets = new Dictionary<EntityUid, TimeSpan>();
+
+        targets[target] = _timing.CurTime + BlinkCooldown;
 
         if (TryComp<DamageableComponent>(target, out var damageable))
         {
@@ -200,6 +215,24 @@ public sealed partial class HereticVoidBlinkSystem : EntitySystem
         }
 
         _stun.TryKnockdown((target, null), TimeSpan.FromSeconds(KnockdownTime), true);
+    }
+
+    private bool IsOnCooldown(EntityUid user, EntityUid target)
+    {
+        if (!_blinkCooldowns.TryGetValue(user, out var targets))
+            return false;
+
+        if (!targets.TryGetValue(target, out var next))
+            return false;
+
+        if (_timing.CurTime < next)
+            return true;
+
+        targets.Remove(target);
+        if (targets.Count == 0)
+            _blinkCooldowns.Remove(user);
+
+        return false;
     }
 
     private bool IsValidBlinkTarget(EntityUid uid)

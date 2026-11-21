@@ -6,10 +6,12 @@ using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Spreader;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Flash;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
+using Content.Shared.Stunnable;
 using Content.Shared.Tiles;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -48,6 +50,22 @@ public sealed partial class HereticAbilitySystem
             return;
 
         args.Cancelled = true;
+    }
+
+    private static readonly EntProtoId KnockdownStatusEffect = "StatusEffectKnockdown";
+
+    private void CleanseRustStatusEffects(EntityUid uid)
+    {
+        _statusNew.TryRemoveStatusEffect(uid, SharedFlashSystem.FlashedKey);
+
+        _sleep.TryWaking(uid, force: true);
+        _statusNew.TryRemoveStatusEffect(uid, SleepingSystem.StatusEffectForcedSleeping);
+
+        _statusNew.TryRemoveStatusEffect(uid, SharedStunSystem.StunId);
+        _stun.TryUnstun(uid);
+
+        _statusNew.TryRemoveStatusEffect(uid, KnockdownStatusEffect);
+        RemComp<KnockedDownComponent>(uid);
     }
 
     private void OnEntropicPlume(EventHereticEntropicPlume args)
