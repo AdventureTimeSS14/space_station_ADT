@@ -119,3 +119,6 @@ alerts-changeling-chemicals-desc = The chemicals stored within our glands. We us
 
 alerts-borg-selfrepair-name = Self-repair
 alerts-borg-selfrepair-desc = Click to release or recall a repair orb that restores your chassis, consuming power cell charge.
+
+alerts-borg-jetpack-name = Jetpack
+alerts-borg-jetpack-desc = Click to toggle the built-in jetpack.

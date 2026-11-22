@@ -86,3 +86,6 @@ alerts-changeling-chemicals-desc = Химикаты, хранящиеся в н�
 
 alerts-borg-selfrepair-name = Саморемонт
 alerts-borg-selfrepair-desc = Нажмите, чтобы выпустить или отозвать шар ремонта, восстанавливающий ваш корпус за счёт энергии батареи.
+
+alerts-borg-jetpack-name = Джетпак
+alerts-borg-jetpack-desc = Нажмите, чтобы включить или выключить бортовой джетпак.

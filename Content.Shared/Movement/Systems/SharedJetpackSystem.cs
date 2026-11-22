@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
@@ -53,7 +54,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem
     //ADT tweak start
     private void OnComponentRemoved(EntityUid uid, JetpackComponent component, ComponentShutdown args)
     {
-        SetEnabled(uid, component, false);
+        SetEnabled(uid, component, false, component.JetpackUser);
         Dirty(uid, component);
     }
     //ADT tweak end
@@ -61,6 +62,10 @@ public abstract partial class SharedJetpackSystem : EntitySystem
     {
         if (component.ToggleActionEntity != null && Exists(component.ToggleActionEntity.Value)) //ADT-tweak
             return; //ADT-tweak
+        // ADT-Tweak start
+        if (!HasComp<ItemComponent>(uid))
+            return;
+        // ADT-Tweak end
         _actionContainer.EnsureAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
         Dirty(uid, component);
     }
@@ -149,7 +154,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem
             return;
         }
 
-        SetEnabled(uid, component, !IsEnabled(uid));
+        SetEnabled(uid, component, !IsEnabled(uid), args.Performer); // ADT-Tweak
     }
 
     private bool CanEnableOnGrid(EntityUid? gridUid)

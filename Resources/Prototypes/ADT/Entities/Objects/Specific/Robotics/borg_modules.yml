@@ -841,25 +841,24 @@
 
 - type: entity
   id: BorgModuleJetpack
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: BaseBorgModule
   name: jetpack cyborg module
-  description: A universal module with an experimental jetpack that does not require fuel to operate.
+  description: A passive cyborg module with an experimental jetpack that does not require fuel to operate. Toggle it using the jetpack alert.
   components:
   - type: Sprite
     layers:
     - state: generic
     - state: icon-jet
       sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
-  - type: ItemBorgModule
-    hands:
-    - item: JetpackCrewBorg
-      hand:
-        emptyRepresentative: JetpackCrewBorg
-        whitelist:
-          components:
-          - Jetpack
-  - type: BorgModuleIcon
-    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: jetpack-module }
+  - type: ComponentBorgModule
+    countsTowardsCapacity: false
+    components:
+    - type: Jetpack
+      moleUsage: 0
+      acceleration: 1
+      friction: 0.25
+      weightlessModifier: 1.2
+    - type: ADTBorgJetpack
 
 - type: entity
   id: BorgModuleMedgun

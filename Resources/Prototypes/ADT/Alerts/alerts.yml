@@ -287,3 +287,12 @@
     state: selfrepair_on
   name: alerts-borg-selfrepair-name
   description: alerts-borg-selfrepair-desc
+
+- type: alert
+  id: ADTBorgJetpack
+  clickEvent: !type:ADTBorgJetpackToggleAlertEvent
+  icons:
+  - sprite: /Textures/Objects/Tanks/Jetpacks/blue.rsi
+    state: icon
+  name: alerts-borg-jetpack-name
+  description: alerts-borg-jetpack-desc
