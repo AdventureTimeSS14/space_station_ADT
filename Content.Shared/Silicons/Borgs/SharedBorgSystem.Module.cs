@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.ADT.Interaction.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
@@ -241,6 +242,13 @@ public abstract partial class SharedBorgSystem
             {
                 if (module.Comp.StoredItems.TryGetValue(slot.HandId, out var storedItem))
                 {
+                    if (HasComp<HandPlaceholderComponent>(storedItem))
+                    {
+                        PredictedQueueDel(storedItem);
+                        module.Comp.StoredItems.Remove(slot.HandId);
+                        continue;
+                    }
+
                     item = storedItem;
                     // DoPickup handles removing the item from the container.
                 }
@@ -292,9 +300,17 @@ public abstract partial class SharedBorgSystem
         {
             if (_hands.TryGetHeldItem((chassis.Owner, hands), slot.HandId, out var held))
             {
-                RemComp<UnremoveableComponent>(held.Value);
-                _container.Insert(held.Value, container);
-                module.Comp.StoredItems[slot.HandId] = held.Value;
+                if (HasComp<HandPlaceholderComponent>(held.Value))
+                {
+                    PredictedQueueDel(held.Value);
+                    module.Comp.StoredItems.Remove(slot.HandId);
+                }
+                else
+                {
+                    RemComp<UnremoveableComponent>(held.Value);
+                    _container.Insert(held.Value, container);
+                    module.Comp.StoredItems[slot.HandId] = held.Value;
+                }
             }
             else
             {

@@ -19,8 +19,7 @@
   - type: ItemBorgModule
     hands:
     - item: ADTWeaponDisablerBorg
-    - item: Handcuffs
-      hand:
+    - hand:
         emptyLabel: borg-slot-handcuff-empty
         emptyRepresentative: Handcuffs
         whitelist:
@@ -77,8 +76,7 @@
   - type: ItemBorgModule
     hands:
     - item: MiningDrill
-    - item: WeaponProtoKineticAccelerator
-      hand:
+    - hand:
         emptyLabel: borg-slot-pka-empty
         emptyRepresentative: WeaponProtoKineticAccelerator
         whitelist:
@@ -125,36 +123,31 @@
   - type: ItemBorgModule
     hands:
     - item: HandheldHealthAnalyzer
-    - item: Syringe
-      hand:
+    - hand:
         emptyRepresentative: Syringe
         whitelist:
           tags:
           - Syringe
-    - item: Syringe
-      hand:
+    - hand:
         emptyRepresentative: Syringe
         whitelist:
           tags:
           - Syringe
-    - item: Beaker
-      hand:
+    - hand:
         emptyRepresentative: Beaker
         whitelist:
           components:
           - FitsInDispenser
           tags:
           - ChemDispensable
-    - item: Beaker
-      hand:
+    - hand:
         emptyRepresentative: Beaker
         whitelist:
           components:
           - FitsInDispenser
           tags:
           - ChemDispensable
-    - item: Beaker
-      hand:
+    - hand:
         emptyRepresentative: Beaker
         whitelist:
           components:
@@ -248,19 +241,21 @@
     hands:
     - item: HandheldHealthAnalyzer
     - item: Dropper
-    droppableItems:
-    - id: Syringe
-      whitelist:
-        tags:
-        - Syringe
-    - id: ADTVirusCultureBottle
-      whitelist:
-        components:
-        - FitsInDispenser
-    - id: Beaker
-      whitelist:
-        components:
-        - FitsInDispenser
+    - hand:
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Syringe
+    - hand:
+        emptyRepresentative: ADTVirusCultureBottle
+        whitelist:
+          components:
+          - FitsInDispenser
+    - hand:
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: viro-module }
 
@@ -383,8 +378,7 @@
       sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: WeaponImprovisedPneumaticCannon
-      hand:
+    - hand:
         emptyRepresentative: WeaponImprovisedPneumaticCannon
         whitelist:
           components:
@@ -429,8 +423,7 @@
     - item: SlimeScannerXenobio
     - item: Syringe
     - item: SprayBottle
-    - item: MonkeyCube
-      hand:
+    - hand:
         emptyRepresentative: MonkeyCube
         whitelist:
           components:
@@ -460,8 +453,7 @@
     - item: SlimeScannerXenobio
     - item: Syringe
     - item: MegaSprayBottle
-    - item: MonkeyCube
-      hand:
+    - hand:
         emptyRepresentative: MonkeyCube
         whitelist:
           components:
@@ -486,8 +478,7 @@
       sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: WeaponSprayNozzle
-      hand:
+    - hand:
         emptyRepresentative: WeaponSprayNozzle
         whitelist:
           tags:
@@ -513,8 +504,7 @@
     - item: WeaponBorgRifleFoam
     - item: RubberChicken
     - item: ToyHammer
-    - item: WhoopieCushion
-      hand:
+    - hand:
         emptyRepresentative: WhoopieCushion
         whitelist:
           tags:
@@ -535,32 +525,27 @@
       sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: BookHowToCookForFortySpaceman
-      hand:
+    - hand:
         emptyRepresentative: BookHowToCookForFortySpaceman
         whitelist:
           tags:
           - Book
-    - item: BookBartendersManual
-      hand:
+    - hand:
         emptyRepresentative: BookBartendersManual
         whitelist:
           tags:
           - Book
-    - item: BookEngineersHandbook
-      hand:
+    - hand:
         emptyRepresentative: BookEngineersHandbook
         whitelist:
           tags:
           - Book
-    - item: BookMedicalReferenceBook
-      hand:
+    - hand:
         emptyRepresentative: BookMedicalReferenceBook
         whitelist:
           tags:
           - Book
-    - item: BookSpaceLaw
-      hand:
+    - hand:
         emptyRepresentative: BookSpaceLaw
         whitelist:
           tags:
@@ -588,20 +573,17 @@
     - item: HydroponicsToolHatchet
     - item: ADTBotanistBagOfHolding
     - item: BorgBucket
-    - item: AppleSeeds
-      hand:
+    - hand:
         emptyRepresentative: AppleSeeds
         whitelist:
           components:
           - Seed
-    - item: FoodApple
-      hand:
+    - hand:
         emptyRepresentative: FoodApple
         whitelist:
           components:
           - Produce
-    - item: DiseaseSwab
-      hand:
+    - hand:
         emptyRepresentative: DiseaseSwab
         whitelist:
           components:
@@ -624,16 +606,14 @@
     hands:
     - item: KitchenKnife
     - item: RollingPin
-    - item: Beaker
-      hand:
+    - hand:
         emptyRepresentative: Beaker
         whitelist:
           components:
           - FitsInDispenser
           tags:
           - ChemDispensable
-    - item: ReagentContainerFlour
-      hand:
+    - hand:
         emptyRepresentative: ReagentContainerFlour
         whitelist:
           components:
@@ -642,8 +622,7 @@
           tags:
           - Meat
           - Slice
-    - item: MonkeyCube
-      hand:
+    - hand:
         emptyRepresentative: MonkeyCube
         whitelist:
           components:
@@ -684,20 +663,17 @@
       sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: Fulton
-      hand:
+    - hand:
         emptyRepresentative: Fulton
         whitelist:
           components:
           - Fulton
-    - item: Fulton
-      hand:
+    - hand:
         emptyRepresentative: Fulton
         whitelist:
           components:
           - Fulton
-    - item: FultonBeacon
-      hand:
+    - hand:
         emptyRepresentative: FultonBeacon
         whitelist:
           components:
@@ -719,26 +695,22 @@
   - type: ItemBorgModule
     hands:
     - item: GeigerCounter
-    - item: SteelReactorHeatExchanger
-      hand:
+    - hand:
         emptyRepresentative: SteelReactorHeatExchanger
         whitelist:
           components:
           - ReactorPart
-    - item: SteelReactorHeatExchanger
-      hand:
+    - hand:
         emptyRepresentative: SteelReactorHeatExchanger
         whitelist:
           components:
           - ReactorPart
-    - item: SteelReactorGasChannel
-      hand:
+    - hand:
         emptyRepresentative: SteelReactorGasChannel
         whitelist:
           components:
           - ReactorPart
-    - item: SteelReactorGasChannel
-      hand:
+    - hand:
         emptyRepresentative: SteelReactorGasChannel
         whitelist:
           components:
@@ -759,29 +731,25 @@
       sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: WeaponCapacitorRechargerCircuitboard
-      hand:
+    - hand:
         emptyRepresentative: WeaponCapacitorRechargerCircuitboard
         whitelist:
           components:
           - Flatpack
           - MachineBoard
-    - item: WeaponCapacitorRechargerCircuitboard
-      hand:
+    - hand:
         emptyRepresentative: WeaponCapacitorRechargerCircuitboard
         whitelist:
           components:
           - Flatpack
           - MachineBoard
-    - item: WeaponCapacitorRechargerCircuitboard
-      hand:
+    - hand:
         emptyRepresentative: WeaponCapacitorRechargerCircuitboard
         whitelist:
           components:
           - Flatpack
           - MachineBoard
-    - item: WeaponCapacitorRechargerCircuitboard
-      hand:
+    - hand:
         emptyRepresentative: WeaponCapacitorRechargerCircuitboard
         whitelist:
           components:
@@ -806,11 +774,11 @@
   - type: ItemBorgModule
     hands:
     - item: LauncherSyringe
-    droppableItems:
-    - id: Syringe
-      whitelist:
-        tags:
-        - Syringe
+    - hand:
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Syringe
 
 - type: entity
   id: BorgModuleAdvancedRescue
@@ -830,8 +798,7 @@
     - item: DefibrillatorOneHandedUnpowered
     - item: HandheldCrewMonitorRecharging
     - item: JetpackCrewBorg
-    - item: BodyBagFolded
-      hand:
+    - hand:
         emptyRepresentative: BodyBagFolded
         whitelist:
           tags:
@@ -875,8 +842,7 @@
   - type: ItemBorgModule
     hands:
     - item: HandheldHealthAnalyzer
-    - item: ADTWeaponMedbeamCivil
-      hand:
+    - hand:
         emptyRepresentative: ADTWeaponMedbeamCivil
         whitelist:
           components:
@@ -898,21 +864,21 @@
   - type: ItemBorgModule
     hands:
     - item: ForensicScanner
-    - item: ForensicPad
-      hand:
+    - hand:
         emptyRepresentative: ForensicPad
         whitelist:
           components:
           - ForensicPad
-    droppableItems:
-    - id: Pen
-      whitelist:
-        tags:
-        - Pen
-    - id: Paper
-      whitelist:
-        components:
-        - Paper
+    - hand:
+        emptyRepresentative: Pen
+        whitelist:
+          tags:
+          - Pen
+    - hand:
+        emptyRepresentative: Paper
+        whitelist:
+          components:
+          - Paper
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: detective-module }
 

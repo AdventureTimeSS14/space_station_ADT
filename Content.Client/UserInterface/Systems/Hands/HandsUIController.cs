@@ -11,6 +11,7 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Input;
+using Robust.Shared.Maths; // ADT-Tweak
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -163,7 +164,8 @@ public sealed partial class HandsUIController : UIController, IOnStateEntered<Ga
 
     private void SetRepresentative(HandButton handButton, EntProtoId prototype)
     {
-        handButton.SetPrototype(prototype, true);
+        handButton.SetPrototype(prototype, false);
+        handButton.ProtoView.Modulate = Color.DarkGray.WithAlpha(0.65f); // ADT-Tweak
     }
 
     private void HandBlocked(string handName)

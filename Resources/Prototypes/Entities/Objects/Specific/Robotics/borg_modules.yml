@@ -482,22 +482,19 @@
     - state: icon-cables
   - type: ItemBorgModule
     hands:
-    - item: CableApcStack10
-      hand:
+    - hand:
         emptyRepresentative: CableApcStack10
         emptyLabel: borg-slot-cables-empty
         whitelist:
           tags:
           - CableCoil
-    - item: CableMVStack10
-      hand:
+    - hand:
         emptyRepresentative: CableMVStack10
         emptyLabel: borg-slot-cables-empty
         whitelist:
           tags:
           - CableCoil
-    - item: CableHVStack10
-      hand:
+    - hand:
         emptyRepresentative: CableHVStack10
         emptyLabel: borg-slot-cables-empty
         whitelist:
@@ -577,15 +574,13 @@
     - state: icon-inflatable
   - type: ItemBorgModule
     hands:
-    - item: InflatableDoorStack
-      hand:
+    - hand:
         emptyRepresentative: InflatableDoorStack
         emptyLabel: borg-slot-inflatable-door-empty
         whitelist:
           tags:
           - Inflatable
-    - item: InflatableWallStack
-      hand:
+    - hand:
         emptyRepresentative: InflatableWallStack
         emptyLabel: borg-slot-inflatable-wall-empty
         whitelist:
@@ -848,8 +843,7 @@
     - item: LightReplacerFilled
     - item: BorgTrashBag
     - item: Plunger
-    - item: SoapNT
-      hand:
+    - hand:
         emptyLabel: borg-slot-soap-empty
         emptyRepresentative: SoapNT
         whitelist:
@@ -894,8 +888,7 @@
     - item: BorgMegaSprayBottle
     - item: HoloprojectorBorg
     - item: BorgDropper
-    - item: Beaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-beakers-empty
         emptyRepresentative: Beaker
         whitelist:
@@ -937,22 +930,19 @@
     hands:
     - item: HandheldHealthAnalyzer
     - item: AdvancedJetInjector
-    - item: Gauze
-      hand:
+    - hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Gauze
         whitelist:
           components:
           - Healing
-    - item: Brutepack
-      hand:
+    - hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Brutepack
         whitelist:
           components:
           - Healing
-    - item: Ointment
-      hand:
+    - hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Ointment
         whitelist:
@@ -978,8 +968,7 @@
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
     # ADT-Tweak start
-    - item: BodyBagFolded
-      hand:
+    - hand:
         emptyRepresentative: BodyBagFolded
         whitelist:
           tags:
@@ -1002,16 +991,14 @@
   - type: ItemBorgModule
     hands:
     - item: HandLabeler
-    - item: Syringe
-      hand:
+    - hand:
         emptyLabel: borg-slot-injector-dropper-empty
         emptyRepresentative: Syringe
         whitelist:
           tags:
           - Dropper
           - Syringe
-    - item: PillCanister
-      hand:
+    - hand:
         emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: PillCanister
         whitelist:
@@ -1019,8 +1006,7 @@
           - PillCanister
           - Bottle
           - Pill
-    - item: Beaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-chemical-containers-empty
         emptyRepresentative: Beaker
         whitelist:
@@ -1028,8 +1014,7 @@
           - FitsInDispenser
           tags:
           - ChemDispensable
-    - item: Beaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-chemical-containers-empty
         emptyRepresentative: Beaker
         whitelist:
@@ -1089,8 +1074,7 @@
     - item: HolofanProjectorBorg # ADT-Tweak
     - item: BorgDropper
     # ADT-Tweak start
-    - item: Beaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-chemical-containers-empty
         emptyRepresentative: Beaker
         whitelist:
@@ -1176,8 +1160,7 @@
     - item: RubberStampApproved
     - item: RubberStampDenied
     - item: BorgDropper
-    - item: DrinkShaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: DrinkShaker
         whitelist:
@@ -1198,22 +1181,19 @@
     - state: icon-musique
   - type: ItemBorgModule
     hands:
-    - item: SynthesizerInstrument
-      hand:
+    - hand:
         emptyLabel: borg-slot-instruments-empty
         emptyRepresentative: SynthesizerInstrument
         whitelist:
           components:
           - Instrument
-    - item: ElectricGuitarInstrument
-      hand:
+    - hand:
         emptyLabel: borg-slot-instruments-empty
         emptyRepresentative: ElectricGuitarInstrument
         whitelist:
           components:
           - Instrument
-    - item: SaxophoneInstrument
-      hand:
+    - hand:
         emptyLabel: borg-slot-instruments-empty
         emptyRepresentative: SaxophoneInstrument
         whitelist:

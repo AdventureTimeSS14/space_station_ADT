@@ -23,7 +23,7 @@ namespace Content.Client.UserInterface.Controls
         public CooldownGraphic CooldownDisplay { get; }
 
         private SpriteView SpriteView { get; }
-        private EntityPrototypeView ProtoView { get; }
+        public EntityPrototypeView ProtoView { get; } // ADT-Tweak
 
         public EntityUid? Entity => SpriteView.Entity;
 
