@@ -102,6 +102,22 @@
   - UplinkWeaponry
 
 - type: listing
+  id: ADTUplinkEnergySwordDouble
+  name: uplink-esword-double-name
+  description: uplink-esword-double-desc
+  icon: { sprite: Objects/Weapons/Melee/e_sword_double.rsi, state: e_sword_double }
+  productEntity: EnergySwordDouble
+  cost:
+    Telecrystal: 21
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink
+
+- type: listing
   id: ADTUplinkRevolverPyton
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
