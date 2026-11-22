@@ -49,10 +49,20 @@ public sealed class ADTBorgSelfRepairSystem : EntitySystem
     {
         args.Handled = true;
 
+        var curTime = _timing.CurTime;
+        if (curTime < ent.Comp.NextToggleTime)
+        {
+            _popup.PopupEntity(Loc.GetString("adt-borg-selfrepair-cooldown"), ent.Owner, ent.Owner);
+            return;
+        }
+        ent.Comp.NextToggleTime = curTime + TimeSpan.FromSeconds(ent.Comp.ToggleCooldown);
+
         if (ent.Comp.Released)
             Recall(ent);
         else
             Release(ent);
+
+        _alerts.UpdateAlert(ent.Owner, SelfRepairAlert, cooldown: ent.Comp.NextToggleTime);
     }
 
     private void Release(Entity<ADTBorgSelfRepairComponent> ent)
@@ -67,7 +77,7 @@ public sealed class ADTBorgSelfRepairSystem : EntitySystem
         ent.Comp.Wisp = orb;
 
         var active = EnsureComp<ADTBorgSelfRepairActiveComponent>(ent.Owner);
-        active.NextHealTime = _timing.CurTime + ent.Comp.HealInterval;
+        active.NextHealTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.HealInterval);
 
         _popup.PopupEntity(Loc.GetString("adt-borg-selfrepair-release"), ent.Owner, ent.Owner);
     }
@@ -98,7 +108,7 @@ public sealed class ADTBorgSelfRepairSystem : EntitySystem
             if (curTime < active.NextHealTime)
                 continue;
 
-            active.NextHealTime = curTime + comp.HealInterval;
+            active.NextHealTime = curTime + TimeSpan.FromSeconds(comp.HealInterval);
             DoHealTick((uid, comp));
         }
     }
@@ -114,6 +124,6 @@ public sealed class ADTBorgSelfRepairSystem : EntitySystem
         if (!_powerCell.TryUseCharge(ent.Owner, ent.Comp.EnergyCost))
             return;
 
-        _damage.HealDistributed((ent.Owner, damageable), ent.Comp.HealAmount, origin: ent.Comp.Wisp);
+        _damage.HealDistributed((ent.Owner, damageable), -ent.Comp.HealAmount, origin: ent.Comp.Wisp);
     }
 }

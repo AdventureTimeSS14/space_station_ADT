@@ -949,12 +949,13 @@
     - state: icon-tools
   - type: ComponentBorgModule
     countsTowardsCapacity: false
+    deactivatesWithBorg: false
     components:
     - type: ADTBorgSelfRepair
       wispProto: ADTBorgRepairOrb
       healAmount: 5
       healInterval: 5
-      energyCost: 5
+      energyCost: 15
 
 - type: entity
   id: BorgModuleEnergyTac

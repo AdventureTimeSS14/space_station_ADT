@@ -14,17 +14,23 @@ public sealed partial class ADTBorgSelfRepairComponent : Component
     [DataField]
     public float HealAmount = 5f;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan HealInterval = TimeSpan.FromSeconds(5);
+    [DataField]
+    public float HealInterval = 5f;
 
     [DataField]
-    public float EnergyCost = 25f;
+    public float EnergyCost = 5f;
+
+    [DataField]
+    public float ToggleCooldown = 5f;
 
     [ViewVariables]
     public bool Released;
 
     [ViewVariables]
     public EntityUid? Wisp;
+
+    [ViewVariables]
+    public TimeSpan NextToggleTime;
 }
 
 [RegisterComponent]
