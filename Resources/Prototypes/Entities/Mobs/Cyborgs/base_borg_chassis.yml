@@ -152,7 +152,6 @@
   - type: StatusEffects
     allowed:
     - Flashed
-    - SeeingStatic # ADT IPC (shaders)
   - type: TypingIndicator
     proto: robot
   - type: Speech
@@ -289,6 +288,10 @@
     requiredMobState:
     - Critical
     - Dead
+  # ADT-Tweak-start
+  - type: EmpGlitch
+    durationMultiplier: 0.5
+  # ADT-Tweak-end
 
 - type: entity
   abstract: true
