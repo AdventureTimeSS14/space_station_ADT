@@ -31,7 +31,6 @@
 - type: entity
   parent: ADTCardDeckBase
   id: ADTCardDeckSyndicate
-  name: deck of cards
   categories: [ HideSpawnMenu, DoNotMap ] # Frontier
   components:
   - type: Sprite
