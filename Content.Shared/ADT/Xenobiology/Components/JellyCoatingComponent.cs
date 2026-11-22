@@ -22,4 +22,7 @@ public sealed partial class SpeedBoostedComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan EndTime;
+
+    [DataField]
+    public bool Infinite;
 }

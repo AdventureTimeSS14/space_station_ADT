@@ -23,6 +23,30 @@
     Copper: 400
 
 - type: latheRecipe
+  id: BorgModuleFlashImmunity
+  result: BorgModuleFlashImmunity
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Plasma: 250
+    Copper: 300
+
+- type: latheRecipe
+  id: BorgModuleVTEC
+  result: BorgModuleVTEC
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 100
+    Plasma: 250
+    Copper: 300
+
+- type: latheRecipe
   id: ADTBorgModuleDetention
   result: ADTBorgModuleDetention
   completetime: 3

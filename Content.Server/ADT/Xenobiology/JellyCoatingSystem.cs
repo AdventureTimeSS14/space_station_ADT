@@ -1,5 +1,4 @@
 using Content.Shared.ADT.Xenobiology.Components;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 using Content.Shared.Movement.Components;
@@ -46,6 +45,9 @@ public partial class JellyCoatingSystem : EntitySystem
         var query = EntityQueryEnumerator<SpeedBoostedComponent>();
         while (query.MoveNext(out var uid, out var boosted))
         {
+            if (boosted.Infinite)
+                continue;
+
             if (_timing.CurTime >= boosted.EndTime)
                 _expired.Add(uid);
         }
@@ -67,8 +69,11 @@ public partial class JellyCoatingSystem : EntitySystem
         if (TryComp<MechPilotComponent>(target, out var pilot))
             target = pilot.Mech;
 
-        if (HasComp<HumanoidProfileComponent>(target))
+        if (!HasComp<MechComponent>(target))
+        {
+            _popup.PopupClient(Loc.GetString("jelly-coating-not-mech"), target, args.User);
             return;
+        }
 
         if (!TryComp<MovementSpeedModifierComponent>(target, out var _))
             return;

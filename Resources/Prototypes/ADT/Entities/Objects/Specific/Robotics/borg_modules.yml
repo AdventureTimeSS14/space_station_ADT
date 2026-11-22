@@ -915,3 +915,58 @@
         - Paper
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: detective-module }
+
+- type: entity
+  id: BorgModuleFlashImmunity
+  parent: BaseBorgModule
+  name: flash immunity cyborg module
+  description: A passive cyborg module that protects the unit's optical sensors from being blinded by flashes, including the unit's own.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-xenoborg-shield
+  - type: ComponentBorgModule
+    countsTowardsCapacity: false
+    components:
+    - type: FlashImmunity
+
+- type: entity
+  id: BorgModuleTracker
+  parent: BaseBorgModule
+  name: emergency tracker cyborg module
+  description: A passive cyborg module that reports the unit's position over the science channel if it falls into critical condition. Keeps working even when the unit shuts down.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-gps
+  - type: ComponentBorgModule
+    countsTowardsCapacity: false
+    deactivatesWithBorg: false
+    components:
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Critical
+      keyOut: borgRattle
+    - type: RattleOnTrigger
+      keysIn:
+      - borgRattle
+      targetUser: true
+      radioChannel: Science
+
+- type: entity
+  id: BorgModuleVTEC
+  parent: BaseBorgModule
+  name: vtec cyborg module
+  description: A passive cyborg module that boosts the unit's movement speed by 30%. VTEC just kicked in, yo!
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-xenoborg-space-movement
+  - type: ComponentBorgModule
+    components:
+    - type: SpeedBoosted
+      speedMultiplier: 1.3
+      infinite: true

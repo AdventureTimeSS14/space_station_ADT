@@ -193,6 +193,11 @@ public abstract partial class SharedBorgSystem
             if (!_moduleQuery.TryGetComponent(moduleEnt, out var moduleComp))
                 continue;
 
+            // ADT-Tweak start
+            if (ModuleStaysActiveOnShutdown(moduleEnt))
+                continue;
+            // ADT-Tweak end
+
             UninstallModule(borg, (moduleEnt, moduleComp));
         }
     }
@@ -206,6 +211,41 @@ public abstract partial class SharedBorgSystem
         Dirty(ent);
     }
 
+    // ADT-Tweak start
+    public bool ModuleCountsTowardsCapacity(EntityUid module)
+    {
+        if (HasComp<ADTBorgStorageModuleComponent>(module))
+            return false;
+
+        return !TryComp<ComponentBorgModuleComponent>(module, out var compModule) || compModule.CountsTowardsCapacity;
+    }
+
+    public bool ModuleStaysActiveOnShutdown(EntityUid module)
+    {
+        if (HasComp<ADTBorgStorageModuleComponent>(module))
+            return true;
+
+        return TryComp<ComponentBorgModuleComponent>(module, out var compModule) && !compModule.DeactivatesWithBorg;
+    }
+
+    public int CountOccupiedModuleSlots(Entity<BorgChassisComponent?> chassis)
+    {
+        if (!Resolve(chassis, ref chassis.Comp))
+            return 0;
+
+        var count = 0;
+        foreach (var moduleEnt in chassis.Comp.ModuleContainer.ContainedEntities)
+        {
+            if (!ModuleCountsTowardsCapacity(moduleEnt))
+                continue;
+
+            count++;
+        }
+
+        return count;
+    }
+    // ADT-Tweak end
+
     /// <summary>
     /// Checks if a given module can be inserted into a borg.
     /// </summary>
@@ -214,7 +254,7 @@ public abstract partial class SharedBorgSystem
         if (!Resolve(chassis, ref chassis.Comp) || !Resolve(module, ref module.Comp))
             return false;
 
-        if (chassis.Comp.ModuleContainer.ContainedEntities.Count >= chassis.Comp.MaxModules)
+        if (CountOccupiedModuleSlots(chassis) >= chassis.Comp.MaxModules) // ADT-Tweak
         {
             _popup.PopupEntity(Loc.GetString("borg-module-too-many"), chassis.Owner, user);
             return false;

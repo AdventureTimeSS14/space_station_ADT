@@ -19,4 +19,12 @@ public sealed partial class ComponentBorgModuleComponent : Component
     /// </summary>
     [DataField(required: true)]
     public ComponentRegistry Components = new();
+
+    // ADT-Tweak start
+    [DataField]
+    public bool CountsTowardsCapacity = true;
+
+    [DataField]
+    public bool DeactivatesWithBorg = true;
+    // ADT-Tweak end
 }

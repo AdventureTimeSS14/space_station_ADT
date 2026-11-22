@@ -84,7 +84,7 @@
   parent: BaseItem
   id: SlimeSpeedMechPotion
   name: slime speed mech potion
-  description: Coats a mech or borg, boosting its movement speed for a while.
+  description: Coats a mech, boosting its movement speed for a while.
   components:
   - type: JellyCoating
     speedMultiplier: 1.3

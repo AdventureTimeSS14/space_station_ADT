@@ -19,6 +19,7 @@
   - BorgModuleInflatable
   - BorgModuleArtistry
   - ADTBorgModuleStorageDuffel # ADT-Tweak
+  - BorgModuleTracker # ADT-Tweak
 
 - type: latheRecipePack
   id: BorgLimbsStatic

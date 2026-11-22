@@ -755,6 +755,7 @@
         whitelist:
           components:
           - Circuitboard
+          - BorgModule
         blacklist:
           components:
           - SiliconLawProvider

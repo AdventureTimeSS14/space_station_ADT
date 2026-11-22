@@ -103,6 +103,11 @@
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
+  id: BorgModuleTracker
+  result: BorgModuleTracker
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
   id: BorgModuleAnomaly
   result: BorgModuleAnomaly
 
@@ -180,7 +185,7 @@
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleMedgun
-  result: ADTBorgModuleMedgun
+  result: BorgModuleMedgun
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe

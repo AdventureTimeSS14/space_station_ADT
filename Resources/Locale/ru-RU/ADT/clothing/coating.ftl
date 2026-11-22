@@ -6,3 +6,4 @@ clothing-coating-invisible = светопреломляющее покрытие
 
 jelly-coating-success = { $source } покрывает { $target }, увеличивая его скорость на 30% на { $minutes } мин.!
 jelly-coating-expired = Желе на { $target } высыхает, и прибавка к скорости пропадает.
+jelly-coating-not-mech = Покрытие работает только на мехах!

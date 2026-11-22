@@ -150,3 +150,18 @@
   position: 0,1
   requiredTech:
   - SalvageWeapons
+
+- type: technology
+  id: VtecSpeedManipulation
+  name: research-technology-vtec-speed-manipulation
+  icon:
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    state: icon-xenoborg-space-movement
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - BorgModuleVTEC
+  position: 2,-2
+  requiredTech:
+  - WeaponizedLaserManipulation

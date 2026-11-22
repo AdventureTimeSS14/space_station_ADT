@@ -83,11 +83,19 @@ public abstract partial class SharedBorgSystem
         var chassis = args.Container.Owner;
 
         if (!TryComp<BorgChassisComponent>(chassis, out var chassisComp) ||
-            args.Container != chassisComp.ModuleContainer ||
-            !chassisComp.Active)
+            args.Container != chassisComp.ModuleContainer)
             return;
 
+        // ADT-Tweak start
+        if (!chassisComp.Active && !ModuleStaysActiveOnShutdown(module))
+            return;
+        // ADT-Tweak end
+
         InstallModule((chassis, chassisComp), module.AsNullable());
+
+        // ADT-Tweak start
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(chassis);
+        // ADT-Tweak end
     }
 
     private void OnModuleGotRemoved(Entity<BorgModuleComponent> module, ref EntGotRemovedFromContainerMessage args)
@@ -122,6 +130,11 @@ public abstract partial class SharedBorgSystem
         }
 
         UninstallModule((chassis, chassisComp), module.AsNullable());
+
+        // ADT-Tweak start: модуль мог добавить компоненты скорости — обновляем модификаторы
+        if (!TerminatingOrDeleted(chassis))
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(chassis);
+        // ADT-Tweak end
 
         // Default modules should not be dropped so let's remove them.
         if (TryComp<BorgModuleComponent>(module, out var moduleComp) && moduleComp.DefaultModule)

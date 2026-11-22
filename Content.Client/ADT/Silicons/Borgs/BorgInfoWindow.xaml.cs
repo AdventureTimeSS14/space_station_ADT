@@ -8,6 +8,7 @@ using Content.Client.GameTicking.Managers;
 using Content.Client.Message;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Silicons.Borgs;
+using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Client.ADT.Silicons.Borgs;
@@ -19,6 +20,7 @@ public sealed partial class BorgInfoWindow : FancyWindow
     [Dependency] private IEntitySystemManager _entitySystem = default!;
     [Dependency] private IEntityManager _entity = default!;
     private readonly ClientGameTicker _gameTicker;
+    private readonly SharedBorgSystem _borg;
     public float AccumulatedTime;
     private List<EntityUid> _modules = new();
 
@@ -31,6 +33,7 @@ public sealed partial class BorgInfoWindow : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
+        _borg = _entitySystem.GetEntitySystem<SharedBorgSystem>();
 
 
         StationNameButton.OnPressed += _ =>
@@ -109,7 +112,7 @@ public sealed partial class BorgInfoWindow : FancyWindow
             return;
 
         ModuleCounter.Text = Loc.GetString("borg-ui-module-counter",
-            ("actual", chassis.ModuleCount),
+            ("actual", _borg.CountOccupiedModuleSlots(entity)),
             ("max", chassis.MaxModules));
 
         if (chassis.ModuleContainer.Count == _modules.Count)

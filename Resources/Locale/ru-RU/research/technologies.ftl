@@ -32,6 +32,7 @@ research-technology-weaponized-laser-manipulation = Манипулировани
 research-technology-nonlethal-ammunition = Нелетальные боеприпасы
 research-technology-practice-ammunition = Учебные боеприпасы
 research-technology-concentrated-laser-weaponry = Концентрированное лазерное оружие
+research-technology-vtec-speed-manipulation = Манипулирование скоростью VTEC
 research-technology-wave-particle-harnessing = Применение волновых частиц
 research-technology-kinetic-modifications = Кинетические модификации
 research-technology-advanced-riot-control = Продвинутое противодействие беспорядкам

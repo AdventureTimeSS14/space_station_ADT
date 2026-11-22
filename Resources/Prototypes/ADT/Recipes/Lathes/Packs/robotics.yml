@@ -3,6 +3,8 @@
   recipes:
   - ADTBorgModuleDetention #ADT secborg
   - ADTBorgModuleHarm
+  - BorgModuleFlashImmunity
+  - BorgModuleVTEC
 
 - type: latheRecipePack
   id: ADTModsuitPack
