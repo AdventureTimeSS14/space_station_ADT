@@ -1,6 +1,7 @@
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.Events;
 using Content.Shared.DoAfter;
@@ -83,7 +84,7 @@ public sealed partial class ADTEatOperator : HTNOperator
         blackboard.Remove<EntityUid>(ItemKey);
         blackboard.Remove<string>(HandKey);
 
-        if (blackboard.TryGetValue<bool>(MaskKey, out var lowered, _entManager) && lowered && GetMask(owner) is { } worn)
+        if (blackboard.TryGetValue<bool>(MaskKey, out var lowered, _entManager) && lowered && GetMask(owner) is { } worn && !_entManager.HasComponent<BreathToolComponent>(worn))
             SetMask(owner, worn, false);
 
         blackboard.SetValue(MaskKey, false);

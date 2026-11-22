@@ -100,6 +100,7 @@
     sprite: ADT/Clothing/Neck/Misc/gold_cross.rsi
   - type: Clothing
     sprite: ADT/Clothing/Neck/Misc/gold_cross.rsi
+  - type: HolyRelic
 
 #09-05
 - type: entity

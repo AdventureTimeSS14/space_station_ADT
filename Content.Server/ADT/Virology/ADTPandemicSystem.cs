@@ -227,12 +227,29 @@ public sealed class ADTPandemicSystem : EntitySystem
             .OfType<DnaData>()
             .FirstOrDefault()?.DNA ?? Loc.GetString("adt-pandemic-unknown");
 
+        FillDiseases(state, data.Diseases, data.Resistances, false);
+
+        if (ent.Comp.CandidatesForDisease >= 0)
+        {
+            state.CandidatesForDisease = ent.Comp.CandidatesForDisease;
+            foreach (var candidate in ent.Comp.Candidates)
+            {
+                if (_proto.TryIndex(candidate, out var symptomProto))
+                    state.SymptomCandidates.Add((candidate.Id, Loc.GetString(symptomProto.Name)));
+            }
+        }
+
+        _ui.SetUiState(ent.Owner, ADTPandemicUiKey.Key, state);
+    }
+
+    public void FillDiseases(ADTPandemicBoundUserInterfaceState state, IEnumerable<ADTDisease> diseases, IEnumerable<string> resistances, bool ignoreStealth)
+    {
         var index = 0;
-        foreach (var disease in data.Diseases)
+        foreach (var disease in diseases)
         {
             index++;
 
-            if ((disease.Visibility & ADTDiseaseVisibility.HiddenPandemic) != 0)
+            if (!ignoreStealth && (disease.Visibility & ADTDiseaseVisibility.HiddenPandemic) != 0)
                 continue;
 
             if (!_proto.TryIndex(disease.Prototype, out var proto))
@@ -260,7 +277,7 @@ public sealed class ADTPandemicSystem : EntitySystem
         }
 
         var antibodyIndex = 0;
-        foreach (var id in data.Resistances)
+        foreach (var id in resistances)
         {
             antibodyIndex++;
             var name = Loc.GetString("adt-pandemic-unknown");
@@ -283,18 +300,6 @@ public sealed class ADTPandemicSystem : EntitySystem
                 CanVaccine = canVaccine,
             });
         }
-
-        if (ent.Comp.CandidatesForDisease >= 0)
-        {
-            state.CandidatesForDisease = ent.Comp.CandidatesForDisease;
-            foreach (var candidate in ent.Comp.Candidates)
-            {
-                if (_proto.TryIndex(candidate, out var symptomProto))
-                    state.SymptomCandidates.Add((candidate.Id, Loc.GetString(symptomProto.Name)));
-            }
-        }
-
-        _ui.SetUiState(ent.Owner, ADTPandemicUiKey.Key, state);
     }
 
     private ADTDisease? GetDiseaseByIndex(Entity<ADTPandemicComponent> ent, int index)

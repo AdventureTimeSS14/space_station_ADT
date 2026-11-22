@@ -1,0 +1,1421 @@
+- type: reaction
+  id: ADTVirusMixBlood
+  priority: -90
+  reactants:
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixInsectBlood
+  priority: -90
+  reactants:
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixCopperBlood
+  priority: -90
+  reactants:
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixAmmoniaBlood
+  priority: -90
+  reactants:
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixSulfurBlood
+  priority: -90
+  reactants:
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixResomiBlood
+  priority: -90
+  reactants:
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixShadekinBlood
+  priority: -90
+  reactants:
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixADTCorelanderBlood
+  priority: -90
+  reactants:
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMixSap
+  priority: -90
+  reactants:
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTMixViruses
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineInsectBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    InsectBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineCopperBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineAmmoniaBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineSulfurBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    SulfurBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineResomiBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineShadekinBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineADTCorelanderBlood
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus
+
+- type: reaction
+  id: ADTVirusMutationVirusFoodSap
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusFood:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 0
+    levelMax: 2
+
+- type: reaction
+  id: ADTVirusMutationUnstableMutagenSap
+  priority: -100
+  quantized: true
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 2
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationPlasmaDustSap
+  priority: -100
+  quantized: true
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationUraniumSap
+  priority: -100
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationMutagenicAgarSap
+  priority: -100
+  quantized: true
+  reactants:
+    ADTMutagenicAgar:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 3
+    levelMax: 3
+
+- type: reaction
+  id: ADTVirusMutationSucroseAgarSap
+  priority: -100
+  quantized: true
+  reactants:
+    ADTSucroseAgar:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 4
+    levelMax: 4
+
+- type: reaction
+  id: ADTVirusMutationWeakVirusPlasmaSap
+  priority: -100
+  quantized: true
+  reactants:
+    ADTWeakVirusPlasma:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 5
+    levelMax: 5
+
+- type: reaction
+  id: ADTVirusMutationVirusPlasmaSap
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusPlasma:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 6
+    levelMax: 6
+
+- type: reaction
+  id: ADTVirusMutationVirusRationsSap
+  priority: -100
+  quantized: true
+  reactants:
+    ADTVirusRations:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTEvolveVirus
+    levelMin: 1
+    levelMax: 1
+
+- type: reaction
+  id: ADTVirusMutationDiphenhydramineSap
+  priority: -100
+  quantized: true
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    Sap:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:ADTDevolveVirus

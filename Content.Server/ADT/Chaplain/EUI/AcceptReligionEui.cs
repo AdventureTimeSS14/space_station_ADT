@@ -1,38 +1,31 @@
+using Content.Server.ADT.Chaplain;
 using Content.Server.EUI;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Chaplain;
 using Content.Shared.Eui;
-using Content.Shared.ADT.Chaplain.Components;
-using Content.Server.Bible;
 
 namespace Content.Server.Chaplain;
 
 public sealed class AcceptReligionEui : BaseEui
 {
-    private readonly EntityUid _uid;
+    private readonly Entity<ChaplainComponent> _chaplain;
     private readonly EntityUid _target;
-    private readonly ChaplainComponent _comp;
-    private readonly ChaplainSystem _chaplain;
+    private readonly ChaplainSystem _system;
 
-    public AcceptReligionEui(EntityUid uid, EntityUid target, ChaplainComponent comp, ChaplainSystem chaplain)
+    public AcceptReligionEui(Entity<ChaplainComponent> chaplain, EntityUid target, ChaplainSystem system)
     {
-        _uid = uid;
-        _target = target;
-        _comp = comp;
         _chaplain = chaplain;
+        _target = target;
+        _system = system;
     }
 
     public override void HandleMessage(EuiMessageBase msg)
     {
         base.HandleMessage(msg);
 
-        if (msg is not AcceptReligionChoiceMessage choice ||
-            choice.Button == AcceptReligionButton.Deny)
-        {
-            Close();
-            return;
-        }
+        if (msg is AcceptReligionChoiceMessage { Button: AcceptReligionButton.Accept })
+            _system.MakeFollower(_chaplain, _target);
 
-        _chaplain.MakeBeliever(_uid, _target, _comp);
         Close();
     }
 }

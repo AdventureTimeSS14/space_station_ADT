@@ -44,6 +44,11 @@
   - type: MultiHandedItem
   - type: MechGun
   - type: MechEquipment
+  - type: MechEquipmentDurability
+    maxDurability: 150
+  - type: Damageable
+  - type: Repairable
+    doAfterDelay: 5
   - type: Tag
     tags:
       - ADTMechEquipmentSec
@@ -80,6 +85,11 @@
   - type: MultiHandedItem
   - type: MechGun
   - type: MechEquipment
+  - type: MechEquipmentDurability
+    maxDurability: 150
+  - type: Damageable
+  - type: Repairable
+    doAfterDelay: 5
   - type: Tag
     tags:
       - ADTMechEquipmentSec
@@ -99,7 +109,7 @@
     fireRate: 3.3
   - type: HitscanMechAmmoProvider
     proto: RedLaser
-    fireCost: 15
+    fireCost: 8
   # - type: Battery
   #   maxCharge: 30
   #   startingCharge: 30
@@ -120,7 +130,7 @@
   - type: HitscanMechAmmoProvider
     proto: RedHeavyLaser
     weakenedProto: ADTRedHeavyLaserWeakened
-    fireCost: 11
+    fireCost: 6
     weakenedCostModifier: 0.75
   - type: Tag
     tags:
@@ -149,7 +159,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: Pulse
-    fireCost: 40
+    fireCost: 20
   # - type: Battery
   #   maxCharge: 200
   #   startingCharge: 200
@@ -173,7 +183,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: BatteryMechAmmoProvider
     proto: ADTMechDisabler
-    fireCost: 10
+    fireCost: 5
 
 - type: entity
   name: MKI Tesla Cannon
@@ -196,7 +206,7 @@
         variation: 0.2
   - type: BatteryMechAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 180
+    fireCost: 90
 #Огнестрельное
 
 - type: entity
@@ -420,7 +430,7 @@
 #       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
 #   - type: BatteryAmmoProvider
 #     proto: ADTHealMechGun
-#     fireCost: 5
+#     fireCost: 2
 #   - type: Battery
 #     maxCharge: 5000
 #     startingCharge: 5000

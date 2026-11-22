@@ -14,6 +14,7 @@
   - type: Tag
     tags:
     - ADTBSCrystal
+    - ConstructionMaterial
   - type: Sprite
     sprite: ADT/Objects/Materials/crystal.rsi
     layers:

@@ -118,9 +118,7 @@
         Piercing: 0.3
         Heat: 0.3
   - type: MechEquipment
-    canBeUsed: false
-  - type: MechMagazine
-    magazinetype: lightrifle
+  - type: MechPassiveEquipment
 
 - type: entity
   name: противопульная броня меха
@@ -139,7 +137,7 @@
         Piercing: 0.01
         Heat: 0.01
   - type: MechEquipment
-    canBeUsed: false
+  - type: MechPassiveEquipment
 
 # - type: entity
 #   name: гравитационная катапульта

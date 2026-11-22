@@ -5,8 +5,11 @@
   desc: reagent-desc-champagne-mandarin
   recognizable: true
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: champagne_mandarin
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/champagne_mandarin.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ADTMulledWineCold
@@ -17,8 +20,11 @@
   flavor: cold
   color: "#743636"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: mulled_wine_cold
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/mulled_wine_cold.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ADTMulledWine
@@ -29,8 +35,11 @@
   flavor: ADTHoliday
   color: "#743636"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: mulled_wine
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/mulled_wine.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ADTCarnation #гвоздика, чисто нужна для напитков.
@@ -71,8 +80,11 @@
   flavor: ADTChocolateDrinkFlavor
   color: "#9c9289"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: hot_chocolate
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/hot_chocolate.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Digestion:
       effects:
@@ -92,8 +104,11 @@
   flavor: ADTChocolateDrinkFlavor
   color: "#9c9289"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: hot_chocolate
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/hot_chocolate.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ADTHotCocoa
@@ -104,8 +119,11 @@
   flavor: ADTCocoaDrinkFlavor
   color: "#b29b7b"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: hot_cocoa
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/hot_cocoa.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ADTTeaCinnamonLemon
@@ -116,8 +134,11 @@
   flavor: ADTTeaCinnamonLemon
   color: "#5b3b15"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: warm_tea_cinnamon_lemon
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/warm_tea_cinnamon_lemon.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ADTChristmasMilkshake
@@ -128,8 +149,11 @@
   flavor: ADTMilkshake
   color: "#c7c5c1"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: christmas_milkshake
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/christmas_milkshake.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ADTSbitenCinnamonLemon
@@ -140,5 +164,8 @@
   flavor: ADTSbitenCinnamonLemon
   color: "#5a3a28"
   metamorphicSprite:
-    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/new_year.rsi
-    state: sbiten_cinnamon_lemon
+    sprite: ADT/Season/NewYears/Objects/Consumable/Drinks/sbiten_cinnamon_lemon.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

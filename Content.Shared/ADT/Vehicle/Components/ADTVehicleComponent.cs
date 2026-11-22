@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared.ADT.Vehicle.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -10,16 +9,10 @@ namespace Content.Shared.ADT.Vehicle.Components;
 [Access(typeof(SharedADTVehicleSystem))]
 public sealed partial class ADTVehicleComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public EntityUid? LastRider;
-
-    [ViewVariables]
-    public Vector2 BaseBuckleOffset = Vector2.Zero;
-
     [DataField]
     public SoundSpecifier? HornSound = new SoundPathSpecifier("/Audio/Effects/Vehicle/carhorn.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-3f)
+        Params = AudioParams.Default.WithVolume(-3f),
     };
 
     [DataField]
@@ -48,7 +41,4 @@ public sealed partial class ADTVehicleComponent : Component
 
     [DataField]
     public bool AutoAnimate = true;
-
-    [DataField]
-    public bool HideRider;
 }

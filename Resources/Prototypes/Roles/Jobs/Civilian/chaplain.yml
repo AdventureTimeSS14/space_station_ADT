@@ -14,8 +14,13 @@
     components:
     - type: Chaplain  # ADT Chaplain
       statusIcon: ChaplainFaction
+      maxFaith: 20 # ADT
     - type: BibleUser #Lets them heal with bibles
-    - type: MagicImmunity  # ADT-Tweak
+    # ADT-Tweak-Start
+    - type: AntagImmune
+    - type: ADTVirusImmune
+      absolute: true
+    # ADT-Tweak-End
 
 
 - type: startingGear

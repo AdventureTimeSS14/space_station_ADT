@@ -21,6 +21,8 @@
     count: 1
   - id: FoodFlyAmanita
     count: 1
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieAmanita
   group: Pie
@@ -45,6 +47,8 @@
   ingredients:
   - id: FoodDoughPie
     count: 1
+  - id: FoodPlateTin
+    count: 1   
   - id: FoodApple
     count: 3
   time: 30
@@ -158,6 +162,8 @@
     count: 1
   - id: FoodSnackPistachios
     count: 1
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieBaklava
   group: Pie
@@ -184,6 +190,8 @@
     count: 1
   - id: FoodBanana
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieBananaCream
   group: Pie
@@ -223,6 +231,8 @@
     count: 1
   - id: FoodBerries
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieClafoutis
   group: Pie
@@ -500,6 +510,8 @@
     count: 1
   - id: FoodCherry
     count: 5
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieCherry
   group: Pie
@@ -541,6 +553,8 @@
     count: 1
   - id: FoodSnackChocolateBar
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   reagents:
     Sugar: 5
     Milk: 5
@@ -1689,6 +1703,8 @@
     count: 3
   - id: FoodBerries
     count: 1
+  - id: FoodPlateMuffinTin
+    count: 1
   reagents:
     Sugar: 10
   time: 30
@@ -1718,6 +1734,8 @@
     count: 1
   - id: FoodMushroom
     count: 2
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPiePlump
   group: Pie
@@ -2021,6 +2039,8 @@
     count: 1
   - id: FoodChillyPepper
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieFrosty
   group: Pie
@@ -2034,6 +2054,8 @@
     count: 1
   - id: FoodApple
     count: 2
+  - id: FoodPlateTin
+    count: 1   
   reagents:
     Gold: 10
     Sugar: 5
@@ -2079,6 +2101,8 @@
     count: 1
   - id: FoodGrape
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   reagents:
     Sugar: 5
     Milk: 5
@@ -2270,6 +2294,8 @@
     count: 1
   - id: FoodMeat
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieMeat
   group: Pie
@@ -2328,6 +2354,8 @@
     count: 1
   - id: FoodMimana
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   reagents:
     Sugar: 5
     Milk: 5
@@ -2387,6 +2415,8 @@
     count: 1
   - id: FoodBanana
     count: 1
+  - id: FoodPlateMuffinTin
+    count: 1
   reagents:
     Sugar: 10
   time: 30
@@ -2401,6 +2431,8 @@
   - id: FoodDoughSlice
     count: 1
   - id: FoodBerries
+    count: 1
+  - id: FoodPlateMuffinTin
     count: 1
   reagents:
     Sugar: 10
@@ -2417,6 +2449,8 @@
     count: 1
   - id: FoodCherry
     count: 3
+  - id: FoodPlateMuffinTin
+    count: 1
   reagents:
     Sugar: 10
   time: 30
@@ -2431,6 +2465,8 @@
   - id: FoodDoughSlice
     count: 1
   - id: FoodSnackChocolateBar
+    count: 1
+  - id: FoodPlateMuffinTin
     count: 1
   reagents:
     Sugar: 10
@@ -2538,6 +2574,8 @@
     count: 1
   - id: FoodPumpkin
     count: 1
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPiePumpkin
   group: Pie
@@ -2989,6 +3027,8 @@
     count: 1
   - id: FoodMeatXeno
     count: 3
+  - id: FoodPlateTin
+    count: 1   
   time: 30
   result: FoodPieXeno
   group: Pie

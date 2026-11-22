@@ -1,26 +1,4 @@
-- type: guideEntry
-  id: References
-  name: guide-entry-references
-  priority: 30
-  text: "/ServerInfo/Guidebook/References.xml"
-  children:
-  - Medicine #ADT-Tweak
-# - Chemicals
-  - Drinks
-  - FoodRecipes
-  - Writing
-  - Lawsets
-
-  # ADT-Tweak Start
-- type: guideEntry
-  id: Medicine
-  name: guide-entry-medicine
-  text: "/ServerInfo/Guidebook/Medicine.xml"
-  children:
-    - MedicinalRecipes
-    - Chemicals
-  #ADT-Tweak End
-
+# ADT-Tweak
 - type: guideEntry
   id: Drinks
   name: guide-entry-drinks

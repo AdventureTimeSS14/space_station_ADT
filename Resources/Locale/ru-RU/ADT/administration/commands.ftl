@@ -110,3 +110,14 @@ cmd-linkbodies-same = Нужно указать хотя бы две разны�
 cmd-linkbodies-success = Связано сущностей: { $count }.
 cmd-unlinkbodies-desc = Отвязывает сущности от всех связанных с ними тел.
 cmd-unlinkbodies-help = Использование: unlinkbodies <entity uid> [entity uid...]
+shell-invalid-metabolism-type = Неверный способ применения
+
+# Команда: hallucinate
+hallucinate-command-description = Применяет определённые галлюцинации к сущности
+hallucinate-command-help-text = Использование: { $command } <uid> <способ применения> <время> <паки галлюцинаций>
+hallucinate-command-success = Применён пак галлюцинаций { $added } к сущности { $target }.
+
+# Команда: add-as-hallucination
+add-as-hallucination-command-description = Добавляет указанной сущности другую сущность как галлюцинацию.
+add-as-hallucination-command-help-text = Использование: { $command } <uid цели> <uid галлюцинации>
+add-as-hallucination-command-success = Сущность { $added } теперь является галлюцинацией сущности { $target }.

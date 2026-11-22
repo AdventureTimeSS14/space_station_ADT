@@ -12,7 +12,6 @@
     extractReactions:
     - DarkPurpleSlimeExtractWaterReaction
     - DarkPurpleSlimeExtractPlasmaReaction
-    - DarkPurpleSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyDarkPurpleExtract
@@ -50,23 +49,5 @@
   - effect: !type:CreateEntityReactionEffect
       entity: SheetPlasma1
       number: 3
-    scalingOffset: 1
-  shouldDelete: false
-
-- type: extractReaction
-  id: DarkPurpleSlimeExtractBloodReaction
-  requirements:
-    Blood: 1
-  effects:
-  - effect: !type:PopupMessage
-      type: Pvs
-      messages: [ "xeno-extract-reaction" ]
-    scalingOffset: 0
-  - effect: !type:PlaySoundEffect
-      sound: /Audio/Effects/Chemistry/bubbles.ogg
-    scalingOffset: 0
-  - effect: !type:CreateGas
-      gas: Plasma
-      moles: 55
     scalingOffset: 1
   shouldDelete: false

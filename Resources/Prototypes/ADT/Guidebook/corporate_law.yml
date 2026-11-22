@@ -1,0 +1,59 @@
+- type: guideEntry
+  id: ADTCorporateLaw
+  name: guide-entry-adt-corporate-law
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/CorporateLaw.xml"
+  children:
+  - ADTCorporateLawRights
+  - ADTCorporateLawLight
+  - ADTCorporateLawMedium
+  - ADTCorporateLawHeavy
+  - ADTCorporateLawGrave
+  - ADTCorporateLawCritical
+  - ADTCorporateLawPunishments
+  - ADTCorporateLawPrisoners
+  - ADTCorporateLawTerms
+
+- type: guideEntry
+  id: ADTCorporateLawRights
+  name: guide-entry-adt-corporate-law-rights
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Rights.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawLight
+  name: guide-entry-adt-corporate-law-light
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Light.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawMedium
+  name: guide-entry-adt-corporate-law-medium
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Medium.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawHeavy
+  name: guide-entry-adt-corporate-law-heavy
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Heavy.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawGrave
+  name: guide-entry-adt-corporate-law-grave
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Grave.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawCritical
+  name: guide-entry-adt-corporate-law-critical
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Critical.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawPunishments
+  name: guide-entry-adt-corporate-law-punishments
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Punishments.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawPrisoners
+  name: guide-entry-adt-corporate-law-prisoners
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Prisoners.xml"
+
+- type: guideEntry
+  id: ADTCorporateLawTerms
+  name: guide-entry-adt-corporate-law-terms
+  text: "/ServerInfo/ADT/Guidebook/CorporateLaw/Terms.xml"

@@ -309,6 +309,11 @@ public sealed partial class ChatSystem
             var range = voiceGetRange;
             if (TryComp<ChatModifierComponent>(playerEntity, out var modifier) && modifier.Modifiers.ContainsKey(ChatModifierType.Say))
                 range = modifier.Modifiers[ChatModifierType.Say];
+
+            var ev = new CanReceiveChatMessageEvent(source, false);
+            RaiseLocalEvent(playerEntity, ref ev);
+            if (ev.Cancelled)
+                continue;
             // ADT-Tweak-End
 
             // even if they are a ghost hearer, in some situations we still need the range

@@ -34,6 +34,15 @@ public sealed partial class NightVisionComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string Shader = "ADTModernNightVisionShader";
+
+    [DataField, AutoNetworkedField]
+    public Color? Tint;
+
+    [DataField]
+    public EntProtoId? ToggleAction;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ToggleActionEntity;
 }
 
 [Serializable, NetSerializable]

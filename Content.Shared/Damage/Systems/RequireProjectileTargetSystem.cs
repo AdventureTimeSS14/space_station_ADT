@@ -37,7 +37,7 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
 
         if (TryComp(other, out ProjectileComponent? projectile))
         {
-            // ADT-Tweak start
+            // ADT-Tweak-Start
             if (HasComp<ADTPreciseProjectileTargetComponent>(other) &&
                 TryComp<TargetedProjectileComponent>(other, out var precise))
             {
@@ -49,7 +49,7 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
 
                 return;
             }
-            // ADT-Tweak end
+            // ADT-Tweak-End
 
             // ADT Crawling abuse fix start
             if (TryComp<TargetedProjectileComponent>(other, out var targeted) &&
@@ -69,6 +69,11 @@ public sealed partial class RequireProjectileTargetSystem : EntitySystem
                     return;
             }
             // ADT ALW Tweak
+
+            // ADT-Tweak-Start
+            if (projectile.IgnoreTargeted)
+                return;
+            // ADT-Tweak-End
 
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;

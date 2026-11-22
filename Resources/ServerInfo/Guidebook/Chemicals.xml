@@ -6,29 +6,29 @@
 Чтобы умело справляться с различными травмами и угрозами, важно знать свойства и действие различных химических веществ.
 
 ## Элементы
-<GuideReagentGroupEmbed Group="Elements"/>
+<GuideADTReagentGroupEmbed Group="Elements"/>
 
 ## Лекарственные средства
-<GuideReagentGroupEmbed Group="Medicine"/>
+<GuideADTReagentGroupEmbed Group="Medicine"/>
 
 ## Наркотические вещества
-<GuideReagentGroupEmbed Group="Narcotics"/>
+<GuideADTReagentGroupEmbed Group="Narcotics"/>
 
 ## Пиротехника
-<GuideReagentGroupEmbed Group="Pyrotechnic"/>
+<GuideADTReagentGroupEmbed Group="Pyrotechnic"/>
 
 ## Токсины
-<GuideReagentGroupEmbed Group="Toxins"/>
+<GuideADTReagentGroupEmbed Group="Toxins"/>
 
 ## Пищевые химикаты
-<GuideReagentGroupEmbed Group="Foods"/>
+<GuideADTReagentGroupEmbed Group="Foods"/>
 
 ## Ботанические средства
-<GuideReagentGroupEmbed Group="Botanical"/>
+<GuideADTReagentGroupEmbed Group="Botanical"/>
 
 ## Биологические вещества
-<GuideReagentGroupEmbed Group="Biological"/>
+<GuideADTReagentGroupEmbed Group="Biological"/>
 
 ## Разное
-<GuideReagentGroupEmbed Group="Unknown"/>
+<GuideADTReagentGroupEmbed Group="Unknown"/>
 </Document>

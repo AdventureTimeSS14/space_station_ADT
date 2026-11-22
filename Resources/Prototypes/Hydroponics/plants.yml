@@ -41,7 +41,7 @@
   - type: PlantWeedPest
   - type: PlantAtmospheric
   - type: PlantGrowth
-  - type: PlantConsumeExudeGas
+  # - type: PlantConsumeExudeGas ADT-Tweak
 
 - type: entity
   parent: BasePlant

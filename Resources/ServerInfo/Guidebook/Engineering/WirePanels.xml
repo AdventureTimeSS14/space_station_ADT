@@ -1,8 +1,8 @@
 ﻿<Document>
-  # Wire Panels
-  Some station devices like airlocks, vending machines, and arcade consoles have wire panels, which control certain aspects of their functionality.
+  # Панели проводки
+  У некоторых устройств станции, например у шлюзов, торговых автоматов и игровых автоматов, есть панели проводки, которые управляют частью их функций.
 
-  These panels can be opened using a screwdriver to access the wiring inside.
+  Чтобы добраться до проводов внутри, откройте панель отвёрткой.
 
   <Box>
     <GuideEntityEmbed Entity="Wirecutter"/>
@@ -10,20 +10,20 @@
     <GuideEntityEmbed Entity="Multitool"/>
   </Box>
 
-  From here you can use wirecutters and a multitool to interact with the wiring. Note that interacting with the wiring often requires insulated gloves, as if the wire is live, you can get shocked.
+  С проводами работают кусачками и мультитулом. Обычно для этого нужны изолированные перчатки, потому что если провод под напряжением, вас может ударить током.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
   </Box>
 
-  You can cut and mend wires using the wirecutters and pulse wires using the multitool.
+  Кусачками провода перерезают и восстанавливают, а мультитулом подают на них импульс.
 
-  Cutting wires often completely disables or restores functionality to a device.
-  It may also trigger unintended functionality like shocking people, dropping door bolts, or exploding.
+  Если перерезать провод, устройство обычно полностью теряет какую-то функцию или, наоборот, снова её получает.
+  Это может вызвать и нежелательные последствия, например удар током, опускание болтов двери или взрыв.
 
-  Pulsing wires can have a variety of effects, but oftentimes it either temporarily disables or enables functionality.
+  Импульс может дать разные эффекты, но чаще всего он временно отключает или включает функцию.
 
-  You can't pulse wires if the wire you're trying to pulse is cut. You have to mend the wire first.
+  На перерезанный провод импульс подать нельзя, поэтому сначала его нужно восстановить.
 
 
 </Document>

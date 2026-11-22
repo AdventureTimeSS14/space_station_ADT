@@ -5,18 +5,15 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
-using Robust.Shared.Map;
-using Content.Shared.Mech;
-using Content.Shared.Mech.Equipment.Components;
 
 namespace Content.Client.ADT.Mech.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class MechEquipmentMenu : RadialMenu
 {
-    [Dependency] private EntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
-    public event Action<NetEntity?>? OnSelectEquip;
+    public event Action<EntityUid?>? OnSelectEquip;
 
     public MechEquipmentMenu()
     {
@@ -24,60 +21,52 @@ public sealed partial class MechEquipmentMenu : RadialMenu
         RobustXamlLoader.Load(this);
     }
 
-    public void Populate(List<NetEntity> equip)
+    public void Populate(List<EntityUid> equipment)
     {
         var spriteSystem = _entManager.System<SpriteSystem>();
         var parent = FindControl<RadialContainer>("Main");
-        parent.DisposeAllChildren();
+        parent.RemoveAllChildren();
 
-        var noButton = new MechEquipmentMenuButton
+        var noButton = new RadialMenuButtonWithSector
         {
             StyleClasses = { "RadialMenuButton" },
             SetSize = new Vector2(64f, 64f),
-            ToolTip = Loc.GetString("Ничего" ?? String.Empty),
-            Entity = null,
+            ToolTip = Loc.GetString("adt-mech-equipment-none"),
         };
 
-        var tex = new TextureRect
+        noButton.AddChild(new TextureRect
         {
             VerticalAlignment = VAlignment.Center,
             HorizontalAlignment = HAlignment.Center,
             Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new("/Textures/Interface/Default/blocked.png"))),
             TextureScale = new Vector2(2f, 2f),
-        };
+        });
 
         noButton.OnPressed += _ => OnSelectEquip?.Invoke(null);
-        noButton.AddChild(tex);
         parent.AddChild(noButton);
 
-        foreach (var item in equip)
+        foreach (var item in equipment)
         {
-            if (!_entManager.TryGetEntityData(item, out var ent, out var meta))
-                continue;
-            if (!_entManager.GetComponent<MechEquipmentComponent>(ent.Value).CanBeUsed)
+            if (!_entManager.TryGetComponent<MetaDataComponent>(item, out var meta))
                 continue;
 
-            var dummy = _entManager.SpawnEntity(meta.EntityPrototype?.ID, MapCoordinates.Nullspace);
-            var face = new SpriteView();
-            face.SetEntity(dummy);
+            var face = new SpriteView
+            {
+                Scale = new Vector2(2f, 2f),
+            };
+            face.SetEntity(item);
 
-            var button = new MechEquipmentMenuButton
+            var button = new RadialMenuButtonWithSector
             {
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64f, 64f),
-                ToolTip = Loc.GetString(meta.EntityName ?? string.Empty),
-                Entity = item,
+                ToolTip = meta.EntityName,
             };
 
-            button.OnPressed += _ => OnSelectEquip?.Invoke(item);
+            var equip = item;
+            button.OnPressed += _ => OnSelectEquip?.Invoke(equip);
             button.AddChild(face);
             parent.AddChild(button);
         }
     }
-}
-
-
-public sealed class MechEquipmentMenuButton : RadialMenuButtonWithSector
-{
-    public NetEntity? Entity;
 }

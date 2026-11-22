@@ -33,6 +33,16 @@
       - Medical
 
 - type: entity
+  parent: ADTClothingNeckJeton
+  id: ADTClothingNeckJetonSmuggler
+  suffix: Smugglers
+
+- type: entity
+  parent: ADTClothingNeckJetonSmuggler
+  id: ADTClothingNeckJetonSmugglerBoss
+  suffix: Smugglers, Boss
+
+- type: entity
   parent: ClothingNeckBase
   id: ADTClothingNeckPatchTSF
   name: TSF patch

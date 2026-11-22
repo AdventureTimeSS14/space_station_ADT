@@ -1,0 +1,34 @@
+<Document>
+  # Виды
+
+  Эти виды доступны при создании персонажа в начале раунда. Подробнее о каждом можно прочитать по ссылке или через «Подразделы».
+
+  ## Классические
+
+  - [textlink="Арахнид" link="Arachnid"]
+  - [textlink="Вокс" link="Vox"]
+  - [textlink="Дворф" link="Dwarf"]
+  - [textlink="Диона" link="Diona"]
+  - [textlink="Ниан" link="Moth"]
+  - [textlink="Слаймолюд" link="SlimePerson"]
+  - [textlink="Унатх" link="Reptilian"]
+  - [textlink="Человек" link="Human"]
+
+  ## Нестандартные
+
+  - [textlink="Аркана" link="ADTArkana"]
+  - [textlink="Вульпканин" link="Vulpkanin"]
+  - [textlink="Драск" link="ADTDrask"]
+  - [textlink="Кобольд" link="ADTKobolt"]
+  - [textlink="Селецерн" link="ADTCelecern"]
+  - [textlink="Таяр" link="ADTTajaran"]
+  - [textlink="Урс" link="ADTUrsus"]
+  - [textlink="Фелинид" link="ADTFelinid"]
+
+  ## Особые
+
+  - [textlink="КПБ" link="ADTIPC"]
+  - [textlink="Новакид" link="ADTNovakid"]
+  - [textlink="Резоми" link="ADTResomi"]
+  - [textlink="Сумеречник" link="Shadekin"]
+</Document>

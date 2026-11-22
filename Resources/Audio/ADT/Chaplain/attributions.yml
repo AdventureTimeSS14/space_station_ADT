@@ -1,0 +1,29 @@
+- files: ["prayer.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from ParadiseSS13 (sound/effects/pray_chaplain.ogg), converted to mono."
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["follower_prayer.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from ParadiseSS13 (sound/effects/pray.ogg), converted to mono."
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["holy_shield.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from ParadiseSS13 (sound/magic/charge.ogg)."
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["blessing.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blessing2 from Spell Sounds Starter Pack by p0ss, converted to mono OGG."
+  source: "https://opengameart.org/content/spell-sounds-starter-pack"
+
+- files: ["vade_retro.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "forcepush from Spell Sounds Starter Pack by p0ss, converted to mono."
+  source: "https://opengameart.org/content/spell-sounds-starter-pack"
+
+- files: ["exorcism.ogg"]
+  license: "CC0-1.0"
+  copyright: "Lightning Spell Impact 1 from 150 Combat Sound Effects by untamedpixels, converted to mono OGG."
+  source: "https://opengameart.org/node/195932"

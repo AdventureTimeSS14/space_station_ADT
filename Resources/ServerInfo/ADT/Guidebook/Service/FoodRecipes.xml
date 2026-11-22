@@ -18,7 +18,7 @@
 
   Чтобы определить готовность еды, следите за изменением её цвета. Если от еды начал подниматься дым, значит, она уже пережаривается.
 
-- [color=#a4885c]Варёные блюда[/color] готовятся в кастрюле, в которую сначала необходимо налить воду, а затем добавить ингредиенты и приправы. Если содержимое кастрюли начнёт прилипать, помешайте его половником, чтобы улучшить результат приготовления.
+- [color=#a4885c]Варёные блюда[/color] готовятся в кастрюле, в которую сначала необходимо налить воду (её можно набрать прямо из раковины), а затем добавить ингредиенты и приправы. Если содержимое кастрюли начнёт прилипать, помешайте его половником, чтобы улучшить результат приготовления.
 
   Когда суп будет готов, вода в кастрюле превратится в суп, который можно разлить по мискам. Чтобы набрать порцию, нажмите пустой миской на кастрюлю или кастрюлей на миску. Пока суп остаётся в кастрюле, вы можете добавлять в него дополнительные ингредиенты.
 
@@ -40,70 +40,70 @@
 
 <GuideADTCookingGroupEmbed Group="Base"/>
 
-<GuideMicrowaveGroupEmbed Group="Base"/>
+<GuideADTMicrowaveGroupEmbed Group="Base"/>
 
 <GuideADTCookingGroupEmbed Group="Pizza"/>
 
-<GuideMicrowaveGroupEmbed Group="Pizza"/>
+<GuideADTMicrowaveGroupEmbed Group="Pizza"/>
 
 <GuideADTCookingGroupEmbed Group="Savory"/>
 
-<GuideMicrowaveGroupEmbed Group="Savory"/>
+<GuideADTMicrowaveGroupEmbed Group="Savory"/>
 
 <GuideADTCookingGroupEmbed Group="Breads"/>
 
-<GuideMicrowaveGroupEmbed Group="Breads"/>
+<GuideADTMicrowaveGroupEmbed Group="Breads"/>
 
 <GuideADTCookingGroupEmbed Group="Breakfast"/>
 
-<GuideMicrowaveGroupEmbed Group="Breakfast"/>
+<GuideADTMicrowaveGroupEmbed Group="Breakfast"/>
 
 <GuideADTCookingGroupEmbed Group="Moth"/>
 
-<GuideMicrowaveGroupEmbed Group="Moth"/>
+<GuideADTMicrowaveGroupEmbed Group="Moth"/>
 
 <GuideADTCookingGroupEmbed Group="Pasta"/>
 
-<GuideMicrowaveGroupEmbed Group="Pasta"/>
+<GuideADTMicrowaveGroupEmbed Group="Pasta"/>
 
 <GuideADTCookingGroupEmbed Group="Dessert"/>
 
-<GuideMicrowaveGroupEmbed Group="Dessert"/>
+<GuideADTMicrowaveGroupEmbed Group="Dessert"/>
 
 <GuideADTCookingGroupEmbed Group="Soup"/>
 
-<GuideMicrowaveGroupEmbed Group="Soup"/>
+<GuideADTMicrowaveGroupEmbed Group="Soup"/>
 
 <GuideADTCookingGroupEmbed Group="Pie"/>
 
-<GuideMicrowaveGroupEmbed Group="Pie"/>
+<GuideADTMicrowaveGroupEmbed Group="Pie"/>
 
 <GuideADTCookingGroupEmbed Group="BarsAndCookies"/>
 
-<GuideMicrowaveGroupEmbed Group="BarsAndCookies"/>
+<GuideADTMicrowaveGroupEmbed Group="BarsAndCookies"/>
 
 <GuideADTCookingGroupEmbed Group="Cake"/>
 
-<GuideMicrowaveGroupEmbed Group="Cake"/>
+<GuideADTMicrowaveGroupEmbed Group="Cake"/>
 
 <GuideADTCookingGroupEmbed Group="Salad"/>
 
-<GuideMicrowaveGroupEmbed Group="Salad"/>
+<GuideADTMicrowaveGroupEmbed Group="Salad"/>
 
 <GuideADTCookingGroupEmbed Group="Icecreams"/>
 
-<GuideMicrowaveGroupEmbed Group="Icecreams"/>
+<GuideADTMicrowaveGroupEmbed Group="Icecreams"/>
 
 <GuideADTCookingGroupEmbed Group="Holiday"/>
 
-<GuideMicrowaveGroupEmbed Group="Holiday"/>
+<GuideADTMicrowaveGroupEmbed Group="Holiday"/>
 
 <GuideADTCookingGroupEmbed Group="Other"/>
 
-<GuideMicrowaveGroupEmbed Group="Other"/>
+<GuideADTMicrowaveGroupEmbed Group="Other"/>
 
 <GuideADTCookingGroupEmbed Group="Secret"/>
 
-<GuideMicrowaveGroupEmbed Group="Secret"/>
+<GuideADTMicrowaveGroupEmbed Group="Secret"/>
 
 </Document>

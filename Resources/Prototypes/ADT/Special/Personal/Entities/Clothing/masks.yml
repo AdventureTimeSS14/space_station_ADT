@@ -26,7 +26,7 @@
   - type: Clothing
     sprite: Clothing/Mask/medicalsecurity.rsi
   - type: TypingSound
-    typingSound: 
+    typingSound:
       collection: ADTRaven559MaskOn
     messageSentSound:
       collection: ADTRaven559MaskOff
@@ -34,3 +34,25 @@
     modifiers:
       coefficients:
         Heat: 0.80
+
+- type: entity
+  parent: ClothingMaskNeckGaiter
+  id: ADTClothingMaskNeckGaiterModShinoba
+  name: modified neck gaiter
+  description: Breathable gaiters — what more could you ask for?
+  suffix: sponsor, shinoba
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/neckgaiter.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/neckgaiter.rsi
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: BreathMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

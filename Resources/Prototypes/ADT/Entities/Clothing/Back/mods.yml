@@ -311,6 +311,7 @@
     sprite: ADT/Clothing/Back/Modsuit/hos.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 12
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -710,6 +711,7 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
+      - ADTModsuitModEmpProtection
       - ADTModsuitModIsulation
 
 - type: entity

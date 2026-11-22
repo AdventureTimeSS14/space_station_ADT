@@ -14,6 +14,7 @@
     # Карго
     CargoTechnician: 200
     SalvageSpecialist: 300
+    ADTMiner: 300
     # Сервис
   #  Boxer: 150
     Chaplain: 150
@@ -41,6 +42,7 @@
     MedicalDoctor: 300
     Paramedic: 400
     ADTPathologist: 400
+    ADTVirologist: 400
     Chemist: 400
     ADTSeniorPhysician: 450
     # СБ

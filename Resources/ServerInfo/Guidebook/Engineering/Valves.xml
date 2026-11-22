@@ -1,6 +1,6 @@
 ﻿<Document>
-  # Valves
-  Valves are a quick way to halt or permit gas flow through a [textlink="pipenet" link="PipeNetworks"].
+  # Клапаны
+  Клапаны позволяют быстро перекрыть или открыть поток газа в [textlink="сети труб" link="PipeNetworks"].
   <Box>
     <GuideEntityEmbed Entity="GasValve"/>
     <GuideEntityEmbed Entity="SignalControlledValve"/>
@@ -8,9 +8,9 @@
     <GuideEntityEmbed Entity="GasPassiveGate"/>
     <GuideEntityEmbed Entity="GasPressureRegulator"/>
   </Box>
-  All valves do not require [textlink="power" link="Power"] to operate.
+  Ни одному клапану не нужно [textlink="питание" link="Power"].
 
-  Valves may look simple, but they can enable a wide variety of complex pipe systems, including:
-  - Signal valves responding to air alarm or logic gate outputs
-  - Pneumatic valves controlling variable venting of waste gasses from a burn chamber
+  Клапаны выглядят просто, но с их помощью можно построить самые сложные системы труб, например:
+  - сигнальные клапаны, которые реагируют на выходы воздушной сигнализации или логических элементов;
+  - пневматические клапаны, которые регулируют выпуск отработанных газов из камеры сгорания.
 </Document>
