@@ -8,7 +8,6 @@
   - SciFlash
   - CyborgEndoskeleton
   - ProximitySensor # ADT
-  - NanopasteRecipe # ADT
 
 - type: latheRecipePack
   id: BorgModulesStatic
@@ -79,3 +78,8 @@
     - MechEquipmentGrabber
     - MechEquipmentHorn
     - MechEquipmentGrabberSmall
+
+- type: latheRecipePack
+  id: ADTNanopaste
+  recipes:
+  - NanopasteRecipe

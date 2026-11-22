@@ -422,6 +422,7 @@
     - ADTBorgModules
     - ADTJanicartUpgradesPack
     - ADTBorgModulesAdvanced # ADT: advanced borg modules port (OmuStation PR #2164)
+    - ADTNanopaste # ADT-Tweak
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
