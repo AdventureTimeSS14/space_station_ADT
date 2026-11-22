@@ -6554,20 +6554,10 @@ entities:
     - type: Clothing
       inSlotFlag: HEAD
       inSlot: head
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -12611.1540233
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 50
     - type: Forensics
       residues: []
       fingerprints: []
@@ -9553,20 +9543,10 @@ entities:
       parent: 53
     - type: MeleeWeapon
       nextAttack: -11.2428131
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -12611.1540233
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 55
     - type: Forensics
       residues: []
       fingerprints: []
@@ -9872,22 +9852,10 @@ entities:
       user: 48
       nextUpdate: -19.3601698
       mode: SensorBinary
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -12611.1540233
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        adt-accessories: !type:Container
-          ents: []
-        solution@food: !type:ContainerSlot
-          ent: 52
     - type: Forensics
       residues: []
       fingerprints: []
@@ -128597,50 +128565,20 @@ entities:
     components:
     - type: Transform
       parent: 6
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 10
   - uid: 23
     components:
     - type: Transform
       parent: 20
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 24
   - uid: 37
     components:
     - type: Transform
       parent: 34
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 38
   - uid: 15900
     components:
     - type: Transform
@@ -129186,50 +129124,20 @@ entities:
     components:
     - type: Transform
       parent: 6
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 8
   - uid: 21
     components:
     - type: Transform
       parent: 20
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 22
   - uid: 35
     components:
     - type: Transform
       parent: 34
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 36
 - proto: ClothingHeadHelmetTemplar
   entities:
   - uid: 15998
@@ -130077,26 +129985,10 @@ entities:
     components:
     - type: Transform
       parent: 53
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -12611.1540233
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        solution@food: !type:ContainerSlot
-          ent: 57
-          showEnts: False
-          occludes: True
     - type: Forensics
       residues: []
       fingerprints: []
@@ -130108,26 +130000,10 @@ entities:
     components:
     - type: Transform
       parent: 62
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: EmitSoundOnCollide
       nextSound: -12611.1540233
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        solution@food: !type:ContainerSlot
-          ent: 64
-          showEnts: False
-          occludes: True
     - type: Forensics
       residues: []
       fingerprints: []
@@ -211195,14 +211071,6 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 43.42473,-42.512604
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 50
-          reagents: []
-        food:
-          reagents: []
-      containers: []
 - proto: OrganHumanHeart
   entities:
   - uid: 27523

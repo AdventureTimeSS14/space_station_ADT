@@ -161,14 +161,14 @@ public sealed partial class ParticleSystem : EntitySystem
 
     private void OnQualityChanged(int quality)
     {
+        if (quality < 0 || quality >= QualityBudgets.Length)
+            quality = 0;
+
         _quality = quality;
         _inViewEmitters = 0;
-        if (quality >= 0 && quality < QualityBudgets.Length)
-        {
-            _globalBudget = quality == QualityBudgets.Length - 1
-                ? _cfg.GetCVar(CCVars.ParticleGlobalBudget)
-                : QualityBudgets[quality];
-        }
+        _globalBudget = quality == QualityBudgets.Length - 1
+            ? _cfg.GetCVar(CCVars.ParticleGlobalBudget)
+            : QualityBudgets[quality];
 
         RaiseLocalEvent(new ParticleSettingsChangedEvent(quality));
     }

@@ -4767,30 +4767,6 @@ entities:
         adt-aslot-barbell: !type:ContainerSlot
           occludes: False
           ent: 1542
-- proto: ADTBarbellBenchOverlay
-  entities:
-  - uid: 1538
-    components:
-    - type: MetaData
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-      name: штанга
-    - type: Transform
-      parent: 1537
-  - uid: 1541
-    components:
-    - type: MetaData
-      desc: Тяжёлая штанга для жима. Прямо как на постерах.
-      name: штанга
-    - type: Transform
-      parent: 1540
-  - uid: 4065
-    components:
-    - type: Transform
-      parent: 1537
-  - uid: 4066
-    components:
-    - type: Transform
-      parent: 1540
 - proto: ADTBarSignNeonFlamingo
   entities:
   - uid: 4

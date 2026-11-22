@@ -61,41 +61,6 @@
   metamorphicChangeColor: false
 
 - type: reagent
-  id: ADTScientificAle
-  name: scientific-ale-name
-  parent: BaseAlcohol
-  desc: scientific-ale-desc
-  physicalDesc: reagent-physical-desc-bubbly
-  flavor: adt_scientificale
-  color: "#ff9de2"
-  recognizable: true
-  metabolisms:
-    Digestion:
-      effects:
-      - !type:Satiate
-        satiationType: Thirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.2
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Novakid ]
-        damage:
-          types:
-            Poison: 0.3
-  metamorphicSprite:
-    sprite: ADT/Objects/Consumable/Drinks/scientificale.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-
-- type: reagent
   id: ADTUraniumAle
   name: uranium-ale-name
   parent: BaseAlcohol
