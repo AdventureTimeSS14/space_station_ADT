@@ -115,6 +115,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
     private const float LeechingWalkUpdateInterval = 1f;
+    private const float AscendedRustHealMultiplier = 10f;
     private float _accumulator;
 
     public override void Initialize()
@@ -515,7 +516,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 {
                     if (heretic.Ascended)
                     {
-                        multiplier = 5f;
+                        multiplier = AscendedRustHealMultiplier;
                         if (resiratorQuery.TryComp(uid, out var respirator))
                         {
                             _respirator.UpdateSaturation(uid,
