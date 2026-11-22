@@ -156,7 +156,7 @@
   name: research-technology-advanced-sec-borg-modifiers
   icon:
     sprite: Objects/Specific/Robotics/borgmodule.rsi
-    state: icon-xenoborg-space-movement
+    state: security
   discipline: Arsenal
   tier: 2
   cost: 10000

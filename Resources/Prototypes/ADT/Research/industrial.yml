@@ -242,3 +242,18 @@
 #  requiredTech:
 #  - ADTInducer
 
+
+- type: technology
+  id: ADTBorgEmpProtection
+  name: research-technology-adt-borg-emp-protection
+  icon:
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    state: engineering
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - BorgModuleEmpProtection
+  position: -1,-2
+  requiredTech:
+  - ADTAdvancedEnergy

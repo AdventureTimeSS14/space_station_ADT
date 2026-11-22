@@ -651,3 +651,14 @@
     Glass: 500
     Plastic: 250
     Gold: 100
+
+- type: latheRecipe
+  id: BorgModuleEmpProtection
+  result: BorgModuleEmpProtection
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Plasma: 250

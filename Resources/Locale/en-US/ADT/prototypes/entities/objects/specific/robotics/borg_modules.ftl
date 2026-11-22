@@ -67,3 +67,5 @@ ent-BorgModuleEnergyTac = tactical energy module
     .desc = A module with a compact energy rifle featuring three firing modes - stun, disable and lethal.
 ent-ADTBorgWeaponEnergyTac = tactical energy rifle
     .desc = A compact energy rifle with three firing modes - stun, disable and lethal. Designed for cyborgs, recharges on its own.
+ent-BorgModuleEmpProtection = EMP protection cyborg module
+    .desc = A passive module hardening the chassis against electromagnetic pulses. EMPs no longer disable the chassis or drain its charge.

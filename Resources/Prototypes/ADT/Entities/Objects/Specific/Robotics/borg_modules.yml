@@ -357,7 +357,7 @@
   components:
   - type: Sprite
     layers:
-    - state: generic
+    - state: science
     - state: icon-tethergun
       sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
@@ -963,7 +963,7 @@
   components:
   - type: Sprite
     layers:
-    - state: generic
+    - state: security
     - state: icon-xenoborg-space-movement
   - type: ComponentBorgModule
     components:
@@ -979,7 +979,7 @@
   components:
   - type: Sprite
     layers:
-    - state: generic
+    - state: security
     - state: icon-tools
   - type: ComponentBorgModule
     countsTowardsCapacity: false
@@ -1005,3 +1005,17 @@
     - item: ADTBorgWeaponEnergyTac
   - type: BorgModuleIcon
     icon: { sprite: "/Textures/ADT/Objects/Weapons/Guns/Battery/energytac.rsi", state: base }
+
+- type: entity
+  id: BorgModuleEmpProtection
+  parent: BaseBorgModule
+  name: EMP protection cyborg module
+  description: A passive module hardening the chassis against electromagnetic pulses. EMPs no longer disable the chassis or drain its charge.
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-xenoborg-shield
+  - type: ComponentBorgModule
+    components:
+    - type: EmpProtection
