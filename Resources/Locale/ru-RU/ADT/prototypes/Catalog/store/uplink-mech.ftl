@@ -21,7 +21,7 @@ uplink-syndimech-weapon-ultra-desc = Тяжёлый навесной пулем�
 uplink-syndimech-weapon-hades-name = Мех-карабин FNX-99 "Аид"
 uplink-syndimech-weapon-hades-desc = Пулемёт для меха под патрон 7.62 зажигательные. Лучше всего проявит себя против легковоспламенимых целей или красных бочек с топливом.
 uplink-syndimech-weapon-madeuce-name = mHAR-21 "Ma Deuce"
-uplink-syndimech-weapon-madeuce-desc = Поиграть захотелось? Поиграем.
+uplink-syndimech-weapon-madeuce-desc = Тяжёлая мех-винтовка под патрон 12.7х99 мм. Пробивает броню мехов и укрепления. Поиграть захотелось? Поиграем.
 uplink-syndimech-weapon-pulse-rifle-name = Тяжелая импульсная мех-винтовка eZ-13 mk2
 uplink-syndimech-weapon-pulse-rifle-desc = Один из лучших образцов среди энергетического оружия для мехов - импульсная винтовка eZ-13 второй серии, со стабилизированным охлаждением.
 uplink-syndimech-weapon-peacemaker-disabler-name = Мех-станнер "Миротворец"
@@ -45,6 +45,8 @@ uplink-syndimech-equipment-powercellhigh-name = Батарея высокой ё
 uplink-syndimech-equipment-powercellhigh-desc = Стандартизированный перезаряжаемый элемент питания. Этот премиальный накопитель большой ёмкости вмещает на 50% больше энергии, по сравнению с конкурентами.
 uplink-syndimech-equipment-powercellhyper-name = Батарея гипер ёмкости
 uplink-syndimech-equipment-powercellhyper-desc = Стандартизированный перезаряжаемый элемент питания. Выглядит как редкий и мощный прототип.
+uplink-syndimech-equipment-microreactor-name = Микрореакторная батарея
+uplink-syndimech-equipment-microreactor-desc = Стандартизированный перезаряжаемый микрореактор. Имеет пониженную ёмкость, но медленно заряжается сама по себе.
 uplink-syndimech-equipment-grabber-name = Клешня Падди
 uplink-syndimech-equipment-grabber-desc = Клешня меха для захвата и переноски правонарушителей или защищаемых персон.
 # Ammo
