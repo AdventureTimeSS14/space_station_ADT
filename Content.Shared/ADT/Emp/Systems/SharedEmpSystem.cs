@@ -1,4 +1,6 @@
+using Content.Shared.ADT.CantShoot;
 using Content.Shared.ADT.EMP;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Emp;
@@ -10,6 +12,7 @@ public abstract partial class SharedEmpSystem
     private void InitializeADT()
     {
         SubscribeLocalEvent<EmpDisablingComponent, EmpPulseEvent>(OnDisablingPulse);
+        SubscribeLocalEvent<EmpDisabledComponent, ShotAttemptedEvent>(OnDisabledShot);
 
         SubscribeLocalEvent<EmpContainerProtectionComponent, EntInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<EmpContainerProtectionComponent, EntRemovedFromContainerMessage>(OnEjected);
@@ -21,6 +24,11 @@ public abstract partial class SharedEmpSystem
     {
         args.Disabled = true;
         args.Duration = component.DisablingTime;
+    }
+
+    private void OnDisabledShot(EntityUid uid, EmpDisabledComponent component, ref ShotAttemptedEvent args)
+    {
+        args.Cancel();
     }
 
     private void OnInserted(Entity<EmpContainerProtectionComponent> ent, ref EntInsertedIntoContainerMessage args)
