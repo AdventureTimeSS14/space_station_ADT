@@ -1,0 +1,1194 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+#region Basic
+- type: entity
+  id: ActionVampireSelectClass
+  parent: BaseAction
+  name: "[color=purple]Select class[/color]"
+  description: "Select your class."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: select_class
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireSelectClassActionEvent
+      bloodCost: 150
+
+- type: entity
+  id: ActionDrinkBlood
+  parent: BaseAction
+  name: "[color=purple]Drink blood[/color]"
+  description: "Attempt to drink blood from a humanoid target."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    priority: -2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: bite
+      map: ["enum.ActionVisuals.Icon"]
+    - state: bite-on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:VampireDrinkingBloodActionEvent
+
+- type: entity
+  id: ActionVampireRejuvenate
+  parent: BaseAction
+  name: "[color=purple]Rejuvenate[/color]"
+  description: "Your second chance, your second wind."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    useDelay: 5
+    priority: 1
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: rejuvenate
+      map: ["enum.ActionVisuals.Icon"]
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: AutoRecharge
+    rechargeDuration: 20
+  - type: InstantAction
+    event: !type:VampireRejuvenateActionEvent
+      bloodCost: 200
+      heal:
+        types:
+          Asphyxiation: -5
+          Heat: -2
+          Poison: -2
+      healGroups:
+        groups:
+          Brute: -2
+
+- type: entity
+  id: ActionVampireGlare
+  parent: BaseAction
+  name: "[color=purple]Glare[/color]"
+  description: "Hit your victim with a beam of bright light so that she loses herself."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/ADT/Vampire/Effects/Vampire/glare.ogg
+    checkCanInteract: false
+    useDelay: 3
+    priority: 1
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: glare
+      map: ["enum.ActionVisuals.Icon"]
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: AutoRecharge
+    rechargeDuration: 30
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:VampireGlareActionEvent
+
+# Diablerie
+- type: entity
+  id: ActionVampireSacramentInitiation
+  parent: BaseAction
+  name: "[color=purple]Sacrament of Initiation[/color]"
+  description: "You have reached the peak of your power. For 50 blood, you can raise the dead as free-willed vampires. They are not your thralls."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 300
+    priority: -1
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: revive
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:VampireSacramentInitiationActionEvent
+      bloodCost: 50
+#endregion
+
+#region Hemomancer
+- type: entity
+  id: ActionVampireRejuvenateNoHeal
+  parent: BaseAction
+  name: "[color=purple]Rejuvenate[/color]"
+  description: "Your second chance, your second wind."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    useDelay: 5
+    priority: 1
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: rejuvenate
+      map: ["enum.ActionVisuals.Icon"]
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: AutoRecharge
+    rechargeDuration: 20
+  - type: InstantAction
+    event: !type:VampireRejuvenateActionEvent
+      bloodCost: 200
+      noHeal: true
+      heal:
+        types:
+          Asphyxiation: -5
+          Heat: -2
+          Poison: -2
+      healGroups:
+        groups:
+          Brute: -2
+
+- type: entity
+  id: ActionVampireClaws
+  parent: BaseAction
+  name: "[color=purple]Vampire claws[/color]"
+  description: "Sharpen your claws and harm your enemies."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 15
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: claws
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireClawsActionEvent
+      bloodCost: 20
+
+- type: entity
+  id: ActionVampireBloodTendrils
+  parent: BaseAction
+  name: "[color=purple]Blood tendrils[/color]"
+  description: "Summon blood tendrils to hit your enemies."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    useDelay: 20
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: tendrils
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:VampireBloodTentacleAction
+      bloodCost: 10
+
+- type: entity
+  id: ActionVampireBloodBarrier
+  parent: BaseAction
+  name: "[color=purple]Blood barrier[/color]"
+  description: "Summon a barrier that will shield you."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: barrier
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:VampireBloodBarrierActionEvent
+      bloodCost: 20
+
+- type: entity
+  id: ActionVampireSanguinePool
+  parent: BaseAction
+  name: "[color=purple]Sanguine pool[/color]"
+  description: "Turn into a puddle."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 45
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: bloodpool
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireSanguinePoolActionEvent
+      bloodCost: 30
+
+- type: entity
+  id: ActionVampirePredatorSenses
+  parent: BaseAction
+  name: "[color=purple]Predator senses[/color]"
+  description: "Your gut will tell you where the nearest victim is."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 10
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: predator_sense
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampirePredatorSensesActionEvent
+      sound:
+        path: "/Audio/Effects/Fluids/splat.ogg"
+
+- type: entity
+  id: ActionVampireBloodEruption
+  parent: BaseAction
+  name: "[color=purple]Blood eruption[/color]"
+  description: "Pools of blood around you will erupt and damage your enemies."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 60
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: spikes
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBloodEruptionActionEvent
+      bloodCost: 50
+      damage:
+        types:
+          Blunt: 20
+
+- type: entity
+  id: ActionVampireBloodBringersRite
+  parent: BaseAction
+  name: "[color=purple]Blood bringers rite[/color]"
+  description: "Perform a blood rite and turn this place into a bloodbath!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 10
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: bringers_rite
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBloodBringersRiteActionEvent
+      bloodCost: 5
+      heal:
+        types:
+          Heat: -1.5
+      healGroups:
+        groups:
+          Brute: -3
+      sound:
+        path: "/Audio/Effects/Fluids/splat.ogg"
+#endregion
+
+#region Umbrae
+- type: entity
+  id: ActionVampireCloakOfDarkness
+  parent: BaseAction
+  name: "[color=purple]Cloak of Darkness[/color]"
+  description: "Hide in the darkness."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: cloak
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireCloakOfDarknessActionEvent
+      bloodCost: 10
+
+- type: entity
+  id: ActionVampireShadowSnare
+  parent: BaseAction
+  name: "[color=purple]Shadow snare[/color]"
+  description: "Leave an invisible trap."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    useDelay: 10
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: shadow_snare
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:VampireShadowSnareActionEvent
+      bloodCost: 20
+
+- type: entity
+  id: ActionVampireSoulAnchor
+  parent: BaseAction
+  name: "[color=purple]Soul anchor[/color]"
+  description: "Create a beacon that allows you to return to it."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 130
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: anchor
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireSoulAnchorActionEvent
+      bloodCost: 30
+
+- type: entity
+  id: ActionVampireDarkPassage
+  parent: BaseAction
+  name: "[color=purple]Dark passage[/color]"
+  description: "Moving in space."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 15
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: dark_passage
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 4
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:VampireDarkPassageActionEvent
+      bloodCost: 30
+
+- type: entity
+  id: ActionVampireExtinguish
+  parent: BaseAction
+  name: "[color=purple]Extinguish[/color]"
+  description: "Extinguish the candles."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: extinguish
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireExtinguishActionEvent
+      bloodCost: 20
+      damage:
+        types:
+          Blunt: 5
+
+- type: entity
+  id: ActionVampireShadowBoxing
+  parent: BaseAction
+  name: "[color=purple]Shadow boxing[/color]"
+  description: "Summon a shadow that will help you in battle."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: shadow_boxing
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 5
+  - type: EntityTargetAction
+    event: !type:VampireShadowBoxingActionEvent
+      bloodCost: 50
+
+- type: entity
+  id: ActionVampireEternalDarkness
+  parent: BaseAction
+  name: "[color=purple]Eternal darkness[/color]"
+  description: "Immerse this place in eternal darkness."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 10
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: eternal_darkness
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireEternalDarknessActionEvent
+      bloodCost: 5
+      damage:
+        types:
+          Blunt: 5
+#endregion
+
+#region Gargantua
+- type: entity
+  id: ActionVampireRejuvenateAdvanced
+  parent: BaseAction
+  name: "[color=purple]Rejuvenate[/color]"
+  description: "Your second chance, your second wind."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    useDelay: 5
+    priority: 1
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: rejuvenate
+      map: ["enum.ActionVisuals.Icon"]
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: AutoRecharge
+    rechargeDuration: 20
+  - type: InstantAction
+    event: !type:VampireRejuvenateActionEvent
+      bloodCost: 200
+      advanced: true
+      heal:
+        types:
+          Asphyxiation: -5
+          Heat: -2
+          Poison: -2
+      healGroups:
+        groups:
+          Brute: -2
+
+- type: entity
+  id: ActionVampireBloodSwell
+  parent: BaseAction
+  name: "[color=purple]Blood swell[/color]"
+  description: "Your blood thickens, you become stronger."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 40
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: swell
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBloodSwellActionEvent
+      bloodCost: 30
+
+- type: entity
+  id: ActionVampireBloodRush
+  parent: BaseAction
+  name: "[color=purple]Blood rush[/color]"
+  description: "You feel a rush of blood, you become faster."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: rush
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBloodRushActionEvent
+      bloodCost: 15
+
+- type: entity
+  id: ActionVampireSeismicStomp
+  parent: BaseAction
+  name: "[color=purple]Seismic stomp[/color]"
+  description: "A strong blow that will throw everyone around."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: seismic_stomp
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireSeismicStompActionEvent
+      bloodCost: 25
+      sound:
+        path: "/Audio/Effects/Footsteps/largethud.ogg"
+
+- type: entity
+  id: ActionVampireBloodSwellAdvanced
+  parent: BaseAction
+  name: "[color=purple]Blood swell[/color]"
+  description: "Your blood thickens, you become stronger."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 40
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: swell
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBloodSwellActionEvent
+      bloodCost: 30
+      advanced: true
+
+- type: entity
+  id: ActionVampireOverwhelmingForce
+  parent: BaseAction
+  name: "[color=purple]Overwhelming force[/color]"
+  description: "Your strength is excellent, you can't be shackled now, and the doors open like matches."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: overwhelming_force
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireOverwhelmingForceActionEvent
+      bloodCost: 80
+
+- type: entity
+  id: ActionDemonicGrasp
+  parent: BaseAction
+  name: "[color=purple]Demonic grasp[/color]"
+  description: "Grab your detractor."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 15
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: demonic_grasp
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 16
+  - type: EntityTargetAction
+    event: !type:VampireDemonicGraspActionEvent
+      bloodCost: 10
+
+- type: entity
+  id: ActionVampireCharge
+  parent: BaseAction
+  name: "[color=purple]Charge[/color]"
+  description: "Make a dash."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: charge
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    checkCanAccess: false
+    range: 16
+  - type: WorldTargetAction
+    event: !type:VampireChargeActionEvent
+      bloodCost: 30
+      components:
+      - type: DamageOtherOnHit
+        damage:
+          types:
+            Blunt: 60
+            Structural: 800
+      - type: StunOtherOnHit
+        duration: 3
+      sound:
+        path: "/Audio/Effects/Footsteps/largethud.ogg"
+#endregion
+
+#region Dantalion
+- type: entity
+  id: ActionEnthrall
+  parent: BaseAction
+  name: "[color=purple]Enthrall[/color]"
+  description: "Get the person on your side."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: enthrall
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:VampireEnthrallActionEvent
+      bloodCost: 150
+
+- type: entity
+  id: ActionCommune
+  parent: BaseAction
+  name: "[color=purple]Commune[/color]"
+  description: "Communication with your subordinates."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: communication
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireCommuneActionEvent
+
+- type: entity
+  id: ActionPacify
+  parent: BaseAction
+  name: "[color=purple]Pacify[/color]"
+  description: "Calm down your detractor."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 45
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: pacify
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 7
+  - type: EntityTargetAction
+    event: !type:VampirePacifyActionEvent
+      bloodCost: 30
+
+- type: entity
+  id: ActionSubspaceSwap
+  parent: BaseAction
+  name: "[color=purple]Subspace swap[/color]"
+  description: "Switch places."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 10
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: subspace_swap
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 16
+  - type: EntityTargetAction
+    event: !type:VampireSubspaceSwapActionEvent
+      bloodCost: 5
+
+- type: entity
+  id: ActionDeployDecoy
+  parent: BaseAction
+  name: "[color=purple]Deploy decoy[/color]"
+  description: "It creates a copy of you, and you become invisible."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 20
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: decoy
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireDeployDecoyActionEvent
+      bloodCost: 30
+      components:
+      - type: HTN
+        rootTask:
+          task: SimpleHostileCompound
+      - type: NPCIgnoringOptimize
+      - type: NpcFactionMember
+        factions:
+        - Passive
+      - type: NoSlip
+      - type: Tag
+        tags:
+        - CannotSuicide
+        - DoorBumpOpener
+        - StunImmune
+        - SlowImmune
+
+- type: entity
+  id: ActionRallyThralls
+  parent: BaseAction
+  name: "[color=purple]Rally thralls[/color]"
+  description: "Give strength to your slaves."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: thralls_up
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireRallyThrallsActionEvent
+      bloodCost: 40
+
+- type: entity
+  id: ActionBloodBond
+  parent: BaseAction
+  name: "[color=purple]Blood bond[/color]"
+  description: "A blood bond now binds you."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: blood_bond
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBloodBondActionEvent
+      bloodCost: 5
+
+- type: entity
+  id: ActionVampireThrallHeal
+  parent: BaseAction
+  name: "[color=purple]Leader's support[/color]"
+  description: "Support your thralls with your speak. Heal them by it and make them rise."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 90
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: thrallheal
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireThrallHealActionEvent
+      bloodCost: 50
+      heal:
+        types:
+          Heat: -10
+          Poison: -10
+      healGroups:
+        groups:
+          Airloss: -10
+          Brute: -10
+
+- type: entity
+  id: ActionMassHysteria
+  parent: BaseAction
+  name: "[color=purple]Mass hysteria[/color]"
+  description: "Draw everyone who is nearby into the confusion."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 60
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: hysteria
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireMassHysteriaActionEvent
+      bloodCost: 40
+
+- type: entity
+  id: ActionVampirePacifyNearby
+  parent: BaseAction
+  name: "[color=purple]Psionic waves[/color]"
+  description: "Send large psionic waves to pacify you enemies for some time."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 40
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: pacifynearby
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampirePacifyNearbyActionEvent
+      bloodCost: 50
+#endregion
+
+#region Bestia
+- type: entity
+  id: ActionVampireCheckTrophies
+  parent: BaseAction
+  name: "[color=purple]Check Trophies[/color]"
+  description: "Open the interface to view all the organs you have collected and the bonuses they provide."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: rush
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireCheckTrophiesActionEvent
+
+- type: entity
+  id: ActionVampireDissect
+  parent: BaseAction
+  name: "[color=purple]Dissect[/color]"
+  description: "Surgically extract organs from a living victim. Each organ gives you unique passive or active bonuses."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 5
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: claws
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:VampireDissectActionEvent
+      bloodCost: 10
+
+- type: entity
+  id: ActionVampireInfectedTrophy
+  parent: BaseAction
+  name: "[color=purple]Infected Trophy[/color]"
+  description: "Launch a projectile that deals damage, infects the target, and explodes on impact. Damage, infection chance, lifetime, and damage radius scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 10
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: infected_trophy
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 8
+  - type: EntityTargetAction
+    event: !type:VampireInfectedTrophyActionEvent
+      bloodCost: 30
+
+- type: entity
+  id: ActionVampireLunge
+  parent: BaseAction
+  name: "[color=purple]Lunge[/color]"
+  description: "Launch yourself at a target location. Upon landing, you stun and cause bleeding to all enemies in an area. Range, stun duration, blood stolen, and radius scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 5
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: charge
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    checkCanAccess: false
+    range: 11
+  - type: WorldTargetAction
+    event: !type:VampireLungeActionEvent
+      bloodCost: 25
+
+- type: entity
+  id: ActionVampireMarkPrey
+  parent: BaseAction
+  name: "[color=purple]Mark the Prey[/color]"
+  description: "Mark a target, slowing them and dealing periodic burn damage. Mark duration, burn chance, damage, and range scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 20
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: predator_sense
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 8
+  - type: EntityTargetAction
+    event: !type:VampireMarkPreyActionEvent
+      bloodCost: 25
+
+- type: entity
+  id: ActionVampireMetamorphosisBats
+  parent: BaseAction
+  name: "[color=purple]Metamorphosis Bats[/color]"
+  description: "Transform into a swarm of bats. In this form, your health, damage, speed, leeching, and self-healing scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: meta_bats
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireMetamorphosisBatsActionEvent
+      bloodCost: 45
+
+- type: entity
+  id: ActionVampireAnabiosis
+  parent: BaseAction
+  name: "[color=purple]Anabiosis[/color]"
+  description: "Retreat into a coffin to regenerate. The coffin protects you and puts you into a deep sleep, restoring your health over time."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 180
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: coffin
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireAnabiosisActionEvent
+      bloodCost: 70
+
+- type: entity
+  id: ActionVampireSummonBats
+  parent: BaseAction
+  name: "[color=purple]Summon Bats[/color]"
+  description: "Summon 1-4 bats to fight for you. Each bat's health, damage, speed, and leeching scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: bats
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireSummonBatsActionEvent
+      bloodCost: 50
+      sound:
+        path: /Audio/ADT/Vampire/Effects/Vampire/bats_spawn.ogg
+
+- type: entity
+  id: ActionVampireMetamorphosisHound
+  parent: BaseAction
+  name: "[color=purple]Metamorphosis Hound[/color]"
+  description: "Transform into a powerful hound. In this form, your health, damage, speed, and self-healing scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: blood_hound
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireMetamorphosisHoundActionEvent
+      bloodCost: 60
+
+# Polymorph
+- type: entity
+  id: ActionVampireResonantShriek
+  parent: BaseAction
+  name: "[color=purple]Resonant Shriek[/color]"
+  description: "Let out a powerful shriek that shatters windows, breaks lights, and stuns everyone nearby. Stun duration and range scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 20
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: shriek
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireResonantShriekActionEvent
+      bloodCost: 40
+      damage:
+        types:
+          Structural: 200
+      sound:
+        path: /Audio/ADT/Vampire/Effects/Vampire/creepyshriek.ogg
+
+- type: entity
+  id: ActionVampireLungeFinale
+  parent: BaseAction
+  name: "[color=purple]Lunge Finale[/color]"
+  description: "Perform a series of lunges on random nearby victims. Each 10 trophies grants an additional jump. Range, stun duration, blood stolen, and damage radius scale with your collected organs."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 20
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: lunge_finale
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireLungeFinaleActionEvent
+      bloodCost: 80
+#endregion
+
+#region Variants
+- type: entity
+  id: ActionThrallCommune
+  parent: BaseAction
+  name: "[color=purple]Commune[/color]"
+  description: "Speak into the minds of your master and fellow thralls."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: communication
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireThrallCommuneActionEvent
+
+- type: entity
+  id: ActionVampireGoonDisease
+  parent: BaseAction
+  name: "[color=purple]Disease[/color]"
+  description: "Infect a humanoid with a grave fever."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: infected_trophy
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 7
+  - type: EntityTargetAction
+    event: !type:VampireGoonDiseaseActionEvent
+      bloodCost: 100
+
+- type: entity
+  id: ActionVampireBlink
+  parent: BaseAction
+  name: "[color=purple]Blink[/color]"
+  description: "Teleport to a random nearby tile."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    useDelay: 5
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: dark_passage
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireBlinkActionEvent
+      bloodCost: 50
+
+- type: entity
+  id: ActionVampireHypnotise
+  parent: BaseAction
+  name: "[color=purple]Hypnotise[/color]"
+  description: "Put a humanoid into a deep sleep after a short concentration."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: enthrall
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 7
+  - type: EntityTargetAction
+    event: !type:VampireHypnotiseActionEvent
+      bloodCost: 75
+
+- type: entity
+  id: ActionVampireScreech
+  parent: BaseAction
+  name: "[color=purple]Screech[/color]"
+  description: "Emit a terrible shriek that shatters windows and stuns everyone nearby."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    useDelay: 30
+  - type: Sprite
+    sprite: ADT/Vampire/Interface/Actions/actions_vampire.rsi
+    layers:
+    - state: shriek
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:VampireScreechActionEvent
+      bloodCost: 100
+#endregion

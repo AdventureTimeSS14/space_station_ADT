@@ -1,0 +1,61 @@
+- type: reaction
+  id: ADTVirusFood
+  reactants:
+    Water:
+      amount: 1
+    Milk:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    ADTVirusFood: 3
+
+- type: reaction
+  id: ADTMutagenicAgar
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    ADTVirusFood:
+      amount: 1
+  products:
+    ADTMutagenicAgar: 1
+
+- type: reaction
+  id: ADTSucroseAgar
+  reactants:
+    Sugar:
+      amount: 1
+    ADTMutagenicAgar:
+      amount: 1
+  products:
+    ADTSucroseAgar: 2
+
+- type: reaction
+  id: ADTVirusRations
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    ADTVirusFood:
+      amount: 1
+  products:
+    ADTVirusRations: 1
+
+- type: reaction
+  id: ADTVirusPlasma
+  reactants:
+    ADTPlasmaDust:
+      amount: 1
+    ADTVirusFood:
+      amount: 1
+  products:
+    ADTVirusPlasma: 1
+
+- type: reaction
+  id: ADTWeakVirusPlasma
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    ADTVirusPlasma:
+      amount: 1
+  products:
+    ADTWeakVirusPlasma: 2

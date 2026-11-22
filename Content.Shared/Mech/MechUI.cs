@@ -1,4 +1,6 @@
-﻿using Robust.Shared.Serialization;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Mech;
 
@@ -13,22 +15,19 @@ public enum MechUiKey : byte
 /// </summary>
 public sealed class MechEquipmentUiStateReadyEvent : EntityEventArgs
 {
-    public Dictionary<NetEntity, BoundUserInterfaceState?> States = new();  // ADT Mech UI Fix
+    public Dictionary<NetEntity, BoundUserInterfaceState> States = new();
 }
 
 /// <summary>
 /// Event raised to relay an equipment ui message
 /// </summary>
-[Serializable, NetSerializable] // ADT Mech predict
 public sealed class MechEquipmentUiMessageRelayEvent : EntityEventArgs
 {
     public MechEquipmentUiMessage Message;
-    public NetEntity? Pilot;    // ADT Mech
 
-    public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message, NetEntity? pilot)
+    public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message)
     {
         Message = message;
-        Pilot = pilot;  // ADT Mech
     }
 }
 
@@ -109,7 +108,7 @@ public sealed class MechSoundboardPlayMessage : MechEquipmentUiMessage
 [Serializable, NetSerializable]
 public sealed class MechBoundUiState : BoundUserInterfaceState
 {
-    public Dictionary<NetEntity, BoundUserInterfaceState?> EquipmentStates = new(); // ADT Mech UI Fix
+    public Dictionary<NetEntity, BoundUserInterfaceState> EquipmentStates = new();
 }
 
 [Serializable, NetSerializable]
@@ -125,5 +124,5 @@ public sealed class MechGrabberUiState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class MechSoundboardUiState : BoundUserInterfaceState
 {
-    public List<string> Sounds = new();
+    public List<ProtoId<SoundCollectionPrototype>> Sounds = new();
 }

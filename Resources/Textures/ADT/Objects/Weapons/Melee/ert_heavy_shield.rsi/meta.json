@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911 для Время Приключений МРП",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ert-icon"
+        },
+        {
+            "name": "ert-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "ert-inhand-right",
+            "directions": 4
+        }
+    ]
+}

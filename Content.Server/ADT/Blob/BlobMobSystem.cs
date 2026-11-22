@@ -13,8 +13,8 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobMobSystem : SharedBlobMobSystem
 {
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {

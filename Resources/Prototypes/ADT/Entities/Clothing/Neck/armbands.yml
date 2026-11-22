@@ -1,0 +1,186 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckArmbandBase
+  name: armband
+  abstract: true
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: white-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: white
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: white-equipped-NECK
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckArmbandMed
+  name: medical armband
+  description: A cloth armband with a cyan medical cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: med-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: med
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: med-equipped-NECK
+  - type: StaticPrice
+    price: 15
+  - type: Construction
+    graph: ADTClothingNeckArmbandMed
+    node: armbandMed
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandWhite
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: white-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: white
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: white-equipped-NECK
+  - type: Construction
+    graph: ADTClothingNeckArmband
+    node: armband
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandBlack
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: black-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: black
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: black-equipped-NECK
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandBlue
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: blue-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: blue
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: blue-equipped-NECK
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandGreen
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: green-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: green
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: green-equipped-NECK
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandLazure
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: lazure-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: lazure
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: lazure-equipped-NECK
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandOrange
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: orange-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: orange
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: orange-equipped-NECK
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandPurple
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: purple-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: purple
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: purple-equipped-NECK
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandRed
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: red-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: red
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: red-equipped-NECK
+
+- type: entity
+  parent: ADTClothingNeckArmbandBase
+  id: ADTClothingNeckArmbandYellow
+  name: armband
+  description: A simple cloth armband.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/armband.rsi
+    state: yellow-icon
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedPrefix: yellow
+  - type: ADTAccessory
+    sprite: ADT/Clothing/Neck/armband.rsi
+    equippedState: yellow-equipped-NECK

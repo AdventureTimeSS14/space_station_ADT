@@ -46,3 +46,5 @@ ent-OrganBaseHeadSexed = { "" }
     .desc = { "" }
 ent-OrganBaseTorsoSexed = { "" }
     .desc = { "" }
+ent-SolutionLungGas = { ent-Solution }
+ent-SolutionStomach = { ent-Solution }

@@ -69,6 +69,7 @@
   id: AtmosTools
   recipes:
   - HolofanProjector
+  - ADTClothingEyesGlassesGasTemperature ## ADT-tweak
 
 - type: latheRecipePack
   id: EngineeringWeapons
@@ -79,7 +80,7 @@
   id: EngineeringBoards
   recipes:
   - ThermomachineFreezerMachineCircuitBoard
-  - HellfireFreezerMachineCircuitBoard
+  # - HellfireFreezerMachineCircuitBoard # ADT-Tweak
   - PortableScrubberMachineCircuitBoard
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
@@ -91,4 +92,5 @@
   - TelecomServerCircuitboard
   - SMESAdvancedMachineCircuitboard
   - HolopadMachineCircuitboard
+  - CrystallizerMachineCircuitboard # ADT-Tweak
 

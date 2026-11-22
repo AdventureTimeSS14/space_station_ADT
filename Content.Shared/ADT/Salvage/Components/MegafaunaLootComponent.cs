@@ -17,6 +17,12 @@ public sealed partial class MegafaunaLootComponent : Component
     public List<EntProtoId> RandomLoot = [];
 
     [DataField]
+    public List<List<EntProtoId>> RandomLootGroups = [];
+
+    [DataField]
+    public List<MegafaunaLootPool> RandomLootPools = [];
+
+    [DataField]
     public bool DropOnDeath = true;
 
     [DataField]
@@ -30,6 +36,13 @@ public sealed partial class MegafaunaLootComponent : Component
 
     [ViewVariables]
     public bool LootDropped;
+}
+
+[DataDefinition]
+public sealed partial class MegafaunaLootPool
+{
+    [DataField(required: true)]
+    public List<EntProtoId> PickOne = [];
 }
 
 [DataDefinition]

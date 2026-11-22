@@ -1,0 +1,11 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      MinSize="280 200"
+                      SetSize="280 320">
+    <BoxContainer Orientation="Vertical" Margin="6 6 6 6">
+        <Label Name="Hint" />
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="EntryList" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

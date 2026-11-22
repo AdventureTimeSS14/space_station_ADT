@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
 using Robust.Shared.Map;
@@ -9,13 +10,23 @@ namespace Content.Server.ADT.Bubblegum.Abilities;
 
 public sealed class BubblegumHallucinationChargeSystem : EntitySystem
 {
-    [Dependency] private readonly BubblegumChargeSystem _charge = default!;
-    [Dependency] private readonly BubblegumTripleChargeSystem _tripleCharge = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ADTMegafaunaChargeSystem _charge = default!;
+    [Dependency] private BubblegumTripleChargeSystem _tripleCharge = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float TravelBuffer = 0.45f;
+
+    private static readonly ADTMegafaunaChargeOptions BossOptions = new()
+    {
+        TrailColor = Color.FromHex("#FF3030"),
+    };
+
+    private static readonly ADTMegafaunaChargeOptions HallucinationOptions = new()
+    {
+        TrailColor = Color.FromHex("#FFFFFF88"),
+    };
 
     public override void Initialize()
     {
@@ -47,7 +58,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
                 ent.Comp.ChargeSpeed, ent.Comp.HallucinationPrototype, ent.Comp.TelegraphPrototype);
 
             _charge.BeginCharge(ent.Owner, target, ent.Comp.NormalDelay, ent.Comp.ChargeSpeed,
-                ent.Comp.TelegraphPrototype, trampleDamage: 30f, targetEntity: targetEntity);
+                ent.Comp.TelegraphPrototype, trampleDamage: 30f, targetEntity: targetEntity, options: BossOptions);
             return;
         }
 
@@ -104,7 +115,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
                 if (wave.BossCharges)
                 {
                     _charge.BeginCharge(uid, wave.Target, wave.Delay, wave.Speed,
-                        wave.TelegraphProto, trampleDamage: 30f);
+                        wave.TelegraphProto, trampleDamage: 30f, options: BossOptions);
                 }
 
                 if (wave.TripleChargeAfter && TryComp<BubblegumTripleChargeComponent>(uid, out var tc))
@@ -136,7 +147,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
             var clone = Spawn(halluProto, spawnCoords);
             EnsureComp<BubblegumMinionComponent>(clone).Summoner = summoner;
             _charge.BeginCharge(clone, target, delay, speed, telegraphProto,
-                trampleDamage: 15f, expireOnHit: true);
+                trampleDamage: 15f, expireOnHit: true, options: HallucinationOptions);
         }
     }
 }

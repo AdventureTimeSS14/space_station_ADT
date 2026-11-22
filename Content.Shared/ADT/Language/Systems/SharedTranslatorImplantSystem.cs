@@ -10,7 +10,7 @@ namespace Content.Shared.Implants;
 
 public abstract class SharedTranslatorImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
+    [Dependency] private SharedLanguageSystem _language = default!;
 
     public override void Initialize()
     {

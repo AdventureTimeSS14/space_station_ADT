@@ -19,17 +19,17 @@ namespace Content.Server.ADT.Bubblegum.Loot;
 
 public sealed class BloodContractSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
 
     public override void Initialize()
     {

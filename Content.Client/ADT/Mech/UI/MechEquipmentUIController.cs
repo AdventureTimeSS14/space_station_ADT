@@ -1,54 +1,31 @@
 using JetBrains.Annotations;
-using Robust.Client.UserInterface.Controllers;
-using Robust.Shared.Player;
-using Content.Shared.Mech.Components;
 using Content.Shared.Mech;
-using Robust.Shared.Timing;
+using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client.ADT.Mech.UI;
 
 [UsedImplicitly]
 public sealed class MechEquipmentUIController : UIController
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     private MechEquipmentMenu? _menu;
+    private NetEntity? _mech;
 
-    public void ToggleMenu()
+    public void ToggleMenu(EntityUid mech, List<EntityUid> equipment)
     {
-        if (_menu == null)
+        if (_menu != null)
         {
-            // setup window
-            _menu = UIManager.CreateWindow<MechEquipmentMenu>();
-            _menu.OnClose += OnWindowClosed;
-            _menu.OnOpen += OnWindowOpen;
-            _menu.OnSelectEquip += OnSelectEquip;
-
-            _menu.OpenCentered();
-        }
-        else
-        {
-            _menu.OnClose -= OnWindowClosed;
-            _menu.OnOpen -= OnWindowOpen;
-            _menu.OnSelectEquip -= OnSelectEquip;
-
             CloseMenu();
+            return;
         }
-    }
 
-    public void PopulateMenu(List<NetEntity> equip)
-    {
-        _menu?.Populate(equip);
-    }
-
-    private void OnWindowClosed()
-    {
-        CloseMenu();
-    }
-
-    private void OnWindowOpen()
-    {
+        _mech = _entityManager.GetNetEntity(mech);
+        _menu = UIManager.CreateWindow<MechEquipmentMenu>();
+        _menu.OnClose += CloseMenu;
+        _menu.OnSelectEquip += OnSelectEquip;
+        _menu.Populate(equipment);
+        _menu.OpenCentered();
     }
 
     public void CloseMenu()
@@ -56,16 +33,22 @@ public sealed class MechEquipmentUIController : UIController
         if (_menu == null)
             return;
 
-        _menu.Close();
+        var menu = _menu;
         _menu = null;
+        _mech = null;
+
+        menu.OnClose -= CloseMenu;
+        menu.OnSelectEquip -= OnSelectEquip;
+        menu.Close();
     }
 
-    private void OnSelectEquip(NetEntity? ent)
+    private void OnSelectEquip(EntityUid? equipment)
     {
-        var player = _playerManager.LocalSession?.AttachedEntity ?? EntityUid.Invalid;
-
-        var ev = new SelectMechEquipmentEvent(_entityManager.GetNetEntity(player), ent);
-        _entityManager.RaisePredictiveEvent(ev);
+        if (_mech is { } mech)
+        {
+            var ev = new SelectMechEquipmentEvent(mech, _entityManager.GetNetEntity(equipment));
+            _entityManager.RaisePredictiveEvent(ev);
+        }
 
         CloseMenu();
     }

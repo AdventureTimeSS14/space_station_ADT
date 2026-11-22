@@ -1,3 +1,5 @@
+//
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 
@@ -14,7 +16,7 @@ public sealed partial class HereticFlamesComponent : Component
 
 public sealed partial class HereticFlamesSystem : EntitySystem
 {
-    [Dependency] private readonly HereticAbilitySystem _has = default!;
+    [Dependency] private HereticAbilitySystem _has = default!;
 
     public override void Update(float frameTime)
     {

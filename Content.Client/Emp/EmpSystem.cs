@@ -3,9 +3,9 @@ using Robust.Shared.Random;
 
 namespace Content.Client.Emp;
 
-public sealed partial class EmpSystem : SharedEmpSystem // ADT-Tweak: partial class
+public sealed partial class EmpSystem : SharedEmpSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

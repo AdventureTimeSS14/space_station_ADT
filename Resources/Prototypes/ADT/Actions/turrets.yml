@@ -3,10 +3,11 @@
   name: Stop controlling turret
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_turret.rsi
-      state: stop_control
     useDelay: 1
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_turret.rsi
+    layers:
+    - state: stop_control
   - type: InstantAction
     event: !type:ControlReturnActionEvent {}
 
@@ -16,10 +17,11 @@
   description: View a Mass Scanner Interface.
   components:
   - type: Action
-    icon:
-      sprite: Objects/Tools/crowbar.rsi #заменить спрайт с монтировки на что то сносное
-      state: icon
     useDelay: 1
     checkCanInteract: false
+  - type: Sprite
+    sprite: Objects/Tools/crowbar.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }

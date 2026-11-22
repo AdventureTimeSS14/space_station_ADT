@@ -1,34 +1,41 @@
-﻿using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Mech.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MechOverloadComponent : Component
 {
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityUid? MechOverloadActionEntity;
 
     [DataField]
     public EntProtoId MechOverloadAction = "ActionMechOverload";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool Overload = false;
-
-    /// <summary>
-    /// damage every x seconds if mech overloaded.
-    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Overload;
 
     [DataField("damage", required: true)]
-    [ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier DamagePerSpeed = default!;
-    /// <summary>
-    /// How much "health" the mech has left.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+
+    [DataField]
+    public TimeSpan DamageInterval = TimeSpan.FromSeconds(1);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextDamage;
+
+    [DataField, AutoNetworkedField]
     public FixedPoint2 MinIng;
 
-    public float Accumulator = 0f;
+    [DataField]
+    public float WalkSpeedMultiplier = 2.5f;
+
+    [DataField]
+    public float SprintSpeedMultiplier = 1.25f;
+
+    [DataField]
+    public float AccelerationMultiplier = 2f;
 }

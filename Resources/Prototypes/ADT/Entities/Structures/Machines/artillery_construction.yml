@@ -90,19 +90,19 @@
         amount: 5
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - material: Gold
         amount: 20
       - material: Silver
@@ -743,19 +743,19 @@
         amount: 5
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - material: Gold
         amount: 20
       - material: Silver
@@ -786,25 +786,25 @@
         doAfter: 10
       - machinePart: Servo
         tier: 4
-        name: machine-part-name-servo
+        name: machine-part-name-servo-t4
       - machinePart: Servo
         tier: 4
-        name: machine-part-name-servo
+        name: machine-part-name-servo-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: MatterBin
         tier: 4
-        name: machine-part-name-matter-bin
+        name: machine-part-name-matter-bin-t4
       - machinePart: MicroLaser
         tier: 4
-        name: machine-part-name-micro-laser
+        name: machine-part-name-micro-laser-t4
       - machinePart: ScanningModule
         tier: 4
-        name: machine-part-name-scanning-module
+        name: machine-part-name-scanning-module-t4
     - to: frame3
       completed:
       - !type:SpawnPrototype

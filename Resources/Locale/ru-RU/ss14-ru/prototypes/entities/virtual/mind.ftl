@@ -1,0 +1,1 @@
+ent-MindBase = разум

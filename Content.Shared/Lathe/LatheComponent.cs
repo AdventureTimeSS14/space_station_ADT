@@ -45,6 +45,11 @@ namespace Content.Shared.Lathe
         [DataField]
         public string? ReagentOutputSlotId;
 
+        // ADT-Tweak-Start
+        [DataField, AutoNetworkedField]
+        public string? ReagentCostSlotId;
+        // ADT-Tweak-End
+
         /// <summary>
         /// The default amount that's displayed in the UI for selecting the print amount.
         /// </summary>

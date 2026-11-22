@@ -62,15 +62,14 @@
   - type: Edible
     trash:
       - ADTFoodPacketSpicyTrash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: CapsaicinOil
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: CapsaicinOil
+        Quantity: 5
 
 # Сушеное мясо
 
@@ -352,6 +351,20 @@
       - id: ADTFoodSnackChocolateBarTwo
 
 - type: entity
+  name: hematogen
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackHematogenPack
+  description: Tastes like iron.
+  components:
+  - type: Sprite
+    state: hematogen-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketHematogenTrash
+      - id: ADTFoodSnackHematogenBar
+
+- type: entity
   name: chocolate bar
   parent: ADTFoodSnackChocolateBarsBase
   id: ADTFoodSnackChocolateBarMedalPack
@@ -386,17 +399,16 @@
     sprite: ADT/Objects/Consumable/Food/Chocolate/bars.rsi
     state: bar-choco
   - type: Item
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 1
   - type: Extractable
     grindableSolutionName: food
 
@@ -453,6 +465,30 @@
   components:
   - type: Sprite
     state: bar-two
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackHematogenBar
+  description: Tastes like iron.
+  components:
+  - type: Sprite
+    state: bar-hematogen
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+      - metallic
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
+      - ReagentId: Vitamin
+        Quantity: 5
+      - ReagentId: Iron
+        Quantity: 5
 
 - type: entity
   name: chocolate bar
@@ -534,6 +570,15 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketHematogenTrash
+  name: hematogen wrapper
+  components:
+  - type: Sprite
+    state: hematogen-trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ADTFoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrashMedal
   name: chocolate wrapper
   components:
@@ -557,14 +602,13 @@
     tags:
       - FoodSnack
       - ReptilianFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 4
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2.5
-        - ReagentId: Theobromine
-          Quantity: 0.75
-        - ReagentId: CocoaPowder
-          Quantity: 0.25
+  - type: Solution
+    solution:
+      maxVol: 4
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.625
+      - ReagentId: Theobromine
+        Quantity: 0.75
+      - ReagentId: CocoaPowder
+        Quantity: 0.25

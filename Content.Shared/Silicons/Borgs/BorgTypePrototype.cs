@@ -1,4 +1,5 @@
-﻿using Content.Shared.Interaction.Components;
+﻿using Content.Shared.ADT.TTS;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Silicons.Borgs.Components;
@@ -152,11 +153,11 @@ public sealed partial class BorgTypePrototype : IPrototype
     [DataField]
     public SoundSpecifier FootstepCollection { get; set; } = new SoundCollectionSpecifier(DefaultFootsteps);
 
-    // Corvax-TTS-start
+    // ADT-Tweak-Start
     /// <summary>
     /// TTS voice.
     /// </summary>
     [DataField]
-    public string? VoicePrototypeId { get; set; } = "TrainingRobot";
-    // Corvax-TTS-end
+    public ProtoId<TTSVoicePrototype>? VoicePrototypeId { get; set; }
+    // ADT-Tweak-End
 }

@@ -46,3 +46,4 @@ ent-DrinkBeerCan = баночка пива
     .desc = Маленькая радость, яркий вкус, никаких забот!
 ent-DrinkWineCan = баночка вина
     .desc = Ваш путь к веселью и забвению всех забот!
+ent-SolutionCanComposite = раствор

@@ -1,7 +1,7 @@
 using Content.Shared.Chat;
 using Content.Shared.Radio;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.SignalingLoudspeak;
 
@@ -35,8 +35,8 @@ public sealed partial class SignalingLoudspeakComponent : Component
     public float AudioMaxDistance = 20f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("broadcastChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
-    public string BroadcastChannel = SharedChatSystem.CommonChannel;
+    [DataField("broadcastChannel")]
+    public ProtoId<RadioChannelPrototype> BroadcastChannel = SharedChatSystem.CommonChannel;
 
     #endregion
 

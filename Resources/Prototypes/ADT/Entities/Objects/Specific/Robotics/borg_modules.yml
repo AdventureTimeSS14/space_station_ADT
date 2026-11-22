@@ -107,7 +107,7 @@
     - item: MiningDrillDiamond
     - item: WeaponKineticMachete
     - item: ADTBorgJetpackVoid
-    - item: ADTResonatorUpgraded
+    - item: ADTBorgResonator
     - item: AdvancedMineralScannerUnpowered
     - item: ADTBorgOreBagOfHolding
   - type: BorgModuleIcon

@@ -12,6 +12,17 @@
     bodyType: Static
   - type: Anchorable
   - type: Rotatable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   name: church bench left side

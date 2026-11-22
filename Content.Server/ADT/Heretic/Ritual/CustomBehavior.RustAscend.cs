@@ -1,0 +1,52 @@
+//
+
+using Content.Shared.ADT.Silicon.Components;
+using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Atmos.Rotting;
+using Content.Shared.Heretic.Prototypes;
+using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
+
+namespace Content.Server.Heretic.Ritual;
+
+public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior
+{
+    [DataField]
+    public EntProtoId AscensionSpreader = "HereticRustAscensionSpreader";
+
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        if (!base.Execute(args, out outstr))
+            return false;
+
+        var targets = new List<EntityUid>();
+        foreach (var uid in uids)
+        {
+            if (args.EntityManager.HasComponent<RottingComponent>(uid) ||
+                args.EntityManager.HasComponent<SiliconComponent>(uid))
+                targets.Add(uid);
+
+            if (targets.Count >= Max)
+                break;
+        }
+
+        if (targets.Count < Min)
+        {
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-rust");
+            return false;
+        }
+
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        base.Finalize(args);
+
+        var rustBringer = args.EntityManager.EnsureComponent<RustbringerComponent>(args.Performer);
+
+        rustBringer.RustSpreader = args.EntityManager.Spawn(AscensionSpreader,
+            args.EntityManager.System<TransformSystem>().GetMapCoordinates(args.Platform));
+    }
+}

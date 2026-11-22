@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: ADTResearchAndDevelopmentServer
+  icon:
+    sprite: Structures/Machines/server.rsi
+    state: server
+  product: ADTCrateResearchAndDevelopmentServer
+  cost: 10000
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
+  id: ADTComputerInconnuOS
+  icon:
+    sprite: ADT/Structures/Decoration/desktop.rsi
+    state: desktop
+  product: ADTCrateComputerInconnuOS
+  cost: 10000
+  category: cargoproduct-category-name-science
+  group: market

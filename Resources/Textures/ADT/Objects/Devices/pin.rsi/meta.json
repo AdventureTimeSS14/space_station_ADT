@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from BlueMoon-Station at https://github.com/BlueMoon-Labs/BlueMoon-Station/blob/6f4029db6e0b1dad52b3e8baf3c16a970d7e0b79/icons/obj/device.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "firing_pin"
+        },
+        {
+            "name": "firing_pin_test"
+        },
+        {
+            "name": "firing_pin_loyalty",
+            "delays": [
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "firing_pin_pindi"
+        },
+        {
+            "name": "firing_pin_red"
+        },
+        {
+            "name": "firing_pin_blue"
+        },
+        {
+            "name": "firing_pin_dna"
+        },
+        {
+            "name": "firing_pin_sec_level"
+        },
+        {
+            "name": "firing_pin_explorer"
+        }
+    ]
+}

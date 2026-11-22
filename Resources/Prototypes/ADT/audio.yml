@@ -6,18 +6,14 @@
     params:
       volume: -12
     collection: ADTAmbienceRobotics
-  rules: ADTNearRobotics
+  conditions:
+  - !type:NearbyEntitiesCondition
+    count: 1
+    whitelist:
+      tags:
+        - ADTRoboticsAmbience
+    range: 4
   priority: 4
-
-- type: rules
-  id: ADTNearRobotics
-  rules:
-    - !type:NearbyEntitiesRule
-      count: 1
-      whitelist:
-        tags:
-          - ADTRoboticsAmbience
-      range: 4
 
 - type: soundCollection
   id: ADTAmbienceRobotics
@@ -33,18 +29,14 @@
     params:
       volume: -12
     collection: ADTAmbienceVault
-  rules: ADTNearVault
+  conditions:
+  - !type:NearbyEntitiesCondition
+    count: 1
+    whitelist:
+      tags:
+        - ADTVaultAmbience
+    range: 1
   priority: 2
-
-- type: rules
-  id: ADTNearVault
-  rules:
-    - !type:NearbyEntitiesRule
-      count: 1
-      whitelist:
-        tags:
-          - ADTVaultAmbience
-      range: 1
 
 - type: soundCollection
   id: ADTAmbienceVault
@@ -59,18 +51,14 @@
     params:
       volume: -12
     collection: ADTAmbienceChemistry
-  rules: ADTNearChemistry
+  conditions:
+  - !type:NearbyEntitiesCondition
+    count: 1
+    whitelist:
+      tags:
+        - ADTChemistryAmbience
+    range: 3
   priority: 4
-
-- type: rules
-  id: ADTNearChemistry
-  rules:
-    - !type:NearbyEntitiesRule
-      count: 1
-      whitelist:
-        tags:
-          - ADTChemistryAmbience
-      range: 3
 
 - type: soundCollection
   id: ADTAmbienceChemistry
@@ -86,17 +74,13 @@
     params:
       volume: -12
     collection: ADTAmbienceResearch
-  rules: ADTNearResearch
+  conditions:
+  - !type:NearbyAccessCondition
+    count: 5
+    access:
+      - Research
+    range: 3
   priority: 3
-
-- type: rules
-  id: ADTNearResearch
-  rules:
-    - !type:NearbyAccessRule
-      count: 5
-      access:
-        - Research
-      range: 3
 
 - type: soundCollection
   id: ADTAmbienceResearch
@@ -112,17 +96,13 @@
     params:
       volume: -12
     collection: ADTAmbienceSecurity
-  rules: ADTNearSecurity
+  conditions:
+  - !type:NearbyAccessCondition
+    count: 7
+    access:
+      - Security
+    range: 3
   priority: 3
-
-- type: rules
-  id: ADTNearSecurity
-  rules:
-    - !type:NearbyAccessRule
-      count: 7
-      access:
-        - Security
-      range: 3
 
 - type: soundCollection
   id: ADTAmbienceSecurity

@@ -41,23 +41,23 @@ namespace Content.Server.ADT.Dice;
 
 public sealed class DiceOfFateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAccessSystem _access = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly IAdminLogManager _admin = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private SharedAccessSystem _access = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private IAdminLogManager _admin = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     private static readonly ProtoId<DamageModifierSetPrototype> DamageMod = "DiceOfFateMod";
     private static readonly ProtoId<PolymorphPrototype> Monkey = "Monkey";

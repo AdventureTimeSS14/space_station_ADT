@@ -27,18 +27,18 @@ namespace Content.Shared._RMC14.Attachable.Systems;
 
 public sealed class AttachableToggleableSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelistSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly AttachableHolderSystem _attachableHolderSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly UseDelaySystem _useDelaySystem = default!;
+    [Dependency] private ActionContainerSystem _actionContainerSystem = default!;
+    [Dependency] private EntityLookupSystem _entityLookupSystem = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelistSystem = default!;
+    [Dependency] private MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private AttachableHolderSystem _attachableHolderSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private UseDelaySystem _useDelaySystem = default!;
 
     private const string attachableToggleUseDelayID = "RMCAttachableToggle";
 
@@ -713,7 +713,6 @@ public sealed class AttachableToggleableSystem : EntitySystem
         {
             var actionEnt = action.AsNullable();
             _actionsSystem.SetIcon(actionEnt, ent.Comp.Icon);
-            _actionsSystem.SetIconOn(actionEnt, ent.Comp.IconActive);
             _actionsSystem.SetEnabled(actionEnt, ent.Comp.Attached);
             _actionsSystem.SetUseDelay(actionEnt, ent.Comp.UseDelay);
         }

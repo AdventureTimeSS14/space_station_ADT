@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "pandemic"
+        },
+        {
+            "name": "pandemic_loaded",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "pandemic_unpowered"
+        },
+        {
+            "name": "pandemic_loaded_unpowered"
+        },
+        {
+            "name": "pandemic_broken"
+        },
+        {
+            "name": "pandemic_loaded_broken"
+        },
+        {
+            "name": "waitlight"
+        }
+    ]
+}

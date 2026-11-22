@@ -1,11 +1,13 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.ADT.Pointing;
 using Content.Server.Pointing.Components;
+using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -31,21 +33,21 @@ namespace Content.Server.Pointing.EntitySystems
     [UsedImplicitly]
     internal sealed partial class PointingSystem : SharedPointingSystem
     {
-        [Dependency] private readonly IConfigurationManager _config = default!;
-        [Dependency] private readonly IReplayRecordingManager _replay = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly RotateToFaceSystem _rotateToFaceSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
-        [Dependency] private readonly SharedMindSystem _minds = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly ExamineSystemShared _examine = default!;
+        [Dependency] private IConfigurationManager _config = default!;
+        [Dependency] private IReplayRecordingManager _replay = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private RotateToFaceSystem _rotateToFaceSystem = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private VisibilitySystem _visibilitySystem = default!;
+        [Dependency] private SharedMindSystem _minds = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private ExamineSystemShared _examine = default!;
+        [Dependency] private EntityQuery<InventoryComponent> _inventoryQuery = default!;
 
         private TimeSpan _pointDelay = TimeSpan.FromSeconds(0.5f);
 
@@ -103,10 +105,10 @@ namespace Content.Server.Pointing.EntitySystems
                 // Someone pointing at YOU is slightly more important
                 var popupType = viewerEntity == pointed ? PopupType.Medium : PopupType.Small;
 
-                RaiseNetworkEvent(new PopupEntityEvent(message, popupType, netSource), viewerEntity);
+                RaiseNetworkEvent(new PopupEntityEvent(message, popupType, _gameTiming.CurTick, netSource), viewerEntity); // TODO: Make this use the popup system API
             }
 
-            _replay.RecordServerMessage(new PopupEntityEvent(viewerMessage, PopupType.Small, netSource));
+            _replay.RecordServerMessage(new PopupEntityEvent(viewerMessage, PopupType.Small, _gameTiming.CurTick, netSource));
         }
 
         public bool InRange(EntityUid pointer, EntityCoordinates coordinates)
@@ -162,6 +164,11 @@ namespace Content.Server.Pointing.EntitySystems
 
             var arrow = Spawn("PointingArrow", coordsPointed);
 
+            // ADT-Tweak-start
+            var setupEv = new SetupPointingArrowEvent(arrow);
+            RaiseLocalEvent(player, ref setupEv);
+            // ADT-Tweak-end
+
             if (TryComp<PointingArrowComponent>(arrow, out var pointing))
             {
                 pointing.StartPosition = _transform.ToCoordinates((arrow, Transform(arrow)), _transform.ToMapCoordinates(Transform(player).Coordinates)).Position;
@@ -208,6 +215,11 @@ namespace Content.Server.Pointing.EntitySystems
             var playerName = Identity.Entity(player, EntityManager);
             EntityUid? iconTarget = null; // ADT-Tweak
 
+            // ADT-Tweak-start
+            if (HasComp<HallucinationComponent>(pointed))
+                pointed = EntityUid.Invalid;
+            // ADT-Tweak-end
+
             if (Exists(pointed))
             {
                 iconTarget = pointed; // ADT-Tweak
@@ -215,10 +227,9 @@ namespace Content.Server.Pointing.EntitySystems
 
                 EntityUid? containingInventory = null;
                 // Search up through the target's containing containers until we find an inventory
-                var inventoryQuery = GetEntityQuery<InventoryComponent>();
                 foreach (var container in _container.GetContainingContainers(pointed))
                 {
-                    if (inventoryQuery.HasComp(container.Owner))
+                    if (_inventoryQuery.HasComp(container.Owner))
                     {
                         // We want the innermost inventory, since that's the "owner" of the item
                         containingInventory = container.Owner;
@@ -286,7 +297,7 @@ namespace Content.Server.Pointing.EntitySystems
                 TileRef? tileRef = null;
                 string? position = null;
 
-                if (_mapManager.TryFindGridAt(mapCoordsPointed, out var gridUid, out var grid))
+                if (_map.TryFindGridAt(mapCoordsPointed, out var gridUid, out var grid))
                 {
                     position = $"EntId={gridUid} {_map.WorldToTile(gridUid, grid, mapCoordsPointed.Position)}";
                     tileRef = _map.GetTileRef(gridUid, grid, _map.WorldToTile(gridUid, grid, mapCoordsPointed.Position));

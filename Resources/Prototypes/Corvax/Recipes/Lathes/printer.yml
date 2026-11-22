@@ -359,16 +359,6 @@
     PrinterPaper: 100
 
 - type: latheRecipe
-  id: PrintedDocumentPermissionToExtendMarriageRecipe
-  result: PrintedDocumentPermissionToExtendMarriage
-  categories:
-  - Permissions
-  completetime: 2
-  applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
-
-- type: latheRecipe
   id: PrintedDocumentOrderDismissalRecipe
   result: PrintedDocumentOrderDismissal
   categories:
@@ -627,3 +617,76 @@
   applyMaterialDiscount: false
   materials:
     PrinterPaper: 100
+
+#ADT-tweak->
+
+- type: latheRecipe
+  id: PrintedDocumentReportproceduralviolationsRecipe
+  result: PrintedDocumentReportproceduralviolations
+  categories:
+  - Reports
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+
+- type: latheRecipe
+  id: PrintedDocumentRequestliftlegalimmunityRecipe
+  result: PrintedDocumentRequestliftlegalimmunity
+  categories:
+  - InquiriesAndAppeals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+
+- type: latheRecipe
+  id: PrintedDocumentInvestigationReportRecipe
+  result: PrintedDocumentInvestigationReport
+  categories:
+  - Reports
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+
+- type: latheRecipe
+  id: PrintedDocumentRemnantscombatgearRecipe
+  result: PrintedDocumentRemnantscombatgear
+  categories:
+  - Reports
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+
+- type: latheRecipe
+  id: PrintedDocumentRequestchangestationtargetRecipe
+  result: PrintedDocumentRequestchangestationtarget
+  categories:
+  - InquiriesAndAppeals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+
+- type: latheRecipe
+  id: PrintedDocumentOrderamendingstandardoperatingproceduresRecipe
+  result: PrintedDocumentOrderamendingstandardoperatingprocedures
+  categories:
+  - OrdersAndInstructions
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+
+- type: latheRecipe
+  id: PrintedDocumentOrderamendinglistregulatedsubstancesRecipe
+  result: PrintedDocumentOrderamendinglistregulatedsubstances
+  categories:
+  - OrdersAndInstructions
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+#<-

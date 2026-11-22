@@ -1,0 +1,39 @@
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: ADTBaseShadowlingRule
+  components:
+  - type: ADTShadowlingRule
+
+- type: entity
+  parent: ADTBaseShadowlingRule
+  id: ADTShadowlingGameRule
+  components:
+  - type: GameRule
+    minPlayers: 40
+  - type: AntagSelection
+    agentName: shadowling-roundend-agent-name
+    antags:
+    - !type:LinearAntagCount
+      proto: ADTShadowling
+      range:
+        min: 1
+        max: 4
+
+- type: entity
+  parent: ADTBaseShadowlingRule
+  id: ADTShadowlingSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 6
+    minimumPlayers: 40
+    reoccurrenceDelay: 9999
+    duration: 1
+  - type: GameRule
+    minPlayers: 40
+  - type: AntagSelection
+    agentName: shadowling-roundend-agent-name
+    antags:
+    - !type:FixedAntagCount
+      proto: ADTShadowling

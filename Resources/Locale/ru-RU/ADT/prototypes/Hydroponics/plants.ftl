@@ -1,0 +1,10 @@
+ent-ADTPapaverSomniferumPlants = мак снотворный
+ent-ADTCannabisWhitePlants = конопля жизни
+ent-ADTCoffeeTreePlants = кофейное дерево
+ent-ADTStrawberryPlants = клубника
+ent-ADTLavalandCactusPlants = плодоносящий кактус
+ent-ADTPolyporePlants = гриб-полипор
+ent-ADTPorciniPlants = боровик
+ent-ADTInocybePlants = гриб иноцибе
+ent-ADTEmbershroomPlants = углегриб
+ent-ADTReishiPlants = гриб рейши

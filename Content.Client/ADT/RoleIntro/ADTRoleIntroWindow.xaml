@@ -1,0 +1,14 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    MinSize="560 480"
+    SetSize="640 640">
+    <BoxContainer Orientation="Vertical" Margin="8">
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <RichTextLabel Name="IntroText" Margin="4" HorizontalExpand="True" />
+        </ScrollContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 8 0 0">
+            <Button Name="AcceptButton" MinWidth="200" Disabled="True" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

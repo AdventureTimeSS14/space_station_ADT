@@ -6,7 +6,8 @@
     xmlns:tabs="clr-namespace:Content.Client.Administration.UI.Tabs"
     xmlns:playerTab="clr-namespace:Content.Client.Administration.UI.Tabs.PlayerTab"
     xmlns:objectsTab="clr-namespace:Content.Client.Administration.UI.Tabs.ObjectsTab"
-    xmlns:panic="clr-namespace:Content.Client.Administration.UI.Tabs.PanicBunkerTab">
+    xmlns:panic="clr-namespace:Content.Client.Administration.UI.Tabs.PanicBunkerTab"
+    xmlns:adtDrawing="clr-namespace:Content.Client.ADT.Drawing.Moderation">
     <TabContainer Name="MasterTabContainer">
         <adminTab:AdminTab />
         <adminbusTab:AdminbusTab />
@@ -16,5 +17,8 @@
         <panic:PanicBunkerTab Name="PanicBunkerControl" Access="Public" />
         <playerTab:PlayerTab Name="PlayerTabControl" Access="Public" />
         <objectsTab:ObjectsTab Name="ObjectsTabControl" Access="Public" />
+        <!-- ADT-Tweak-Start -->
+        <adtDrawing:PaintingReportsTab />
+        <!-- ADT-Tweak-End -->
     </TabContainer>
 </DefaultWindow>

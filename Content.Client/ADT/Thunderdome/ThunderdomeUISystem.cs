@@ -1,11 +1,13 @@
 using Content.Shared.ADT.Thunderdome;
 using Content.Shared.Popups;
+using Robust.Client.Player;
 
 namespace Content.Client.ADT.Thunderdome;
 
 public sealed partial class ThunderdomeUISystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private ThunderdomeRevivalWindow? _revivalWindow;
     private ThunderdomeLeaderboardWindow? _leaderboardWindow;
@@ -21,7 +23,7 @@ public sealed partial class ThunderdomeUISystem : EntitySystem
 
     private void OnAnnouncement(ThunderdomeAnnouncementEvent ev)
     {
-        _popup.PopupCursor(ev.Message, PopupType.LargeCaution);
+        _popup.PopupCursor(ev.Message, _player.LocalEntity, PopupType.LargeCaution);
     }
 
     private void OnRevivalOffer(ThunderdomeRevivalOfferEvent ev)

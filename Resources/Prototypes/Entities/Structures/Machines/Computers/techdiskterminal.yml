@@ -21,6 +21,8 @@
           East: { state: icon, sprite: Structures/Machines/tech_disk_printer.rsi }
           West: { state: icon, sprite: Structures/Machines/tech_disk_printer.rsi }
           East, West: { state: icon, sprite: Structures/Machines/tech_disk_printer.rsi }
+  - type: EdgeConnection
+    connectionKey: other
   # ADT-Tweak end
   - type: DiskConsole
   - type: ResearchClient

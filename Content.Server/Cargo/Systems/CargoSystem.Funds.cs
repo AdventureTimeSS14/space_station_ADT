@@ -3,7 +3,6 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.UserInterface;
 
 namespace Content.Server.Cargo.Systems;
@@ -40,43 +39,49 @@ public sealed partial class CargoSystem
 
         if (!_accessReaderSystem.IsAllowed(args.Actor, ent))
         {
-            ConsolePopup(args.Actor, Loc.GetString("cargo-console-order-not-allowed"));
+            _popup.PopupCursor(Loc.GetString("cargo-console-order-not-allowed"), args.Actor);
             PlayDenySound(ent, ent.Comp);
             return;
         }
 
         ent.Comp.NextAccountActionTime = Timing.CurTime + ent.Comp.AccountActionDelay;
-        UpdateBankAccount((station, bank), -args.Amount,  ent.Comp.Account, dirty: false);
+        UpdateBankAccount((station, bank), -args.Amount, ent.Comp.Account, dirty: false);
         _audio.PlayPvs(ApproveSound, ent);
 
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-
-        var ourAccount = _protoMan.Index(ent.Comp.Account);
+        var ourAccount = ProtoMan.Index(ent.Comp.Account);
+        var name = _identity.GetIdentityShortInfo(args.Actor, ent)
+                   ?? Loc.GetString("cargo-console-fund-transfer-user-unknown");
         if (args.Account == null)
         {
-            var stackPrototype = _protoMan.Index(ent.Comp.CashType);
+            // ADT-Tweak start
+            if (!_emag.CheckFlag(ent, EmagType.Interaction))
+                return;
+            // ADT-Tweak end
+
+            var stackPrototype = ProtoMan.Index(ent.Comp.CashType);
             _stack.SpawnAtPosition(args.Amount, stackPrototype, Transform(ent).Coordinates);
 
+            /* ADT-Tweak start
             if (!_emag.CheckFlag(ent, EmagType.Interaction))
             {
                 var msg = Loc.GetString("cargo-console-fund-withdraw-broadcast",
-                    ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
+                    ("name", name),
                     ("amount", args.Amount),
                     ("name1", Loc.GetString(ourAccount.Name)),
                     ("code1", Loc.GetString(ourAccount.Code)));
                 _radio.SendRadioMessage(ent, msg, ourAccount.RadioChannel, ent, escapeMarkup: false);
             }
+            ADT-Tweak end */
         }
         else
         {
-            var otherAccount = _protoMan.Index(args.Account.Value);
+            var otherAccount = ProtoMan.Index(args.Account.Value);
             UpdateBankAccount((station, bank), args.Amount, args.Account.Value);
 
             if (!_emag.CheckFlag(ent, EmagType.Interaction))
             {
                 var msg = Loc.GetString("cargo-console-fund-transfer-broadcast",
-                    ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
+                    ("name", name),
                     ("amount", args.Amount),
                     ("name1", Loc.GetString(ourAccount.Name)),
                     ("code1", Loc.GetString(ourAccount.Code)),
@@ -92,7 +97,7 @@ public sealed partial class CargoSystem
     {
         if (!_accessReaderSystem.FindAccessTags(args.Actor).Intersect(ent.Comp.RemoveLimitAccess).Any())
         {
-            ConsolePopup(args.Actor, Loc.GetString("cargo-console-order-not-allowed"));
+            _popup.PopupCursor(Loc.GetString("cargo-console-order-not-allowed"), args.Actor);
             PlayDenySound(ent, ent.Comp);
             return;
         }

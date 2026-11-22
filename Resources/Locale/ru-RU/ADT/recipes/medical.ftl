@@ -1,0 +1,19 @@
+recipe-aloe-cream = рецепт алоэ-крема
+recipe-medicated-suture = рецепт медицинской нити
+recipe-regenerative-mesh = рецепт регенеративной сети
+
+recipe-emergency-medipen = экстренный медипен
+recipe-antipoison-medipen = автоинъектор противоядия
+recipe-brute-auto-injector = автоинъектор мех-повреждений
+recipe-burn-auto-injector = автоинъектор физ-повреждений
+recipe-rad-auto-injector = автоинъектор рад-повреждений
+recipe-puncturase-auto-injector = автоинъектор пунктураза
+recipe-pyrazine-auto-injector = автоинъектор пиразина
+recipe-hemostasis-auto-injector = гемостатический автоинъектор
+recipe-stimulant-auto-injector = автоинъектор стимулятора
+recipe-crisis-auto-injector = аварийный автоинъектор
+recipe-lacerinol-auto-injector = автоинъектор лацеринола
+recipe-bruizine-auto-injector = автоинъектор бруизина
+recipe-barkeepers-friend-auto-injector = автоинъектор «друг бармена»
+recipe-medicated-suture-assembler = рецепт медицинской нити
+recipe-regenerative-mesh-assembler = рецепт регенеративной сети

@@ -46,6 +46,12 @@ public sealed partial class DoAfterArgs
     [DataField]
     public bool Hidden;
 
+    /// <summary>
+    ///     String that will be added to the examine window of the entity.
+    /// </summary>
+    [DataField]
+    public string? ExamineText;
+
     #region Event options
     /// <summary>
     ///     The event that will get raised when the DoAfter has finished. If null, this will simply raise a <see cref="SimpleDoAfterEvent"/>
@@ -83,6 +89,12 @@ public sealed partial class DoAfterArgs
     /// </summary>
     [DataField]
     public bool NeedHand;
+
+    /// <summary>
+    /// Whether or not this do after requires your active hand to be empty,
+    /// </summary>
+    [DataField]
+    public bool NeedFreeHand;
 
     /// <summary>
     ///     Whether we need to keep our active hand as is (i.e. can't change hand or change item). This also covers
@@ -175,6 +187,12 @@ public sealed partial class DoAfterArgs
     #endregion
 
     /// <summary>
+    ///     ADT Heretic: if true, delay is multiplied by GetDoAfterDelayMultiplierEvent handlers.
+    /// </summary>
+    [DataField]
+    public bool MultiplyDelay = true;
+
+    /// <summary>
     ///     Additional conditions that need to be met. Return false to cancel.
     /// </summary>
     [NonSerialized]
@@ -248,9 +266,11 @@ public sealed partial class DoAfterArgs
         Target = other.Target;
         Used = other.Used;
         Hidden = other.Hidden;
+        ExamineText = other.ExamineText;
         EventTarget = other.EventTarget;
         Broadcast = other.Broadcast;
         NeedHand = other.NeedHand;
+        NeedFreeHand = other.NeedFreeHand;
         BreakOnHandChange = other.BreakOnHandChange;
         BreakOnDropItem = other.BreakOnDropItem;
         BreakOnMove = other.BreakOnMove;
@@ -264,6 +284,7 @@ public sealed partial class DoAfterArgs
         BlockDuplicate = other.BlockDuplicate;
         CancelDuplicate = other.CancelDuplicate;
         DuplicateCondition = other.DuplicateCondition;
+        MultiplyDelay = other.MultiplyDelay; // ADT Heretic
 
         // Networked
         NetUser = other.NetUser;

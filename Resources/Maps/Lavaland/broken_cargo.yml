@@ -410,7 +410,7 @@ entities:
     - type: Transform
       pos: 5.5,-2.5
       parent: 1
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 24
     components:

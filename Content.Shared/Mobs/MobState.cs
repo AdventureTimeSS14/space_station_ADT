@@ -15,8 +15,11 @@ public enum MobState : byte
 {
     Invalid = 0,
     Alive = 1,
-    Critical = 2,
-    Dead = 3
+    // ADT-Tweak-start
+    SoftCritical = 2,
+    Critical = 3,
+    Dead = 4
+    // ADT-Tweak-end
 }
 
 /// <summary>

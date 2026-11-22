@@ -1,4 +1,4 @@
-flavor-complex-adtconsideredmilk = как сгущенка
+flavor-complex-adtconsideredmilk = как сгущёнка
 flavor-complex-summershade = как прохлада, тень и арбузы
 flavor-complex-wintersun = как молоко с кофе
 flavor-complex-hungoverangel = как избавление от боли в висках
@@ -36,6 +36,7 @@ flavor-complex-uraniumale = На вкус радиактивно, небезоп
 flavor-complex-goldenale = как эль, золото и исцеление
 flavor-complex-adtrelaxing = как довольно сильный наркотик
 flavor-complex-ADTCocoaDrink = как тепло, уют и какао
+flavor-complex-ADTChocolateDrinkFlavor = как тепло, уют и горячий шоколад
 flavor-base-adtsindipizza = зловеще сырно
 flavor-complex-ADTteqilaoldfashion = тёрпко и как брутальность
 flavor-complex-ADTjackiewelles = сладко, тёрпко и грустно
@@ -104,3 +105,10 @@ flavor-complex-adtyupistrawberry = как химозный клубничный 
 flavor-complex-adtyupiwatermelon = как химозный арбузный сок и беззаботное детство
 
 flavor-complex-waffle-cake = как вафли и варёная сгущёнка
+
+flavor-base-adtash = пеплом
+flavor-complex-adthopelessness = безнадёжностью
+
+flavor-complex-adt-jam-raspberry = как малиновое варенье, совсем как у бабушки
+flavor-complex-adt-jam-strawberry = как клубничное варенье с целыми ягодками
+flavor-complex-adt-jam-apricot = как абрикосовое варенье, сладкое и солнечное

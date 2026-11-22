@@ -1,0 +1,51 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:ui="clr-namespace:Content.Client.ADT.SpawnMenu.UI"
+               xmlns:tree="clr-namespace:Content.Client.UserInterface.Controls.FancyTree"
+               Title="{Loc 'adt-tile-spawn-window-title'}"
+               SetSize="760 560"
+               MinSize="480 300">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'adt-spawn-menu-tile-search-placeholder'}" />
+            <Button Name="ClearButton" Disabled="True" Text="{Loc 'adt-spawn-menu-clear'}" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <BoxContainer Orientation="Horizontal">
+                <Button Name="ListModeButton" ToggleMode="True" Text="{Loc 'adt-spawn-menu-view-list'}" StyleClasses="OpenRight" />
+                <Button Name="GridModeButton" ToggleMode="True" Text="{Loc 'adt-spawn-menu-view-grid'}" StyleClasses="OpenLeft" />
+            </BoxContainer>
+            <Label Name="CountLabel" HorizontalExpand="True" Align="Right" Margin="4 0" StyleClasses="LabelSubText" />
+            <Button Name="OldWindowButton" Access="Public" Text="{Loc 'adt-spawn-menu-old-window'}" />
+        </BoxContainer>
+        <SplitContainer Name="Split" Orientation="Horizontal" VerticalExpand="True">
+            <ui:ADTClampedContainer MinWidth="150">
+                <tree:FancyTree Name="CategoryTree" />
+            </ui:ADTClampedContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="240">
+                <ui:ADTVirtualList Name="ItemsView" MinWidth="180" />
+                <ScrollContainer SetWidth="210" HScrollEnabled="False">
+                    <BoxContainer Name="Details" Orientation="Vertical" SeparationOverride="4" Margin="4 0">
+                        <Label Name="DetailsEmpty" Text="{Loc 'adt-spawn-menu-details-empty'}" StyleClasses="LabelSubText" Align="Center" />
+                        <BoxContainer Name="DetailsContent" Orientation="Vertical" SeparationOverride="4" Visible="False">
+                            <TextureRect Name="DetailsPreview" SetSize="96 96" HorizontalAlignment="Center" Stretch="KeepAspectCentered" />
+                            <Label Name="DetailsName" HorizontalAlignment="Center" StyleClasses="LabelKeyText" />
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                                <Label Name="DetailsId" HorizontalExpand="True" ClipText="True" StyleClasses="LabelSubText" VerticalAlignment="Center" />
+                                <Button Name="CopyIdButton" Text="{Loc 'adt-spawn-menu-details-copy-id'}" StyleClasses="ButtonSquare" />
+                            </BoxContainer>
+                            <Button Name="FavoriteButton" ToggleMode="True" HorizontalExpand="True" />
+                            <Label Name="VariantsCaption" Text="{Loc 'adt-spawn-menu-details-variants'}" />
+                            <ui:ADTFlowContainer Name="VariantsBox" />
+                            <RichTextLabel Name="DetailsInfo" HorizontalExpand="True" />
+                        </BoxContainer>
+                    </BoxContainer>
+                </ScrollContainer>
+            </BoxContainer>
+        </SplitContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Button Name="MirroredButton" Access="Public" ToggleMode="True" Text="{Loc 'adt-spawn-menu-mirror'}" />
+            <Button Name="EraseButton" Access="Public" ToggleMode="True" Text="{Loc 'adt-spawn-menu-erase'}" />
+            <Label Name="RotationLabel" Access="Public" HorizontalExpand="True" Align="Right" />
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

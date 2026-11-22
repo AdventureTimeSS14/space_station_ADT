@@ -6,10 +6,11 @@
   components:
   - type: Action
     useDelay: 10
-    icon:
-      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
-      state: icon
     itemIconStyle: BigAction
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    layers:
+    - state: icon
   - type: WorldTargetAction
     event: !type:CompProjectileActionEvent
   - type: TargetAction
@@ -24,12 +25,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
-      state: fleshmend
     itemIconStyle: BigAction
     checkCanInteract: false
     useDelay: 120
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_ling.rsi
+    layers:
+    - state: fleshmend
   - type: InstantAction
     event: !type:CompHealActionEvent
 
@@ -42,9 +44,10 @@
   - type: Action
     useDelay: 35
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: repulse
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - state: repulse
   - type: TargetAction
     checkCanAccess: false
     range: 16

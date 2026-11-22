@@ -30,3 +30,10 @@
   oldAge: 50
   youngAge: 30
   # ADT end
+  defaultSoundsBySex:
+  - MaleReptilian
+  - FemaleReptilian
+  - MaleReptilian
+  voices:
+  - MaleReptilian
+  - FemaleReptilian

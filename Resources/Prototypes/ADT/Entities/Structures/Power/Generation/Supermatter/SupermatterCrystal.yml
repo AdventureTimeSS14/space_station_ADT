@@ -58,7 +58,7 @@
     guides: [ SupermatterGuideBook, Power ]
   - type: WarpPoint
     follow: true
-    location: supermatter
+    location: location-adt-supermatter
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -85,6 +85,10 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
+      - sprite: ADT/Season/Structures/Power/Supermatter/newyearhat.rsi
+        state: newyearhat
+        map: ["newYearHat"]
+        visible: false
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter }
@@ -93,7 +97,7 @@
       GlowDelam: { state: supermatter-glow-delam }
   - type: Explosive
     explosionType: Supermatter
-    totalIntensity: 250000
+    totalIntensity: 1350000
     intensitySlope: 5
     maxIntensity: 100
   - type: GravityWell
@@ -103,6 +107,15 @@
   - type: SinguloFood
     energy: 10000
   - type: Appearance
+  - type: HolidayVisuals
+    holidays:
+      newYear:
+      - ADTNewYearSeason
+  - type: GenericVisualizer
+    visuals:
+      enum.HolidayVisuals.Holiday:
+        newYearHat:
+          newYear: { visible: true }
   - type: Supermatter
   - type: AtmosDevice
     requireAnchored: false
@@ -135,6 +148,10 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
+      - sprite: ADT/Season/Structures/Power/Supermatter/newyearhat.rsi
+        state: newyearhat
+        map: ["newYearHat"]
+        visible: false
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter }
@@ -170,7 +187,6 @@
     lightningPrototype: SupermatterLightning
   - type: Beam
     sound: /Audio/Effects/Lightning/lightningshock.ogg
-    allowSpriteOverwrite: false
   - type: TimedDespawn
     lifetime: 1
 

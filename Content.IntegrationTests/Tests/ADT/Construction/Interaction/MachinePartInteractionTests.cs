@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.IntegrationTests.Tests.Interaction;
-using Content.Server.Botany.Components;
+using Content.Shared.ADT.Botany.Components;
 using Content.Server.Construction.Components;
 using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components;
@@ -162,7 +162,7 @@ public sealed class MachinePartInteractionTests : InteractionTest
         await SpawnTarget(SeedExtractor);
         await InteractUsing(Screw);
 
-        var before = Comp<SeedExtractorComponent>();
+        var before = Comp<ADTSeedExtractorUpgradeComponent>();
         var baseMultiplier = before.SeedMultiplier;
 
         await PlaceInHands((RapidPartExchanger, 1));
@@ -175,7 +175,7 @@ public sealed class MachinePartInteractionTests : InteractionTest
         Assert.That(CountMachinePart(machine, MachinePartIds.Servo, 4f), Is.EqualTo(1));
         await AssertRpedContains(rped, Servo1, 1);
 
-        var after = Comp<SeedExtractorComponent>();
+        var after = Comp<ADTSeedExtractorUpgradeComponent>();
         Assert.That(after.SeedMultiplier, Is.GreaterThan(baseMultiplier));
         Assert.That(after.SeedMultiplier, Is.EqualTo(1.6f).Within(0.0001f));
     }

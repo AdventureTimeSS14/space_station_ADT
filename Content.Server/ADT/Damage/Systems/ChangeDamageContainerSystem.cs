@@ -11,8 +11,8 @@ namespace Content.Server.ADT.Damage.Systems;
 
 public sealed class ChangeDamageContainerSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {

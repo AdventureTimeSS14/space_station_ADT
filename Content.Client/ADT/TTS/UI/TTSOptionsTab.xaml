@@ -1,0 +1,29 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:ui="clr-namespace:Content.Client.Options.UI">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Vertical" Margin="8 8 8 8" VerticalExpand="True">
+            <Label Text="{Loc 'ui-options-tts-label'}"
+                   StyleClasses="LabelKeyText" />
+            <BoxContainer Orientation="Vertical" Margin="0 3 0 0">
+                <ui:OptionSlider Name="SliderVolumeTts" Title="{Loc 'ui-options-tts-volume'}" />
+                <ui:OptionDropDown Name="DropDownBarksOrTTS" Title="{Loc 'ui-options-barks-or-tts'}"
+                                   Margin="0 0 0 8" />
+            </BoxContainer>
+            <Label Text="{Loc 'ui-options-tts-radio-label'}"
+                   StyleClasses="LabelKeyText" Margin="0 8 0 0" />
+            <BoxContainer Orientation="Vertical" Margin="0 3 0 0">
+                <CheckBox Name="RadioEnabledCheckBox" Text="{Loc 'ui-options-tts-radio-enabled'}" />
+                <ui:OptionSlider Name="SliderRadioVolume" Title="{Loc 'ui-options-tts-radio-volume'}"
+                                 Margin="0 0 0 8" />
+            </BoxContainer>
+            <Label Text="{Loc 'ui-options-tts-radio-channels-label'}"
+                   StyleClasses="LabelKeyText" Margin="0 8 0 0" />
+            <Label Text="{Loc 'ui-options-tts-radio-channels-hint'}"
+                   StyleClasses="LabelSubText" Margin="0 0 0 3" />
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="ChannelsContainer" Orientation="Vertical" HorizontalExpand="True" />
+            </ScrollContainer>
+        </BoxContainer>
+        <ui:OptionsTabControlRow Name="Control" Access="Public" />
+    </BoxContainer>
+</Control>

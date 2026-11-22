@@ -168,6 +168,11 @@ namespace Content.Server.GameTicking
             if (!_userDb.IsLoadComplete(player))
                 return;
 
+            // ADT-Tweak start
+            if (_queueManager.IsInQueue(player))
+                return;
+            // ADT-Tweak end
+
             if (RunLevel != GameRunLevel.PreRoundLobby)
             {
                 return;

@@ -14,7 +14,7 @@
 //     // System for damage that occurs on specific trigger, towards the entity..
 //     public sealed class DamageOnTriggerSystem : EntitySystem
 //     {
-//         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+//         [Dependency] private DamageableSystem _damageableSystem = default!;
 
 //         public override void Initialize()
 //         {

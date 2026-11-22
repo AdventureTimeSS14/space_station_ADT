@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Power.Systems;
 /// </summary>
 public sealed class RTGHeatSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
 
     private float _accumulator = 0f;
     private const float UpdateInterval = 1.0f;

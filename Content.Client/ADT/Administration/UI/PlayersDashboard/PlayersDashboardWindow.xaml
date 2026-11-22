@@ -1,0 +1,23 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'players-dashboard-title'}"
+                      MinSize="300 260">
+    <GridContainer Columns="2" Margin="12" HSeparationOverride="24" VSeparationOverride="6">
+        <Label Text="{Loc 'players-dashboard-total'}"/>
+        <Label Name="TotalLabel" StyleClasses="LabelHeading" HorizontalAlignment="Right"/>
+        <Label Text="{Loc 'players-dashboard-queue'}"/>
+        <Label Name="QueueLabel" HorizontalAlignment="Right"/>
+        <Label Text="{Loc 'players-dashboard-lobby'}"/>
+        <Label Name="LobbyLabel" HorizontalAlignment="Right"/>
+        <Label Text="{Loc 'players-dashboard-ghosts'}"/>
+        <Label Name="GhostsLabel" HorizontalAlignment="Right"/>
+        <Label Text="{Loc 'players-dashboard-admin-ghosts'}"/>
+        <Label Name="AdminGhostsLabel" HorizontalAlignment="Right"/>
+        <Label Text="{Loc 'players-dashboard-in-game'}"/>
+        <Label Name="InGameLabel" HorizontalAlignment="Right"/>
+        <Label Text="{Loc 'players-dashboard-other'}" FontColorOverride="#b0b0b0"/>
+        <Label Name="OtherLabel" HorizontalAlignment="Right" FontColorOverride="#b0b0b0"/>
+        <Label Text="{Loc 'players-dashboard-admins'}" Margin="0 8 0 0"/>
+        <Label Name="AdminsLabel" HorizontalAlignment="Right" Margin="0 8 0 0"/>
+    </GridContainer>
+</controls:FancyWindow>

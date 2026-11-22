@@ -69,3 +69,21 @@
         amount: 20
       - id: BluespaceMatterBinStockPart
         amount: 20
+
+- type: entity
+  parent: BluespaceRapidPartExchanger
+  id: BluespaceRapidPartExchangerFilledTier5
+  suffix: Tier 5
+  components:
+  - type: StorageFill
+    contents:
+      - id: QuantumCapacitorStockPart
+        amount: 20
+      - id: QuantumScanningModuleStockPart
+        amount: 20
+      - id: QuantumServoStockPart
+        amount: 20
+      - id: QuantumMicroLaserStockPart
+        amount: 20
+      - id: QuantumMatterBinStockPart
+        amount: 20

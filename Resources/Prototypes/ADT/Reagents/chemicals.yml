@@ -46,9 +46,8 @@
         damage:
           types:
             Poison: 3.5
-      - !type:GenericStatusEffect
-        key: TemporaryBlindness
-        component: TemporaryBlindness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectBlindness
         conditions:
         - !type:ReagentCondition
           reagent: ADTMethanol

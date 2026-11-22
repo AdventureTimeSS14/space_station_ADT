@@ -1,6 +1,5 @@
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Server.ADT.StationEvents.Events;
 
 namespace Content.Server.ADT.StationEvents.Components;
@@ -8,8 +7,8 @@ namespace Content.Server.ADT.StationEvents.Components;
 [RegisterComponent, Access(typeof(CentComRandomEvent))]
 public sealed partial class CentComRandomEventComponent : Component
 {
-    [DataField("centComRandomEventPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string CentComRandomEventPrototype = "CentComRandomEvent";
+    [DataField("centComRandomEventPrototype")]
+    public EntProtoId CentComRandomEventPrototype = "CentComRandomEvent";
 
     [DataField("wordSightingIds")]
     public List<int> WordSightingIds = new() { 3 };
@@ -26,4 +25,17 @@ public sealed partial class CentComRandomEventComponent : Component
         {7, 1f},
         {8, 1f}
     };
+
+    [DataField("variantCounts")]
+    public Dictionary<int, int> VariantCounts = new()
+    {
+        {3, 8},
+        {4, 4},
+        {6, 15},
+        {7, 7},
+        {8, 18}
+    };
+
+    [DataField("maxBansPerRound")]
+    public int MaxBansPerRound = 15;
 }

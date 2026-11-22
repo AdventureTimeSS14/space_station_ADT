@@ -1826,6 +1826,20 @@
     - !type:TileNotBlocked
 
 - type: construction
+  id: ADTBannerElysiumRecipe
+  name: construction-name-banner-elysium
+  description: construction-desc-banner-elysium
+  graph: ADTBannerElysium
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: ADTBannerClownRecipe
   name: construction-name-banner-clown
   description: construction-desc-banner-clown

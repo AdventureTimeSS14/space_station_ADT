@@ -10,5 +10,11 @@ ent-ADTActionXenobiologyFeedMonkey = создать обезьяну
 ent-ADTActionXenobiologyRecycleMonkey = переработать обезьяну
     .desc = Перерабатывает мёртвую обезьяну рядом с вами в кубики через привязанный переработчик.
 
-ent-ADTActionXenobiologyReturn = выйти из режима пилотирования
-    .desc = Завершает пилотирование.
+ent-ADTActionXenobiologyAnalyzeSlime = просканировать слайма
+    .desc = Показывает информацию о слайме прямо под глазом камеры.
+
+ent-ADTActionXenobiologyApplyMutationPotion = применить зелье мутаций
+    .desc = Повышает шанс мутации слайма за счёт хранящегося в консоли зелья.
+
+ent-ADTActionXenobiologyApplyStabilizerPotion = применить зелье стабилизатор
+    .desc = Снижает шанс мутации слайма за счёт хранящегося в консоли зелья.

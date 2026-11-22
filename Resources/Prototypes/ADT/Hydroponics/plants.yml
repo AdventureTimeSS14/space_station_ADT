@@ -1,0 +1,381 @@
+- type: entity
+  parent: BasePlant
+  id: ADTPapaverSomniferumPlants
+  name: papaver somniferum
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
+  - type: PlantData
+    name: seeds-papaver-somniferum-name
+    packetPrototype: ADTPapaverSomniferumSeeds
+    productPrototypes: [ ADTFoodPapaverSomniferum ]
+  - type: Plant
+    lifespan: 25
+    maturation: 10
+    production: 3
+    yield: 3
+    potency: 10
+    growthStages: 3
+  - type: PlantGrowth
+    waterConsumption: 0.6
+  - type: PlantChemicals
+    chemicals:
+      Nutriment:
+        min: 1
+        max: 2
+        potencyDivisor: 50
+      Toxin:
+        min: 1
+        max: 4
+        potencyDivisor: 5
+      ADTOpium:
+        min: 1
+        max: 10
+        potencyDivisor: 5
+
+- type: entity
+  parent: BasePlant
+  id: ADTCannabisWhitePlants
+  name: white cannabis
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
+  - type: PlantData
+    name: seeds-cannabiswhite-name
+    packetPrototype: ADTcannabiswhiteSeeds
+    productPrototypes: [ ADTLeavesCannabisWhite ]
+  - type: Plant
+    lifespan: 75
+    maturation: 8
+    production: 15
+    yield: 2
+    potency: 30
+    growthStages: 2
+  - type: PlantGrowth
+    waterConsumption: 0.4
+  - type: PlantHarvest
+    harvestRepeat: Repeat
+  - type: PlantAtmospheric
+    lowHeatTolerance: 288
+    highHeatTolerance: 308
+  - type: PlantChemicals
+    chemicals:
+      THC:
+        min: 5
+        max: 15
+        potencyDivisor: 15
+      Omnizine:
+        min: 3
+        max: 8
+        potencyDivisor: 15
+
+- type: entity
+  parent: BasePlant
+  id: ADTCoffeeTreePlants
+  name: coffee tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi
+  - type: PlantData
+    name: seeds-coffeetree-name
+    packetPrototype: ADTCoffeeTreeSeeds
+    productPrototypes: [ ADTCoffeeBeans ]
+  - type: Plant
+    lifespan: 75
+    maturation: 8
+    production: 15
+    yield: 3
+    potency: 15
+    growthStages: 2
+  - type: PlantGrowth
+    waterConsumption: 0.4
+  - type: PlantHarvest
+    harvestRepeat: Repeat
+  - type: PlantAtmospheric
+    lowHeatTolerance: 288
+    highHeatTolerance: 308
+  - type: PlantChemicals
+    chemicals:
+      Theobromine:
+        min: 5
+        max: 15
+        potencyDivisor: 15
+      Nutriment:
+        min: 3
+        max: 8
+        potencyDivisor: 15
+
+- type: entity
+  parent: BasePlant
+  id: ADTStrawberryPlants
+  name: strawberry
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/strawberry.rsi
+  - type: PlantData
+    name: seeds-strawberry-name
+    packetPrototype: ADTStrawberrySeeds
+    productPrototypes: [ ADTFoodStrawberry ]
+  - type: Plant
+    lifespan: 55
+    maturation: 6
+    production: 6
+    yield: 3
+    potency: 10
+    growthStages: 3
+  - type: PlantHarvest
+    harvestRepeat: Repeat
+  - type: PlantChemicals
+    chemicals:
+      Nutriment:
+        min: 1
+        max: 5
+        potencyDivisor: 20
+      Vitamin:
+        min: 1
+        max: 4
+        potencyDivisor: 25
+
+- type: entity
+  parent: BasePlant
+  id: ADTLavalandCactusPlants
+  name: fruiting cactus
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/lavaland_cactus.rsi
+  - type: PlantData
+    name: seeds-adt-lavaland-cactus-name
+    packetPrototype: ADTSeedLavalandCactusPacket
+    productPrototypes: [ ADTFoodCactusBerry ]
+  - type: Plant
+    lifespan: 50
+    endurance: 25
+    maturation: 7
+    production: 4
+    yield: 4
+    potency: 50
+    growthStages: 2
+  - type: PlantGrowth
+    waterConsumption: 0.3
+  - type: PlantAtmospheric
+    lowPressureTolerance: 20
+    highPressureTolerance: 140
+    lowHeatTolerance: 260
+    highHeatTolerance: 380
+  - type: PlantChemicals
+    chemicals:
+      Vitamin:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+      Nutriment:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+      ADTVitriumFroth:
+        min: 1
+        max: 4
+        potencyDivisor: 12
+
+- type: entity
+  parent: BasePlant
+  id: ADTPolyporePlants
+  name: polypore mushroom
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+  - type: PlantData
+    noun: seeds-noun-spores
+    name: seeds-adt-polypore-name
+    packetPrototype: ADTSeedPolyporePacket
+    productPrototypes: [ ADTFoodMushroomShavings ]
+  - type: Plant
+    lifespan: 50
+    endurance: 25
+    maturation: 7
+    production: 4
+    yield: 4
+    potency: 50
+    growthStages: 3
+  - type: PlantGrowth
+    waterConsumption: 0.3
+  - type: PlantAtmospheric
+    lowPressureTolerance: 20
+    highPressureTolerance: 140
+    lowHeatTolerance: 260
+    highHeatTolerance: 380
+  - type: PlantChemicals
+    chemicals:
+      Sugar:
+        min: 1
+        max: 3
+        potencyDivisor: 16
+      Ethanol:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+
+- type: entity
+  parent: BasePlant
+  id: ADTPorciniPlants
+  name: porcini mushroom
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/porcini.rsi
+  - type: PlantData
+    noun: seeds-noun-spores
+    name: seeds-adt-porcini-name
+    packetPrototype: ADTSeedPorciniPacket
+    productPrototypes: [ ADTFoodMushroomLeaf ]
+  - type: Plant
+    lifespan: 50
+    endurance: 25
+    maturation: 7
+    production: 4
+    yield: 4
+    potency: 50
+    growthStages: 3
+  - type: PlantGrowth
+    waterConsumption: 0.3
+  - type: PlantAtmospheric
+    lowPressureTolerance: 20
+    highPressureTolerance: 140
+    lowHeatTolerance: 260
+    highHeatTolerance: 380
+  - type: PlantChemicals
+    chemicals:
+      Nutriment:
+        min: 1
+        max: 3
+        potencyDivisor: 16
+      ADTVitriumFroth:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+      Nicotine:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+
+- type: entity
+  parent: BasePlant
+  id: ADTInocybePlants
+  name: inocybe mushroom
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/inocybe.rsi
+  - type: PlantData
+    noun: seeds-noun-spores
+    name: seeds-adt-inocybe-name
+    packetPrototype: ADTSeedInocybePacket
+    productPrototypes: [ ADTFoodMushroomCap ]
+  - type: Plant
+    lifespan: 50
+    endurance: 25
+    maturation: 7
+    production: 4
+    yield: 4
+    potency: 50
+    growthStages: 3
+  - type: PlantGrowth
+    waterConsumption: 0.3
+  - type: PlantAtmospheric
+    lowPressureTolerance: 20
+    highPressureTolerance: 140
+    lowHeatTolerance: 260
+    highHeatTolerance: 380
+  - type: PlantChemicals
+    chemicals:
+      MindbreakerToxin:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+      ADTEntropicPolypnium:
+        min: 1
+        max: 4
+        potencyDivisor: 12
+      SpaceDrugs:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+
+- type: entity
+  parent: BasePlant
+  id: ADTEmbershroomPlants
+  name: embershroom
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/ember.rsi
+  - type: PlantData
+    noun: seeds-noun-spores
+    name: seeds-adt-embershroom-name
+    packetPrototype: ADTSeedEmbershroomPacket
+    productPrototypes: [ ADTFoodMushroomStem ]
+  - type: Plant
+    lifespan: 50
+    endurance: 25
+    maturation: 7
+    production: 4
+    yield: 4
+    potency: 50
+    growthStages: 3
+  - type: PlantGrowth
+    waterConsumption: 0.3
+  - type: PlantAtmospheric
+    lowPressureTolerance: 20
+    highPressureTolerance: 140
+    lowHeatTolerance: 260
+    highHeatTolerance: 380
+  - type: PlantChemicals
+    chemicals:
+      ADTTineaLuxor:
+        min: 1
+        max: 2
+        potencyDivisor: 25
+      Vitamin:
+        min: 1
+        max: 1
+        potencyDivisor: 50
+      SpaceDrugs:
+        min: 1
+        max: 1
+        potencyDivisor: 50
+
+- type: entity
+  parent: BasePlant
+  id: ADTReishiPlants
+  name: reishi mushroom
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/reishi.rsi
+  - type: PlantData
+    noun: seeds-noun-spores
+    name: seeds-adt-reishi-name
+    packetPrototype: ADTSeedReishiPacket
+    productPrototypes: [ ADTFoodReishi ]
+  - type: Plant
+    lifespan: 35
+    endurance: 35
+    maturation: 10
+    production: 5
+    yield: 4
+    potency: 15
+    growthStages: 4
+  - type: PlantGrowth
+    waterConsumption: 0.6
+    nutrientConsumption: 0.5
+  - type: PlantAtmospheric
+    lowPressureTolerance: 20
+    highPressureTolerance: 140
+    lowHeatTolerance: 260
+    highHeatTolerance: 380
+  - type: PlantChemicals
+    chemicals:
+      ADTMorphine:
+        min: 1
+        max: 5
+        potencyDivisor: 3
+      Charcoal:
+        min: 1
+        max: 5
+        potencyDivisor: 3

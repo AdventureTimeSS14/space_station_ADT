@@ -6,9 +6,9 @@ namespace Content.Shared._RMC14.Movement;
 
 public sealed class TemporarySpeedModifiersSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedSystem = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedSystem = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

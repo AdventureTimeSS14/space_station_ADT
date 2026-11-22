@@ -10,12 +10,12 @@ using Content.Server.Popups;
 
 public sealed class MimeBaloonSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

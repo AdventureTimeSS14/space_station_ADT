@@ -13,13 +13,13 @@ namespace Content.Shared.ADT.Resomi.Abilities;
 
 public abstract class SharedAgillitySkillSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly ClimbSystem _climb = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _action = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private ClimbSystem _climb = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedActionsSystem _action = default!;
 
     protected const int BaseCollisionGroup = (int)CollisionGroup.MobMask;
 

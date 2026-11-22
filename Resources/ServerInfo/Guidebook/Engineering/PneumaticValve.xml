@@ -1,43 +1,42 @@
 ﻿<Document>
-  # Pneumatic Valve
-  The pneumatic valve is a bidirectional valve controlled via a pressure input.
+  # Пневматический клапан
+  Пневматический клапан - это двунаправленный клапан, которым управляет давление на управляющем входе.
   <Box>
     <GuideEntityEmbed Entity="PressureControlledValve"/>
   </Box>
 
-  The pneumatic valve has 3 connections: input, output, and control.
-  The "input" side will be the input/output connection with the highest pressure, and can switch sides, making the valve bidirectional.
+  У пневматического клапана три подключения: вход, выход и управление.
+  Входом считается та из двух сторон, где давление выше. Входная сторона может меняться, поэтому клапан работает в обе стороны.
 
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Input/Output"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Вход/выход"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Control" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Управление" Rotation="90"/>
     <GuideEntityEmbed Entity="PressureControlledValve" Caption=""/>
     <GuideEntityEmbed Entity="FloorTileItemSteel" Caption=""/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Input/Output"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Вход/выход"/>
   </Box>
 
-  The valve will [color=green]open[/color] when the pressure on the output side is lower than the pressure on the control side by [color=orange][protodata="PressureControlledValve" comp="PressureControlledValve" member="Threshold"/] kPa[/color].
+  Клапан [color=green]открывается[/color], когда давление на выходе ниже давления на управляющем входе на [color=orange][protodata="PressureControlledValve" comp="PressureControlledValve" member="Threshold"/] кПа[/color].
 
-  The valve will [color=red]close[/color] when the pressure of the output side reaches the pressure of the control side within [color=orange][protodata="PressureControlledValve" comp="PressureControlledValve" member="Threshold"/] kPa[/color].
+  Клапан [color=red]закрывается[/color], когда давление на выходе приближается к давлению на управляющем входе ближе чем на [color=orange][protodata="PressureControlledValve" comp="PressureControlledValve" member="Threshold"/] кПа[/color].
 
-  For example, a pneumatic valve with a control pressure of 500 kPa will open when the output pressure is 500 kPa - [color=orange][protodata="PressureControlledValve" comp="PressureControlledValve" member="Threshold"/] kPa[/color] or lower, and it will close when the output pressure is 500 kPa - [color=orange][protodata="PressureControlledValve" comp="PressureControlledValve" member="Threshold"/] kPa[/color] or higher.
+  Например, если на управляющем входе 500 кПа, клапан откроется, когда давление на выходе упадёт до 500 кПа минус [color=orange][protodata="PressureControlledValve" comp="PressureControlledValve" member="Threshold"/] кПа[/color] или ниже, и закроется, когда давление на выходе поднимется выше этого значения.
 
-  The valve's control pressure is determined by a pipenet connection, and as such can be adjusted on the fly by a [textlink="pump" link="Pumps"] or another source of pressure control.
+  Давление на управляющем входе задаётся подключённой сетью труб, поэтому его можно менять на ходу [textlink="насосом" link="Pumps"] или другим способом.
 
-  ## Differences to Pumps
+  ## Отличия от насосов
 
-  The pneumatic valve is different from a [textlink="pump" link="Pumps"] which moves gas via work.
-  The pneumatic valve is a passive device that moves gas based on the higher pressure of the input gas, and as such it can sometimes fill volumes faster than a [textlink="pump" link="Pumps"] can.
+  [textlink="Насос" link="Pumps"] перемещает газ, совершая работу, а пневматический клапан - пассивное устройство, через которое газ идёт за счёт более высокого давления на входе. Поэтому иногда клапан заполняет объём быстрее, чем [textlink="насос" link="Pumps"].
 
-  For example, a pneumatic valve with a control pressure of 500 kPa will fill a volume faster than a pressure [textlink="pump" link="Pumps"] set to 500 kPa.
-  However, the [textlink="pump" link="Pumps"] will be able to maintain the pressure in the volume more accurately.
+  Например, пневматический клапан с управляющим давлением 500 кПа заполнит объём быстрее, чем [textlink="насос давления" link="Pumps"], настроенный на 500 кПа.
+  Зато [textlink="насос" link="Pumps"] точнее поддерживает давление в этом объёме.
 
-  The pneumatic valve can be used in a variety of applications, for example:
-  - To automatically vent gasses in a burn chamber based on control input
-  - The filling of a volume quickly, based on a customizable control pressure
+  Пневматические клапаны применяются для разных задач, например:
+  - чтобы автоматически выпускать газы из камеры сгорания по сигналу давления на управляющем входе;
+  - чтобы быстро заполнять объём до настраиваемого давления.
 
 </Document>

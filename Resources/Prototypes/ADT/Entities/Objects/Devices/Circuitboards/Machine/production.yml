@@ -262,8 +262,7 @@
       Glass: 15
       Steel: 15
       CableHV: 5
-
-      ADTBScrystalArt: 10
+      ADTBScrystal: 10
     partRequirements:
       Servo: 20
     tagRequirements:
@@ -298,7 +297,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: ADTBigThruster
+    prototype: ADTThrusterBig
     stackRequirements:
       Steel: 45
       ADTBScrystal: 9
@@ -313,7 +312,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: ADTMediumThruster
+    prototype: ADTThrusterMedium
     stackRequirements:
       Steel: 20
       ADTBScrystal: 4
@@ -334,6 +333,9 @@
         Glass: 2
         Steel: 8
         Plasma: 2
+      partRequirements:
+        Servo: 1
+        MicroLaser: 1
 
 #Зарядник мегабатареек
 #
@@ -437,3 +439,19 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
+
+- type: entity
+  id: CrystallizerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: crystallizer machine board
+  description: A machine printed circuit board for a crystallizer.
+  components:
+  - type: MachineBoard
+    prototype: Crystallizer
+    partRequirements:
+      Capacitor: 2
+      Servo: 4
+      MatterBin: 4
+    stackRequirements:
+      Steel: 5
+      Glass: 5

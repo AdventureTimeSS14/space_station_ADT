@@ -1,0 +1,100 @@
+<Document>
+# Нарушения заключённых
+
+Мера за нарушение зависит от того, где содержится заключённый и что именно он сделал.
+
+<Table Columns="4">
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Место содержания[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Вандализм[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Попытка побега[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Побег[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Тюремное заключение[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Таймер запускается заново.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Таймер запускается заново, или заключённого переводят в карцер на весь срок. Если он снова пытается бежать, к нему можно применить летальную силу и затем вернуть в место содержания.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Таймер запускается заново, и к сроку добавляется 10 минут. Если заключённый бежит повторно, к нему можно применить летальную силу и затем вернуть в место содержания.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Пермабриг[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Заключённого переводят в карцер на 10 минут или применяют к нему физическую силу.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      К заключённому можно применить летальную силу и затем вернуть его в место содержания, а также перевести в карцер на 10 минут. Повторная попытка побега становится основанием для казни.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      К заключённому можно применить летальную силу и затем вернуть его в место содержания, либо убить на месте без возможности реанимации или клонирования.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Карцер[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      К сроку в карцере добавляется 10 минут, или к заключённому применяют физическую силу.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      К заключённому применяют летальную силу и затем возвращают его в место содержания. Повторная попытка побега становится основанием для казни.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Заключённого убивают на месте без возможности реанимации или клонирования.
+    </Box>
+  </ColorBox>
+</Table>
+
+## Места содержания
+
+- [bold]Тюремное заключение[/bold] - это защищённая комната с минимальными удобствами и таймером, который отсчитывает срок наказания.
+- [bold]Пермабриг[/bold] - это просторная защищённая комната с удобствами, где можно выращивать сельскохозяйственные культуры. Её могут оснастить столовой, развлекательной аппаратурой и другими вещами, чтобы пожизненный срок проходил комфортнее.
+- [bold]Карцер[/bold] - это компактная укреплённая камера без удобств, которую часто оснащают таймером.
+
+## Виды нарушений
+
+- [bold]Вандализм во время заключения[/bold] - это разрушение вещей, которое напрямую не ведёт к побегу. Например, если заключённый разбил лампочки, внутренние стены или стёкла, но не может покинуть область заключения, это вандализм.
+- [bold]Попытка побега[/bold] - это попытка сломать барьеры, которые удерживают заключённого (окна камеры, шлюзы, стеклянные двери), или нападение на службу безопасности во время такой попытки.
+- [bold]Побег[/bold] - это выход из области заключения без разрешения службы безопасности. Если заключённый разрушил внешнюю стену или окно камеры и может выйти, это уже считается побегом. Если же разрушены только внутренние окна или стены и выйти нельзя, это вандализм.
+</Document>

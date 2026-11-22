@@ -32,6 +32,7 @@ public sealed partial class InjurableComponent : Component
     public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()
     {
         { MobState.Alive, "HealthIconFine" },
+        { MobState.SoftCritical, "HealthIconCritical" }, // ADT-Tweak
         { MobState.Critical, "HealthIconCritical" },
         { MobState.Dead, "HealthIconDead" },
     };

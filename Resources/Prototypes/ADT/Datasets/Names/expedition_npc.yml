@@ -1,0 +1,185 @@
+- type: localizedDataset
+  id: ADTNamesSovietRank
+  values:
+    prefix: adt-names-soviet-rank-dataset-
+    count: 6
+
+- type: localizedDataset
+  id: ADTNamesSovietSurname
+  values:
+    prefix: adt-names-soviet-surname-dataset-
+    count: 24
+
+- type: localizedDataset
+  id: ADTNamesSovietSurnameFemale
+  values:
+    prefix: adt-names-soviet-surname-female-dataset-
+    count: 24
+
+- type: localizedDataset
+  id: ADTNamesSmugglerNickname
+  values:
+    prefix: adt-names-smuggler-nickname-dataset-
+    count: 20
+
+- type: localizedDataset
+  id: ADTNamesMarauderCallsign
+  values:
+    prefix: adt-names-marauder-callsign-dataset-
+    count: 20
+
+- type: localizedDataset
+  id: ADTSovietBunkerJokes
+  values:
+    prefix: adt-soviet-bunker-joke-
+    count: 20
+
+- type: localizedDataset
+  id: ADTSmugglerJokes
+  values:
+    prefix: adt-smuggler-joke-
+    count: 20
+
+- type: localizedDataset
+  id: ADTMarauderJokes
+  values:
+    prefix: adt-marauder-joke-
+    count: 20
+
+- type: localizedDataset
+  id: ADTSovietBunkerChatter
+  values:
+    prefix: adt-soviet-bunker-chatter-
+    count: 20
+
+- type: localizedDataset
+  id: ADTSmugglerChatter
+  values:
+    prefix: adt-smuggler-chatter-
+    count: 20
+
+- type: localizedDataset
+  id: ADTMarauderChatter
+  values:
+    prefix: adt-marauder-chatter-
+    count: 20
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioContact
+  values:
+    prefix: adt-expedition-npc-radio-contact-
+    count: 5
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioEngage
+  values:
+    prefix: adt-expedition-npc-radio-engage-
+    count: 5
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioHelp
+  values:
+    prefix: adt-expedition-npc-radio-help-
+    count: 5
+
+- type: localizedDataset
+  id: ADTExpeditionNpcRadioMoving
+  values:
+    prefix: adt-expedition-npc-radio-moving-
+    count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioContact
+  values:
+    prefix: adt-xenoborg-radio-contact-
+    count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioHelp
+  values:
+    prefix: adt-xenoborg-radio-help-
+    count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioMoving
+  values:
+    prefix: adt-xenoborg-radio-moving-
+    count: 5
+
+- type: localizedDataset
+  id: ADTXenoborgRadioNeutralized
+  values:
+    prefix: adt-xenoborg-radio-neutralized-
+    count: 5
+
+- type: localizedDataset
+  id: ADTSquadSovietFollow
+  values:
+    prefix: adt-squad-soviet-bunker-follow-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSovietPositions
+  values:
+    prefix: adt-squad-soviet-bunker-positions-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSovietEngage
+  values:
+    prefix: adt-squad-soviet-bunker-engage-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSovietStandDown
+  values:
+    prefix: adt-squad-soviet-bunker-standdown-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerFollow
+  values:
+    prefix: adt-squad-smuggler-follow-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerPositions
+  values:
+    prefix: adt-squad-smuggler-positions-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerEngage
+  values:
+    prefix: adt-squad-smuggler-engage-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadSmugglerStandDown
+  values:
+    prefix: adt-squad-smuggler-standdown-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderFollow
+  values:
+    prefix: adt-squad-marauder-follow-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderPositions
+  values:
+    prefix: adt-squad-marauder-positions-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderEngage
+  values:
+    prefix: adt-squad-marauder-engage-
+    count: 3
+
+- type: localizedDataset
+  id: ADTSquadMarauderStandDown
+  values:
+    prefix: adt-squad-marauder-standdown-
+    count: 3

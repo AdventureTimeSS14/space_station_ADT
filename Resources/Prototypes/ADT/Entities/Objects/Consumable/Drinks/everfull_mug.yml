@@ -5,10 +5,10 @@
   name: everfull mug
   description: An enchanted mug which can be filled with any of various liquids on command.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents: []
   - type: UserInterface
     interfaces:
       enum.ADTEverfullUiKey.Key:

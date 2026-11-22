@@ -22,4 +22,7 @@ public sealed partial class ADTFleeComponent : Component
 
     [DataField]
     public float UpdateThreshold = 2f;
+
+    [DataField]
+    public bool Enabled = true;
 }

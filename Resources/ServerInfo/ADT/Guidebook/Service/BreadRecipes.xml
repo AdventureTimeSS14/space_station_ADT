@@ -4,6 +4,8 @@
 
 Свежая буханка хлеба не имеет себе равных. Изделия данной категории часто используются и в других рецептах. Попробуйте!
 
-<GuideMicrowaveGroupEmbed Group="Breads"/>
+<GuideADTCookingGroupEmbed Group="Breads"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Breads"/>
 
 </Document>

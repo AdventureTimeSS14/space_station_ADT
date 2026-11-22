@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Actions;
+using Content.Client.ADT.Actions;
 using Content.Client.Construction;
+using Content.Client.Mapping;
 using Content.Client.Gameplay;
 using Content.Client.Hands;
 using Content.Client.Interaction;
@@ -19,6 +21,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
@@ -26,6 +29,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Content.Client.Actions.ActionsSystem;
@@ -40,28 +44,29 @@ using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 
 namespace Content.Client.UserInterface.Systems.Actions;
 
-public sealed class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
+public sealed partial class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private IOverlayManager _overlays = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private IStateManager _stateManager = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
-    [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
+    [UISystemDependency] private readonly ADT.Heretic.StopTargetingSystem? _stopTargeting = default;
+    [UISystemDependency] private readonly ADTActionOrderSystem? _orderSystem = default;
+
+    // ADT-Tweak-Start
+    private bool IsMapping => _stateManager.CurrentState is MappingState;
+    private ADTActionOrderSystem? ActionOrder => IsMapping ? null : _orderSystem;
+    private bool _showRemovedOnly;
+    // ADT-Tweak-End
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
 
-    // ADT-Tweak-Start
-    /// <summary>
-    /// Manually placed action positions (action prototype id -> slot index), restored after actions are re-linked
-    /// (body change, polymorph, death/ghost). Kept for the duration of the round.
-    /// </summary>
-    private readonly Dictionary<string, int> _pinnedSlots = new();
-    // ADT-Tweak-End
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
@@ -105,10 +110,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnScreenUnload()
     {
-        // ADT-Tweak-Start
-        // Сброс ручных позиций кнопок способностей при выгрузке экрана.
-        _pinnedSlots.Clear();
-        // ADT-Tweak-End
         UnloadGui();
     }
 
@@ -120,6 +121,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionRemoved += OnActionRemoved;
             _actionsSystem.ActionsUpdated += OnActionsUpdated;
         }
+
+        if (_stopTargeting != null) // ADT Heretic
+            _stopTargeting.StopTargeting += StopTargeting;
 
         UpdateFilterLabel();
         QueueWindowUpdate();
@@ -241,6 +245,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.ActionsUpdated -= OnActionsUpdated;
         }
 
+        if (_stopTargeting != null) // ADT Heretic
+            _stopTargeting.StopTargeting -= StopTargeting;
+
         CommandBinds.Unregister<ActionUIController>();
     }
 
@@ -273,14 +280,22 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
 
         // ADT-Tweak-Start
-        if (GetActionKey(actionId) is {} key && _pinnedSlots.TryGetValue(key, out var targetIndex))
+        if (ActionOrder is { } order && GetActionKey(actionId) is { } key)
         {
-            _actions.Insert(Math.Min(targetIndex, _actions.Count), actionId);
-            return;
+            if (order.IsRemoved(key))
+                return;
+
+            if (order.HasPlace(key))
+            {
+                _actions.Insert(order.GetInsertIndex(GetActionKeys(), key), actionId);
+                StoreOrder();
+                return;
+            }
         }
-        // ADT-Tweak-End
 
         _actions.Add(action);
+        StoreOrder();
+        // ADT-Tweak-End
     }
 
     private void OnActionRemoved(EntityUid actionId)
@@ -292,6 +307,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             StopTargeting();
 
         _actions.RemoveAll(x => x == actionId);
+
+        StoreOrder(); // ADT-Tweak
     }
 
     private void OnActionsUpdated()
@@ -384,7 +401,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 continue;
             }
 
-            var button = new ActionButton(EntityManager, _spriteSystem, this) {Locked = true};
+            var button = new ActionButton(EntityManager, this) {Locked = true};
             button.ActionPressed += OnWindowActionPressed;
             button.ActionUnpressed += OnWindowActionUnPressed;
             button.ActionFocusExited += OnWindowActionFocusExisted;
@@ -419,7 +436,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var filters = _window.FilterButton.SelectedKeys;
         var actions = _actionsSystem.GetClientActions();
 
-        if (filters.Count == 0 && string.IsNullOrWhiteSpace(search))
+        if (filters.Count == 0 && string.IsNullOrWhiteSpace(search) && !_showRemovedOnly) // ADT-Tweak
         {
             PopulateActions(actions);
             return;
@@ -427,6 +444,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         actions = actions.Where(action =>
         {
+            // ADT-Tweak-Start
+            if (_showRemovedOnly && !IsRemovedFromHotbar(action))
+                return false;
+            // ADT-Tweak-End
+
             if (filters.Count > 0 && filters.Any(filter => !MatchesFilter(action, filter)))
                 return false;
 
@@ -456,20 +478,19 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (actionId == null)
         {
+            var cleared = button.Action; // ADT-Tweak
             button.ClearData();
-            if (_container?.TryGetButtonIndex(button, out position) ?? false)
+            // ADT-Tweak-Start
+            if (cleared != null)
             {
-                if (_actions.Count > position && position >= 0)
-                // ADT-Tweak-Start
+                var index = _actions.IndexOf(cleared);
+                if (index >= 0)
                 {
-                    if (_actions[position] is {} oldAction && GetActionKey(oldAction) is {} oldKey)
-                        _pinnedSlots.Remove(oldKey);
-
-                    _actions.RemoveAt(position);
-                    ShiftPinnedSlots(position);
+                    _actions.RemoveAt(index);
                 }
-                // ADT-Tweak-End
+                MarkRemovedFromHotbar(cleared);
             }
+            // ADT-Tweak-End
         }
         else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
             _container != null &&
@@ -481,14 +502,20 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             }
             else
             {
+                // ADT-Tweak-Start
                 _actions[position] = actionId;
+                // ADT-Tweak-End
             }
 
             // ADT-Tweak-Start
-            if (GetActionKey(actionId.Value) is {} key)
-                _pinnedSlots[key] = position;
+            if (GetActionKey(actionId.Value) is { } key)
+                ActionOrder?.SetRemoved(key, false);
             // ADT-Tweak-End
         }
+
+        // ADT-Tweak-Start
+        StoreOrder();
+        // ADT-Tweak-End
 
         if (updateSlots)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
@@ -510,8 +537,17 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SetAction(button, action, false);
         }
 
+        // ADT-Tweak-Start
         if (dragged.Parent is ActionButtonContainer)
+        {
             SetAction(dragged, swapAction, false);
+        }
+        else if (swapAction != null)
+        {
+            MarkRemovedFromHotbar(swapAction);
+            StoreOrder();
+        }
+        // ADT-Tweak-End
 
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
@@ -534,6 +570,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         QueueWindowUpdate();
     }
+
+    // ADT-Tweak-Start
+    private void OnRemovedOnlyToggled(ButtonToggledEventArgs args)
+    {
+        _showRemovedOnly = args.Pressed;
+        QueueWindowUpdate();
+    }
+    // ADT-Tweak-End
 
     private void OnFilterSelected(ItemPressedEventArgs args)
     {
@@ -637,14 +681,15 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // and a small item/provider sprite, then the dragged icon should be the big texture, not the provider.
         if (_menuDragHelper.Dragged?.Action is {} action)
         {
-            if (EntityManager.TryGetComponent(action.Comp.EntityIcon, out SpriteComponent? sprite)
-                && sprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
+            if (EntityManager.TryGetComponent(action.Comp.EntityIcon, out SpriteComponent? itemSprite)
+                && itemSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} itemFrame)
             {
-                _dragShadow.Texture = frame;
+                _dragShadow.Texture = itemFrame;
             }
-            else if (action.Comp.Icon is {} icon)
+            else if (EntityManager.TryGetComponent(action.Owner, out SpriteComponent? actionSprite)
+                && actionSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} actionFrame)
             {
-                _dragShadow.Texture = _spriteSystem.Frame0(icon);
+                _dragShadow.Texture = actionFrame;
             }
             else
             {
@@ -667,6 +712,18 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         _dragShadow.Texture = null;
         _dragShadow.Visible = false;
+        UpdateActionBarBackgrounds();
+    }
+
+    private void UpdateActionBarBackgrounds()
+    {
+        if (_container == null)
+            return;
+
+        foreach (var button in _container.GetButtons())
+        {
+            button.UpdateBackground();
+        }
     }
 
     private void UnloadGui()
@@ -685,6 +742,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _window.ClearButton.OnPressed -= OnClearPressed;
             _window.SearchBar.OnTextChanged -= OnSearchChanged;
             _window.FilterButton.OnItemSelected -= OnFilterSelected;
+            _window.RemovedOnlyButton.OnToggled -= OnRemovedOnlyToggled; // ADT-Tweak
 
             _window.Dispose();
             _window = null;
@@ -702,6 +760,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         _window.ClearButton.OnPressed += OnClearPressed;
         _window.SearchBar.OnTextChanged += OnSearchChanged;
         _window.FilterButton.OnItemSelected += OnFilterSelected;
+
+        // ADT-Tweak-Start
+        _window.RemovedOnlyButton.Pressed = _showRemovedOnly;
+        _window.RemovedOnlyButton.OnToggled += OnRemovedOnlyToggled;
+        // ADT-Tweak-End
 
         if (ActionsBar == null)
         {
@@ -768,7 +831,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     public override void FrameUpdate(FrameEventArgs args)
     {
+        var wasDragging = IsDragging;
         _menuDragHelper.Update(args.DeltaSeconds);
+
+        if (wasDragging != IsDragging)
+            UpdateActionBarBackgrounds();
         if (_window is {UpdateNeeded: true})
             SearchAndDisplay();
     }
@@ -795,7 +862,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem == null)
             return;
 
-        var actions = _actionsSystem.GetClientActions().Where(action => action.Comp.AutoPopulate).ToList();
+        // ADT-Tweak-Start
+        var actions = _actionsSystem.GetClientActions()
+            .Where(action => action.Comp.AutoPopulate || HasSavedPlace(action))
+            .ToList();
+        // ADT-Tweak-End
         actions.Sort(ActionComparer);
 
         _actions.Clear();
@@ -806,58 +877,77 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         }
 
         // ADT-Tweak-Start
-        ApplyPinnedSlots();
+        ApplySavedOrder();
+        StoreOrder();
+        // ADT-Tweak-End
     }
 
-    /// <summary>
-    /// Restores manually placed action positions after actions are re-linked. Actions that no longer exist
-    /// are ignored, new actions keep their default spots.
-    /// </summary>
-    private void ApplyPinnedSlots()
+    // ADT-Tweak-Start
+    private void ApplySavedOrder()
     {
-        if (_pinnedSlots.Count == 0 || _actionsSystem == null)
+        if (ActionOrder is not { } order)
             return;
 
-        var byKey = new Dictionary<string, EntityUid>();
-        foreach (var (uid, _) in _actionsSystem.GetClientActions())
+        var arranged = order.Arrange(_actions.OfType<EntityUid>(), GetActionKey);
+
+        _actions.Clear();
+        foreach (var actionId in arranged)
         {
-            if (GetActionKey(uid) is {} key && !byKey.ContainsKey(key))
-                byKey[key] = uid;
-        }
-
-        foreach (var (key, targetIndex) in _pinnedSlots.OrderBy(x => x.Value))
-        {
-            if (!byKey.TryGetValue(key, out var actionId))
-                continue;
-
-            var currentIndex = _actions.IndexOf(actionId);
-            if (currentIndex == targetIndex)
-                continue;
-
-            if (currentIndex == -1)
-            {
-                _actions.Insert(Math.Min(targetIndex, _actions.Count), actionId);
-                continue;
-            }
-
-            _actions.RemoveAt(currentIndex);
-            _actions.Insert(Math.Min(targetIndex, _actions.Count), actionId);
+            _actions.Add(actionId);
         }
     }
 
-    private string? GetActionKey(EntityUid actionId)
+    private void StoreOrder()
     {
-        return EntityManager.GetComponent<MetaDataComponent>(actionId).EntityPrototype?.ID;
+        if (ActionOrder is not { } order || _actionsSystem == null)
+            return;
+
+        if (!_actionsSystem.GetClientActions().Any())
+            return;
+
+        order.Store(GetActionKeys());
     }
 
-    /// <summary>
-    /// Shifts pinned slot indexes after an action was removed from the list.
-    /// </summary>
-    private void ShiftPinnedSlots(int removedIndex)
+    private void MarkRemovedFromHotbar(EntityUid? actionId)
     {
-        var keysToShift = _pinnedSlots.Where(x => x.Value > removedIndex).Select(x => x.Key).ToList();
-        foreach (var key in keysToShift)
-            _pinnedSlots[key]--;
+        if (actionId is not { } action || _actions.Contains(action))
+            return;
+
+        if (GetActionKey(action) is { } key)
+            ActionOrder?.SetRemoved(key, true);
+    }
+
+    private bool IsRemovedFromHotbar(EntityUid actionId)
+    {
+        return ActionOrder is { } order &&
+               GetActionKey(actionId) is { } key &&
+               order.IsRemoved(key);
+    }
+
+    private bool HasSavedPlace(EntityUid actionId)
+    {
+        return ActionOrder is { } order &&
+               GetActionKey(actionId) is { } key &&
+               order.HasPlace(key);
+    }
+
+    private List<EntProtoId?> GetActionKeys()
+    {
+        return _actions.Select(action => action is { } actionId ? GetActionKey(actionId) : null).ToList();
+    }
+
+    private EntProtoId? GetActionKey(EntityUid actionId)
+    {
+        if (!EntityManager.TryGetComponent(actionId, out MetaDataComponent? metaData) ||
+            metaData.EntityPrototype is not { } proto)
+        {
+            return null;
+        }
+
+        if (proto.ID == MappingEntityAction.Id)
+            return null;
+
+        return proto.ID;
     }
     // ADT-Tweak-End
 
@@ -900,10 +990,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             {
                 handOverlay.EntityOverride = provider;
             }
-            else if (action.Toggled && action.IconOn != null)
-                handOverlay.IconOverride = _spriteSystem.Frame0(action.IconOn);
-            else if (action.Icon != null)
-                handOverlay.IconOverride = _spriteSystem.Frame0(action.Icon);
+            else if (EntityManager.TryGetComponent(uid, out SpriteComponent? actionSprite)
+                && actionSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
+            {
+                handOverlay.IconOverride = frame;
+            }
         }
 
         if (_container != null)
@@ -948,6 +1039,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         _actionsSystem?.SetToggled(oldAction, false);
 
         SelectingTargetFor = null;
+        EntityManager.System<ADTTargetActionIconSystem>().ResetIcon(oldAction); // ADT-Tweak
 
         _targetOutline?.Disable();
         _interactionOutline?.SetEnabled(true);

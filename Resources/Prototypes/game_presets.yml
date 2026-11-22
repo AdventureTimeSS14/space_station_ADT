@@ -41,6 +41,7 @@
     - Zombie
     - Wizard
     - Xenoborgs
+    - Changeling
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - BasicRoundstartVariation
@@ -63,6 +64,7 @@
     - Zombie
     - Wizard
     - Xenoborgs
+    - Changeling
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler

@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by discord:prazat911",
+  "copyright": "Created by discord:prazat911, popsicleslime_trash sprited by orange6775 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -75,6 +75,9 @@
     },
     {
       "name": "watermelonpopsicle_trash"
+    },
+    {
+      "name": "popsicleslime_trash"
     }
   ]
 }

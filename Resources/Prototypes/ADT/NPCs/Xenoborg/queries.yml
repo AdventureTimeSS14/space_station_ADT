@@ -1,0 +1,18 @@
+- type: utilityQuery
+  id: ADTXenoborgSleepTargets
+  query:
+    - !type:NearbyHostilesQuery
+  considerations:
+    - !type:TargetIsAliveCon
+      curve: !type:BoolCurve
+    - !type:ADTTargetIsAsleepCon
+      curve: !type:InverseBoolCurve
+    - !type:TargetIsVisibleCon
+      curve: !type:BoolCurve
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve

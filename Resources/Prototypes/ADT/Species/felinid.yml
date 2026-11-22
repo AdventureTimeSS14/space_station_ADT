@@ -15,3 +15,10 @@
   maxAge: 50
   oldAge: 26
   youngAge: 18
+  defaultSoundsBySex:
+  - MaleFelinid
+  - FemaleFelinid
+  - MaleFelinid
+  voices:
+  - MaleFelinid
+  - FemaleFelinid

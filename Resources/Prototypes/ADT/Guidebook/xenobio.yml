@@ -1,4 +1,25 @@
 - type: guideEntry
   id: Xenobiology
   name: guide-entry-xenobiology
-  text: "/ServerInfo/VG/Guidebook/Science/Xenobiology.xml"
+  text: "/ServerInfo/ADT/Guidebook/Xenobiology/Xenobiology.xml"
+  children:
+  - ADTXenoBasics
+  - ADTXenoTree
+  - ADTXenoReactions
+
+- type: guideEntry
+  id: ADTXenoBasics
+  name: guide-entry-xenobiology-basics
+  text: "/ServerInfo/ADT/Guidebook/Xenobiology/Basics.xml"
+
+- type: guideEntry
+  id: ADTXenoTree
+  name: guide-entry-xenobiology-tree
+  text: "/ServerInfo/ADT/Guidebook/Xenobiology/Tree.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTXenoReactions
+  name: guide-entry-xenobiology-reactions
+  text: "/ServerInfo/ADT/Guidebook/Xenobiology/Reactions.xml"
+  filterEnabled: true

@@ -12,11 +12,11 @@ using Content.Shared.Database;
 namespace Content.Server.GameTicking.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    public sealed class ForcePresetCommand : LocalizedEntityCommands
+    public sealed partial class ForcePresetCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly GameTicker _ticker = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!; // ADT-Tweak
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private GameTicker _ticker = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!; // ADT-Tweak
 
         public override string Command => "forcepreset";
 

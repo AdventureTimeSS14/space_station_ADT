@@ -1,0 +1,128 @@
+- type: adtDisease
+  id: ADTBaseTransformation
+  parent: ADTBaseVirus
+  abstract: true
+  name: adt-disease-transformation
+  agent: adt-disease-agent-transformation
+  maxStages: 5
+  stageProb: 10
+  severity: Dangerous
+  canImmunity: false
+  spread: NonContagious
+
+- type: adtDisease
+  id: ADTDiseaseJungleFever
+  parent: ADTBaseTransformation
+  name: adt-disease-jungle-fever
+  description: adt-disease-jungle-fever-desc
+  agent: adt-disease-agent-jungle-fever
+  stageProb: 2
+  spread: Bites
+  cures:
+  - JuiceBanana
+  severity: Biohazard
+  stages:
+  - minStage: 2
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-jungle-fever-1, adt-disease-jungle-fever-2 ]
+      probability: 0.1
+  - minStage: 5
+    effects:
+    - !type:Polymorph
+      prototype: ADTVirusMonkey
+
+- type: adtDisease
+  id: ADTDiseaseXenoTransformation
+  parent: ADTBaseTransformation
+  name: adt-disease-xeno-transformation
+  description: adt-disease-xeno-transformation-desc
+  agent: adt-disease-agent-xeno
+  cures:
+  - ADTSpaceacillin
+  - ADTGlycerol
+  severity: Biohazard
+  stages:
+  - minStage: 2
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-xeno-1, adt-disease-xeno-2 ]
+      probability: 0.1
+  - minStage: 5
+    effects:
+    - !type:Polymorph
+      prototype: ADTVirusXeno
+
+- type: adtDisease
+  id: ADTDiseaseCorgiTransformation
+  parent: ADTBaseTransformation
+  name: adt-disease-corgi-transformation
+  description: adt-disease-corgi-transformation-desc
+  agent: adt-disease-agent-corgi
+  cures:
+  - Adminordrazine
+  severity: Uncurable
+  stages:
+  - minStage: 2
+    maxStage: 4
+    effects:
+    - !type:Emote
+      emote: Bark
+      showInChat: true
+      probability: 0.1
+  - minStage: 5
+    effects:
+    - !type:Polymorph
+      prototype: ADTVirusCorgi
+
+- type: adtDisease
+  id: ADTDiseasePigTransformation
+  parent: ADTBaseTransformation
+  name: adt-disease-pig-transformation
+  description: adt-disease-pig-transformation-desc
+  agent: adt-disease-agent-pig
+  cures:
+  - Adminordrazine
+  severity: Uncurable
+  stages:
+  - minStage: 2
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-pig-1 ]
+      probability: 0.1
+  - minStage: 5
+    effects:
+    - !type:Polymorph
+      prototype: ADTVirusPig
+
+- type: adtDisease
+  id: ADTDiseaseSlimeTransformation
+  parent: ADTBaseTransformation
+  name: adt-disease-slime-transformation
+  description: adt-disease-slime-transformation-desc
+  agent: adt-disease-agent-slime
+  cures:
+  - FrostOil
+  severity: Biohazard
+  stages:
+  - minStage: 2
+    maxStage: 4
+    effects:
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ adt-disease-slime-1, adt-disease-slime-2 ]
+      probability: 0.1
+  - minStage: 5
+    effects:
+    - !type:Polymorph
+      prototype: ADTVirusSlime

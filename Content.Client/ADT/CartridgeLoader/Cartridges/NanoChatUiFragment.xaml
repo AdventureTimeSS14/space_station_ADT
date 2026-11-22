@@ -104,9 +104,8 @@
             <!-- Left panel: Chat list -->
             <PanelContainer StyleClasses="AngleRect"
                             VerticalExpand="True"
-                            MaxWidth="150">
+                            SetWidth="170">
                 <ScrollContainer VerticalExpand="True"
-                                 MinWidth="145"
                                  HorizontalExpand="True"
                                  HScrollEnabled="False">
                     <BoxContainer Name="ChatList"
@@ -157,7 +156,7 @@
 
                     <!-- Message input -->
                     <BoxContainer Name="MessageInputContainer"
-                                  Orientation="Horizontal"
+                                  Orientation="Vertical"
                                   HorizontalExpand="True"
                                   Margin="0 4 0 0"
                                   Visible="False">
@@ -165,22 +164,26 @@
                         <Label Name="CharacterCount"
                                HorizontalAlignment="Right"
                                StyleClasses="LabelSubText"
+                               ClipText="True"
                                Margin="0 0 4 2"
                                Visible="False" />
                         <!-- Input row -->
-                        <LineEdit Name="MessageInput"
-                                  PlaceHolder="{Loc nano-chat-message-placeholder}"
-                                  HorizontalExpand="True"
-                                  StyleClasses="OpenRight" />
-                        <Button Name="SendButton"
-                                MinSize="32 32"
-                                Disabled="True"
-                                StyleClasses="OpenLeft"
-                                Margin="4 0 0 0">
-                            <TextureRect StyleClasses="ButtonSquare"
-                                         TexturePath="/Textures/Interface/Nano/triangle_right.png"
-                                         Stretch="KeepAspectCentered" />
-                        </Button>
+                        <BoxContainer Orientation="Horizontal"
+                                      HorizontalExpand="True">
+                            <LineEdit Name="MessageInput"
+                                      PlaceHolder="{Loc nano-chat-message-placeholder}"
+                                      HorizontalExpand="True"
+                                      StyleClasses="OpenRight" />
+                            <Button Name="SendButton"
+                                    MinSize="32 32"
+                                    Disabled="True"
+                                    StyleClasses="OpenLeft"
+                                    Margin="4 0 0 0">
+                                <TextureRect StyleClasses="ButtonSquare"
+                                             TexturePath="/Textures/Interface/Nano/triangle_right.png"
+                                             Stretch="KeepAspectCentered" />
+                            </Button>
+                        </BoxContainer>
                     </BoxContainer>
                 </BoxContainer>
             </PanelContainer>

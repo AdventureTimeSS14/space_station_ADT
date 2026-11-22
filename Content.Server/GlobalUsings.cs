@@ -10,3 +10,7 @@ global using Robust.Shared.IoC;
 global using Robust.Shared.Maths;
 global using Robust.Shared.ViewVariables;
 global using Robust.Shared.Serialization.Manager.Attributes;
+
+// ADT-Tweak: bloodstream lives in shared now.
+global using BloodstreamSystem = Content.Shared.Body.Systems.BloodstreamSystem;
+global using SharedBloodstreamSystem = Content.Shared.Body.Systems.BloodstreamSystem;

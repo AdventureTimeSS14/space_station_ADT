@@ -14,7 +14,6 @@
   startingGear: ADTBattleShipGunnerKMTGear
   icon: "JobIconGunnerKMT"
   supervisors: job-supervisors-kmt-gunner
-  canBeAntag: false
   overrideConsoleVisibility: false
   access:
   - Security

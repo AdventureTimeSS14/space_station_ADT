@@ -12,8 +12,8 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Debug)]
 public sealed class ZoomTweakCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
 
     public override string Command => "zoom_tweak";

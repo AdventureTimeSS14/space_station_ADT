@@ -1,0 +1,121 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/effects/ash_runes.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "runaash_1"
+        },
+        {
+            "name": "runaash_2"
+        },
+        {
+            "name": "runaash_3"
+        },
+        {
+            "name": "runaash_4"
+        },
+        {
+            "name": "runaash_5"
+        },
+        {
+            "name": "runaash_6"
+        },
+        {
+            "name": "runaash_7"
+        },
+        {
+            "name": "runaash_8"
+        },
+        {
+            "name": "runaash_9"
+        },
+        {
+            "name": "runaash_10"
+        },
+        {
+            "name": "runaash_11"
+        },
+        {
+            "name": "runaash_12"
+        },
+        {
+            "name": "runaash_13",
+            "directions": 8
+        },
+        {
+            "name": "runaash_14",
+            "directions": 8
+        },
+        {
+            "name": "runaash_15"
+        },
+        {
+            "name": "runaash_16"
+        },
+        {
+            "name": "runaash_17"
+        },
+        {
+            "name": "runaash_18"
+        },
+        {
+            "name": "runaash_19"
+        },
+        {
+            "name": "runaash_20"
+        },
+        {
+            "name": "runaash_21"
+        },
+        {
+            "name": "runaash_22"
+        },
+        {
+            "name": "runaash_23"
+        },
+        {
+            "name": "runaash_24"
+        },
+        {
+            "name": "runaash_25"
+        },
+        {
+            "name": "runaash_26"
+        },
+        {
+            "name": "runaash_27"
+        },
+        {
+            "name": "runaash_28"
+        },
+        {
+            "name": "runaash_29"
+        },
+        {
+            "name": "runaash_30"
+        },
+        {
+            "name": "runaash_31"
+        },
+        {
+            "name": "runaash_32"
+        },
+        {
+            "name": "runaash_33"
+        },
+        {
+            "name": "runaash_34"
+        },
+        {
+            "name": "runaash_35"
+        },
+        {
+            "name": "runaash_36"
+        }
+    ]
+}

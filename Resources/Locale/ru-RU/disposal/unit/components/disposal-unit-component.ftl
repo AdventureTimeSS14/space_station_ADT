@@ -21,3 +21,4 @@ disposal-unit-state-Pressurizing = Нагнетание
 disposal-unit-being-inserted = { CAPITALIZE($user) } пытается затолкать вас в мусоропровод!
 disposal-self-insert-verb-get-data-text = Залезть внутрь
 disposal-eject-verb-get-data-text = Извлечь всё
+disposal-unit-is-full = Внутри больше нет места.

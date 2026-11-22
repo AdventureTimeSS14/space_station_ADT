@@ -18,8 +18,8 @@ namespace Content.Client.ADT.Chemistry.UI
     [GenerateTypedNameReferences]
     public sealed partial class EnergyReagentDispenserWindow : FancyWindow
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
 
         private float _batteryCharge;
         private float _batteryMaxCharge;
@@ -45,8 +45,6 @@ namespace Content.Client.ADT.Chemistry.UI
                 return;
 
             ReagentList.Children.Clear();
-            //Sort inventory by reagentLabel
-            inventory.Sort((x, y) => string.Compare(x.ReagentLabel, y.ReagentLabel, StringComparison.Ordinal));
 
             foreach (var card in inventory
                          .Select(item => new EnergyReagentCardControl(item)))

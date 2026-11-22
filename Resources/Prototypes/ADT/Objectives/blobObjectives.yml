@@ -6,7 +6,7 @@
   id: BaseBlobObjective
   components:
   - type: Objective
-    issuer: objective-issuer-blob
+    issuer: ADTBlob
     unique: true
     difficulty: 1
     icon:

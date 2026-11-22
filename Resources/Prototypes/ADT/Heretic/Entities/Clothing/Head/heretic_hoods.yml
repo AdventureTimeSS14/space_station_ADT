@@ -45,3 +45,28 @@
     state: icon
   - type: Clothing
     sprite: ADT/Heretic/HereticHoods/ashen_hood.rsi
+
+# ADT: Cosmos/Rust hoods
+- type: entity
+  id: ADTClothingHeadHatHoodHereticCosmos
+  parent: ClothingHeadHatHoodHeretic
+  name: cosmos heretic hood
+  description: A star-flecked hood favored by heretics of the Cosmos path. Strange eyes line the inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Head/cosmos_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Head/cosmos_hood.rsi
+
+- type: entity
+  id: ADTClothingHeadHatHoodHereticRust
+  parent: ClothingHeadHatHoodHeretic
+  name: rusted heretic hood
+  description: A corroded hood favored by heretics of the Rust path. Strange eyes line the inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Head/rust_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Head/rust_hood.rsi

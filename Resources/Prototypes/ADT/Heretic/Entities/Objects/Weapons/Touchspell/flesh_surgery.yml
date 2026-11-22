@@ -1,0 +1,28 @@
+- type: entity
+  id: TouchSpellFleshSurgery
+  name: knit flesh
+  description: Let's go practice medicine.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+  - type: Item
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/flesh_surgery.rsi
+    state: icon
+  - type: Appearance
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#911500"
+  # ADT: instant cast, no DoAfter
+  - type: FleshSurgery
+  - type: ShowHealthBars
+  - type: ShowHealthIcons
+  - type: HealthAnalyzer
+    scanningEndSound:
+      path: /Audio/Items/welder.ogg
+  - type: UserInterface
+    interfaces:
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface

@@ -1,0 +1,390 @@
+- type: entity
+  id: ADTKineticTrophyBlasterTubes
+  name: blaster tubes
+  description: The blaster tubes from a colossus's arm. Suitable as a trophy for a kinetic crusher.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/colossus_loot.rsi
+    state: blaster_tubes
+  - type: Trophy
+    effects:
+    - !type:DeadlyShotTrophyEffect
+      bonusDamage:
+        types:
+          Blunt: 15
+    examineText: adt-kinetic-trophy-blaster-tubes
+    trophyTag: ADTKineticTrophyBlasterTubes
+  - type: Tag
+    tags:
+    - ADTKineticTrophyBlasterTubes
+
+- type: Tag
+  id: ADTKineticTrophyBlasterTubes
+
+- type: entity
+  id: ADTOrganVoiceOfGod
+  parent: OrganBase
+  name: divine vocal cords
+  description: They carry the voice of an ancient god.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/colossus_loot.rsi
+    state: voice_of_god
+  - type: Item
+    size: Small
+  - type: Tag
+    tags: []
+  - type: ADTVoiceOfGod
+    powerModifiers:
+    - multiplier: 2
+      anyOf:
+      - !type:HasComponentCondition
+        components: [ BibleUser ]
+        guidebookComponentName: BibleUser
+    - multiplier: 0.5
+      anyOf:
+      - !type:HasComponentCondition
+        components: [ MimePowers ]
+        guidebookComponentName: MimePowers
+    - multiplier: 1.4
+      anyOf:
+      - !type:ADTDepartmentCondition
+        department: Command
+
+- type: entity
+  id: ActionADTVoiceOfGod
+  name: Voice of God
+  description: Toggle the divine voice. While it is active, your speech becomes a command that the listeners cannot disobey.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 5
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/colossus_loot.rsi
+    layers:
+    - state: voice_of_god
+  - type: InstantAction
+    event: !type:ADTVoiceOfGodActionEvent
+
+- type: entity
+  parent: ADTCrateNecropolis
+  id: ADTCrateColossusLoot
+  name: colossus chest
+
+- type: entity
+  id: ADTAnomalousCrystalBase
+  abstract: true
+  name: anomalous crystal
+  description: A strange chunk of crystal, being in the presence of it fills you with equal parts excitement and dread.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/anomalous_crystal.rsi
+    state: crystal
+    noRot: false
+  - type: Transform
+    noRot: false
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: PointLight
+    radius: 8
+    energy: 1.5
+    color: "#BFE6FF"
+  - type: ActiveListener
+    range: 7
+  - type: ADTAnomalousCrystal
+
+- type: entity
+  parent: ADTAnomalousCrystalBase
+  id: ADTAnomalousCrystalHonk
+  suffix: Honk
+  components:
+  - type: ADTAnomalousCrystal
+    methods:
+    - MobBump
+    - Speech
+    activationSound:
+      path: /Audio/Items/bikehorn.ogg
+    oncePerUser: true
+    variants:
+    - userEffects:
+      - !type:ADTEquipStartingGear
+        gear: ClownGear
+
+- type: entity
+  parent: ADTAnomalousCrystalBase
+  id: ADTAnomalousCrystalThemeWarp
+  suffix: Theme Warp
+  components:
+  - type: ADTAnomalousCrystal
+    cooldown: 20
+    variants:
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeLavaland
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeWinter
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeJungle
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
+    - effects:
+      - !type:ADTCrystalThemeWarp
+        theme: ADTCrystalThemeAlien
+        chairWhitelist:
+          tags:
+          - Chair
+        tableWhitelist:
+          tags:
+          - Table
+
+- type: entity
+  parent: ADTAnomalousCrystalBase
+  id: ADTAnomalousCrystalEmitter
+  suffix: Emitter
+  components:
+  - type: ADTAnomalousCrystal
+    cooldown: 5
+    variants:
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: ProjectileFireball
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: ProjectileIcicle
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: BulletLaser
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: EmitterBolt
+    - effects:
+      - !type:ADTCrystalEmitProjectile
+        projectile: ADTColossusBolt
+
+- type: entity
+  parent: ADTAnomalousCrystalBase
+  id: ADTAnomalousCrystalDarkReprise
+  suffix: Dark Reprise
+  components:
+  - type: ADTAnomalousCrystal
+    activationSound:
+      path: /Audio/ADT/hallucinations/growl1.ogg
+    variants:
+    - effects:
+      - !type:ADTCrystalDarkReprise
+        polymorph: ADTCrystalDarkReprise
+        range: 1.5
+        effect: EffectSparks
+        removeLanguages:
+        - ADTShadowlingCollectiveMind
+        popup: adt-crystal-dark-reprise-revive
+
+- type: entity
+  parent: ADTAnomalousCrystalBase
+  id: ADTAnomalousCrystalHelpers
+  suffix: Helpers
+  components:
+  - type: ADTAnomalousCrystal
+    maxActivations: 1
+    variants:
+    - effects:
+      - !type:ADTAddComponents
+        popup: adt-crystal-helpers-ready
+        components:
+        - type: GhostRole
+          name: adt-ghost-role-lightgeist-name
+          description: adt-ghost-role-lightgeist-description
+          rules: ghost-role-information-familiar-rules
+          raffle:
+            settings: short
+        - type: GhostRoleMobSpawner
+          prototype: ADTMobLightgeist
+          deleteOnSpawn: false
+          availableTakeovers: 1000
+
+- type: entity
+  parent: ADTAnomalousCrystalBase
+  id: ADTAnomalousCrystalRefresher
+  suffix: Refresher
+  components:
+  - type: ADTAnomalousCrystal
+    cooldown: 5
+    activationSound:
+      path: /Audio/ADT/LavalandLoot/timeparadox2.ogg
+    variants:
+    - effects:
+      - !type:ADTCrystalRefreshItem
+        effect: EffectEmpPulse
+        blacklist:
+          components:
+          - Storage
+          - Implanter
+          - SubdermalImplant
+          - NukeDisk
+          - ADTGem
+          - Gun
+          tags:
+          - HighRiskItem
+
+- type: entity
+  parent: ADTAnomalousCrystalBase
+  id: ADTAnomalousCrystalPossessor
+  suffix: Possessor
+  components:
+  - type: ADTAnomalousCrystal
+    variants:
+    - effects:
+      - !type:ADTCrystalPossess
+        userWhitelist:
+          components:
+          - HumanoidProfile
+        range: 1.5
+        maxMeleeDamage: 5
+        maxHealth: 100
+        fallback: MobCockroach
+        exitAction: ActionADTExitPossession
+
+- type: entity
+  id: ActionADTExitPossession
+  name: Exit Possession
+  description: Leave the body you have possessed. It will not survive.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 6
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/anomalous_crystal.rsi
+    layers:
+    - state: crystal
+  - type: InstantAction
+    event: !type:ADTExitPossessionActionEvent
+
+- type: entity
+  id: ADTMobLightgeist
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  name: lightgeist
+  description: This small floating creature is a completely unknown form of life... being near it fills you with a sense of tranquility.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/lightgeist.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: lightgeist
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lightgeist
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 5
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: -5
+        Heat: -5
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: PointLight
+    radius: 4
+    energy: 1.5
+    color: "#80F5FF"
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: Speech
+    speechSounds: Pai
+  - type: VentCrawler
+
+- type: entity
+  save: false
+  name: shadow person
+  description: A dark, gaunt figure. Light seems to hurt it.
+  parent:
+  - ADTAppearanceLesserShadowling
+  - ADTBaseShadowlingMobBase
+  id: ADTMobDarkRepriseShadow
+  components:
+  - type: Damageable
+    damageModifierSet: ADTLesserShadowling
+  - type: Injurable
+    damageContainer: Biological
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: LightDetection
+  - type: NightVision
+    innate: true
+    effectPrototype: ADTEffectNightVisionStrong
+  - type: LightDetectionDamage
+    maxDetection: 5
+    detectionValueRegeneration: 0.5
+    resistanceModifier: 0.5
+    soundOnDamage:
+      path: /Audio/ADT/Hierophant/sear.ogg
+    damageToDeal:
+      types:
+        Heat: 6
+    damageToHeal:
+      types:
+        Blunt: -1.5
+        Slash: -1.5
+        Piercing: -1.5
+        Heat: -1.5
+        Cold: -1.5
+        Shock: -1.5
+        Asphyxiation: -1.5
+        Bloodloss: -1.5
+        Poison: -1.5
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak

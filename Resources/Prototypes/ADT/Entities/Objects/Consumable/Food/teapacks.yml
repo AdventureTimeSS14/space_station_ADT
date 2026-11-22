@@ -12,10 +12,10 @@
       collection: packetOpenSounds
   - type: InjectableSolution
     solution: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents: []
   - type: SolutionTransfer
     maxTransferAmount: 5
   - type: PhysicalComposition
@@ -31,13 +31,12 @@
   name: ADTOrangeTeapack
   description: its teapack with orange tea.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: ADTOrangepackReg
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: ADTOrangepackReg
+        Quantity: 5
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
     state: teapack
@@ -56,13 +55,12 @@
   name: ADTCherryTeapack
   description: its teapack with cherry tea.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: ADTCherrypackReg
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: ADTCherrypackReg
+        Quantity: 5
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
     state: teapack
@@ -81,13 +79,12 @@
   name: ADTWatermelonTeapack
   description: its teapack with watermelon tea.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: ADTWatermelonpackReg
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: ADTWatermelonpackReg
+        Quantity: 5
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
     state: teapack

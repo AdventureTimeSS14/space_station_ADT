@@ -4,6 +4,8 @@
 
 Тарелка вкусного сытного супа - отличный способ подать жёсткое мясо или сохранить его нежный вкус. Стоп.. Опилки?
 
-<GuideMicrowaveGroupEmbed Group="Soup"/>
+<GuideADTCookingGroupEmbed Group="Soup"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Soup"/>
 
 </Document>

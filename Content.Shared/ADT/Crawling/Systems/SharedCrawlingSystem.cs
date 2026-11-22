@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.Crawling;
 /// </summary>
 public abstract class SharedCrawlingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
     public override void Initialize()
     {
         base.Initialize();

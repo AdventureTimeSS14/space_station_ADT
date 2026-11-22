@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Magmite variant based on vgstation/EmoGarbage404/TiniestShark mineral scanner sprites, resprited by Inconnu1337(discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-o"
+    },
+    {
+      "name": "inhand-left-reg",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-reg",
+      "directions": 4
+    },
+    {
+      "name": "adv"
+    },
+    {
+      "name": "adv-o"
+    },
+    {
+      "name": "inhand-left-adv",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-adv",
+      "directions": 4
+    }
+  ]
+}

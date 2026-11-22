@@ -1,0 +1,25 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTJasonBomber
+  name: maniac bomber
+  description: maniac bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/jason.rsi
+  - type: Clothing
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/jason.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTStudentBomber
+  name: student bomber
+  description: student bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/hotline_student.rsi
+  - type: Clothing
+    sprite: ADT/Season/Clothing/OuterClothing/Coats/hotline_student.rsi
+# Med
+

@@ -30,8 +30,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.8 # equivalent to winter boots, scarves
-    coolingCoefficient: 0.8 # equivalent to winter boots, scarves
+    coefficient: 0.8
   - type: ToggleClothing
     action: ADTActionToggleMagmantle
   - type: Tag
@@ -60,3 +59,15 @@
     itemIconStyle: BigItem
   - type: InstantAction
     event: !type:ToggleActionEvent
+
+# Наплечнная мантия ЦК
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingCentralCommandMantleShoulder
+  name: сentral сommand's mantle
+  description: This cloak is crafted from dark green fabric. It will serve as a symbol of your status, highlighting your dedication to the cause.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/centralcommandmantle_shoulder.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Cloaks/centralcommandmantle_shoulder.rsi

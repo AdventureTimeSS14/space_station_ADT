@@ -1,23 +1,25 @@
-- type: job
-  id: CentralCommandOfficial
-  name: job-name-centcommoff
-  description: job-description-centcommoff
-  playTimeTracker: JobCentralCommandOfficial
-  setPreference: false
-  startingGear: CentcommGear
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom # Corvax-JobSupervisors
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  # Start ADT Tweak
-  - CentralCommand
-  # access:
-  # - CentralCommand
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
-  # End ADT Tweak
+# - type: job # ADT Tweak start Перенос в ADT
+#   id: CentralCommandOfficial
+#   name: job-name-centcommoff
+#   description: job-description-centcommoff
+#   playTimeTracker: JobCentralCommandOfficial
+#   setPreference: false
+#   startingGear: CentcommGear
+#   icon: "JobIconNanotrasen"
+#   supervisors: job-supervisors-centcom # Corvax-JobSupervisors
+#   accessGroups:
+#   - AllAccess
+#   # Start ADT Tweak
+#   - CentralCommand
+#   # access:
+#   # - CentralCommand
+#   special:
+#   - !type:AddImplantSpecial
+#     implants: [ MindShieldImplant ]
+#   - !type:AddComponentSpecial
+#     components:
+#       - type: ADTTenCodeKnowledge
+#   # End ADT Tweak
 
 - type: startingGear
   id: CentcommGear
@@ -41,7 +43,7 @@
 
 - type: chameleonOutfit
   id: CentralCommandOfficialOutfit
-  job: CentralCommandOfficial
+  job: ADTCentralCommandOfficial # ADT-tweak
   hasMindShield: true
   equipment:
     neck: ClothingNeckScarfStripedCentcom

@@ -3,7 +3,8 @@ using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Shared.Administration;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
+using Content.Shared.Ghost.Systems;
 using Content.Shared.Mind;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -13,10 +14,10 @@ using Robust.Shared.Player;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class AGhostCommand : LocalizedCommands
+public sealed partial class AGhostCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     public override string Command => "aghost";
     public override string Help => "aghost";
@@ -73,6 +74,7 @@ public sealed class AGhostCommand : LocalizedCommands
         var mindSystem = _entities.System<SharedMindSystem>();
         var metaDataSystem = _entities.System<MetaDataSystem>();
         var ghostSystem = _entities.System<SharedGhostSystem>();
+        var serverGhostSystem = _entities.System<GhostSystem>();
         var transformSystem = _entities.System<TransformSystem>();
         var gameTicker = _entities.System<GameTicker>();
 
@@ -94,11 +96,20 @@ public sealed class AGhostCommand : LocalizedCommands
 
         var canReturn = mind.CurrentEntity != null
                         && !_entities.HasComponent<GhostComponent>(mind.CurrentEntity);
-        var coordinates = player!.AttachedEntity != null
-            ? _entities.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
-            : gameTicker.GetObserverSpawnPoint();
-        var ghost = _entities.SpawnEntity(GameTicker.AdminObserverPrototypeName, coordinates);
-        transformSystem.AttachToGridOrMap(ghost, _entities.GetComponent<TransformComponent>(ghost));
+
+        if (player!.AttachedEntity == null
+            || !transformSystem.TryGetMapOrGridCoordinates(player.AttachedEntity.Value, out var coordinates))
+        {
+            coordinates = gameTicker.GetObserverSpawnPoint();
+        }
+
+        var ghost = _entities.SpawnEntity(GameTicker.AdminObserverPrototypeName, coordinates.Value);
+
+        // ADT-Tweak-Start
+        var adminGhostComponent = _entities.GetComponent<GhostComponent>(ghost);
+        serverGhostSystem.ApplyBodyAppearance(ghost, mindId);
+        serverGhostSystem.GiveGhostClothes(ghost, adminGhostComponent);
+        // ADT-Tweak-End
 
         if (canReturn)
         {
@@ -116,7 +127,6 @@ public sealed class AGhostCommand : LocalizedCommands
             mindSystem.TransferTo(mindId, ghost, mind: mind);
         }
 
-        var comp = _entities.GetComponent<GhostComponent>(ghost);
-        ghostSystem.SetCanReturnToBody((ghost, comp), canReturn);
+        ghostSystem.SetCanReturnToBody((ghost, adminGhostComponent), canReturn); // ADT-Tweak
     }
 }

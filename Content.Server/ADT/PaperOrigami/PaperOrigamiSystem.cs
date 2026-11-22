@@ -9,7 +9,7 @@ namespace Content.Server.ADT.PaperOrigami;
 
 public sealed class PaperOrigamiSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -38,7 +38,7 @@ public sealed class PaperOrigamiSystem : EntitySystem
 
     private void OnAddVerbIsPaperOrigami(EntityUid uid, PaperOrigamiComponent component, GetVerbsEvent<Verb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
             return;
 
         if (!TryComp<AppearanceComponent>(uid, out var appearance))

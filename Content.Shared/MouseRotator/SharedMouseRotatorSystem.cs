@@ -1,5 +1,4 @@
-﻿using Content.Shared.ADT.Mech.Components;
-using Content.Shared.Interaction;
+﻿using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 
 namespace Content.Shared.MouseRotator;
@@ -8,9 +7,9 @@ namespace Content.Shared.MouseRotator;
 /// This handles rotating an entity based on mouse location
 /// </summary>
 /// <see cref="MouseRotatorComponent"/>
-public abstract class SharedMouseRotatorSystem : EntitySystem
+public abstract partial class SharedMouseRotatorSystem : EntitySystem
 {
-    [Dependency] private readonly RotateToFaceSystem _rotate = default!;
+    [Dependency] private RotateToFaceSystem _rotate = default!;
 
     public override void Initialize()
     {
@@ -40,17 +39,6 @@ public abstract class SharedMouseRotatorSystem : EntitySystem
                     MathHelper.DegreesToRadians(rotator.RotationSpeed),
                     xform))
             {
-                // ADT Mech start
-                if (TryComp<MechPilotComponent>(uid, out var pilot) && !HasComp<MechControlLockedComponent>(uid))
-                {
-                    _rotate.TryRotateTo(
-                        pilot.Mech,
-                        rotator.GoalRotation.Value,
-                        frameTime,
-                        rotator.AngleTolerance,
-                        MathHelper.DegreesToRadians(rotator.RotationSpeed));
-                }
-                // ADT Mech end
                 // Stop rotating if we finished
                 rotator.GoalRotation = null;
                 Dirty(uid, rotator);
@@ -62,11 +50,16 @@ public abstract class SharedMouseRotatorSystem : EntitySystem
     {
         // Ignore the request if the requested entity is not the user's attached entity.
         // This can happen when a player switches controlled entities while rotating.
-        if (args.SenderSession.AttachedEntity != GetEntity(msg.User))
+        // ADT-Tweak-Start
+        if (GetEntity(msg.User) is not { } ent ||
+            args.SenderSession.AttachedEntity is not { } attached ||
+            attached != ent && (!TryComp<MechPilotComponent>(attached, out var mechPilot) || mechPilot.Mech != ent))
+        {
             return;
+        }
 
-        if (args.SenderSession.AttachedEntity is not { } ent
-            || !TryComp<MouseRotatorComponent>(ent, out var rotator))
+        if (!TryComp<MouseRotatorComponent>(ent, out var rotator))
+        // ADT-Tweak-End
         {
             Log.Error($"User {args.SenderSession.Name} ({args.SenderSession.UserId}) tried setting local rotation directly without a valid mouse rotator component attached!");
             return;

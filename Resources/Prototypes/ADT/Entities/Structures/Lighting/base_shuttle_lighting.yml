@@ -37,7 +37,7 @@
     state: base
   - type: PointLight
     color: "#FAFFFF" # 5000K color temp
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     # rotation: 45
     autoRot: true
     energy: 4

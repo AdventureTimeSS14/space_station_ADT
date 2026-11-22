@@ -1,3 +1,4 @@
+# Drask
 - type: soundCollection
   id: DraskCough
   files:
@@ -55,6 +56,31 @@
   id: StartUp
   files:
     - /Audio/ADT/IPC/startup.ogg
+
+- type: soundCollection
+  id: CalculatingIPC
+  files:
+    - /Audio/ADT/IPC/calculating1.ogg
+    - /Audio/ADT/IPC/calculating2.ogg
+
+- type: soundCollection
+  id: PinkLaugh
+  files:
+    - /Audio/ADT/IPC/pink_laugh1.ogg
+    - /Audio/ADT/IPC/pink_laugh2.ogg
+
+- type: soundCollection
+  id: PinkScream
+  files:
+    - /Audio/ADT/IPC/pink_scream1.ogg
+    - /Audio/ADT/IPC/pink_scream2.ogg
+
+- type: soundCollection
+  id: KerfusMeow
+  files:
+    - /Audio/ADT/IPC/kerfus_meow1.ogg
+    - /Audio/ADT/IPC/kerfus_meow2.ogg
+    - /Audio/ADT/IPC/kerfus_meow3.ogg
 
 # Novakid
 
@@ -316,6 +342,11 @@
   - /Audio/ADT/Voice/Human/spit_1.ogg
   - /Audio/ADT/Voice/Human/spit_2.ogg
 
+- type: soundCollection
+  id: Blink
+  files:
+    - /Audio/ADT/Effects/Emotes/blink.ogg
+
 # Slimes
 - type: soundCollection
   id: SlimeWhistles
@@ -450,3 +481,18 @@
   id: ButcherCry
   files:
     - /Audio/ADT/Butcher/butchercry.ogg
+
+# Celecern
+- type: soundCollection
+  id: ADTCelecernSnort
+  files:
+    - /Audio/ADT/Voice/Celecern/snort-1.ogg
+    - /Audio/ADT/Voice/Celecern/snort-2.ogg
+    - /Audio/ADT/Voice/Celecern/snort-3.ogg
+    - /Audio/ADT/Voice/Celecern/sigh-1.ogg
+    - /Audio/ADT/Voice/Celecern/sigh-2.ogg
+
+- type: soundCollection
+  id: ADTCelecernClop
+  files:
+    - /Audio/ADT/Voice/Celecern/hoof_stomp.ogg

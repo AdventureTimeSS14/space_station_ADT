@@ -19,13 +19,13 @@ namespace Content.Shared._RMC14.Wieldable;
 
 public sealed class RMCWieldableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly UseDelaySystem _useDelaySystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private UseDelaySystem _useDelaySystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     private const string WieldUseDelayID = "RMCWieldDelay";
 
@@ -137,16 +137,16 @@ public sealed class RMCWieldableSystem : EntitySystem
     #region Wield slowdown compensation
     private void OnGotEquipped(Entity<WieldSlowdownCompensationComponent> armour, ref GotEquippedEvent args)
     {
-        EnsureComp(args.Equipee, out WieldSlowdownCompensationUserComponent comp);
+        EnsureComp(args.EquipTarget, out WieldSlowdownCompensationUserComponent comp);
 
-        RefreshWieldSlowdownCompensation((args.Equipee, comp));
+        RefreshWieldSlowdownCompensation((args.EquipTarget, comp));
     }
 
     private void OnGotUnequipped(Entity<WieldSlowdownCompensationComponent> armour, ref GotUnequippedEvent args)
     {
-        EnsureComp(args.Equipee, out WieldSlowdownCompensationUserComponent comp);
+        EnsureComp(args.EquipTarget, out WieldSlowdownCompensationUserComponent comp);
 
-        RefreshWieldSlowdownCompensation((args.Equipee, comp));
+        RefreshWieldSlowdownCompensation((args.EquipTarget, comp));
     }
 
     private void RefreshWieldSlowdownCompensation(Entity<WieldSlowdownCompensationUserComponent> user)

@@ -1,0 +1,59 @@
+- type: reagent
+  id: ADTCatalystPrecursor1
+  name: reagent-name-adt-catalyst-precursor1
+  desc: reagent-desc-adt-catalyst-precursor1
+  physicalDesc: reagent-physical-desc-adt-catalyst
+  color: "#c06030"
+  boilingPoint: 310.0
+  meltingPoint: -30.0
+  recognizable: true
+
+- type: reagent
+  id: ADTCatalystPrecursor2
+  name: reagent-name-adt-catalyst-precursor2
+  desc: reagent-desc-adt-catalyst-precursor2
+  physicalDesc: reagent-physical-desc-adt-catalyst
+  color: "#3060b0"
+  boilingPoint: 330.0
+  meltingPoint: -20.0
+  recognizable: true
+
+- type: reagent
+  id: ADTCatalystPrecursor3
+  name: reagent-name-adt-catalyst-precursor3
+  desc: reagent-desc-adt-catalyst-precursor3
+  physicalDesc: reagent-physical-desc-adt-catalyst
+  color: "#c0a030"
+  boilingPoint: 350.0
+  meltingPoint: -10.0
+  recognizable: true
+
+- type: reagent
+  id: ADTCatalystPrecursor4
+  name: reagent-name-adt-catalyst-precursor4
+  desc: reagent-desc-adt-catalyst-precursor4
+  physicalDesc: reagent-physical-desc-adt-catalyst
+  color: "#9060c0"
+  boilingPoint: 370.0
+  meltingPoint: 0.0
+  recognizable: true
+
+- type: reagent
+  id: ADTCatalystPrecursor5
+  name: reagent-name-adt-catalyst-precursor5
+  desc: reagent-desc-adt-catalyst-precursor5
+  physicalDesc: reagent-physical-desc-adt-catalyst
+  color: "#20a070"
+  boilingPoint: 400.0
+  meltingPoint: 10.0
+  recognizable: true
+
+- type: reagent
+  id: ADTQuantumCatalyst
+  name: reagent-name-adt-quantum-catalyst
+  desc: reagent-desc-adt-quantum-catalyst
+  physicalDesc: reagent-physical-desc-adt-catalyst
+  color: "#a030f0"
+  boilingPoint: 420.0
+  meltingPoint: 20.0
+  recognizable: true

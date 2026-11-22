@@ -1,0 +1,10 @@
+location-mothership-core = Ядро материнского корабля
+location-beacon = маяк
+location-nar-sie = Нар'Си
+location-ratvar = Ратвар
+location-tesla-ball = шар теслы
+location-singularity = сингулярность
+location-powersink = энергопоглотитель
+location-immovable-rod = неподвижный стержень
+location-nuke-disk = диск ядерной аутентификации
+location-nuclear-bomb = ядерная бомба

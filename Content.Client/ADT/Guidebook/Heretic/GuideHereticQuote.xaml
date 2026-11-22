@@ -1,0 +1,12 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Orientation="Horizontal"
+              HorizontalExpand="True"
+              Margin="12 4 12 12">
+    <PanelContainer Name="Bar" MinWidth="3" VerticalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#8b6fa8"/>
+        </PanelContainer.PanelOverride>
+    </PanelContainer>
+    <RichTextLabel Name="QuoteLabel" HorizontalExpand="True" Margin="10 2 0 2"/>
+</BoxContainer>

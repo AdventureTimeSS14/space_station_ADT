@@ -1,0 +1,607 @@
+# Логика
+
+- type: logicElement
+  id: LogicAnd
+  name: logic-element-and
+  description: logic-element-and-desc
+  category: Logic
+  cost: 1
+  color: "#4d7a3f"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:AndBehavior
+
+- type: logicElement
+  id: LogicOr
+  name: logic-element-or
+  description: logic-element-or-desc
+  category: Logic
+  cost: 1
+  color: "#4d7a3f"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:OrBehavior
+
+- type: logicElement
+  id: LogicNot
+  name: logic-element-not
+  description: logic-element-not-desc
+  category: Logic
+  cost: 1
+  color: "#4d7a3f"
+  inputs: [ logic-pin-signal ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:NotBehavior
+
+- type: logicElement
+  id: LogicXor
+  name: logic-element-xor
+  description: logic-element-xor-desc
+  category: Logic
+  cost: 1
+  color: "#4d7a3f"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:XorBehavior
+
+# Арифметика
+
+- type: logicElement
+  id: LogicAdd
+  name: logic-element-add
+  description: logic-element-add-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:AddBehavior
+
+- type: logicElement
+  id: LogicSubtract
+  name: logic-element-subtract
+  description: logic-element-subtract-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:SubtractBehavior
+
+- type: logicElement
+  id: LogicMultiply
+  name: logic-element-multiply
+  description: logic-element-multiply-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:MultiplyBehavior
+
+- type: logicElement
+  id: LogicDivide
+  name: logic-element-divide
+  description: logic-element-divide-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:DivideBehavior
+
+- type: logicElement
+  id: LogicModulo
+  name: logic-element-modulo
+  description: logic-element-modulo-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:ModuloBehavior
+
+- type: logicElement
+  id: LogicAbs
+  name: logic-element-abs
+  description: logic-element-abs-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:AbsBehavior
+
+- type: logicElement
+  id: LogicRound
+  name: logic-element-round
+  description: logic-element-round-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  config:
+  - name: logic-config-digits
+    type: Number
+    default: "0"
+    min: 0
+    max: 6
+  behavior: !type:RoundBehavior
+
+- type: logicElement
+  id: LogicMin
+  name: logic-element-min
+  description: logic-element-min-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:MinBehavior
+
+- type: logicElement
+  id: LogicMax
+  name: logic-element-max
+  description: logic-element-max-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:MaxBehavior
+
+# Сравнение
+
+- type: logicElement
+  id: LogicEquals
+  name: logic-element-equals
+  description: logic-element-equals-desc
+  category: Comparison
+  cost: 1
+  color: "#7a6a3f"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  config:
+  - name: logic-config-epsilon
+    type: Number
+    default: "0"
+    min: 0
+    max: 1000
+  behavior: !type:EqualsBehavior
+
+- type: logicElement
+  id: LogicGreater
+  name: logic-element-greater
+  description: logic-element-greater-desc
+  category: Comparison
+  cost: 1
+  color: "#7a6a3f"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:GreaterBehavior
+
+- type: logicElement
+  id: LogicLess
+  name: logic-element-less
+  description: logic-element-less-desc
+  category: Comparison
+  cost: 1
+  color: "#7a6a3f"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:LessBehavior
+
+# Память и время
+
+- type: logicElement
+  id: LogicConstant
+  name: logic-element-constant
+  description: logic-element-constant-desc
+  category: Memory
+  cost: 1
+  color: "#6a4d7a"
+  outputs: [ logic-pin-value ]
+  config:
+  - name: logic-config-value
+    type: Text
+    default: "1"
+  behavior: !type:ConstantBehavior
+
+- type: logicElement
+  id: LogicMemory
+  name: logic-element-memory
+  description: logic-element-memory-desc
+  category: Memory
+  cost: 2
+  color: "#6a4d7a"
+  inputs: [ logic-pin-value, logic-pin-write ]
+  outputs: [ logic-pin-value ]
+  stateSize: 1
+  behavior: !type:MemoryBehavior
+
+- type: logicElement
+  id: LogicShiftRegister
+  name: logic-element-shift-register
+  description: logic-element-shift-register-desc
+  category: Memory
+  cost: 3
+  color: "#6a4d7a"
+  inputs: [ logic-pin-value, logic-pin-push, logic-pin-reset ]
+  outputs: [ logic-pin-value ]
+  stateSize: 2
+  config:
+  - name: logic-config-length
+    type: Number
+    default: "4"
+    min: 1
+    max: 64
+  behavior: !type:ShiftRegisterBehavior
+
+- type: logicElement
+  id: LogicToggle
+  name: logic-element-toggle
+  description: logic-element-toggle-desc
+  category: Memory
+  cost: 2
+  color: "#6a4d7a"
+  inputs: [ logic-pin-toggle, logic-pin-reset ]
+  outputs: [ logic-pin-result ]
+  stateSize: 2
+  behavior: !type:ToggleBehavior
+
+- type: logicElement
+  id: LogicEdgeDetector
+  name: logic-element-edge-detector
+  description: logic-element-edge-detector-desc
+  category: Memory
+  cost: 2
+  color: "#6a4d7a"
+  inputs: [ logic-pin-signal ]
+  outputs: [ logic-pin-rising, logic-pin-falling ]
+  stateSize: 1
+  behavior: !type:EdgeDetectorBehavior
+
+- type: logicElement
+  id: LogicDelay
+  name: logic-element-delay
+  description: logic-element-delay-desc
+  category: Memory
+  cost: 2
+  color: "#6a4d7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-value ]
+  stateSize: 3
+  config:
+  - name: logic-config-delay
+    type: Number
+    default: "1"
+    min: 0
+    max: 600
+  behavior: !type:DelayBehavior
+
+- type: logicElement
+  id: LogicOscillator
+  name: logic-element-oscillator
+  description: logic-element-oscillator-desc
+  category: Memory
+  cost: 2
+  color: "#6a4d7a"
+  inputs: [ logic-pin-enable ]
+  outputs: [ logic-pin-signal ]
+  stateSize: 1
+  config:
+  - name: logic-config-frequency
+    type: Number
+    default: "1"
+    min: 0.05
+    max: 10
+  behavior: !type:OscillatorBehavior
+
+# Текст
+
+- type: logicElement
+  id: LogicConcatenation
+  name: logic-element-concatenation
+  description: logic-element-concatenation-desc
+  category: Text
+  cost: 1
+  color: "#7a4d5f"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  config:
+  - name: logic-config-separator
+    type: Text
+    default: ""
+  behavior: !type:ConcatenationBehavior
+
+# Связь с устройствами
+
+- type: logicElement
+  id: LogicSignalIn
+  name: logic-element-signal-in
+  description: logic-element-signal-in-desc
+  category: Signal
+  cost: 1
+  color: "#3f7a6a"
+  outputs: [ logic-pin-value ]
+  config:
+  - name: logic-config-port
+    type: DevicePort
+    default: "1"
+    min: 1
+    max: 64
+  - name: logic-config-replacement
+    type: Text
+    default: ""
+  behavior: !type:SignalInBehavior
+
+- type: logicElement
+  id: LogicSignalOut
+  name: logic-element-signal-out
+  description: logic-element-signal-out-desc
+  category: Signal
+  cost: 1
+  color: "#3f7a6a"
+  inputs: [ logic-pin-value ]
+  config:
+  - name: logic-config-port
+    type: DevicePort
+    default: "1"
+    min: 1
+    max: 64
+  behavior: !type:SignalOutBehavior
+
+- type: logicElement
+  id: LogicDisplay
+  name: logic-element-display
+  description: logic-element-display-desc
+  category: Signal
+  cost: 1
+  color: "#3f7a6a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-value ]
+  behavior: !type:DisplayBehavior
+
+# Математика
+
+- type: logicElement
+  id: LogicSin
+  name: logic-element-sin
+  description: logic-element-sin-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-angle ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:SinBehavior
+
+- type: logicElement
+  id: LogicCos
+  name: logic-element-cos
+  description: logic-element-cos-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-angle ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:CosBehavior
+
+- type: logicElement
+  id: LogicTan
+  name: logic-element-tan
+  description: logic-element-tan-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-angle ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:TanBehavior
+
+- type: logicElement
+  id: LogicAsin
+  name: logic-element-asin
+  description: logic-element-asin-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-angle ]
+  behavior: !type:AsinBehavior
+
+- type: logicElement
+  id: LogicAcos
+  name: logic-element-acos
+  description: logic-element-acos-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-angle ]
+  behavior: !type:AcosBehavior
+
+- type: logicElement
+  id: LogicAtan
+  name: logic-element-atan
+  description: logic-element-atan-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-angle ]
+  behavior: !type:AtanBehavior
+
+- type: logicElement
+  id: LogicPow
+  name: logic-element-pow
+  description: logic-element-pow-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-a, logic-pin-b ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:PowBehavior
+
+- type: logicElement
+  id: LogicSqrt
+  name: logic-element-sqrt
+  description: logic-element-sqrt-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:SqrtBehavior
+
+- type: logicElement
+  id: LogicLog
+  name: logic-element-log
+  description: logic-element-log-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:LogBehavior
+
+- type: logicElement
+  id: LogicExp
+  name: logic-element-exp
+  description: logic-element-exp-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:ExpBehavior
+
+- type: logicElement
+  id: LogicFloor
+  name: logic-element-floor
+  description: logic-element-floor-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:FloorBehavior
+
+- type: logicElement
+  id: LogicCeil
+  name: logic-element-ceil
+  description: logic-element-ceil-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:CeilBehavior
+
+- type: logicElement
+  id: LogicClamp
+  name: logic-element-clamp
+  description: logic-element-clamp-desc
+  category: Arithmetic
+  cost: 1
+  color: "#3f5f7a"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  config:
+  - name: logic-config-min
+    type: Number
+    default: "0"
+  - name: logic-config-max
+    type: Number
+    default: "1"
+  behavior: !type:ClampBehavior
+
+# Выбор и текст
+
+- type: logicElement
+  id: LogicSelect
+  name: logic-element-select
+  description: logic-element-select-desc
+  category: Special
+  cost: 1
+  color: "#5a5a7a"
+  inputs: [ logic-pin-condition, logic-pin-if-true, logic-pin-if-false ]
+  outputs: [ logic-pin-value ]
+  behavior: !type:SelectBehavior
+
+- type: logicElement
+  id: LogicLookup
+  name: logic-element-lookup
+  description: logic-element-lookup-desc
+  category: Special
+  cost: 2
+  color: "#5a5a7a"
+  inputs: [ logic-pin-index ]
+  outputs: [ logic-pin-value ]
+  config:
+  - name: logic-config-table
+    type: Text
+    default: ""
+  behavior: !type:LookupBehavior
+
+- type: logicElement
+  id: LogicSubstring
+  name: logic-element-substring
+  description: logic-element-substring-desc
+  category: Text
+  cost: 1
+  color: "#7a4d5f"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  config:
+  - name: logic-config-start
+    type: Number
+    default: "0"
+    min: 0
+    max: 512
+  - name: logic-config-count
+    type: Number
+    default: "1"
+    min: 0
+    max: 512
+  behavior: !type:SubstringBehavior
+
+- type: logicElement
+  id: LogicLength
+  name: logic-element-length
+  description: logic-element-length-desc
+  category: Text
+  cost: 1
+  color: "#7a4d5f"
+  inputs: [ logic-pin-value ]
+  outputs: [ logic-pin-result ]
+  behavior: !type:LengthBehavior
+
+# Беспроводная связь
+
+- type: logicElement
+  id: LogicWirelessOut
+  name: logic-element-wireless-out
+  description: logic-element-wireless-out-desc
+  category: Signal
+  cost: 2
+  color: "#3f7a6a"
+  inputs: [ logic-pin-value ]
+  config:
+  - name: logic-config-channel
+    type: Text
+    default: ""
+  behavior: !type:WirelessOutBehavior
+
+- type: logicElement
+  id: LogicWirelessIn
+  name: logic-element-wireless-in
+  description: logic-element-wireless-in-desc
+  category: Signal
+  cost: 2
+  color: "#3f7a6a"
+  outputs: [ logic-pin-value ]
+  config:
+  - name: logic-config-channel
+    type: Text
+    default: ""
+  behavior: !type:WirelessInBehavior

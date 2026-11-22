@@ -1,8 +1,10 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.ADT.Construction.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ArtifactAnalyzerUpgradeComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float PointMultiplier = 1f;
 }

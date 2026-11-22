@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Shared.Administration;
@@ -7,12 +7,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
-[AdminCommand(AdminFlags.Adminchat)] //ADT tweak
-
-public sealed class AdminWhoCommand : LocalizedCommands
+[AdminCommand(AdminFlags.Adminchat)] // ADT-Tweak
+public sealed partial class AdminWhoCommand : LocalizedCommands
 {
-    [Dependency] private readonly IAfkManager _afkManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private IAfkManager _afkManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
 
     public override string Command => "adminwho";
 

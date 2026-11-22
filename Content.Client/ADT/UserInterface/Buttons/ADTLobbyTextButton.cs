@@ -9,7 +9,7 @@ namespace Content.Client.ADT.UserInterface.Buttons;
 [Virtual]
 public class ADTLobbyTextButton : TextureButton
 {
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
 
     private readonly Font _font;
 

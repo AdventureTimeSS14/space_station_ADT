@@ -1,0 +1,38 @@
+- type: htnCompound
+  id: ADTXenoborgScoutCompound
+  branches:
+    - preconditions:
+        - !type:ADTHealthPrecondition
+          below: 0.3
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgRepairRetreatCompound
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+        - !type:ADTBorgItemActivePrecondition
+          invert: true
+          items:
+            - KukriKnife
+            - EnergyDaggerLoudBlue
+            - XenoborgBioKnife
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSelectBorgItemOperator
+            activate: true
+            items:
+              - KukriKnife
+              - EnergyDaggerLoudBlue
+              - XenoborgBioKnife
+
+    - preconditions:
+        - !type:ADTHostileNearPrecondition
+          range: 15
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgMeleeCompound
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ADTXenoborgIdleCompound

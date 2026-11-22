@@ -1,96 +1,81 @@
-using Content.Client.ADT.VendingMachines.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Client.VendingMachines.UI;
 using Content.Shared.VendingMachines;
 using Robust.Client.UserInterface;
+using Robust.Shared.Input;
 using System.Linq;
+using Content.Shared.VendingMachines.Components;
 
-namespace Content.Client.VendingMachines
+namespace Content.Client.VendingMachines;
+
+// ADT-Tweak: renamed to avoid LooseGetType clash with the ADT BoundUserInterface
+public sealed class VendingMachineBoundUserInterfaceUnused(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    public sealed class VendingMachineBoundUserInterface : BoundUserInterface
+    [ViewVariables]
+    private VendingMachineMenu? _menu;
+
+    [ViewVariables]
+    private List<VendingMachineInventoryEntry> _cachedInventory = new();
+
+    protected override void Open()
     {
-        [ViewVariables]
-        private FancyVendingMachineMenu? _menu; // ADT-tweak - новое меню
+        base.Open();
 
-        [ViewVariables]
-        private List<VendingMachineInventoryEntry> _cachedInventory = new();
+        _menu = this.CreateWindowCenteredLeft<VendingMachineMenu>();
+        _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
+        _menu.OnItemSelected += OnItemSelected;
+        Refresh();
+    }
 
-        public VendingMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-        {
-        }
+    public void Refresh()
+    {
+        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineEjectComponent? eject) && !eject.Ejecting;
 
-        protected override void Open()
-        {
-            base.Open();
+        var system = EntMan.System<VendingMachineSystem>();
+        _cachedInventory = system.GetAllInventory(Owner);
 
-            _menu = new();  // ADT-tweak - новое меню
-            var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
-            var system = EntMan.System<VendingMachineSystem>(); //ADT-Economy
-            _cachedInventory = system.GetAllInventory(Owner, component); //ADT-Economy
-            _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
+        _menu?.Populate(_cachedInventory, enabled);
+    }
 
-            // ADT-tweak-start
-            _menu.OnClose += Close;
-            _menu.OnItemSelected += OnItemSelected;
-            _menu.OnWithdraw += () => SendMessage(new VendingMachineWithdrawMessage());
-            _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits);
-            // ADT-tweak-end
+    public void UpdateAmounts()
+    {
+        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineEjectComponent? eject) && !eject.Ejecting;
 
-            _menu.OpenCentered();
-        }
+        var system = EntMan.System<VendingMachineSystem>();
+        _cachedInventory = system.GetAllInventory(Owner);
+        _menu?.UpdateAmounts(_cachedInventory, enabled);
+    }
 
-        public void Refresh()
-        {
-            var system = EntMan.System<VendingMachineSystem>();
-            var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
-            _cachedInventory = system.GetAllInventory(Owner);
+    private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
+    {
+        if (args.Function != EngineKeyFunctions.UIClick)
+            return;
 
-            _menu?.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
-        }
+        if (data is not VendorItemsListData { ItemIndex: var itemIndex })
+            return;
 
-        public void UpdateAmounts()
-        {
-            var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
+        if (_cachedInventory.Count == 0)
+            return;
 
-            var system = EntMan.System<VendingMachineSystem>();
-            _cachedInventory = system.GetAllInventory(Owner);
-            _menu?.UpdateAmounts(_cachedInventory, enabled);
-        }
+        var selectedItem = _cachedInventory.ElementAtOrDefault(itemIndex);
 
-        // START-ADT-TWEAK
-        protected override void UpdateState(BoundUserInterfaceState state)
-        {
-            base.UpdateState(state);
+        if (selectedItem == null)
+            return;
 
-            var system = EntMan.System<VendingMachineSystem>();
+        SendPredictedMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
+    }
 
-            if (state is not VendingMachineInterfaceState newState)
-                return;
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (!disposing)
+            return;
 
-            _cachedInventory = system.GetAllInventory(Owner);
+        if (_menu == null)
+            return;
 
-            _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
-        }
-
-        private void OnItemSelected(VendingMachineInventoryEntry entry)
-        {
-            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, 1));
-        }
-
-        // END-ADT-TWEAK
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            if (!disposing)
-                return;
-
-            if (_menu == null)
-                return;
-
-            _menu.OnItemSelected -= OnItemSelected;    // ADT vending eject count
-            _menu.OnClose -= Close;
-            _menu.Dispose();
-        }
+        _menu.OnItemSelected -= OnItemSelected;
+        _menu.OnClose -= Close;
+        _menu.Dispose();
     }
 }

@@ -9,10 +9,12 @@
     volume: -10
     enabled: false
   - type: MovementSpeedModifier
-    baseAcceleration: 2.5
+    baseAcceleration: 10
     baseFriction: 0.2
     baseSprintSpeed: 4
     baseWalkSpeed: 1.5
+    baseWeightlessModifier: 0
+  - type: GravityAffected
   - type: Repairable
     fuelCost: 20
     doAfterDelay: 20
@@ -50,7 +52,10 @@
     #maxBuckleDistance: 1
   - type: InputMover
   - type: InteractionOutline
+  - type: ADTVehicle
   - type: Vehicle
+  - type: StrapVehicle
+  - type: VehicleHandBlocker
   - type: Pullable
   - type: Physics
     bodyType: KinematicController
@@ -90,12 +95,18 @@
   name: janicart
   description: The janitor's trusty steed.
   components:
-  - type: Vehicle
+  - type: ADTVehicle
     southOver: true
     westOver: true
     eastOver: true
     northOverride: -0.15
     southOverride: 0.22
+  - type: GenericKeyedVehicle
+    containerId: key_slot
+    keyWhitelist:
+      tags:
+      - VehicleKey
+    preventInvalidInsertion: false
   - type: Sprite
     sprite: Objects/Vehicles/janicart.rsi
     layers:
@@ -107,7 +118,7 @@
     enabled: false
     radius: 3.5
     softness: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     autoRot: true
   - type: Destructible
     thresholds:
@@ -157,6 +168,25 @@
           tags:
             - TrashBag
     sprite: Objects/Vehicles/janicart.rsi
+  - type: ADTJanicartUpgradeable
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      key_slot: !type:ContainerSlot {}
+      trashbag_slot: !type:ContainerSlot {}
+      mop_slot: !type:ContainerSlot {}
+      bucket_slot: !type:ContainerSlot {}
+      plunger_slot: !type:ContainerSlot {}
+      goldenplunger_slot: !type:ContainerSlot {}
+      wetfloorsign_slot4: !type:ContainerSlot {}
+      wetfloorsign_slot3: !type:ContainerSlot {}
+      wetfloorsign_slot2: !type:ContainerSlot {}
+      wetfloorsign_slot1: !type:ContainerSlot {}
+      lightreplacer_slot: !type:ContainerSlot {}
+      spraybottle_slot:  !type:ContainerSlot {}
+      janicart_upgrades: !type:Container
+        ents: []
   - type: Appearance
 
 - type: entity
@@ -174,7 +204,7 @@
   name: secway
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
   components:
-  - type: Vehicle
+  - type: ADTVehicle
     northOver: true
     westOver: true
     eastOver: true
@@ -182,6 +212,12 @@
     southOverride: 0.1
     hornSound:
       path: /Audio/Effects/Vehicle/policesiren.ogg
+  - type: GenericKeyedVehicle
+    containerId: key_slot
+    keyWhitelist:
+      tags:
+      - VehicleKey
+    preventInvalidInsertion: false
   - type: Sprite
     sprite: Objects/Vehicles/secway.rsi
     layers:
@@ -192,8 +228,6 @@
     buckleOffset: "0.15, -0.05"
     #maxBuckleDistance: 1
   - type: MovementSpeedModifier
-    acceleration: 1
-    friction: 1
     baseWalkSpeed: 4.5
     baseSprintSpeed: 6
   - type: Armor
@@ -224,11 +258,17 @@
   name: ATV
   description: All-Tile Vehicle.
   components:
-  - type: Vehicle
+  - type: ADTVehicle
     southOver: true
     northOver: true
     northOverride: -0.1
     southOverride: 0.1
+  - type: GenericKeyedVehicle
+    containerId: key_slot
+    keyWhitelist:
+      tags:
+      - VehicleKey
+    preventInvalidInsertion: false
   - type: Sprite
     sprite: Objects/Vehicles/atv.rsi
     layers:
@@ -238,8 +278,6 @@
   - type: RandomMetadata
     descriptionSegments: [DescriptionsATV]
   - type: MovementSpeedModifier
-    acceleration: 1
-    friction: 1
     baseWalkSpeed: 4.5
     baseSprintSpeed: 7
   - type: Strap
@@ -250,7 +288,7 @@
     enabled: false
     radius: 3.5
     softness: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ADTLightMaskCone
     autoRot: true
   - type: ItemSlots
     slots:
@@ -289,7 +327,7 @@
   name: syndicate segway
   description: Be an enemy of the corporation, in style.
   components:
-    - type: Vehicle
+    - type: ADTVehicle
       southOver: true
       westOver: true
       eastOver: true
@@ -297,9 +335,13 @@
       southOverride: 0.1
       hornSound:
         path: /Audio/Effects/Vehicle/policesiren.ogg
+    - type: GenericKeyedVehicle
+      containerId: key_slot
+      keyWhitelist:
+        tags:
+        - VehicleKey
+      preventInvalidInsertion: false
     - type: MovementSpeedModifier
-      acceleration: 1
-      friction: 1
       baseWalkSpeed: 4.5
       baseSprintSpeed: 6
     - type: Sprite
@@ -337,11 +379,17 @@
   name: skeleton motorcycle
   description: Bad to the Bone.
   components:
-    - type: Vehicle
+    - type: ADTVehicle
       southOver: true
       northOver: true
       northOverride: -0.1
       southOverride: 0.1
+    - type: GenericKeyedVehicle
+      containerId: key_slot
+      keyWhitelist:
+        tags:
+        - VehicleKey
+      preventInvalidInsertion: false
     - type: Sprite
       sprite: Objects/Vehicles/motorbike.rsi
       layers:
@@ -352,8 +400,6 @@
       buckleOffset: "0.1, -0.05"
       #maxBuckleDistance: 1
     - type: MovementSpeedModifier
-      acceleration: 2
-      friction: 1.5
       baseWalkSpeed: 4.5
       baseSprintSpeed: 7
     - type: UnpoweredFlashlight
@@ -361,7 +407,7 @@
       enabled: false
       radius: 3.5
       softness: 2
-      mask: /Textures/Effects/LightMasks/cone.png
+      lightMask: ADTLightMaskCone
       autoRot: true
     - type: ItemSlots
       slots:
@@ -383,12 +429,11 @@
   name: unicycle
   description: It only has one wheel!
   components:
-  - type: Vehicle
+  - type: ADTVehicle
     northOver: true
     southOver: true
     northOverride: -0.15
     southOverride: 0.15
-    hasKey: true
     hornSound:
       path: /Audio/Effects/Vehicle/bicyclebell.ogg
   - type: Sprite
@@ -404,8 +449,6 @@
     buckleOffset: "0.1, -0.05"
     #maxBuckleDistance: 1
   - type: MovementSpeedModifier
-    acceleration: 1
-    friction: 0.8
     baseWalkSpeed: 3.5
     baseSprintSpeed: 4.3
   - type: Destructible
@@ -440,17 +483,16 @@
   name: wheelchair
   description: A chair with big wheels. It looks like you can move in these on your own.
   components:
-    - type: Vehicle
+    - type: ADTVehicle
       northOver: true
-      hasKey: true
       northOverride: 0
       southOverride: 0
     - type: Sprite
       sprite: Objects/Vehicles/wheelchair.rsi
       layers:
-      - state: vehicle
+      - state: wheelchair
         map: ["enum.VehicleVisualLayers.AutoAnimate", "unfoldedLayer"]
-      - state: vehicle_folded
+      - state: wheelchair_folded
         map: ["foldedLayer"]
         visible: false
       noRot: true

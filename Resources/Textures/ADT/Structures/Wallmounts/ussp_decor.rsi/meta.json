@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Etvy for Adventure Time project, emblem taken from ADT Wallmounts/flags.rsi, frames styled after ADT paintings.rsi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "rug_red"
+        },
+        {
+            "name": "rug_burgundy"
+        },
+        {
+            "name": "rug_blue"
+        },
+        {
+            "name": "rug_wide"
+        },
+        {
+            "name": "pennant"
+        },
+        {
+            "name": "emblem"
+        },
+        {
+            "name": "honor_board"
+        },
+        {
+            "name": "portrait"
+        },
+        {
+            "name": "star_map"
+        }
+    ]
+}

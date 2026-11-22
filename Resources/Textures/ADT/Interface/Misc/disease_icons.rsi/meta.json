@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "size": {
+    "x": 8,
+    "y": 8
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from ss220-space/paradise at commit 3cde89d9f4d7894c740f7fa1e2eb1a3446278e8e, icons/mob/hud.dmi",
+  "states": [
+    {
+      "name": "positive"
+    },
+    {
+      "name": "nonthreat"
+    },
+    {
+      "name": "minor"
+    },
+    {
+      "name": "medium"
+    },
+    {
+      "name": "harmful"
+    },
+    {
+      "name": "dangerous"
+    },
+    {
+      "name": "biohazard"
+    },
+    {
+      "name": "uncurable"
+    }
+  ]
+}

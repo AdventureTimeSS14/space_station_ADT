@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911",
+  "size": {
+    "y": 32,
+    "x": 32
+  },
+  "states": [
+    {
+      "directions": 4,
+      "name": "equipped-NECK"
+    },
+    {
+      "directions": 1,
+      "name": "icon"
+    }
+  ]
+}

@@ -60,7 +60,7 @@ public abstract partial class SharedMartialArtsSystem
         if (args.Type == ComboAttackType.Grab)
         {
             ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
-            _modifier.RefreshMovementSpeedModifiers(ent);
+            _modifier.RefreshMovementSpeedModifiers(ent.Owner);
             return;
         }
 
@@ -117,8 +117,7 @@ public abstract partial class SharedMartialArtsSystem
 
         if (args.Emote != null && TryComp(ent, out AnimatedEmotesComponent? emotes))
         {
-            emotes.Emote = args.Emote.Value;
-            Dirty(ent, emotes);
+            _emotes.SetEmote((ent, emotes), args.Emote.Value);
         }
 
         ComboPopup(ent, target, proto.Name);

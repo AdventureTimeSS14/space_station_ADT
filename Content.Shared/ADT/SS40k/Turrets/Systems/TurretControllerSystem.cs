@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
@@ -13,8 +14,8 @@ namespace Content.Shared.ADT.SS40k.Turrets.Systems;
 
 public sealed class TurretControllerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

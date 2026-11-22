@@ -1,3 +1,5 @@
+//
+
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic.Prototypes;
@@ -16,4 +18,11 @@ public abstract partial class RitualCustomBehavior
     public abstract void Finalize(RitualData args);
 }
 
-public readonly record struct RitualData(EntityUid Performer, EntityUid Platform, ProtoId<HereticRitualPrototype> RitualId, IEntityManager EntityManager);
+public readonly record struct RitualData(
+    EntityUid Performer,
+    EntityUid Platform,
+    Entity<HereticComponent> Mind,
+    ProtoId<HereticRitualPrototype> RitualId,
+    IEntityManager EntityManager,
+    List<EntityUid>? Limited,
+    int Limit);

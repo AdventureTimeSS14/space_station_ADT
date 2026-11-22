@@ -8,11 +8,12 @@
   id: ActionRevenantDefile
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_corruption
     itemIconStyle: BigAction
     useDelay: 15
+  - type: Sprite
+    sprite: Interface/Actions/revenant.rsi
+    layers:
+    - state: rev_corruption
   - type: InstantAction
     event: !type:RevenantDefileActionEvent
 
@@ -20,11 +21,12 @@
   id: ActionRevenantOverloadLights
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_blackout
     itemIconStyle: BigAction
     useDelay: 20
+  - type: Sprite # ADT-Tweak
+    sprite: Interface/Actions/revenant.rsi
+    layers:
+    - state: rev_blackout
   - type: InstantAction
     event: !type:RevenantOverloadLightsActionEvent
 
@@ -44,11 +46,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_malafucturing
-    itemIconStyle: BigAction
     useDelay: 20
+    itemIconStyle: BigAction
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/malfunction.png
   - type: InstantAction
     event: !type:RevenantMalfunctionActionEvent
 
@@ -59,11 +61,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_panic
     itemIconStyle: BigAction
     useDelay: 90
+  - type: Sprite
+    sprite: Interface/Actions/revenant.rsi
+    layers:
+    - state: rev_panic
   - type: InstantAction
     event: !type:RevenantHysteriaActionEvent
 
@@ -72,11 +75,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_ghostsmoke
     itemIconStyle: BigAction
     useDelay: 25
+  - type: Sprite
+    sprite: Interface/Actions/revenant.rsi
+    layers:
+    - state: rev_ghostsmoke
   - type: InstantAction
     event: !type:RevenantGhostSmokeActionEvent
 
@@ -85,10 +89,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/revenant.rsi
-      state: rev_airlock
     itemIconStyle: BigAction
     useDelay: 25
+  - type: Sprite
+    sprite: Interface/Actions/revenant.rsi
+    layers:
+    - state: rev_airlock
   - type: InstantAction
     event: !type:RevenantLockActionEvent

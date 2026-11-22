@@ -16,7 +16,6 @@
   startingGear: ADTBattleShipMarineKMTGear
   icon: "JobIconMarineKMT"
   supervisors: job-supervisors-kmt-marine-leutenant
-  canBeAntag: false
   overrideConsoleVisibility: false
   access:
   - Security

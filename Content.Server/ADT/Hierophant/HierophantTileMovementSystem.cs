@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Vehicle.Components;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.TileMovement;
 using Content.Shared.Mobs.Systems;
@@ -10,10 +11,10 @@ namespace Content.Server.ADT.Hierophant; // todo move to shared maybe
 
 public sealed class HierophantTileMovementSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HierophantSystem _hierophant = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HierophantSystem _hierophant = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float CheckInterval = 0.5f;
 
@@ -85,7 +86,7 @@ public sealed class HierophantTileMovementSystem : EntitySystem
         if (!_fighting.Add(uid))
             return;
 
-        if (TryComp<RiderComponent>(uid, out var rider) && rider.Vehicle != null)
+        if (TryComp<ADTVehicleRiderComponent>(uid, out var rider) && rider.Vehicle != null)
             TryAddFighter(rider.Vehicle.Value);
     }
 

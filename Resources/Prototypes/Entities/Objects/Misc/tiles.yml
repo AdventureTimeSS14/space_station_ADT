@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseItem
   id: FloorTileItemBase
   description: These could work as a pretty decent throwing weapon.
@@ -20,12 +20,6 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 20
@@ -2289,17 +2283,7 @@
     - Plating
     - FloorMowedAstroGrass
   - type: Stack
-    stackType: FloorTileAstroGrass
-  #ADT-Tweak-Start
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 100
-  - type: Material
-  - type: Tag
-    tags:
-      - Sheet
-      - NoPaint
-  #ADT-Tweak-End
+    stackType: FloorTileMowedAstroGrass
 
 - type: entity
   id: FloorTileItemJungleAstroGrass
@@ -2316,7 +2300,7 @@
     - Plating
     - FloorJungleAstroGrass
   - type: Stack
-    stackType: FloorTileAstroGrass
+    stackType: FloorTileJungleAstroGrass
 
 - type: entity
   parent: FloorTileItemBase

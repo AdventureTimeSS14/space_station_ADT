@@ -21,14 +21,14 @@ namespace Content.Client.ADT.MedicalAssembler;
 [GenerateTypedNameReferences]
 public sealed partial class MedicalAssemblerMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
 
     private readonly SpriteSystem _spriteSystem;
     private readonly Texture _lockTexture;
 
-    private float MaxCustomVolume => _state?.MaxCustomVolume ?? 5f;
+    private float MaxCustomVolume => _state?.MaxCustomVolume ?? 10f;
 
     private readonly List<string> _recipeIds = new();
     private MedicalAssemblerUpdateState? _state;
@@ -200,7 +200,7 @@ public sealed partial class MedicalAssemblerMenu : FancyWindow
         if (!_proto.TryIndex<EntityPrototype>(protoId, out var proto))
             return protoId;
 
-        return Loc.GetString(proto.Name);
+        return proto.Name;
     }
 
     private string GetReagentName(string reagentId)

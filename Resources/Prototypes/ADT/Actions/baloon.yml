@@ -7,8 +7,9 @@
     useDelay: 15
     checkCanInteract: true
     itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Objects/Fun/Balloon.rsi
-      state: icon
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:SpawnBaloonEvent

@@ -1,0 +1,125 @@
+- type: entity
+  parent: BaseItem
+  id: ADTCanvasBase
+  abstract: true
+  name: canvas
+  description: A canvas stretched on a wooden frame. Put it on an easel to paint.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/canvas.rsi
+  - type: Item
+    size: Normal
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Wooden
+
+- type: entity
+  parent: ADTCanvasBase
+  id: ADTPainting
+  name: painting
+  description: A finished painting. Hang it in a frame.
+  components:
+  - type: Sprite
+    offset: 0.109375,0.109375
+    layers:
+    - state: large-wip
+      map: ["base"]
+  - type: Painting
+  - type: PaintingItemVisuals
+    innerSize: 25,25
+    innerOffset: -3.5,-3.5
+
+- type: entity
+  parent: ADTCanvasBase
+  id: ADTCanvasSmall
+  name: small canvas
+  components:
+  - type: Sprite
+    offset: 0.171875,0.171875
+    layers:
+    - state: small
+      map: ["base"]
+  - type: CanvasItem
+    size: 1024,1024
+    easelState: small
+    easelOffset: 5,4
+  - type: PaintingItemVisuals
+    innerSize: 21,21
+    innerOffset: -5.5,-5.5
+  - type: GenericVisualizer
+    visuals:
+      enum.CanvasItemVisuals.Painted:
+        base:
+          True: { state: small-wip }
+          False: { state: small }
+
+- type: entity
+  parent: ADTCanvasSmall
+  id: ADTCanvasPixelSmall
+  name: small pixel canvas
+  components:
+  - type: CanvasItem
+    size: 32,32
+    easelState: small
+    easelOffset: 5,4
+
+- type: entity
+  parent: ADTCanvasSmall
+  id: ADTCanvasPixel
+  name: pixel canvas
+  components:
+  - type: CanvasItem
+    size: 64,64
+    easelState: small
+    easelOffset: 5,4
+
+- type: entity
+  parent: ADTCanvasBase
+  id: ADTCanvasLarge
+  name: large canvas
+  components:
+  - type: Sprite
+    offset: 0.109375,0.109375
+    layers:
+    - state: large
+      map: ["base"]
+  - type: CanvasItem
+    size: 2560,2560
+    easelState: large
+    easelOffset: 3,2
+  - type: PaintingItemVisuals
+    innerSize: 25,25
+    innerOffset: -3.5,-3.5
+  - type: GenericVisualizer
+    visuals:
+      enum.CanvasItemVisuals.Painted:
+        base:
+          True: { state: large-wip }
+          False: { state: large }
+
+- type: entity
+  parent: ADTCanvasBase
+  id: ADTCanvasHuge
+  name: huge canvas
+  components:
+  - type: Sprite
+    offset: 0.09375,0.09375
+    layers:
+    - state: huge
+      map: ["base"]
+  - type: Item
+    size: Large
+  - type: CanvasItem
+    size: 4096,4096
+    easelState: huge
+    easelOffset: 3,2
+  - type: PaintingItemVisuals
+    innerSize: 26,26
+    innerOffset: -3,-3
+  - type: GenericVisualizer
+    visuals:
+      enum.CanvasItemVisuals.Painted:
+        base:
+          True: { state: huge-wip }
+          False: { state: huge }

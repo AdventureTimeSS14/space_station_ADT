@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseItem
+  id: ADTLogicDisk
+  name: диск схемы
+  description: Диск, на который записывается схема кабельной коробки.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: ADTLogicDisk
+  - type: StaticPrice
+    price: 40

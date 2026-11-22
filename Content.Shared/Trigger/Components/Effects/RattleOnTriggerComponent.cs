@@ -24,6 +24,7 @@ public sealed partial class RattleOnTriggerComponent : BaseXOnTriggerComponent
     [DataField]
     public Dictionary<MobState, LocId> Messages = new()
     {
+        {MobState.SoftCritical, "rattle-on-trigger-softcritical-message"}, // ADT-Tweak
         {MobState.Critical, "rattle-on-trigger-critical-message"},
         {MobState.Dead, "rattle-on-trigger-dead-message"}
     };

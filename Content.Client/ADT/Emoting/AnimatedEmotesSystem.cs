@@ -5,6 +5,7 @@ using Robust.Client.GameObjects;
 using Content.Shared.Emoting;
 using System.Numerics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Standing;
 
@@ -14,6 +15,9 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private static readonly TimeSpan MaxEmoteAge = TimeSpan.FromSeconds(2);
 
     public override void Initialize()
     {
@@ -36,8 +40,17 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 
     private void OnHandleState(EntityUid uid, AnimatedEmotesComponent component, ref ComponentHandleState args)
     {
-        if (args.Current is not AnimatedEmotesComponentState state
-        || !_prot.TryIndex<EmotePrototype>(state.Emote, out var emote))
+        if (args.Current is not AnimatedEmotesComponentState state)
+            return;
+
+        var isNew = state.EmoteTime > component.EmoteTime;
+        component.Emote = state.Emote;
+        component.EmoteTime = state.EmoteTime;
+
+        if (!isNew || _timing.CurTime - state.EmoteTime > MaxEmoteAge)
+            return;
+
+        if (!_prot.TryIndex<EmotePrototype>(state.Emote, out var emote))
             return;
 
         if (emote.Event != null)

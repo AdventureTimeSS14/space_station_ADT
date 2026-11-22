@@ -60,14 +60,6 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
-        {
-            if (!TryPrototype(entInRange, out var entProto) || entProto.ID != "SpawnPointChef")
-                continue;
-
-            args.Handled = true;
-            return;
-        }
     }
 
     private void OnMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)

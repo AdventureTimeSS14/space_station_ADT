@@ -1,0 +1,24 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform lowp int count;
+
+uniform highp vec2[5] position;
+uniform highp float[5] radius;
+uniform highp float[5] width;
+uniform highp float[5] strength;
+
+void fragment() {
+    highp vec2 coords = FRAGCOORD.xy;
+
+    for (int i = 0; i < 5 && i < count; i++) {
+        highp vec2 delta = FRAGCOORD.xy - position[i];
+        highp float dist = length(delta);
+        highp float diff = dist - radius[i];
+
+        if (dist > 0.0 && abs(diff) < width[i]) {
+            highp float wave = cos(diff / width[i] * 1.5707963);
+            coords -= (delta / dist) * wave * strength[i];
+        }
+    }
+
+    COLOR = zTextureSpec(SCREEN_TEXTURE, coords * SCREEN_PIXEL_SIZE);
+}

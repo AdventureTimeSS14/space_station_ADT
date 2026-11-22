@@ -28,3 +28,25 @@
   - type: StationAiVision
     range: 2
     visionNetwork: AreaXenobio
+
+- type: entity
+  parent: AreaBase
+  id: AreaKitchen
+  name: kitchen area
+  components:
+  - type: Sprite
+    sprite: ADT/Markers/Areas/station.rsi
+    state: kitchen
+
+- type: entity
+  parent: AreaBase
+  id: ADTAreaChapel
+  name: chapel area
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: blue
+    - sprite: Objects/Specific/Chapel/bible.rsi
+      state: icon
+  - type: HolyArea

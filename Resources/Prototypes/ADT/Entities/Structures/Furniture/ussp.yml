@@ -1,0 +1,145 @@
+- type: entity
+  parent: Carpet
+  id: ADTCarpetUSSP
+  name: USSP carpet
+  description: A burgundy carpet with a traditional ornament, just like the ones that hang on the walls.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Carpets/ussp_carpet.rsi
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Carpets/ussp_carpet.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTFloorCarpetItemUSSP:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: ChairWood
+  id: ADTChairWoodUSSP
+  name: USSP wooden chair
+  description: A simple wooden chair. Sturdy and unpretentious.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/ussp_chairs.rsi
+    state: wooden
+
+- type: entity
+  parent: ADTArmchairCentcomm
+  id: ADTArmchairUSSP
+  name: USSP armchair
+  description: A red velvet armchair with a golden star. Fit for a commander.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/ussp_armchair.rsi
+    state: armchair
+
+- type: entity
+  parent: Bed
+  id: ADTBedUSSP
+  name: USSP iron bed
+  description: An army iron bed with a wool blanket.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/ussp_bed.rsi
+    state: bed
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTBookcaseUSSP
+  name: USSP bookcase
+  description: A wooden bookcase full of collected works and regulations.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/ussp_bookcase.rsi
+    state: bookcase
+    noRot: true
+  - type: Transform
+    noRot: true
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 200
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 2
+            max: 4
+          BookRandom:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTTableRoundWood
+  id: ADTTableUSSPDesk
+  name: USSP desk
+  description: A massive writing desk covered with green cloth.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Tables/ussp_tables.rsi
+    state: desk
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Tables/ussp_tables.rsi
+    state: desk
+
+- type: entity
+  parent: ADTTableRoundWood
+  id: ADTTableUSSPWorkbench
+  name: workbench with a vise
+  description: A heavy workbench with a steel vise and some tools on it.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Tables/ussp_tables.rsi
+    state: workbench
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Tables/ussp_tables.rsi
+    state: workbench
+
+- type: entity
+  parent: PottedPlantBase
+  id: ADTPottedPlantUSSPFicus
+  name: ficus
+  description: A ficus in a terracotta pot. Every office has one.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/ussp_ficus.rsi
+    state: ficus

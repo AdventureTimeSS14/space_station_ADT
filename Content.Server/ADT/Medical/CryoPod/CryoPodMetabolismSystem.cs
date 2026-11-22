@@ -10,8 +10,8 @@ using Robust.Shared.Containers;
 namespace Content.Server.ADT.Medical.CryoPod;
 public sealed class CryoPodMetabolismSystem : EntitySystem
 {
-    [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private MetabolizerSystem _metabolizer = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
 
     public override void Initialize()
     {
@@ -45,6 +45,7 @@ public sealed class CryoPodMetabolismSystem : EntitySystem
         component.Tier = tier;
         component.Multiplier = tier switch
         {
+            >= 5f => 1f / 1.8f,
             >= 4f => 1f / 1.4f,
             >= 3f => 1f / 1.25f,
             >= 2f => 1f / 1.1f,

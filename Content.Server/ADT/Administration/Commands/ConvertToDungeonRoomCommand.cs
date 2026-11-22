@@ -7,6 +7,7 @@ using Robust.Shared.Console;
 using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
@@ -18,9 +19,9 @@ namespace Content.Server.ADT.Administration.Commands;
 [AdminCommand(AdminFlags.Mapping)]
 public sealed class ConvertToDungeonRoomCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly IResourceManager _resource = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private IResourceManager _resource = default!;
 
     public override string Command => "convertToDungeonRoom";
 
@@ -64,17 +65,39 @@ public sealed class ConvertToDungeonRoomCommand : LocalizedCommands
         var loader = _entMan.System<MapLoaderSystem>();
         var export = _entMan.System<ADTDungeonRoomExportSystem>();
 
-        var mapUid = maps.CreateMap(out var mapId, runMapInit: false);
+        EntityUid mapUid;
+        Entity<MapGridComponent> grid;
 
-        try
+        if (loader.TryLoadMap(path, out var loadedMap, out var grids))
         {
-            if (!loader.TryLoadGrid(mapId, path, out var grid))
+            mapUid = loadedMap.Value.Owner;
+
+            if (grids.Count != 1)
             {
+                _entMan.DeleteEntity(mapUid);
                 shell.WriteError(Loc.GetString("cmd-adt-converttodungeonroom-no-grid", ("path", path.ToString())));
                 return;
             }
 
-            if (!export.TrySerialize(grid.Value, roomId, tags, out var yaml, out var error))
+            grid = grids.First();
+        }
+        else
+        {
+            mapUid = maps.CreateMap(out var mapId, runMapInit: false);
+
+            if (!loader.TryLoadGrid(mapId, path, out var loadedGrid))
+            {
+                _entMan.DeleteEntity(mapUid);
+                shell.WriteError(Loc.GetString("cmd-adt-converttodungeonroom-no-grid", ("path", path.ToString())));
+                return;
+            }
+
+            grid = loadedGrid.Value;
+        }
+
+        try
+        {
+            if (!export.TrySerialize(grid, roomId, tags, out var yaml, out var error))
             {
                 shell.WriteError(error);
                 return;

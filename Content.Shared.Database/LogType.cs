@@ -489,5 +489,27 @@ public enum LogType
     /// A player grabbed another player
     /// </summary>
     Grab = 105,
+
+    /// <summary>
+    /// A player in soft crit tried to catch their breath.
+    /// </summary>
+    CatchBreath = 106,
     // ADT End
+
+    /// <summary>
+    /// Silicon law changes.
+    /// </summary>
+    SiliconLaw = 107,
+
+    // ADT-Tweak-Start
+    CanvasSessionStart = 1100,
+    CanvasJoin = 1101,
+    CanvasKick = 1102,
+    CanvasSubmit = 1103,
+    CanvasModeration = 1104,
+    CanvasDrawingBan = 1105,
+    CanvasReport = 1106,
+    CanvasWhitelist = 1107,
+    Economy = 1108,
+    // ADT-Tweak-End
 }

@@ -19,10 +19,10 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
     /// </summary>
     public sealed class OverpressurePipeDamageSystem : EntitySystem
     {
-        [Dependency] private readonly DamageableSystem _damage = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private DamageableSystem _damage = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IGameTiming _timing = default!;
 
         private bool _enabled;
 

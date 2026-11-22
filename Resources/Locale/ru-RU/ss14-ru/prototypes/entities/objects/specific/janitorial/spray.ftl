@@ -19,3 +19,7 @@ ent-Vapor = пар
     .desc = { "" }
 ent-BigVapor = { ent-Vapor }
     .desc = { ent-Vapor.desc }
+ent-MegaSprayBottleSpaceCleaner = мега-распылитель
+    .suffix = Космический очиститель
+    .desc = Непенящийся космический очиститель марки BLAM!, теперь в большой упаковке для огромных луж крови!
+ent-FlowerVapor = { ent-Vapor }

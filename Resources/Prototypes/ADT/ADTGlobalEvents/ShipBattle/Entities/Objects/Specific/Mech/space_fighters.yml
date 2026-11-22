@@ -12,6 +12,16 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: sabre_tsf
   - type: Mech
+    maxIntegrity: 600
+    baseState: sabre_tsf
+    openState: sabre_tsf-open
+    brokenState: sabre_tsf-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentShuttleGun
+    maxEquipmentAmount: 3
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.1
@@ -21,19 +31,13 @@
         Radiation: 0.0
         Caustic: 0.2
         Structural: 0.5
-    maxintegrity: 500
-    baseState: sabre_tsf
-    openState: sabre_tsf-open
-    brokenState: sabre_tsf-broken
-    mechToPilotDamageMultiplier: 0.0
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.0
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentShuttleGun
-    maxEquipmentAmount: 3
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: Storage
     grid:
     - 0,0,6,3
@@ -59,7 +63,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 720
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -123,6 +127,16 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: sabre_kmt
   - type: Mech
+    maxIntegrity: 600
+    baseState: sabre_kmt
+    openState: sabre_kmt-open
+    brokenState: sabre_kmt-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentShuttleGun
+    maxEquipmentAmount: 3
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.1
@@ -132,16 +146,10 @@
         Radiation: 0.0
         Caustic: 0.2
         Structural: 0.5
-    maxintegrity: 500
-    baseState: sabre_kmt
-    openState: sabre_kmt-open
-    brokenState: sabre_kmt-broken
-    mechToPilotDamageMultiplier: 0.0
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.0
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentShuttleGun
-    maxEquipmentAmount: 3
+  - type: VehicleHandBlocker
+    blockedHands: 2

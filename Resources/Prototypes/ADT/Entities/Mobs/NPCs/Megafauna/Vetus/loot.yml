@@ -1,0 +1,53 @@
+- type: entity
+  id: ADTCrateVetusLoot
+  parent: ADTCrateNecropolis
+  name: ancient supply cache
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0
+
+- type: entity
+  id: ADTPinpointerTendril
+  parent: PinpointerBase
+  name: ancient scanning unit
+  description: Convenient that the scanning unit for the robot survived. Seems to point to the tendrils around here.
+  components:
+  - type: Sprite
+    noRot: True
+    sprite: ADT/Objects/Devices/ancient_pinpointer.rsi
+    layers:
+    - state: pinpointer
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: ADT/Objects/Devices/ancient_pinpointer.rsi
+    state: pinpointer
+  - type: Pinpointer
+    component: Tendril
+
+- type: entity
+  id: ADTKineticTrophyAdaptiveCore
+  parent: BaseItem
+  name: adaptive intelligence core
+  description: Seems to be one of the cores of a giant robot. Suitable as a trophy for a kinetic crusher.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/vetus_loot.rsi
+    state: adaptive_core
+  - type: Trophy
+    effects:
+    - !type:AdaptiveLearningTrophyEffect
+      bonusPerHit: 2
+      maxBonus: 20
+      duration: 30
+    examineText: adt-kinetic-trophy-adaptive-core
+    trophyTag: ADTKineticTrophyAdaptiveCore
+  - type: Tag
+    tags:
+    - ADTKineticTrophyAdaptiveCore
+
+- type: Tag
+  id: ADTKineticTrophyAdaptiveCore

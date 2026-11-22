@@ -6,7 +6,7 @@ namespace Content.Client.ADT.Discord;
 
 public sealed class DiscordIdManager
 {
-    [Dependency] private readonly IClientNetManager _netMgr = default!;
+    [Dependency] private IClientNetManager _netMgr = default!;
 
     private string? _discordId;
 

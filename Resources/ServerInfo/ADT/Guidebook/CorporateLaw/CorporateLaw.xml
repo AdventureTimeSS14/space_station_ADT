@@ -1,0 +1,478 @@
+<Document>
+# Корпоративный закон
+
+Корпоративный закон (КЗ) - это свод требований корпорации Nanotrasen ко всем разумным существам на территории её объектов. Попадая на объект корпорации, каждое разумное существо обязуется соблюдать этот закон. Игнорировать, нарушать или пытаться изменить его категорически запрещено. Если возникает спор о соблюдении закона, никто не вправе ссылаться на законы своей страны.
+
+## Как читать номер статьи
+
+Номер статьи состоит из трёх цифр. Первая цифра показывает тяжесть нарушения, а две последние показывают его категорию. Например, статья 302 означает тяжкое нарушение (3XX) из категории 02, к которой относятся драки, нападения и убийства.
+
+Чтобы открыть полное описание статьи, нажмите на её название в таблице.
+
+## Таблица статей
+
+<Table Columns="6">
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Код[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]1XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]2XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]3XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]4XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]5XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]00[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="100" link="ADTCorporateLawLight"]
+      Препятствование работе службы безопасности
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="200" link="ADTCorporateLawMedium"]
+      Сопротивление аресту
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="300" link="ADTCorporateLawHeavy"]
+      Насильственное сопротивление аресту
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="400" link="ADTCorporateLawGrave"]
+      Неподчинение в красный код
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="500" link="ADTCorporateLawCritical"]
+      Неподчинение в гамма код
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]01[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="101" link="ADTCorporateLawLight"]
+      Оскорбление должностного лица или члена командования
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="201" link="ADTCorporateLawMedium"]
+      Нападение на должностное лицо
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="301" link="ADTCorporateLawHeavy"]
+      Нападение на члена командного состава
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="401" link="ADTCorporateLawGrave"]
+      Нанесение серьезных увечий должностному лицу или командованию
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="501" link="ADTCorporateLawCritical"]
+      Убийство должностного лица или члена командования
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]02[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="102" link="ADTCorporateLawLight"]
+      Драка
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="202" link="ADTCorporateLawMedium"]
+      Нападение
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="302" link="ADTCorporateLawHeavy"]
+      Нанесение серьезных увечий
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="402" link="ADTCorporateLawGrave"]
+      Убийство
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="502" link="ADTCorporateLawCritical"]
+      Массовые убийства
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]03[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="103" link="ADTCorporateLawLight"]
+      Хранение ядов или наркотических веществ
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="203" link="ADTCorporateLawMedium"]
+      Распространение ядов или наркотических веществ
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="303" link="ADTCorporateLawHeavy"]
+      Хранение контрабанды
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="403" link="ADTCorporateLawGrave"]
+      Распространение контрабанды
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="503" link="ADTCorporateLawCritical"]
+      Владение вражеским снаряжением
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]04[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="104" link="ADTCorporateLawLight"]
+      Нарушение общественного порядка
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="204" link="ADTCorporateLawMedium"]
+      Нарушение трудового порядка
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="304" link="ADTCorporateLawHeavy"]
+      Клевета, мошенничество и коррупция
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="404" link="ADTCorporateLawGrave"]
+      Подстрекательство к мятежу
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="504" link="ADTCorporateLawCritical"]
+      Мятеж
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]05[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="105" link="ADTCorporateLawLight"]
+      Вандализм
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="205" link="ADTCorporateLawMedium"]
+      Нанесение урона имуществу станции
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="305" link="ADTCorporateLawHeavy"]
+      Нанесение существенного урона имуществу станции
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="405" link="ADTCorporateLawGrave"]
+      Уничтожение особо ценного имущества станции
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="505" link="ADTCorporateLawCritical"]
+      Приведение станции в непригодное состояние
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]06[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="106" link="ADTCorporateLawLight"]
+      Владение опасным инструментом или нарушение правил его ношения
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="206" link="ADTCorporateLawMedium"]
+      Злоупотребление экипировкой
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="306" link="ADTCorporateLawHeavy"]
+      Незаконное владение холодным оружием
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="406" link="ADTCorporateLawGrave"]
+      Незаконное владение огнестрельным или энергетическим оружием
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="506" link="ADTCorporateLawCritical"]
+      Незаконный оборот оружия
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]07[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="107" link="ADTCorporateLawLight"]
+      Мелкая кража
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="207" link="ADTCorporateLawMedium"]
+      Мелкая кража со взломом
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="307" link="ADTCorporateLawHeavy"]
+      Кража
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="407" link="ADTCorporateLawGrave"]
+      Кража со взломом
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="507" link="ADTCorporateLawCritical"]
+      Особо крупная кража
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]08[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="108" link="ADTCorporateLawLight"]
+      Грабёж
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="208" link="ADTCorporateLawMedium"]
+      Разбой
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="308" link="ADTCorporateLawHeavy"]
+      Крупный грабёж
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="408" link="ADTCorporateLawGrave"]
+      Крупный разбой
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="508" link="ADTCorporateLawCritical"]
+      Особо крупное ограбление или разбой
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]09[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="109" link="ADTCorporateLawLight"]
+      Проникновение
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="209" link="ADTCorporateLawMedium"]
+      Проникновение со взломом
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="309" link="ADTCorporateLawHeavy"]
+      Проникновение в стратегически важный отсек
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="409" link="ADTCorporateLawGrave"]
+      Проникновение в стратегически важный отсек со взломом
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="509" link="ADTCorporateLawCritical"]
+      Проникновение в запретную зону
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]10[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="110" link="ADTCorporateLawLight"]
+      Незначительная халатность
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="210" link="ADTCorporateLawMedium"]
+      Халатность
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="310" link="ADTCorporateLawHeavy"]
+      Грубая халатность
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="410" link="ADTCorporateLawGrave"]
+      Саботаж
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="510" link="ADTCorporateLawCritical"]
+      Терроризм
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]11[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="111" link="ADTCorporateLawLight"]
+      Харассмент
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="211" link="ADTCorporateLawMedium"]
+      Подавление по расовому или половому признаку
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="311" link="ADTCorporateLawHeavy"]
+      Жестокое обращение с животными
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="411" link="ADTCorporateLawGrave"]
+      Грубое нарушение ОПРС
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [textlink="511" link="ADTCorporateLawCritical"]
+      Коллективное грубое нарушение ОПРС
+    </Box>
+  </ColorBox>
+</Table>
+
+## Разделы
+
+- [textlink="Права разумных существ и заключённых" link="ADTCorporateLawRights"]
+- [textlink="Лёгкие нарушения (1XX)" link="ADTCorporateLawLight"]
+- [textlink="Средние нарушения (2XX)" link="ADTCorporateLawMedium"]
+- [textlink="Тяжкие нарушения (3XX)" link="ADTCorporateLawHeavy"]
+- [textlink="Сверхтяжкие нарушения (4XX)" link="ADTCorporateLawGrave"]
+- [textlink="Критические нарушения (5XX)" link="ADTCorporateLawCritical"]
+- [textlink="Наказания и модификаторы" link="ADTCorporateLawPunishments"]
+- [textlink="Нарушения заключённых" link="ADTCorporateLawPrisoners"]
+- [textlink="Зоны, должности и термины" link="ADTCorporateLawTerms"]
+</Document>

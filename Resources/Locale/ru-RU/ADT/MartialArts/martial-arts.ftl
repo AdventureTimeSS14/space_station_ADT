@@ -38,13 +38,6 @@ carp-saying-cowabunga = КОВАБУНГА!
 
 ptsd-success-learned = Вы освоили ПТСР. Руководство сгорает у вас в руках...
 
-cookbook-technic-success-learned = Вы освоили Кулинарную Книгу Приёмов. Руководство сгорает у вас в руках...
-
-cookbook-technique-combo-chop = Отбивание
-cookbook-technique-combo-spin = Раскручивание
-cookbook-technique-combo-roll = Раскатывание
-cookbook-technique-combo-squeeze = Выжимание
-
 ptsd-combo-leg-sweep = Подсечка
 ptsd-combo-arm-lock = Завод руки за спину
 ptsd-combo-boot-kick = Пинок сапогом
@@ -71,7 +64,7 @@ ninjutsu-combo-dirty-kill = грязное убийство
 ninjutsu-combo-takedown = удушающий захват
 ninjutsu-combo-assassinate = удар в спину
 
-hellrip-combo-flying-dropkick = детящий дропкик
+hellrip-combo-flying-dropkick = летящий дропкик
 hellrip-combo-head-rip = отрывание головы
 hellrip-combo-tear-down = разрыв
 hellrip-combo-hellish-slam = адский удар

@@ -29,3 +29,10 @@
   maxAge: 55
   oldAge: 36
   youngAge: 26
+  defaultSoundsBySex:
+  - MaleReptilian
+  - FemaleReptilian
+  - MaleReptilian
+  voices:
+  - MaleReptilian
+  - FemaleReptilian

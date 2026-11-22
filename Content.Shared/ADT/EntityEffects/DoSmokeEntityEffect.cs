@@ -20,7 +20,10 @@ public sealed partial class DoSmokeEntityEffect : EntityEffectBase<DoSmokeEntity
     public Solution Solution = new();
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+    {
+        return Loc.GetString("entity-effect-guidebook-smoke-effect",
+            ("smoke", GuidebookTextHelpers.LocalizedEntityName(prototype, SmokePrototype)));
+    }
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

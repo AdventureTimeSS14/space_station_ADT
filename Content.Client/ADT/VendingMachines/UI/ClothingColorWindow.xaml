@@ -1,0 +1,18 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:vending="clr-namespace:Content.Client.ADT.VendingMachines.UI"
+    MinSize="440 320"
+    SetSize="460 340">
+    <BoxContainer
+        Orientation="Vertical"
+        Margin="10"
+        SeparationOverride="8">
+        <vending:ClothingColorPicker
+            Name="Picker"/>
+        <Button
+            Name="ColorCloseButton"
+            Text="{Loc 'vending-paint-close'}"
+            HorizontalAlignment="Center"/>
+    </BoxContainer>
+</controls:FancyWindow>

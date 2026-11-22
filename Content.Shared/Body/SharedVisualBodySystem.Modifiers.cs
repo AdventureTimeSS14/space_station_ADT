@@ -15,8 +15,8 @@ namespace Content.Shared.Body;
 
 public abstract partial class SharedVisualBodySystem
 {
-    [Dependency] private readonly ISharedAdminManager _admin = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private ISharedAdminManager _admin = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
 
     private void InitializeModifiers()
     {
@@ -155,6 +155,7 @@ public abstract partial class SharedVisualBodySystem
             Sex = sex,
             SkinColor = appearance.SkinColor,
             EyeColor = appearance.EyeColor,
+            BodyType = appearance.BodyType, // ADT-Tweak
         });
 
         var markingsEvt = new ApplyOrganMarkingsEvent(appearance.Markings);

@@ -25,3 +25,7 @@
 - type: latheCategory
   id: ADTMechPhazon
   name: lathe-category-mechs-phazon
+
+- type: latheCategory
+  id: ADTModsuitModules
+  name: lathe-category-modsuit-modules

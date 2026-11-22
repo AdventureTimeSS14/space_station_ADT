@@ -1,0 +1,12 @@
+os-circuit-title = Logic Circuit - { $file }
+os-circuit-title-dirty = Logic Circuit - { $file } *
+os-circuit-file-none = Схема машины
+os-circuit-save = Сохранить
+os-circuit-save-as = Сохранить как
+os-circuit-prompt = Имя файла схемы, затем Enter
+os-circuit-power = Мощность: { $used }/{ $total }
+os-circuit-enabled = Включена
+os-circuit-apply = Применить
+os-circuit-revert = Отменить
+os-circuit-fit = Вписать
+os-circuit-broken = Схема повреждена и не работает.

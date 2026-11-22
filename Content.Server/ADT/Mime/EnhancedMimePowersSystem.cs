@@ -6,7 +6,7 @@ namespace Content.Server.ADT.Mime;
 
 public sealed class EnhancedMimePowersSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

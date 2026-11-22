@@ -29,3 +29,10 @@
   uniqueLanguages:
   - Bubblish
   # ADT end
+  defaultSoundsBySex:
+  - MaleSlime
+  - FemaleSlime
+  - MaleSlime
+  voices:
+  - MaleSlime
+  - FemaleSlime

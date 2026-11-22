@@ -1,4 +1,3 @@
-
 #nullable enable
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Actions;
@@ -10,30 +9,7 @@ namespace Content.IntegrationTests.Tests.Actions;
 
 public sealed class RetractableItemActionTest : InteractionTest
 {
-    private static readonly string ArmBladeActionProtoId = "ActionTestRetractableItem";
-
-    [TestPrototypes]
-    private const string RetractablePrototypes = @"
-- type: entity
-  id: TestRetractableItem
-  parent: BaseItem
-  name: test retractable item
-  components:
-  - type: Item
-    size: Ginormous
-  - type: Unremoveable
-
-- type: entity
-  id: ActionTestRetractableItem
-  parent: BaseAction
-  components:
-  - type: Action
-    raiseOnAction: true
-  - type: InstantAction
-    event: !type:OnRetractableItemActionEvent {}
-  - type: RetractableItemAction
-    spawnedPrototype: TestRetractableItem
-";
+    private static readonly EntProtoId ArmbladeActionProtoId = "ActionRetractableItemArmblade";
 
     /// <summary>
     /// Gives the player the arm blade action, then activates it and makes sure they are given the blade.
@@ -53,15 +29,15 @@ public sealed class RetractableItemActionTest : InteractionTest
             Assert.That(heldItem, Is.Null, $"Player is holding an item ({SEntMan.ToPrettyString(heldItem)}) at start of test.");
 
             // Inspect the action prototype to find the item it spawns
-            var armBladeActionProto = ProtoMan.Index<EntityPrototype>(ArmBladeActionProtoId);
+            var armBladeActionProto = ProtoMan.Index(ArmbladeActionProtoId);
 
             // Find the component
-            Assert.That(armBladeActionProto.TryGetComponent<RetractableItemActionComponent>(out var actionComp, SEntMan.ComponentFactory));
+            Assert.That(armBladeActionProto.TryComp<RetractableItemActionComponent>(out var actionComp, SEntMan.ComponentFactory));
             // Get the item protoId from the component
             var spawnedProtoId = actionComp!.SpawnedPrototype;
 
             // Add the action to the player
-            var actionUid = actionsSystem.AddAction(playerUid, ArmBladeActionProtoId);
+            var actionUid = actionsSystem.AddAction(playerUid, ArmbladeActionProtoId);
             // Make sure the player has the action now
             Assert.That(actionUid, Is.Not.Null, "Failed to add action to player.");
             var actionEnt = actionsSystem.GetAction(actionUid);

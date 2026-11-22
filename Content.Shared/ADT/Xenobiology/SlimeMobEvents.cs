@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Robust.Shared.Maths;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Xenobiology;
@@ -31,3 +32,11 @@ public sealed partial class SlimeMitosisEvent : EntityEventArgs
         Offspring = offspring;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class SlimeBiteAnimationMessage : EntityEventArgs
+{
+    public NetEntity Entity;
+    public Angle Angle;
+}
+

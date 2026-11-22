@@ -34,38 +34,36 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.GameTicking;
 
 namespace Content.Shared.Silicons.StationAi;
 
 public abstract partial class SharedStationAiSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminManager _admin = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly ItemToggleSystem _toggles = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly SharedAirlockSystem _airlocks = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly SharedDoorSystem _doors = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedElectrocutionSystem _electrify = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] protected readonly SharedMapSystem Maps = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem PowerReceiver = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly StationAiVisionSystem _vision = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private ISharedAdminManager _admin = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private ItemToggleSystem _toggles = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private SharedAirlockSystem _airlocks = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private SharedDoorSystem _doors = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedElectrocutionSystem _electrify = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] protected SharedMapSystem Maps = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPowerReceiverSystem PowerReceiver = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private StationAiVisionSystem _vision = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!; // ADT-Tweak
 
     // StationAiHeld is added to anything inside of an AI core.
@@ -75,8 +73,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     // StationAiOverlay handles the static overlay. It also handles interaction blocking on client and server
     // for anything under it.
 
-    private EntityQuery<BroadphaseComponent> _broadphaseQuery;
-    private EntityQuery<MapGridComponent> _gridQuery;
+    [Dependency] private EntityQuery<BroadphaseComponent> _broadphaseQuery = default!;
+    [Dependency] private EntityQuery<MapGridComponent> _gridQuery = default!;
 
     private static readonly EntProtoId DefaultAi = "StationAiBrain";
     private readonly ProtoId<ChatNotificationPrototype> _downloadChatNotificationPrototype = "IntellicardDownload";
@@ -84,9 +82,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
-        _broadphaseQuery = GetEntityQuery<BroadphaseComponent>();
-        _gridQuery = GetEntityQuery<MapGridComponent>();
 
         InitializeAirlock();
         InitializeHeld();
@@ -243,7 +238,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
 
         // Try to insert our thing into them
-        if (_slots.CanEject(ent.Owner, args.User, ent.Comp.Slot))
+        if (_slots.CanEject(ent.Owner, ent.Comp.Slot, args.User))
         {
             // ADT-Tweak - AiRemoteControl-Start
             if (ent.Comp.Slot.Item != null
@@ -262,7 +257,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         }
 
         // Otherwise try to take from them
-        if (_slots.CanEject(args.Args.Target.Value, args.User, targetHolder.Slot))
+        if (_slots.CanEject(args.Args.Target.Value, targetHolder.Slot, args.User))
         {
             if (!_slots.TryInsert(ent.Owner, ent.Comp.Slot, targetHolder.Slot.Item!.Value, args.User, excludeUserAudio: true))
             {
@@ -293,13 +288,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         if (cardHasAi && coreHasAi)
         {
-            _popup.PopupClient(Loc.GetString("intellicard-core-occupied"), args.User, args.User, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("intellicard-core-occupied"), args.User, args.User, PopupType.Medium);
             args.Handled = true;
             return;
         }
         if (!cardHasAi && !coreHasAi)
         {
-            _popup.PopupClient(Loc.GetString("intellicard-core-empty"), args.User, args.User, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("intellicard-core-empty"), args.User, args.User, PopupType.Medium);
             args.Handled = true;
             return;
         }
@@ -633,6 +628,29 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         }
 
         return _blocker.CanComplexInteract(entity.Owner);
+    }
+
+    /// <summary>
+    /// Gets all alive AI minds and adds them to the inputted hashset, excluding one optional mind
+    /// </summary>
+    /// <param name="aliveAis">Hashset of alive AI minds</param>
+    /// <param name="exclude">Optional mind to exclude</param>
+    public void AddAliveAis(HashSet<Entity<MindComponent>> aliveAis, EntityUid? exclude = null)
+    {
+        var query = EntityQueryEnumerator<StationAiCoreComponent, StationAiHolderComponent>();
+
+        while (query.MoveNext(out var uid, out _, out var aiHolder))
+        {
+            // the player needs to have a mind and not be the excluded one +
+            // the player has to be alive
+            if (!TryGetHeld((uid, aiHolder), out var held) || _mobState.IsDead(held.Value))
+                continue;
+
+            if (!_mind.TryGetMind(held.Value, out var mind, out var mindComp) || mind == exclude)
+                continue;
+
+            aliveAis.Add((mind, mindComp));
+        }
     }
 }
 

@@ -9,8 +9,8 @@ namespace Content.Shared._RMC14.Weapons.Melee;
 
 public abstract class SharedRMCMeleeWeaponSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
 
     private EntityQuery<MeleeWeaponComponent> _meleeWeaponQuery;
 

@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Whitelist; // ADT-Tweak
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Trigger.Components.Effects;
@@ -22,4 +23,9 @@ public sealed partial class DamageOnTriggerComponent : BaseXOnTriggerComponent
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public DamageSpecifier Damage = default!;
+
+    // ADT-Tweak-Start
+    [DataField]
+    public EntityWhitelist Blacklist = new();
+    // ADT-Tweak-End
 }

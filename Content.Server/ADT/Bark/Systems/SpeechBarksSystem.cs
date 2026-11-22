@@ -10,17 +10,18 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Chat;
 using Content.Server.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 
 namespace Content.Server.ADT.SpeechBarks;
 
 public sealed class SpeechBarksSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly ExamineSystem _examineSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private ExamineSystem _examineSystem = default!;
     private bool _isEnabled = false;
 
     public override void Initialize()

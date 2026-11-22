@@ -1,3 +1,5 @@
+using Robust.Shared.Prototypes;
+
 namespace Content.Server.ADT.MedicalAssembler;
 
 [RegisterComponent]
@@ -8,11 +10,14 @@ public sealed partial class ADTMedicalAssemblerComponent : Component
     public const string BeakerSlotId = "beakerSlot";
 
     [DataField]
-    public float MaxCustomVolume = 5f;
+    public float MaxCustomVolume = 10f;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool CustomTabUnlocked;
 
     [DataField]
     public Dictionary<string, string> MedipenStylePrototypes = new();
+
+    [DataField]
+    public EntProtoId? CustomBlankPrototype;
 }

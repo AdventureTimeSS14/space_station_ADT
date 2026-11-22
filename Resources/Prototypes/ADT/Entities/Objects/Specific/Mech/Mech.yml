@@ -20,6 +20,16 @@
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    # ADT end
+    maxIntegrity: 378
+    baseState: ripleymkii
+    openState: ripleymkii-open
+    brokenState: ripleymkii-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentIndustrial
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -27,19 +37,13 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    # ADT end
-    maxintegrity: 315
-    baseState: ripleymkii
-    openState: ripleymkii-open
-    brokenState: ripleymkii-broken
-    mechToPilotDamageMultiplier: 0.5
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.5
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentIndustrial
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -59,21 +63,6 @@
     grid:
     - 0,0,9,2
     clickInsert: false
-  # ADT-tweak start. Правим очки здоровья меха
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: start
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  # ADT-tweak end. Правим очки здоровья меха
 
 - type: entity
   id: ADTMechRipleyMk2Battery
@@ -104,6 +93,15 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 216
+    baseState: odysseus
+    openState: odysseus-open
+    brokenState: odysseus-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentMed
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.75
@@ -111,18 +109,13 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    maxintegrity: 180
-    baseState: odysseus
-    openState: odysseus-open
-    brokenState: odysseus-broken
-    mechToPilotDamageMultiplier: 0.5
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.5
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentMed
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -138,7 +131,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 380
+        damage: 456
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -178,6 +171,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 312
+    baseState: clarke
+    openState: clarke-open
+    brokenState: clarke-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentIndustrial
+    maxEquipmentAmount: 3
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -185,19 +188,13 @@
         Piercing: 1.2
         Heat: 1
         Structural: 0.7
-    maxintegrity: 260
-    baseState: clarke
-    openState: clarke-open
-    brokenState: clarke-broken
-    mechToPilotDamageMultiplier: 0.25
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.25
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentIndustrial
-    maxEquipmentAmount: 3
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -215,10 +212,10 @@
     - 0,0,9,4
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 480
+        damage: 576
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -259,6 +256,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
+    maxIntegrity: 240
+    baseState: paddy
+    openState: paddy-open
+    brokenState: paddy-broken
+    maxEquipmentAmount: 2
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 1
@@ -266,19 +273,13 @@
         Piercing: 0.8
         Heat: 1.2
         Structural: 1.0
-    mechToPilotDamageMultiplier: 0.15
-    maxintegrity: 200
-    baseState: paddy
-    openState: paddy-open
-    brokenState: paddy-broken
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.15
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    maxEquipmentAmount: 2
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.0
@@ -297,7 +298,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 270
+        damage: 324
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -336,26 +337,30 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
-    modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.6
-        Structural: 1.0
-    maxintegrity: 320
+    maxIntegrity: 384
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 2
+  - type: ADTMech
+    modifiers:
+      coefficients: #коэффициенты для легкобронированных мехов
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.5
+        Heat: 0.6
+        Structural: 1.0
+    pilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.0
@@ -365,11 +370,11 @@
         Structural: 40
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
-    baseSprintSpeed: 3
+    baseSprintSpeed: 4
   - type: MechOverload
     damage:
       types:
-        Heat: 12
+        Heat: 4
   - type: AccessReader
     access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
   - type: Storage
@@ -377,10 +382,10 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 520
+        damage: 624
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -423,6 +428,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 480
+    baseState: durand
+    openState: durand-open
+    brokenState: durand-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 3
+  - type: ADTMech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.25
@@ -430,19 +445,13 @@
         Piercing: 0.3
         Heat: 0.4
         Structural: 0.9
-    maxintegrity: 400
-    baseState: durand
-    openState: durand-open
-    brokenState: durand-broken
-    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 3
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.0
@@ -462,10 +471,10 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 720
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -508,6 +517,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 276
+    baseState: phazon
+    openState: phazon-open
+    brokenState: phazon-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 2
+  - type: ADTMech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.6
@@ -515,19 +534,13 @@
         Piercing: 0.5
         Heat: 0.5
         Structural: 1.2
-    mechToPilotDamageMultiplier: 0.25
-    maxintegrity: 230
-    baseState: phazon
-    openState: phazon-open
-    brokenState: phazon-broken
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.25
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 2
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -548,10 +561,10 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 430
+        damage: 516
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -591,26 +604,30 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: darkgygax
   - type: Mech
-    modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.7
-        Structural: 1.0
-    mechToPilotDamageMultiplier: 0.10
-    maxintegrity: 360
+    maxIntegrity: 456
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 3
+  - type: ADTMech
+    modifiers:
+      coefficients: #коэффициенты для легкобронированных мехов
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.6
+        Structural: 1.0
+    pilotDamageMultiplier: 0.10
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: AccessReader
     access: [["NuclearOperative"], ["SyndicateAgent"]]
   - type: Storage
@@ -621,10 +638,10 @@
     factions:
     - Syndicate
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 560
+        damage: 672
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -661,6 +678,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 528
+    baseState: mauler
+    openState: mauler-open
+    brokenState: mauler-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 4
+  - type: ADTMech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.3
@@ -668,19 +695,13 @@
         Piercing: 0.3
         Heat: 0.3
         Structural: 0.9
-    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 440
-    baseState: mauler
-    openState: mauler-open
-    brokenState: mauler-broken
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 4
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -703,10 +724,10 @@
     factions:
     - Syndicate
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 640
+        damage: 768
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -742,26 +763,30 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: ntgygax
   - type: Mech
-    modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.7
-        Structural: 1.0
-    mechToPilotDamageMultiplier: 0.10
-    maxintegrity: 360
+    maxIntegrity: 456
     baseState: ntgygax
     openState: ntgygax-open
     brokenState: ntgygax-broken
-    pilotWhitelist:
-      components:
-        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 3
+  - type: ADTMech
+    modifiers:
+      coefficients: #коэффициенты для легкобронированных мехов
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.5
+        Heat: 0.5
+        Structural: 1.0
+    pilotDamageMultiplier: 0.10
+  - type: Vehicle
+    operatorWhitelist:
+      components:
+        - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: AccessReader
     access: [ ["CentralCommand"] ]
   - type: Storage
@@ -772,10 +797,10 @@
     factions:
     - Syndicate
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 560
+        damage: 672
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -812,6 +837,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 528
+    baseState: marauder
+    openState: marauder-open
+    brokenState: marauder-broken
+    maxEquipmentAmount: 4
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: ADTMech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.3
@@ -819,19 +854,13 @@
         Piercing: 0.3
         Heat: 0.3
         Structural: 0.9
-    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 440
-    baseState: marauder
-    openState: marauder-open
-    brokenState: marauder-broken
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    maxEquipmentAmount: 4
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -851,10 +880,10 @@
     - 0,0,6,3
     clickInsert: false
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 640
+        damage: 768
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -890,6 +919,22 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: seraph
   - type: Mech
+    maxIntegrity: 600
+    baseState: seraph
+    openState: seraph-open
+    brokenState: seraph-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: PointLight
+    enabled: false
+    radius: 15
+    energy: 3
+    lightMask: ADTLightMaskCircleCone
+    autoRot: true
+    maxEquipmentAmount: 5
+  - type: ADTMech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.15
@@ -897,19 +942,13 @@
         Piercing: 0.15
         Heat: 0.15
         Structural: 0.9
-    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 500
-    baseState: seraph
-    openState: seraph-open
-    brokenState: seraph-broken
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+  - type: Vehicle
+    operatorWhitelist:
       components:
         - HumanoidProfile
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 5
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: Storage
     grid:
     - 0,0,6,3
@@ -923,7 +962,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 720
       behaviors:
       - !type:PlaySoundBehavior
         sound:

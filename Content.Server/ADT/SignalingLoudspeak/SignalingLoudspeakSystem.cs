@@ -16,9 +16,9 @@ public sealed class SignalingLoudspeakSystem : EntitySystem
 {
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {

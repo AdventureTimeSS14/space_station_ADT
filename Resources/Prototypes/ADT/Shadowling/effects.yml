@@ -1,0 +1,14 @@
+- type: entity
+  parent: Smoke
+  id: ADTShadowlingSmokeCloud
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTShadowlingSmokeHeal
+    interval: 1
+    heal:
+      types:
+        Blunt: -4
+        Slash: -4
+        Piercing: -4
+        Asphyxiation: -4
+        Poison: -4

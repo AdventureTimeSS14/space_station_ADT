@@ -1,16 +1,16 @@
-- type: entity
+﻿- type: entity
   id: ADTHandheldCrewMonitorBrigmedic
   parent: HandheldCrewMonitor
   name: brigmedic crew monitor
   description: A hand-held crew monitor showing security personnel only.
   components:
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
     departments: [Security]
   - type: PdaBorderColor
     borderColor: "#5C5C73"
     accentHColor: "#E53935"
     accentVColor: "#E53935"
-  - type: CrewMonitoringUiVisuals
+  - type: ADTCrewMonitoringUiVisuals
     themeColor: "#E53935"
   - type: Item
     heldPrefix: scanner
@@ -30,12 +30,12 @@
   name: blueshield crew monitor
   description: A hand-held crew monitor showing security and command personnel.
   components:
-  - type: CrewMonitoringConsole
+  - type: ADTCrewMonitoringConsole
     departments: [Security, Command, CentralCommand]
   - type: PdaBorderColor
     borderColor: "#5C5C73"
     accentVColor: "#6098F8"
-  - type: CrewMonitoringUiVisuals
+  - type: ADTCrewMonitoringUiVisuals
     themeColor: "#6098F8"
   - type: Item
     heldPrefix: scanner

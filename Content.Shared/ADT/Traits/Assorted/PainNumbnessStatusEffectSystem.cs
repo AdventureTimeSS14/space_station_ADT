@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Traits.Assorted;
 public sealed class PainNumbnessStatusEffectSystem : EntitySystem
 {
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
 
     public override void Initialize()
     {

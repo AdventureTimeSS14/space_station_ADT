@@ -8,10 +8,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.HealthExaminable;
 
-public sealed class HealthExaminableSystem : EntitySystem
+public sealed partial class HealthExaminableSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private ExamineSystemShared _examineSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -31,7 +31,7 @@ public sealed class HealthExaminableSystem : EntitySystem
         {
             Act = () =>
             {
-                var markup = CreateMarkup(uid, component, damage);
+                var markup = CreateMarkup(uid, component, damage, args.User); // ADT-Tweak
                 _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
             },
             Text = Loc.GetString("health-examinable-verb-text"),
@@ -44,7 +44,7 @@ public sealed class HealthExaminableSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    public FormattedMessage CreateMarkup(EntityUid uid, HealthExaminableComponent component, DamageableComponent damage)
+    public FormattedMessage CreateMarkup(EntityUid uid, HealthExaminableComponent component, DamageableComponent damage, EntityUid examiner) // ADT-Tweak
     {
         var msg = new FormattedMessage();
 
@@ -97,7 +97,7 @@ public sealed class HealthExaminableSystem : EntitySystem
         }
 
         // Anything else want to add on to this?
-        RaiseLocalEvent(uid, new HealthBeingExaminedEvent(msg), true);
+        RaiseLocalEvent(uid, new HealthBeingExaminedEvent(msg, examiner), true); // ADT-Tweak
 
         return msg;
     }
@@ -111,9 +111,13 @@ public sealed class HealthExaminableSystem : EntitySystem
 public sealed class HealthBeingExaminedEvent
 {
     public FormattedMessage Message;
+    // ADT-Tweak-Start
+    public EntityUid Examiner;
 
-    public HealthBeingExaminedEvent(FormattedMessage message)
+    public HealthBeingExaminedEvent(FormattedMessage message, EntityUid examiner)
     {
         Message = message;
+        Examiner = examiner;
     }
+    // ADT-Tweak-End
 }

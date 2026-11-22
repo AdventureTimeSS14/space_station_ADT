@@ -1,0 +1,86 @@
+- type: entity
+  parent: PaintingBase
+  id: ADTWallRugUSSPRed
+  name: wall rug
+  description: A red wall rug with an ornament. A classic of any Soviet apartment.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/ussp_decor.rsi
+    state: rug_red
+
+- type: entity
+  parent: ADTWallRugUSSPRed
+  id: ADTWallRugUSSPBurgundy
+  components:
+  - type: Sprite
+    state: rug_burgundy
+
+- type: entity
+  parent: ADTWallRugUSSPRed
+  id: ADTWallRugUSSPBlue
+  components:
+  - type: Sprite
+    state: rug_blue
+
+- type: entity
+  parent: ADTWallRugUSSPRed
+  id: ADTWallRugUSSPWide
+  components:
+  - type: Sprite
+    state: rug_wide
+
+- type: entity
+  parent: PaintingBase
+  id: ADTSignUSSPPennant
+  name: USSP pennant
+  description: A red pennant awarded to the best team.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/ussp_decor.rsi
+    state: pennant
+
+- type: entity
+  parent: PaintingBase
+  id: ADTSignUSSPEmblem
+  name: USSP emblem
+  description: The state emblem of the Union of Soviet Socialist Planets.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/ussp_decor.rsi
+    state: emblem
+
+- type: entity
+  parent: PaintingBase
+  id: ADTSignUSSPHonorBoard
+  name: board of honour
+  description: Portraits of the best workers of the month.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/ussp_decor.rsi
+    state: honor_board
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingUSSPMarshal
+  name: portrait of a marshal
+  description: A formal portrait of a USSP marshal in full dress uniform.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/ussp_decor.rsi
+    state: portrait
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingUSSPStarMap
+  name: star map
+  description: A framed map of the USSP planets with marked routes.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/ussp_decor.rsi
+    state: star_map

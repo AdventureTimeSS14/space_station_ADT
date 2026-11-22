@@ -3,6 +3,8 @@
 # Другие рецепты
 
 Центральное управление кулинарии NanoTrasen все еще обдумывает классификацию этих рецептов.
-<GuideMicrowaveGroupEmbed Group="Other"/>
+<GuideADTCookingGroupEmbed Group="Other"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Other"/>
 
 </Document>

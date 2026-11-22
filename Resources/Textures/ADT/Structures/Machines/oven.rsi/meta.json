@@ -33,6 +33,27 @@
         },
         {
             "name": "unlit"
+        },
+        {
+            "name": "burner_left_low"
+        },
+        {
+            "name": "burner_right_low"
+        },
+        {
+            "name": "burner_left_medium"
+        },
+        {
+            "name": "burner_right_medium"
+        },
+        {
+            "name": "burner_left_high"
+        },
+        {
+            "name": "burner_right_high"
+        },
+        {
+            "name": "oven_on"
         }
     ]
 }

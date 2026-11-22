@@ -1,6 +1,6 @@
 ﻿<Document>
-  # Pipe Networks
-  Pipe networks — commonly called Pipenets — are a series of interconnected [textlink="pipes" link="Pipes"], usually with a common task.
+  # Сети труб
+  Сеть труб - это несколько соединённых [textlink="труб" link="Pipes"], у которых обычно общая задача.
 
   <Box>
     <GuideEntityEmbed Entity="GasPipeStraight" Caption=""/>
@@ -12,30 +12,30 @@
     <GuideEntityEmbed Entity="GasVolumePump" Caption=""/>
   </Box>
 
-  Pipenets are used all throughout the station to deliver, remove, or otherwise move gas throughout it.
-  Great examples are the station's Distro or Wastenet, which deliver breathable air and remove waste gas, respectively.
+  Сети труб проходят по всей станции и подают, отводят или как-то иначе перемещают газ.
+  Хорошие примеры - распределительная сеть и сеть отходов станции: первая подаёт пригодный для дыхания воздух, а вторая отводит отработанный газ.
 
-  ## How Pipenets Work
-  In Space Station 14, pipenets behave as a whole, defined volume, with input/output points at the ends of the network.
-  Forcing or vacuuming gas in or out using a [textlink="pump" link="Pumps"] will affect the entire network, not just the pipe it's connected to.
+  ## Как работают сети труб
+  Вся сеть труб работает как единый объём, у которого есть точки входа и выхода на концах.
+  Если закачивать газ в сеть или откачивать его [textlink="насосом" link="Pumps"], это повлияет на всю сеть, а не только на трубу, к которой подключён насос.
 
-  Pipenets are only separated by devices capable of interrupting flow, or by certain devices.
-  For example, a [textlink="Pressure Pump" link="Pumps"] will not allow gas to flow through it unless it's powered and has gas to pump.
+  Сеть разделяется только устройствами, которые могут перекрывать поток, или некоторыми другими устройствами.
+  Например, [textlink="насос давления" link="Pumps"] не пропускает газ, если у него нет питания или нечего качать.
 
-  Some examples of devices that separate pipe networks are:
-  - [textlink="Pressure and Volumetric Pumps" link="Pumps"]
-  - [textlink="Gas Mixers and Filters" link="MixingAndFiltering"]
-  - [textlink="All Valves" link="Valves"]
-  - [textlink="Radiators" link="Radiators"]
+  Вот несколько устройств, которые разделяют сети труб:
+  - [textlink="насосы давления и объёмные насосы" link="Pumps"];
+  - [textlink="газовые смесители и фильтры" link="MixingAndFiltering"];
+  - [textlink="все клапаны" link="Valves"];
+  - [textlink="радиаторы" link="Radiators"].
 
-  An example of a pipenet being seperated into two, distinct pipenets by a [textlink="pump" link="Pumps"] is shown below:
+  Ниже показан пример того, как [textlink="насос" link="Pumps"] делит одну сеть на две отдельные:
 
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Pipenet 1" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Сеть 1" Rotation="90"/>
     <GuideEntityEmbed Entity="GasPipeStraight" Caption="" Rotation="90"/>
-    <GuideEntityEmbed Entity="GasPressurePump" Caption="Network Seperator" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPressurePump" Caption="Разделитель" Rotation="90"/>
     <GuideEntityEmbed Entity="GasPipeStraight" Caption="" Rotation="90"/>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Pipenet 2" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Сеть 2" Rotation="90"/>
   </Box>
 
 </Document>

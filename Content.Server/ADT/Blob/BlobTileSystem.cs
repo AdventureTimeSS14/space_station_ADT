@@ -30,21 +30,21 @@ namespace Content.Server.ADT.Blob;
 
 public sealed class BlobTileSystem : SharedBlobTileSystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly BlobCoreActionSystem _blobCoreActionSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private BlobCoreActionSystem _blobCoreActionSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private NpcFactionSystem _npcFactionSystem = default!;
+    [Dependency] private readonly BlobNukeSystem _blobNuke = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobObserverComponent> _observerQuery;
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
     private const string BlobFaction = "ADTBlob";
 
     public override void Initialize()
@@ -71,14 +71,21 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
         // make alive - true for npc combat
         EnsureComp<MobStateComponent>(ent);
+
+        _blobNuke.CheckTileForNukes(ent.Owner);
     }
 
     private void OnTerminate(EntityUid uid, BlobTileComponent component, EntityTerminatingEvent args)
     {
-        if (TerminatingOrDeleted(component.Core))
-            return;
+        if (component.Core != null && !TerminatingOrDeleted(component.Core))
+            component.Core.Value.Comp.BlobTiles.Remove(uid);
 
-        component.Core!.Value.Comp.BlobTiles.Remove(uid);
+        if (TryComp<TransformComponent>(uid, out var xform) &&
+            xform.GridUid is { } gridUid && !TerminatingOrDeleted(gridUid) &&
+            xform.MapUid is { } mapUid && !TerminatingOrDeleted(mapUid))
+        {
+            _blobNuke.CheckTileForNukes(uid, terminating: true);
+        }
     }
 
     private void OnDestruction(EntityUid uid, BlobTileComponent component, DestructionEventArgs args)

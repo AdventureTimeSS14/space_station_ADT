@@ -1,59 +1,16 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.VendingMachines
+namespace Content.Shared.VendingMachines;
+
+[Serializable, NetSerializable]
+public sealed class VendingMachineEjectMessage(InventoryType type, string id) : BoundUserInterfaceMessage
 {
-    [NetSerializable, Serializable]
-    public sealed class VendingMachineInterfaceState : BoundUserInterfaceState
-    {
-        public List<VendingMachineInventoryEntry> Inventory;
-        //ADT-Economy-Start
-        public double PriceMultiplier;
-        public int Credits;
-        //ADT-Economy-End
-        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits) //ADT-Economy
-        {
-            Inventory = inventory;
-            //ADT-Economy-Start
-            PriceMultiplier = priceMultiplier;
-            Credits = credits;
-            //ADT-Economy-End
-        }
-    }
-    //ADT-Economy-Start
-    [Serializable, NetSerializable]
-    public sealed class VendingMachineWithdrawMessage : BoundUserInterfaceMessage
-    {
-    }
+    public readonly InventoryType Type = type;
+    public readonly string ID = id;
+}
 
-    [Serializable, NetSerializable]
-    public sealed class VendingMachineEjectCountMessage : BoundUserInterfaceMessage
-    {
-        public readonly VendingMachineInventoryEntry Entry;
-        public readonly int Count;
-        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count)
-        {
-            Entry = entry;
-            Count = count;
-        }
-    }
-
-    //ADT-Economy-End
-
-    [Serializable, NetSerializable]
-    public sealed class VendingMachineEjectMessage : BoundUserInterfaceMessage
-    {
-        public readonly InventoryType Type;
-        public readonly string ID;
-        public VendingMachineEjectMessage(InventoryType type, string id)
-        {
-            Type = type;
-            ID = id;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public enum VendingMachineUiKey
-    {
-        Key,
-    }
+[Serializable, NetSerializable]
+public enum VendingMachineUiKey
+{
+    Key
 }

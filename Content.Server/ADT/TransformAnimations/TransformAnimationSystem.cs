@@ -8,9 +8,9 @@ namespace Content.Server.TransformAnimation;
 public sealed partial class TransformAnimationSystem : EntitySystem
 {
     #region Dependency
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
     #endregion
 
     public override void Initialize()

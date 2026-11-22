@@ -78,3 +78,13 @@ ent-ADTClothingUnderwearTopTShirtBlack = черная майка
 
 ent-ADTClothingUnderwearTopTShirtTelnik = тельняшка
     .desc = Классическая полосатая тельняшка.
+
+ent-ADTClothingUnderwearTopBigbraCow = коровий большой лифчик
+    .desc = Милый коровий лифчик. Му-у-у!
+
+ent-ADTClothingUnderwearTopBraAmerica = лифчик "США"
+    .desc = От них веет свободой...
+
+ent-ADTClothingUnderwearTopBraPink = розовый лифчик
+    .desc = Стандартный лифчик NanoTrasen для персонала станции. Окрашен в розовый цвет.
+

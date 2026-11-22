@@ -146,6 +146,14 @@
   name: medical MOD chestplate
   description: A chestplate for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/medical.rsi
   - type: Clothing
@@ -433,7 +441,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
+        Piercing: 0.5
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
@@ -445,8 +453,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: FireProtection
@@ -492,8 +499,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: FireProtection
@@ -513,6 +519,16 @@
   name: CMO MOD chestplate
   description: A chestplate for a MODsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/cmo.rsi
   - type: Clothing
@@ -536,30 +552,6 @@
     sprintModifier: 1
   - type: FireProtection
     reduction: 0.1
-  - type: ItemToggle
-    onUse: false
-    soundActivate:
-      path: /Audio/Items/flashlight_on.ogg
-    soundDeactivate:
-      path: /Audio/Items/flashlight_off.ogg
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Effects/Vehicle/ambulancesiren.ogg #not the best sound, but after looking through all of current freesound regarding sirens and ambulance, this was the best compromise
-      params:
-        volume: -4
-  - type: UseDelay
-    delay: 1.0
-  - type: ToggleClothing
-    action: ActionToggleParamedicSiren
-  - type: ItemTogglePointLight
-  - type: PointLight
-    enabled: false
-    radius: 2
-    energy: 2
-    color: blue
-    mask: /Textures/Effects/LightMasks/double_cone.png
-  - type: RotatingLight
-    speed: 360
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -684,6 +676,14 @@
   name: Brigmedic MOD chestplate
   description: A chestplate for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/brigmedic.rsi
   - type: Clothing
@@ -710,30 +710,6 @@
     sprintModifier: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.7
-  - type: ItemToggle
-    onUse: false
-    soundActivate:
-      path: /Audio/Items/flashlight_on.ogg
-    soundDeactivate:
-      path: /Audio/Items/flashlight_off.ogg
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Effects/Vehicle/policesiren.ogg
-      params:
-        volume: -4
-  - type: UseDelay
-    delay: 1.0
-  - type: ToggleClothing
-    action: ActionToggleBrigmediccSiren
-  - type: ItemTogglePointLight
-  - type: PointLight
-    enabled: false
-    radius: 1.8
-    energy: 2
-    color: red
-    mask: /Textures/Effects/LightMasks/double_cone.png
-  - type: RotatingLight
-    speed: 360
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -779,8 +755,7 @@
   - type: FireProtection
     reduction: 0.5
   - type: TemperatureProtection
-    heatingCoefficient: 0.7
-    coolingCoefficient: 0.4
+    coefficient: 0.4
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -788,6 +763,16 @@
   name: research MOD chestplate "Minerva"
   description: A chestplate for a MODsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/minerva.rsi
   - type: Clothing
@@ -827,8 +812,7 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection
@@ -889,6 +873,9 @@
     zombificationResistanceCoefficient: 0.3
   - type: FireProtection
     reduction: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -926,6 +913,9 @@
     damageCoefficient: 0.3
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -953,7 +943,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
+        Piercing: 0.5
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
@@ -965,6 +955,9 @@
     damageCoefficient: 0.3
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -972,6 +965,14 @@
   name: ERT MOD chestplate "Vega"
   description: A chestplate for a MODsuit.
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
   - type: Clothing
@@ -992,7 +993,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.4
+        Piercing: 0.5
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
@@ -1000,5 +1001,28 @@
     damageCoefficient: 0.5
   - type: StaminaResistance
     damageCoefficient: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodySyndicate
+  id: ADTClothingOuterModsuitBodySyndicateMedic
+  name: syndicate medic MOD chestplate
+  components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_medic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_medic.rsi
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.2

@@ -1,0 +1,19 @@
+- files:
+  - basscannon.ogg
+  - shieldbash.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/effects/basscannon.ogg, sound/effects/shieldbash.ogg), converted to mono"
+  source: "https://github.com/ss220-space/Paradise"
+
+- files:
+  - marauder.ogg
+  - sear.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/weapons/marauder.ogg, sound/weapons/sear.ogg), converted to mono"
+  source: "https://github.com/ss220-space/Paradise"
+
+- files:
+  - legion_spawn.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/creatures/legion_spawn.ogg)"
+  source: "https://github.com/ss220-space/Paradise"

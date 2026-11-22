@@ -1,0 +1,108 @@
+<Document>
+# Наказания
+
+За нарушение каждой статьи предусмотрено наказание, тяжесть которого определяется первой цифрой номера статьи.
+
+<Table Columns="2">
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Тяжесть[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#25252A" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]Наказание[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]1XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0F4F27" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Штраф в размере 300 кредитов или заключение сроком до 10 минут.
+      Половина штрафа идёт на компенсацию ущерба пострадавшему, а вторая половина поступает в бюджет станции. Если пострадавшей стороны нет, весь штраф поступает в бюджет станции.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]2XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#414700" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Заключение сроком на 20 минут.
+      Глава отдела, к которому относится нарушитель, может понизить его в должности.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]3XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B3E00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Заключение сроком до 30 минут.
+      Глава отдела, к которому относится нарушитель, может понизить его в должности.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]4XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#6B1F00" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Заключение сроком от 40 минут или пожизненное заключение.
+      Нарушителя увольняют независимо от решения главы отдела, но он может выйти по УДО.
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      [bold]5XX[/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#57000C" OutlineColor="#202020">
+    <Box Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4">
+      Пожизненное заключение или казнь.
+      Нарушителя увольняют независимо от решения главы отдела, и выйти по УДО он не может.
+    </Box>
+  </ColorBox>
+</Table>
+
+## Сложение сроков
+
+Если лицо нарушило несколько статей, сроки заключения складываются, но из каждой тяжести берётся только самое серьёзное нарушение. Поэтому статьи одной тяжести, например 100 и 101, не суммируются, а статьи разной тяжести, например 100 и 201, суммируются.
+
+# Модификаторы наказаний
+
+## Крайняя необходимость
+Если лицо действовало вынужденно, чтобы защитить себя, жизнь и здоровье коллег, своё рабочее место или станцию в целом, обвинения с него снимаются.
+
+## Явка с повинной
+Если нарушитель после преступления сам сдался сотрудникам службы безопасности, наказание сокращается на 50%.
+
+## Сделка со следствием
+Если нарушитель раскрыл все подробности преступления, сдал подельников и помог найти похищенное имущество, наказание сокращается на 50%.
+
+## Пособничество
+Если лицо помогало совершить преступление или склоняло к нему, оно наказывается по тем статьям, в нарушении которых помогало.
+
+## Отсутствие умысла
+Если разбирательство установило, что у нарушителя не было намерения совершить преступление, он получает наказание на одну тяжесть ниже, чем предусматривает разбираемая статья.
+
+## Помеха следствию
+Если лицо под следствием или в заключении не исполняет правомерные приказы сотрудников СБ, наказание увеличивается на 50%.
+
+## Рецидив
+Если лицо после отбытия наказания снова совершило преступление той же категории, к наказанию добавляется 5 минут за каждый такой случай.
+
+## Должностное преступление
+Если корпоративный закон нарушило должностное лицо, наказание увеличивается на 50%.
+
+## Сводка обстоятельств
+
+- [bold]Отягчающие:[/bold] пособничество, помеха следствию, рецидив, должностное преступление.
+- [bold]Смягчающие:[/bold] крайняя необходимость, сделка со следствием, явка с повинной, отсутствие умысла.
+</Document>

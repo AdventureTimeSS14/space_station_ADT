@@ -13,12 +13,12 @@ namespace Content.Server.ADT.Mime;
 
 public sealed class MimeFingerGunSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

@@ -8,7 +8,7 @@ namespace Content.Server.HyperLink;
 
 public sealed class HyperLinkSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

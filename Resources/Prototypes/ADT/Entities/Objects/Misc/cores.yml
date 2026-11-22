@@ -28,13 +28,9 @@
         shader: unshaded
   - type: RadiationSource
     intensity: 2
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      ADTPlutonium:
-        maxVol: 50
-        reagents:
-        - ReagentId: ADTPlutoniumReactant
-          Quantity: 50
+    - ADTPlutoniumCoreSolution
   - type: Extractable
     grindableSolutionName: ADTPlutonium
   - type: Damageable
@@ -64,3 +60,16 @@
         state: hnob_core
   - type: SupermatterNobliumCore
   - type: SupermatterImmune
+
+- type: entity
+  parent: Solution
+  id: ADTPlutoniumCoreSolution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: ADTPlutonium
+    solution:
+      maxVol: 50
+      reagents:
+      - ReagentId: ADTPlutoniumReactant
+        Quantity: 50

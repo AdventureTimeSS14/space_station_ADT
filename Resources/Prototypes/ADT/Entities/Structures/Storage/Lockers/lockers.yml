@@ -2,7 +2,7 @@
 - type: entity
   id: ADTLockerPathologist
   name: Medical locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader

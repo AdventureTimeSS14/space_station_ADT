@@ -3,6 +3,8 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.ADT.Silicon.Components;
+using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.IdentityManagement;
 
 namespace Content.Server.ADT.Silicon.Systems;
@@ -10,8 +12,8 @@ namespace Content.Server.ADT.Silicon.Systems;
 public sealed class BatterySlotRequiresLockSystem : EntitySystem
 
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -25,15 +27,21 @@ public sealed class BatterySlotRequiresLockSystem : EntitySystem
     {
         if (!TryComp<LockComponent>(uid, out var lockComp)
             || !TryComp<ItemSlotsComponent>(uid, out var itemslots)
-            || !_itemSlotsSystem.TryGetSlot(uid, component.ItemSlot, out var slot, itemslots))
+            || !_itemSlotsSystem.TryGetSlot((uid, itemslots), component.ItemSlot, out var slot))
             return;
 
-        _itemSlotsSystem.SetLock(uid, slot, lockComp.Locked, itemslots);
+        _itemSlotsSystem.SetLock((uid, itemslots), slot, lockComp.Locked);
     }
 
     private void LockToggleAttempted(EntityUid uid, BatterySlotRequiresLockComponent component, LockToggleAttemptEvent args)
     {
+        if (args.Silent)
+            return;
+
         if (args.User == uid || !HasComp<SiliconComponent>(uid))
+            return;
+
+        if (HasComp<GhostComponent>(args.User))
             return;
 
         _popupSystem.PopupEntity(Loc.GetString("batteryslotrequireslock-component-alert-owner", ("user", Identity.Entity(args.User, EntityManager))), uid, uid, PopupType.Large);

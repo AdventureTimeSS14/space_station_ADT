@@ -1,0 +1,24 @@
+- type: material
+  id: Bohrum
+  name: materials-bohrum
+  color: "#566558"
+  price: 0.45
+  stackEntity: SheetSteel1
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: steel }
+
+- type: material
+  id: Cerenkite
+  stackEntity: SheetUranium1
+  name: materials-cerenkite
+  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium }
+  color: "#828aa4"
+  price: 0.65
+
+- type: material
+  id: Plutonium
+  stackEntity: IngotPlutonium1
+  name: materials-plutonium
+  unit: materials-unit-bar
+  icon: { sprite: Objects/Materials/ingots.rsi, state: iron }
+  color: "#404888"
+  price: 1.75

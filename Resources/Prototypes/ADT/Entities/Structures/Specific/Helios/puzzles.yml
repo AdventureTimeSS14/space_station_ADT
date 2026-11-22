@@ -1,0 +1,355 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTHeliosPuzzleMarkerBase
+  abstract: true
+  suffix: Гелиос
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+    - ADTPuzzleSolved
+
+- type: entity
+  id: ADTHeliosPuzzleElementBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        hard: false
+        layer:
+        - SlipLayer
+  - type: Sprite
+    sprite: ADT/Structures/Helios/puzzles.rsi
+    drawdepth: FloorObjects
+  - type: Appearance
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: ADTHeliosPuzzleMarkerBase
+  id: ADTHeliosLightsPuzzle
+  name: головоломка «калибровка контура»
+  description: Маркер создаёт поле панелей 4x4 вправо и вверх от себя и отправляет сигнал, когда загораются все панели.
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Structures/Helios/puzzles.rsi
+      state: lights_on
+  - type: ADTLightsOutPuzzle
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosLightsPanel
+  name: калибровочная панель
+  description: Когда на эту панель нажимают, она переключает себя и четыре соседние панели. Контур откалиброван, когда горят все панели.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: lights_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: lights_on }
+          False: { state: lights_off }
+
+- type: entity
+  parent: ADTHeliosPuzzleMarkerBase
+  id: ADTHeliosConduitPuzzle
+  name: головоломка «трассировка энергоканала»
+  description: Маркер создаёт поле участков энергоканала вправо и вверх от себя и отправляет сигнал, когда энергия доходит до выхода.
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Structures/Helios/puzzles.rsi
+      state: bend_on
+  - type: ADTConduitPuzzle
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosConduitStraight
+  name: участок энергоканала
+  description: Когда на участок нажимают, он поворачивается на четверть оборота. Горящие участки уже получают энергию.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: straight_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: ADTConduitPiece
+    baseMask: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: straight_on }
+          False: { state: straight_off }
+
+- type: entity
+  parent: ADTHeliosConduitStraight
+  id: ADTHeliosConduitBend
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: bend_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: ADTConduitPiece
+    baseMask: 3
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: bend_on }
+          False: { state: bend_off }
+
+- type: entity
+  parent: ADTHeliosConduitStraight
+  id: ADTHeliosConduitTee
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: tee_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: ADTConduitPiece
+    baseMask: 7
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: tee_on }
+          False: { state: tee_off }
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosConduitSource
+  name: клемма питания
+  description: Из этой клеммы энергия входит в энергоканал.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: source
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.4,0.3,0.4"
+        density: 100
+        hard: true
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: ADTHeliosConduitSource
+  id: ADTHeliosConduitSink
+  name: приёмная клемма
+  description: Энергия должна дойти до этой клеммы, чтобы гермодверь получила питание.
+  components:
+  - type: Sprite
+    state: sink
+
+- type: entity
+  parent: ADTHeliosPuzzleMarkerBase
+  id: ADTHeliosPlatePuzzle
+  name: головоломка «хранилище образцов»
+  description: Маркер отправляет сигнал, когда на каждой плите группы стоит контейнер с таким же глифом.
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Structures/Helios/puzzles.rsi
+      state: plate_sun_on
+  - type: ADTGlyphPlatePuzzle
+    group: helios_samples
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosGlyphPlateSun
+  name: ячейка хранилища «солнце»
+  description: На плите выгравирован глиф солнца. Когда на плиту ставят контейнер с таким же глифом, её скобы загораются.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: plate_sun_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: ADTGlyphPlate
+    group: helios_samples
+    glyph: sun
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: plate_sun_on }
+          False: { state: plate_sun_off }
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosGlyphPlateEye
+  name: ячейка хранилища «око»
+  description: На плите выгравирован глиф ока. Когда на плиту ставят контейнер с таким же глифом, её скобы загораются.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: plate_eye_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: ADTGlyphPlate
+    group: helios_samples
+    glyph: eye
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: plate_eye_on }
+          False: { state: plate_eye_off }
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosGlyphPlateFlame
+  name: ячейка хранилища «пламя»
+  description: На плите выгравирован глиф пламени. Когда на плиту ставят контейнер с таким же глифом, её скобы загораются.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: plate_flame_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: ADTGlyphPlate
+    group: helios_samples
+    glyph: flame
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: plate_flame_on }
+          False: { state: plate_flame_off }
+
+- type: entity
+  parent: ADTHeliosPuzzleElementBase
+  id: ADTHeliosGlyphPlateWave
+  name: ячейка хранилища «волна»
+  description: На плите выгравирован глиф волны. Когда на плиту ставят контейнер с таким же глифом, её скобы загораются.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    layers:
+    - state: plate_wave_off
+      map: [ "enum.ADTHeliosPuzzleLayers.Base" ]
+  - type: ADTGlyphPlate
+    group: helios_samples
+    glyph: wave
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTHeliosPuzzleVisuals.Lit:
+        enum.ADTHeliosPuzzleLayers.Base:
+          True: { state: plate_wave_on }
+          False: { state: plate_wave_off }
+
+- type: entity
+  id: ADTHeliosSampleBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Structures/Helios/puzzles.rsi
+    drawdepth: Objects
+    noRot: true
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.35,0.3,0.35"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Pullable
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: ADTHeliosSampleBase
+  id: ADTHeliosSampleSun
+  name: контейнер с образцом «солнце»
+  description: Это тяжёлый свинцовый контейнер, и на его ярлыке нарисован глиф солнца. Его нельзя поднять, но можно тащить.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: sample_sun
+  - type: ADTGlyphSample
+    glyph: sun
+
+- type: entity
+  parent: ADTHeliosSampleBase
+  id: ADTHeliosSampleEye
+  name: контейнер с образцом «око»
+  description: Это тяжёлый свинцовый контейнер, и на его ярлыке нарисован глиф ока. Его нельзя поднять, но можно тащить.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: sample_eye
+  - type: ADTGlyphSample
+    glyph: eye
+
+- type: entity
+  parent: ADTHeliosSampleBase
+  id: ADTHeliosSampleFlame
+  name: контейнер с образцом «пламя»
+  description: Это тяжёлый свинцовый контейнер, и на его ярлыке нарисован глиф пламени. Его нельзя поднять, но можно тащить.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: sample_flame
+  - type: ADTGlyphSample
+    glyph: flame
+
+- type: entity
+  parent: ADTHeliosSampleBase
+  id: ADTHeliosSampleWave
+  name: контейнер с образцом «волна»
+  description: Это тяжёлый свинцовый контейнер, и на его ярлыке нарисован глиф волны. Его нельзя поднять, но можно тащить.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: sample_wave
+  - type: ADTGlyphSample
+    glyph: wave

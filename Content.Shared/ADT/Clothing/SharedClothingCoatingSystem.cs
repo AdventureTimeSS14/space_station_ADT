@@ -11,7 +11,7 @@ namespace Content.Shared.ADT.Clothing.Systems;
 [Virtual]
 public partial class SharedClothingCoatingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

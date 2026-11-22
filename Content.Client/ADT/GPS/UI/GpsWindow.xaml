@@ -23,6 +23,18 @@
                 <Label Name="PositionLabel" />
             </BoxContainer>
         </PanelContainer>
+        <BoxContainer Name="WaypointBox" Orientation="Vertical" SeparationOverride="4">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                <Label Text="{Loc 'adt-gps-window-waypoints'}" VerticalAlignment="Center" StyleClasses="LabelKeyText" />
+                <LineEdit Name="WaypointEdit" MinWidth="120" VerticalAlignment="Center" HorizontalExpand="True" />
+                <Button Name="WaypointButton" Text="{Loc 'adt-gps-window-waypoint-add'}" />
+            </BoxContainer>
+            <BoxContainer Name="WaypointList" Orientation="Vertical" HorizontalExpand="True" />
+            <Label Name="WaypointEmptyLabel"
+                   Text="{Loc 'adt-gps-window-no-waypoints'}"
+                   HorizontalAlignment="Center"
+                   StyleClasses="LabelSubText" />
+        </BoxContainer>
         <Label Name="SignalsLabel" Text="{Loc 'adt-gps-window-signals'}" StyleClasses="LabelKeyText" />
         <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
             <BoxContainer Name="SignalList" Orientation="Vertical" HorizontalExpand="True" />

@@ -11,8 +11,8 @@ namespace Content.Server.ADT.Body;
 
 public sealed partial class AllergicSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private ProtoId<DamageTypePrototype> _allergyDamageType = "Poison";
     private DamageTypePrototype? _allergyDamageTypeProto;

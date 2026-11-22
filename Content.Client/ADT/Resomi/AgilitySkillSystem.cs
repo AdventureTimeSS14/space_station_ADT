@@ -8,7 +8,7 @@ namespace Content.Client.ADT.Resomi.Abilities;
 
 public sealed class AgillitySkillSystem : SharedAgillitySkillSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
 
     public override void DoJumpEffect(Entity<AgillitySkillComponent> ent)
     {

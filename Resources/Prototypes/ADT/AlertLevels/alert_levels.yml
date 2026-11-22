@@ -1,0 +1,40 @@
+- type: alertLevel
+  id: Amber
+  name: alert-level-amber
+  announcement: alert-level-amber-announcement
+  instructions: alert-level-amber-instructions
+  sound:
+    path: /Audio/ADT/Misc/amber.ogg
+    params:
+      volume: -2
+  color: "#ffbf00"
+  emergencyLightColor: "#ffbf00"
+  forceEnableEmergencyLights: true
+  shuttleTime: 1200
+
+- type: alertLevel
+  parent: BaseDelta
+  id: AltDelta
+  announcement: alert-level-delta-announcement
+  sound:
+    path: /Audio/Misc/delta_alt.ogg
+    params:
+      volume: -1
+  color: DarkRed
+  emergencyLightColor: Orange
+
+- type: alertLevel
+  id: Cascade
+  name: alert-level-cascade
+  announcement: alert-level-cascade-announcement
+  instructions: alert-level-cascade-instructions
+  selectable: false
+  sound:
+    path: /Audio/ADT/Supermatter/thecascade.ogg
+    params:
+      volume: -2
+  disableSelection: true
+  color: PaleVioletRed
+  emergencyLightColor: PaleVioletRed
+  forceEnableEmergencyLights: true
+  shuttleTime: 1200

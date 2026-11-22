@@ -13,7 +13,7 @@ namespace Content.Client.ADT.UserInterface.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class SpeciesGroupContainer : Control
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private readonly List<(Button, Action<BaseButton.ButtonEventArgs>)> _buttonsEvents = new();
 

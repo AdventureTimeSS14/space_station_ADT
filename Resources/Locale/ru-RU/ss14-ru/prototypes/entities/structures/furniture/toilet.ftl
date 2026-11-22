@@ -18,3 +18,6 @@ ent-ToiletGoldenEmpty = золотой унитаз
 ent-ToiletGoldenDirtyWater = { ent-ToiletGoldenEmpty }
     .suffix = Грязная вода, Цель кражи
     .desc = { ent-ToiletGoldenEmpty.desc }
+ent-ConstructedToilet = унитаз
+    .suffix = Собранный, без вантуза
+    .desc = HT-451, устройство утилизации мелких отходов на основе вращения. Этот на удивление чистый.

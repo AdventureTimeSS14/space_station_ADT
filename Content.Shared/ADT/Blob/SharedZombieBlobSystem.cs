@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.Blob;
 
 public abstract class SharedZombieBlobSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -20,7 +20,7 @@ public abstract class SharedZombieBlobSystem : EntitySystem
         SubscribeLocalEvent<BoundUserInterfaceMessageAttempt>(OnBoundUserInterface, after: [typeof(SharedInteractionSystem)]);
     }
 
-    private void OnBoundUserInterface(BoundUserInterfaceMessageAttempt args)
+    private void OnBoundUserInterface(ref BoundUserInterfaceMessageAttempt args)
     {
         if(
             args.Cancelled ||

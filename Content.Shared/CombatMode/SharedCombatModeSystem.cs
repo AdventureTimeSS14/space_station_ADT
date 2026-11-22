@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
-using Content.Shared.ADT.Mech.Components;
-using Content.Shared.Mech.Components;
+using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
@@ -10,13 +9,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.CombatMode;
 
-public abstract class SharedCombatModeSystem : EntitySystem
+public abstract partial class SharedCombatModeSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private   readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private   readonly SharedPopupSystem _popup = default!;
-    [Dependency] private   readonly SharedMindSystem  _mind = default!;
-    [Dependency] private   readonly SharedNPCSystem _npc = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedNPCSystem _npc = default!;
+    [Dependency] private SharedADTMechSystem _adtMech = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -49,7 +49,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
         SetInCombatMode(uid, !component.IsInCombatMode, component);
 
         var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
-        _popup.PopupClient(Loc.GetString(msg), args.Performer, args.Performer);
+        _popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
     }
 
     public void SetCanDisarm(EntityUid entity, bool canDisarm, CombatModeComponent? component = null)
@@ -92,22 +92,14 @@ public abstract class SharedCombatModeSystem : EntitySystem
         {
             EnsureComp<MouseRotatorComponent>(uid);
             EnsureComp<NoRotateOnMoveComponent>(uid);
-
-            // ADT-Mech-Start
-            if (TryComp<MechPilotComponent>(uid, out var pilot) && !HasComp<MechControlLockedComponent>(uid))
-                EnsureComp<NoRotateOnMoveComponent>(pilot.Mech);
-            // ADT-Mech-End
         }
         else
         {
             RemComp<MouseRotatorComponent>(uid);
             RemComp<NoRotateOnMoveComponent>(uid);
-
-            // ADT-Mech-Start
-            if (TryComp<MechPilotComponent>(uid, out var pilot) && !HasComp<MechControlLockedComponent>(uid))
-                RemComp<NoRotateOnMoveComponent>(pilot.Mech);
-            // ADT-Mech-End
         }
+
+        _adtMech.UpdateMouseRotation(uid); // ADT-Tweak
     }
 }
 

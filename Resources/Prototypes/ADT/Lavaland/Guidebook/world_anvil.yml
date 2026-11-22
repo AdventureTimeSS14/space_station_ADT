@@ -1,0 +1,33 @@
+- type: guideEntry
+  id: ADTWorldAnvil
+  name: guide-entry-world-anvil
+  text: "/ServerInfo/ADT/Guidebook/WorldAnvil/WorldAnvil.xml"
+  priority: 7
+  children:
+  - ADTWorldAnvilStart
+  - ADTWorldAnvilMaterials
+  - ADTWorldAnvilForging
+  - ADTWorldAnvilUpgrades
+
+- type: guideEntry
+  id: ADTWorldAnvilStart
+  name: guide-entry-world-anvil-start
+  text: "/ServerInfo/ADT/Guidebook/WorldAnvil/Start.xml"
+
+- type: guideEntry
+  id: ADTWorldAnvilMaterials
+  name: guide-entry-world-anvil-materials
+  text: "/ServerInfo/ADT/Guidebook/WorldAnvil/Materials.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTWorldAnvilForging
+  name: guide-entry-world-anvil-forging
+  text: "/ServerInfo/ADT/Guidebook/WorldAnvil/Forging.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ADTWorldAnvilUpgrades
+  name: guide-entry-world-anvil-upgrades
+  text: "/ServerInfo/ADT/Guidebook/WorldAnvil/Upgrades.xml"
+  filterEnabled: true

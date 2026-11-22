@@ -15,9 +15,9 @@ namespace Content.Client.ADT.CharecterFlavor;
 [GenerateTypedNameReferences]
 public sealed partial class CharacterFlavorWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     /// <summary>
     /// true, если окно открыто как предпросмотр из лобби (без серверной загрузки headshot).
@@ -50,11 +50,11 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         {
             HeadshotImage.TexturePath = "/Textures/ADT/Interface/headshot-loading.png";
             HeadshotLoadingLabel.Visible = true;
-            HeadshotContainer.Visible = true;
+            SetHeadshotVisible(true);
         }
         else
         {
-            HeadshotContainer.Visible = false;
+            SetHeadshotVisible(false);
         }
 
         Title = metaData.EntityName;
@@ -70,9 +70,15 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
             HeadshotImage.Texture = headshot;
             HeadshotImage.ModulateSelfOverride = null;
             HeadshotLoadingLabel.Visible = false;
-            HeadshotContainer.Visible = true;
+            SetHeadshotVisible(true);
         }
         else
-            HeadshotContainer.Visible = false;
+            SetHeadshotVisible(false);
+    }
+
+    private void SetHeadshotVisible(bool visible)
+    {
+        HeadshotContainer.Visible = visible;
+        HeadshotSpacer.Visible = !visible;
     }
 }

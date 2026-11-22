@@ -10,7 +10,7 @@ namespace Content.Server.ADT.NPC;
 
 public sealed class ADTNPCRetargetSystem : EntitySystem
 {
-    [Dependency] private readonly NPCSteeringSystem _steering = default!;
+    [Dependency] private NPCSteeringSystem _steering = default!;
 
     private const string TargetKey = "Target";
 

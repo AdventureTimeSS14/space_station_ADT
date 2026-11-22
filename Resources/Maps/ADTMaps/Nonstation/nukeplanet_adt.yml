@@ -1694,13 +1694,6 @@ entities:
           localAnchorA: 17,-6.5
           damping: 685.5637
           stiffness: 6153.606
-- proto: ADTBoxMusicDisksSyndicate
-  entities:
-  - uid: 2482
-    components:
-    - type: Transform
-      pos: -1.2878348,0.7393123
-      parent: 2481
 - proto: ADTEnergyBoozeDispenser
   entities:
   - uid: 3
@@ -6656,6 +6649,14 @@ entities:
     - type: Transform
       pos: 0.03361702,-6.368435
       parent: 2
+- proto: ADTComputerCameraConsoleSyndicate
+  entities:
+  - uid: 950
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,-3.5
+      parent: 2
 - proto: BaseComputer
   entities:
   - uid: 947
@@ -6675,12 +6676,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-1.5
-      parent: 2
-  - uid: 950
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,-3.5
       parent: 2
 - proto: Beaker
   entities:
@@ -15731,7 +15726,7 @@ entities:
     - type: Transform
       pos: 9.67418,-4.571714
       parent: 2
-- proto: WeaponTurretSyndicateDisposable
+- proto: WeaponTurretSyndicate
   entities:
   - uid: 2620
     components:

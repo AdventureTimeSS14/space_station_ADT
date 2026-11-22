@@ -64,11 +64,14 @@ public partial record struct BorgHand
     public EntProtoId? Item;
 
     /// <summary>
-    /// The settings for the hand, including a whitelist.
+    /// The settings for the hand, including a whitelist of items hand can pick up.
     /// </summary>
     [DataField]
     public Hand Hand = new();
 
+    /// <summary>
+    /// Allows hand to act like normal universal humanoid hand. Pick up and put down items. 
+    /// </summary>
     [DataField]
     public bool ForceRemovable = false;
 

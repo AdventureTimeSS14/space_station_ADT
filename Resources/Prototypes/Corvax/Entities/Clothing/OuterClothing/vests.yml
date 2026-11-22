@@ -33,10 +33,6 @@
       containers:
         storagebase: !type:Container
           ents: []
-        badge: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
     - type: UserInterface
       interfaces:
         enum.StorageUiKey.Key:

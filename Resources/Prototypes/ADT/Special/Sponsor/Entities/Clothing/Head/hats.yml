@@ -1,0 +1,29 @@
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorRedKandzasi
+  name: red kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and red silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Sponsor/RedKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Special/Sponsor/RedKandzasi.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorBlueKandzasi
+  name: blue kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and blue silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Sponsor/BlueKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Special/Sponsor/BlueKandzasi.rsi

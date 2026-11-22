@@ -16,7 +16,7 @@
   <GuideEntityEmbed Entity="AppearanceVox" Caption="Вокс"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="AppearanceVulpkaninADT" Caption="Вульпканин"/>
+    <GuideEntityEmbed Entity="ADTAppearanceVulpkanin" Caption="Вульпканин"/>
     <GuideEntityEmbed Entity="ADTAppearanceShadekin" Caption="Сумеречник"/> <!-- ADT-Tweak -->
   </Box>
 

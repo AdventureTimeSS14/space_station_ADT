@@ -33,8 +33,6 @@
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
-  - type: RunAndGunSpreadModifier
-    modifier: 0.04
   - type: RevolverAmmoProvider
     whitelist:
       tags:
@@ -50,7 +48,7 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 3.25
+    fireRate: 2.5
     availableModes:
     - SemiAuto
     - FullAuto

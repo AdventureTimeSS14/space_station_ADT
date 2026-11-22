@@ -185,3 +185,106 @@ ent-ADTClothingUniformTangoDressBlack = чёрное платье для тан�
 
 ent-ADTClothingUniformTangoDressWhite = белое платье для танго
     .desc = Грациозное белое платье для элегантных выступлений.
+
+ent-ADTClothingUniformDressArtdeco = чёрно-золотое платье
+    .desc = Элегантное платье, выполненное в стиле арт-деко.
+
+ent-ADTClothingUniformDressBlackrose = чёрное директорское платье
+    .desc = Строгое корпоративное платье для высокопоставленных успешных женщин.
+
+ent-ADTClothingUniformDressDarkblue = аккуратное тёмно-синее платье
+    .desc = Ухоженное платье для работниц или домохозяек.
+
+ent-ADTClothingUniformDressEveningBlack = чёрное вечернее платье
+    .desc = Элегантное платье для торжественных приёмов и светских вечеров.
+
+ent-ADTClothingUniformDressEveningCyan = голубое вечернее платье
+    .desc = Элегантное платье нежно-голубого цвета для торжественных приёмов.
+
+ent-ADTClothingUniformKiltBlue = синий килт
+    .desc = Традиционная шотландская одежда. SCOTLAND FOREVER!
+
+ent-ADTClothingUniformKiltGreen = зелёный килт
+    .desc = Традиционная шотландская одежда. SCOTLAND FOREVER!
+
+ent-ADTClothingUniformKiltRed = красный килт
+    .desc = Традиционная шотландская одежда. SCOTLAND FOREVER!
+
+ent-ADTClothingUniformDressLeopart = леопардовое платье
+    .desc = Бедный леопард...
+
+ent-ADTClothingUniformDressPink = причудливое платье
+    .desc = Необычное розовое платье с интересным фасоном.
+
+ent-ADTClothingUniformDressPrecise = платье в клеточку
+    .desc = Очаровательное платье в геометрическую клеточку.
+
+ent-ADTClothingUniformDressQipao = ципао
+    .desc = Традиционное китайское шелковое платье. Сделано в Китае.
+
+ent-ADTClothingUniformDressRD = нудное платье
+    .desc = Строгий женский костюм. Выглядит как что-то для учительницы.
+
+ent-ADTClothingUniformDressRose = директорское платье
+    .desc = Строгое платье с открытым вырезом. Для успешных женщин.
+
+ent-ADTClothingUniformDressVictorianBlack = чёрное викторианское платье
+    .desc = Для женщин старой школы.
+
+ent-ADTClothingUniformDressTealSuit = бирюзовый юбка-костюм
+    .desc = Яркий бирюзовый костюм с юбкой.
+
+ent-ADTClothingUniformBodysuitBeige = бежевый боди
+    .desc = Очень обтягивающий.
+
+ent-ADTClothingUniformBodysuitBlack = чёрный боди
+    .desc = Очень обтягивающий.
+
+ent-ADTClothingUniformDressElegantBlack = элегантное ночное платье
+    .desc = Довольно скромное платье чёрного цвета, закрывающее всё тело.
+
+ent-ADTClothingUniformShortsHoot = оранжевые шорты с майкой
+    .desc = Вам это показалось.
+
+ent-ADTClothingUniformDressMemeBlackgold = элегантное чёрно-золотое платье
+    .desc = Вы где-то это видели.
+
+ent-ADTClothingUniformDressNightBlack = чёрное ночное платье с блёстками
+    .desc = Блестящее платье для вечеринок и торжественных мероприятий.
+
+ent-ADTClothingUniformDressNightRed = красное ночное платье с блёстками
+    .desc = Блестящее платье для вечеринок и торжественных мероприятий.
+
+ent-ADTClothingUniformDressNightWhite = белое ночное платье с блёстками
+    .desc = Блестящее платье для вечеринок и торжественных мероприятий.
+
+ent-ADTClothingUniformSwimGold = золотой купальник
+    .desc = Роскошный купальник золотого цвета. Теперь в продаже!
+
+ent-ADTClothingUniformSwimWatermelon = арбузный купальник
+    .desc = Сочный купальник с принтом арбуза. Чувак, ты только погляди на эти "арбузы"!
+
+ent-ADTClothingUniformSwimCentcom = купальник центкома
+    .desc = Не отчёт?
+
+ent-ADTClothingUniformSwimPlasma = плазменный купальник
+    .desc = Хрена себе канистры с плазмой.
+
+ent-ADTClothingUniformSwimSani = купальник психолога
+    .desc = Успокаивающий купальник в мягких медицинских тонах.
+
+ent-ADTClothingUniformSweatercutBeige = бежевый свитер с вырезом
+    .desc = По идее, этот свитер должен согревать, а не привлекать.
+
+ent-ADTClothingUniformSweatercutBlack = чёрный свитер с вырезом
+    .desc = По идее, этот свитер должен согревать, а не привлекать.
+
+ent-ADTClothingUniformSweatercutBlue = синий свитер с вырезом
+    .desc = По идее, этот свитер должен согревать, а не привлекать.
+
+ent-ADTClothingUniformSweatercutRed = красный свитер с вырезом
+    .desc = По идее, этот свитер должен согревать, а не привлекать.
+
+ent-ADTClothingUniformSweatercutWhite = белый свитер с вырезом
+    .desc = По идее, этот свитер должен согревать, а не привлекать.
+

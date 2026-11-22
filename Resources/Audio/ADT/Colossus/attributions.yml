@@ -1,0 +1,12 @@
+- files:
+  - ratvar_attack.ogg
+  - narsie_attack.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/magic/ratvar_attack.ogg, sound/magic/narsie_attack.ogg), converted to mono"
+  source: "https://github.com/ss220-space/Paradise"
+
+- files:
+  - invoke_general.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from ss220-space/Paradise (sound/magic/clockwork/invoke_general.ogg), converted to mono"
+  source: "https://github.com/ss220-space/Paradise"

@@ -44,7 +44,7 @@ ent-ADTFoodPacketSpicyTrash = пустая упаковка от чипсов Ф
 ent-ADTFoodPacketBeefTrash = пустая упаковка от вяленой говядины
     .desc = Мусор
 
-ent-ADTFoodPacketChickenTrash = пустая упаковка от сушеного куриного мяся
+ent-ADTFoodPacketChickenTrash = пустая упаковка от сушеного куриного мяса
     .desc = Мусор
 
 ent-ADTFoodPacketHorseTrash = пустая упаковка от сушеной конины
@@ -73,6 +73,9 @@ ent-ADTFoodSnackChocolateBarPinkPack = розовый шоколадный ба�
 ent-ADTFoodSnackChocolateBarTwoPack = двойной батончик
     .desc = Выбирай, на чьей ты стороне?
 
+ent-ADTFoodSnackHematogenPack = батончик гематогена
+    .desc = Полезный батончик из сгущённого молока, альбумина и сахара. Вкус детства и перемолотых быков!
+
 ent-ADTFoodSnackChocolateBarMedalPack = золотая медаль
     .desc = Шоколадная конфета в виде медали, завёрнутая в золотую фольгу с приклеенной красной лентой. Вы заслужили это... В плохом или хорошем смысле.
 
@@ -94,6 +97,9 @@ ent-ADTFoodSnackChocolateBarPink = розовый шоколадный бато�
 
 ent-ADTFoodSnackChocolateBarTwo = двойной батончик
     .desc = Выбирай, на чьей ты стороне?
+
+ent-ADTFoodSnackHematogenBar = батончик гематогена
+    .desc = Полезный батончик из сгущённого молока, альбумина и сахара. Вкус детства и перемолотых быков!
 
 ent-ADTFoodSnackChocolateBarMedal = шоколадная медаль
     .desc = Не всё то золото, что блестит... Ням!
@@ -120,5 +126,9 @@ ent-ADTFoodSnackChocolateTrashPink = обёртка от розового шок
 ent-ADTFoodSnackChocolateTrashTwo = обёртка от двойного батончика
     .desc = Мусор.
 
+ent-ADTFoodPacketHematogenTrash = обёртка от батончика гематогена
+    .desc = Мусор.
+
 ent-ADTFoodPacketChocolateTrashMedal = обёртка от шоколадной медали
     .desc = Мусор.
+

@@ -24,7 +24,6 @@
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   access:
   - Security
   - Brig
@@ -40,6 +39,7 @@
   - !type:AddComponentSpecial
     components:
       - type: SecurityStaff
+      - type: ADTTenCodeKnowledge
   # ADT-Tweak-End
 
 - type: startingGear

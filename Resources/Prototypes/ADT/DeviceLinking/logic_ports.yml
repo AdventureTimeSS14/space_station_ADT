@@ -1,0 +1,169 @@
+- type: sinkPort
+  id: ADTLogicIn1
+  name: adt-logic-port-in-1
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn2
+  name: adt-logic-port-in-2
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn3
+  name: adt-logic-port-in-3
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn4
+  name: adt-logic-port-in-4
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn5
+  name: adt-logic-port-in-5
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn6
+  name: adt-logic-port-in-6
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn7
+  name: adt-logic-port-in-7
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn8
+  name: adt-logic-port-in-8
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn9
+  name: adt-logic-port-in-9
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn10
+  name: adt-logic-port-in-10
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn11
+  name: adt-logic-port-in-11
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn12
+  name: adt-logic-port-in-12
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn13
+  name: adt-logic-port-in-13
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn14
+  name: adt-logic-port-in-14
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn15
+  name: adt-logic-port-in-15
+  description: adt-logic-port-in-desc
+
+- type: sinkPort
+  id: ADTLogicIn16
+  name: adt-logic-port-in-16
+  description: adt-logic-port-in-desc
+
+- type: sourcePort
+  id: ADTLogicOut1
+  name: adt-logic-port-out-1
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut2
+  name: adt-logic-port-out-2
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut3
+  name: adt-logic-port-out-3
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut4
+  name: adt-logic-port-out-4
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut5
+  name: adt-logic-port-out-5
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut6
+  name: adt-logic-port-out-6
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut7
+  name: adt-logic-port-out-7
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut8
+  name: adt-logic-port-out-8
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut9
+  name: adt-logic-port-out-9
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut10
+  name: adt-logic-port-out-10
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut11
+  name: adt-logic-port-out-11
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut12
+  name: adt-logic-port-out-12
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut13
+  name: adt-logic-port-out-13
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut14
+  name: adt-logic-port-out-14
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut15
+  name: adt-logic-port-out-15
+  description: adt-logic-port-out-desc
+
+- type: sourcePort
+  id: ADTLogicOut16
+  name: adt-logic-port-out-16
+  description: adt-logic-port-out-desc
+
+- type: sinkPort
+  id: ADTLogicText
+  name: adt-logic-port-text
+  description: adt-logic-port-text-desc
+
+- type: sinkPort
+  id: ADTLogicColor
+  name: adt-logic-port-color
+  description: adt-logic-port-color-desc

@@ -1,17 +1,16 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Server.ADT.Mech.Equipment.Components;
+namespace Content.Shared.ADT.Mech.Components;
 
-/// <summary>
-/// Магазин для оружия меха.
-/// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MechMagazineComponent : Component
 {
-    /// <summary>
-    /// The change in energy after each drill.
-    /// </summary>
     [DataField("magazinetype", required: true)]
-    public string MagazineType;
-}
+    public string MagazineType = string.Empty;
 
+    [DataField]
+    public int Capacity = 30;
+
+    [DataField, AutoNetworkedField]
+    public int Rounds = -1;
+}

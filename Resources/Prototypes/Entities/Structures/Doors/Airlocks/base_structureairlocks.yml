@@ -105,6 +105,7 @@
   - type: Electrified
     enabled: false
     usesApcPower: true
+    onActivateInWorld: true
   - type: WiresPanel
   - type: WiresPanelSecurity
   - type: Wires
@@ -145,6 +146,7 @@
     damageModifierSet: StrongMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
+  - type: SparksOnDamage # ADT-Tweak
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -197,6 +199,8 @@
     - Airlocks
     - WirePanels
     - Networking
+  - type: StructureAligner
+  - type: StructureAlignerPylon
   placement:
     mode: SnapgridCenter
 

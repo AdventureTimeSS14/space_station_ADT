@@ -1,14 +1,22 @@
 <!-- ADT: New ghost target window-->
 <DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc 'ghost-target-window-title'}"
-               MinSize="650 550"
-               SetSize="650 550">
+               MinSize="750 550"
+               SetSize="750 550">
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   SizeFlagsStretchRatio="0.4">
-        <BoxContainer Orientation="Horizontal" SeparationOverride="5" Margin="0 4" >
+        <BoxContainer Orientation="Horizontal" SeparationOverride="5" Margin="0 4">
             <Button Name="GhostnadoButton"
                     Text="{Loc 'ghost-target-window-warp-to-most-followed'}"/>
+            <Button Name="WarpToRandomFollowedButton"
+                    Text="{Loc 'ghost-target-window-warp-to-random-followed'}"
+                    ToolTip="{Loc 'ghost-target-window-warp-to-random-followed-tooltip'}"/>
+            <Button Name="WarpToRandomButton"
+                    Text="{Loc 'ghost-target-window-warp-to-random'}"
+                    ToolTip="{Loc 'ghost-target-window-warp-to-random-tooltip'}"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="5" Margin="0 0 0 4">
             <LineEdit Name="SearchBar"
                       PlaceHolder="{Loc 'entity-spawn-window-search-bar-placeholder'}"
                       HorizontalExpand="True"/>

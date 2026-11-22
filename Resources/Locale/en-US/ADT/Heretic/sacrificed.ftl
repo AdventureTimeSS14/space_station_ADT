@@ -1,0 +1,1 @@
+sacrificed-description = You wake up, missing a piece of your soul and some of your memories. You cannot recall any of the events that led to what happened to you, and especially you cannot recall anyone who did this to you.

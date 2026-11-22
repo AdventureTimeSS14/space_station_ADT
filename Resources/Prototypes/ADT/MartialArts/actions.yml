@@ -7,12 +7,10 @@
   components:
   - type: Action
     useDelay: 0.5
-    icon:
-      sprite: ADT/Actions/kravmaga.rsi
-      state: legsweep
-  - type: Sprite
+  - type: Sprite # ADT-Tweak
     sprite: ADT/Actions/kravmaga.rsi
-    state: legsweep
+    layers:
+    - state: legsweep
   - type: InstantAction
     event: !type:KravMagaActionEvent {}
   - type: KravMagaAction
@@ -28,12 +26,10 @@
   components:
   - type: Action
     useDelay: 0.5
-    icon:
-      sprite: ADT/Actions/kravmaga.rsi
-      state: neckchop
-  - type: Sprite
+  - type: Sprite # ADT-Tweak
     sprite: ADT/Actions/kravmaga.rsi
-    state: neckchop
+    layers:
+    - state: neckchop
   - type: InstantAction
     event: !type:KravMagaActionEvent {}
   - type: KravMagaAction
@@ -50,12 +46,10 @@
   components:
   - type: Action
     useDelay: 0.5
-    icon:
-      sprite: ADT/Actions/kravmaga.rsi
-      state: lungpunch
-  - type: Sprite
+  - type: Sprite # ADT-Tweak
     sprite: ADT/Actions/kravmaga.rsi
-    state: lungpunch
+    layers:
+    - state: lungpunch
   - type: InstantAction
     event: !type:KravMagaActionEvent {}
   - type: KravMagaAction

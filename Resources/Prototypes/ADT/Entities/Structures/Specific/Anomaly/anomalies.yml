@@ -48,6 +48,8 @@
         maxRange: 2.5
       spawns:
       - ADTSpecialMobGorilla
+  - type: ParticleEmitter
+    effect: ADTMonkeySparkles
 
 
 - type: entity
@@ -113,6 +115,8 @@
         maxRange: 5
       spawns:
       - ADTMobSpawnBSCrab
+  - type: ParticleEmitter
+    effect: ADTBlueCrystalDust
 
 #BFUU
 - type: entity
@@ -178,6 +182,8 @@
         maxRange: 5
       spawns:
       - ADTMobSpawnCopperCrab
+  - type: ParticleEmitter
+    effect: ADTCopperSparks
 
 - type: entity
   id: ADTAnomalyRockLead
@@ -242,6 +248,8 @@
         maxRange: 5
       spawns:
       - ADTMobSpawnLeadCrab
+  - type: ParticleEmitter
+    effect: ADTLeadMist
 
 - type: entity
   id: ADTAnomalyRockZinc
@@ -306,6 +314,8 @@
         maxRange: 5
       spawns:
       - ADTMobSpawnZincCrab
+  - type: ParticleEmitter
+    effect: ADTZincDust
 
 
 #Хеллоуин
@@ -356,3 +366,5 @@
         maxRange: 2.5
       spawns:
       - ADTBloodyArmySoldier
+  - type: ParticleEmitter
+    effect: ADTHalloweenMist

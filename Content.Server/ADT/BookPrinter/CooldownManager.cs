@@ -6,8 +6,8 @@ namespace Content.Server.ADT.BookPrinter
 {
     public sealed class GlobalBookPrinterCooldownManager
     {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IGameTiming _timing = default!;
 
         private TimeSpan? _lastUploadTime;
 

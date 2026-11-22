@@ -1,5 +1,4 @@
-﻿using Content.Shared.ADT.Mech.Components;
-using Content.Shared.Mech;
+﻿using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Robust.Client.GameObjects;
@@ -10,8 +9,8 @@ namespace Content.Client.Mech;
 /// <inheritdoc/>
 public sealed partial class MechSystem : SharedMechSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -19,8 +18,6 @@ public sealed partial class MechSystem : SharedMechSystem
         base.Initialize();
 
         SubscribeLocalEvent<MechComponent, AppearanceChangeEvent>(OnAppearanceChanged);
-
-        InitializeADT();    // ADT tweak (да ладно)
     }
 
     private void OnAppearanceChanged(EntityUid uid, MechComponent component, ref AppearanceChangeEvent args)
@@ -28,8 +25,8 @@ public sealed partial class MechSystem : SharedMechSystem
         if (args.Sprite == null)
             return;
 
-        // if (!_sprite.LayerExists((uid, args.Sprite), MechVisualLayers.Base)) //ADT-tweak
-        //     return; //ADT-tweak
+        if (!_sprite.LayerExists((uid, args.Sprite), MechVisualLayers.Base))
+            return;
 
         var state = component.BaseState;
         var drawDepth = DrawDepth.Mobs;
@@ -43,15 +40,6 @@ public sealed partial class MechSystem : SharedMechSystem
             state = component.OpenState;
             drawDepth = DrawDepth.SmallMobs;
         }
-        // ADT-Mech-Start
-        else if (TryComp<MechThrusterComponent>(uid, out var thruster) &&
-                 thruster.FlightState != null &&
-                 _appearance.TryGetData<bool>(uid, MechThrusterVisuals.Flying, out var flying, args.Component) &&
-                 flying)
-        {
-            state = thruster.FlightState;
-        }
-        // ADT-Mech-End
 
         _sprite.LayerSetRsiState((uid, args.Sprite), MechVisualLayers.Base, state);
         _sprite.SetDrawDepth((uid, args.Sprite), (int)drawDepth);

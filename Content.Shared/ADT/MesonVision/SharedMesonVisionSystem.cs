@@ -10,10 +10,10 @@ namespace Content.Shared.ADT.MesonVision;
 
 public abstract class SharedMesonVisionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -23,7 +23,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         SubscribeLocalEvent<MesonVisionComponent, ComponentRemove>(OnMesonVisionRemove);
 
         SubscribeLocalEvent<MesonVisionItemComponent, GetItemActionsEvent>(OnMesonVisionItemGetActions);
-        SubscribeLocalEvent<MesonVisionItemComponent, ToggleActionEvent>(OnMesonVisionItemToggle);
+        SubscribeLocalEvent<MesonVisionItemComponent, ToggleMesonActionEvent>(OnMesonVisionItemToggle);
         SubscribeLocalEvent<MesonVisionItemComponent, GotEquippedEvent>(OnMesonVisionItemGotEquipped);
         SubscribeLocalEvent<MesonVisionItemComponent, GotUnequippedEvent>(OnMesonVisionItemGotUnequipped);
         SubscribeLocalEvent<MesonVisionItemComponent, ActionRemovedEvent>(OnMesonVisionItemActionRemoved);
@@ -65,7 +65,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         args.AddAction(ref ent.Comp.Action, ent.Comp.ActionId);
     }
 
-    private void OnMesonVisionItemToggle(Entity<MesonVisionItemComponent> ent, ref ToggleActionEvent args)
+    private void OnMesonVisionItemToggle(Entity<MesonVisionItemComponent> ent, ref ToggleMesonActionEvent args)
     {
         if (args.Handled)
             return;
@@ -79,7 +79,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        EnableMesonVisionItem(ent, args.Equipee);
+        EnableMesonVisionItem(ent, args.EquipTarget);
     }
 
     private void OnMesonVisionItemGotUnequipped(Entity<MesonVisionItemComponent> ent, ref GotUnequippedEvent args)
@@ -87,7 +87,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        DisableMesonVisionItem(ent, args.Equipee);
+        DisableMesonVisionItem(ent, args.EquipTarget);
     }
 
     private void OnMesonVisionItemActionRemoved(Entity<MesonVisionItemComponent> ent, ref ActionRemovedEvent args)

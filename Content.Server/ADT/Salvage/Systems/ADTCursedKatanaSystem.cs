@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Clothing;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.ADT.Salvage.Components;
@@ -34,23 +35,23 @@ namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed class ADTCursedKatanaSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedMartialArtsSystem _martialArts = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedMartialArtsSystem _martialArts = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -299,7 +300,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         if (!args.IsHit || args.HitEntities.Count == 0)
             return;
 
-        var target = args.HitEntities[0];
+        var target = args.HitEntities.First();
 
         if (target == args.User || !HasComp<MobStateComponent>(target) || _mobState.IsDead(target))
             return;
@@ -325,7 +326,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             return;
 
         _audio.PlayPvs(ent.Comp.StrikeSound, target);
-        _damageable.TryChangeDamage(target, ent.Comp.StrikeDamage, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.StrikeDamage, ignoreResistances: false, origin: user);
         _stun.TryUpdateStunDuration(target, ent.Comp.StrikeStun);
 
         var direction = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(user).Position;
@@ -349,13 +350,6 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
 
         _audio.PlayPvs(ent.Comp.DashSound, user);
 
-        if (TryComp<PullerComponent>(user, out var puller)
-            && puller.Pulling is { } pulled
-            && TryComp<PullableComponent>(pulled, out var pullable))
-        {
-            _pulling.TryStopPull(pulled, pullable, user, true);
-        }
-
         var nearby = new HashSet<Entity<MobStateComponent>>();
         _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(user), ent.Comp.DashRange, nearby);
 
@@ -364,10 +358,10 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             if (mob.Owner == user || mob.Owner == target || _mobState.IsDead(mob))
                 continue;
 
-            _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashSplashDamage, ignoreResistances: true, origin: user);
+            _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashSplashDamage, ignoreResistances: false, origin: user);
         }
 
-        _damageable.TryChangeDamage(target, ent.Comp.DashDamage, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.DashDamage, ignoreResistances: false, origin: user);
 
         DashThrough(ent, user, target);
 
@@ -406,7 +400,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
                 if (mob.Owner == user || mob.Owner == target || _mobState.IsDead(mob))
                     continue;
 
-                _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashTrailDamage, ignoreResistances: true, origin: user);
+                _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashTrailDamage, ignoreResistances: false, origin: user);
             }
         }
 
@@ -431,7 +425,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             return;
 
         _audio.PlayPvs(ent.Comp.HealSound, user);
-        _damageable.TryChangeDamage(target, ent.Comp.HealCost, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.HealCost, ignoreResistances: false, origin: user);
 
         var mend = EnsureComp<ADTShadowMendComponent>(user);
         mend.NextTick = _timing.CurTime;
@@ -463,8 +457,25 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         user = EntityUid.Invalid;
         target = EntityUid.Invalid;
 
-        return TryComp<WeaponMartialArtComponent>(ent.Owner, out var weapon)
-            && _martialArts.TryUseWeaponMartialArt((ent.Owner, weapon), out _, out user, out target, out _);
+        if (!TryComp<WeaponMartialArtComponent>(ent.Owner, out var weapon)
+            || !_martialArts.TryUseWeaponMartialArt((ent.Owner, weapon), out _, out user, out target, out _))
+            return false;
+
+        ReleaseGrab(user, target);
+        return true;
+    }
+
+    private void ReleaseGrab(EntityUid user, EntityUid target)
+    {
+        if (TryComp<PullableComponent>(target, out var targetPullable) && targetPullable.Puller == user)
+            _pulling.TryStopPull(target, targetPullable, user, true);
+
+        if (!TryComp<PullerComponent>(user, out var puller)
+            || puller.Pulling is not { } pulled
+            || !TryComp<PullableComponent>(pulled, out var pullable))
+            return;
+
+        _pulling.TryStopPull(pulled, pullable, user, true);
     }
 
     private void Finish(Entity<ADTCursedKatanaComponent> ent, EntityUid user, EntityUid target, LocId popup)

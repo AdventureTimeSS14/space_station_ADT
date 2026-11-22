@@ -1,0 +1,50 @@
+- type: adtCrystalTheme
+  id: ADTCrystalThemeLavaland
+  floor: FloorBasalt
+  wall: WallCult
+  flora:
+  - ADTMobGoldgrub
+  floraChance: 0.01
+
+- type: adtCrystalTheme
+  id: ADTCrystalThemeWinter
+  floor: FloorSnow
+  wall: WallWood
+  chair: ChairWood
+  table: TableGlass
+  flora:
+  - FloraTreeSnow
+  - FloraTreeConifer
+  floraChance: 0.08
+
+- type: adtCrystalTheme
+  id: ADTCrystalThemeJungle
+  floor: FloorGrass
+  wall: WallSandstone
+  chair: ChairWood
+  table: TableWood
+  flora:
+  - FloraPalmTree1
+  - FloraPalmTree2
+  - FloraTree
+  - MobMonkey
+  - BowImprovised
+  - ClothingBeltQuiver
+  floraChance: 0.2
+
+- type: adtCrystalTheme
+  id: ADTCrystalThemeAlien
+  floor: FloorShuttlePurple
+  wall: ADTAbductorWall
+  floraChance: 0
+
+- type: polymorph
+  id: ADTCrystalDarkReprise
+  configuration:
+    entity: ADTMobDarkRepriseShadow
+    transferDamage: false
+    forced: true
+    inventory: Transfer
+    revertOnCrit: false
+    revertOnDeath: false
+    transferName: true

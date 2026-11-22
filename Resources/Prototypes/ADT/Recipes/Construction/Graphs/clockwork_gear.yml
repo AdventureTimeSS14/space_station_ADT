@@ -1,0 +1,35 @@
+- type: constructionGraph
+  id: ADTClockworkGear
+  start: start
+  graph:
+  - node: start
+
+  - node: gear
+    entity: ADTClockworkGear
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+    - to: wall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Brass
+        amount: 2
+        doAfter: 2
+
+  - node: wall
+    entity: WallClock

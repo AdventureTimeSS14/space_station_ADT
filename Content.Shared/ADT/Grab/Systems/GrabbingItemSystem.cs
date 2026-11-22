@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
@@ -21,8 +22,8 @@ namespace Content.Shared.ADT.Grab;
 
 public sealed class GrabbingItemSystem : EntitySystem
 {
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly GrabIntentSystem _grabbing = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private GrabIntentSystem _grabbing = default!;
 
     public override void Initialize()
     {
@@ -90,7 +91,7 @@ public sealed class GrabbingItemSystem : EntitySystem
         if (!TryComp(args.User, out PullerComponent? puller))
             return;
 
-        var hitEntity = args.HitEntities[0];
+        var hitEntity = args.HitEntities.First();
 
         if (puller.Pulling != null)
         {

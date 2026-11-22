@@ -1,0 +1,343 @@
+- type: entity
+  id: ADTVetusChargeTarget
+  name: certain death
+  description: Don't stand still, move!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Effects/vetus_effects.rsi
+    drawdepth: BelowMobs
+    color: "#FF0000"
+    layers:
+    - state: target
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: "#EE2E27"
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTVetusBluespaceKaboom
+  name: bluespace explosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Effects/vetus_effects.rsi
+    drawdepth: Effects
+    color: "#0000FF"
+    layers:
+    - state: explosionfast
+  - type: TimedDespawn
+    lifetime: 0.48
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTVetusLavaWarning
+  parent: ADTDrakeLavaWarning
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTDrakeLavaWarning
+    extraTargets:
+      components:
+      - ADTVetusLeg
+
+- type: entity
+  id: ADTVetusFloatingRock
+  name: floating rock
+  description: Better focus on dodging than staring at it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Objects/Misc/meteor.rsi
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - state: small
+  - type: TimedDespawn
+    lifetime: 2
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTVetusRock
+  name: thrown rock
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Misc/meteor.rsi
+    layers:
+    - state: small
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 25
+
+- type: entity
+  id: ADTVetusLegBullet
+  name: bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+
+- type: entity
+  id: ADTVetusTeslaBolt
+  name: tesla bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
+    layers:
+    - state: tesla_projectile
+      shader: unshaded
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: "#4080FF"
+  - type: Projectile
+    damage:
+      types:
+        Heat: 5
+  - type: ADTVetusTeslaBolt
+
+- type: entity
+  id: ADTVetusTeslaArc
+  name: lightning
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Effects/lightning.rsi
+    drawdepth: Effects
+    layers:
+    - state: "lightning_1"
+      shader: unshaded
+  - type: Beam
+  - type: PointLight
+    enabled: true
+    color: "#4080FF"
+    radius: 3.5
+    softness: 1
+    autoRot: true
+    castShadows: false
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTVetusRockfallTarget
+  name: target
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Effects/drake_effects.rsi
+    drawdepth: BelowMobs
+    layers:
+    - state: target
+  - type: PointLight
+    radius: 2
+    energy: 1
+  - type: ADTDrakeMeteorTarget
+    delay: 0.9
+    linger: 0.6
+    damage: 35
+    damageType: Blunt
+    fireProto: null
+    fallingProto: ADTVetusFallingRock
+    blacklist:
+      components:
+      - ADTVetus
+    extraTargets:
+      components:
+      - ADTVetusLeg
+    spawnSound:
+      path: /Audio/ADT/Drake/fleshtostone.ogg
+      params:
+        variation: 0.125
+    impactSound:
+      path: /Audio/ADT/Bubblegum/meteorimpact.ogg
+      params:
+        variation: 0.125
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTVetusFallingRock
+  name: falling rock
+  description: Get out of the way!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Objects/Misc/meteor.rsi
+    drawdepth: Overdoors
+    offset: 0,8.4375
+    noRot: true
+    layers:
+    - state: small
+  - type: ADTDrakeVisualEffect
+    keyframes:
+    - time: 0
+      offset: 0,8.4375
+    - time: 0.9
+      offset: 0,0
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTStatusEffectVetusBluespaceSlowdown
+  parent: MobStatusEffectDebuff
+  name: bluespace slowdown
+  components:
+  - type: ADTMeleeAttackRateStatusEffect
+    multiplier: 0.5
+
+- type: entity
+  id: ADTVetusAnomalyBase
+  abstract: true
+  name: anomaly
+  description: A mysterious anomaly, seen commonly only in the region of space that the station orbits...
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: ADT/Effects/vetus_anomalies.rsi
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1
+        hard: false
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+  - type: PointLight
+    radius: 3
+    energy: 1
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTVetusAnomalyDenseBase
+  parent: ADTVetusAnomalyBase
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1
+        hard: false
+      dense:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 50
+        hard: true
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+- type: entity
+  id: ADTVetusAnomalyBluespace
+  parent: ADTVetusAnomalyDenseBase
+  name: bluespace anomaly
+  components:
+  - type: Sprite
+    layers:
+    - state: bluespace
+  - type: ADTVetusAnomaly
+    mode: Bluespace
+
+- type: entity
+  id: ADTVetusAnomalyGrav
+  parent: ADTVetusAnomalyBase
+  name: gravitational anomaly
+  components:
+  - type: Sprite
+    layers:
+    - state: shield2
+  - type: ADTVetusAnomaly
+    mode: Grav
+
+- type: entity
+  id: ADTVetusAnomalyPyro
+  parent: ADTVetusAnomalyBase
+  name: pyroclastic anomaly
+  components:
+  - type: Sprite
+    layers:
+    - state: mustard
+  - type: ADTVetusAnomaly
+    mode: Pyro
+
+- type: entity
+  id: ADTVetusAnomalyFlux
+  parent: ADTVetusAnomalyDenseBase
+  name: flux wave anomaly
+  components:
+  - type: Sprite
+    layers:
+    - state: electricity2
+  - type: ADTVetusAnomaly
+    mode: Flux
+
+- type: entity
+  id: ADTVetusAnomalyVortex
+  parent: ADTVetusAnomalyBase
+  name: vortex anomaly
+  description: That's a nice station you have there. It'd be a shame if something happened to it.
+  components:
+  - type: Sprite
+    layers:
+    - state: bhole3
+  - type: ADTVetusAnomaly
+    mode: Vortex

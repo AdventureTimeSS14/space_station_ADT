@@ -14,13 +14,12 @@
     size: Small
     shape:
     - 0,0,0,1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTCondensedMilk
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: ADTCondensedMilk
+        Quantity: 30
   - type: Openable
     openableByHand: true
     sound:

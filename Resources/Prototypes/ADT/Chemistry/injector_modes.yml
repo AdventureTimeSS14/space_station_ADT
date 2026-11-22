@@ -4,3 +4,32 @@
   mobTime: 6
   popupUserAttempt: adt-injector-component-medipen-stiff-user
   popupTargetAttempt: adt-injector-component-medipen-stiff-target
+
+- type: injectorMode
+  parent: [ BaseInjectMode ]
+  id: ADTMedicalSprayMode
+  name: injector-component-inject-mode-name
+  transferAmounts: [ 10 ]
+  mobTime: 1
+  selfModifier: 1.5
+  popupUserAttempt: medspray-attempt-user
+  popupTargetAttempt: medspray-attempt-target
+  injectSound: /Audio/Effects/spray2.ogg
+  reactionMethod: Touch
+  requiresExposedSkin: true
+
+- type: injectorMode
+  parent: HyposprayDynamicMode
+  id: ADTHyposprayDynamicMode
+  suitMobTime: 1
+
+- type: injectorMode
+  parent: HyposprayInjectMode
+  id: ADTHyposprayInjectMode
+  suitMobTime: 1
+
+- type: injectorMode
+  parent: HyposprayInjectMode
+  id: ADTCustomMedipenInjectMode
+  suitMobTime: 2.5
+  suitSelfModifier: 0.5

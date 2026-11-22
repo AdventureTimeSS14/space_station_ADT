@@ -10,7 +10,7 @@
     state: shipbattleflaps
     drawdepth: Mobs
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 500

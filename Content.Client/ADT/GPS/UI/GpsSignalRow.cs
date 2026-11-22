@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.ADT.UserInterface.Controls;
 using Content.Client.Stylesheets;
 using Content.Shared.ADT.GPS;
 using Robust.Client.Graphics;
@@ -10,8 +11,8 @@ namespace Content.Client.ADT.GPS.UI;
 
 public sealed class GpsSignalRow : PanelContainer
 {
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly StyleBoxFlat StripeBox = new() { BackgroundColor = new Color(1f, 1f, 1f, 0.05f) };
     private static readonly StyleBoxFlat SosBox = new() { BackgroundColor = new Color(1f, 0f, 0f, 0.15f) };

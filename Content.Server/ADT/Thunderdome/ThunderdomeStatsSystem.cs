@@ -15,10 +15,10 @@ namespace Content.Server.ADT.Thunderdome;
 
 public sealed class ThunderdomeStatsSystem : EntitySystem
 {
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private sealed class RoundRecord
     {

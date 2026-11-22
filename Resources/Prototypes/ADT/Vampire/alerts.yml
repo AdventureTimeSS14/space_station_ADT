@@ -1,0 +1,60 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: alertCategory
+  id: Counter
+
+- type: alert
+  id: BloodAlert
+  category: Counter
+  icons:
+  - sprite: /Textures/ADT/Vampire/Interface/Alerts/bloodcounter.rsi
+    state: blood0
+  alertViewEntity: AlertBloodSpriteView
+  name: alerts-vampire-blood-name
+  description: alerts-vampire-blood-desc
+
+- type: entity
+  id: AlertBloodSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Vampire/Interface/Alerts/bloodcounter.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.VampireVisualLayers.Digit1" ]
+      offset: 0.16, 0.25
+    - map: [ "enum.VampireVisualLayers.Digit2" ]
+      offset: 0.28, 0.25
+    - map: [ "enum.VampireVisualLayers.Digit3" ]
+      offset: 0.40, 0.25
+    - map: [ "enum.VampireVisualLayers.Digit4" ]
+      offset: 0.52, 0.25
+
+- type: alert
+  id: AlertBloodRite
+  icons:
+  - sprite: /Textures/ADT/Vampire/Interface/Alerts/bloodrite.rsi
+    state: puddle-off # 0
+  - sprite: /Textures/ADT/Vampire/Interface/Alerts/bloodrite.rsi
+    state: puddle-on # 1
+  name: alerts-bloodrite-name
+  description: alerts-bloodrite-desc
+  minSeverity: 0
+  maxSeverity: 1
+
+- type: alert
+  id: AlertEternalDarkness
+  icons:
+  - sprite: /Textures/ADT/Vampire/Interface/Alerts/eternaldarkness.rsi
+    state: eternaldarkness
+  name: alerts-eternaldarkness-name
+  description: alerts-eternaldarkness-desc
+  minSeverity: 0
+  maxSeverity: 0

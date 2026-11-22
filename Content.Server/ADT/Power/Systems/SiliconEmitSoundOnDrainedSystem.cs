@@ -7,7 +7,7 @@ namespace Content.Server.ADT.Silicon;
 
 public sealed class EmitSoundOnCritSystem : EntitySystem
 {
-    [Dependency] private readonly EmitSoundSystem _emitSound = default!;
+    [Dependency] private EmitSoundSystem _emitSound = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<SiliconEmitSoundOnDrainedComponent, SiliconChargeDeathEvent>(OnDeath);

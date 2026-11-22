@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Crushers.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -11,10 +12,11 @@ namespace Content.Shared.ADT.Weapons.KineticCooldown;
 
 public sealed class ADTKineticCooldownSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ADTKineticFocusSystem _focus = default!;
 
     public override void Initialize()
     {
@@ -63,7 +65,7 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
         if (recovery == null)
             return;
 
-        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.CurrentRangedMultiplier);
+        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.CurrentRangedMultiplier * _focus.GetCooldownMultiplier(args.User));
     }
 
     private void OnAttemptMelee(Entity<ADTKineticCooldownComponent> ent, ref AttemptMeleeEvent args)
@@ -82,7 +84,7 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
         if (recovery == null)
             return;
 
-        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.CurrentMeleeMultiplier, false);
+        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.CurrentMeleeMultiplier * _focus.GetCooldownMultiplier(args.User), false);
     }
 
     private void OnExamined(Entity<ADTKineticCooldownComponent> ent, ref ExaminedEvent args)

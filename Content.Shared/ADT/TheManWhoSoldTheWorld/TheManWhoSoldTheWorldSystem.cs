@@ -8,8 +8,8 @@ namespace Content.Shared.ADT.TheManWhoSoldTheWorld.System;
 
 public sealed class HoloCigarSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

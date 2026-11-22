@@ -12,13 +12,13 @@ namespace Content.Shared.Ninja.Systems;
 /// <summary>
 /// Handles emagging whitelisted objects when clicked.
 /// </summary>
-public sealed class EmagProviderSystem : EntitySystem
+public sealed partial class EmagProviderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedNinjaGlovesSystem _gloves = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedNinjaGlovesSystem _gloves = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -46,15 +46,17 @@ public sealed class EmagProviderSystem : EntitySystem
         if (_tag.HasTag(target, comp.AccessBreakerImmuneTag))
             return;
 
-        var emagEv = new GotEmaggedEvent(uid, EmagType.Access);
-        RaiseLocalEvent(args.Target, ref emagEv);
+        // ADT-Tweak-Start: Ninja borg hack uses correct EmagType
+        var emagEv = new GotEmaggedEvent(uid, comp.EmagType);
+        RaiseLocalEvent(target, ref emagEv);
 
         if (!emagEv.Handled)
             return;
 
         _audio.PlayPredicted(comp.EmagSound, uid, uid);
 
-        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(uid):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
+        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(uid):player} emagged {ToPrettyString(target):target} with flag(s): {comp.EmagType}");
+        // ADT-Tweak-End
         var ev = new EmaggedSomethingEvent(target);
         RaiseLocalEvent(uid, ref ev);
         args.Handled = true;

@@ -26,15 +26,15 @@
     outputs:
     - PlatingBrass
   - type: Extractable
-    grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Lead
-          Quantity: 8.8
-        - ReagentId: Carbon
-          Quantity: 0.9
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 9.700000000000001
+      reagents:
+      - ReagentId: Lead
+        Quantity: 8.8
+      - ReagentId: Carbon
+        Quantity: 0.9
 
 - type: entity
   parent: ADTSheetLead
@@ -45,6 +45,17 @@
   - type: Stack
     stackType: Lead
     count: 10
+
+- type: entity
+  parent: ADTSheetLead
+  id: ADTSheetLead5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: lead
+  - type: Stack
+    stackType: Lead
+    count: 5
 
 - type: entity
   parent: ADTSheetLead
@@ -80,15 +91,15 @@
     heldPrefix: copper
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Copper
-          Quantity: 8.8
-        - ReagentId: Carbon
-          Quantity: 0.9
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 9.700000000000001
+      reagents:
+      - ReagentId: Copper
+        Quantity: 8.8
+      - ReagentId: Carbon
+        Quantity: 0.9
 
 - type: entity
   parent: ADTSheetCopper
@@ -100,6 +111,17 @@
   - type: Stack
     stackType: Copper
     count: 10
+
+- type: entity
+  parent: ADTSheetCopper
+  id: ADTSheetCopper5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: copper
+  - type: Stack
+    stackType: Copper
+    count: 5
 
 - type: entity
   parent: ADTSheetCopper
@@ -137,15 +159,15 @@
     heldPrefix: zinc
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Zinc
-          Quantity: 3.3
-        - ReagentId: Carbon
-          Quantity: 0.9
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 4.2
+      reagents:
+      - ReagentId: Zinc
+        Quantity: 3.3
+      - ReagentId: Carbon
+        Quantity: 0.9
 
 - type: entity
   parent: ADTSheetZinc
@@ -157,6 +179,17 @@
   - type: Stack
     stackType: Zinc
     count: 10
+
+- type: entity
+  parent: ADTSheetZinc
+  id: ADTSheetZinc5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: zinc
+  - type: Stack
+    stackType: Zinc
+    count: 5
 
 - type: entity
   parent: ADTSheetZinc
@@ -192,15 +225,15 @@
     heldPrefix: plasteel
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: plasteel
-  - type: SolutionContainerManager
-    solutions:
-      plasteel:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 9
-        - ReagentId: Carbon
-          Quantity: 1
-        canReact: false
+    grindableSolutionName: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      canReact: false
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
+      - ReagentId: Iron
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1

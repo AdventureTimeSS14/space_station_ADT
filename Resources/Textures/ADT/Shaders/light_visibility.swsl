@@ -26,7 +26,7 @@ void fragment()
         discard;
     }
 
-    highp vec4 tex = texture(TEXTURE, UV);
+    highp vec4 tex = zTexture(UV);
 
     COLOR = tex;
     COLOR.rgb /= max(lightSample, vec3(0.0001));

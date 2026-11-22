@@ -1,0 +1,136 @@
+- type: entity
+  parent: BaseStructure
+  id: ADTLogicCircuitBox
+  name: кабельная коробка
+  description: Коробка со схемой из логических элементов. Чтобы открыть редактор, надо открутить панель.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Objects/Devices/gates.rsi
+    layers:
+    - state: base
+    - state: logic
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  # TODO: Добавить графф для коробки
+  # - type: Construction
+  #   graph: ADTLogicCircuitBox
+  #   node: box
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+    requireOpen: true
+  - type: ActivatableUI
+    key: enum.ADTLogicCircuitUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.ADTLogicCircuitUiKey.Key:
+        type: ADTLogicCircuitBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - ADTLogicIn1
+    - ADTLogicIn2
+    - ADTLogicIn3
+    - ADTLogicIn4
+    - ADTLogicIn5
+    - ADTLogicIn6
+    - ADTLogicIn7
+    - ADTLogicIn8
+    - ADTLogicIn9
+    - ADTLogicIn10
+    - ADTLogicIn11
+    - ADTLogicIn12
+    - ADTLogicIn13
+    - ADTLogicIn14
+    - ADTLogicIn15
+    - ADTLogicIn16
+  - type: DeviceLinkSource
+    ports:
+    - ADTLogicOut1
+    - ADTLogicOut2
+    - ADTLogicOut3
+    - ADTLogicOut4
+    - ADTLogicOut5
+    - ADTLogicOut6
+    - ADTLogicOut7
+    - ADTLogicOut8
+    - ADTLogicOut9
+    - ADTLogicOut10
+    - ADTLogicOut11
+    - ADTLogicOut12
+    - ADTLogicOut13
+    - ADTLogicOut14
+    - ADTLogicOut15
+    - ADTLogicOut16
+  - type: ADTLogicCircuit
+    powerBudget: 64
+    inputPorts:
+    - ADTLogicIn1
+    - ADTLogicIn2
+    - ADTLogicIn3
+    - ADTLogicIn4
+    - ADTLogicIn5
+    - ADTLogicIn6
+    - ADTLogicIn7
+    - ADTLogicIn8
+    - ADTLogicIn9
+    - ADTLogicIn10
+    - ADTLogicIn11
+    - ADTLogicIn12
+    - ADTLogicIn13
+    - ADTLogicIn14
+    - ADTLogicIn15
+    - ADTLogicIn16
+    outputPorts:
+    - ADTLogicOut1
+    - ADTLogicOut2
+    - ADTLogicOut3
+    - ADTLogicOut4
+    - ADTLogicOut5
+    - ADTLogicOut6
+    - ADTLogicOut7
+    - ADTLogicOut8
+    - ADTLogicOut9
+    - ADTLogicOut10
+    - ADTLogicOut11
+    - ADTLogicOut12
+    - ADTLogicOut13
+    - ADTLogicOut14
+    - ADTLogicOut15
+    - ADTLogicOut16

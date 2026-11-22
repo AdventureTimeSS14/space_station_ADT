@@ -1,0 +1,69 @@
+- type: entity
+  id: ADTMortarBase
+  parent: BaseItem
+  abstract: true
+  name: wooden mortar
+  description: A small mortar with a ground spleen in it. The tribe paints its bodies and totems with this.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/Fishing/dyes.rsi
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTLavalandDye
+
+- type: entity
+  id: ADTMortarCinnabar
+  parent: ADTMortarBase
+  suffix: Cinnabar
+  components:
+  - type: Sprite
+    state: cinnabar_dyes
+  - type: ADTMortar
+    dye: Cinnabar
+    marking: ADTLavalandDyesCinnabar
+
+- type: entity
+  id: ADTMortarCrimson
+  parent: ADTMortarBase
+  suffix: Crimson
+  components:
+  - type: Sprite
+    state: crimson_dyes
+  - type: ADTMortar
+    dye: Crimson
+    marking: ADTLavalandDyesCrimson
+
+- type: entity
+  id: ADTMortarIndigo
+  parent: ADTMortarBase
+  suffix: Indigo
+  components:
+  - type: Sprite
+    state: indigo_dyes
+  - type: ADTMortar
+    dye: Indigo
+    marking: ADTLavalandDyesIndigo
+
+- type: entity
+  id: ADTMortarMint
+  parent: ADTMortarBase
+  suffix: Mint
+  components:
+  - type: Sprite
+    state: mint_dyes
+  - type: ADTMortar
+    dye: Mint
+    marking: ADTLavalandDyesMint
+
+- type: entity
+  id: ADTMortarAmber
+  parent: ADTMortarBase
+  suffix: Amber
+  components:
+  - type: Sprite
+    state: amber_dyes
+  - type: ADTMortar
+    dye: Amber
+    marking: ADTLavalandDyesAmber

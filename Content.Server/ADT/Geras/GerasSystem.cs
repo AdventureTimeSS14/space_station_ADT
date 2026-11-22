@@ -16,12 +16,12 @@ namespace Content.Server.ADT.Geras;
 
 public sealed class GerasSystem : SharedGerasSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
-    [Dependency] private readonly ActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private ActionsSystem _actionsSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<GerasComponent, MorphIntoGeras>(OnMorphIntoGeras);

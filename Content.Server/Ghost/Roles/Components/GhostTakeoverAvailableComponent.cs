@@ -7,5 +7,9 @@ namespace Content.Server.Ghost.Roles.Components
     [Access(typeof(GhostRoleSystem))]
     public sealed partial class GhostTakeoverAvailableComponent : Component
     {
+        // ADT-Heretic-Start
+        [DataField, Access(Other = AccessPermissions.ReadWriteExecute)]
+        public bool IgnoreMindCheck;
+        // ADT-Heretic-End
     }
 }

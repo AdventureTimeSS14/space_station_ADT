@@ -15,10 +15,10 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public sealed class MechPhazeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMechSystem _mech = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -30,6 +30,8 @@ public sealed class MechPhazeSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
+        args.Handled = true;
         TogglePhaze(uid);
     }
     private void OnEjectPilotEvent(EntityUid uid, MechPhazeComponent comp, MechEjectPilotEvent args)
@@ -51,8 +53,8 @@ public sealed class MechPhazeSystem : EntitySystem
             var collisionGroup = comp.Phazed ? CollisionGroup.MidImpassable : CollisionGroup.GhostImpassable;
             _physics.SetCollisionMask(uid, fixture.Key, fixture.Value, (int)collisionGroup, fixtures);
             comp.Phazed = !comp.Phazed;
-            if (_netMan.IsServer)
-                _appearance.SetData(uid, MechPhazingVisuals.Phazing, comp.Phazed);
+            Dirty(uid, comp);
+            _appearance.SetData(uid, MechPhazingVisuals.Phazing, comp.Phazed);
         }
     }
 
@@ -74,11 +76,10 @@ public sealed class MechPhazeSystem : EntitySystem
                 continue;
             phaze.Accumulator = 0f;
 
-            if (TryComp<MechComponent>(uid, out var mech))
+            if (TryComp<MechComponent>(uid, out var mech) &&
+                (!_mech.TryChangeEnergy(uid, phaze.EnergyDelta, mech) || mech.Energy <= 0))
             {
-                _mech.TryChangeEnergy(uid, phaze.EnergyDelta);
-                if (mech.Energy <= 0)
-                    TogglePhaze(uid);
+                TogglePhaze(uid);
             }
         }
     }

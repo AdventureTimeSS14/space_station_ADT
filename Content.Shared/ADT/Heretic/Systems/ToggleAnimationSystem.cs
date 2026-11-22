@@ -1,3 +1,5 @@
+//
+
 using System.Threading;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Item.ItemToggle.Components;
@@ -8,8 +10,8 @@ namespace Content.Shared.ADT.Heretic.Systems;
 
 public sealed class ToggleAnimationSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

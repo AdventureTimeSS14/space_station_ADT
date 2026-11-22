@@ -5,7 +5,7 @@
   parent: ThrusterMachineCircuitboard
   abstract: true
   id: ADTBaseThrusterCircuitboard
-  result: ADTMediumThruster
+  result: ADTThrusterMedium
   completetime: 10
   materials:
     Steel: 500
@@ -29,3 +29,8 @@
   parent: ADTBaseThrusterCircuitboard
   id: ADTMachineMediumLongThrusterCircuitboard
   result: ADTMachineMediumLongThrusterCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+  id: ADTColormatMachineCircuitboard
+  result: ADTColormatMachineCircuitboard

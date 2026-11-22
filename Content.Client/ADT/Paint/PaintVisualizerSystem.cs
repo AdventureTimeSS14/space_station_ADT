@@ -1,6 +1,7 @@
 using System.Linq;
 using Robust.Client.GameObjects;
 using static Robust.Client.GameObjects.SpriteComponent;
+using Content.Client.ADT.DisplacementMap;
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
 using Content.Shared.ADT.Paint;
@@ -15,8 +16,8 @@ namespace Content.Client.ADT.Paint
         /// Visualizer for Paint which applies a shader and colors the entity.
         /// </summary>
 
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
 
         public ShaderInstance? Shader; // in Robust.Client.Graphics so cannot move to shared component.
 
@@ -84,7 +85,7 @@ namespace Content.Client.ADT.Paint
 
             foreach (var revealed in args.RevealedLayers)
             {
-                if (!sprite.LayerMapTryGet(revealed, out var layer) || sprite[layer] is not Layer notlayer)
+                if (DisplacementMapHelper.IsDisplacementKey(revealed) || !sprite.LayerMapTryGet(revealed, out var layer) || sprite[layer] is not Layer notlayer)
                     continue;
 
                 sprite.LayerSetShader(layer, component.ShaderName);

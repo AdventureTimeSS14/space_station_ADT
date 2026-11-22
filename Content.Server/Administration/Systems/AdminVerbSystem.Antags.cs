@@ -1,8 +1,10 @@
 using Content.Server.ADT.Blob.GameTicking;
+using Content.Server.ADT.Shadowling;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Goobstation.Server.Changeling.GameTicking.Rules;
+using Content.Shared.GameTicking.Rules.Components;
 using Content.Server.Zombies;
 using Content.Shared.Administration;
 using Content.Server.Clothing.Systems;
@@ -20,10 +22,11 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly OutfitSystem _outfit = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private OutfitSystem _outfit = default!;
+    [Dependency] private RevolutionaryRuleSystem _rev = default!;
 
     private static readonly EntProtoId DefaultTraitorRule = "TraitorOnly"; //ADT-tweak
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
@@ -35,6 +38,8 @@ public sealed partial class AdminVerbSystem
     static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
     private static readonly EntProtoId DefaultBlobRule = "BlobGameMode"; // ADT-tweak
+    private static readonly EntProtoId DefaultShadowlingRule = "ADTShadowlingSpawn"; // ADT-tweak
+    private static readonly EntProtoId DefaultVampireRule = "Vampire"; // ADT-Tweak
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -144,6 +149,23 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(headRev);
 
+        // ADT-Tweak-start
+        var revName = Loc.GetString("admin-verb-text-make-rev");
+        Verb rev = new()
+        {
+            Text = revName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Revolutionary"),
+            Act = () =>
+            {
+                _rev.MakeRegularRev(args.Target, args.User);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", revName, Loc.GetString("admin-verb-make-rev")),
+        };
+        args.Verbs.Add(rev);
+        //ADT-Tweak-end
+
         var thiefName = Loc.GetString("admin-verb-text-make-thief");
         Verb thief = new()
         {
@@ -174,12 +196,29 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(heretic);
 
+        // ADT-Tweak start: shadowlings
+        var shadowlingName = Loc.GetString("admin-verb-text-make-adt-shadowling");
+        Verb shadowling = new()
+        {
+            Text = shadowlingName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Interface/Actions/shadowling.rsi"), "hatch"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ADTShadowlingRuleComponent>(targetPlayer, DefaultShadowlingRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", shadowlingName, Loc.GetString("admin-verb-make-adt-shadowling")),
+        };
+        args.Verbs.Add(shadowling);
+        // ADT-Tweak end
+
         var changelingName = Loc.GetString("admin-verb-text-make-changeling");
         Verb changeling = new()
         {
             Text = changelingName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/arm_blade.rsi"), "icon"), // ADT-Tweak
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Weapons/Melee/armblade.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<ChangelingRuleComponent>(targetPlayer, DefaultChangelingRule);
@@ -188,6 +227,23 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", changelingName, Loc.GetString("admin-verb-make-changeling")),
         };
         args.Verbs.Add(changeling);
+
+        // ADT-Tweak start: vampires
+        var vampireName = Loc.GetString("admin-verb-text-make-vampire");
+        Verb vampire = new()
+        {
+            Text = vampireName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Vampire/Interface/Misc/vampire_icons.rsi"), "Vampire"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<VampireRuleComponent>(targetPlayer, DefaultVampireRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", vampireName, Loc.GetString("admin-verb-make-vampire")),
+        };
+        args.Verbs.Add(vampire);
+        // ADT-Tweak end
 
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
         Verb paradox = new()

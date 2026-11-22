@@ -27,3 +27,10 @@
   icon: { sprite: ADT/Objects/Materials/marble.rsi, state: icon }
   spawn: ADTmarble1
   maxCount: 10
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorCarpetUSSP
+  name: stack-adt-ussp-carpet-tile
+  icon: { sprite: /Textures/ADT/Objects/Tiles/ussp_carpet.rsi, state: icon }
+  spawn: ADTFloorCarpetItemUSSP

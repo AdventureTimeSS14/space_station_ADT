@@ -25,7 +25,8 @@ public sealed class WizdenContentFreeze : GameTest
         var protoMan = server.ProtoMan;
 
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 392; // ADT: Updated limit from 392
+
+        var recipesLimit = 531; //ADT-Tweak 392 > 407 > 423 > 428 > 446 > 453 > 531
 
         if (recipesCount > recipesLimit)
         {

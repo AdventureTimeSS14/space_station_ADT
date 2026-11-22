@@ -1,0 +1,8 @@
+- type: npcFaction
+  id: ADTShadowling
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Heretic

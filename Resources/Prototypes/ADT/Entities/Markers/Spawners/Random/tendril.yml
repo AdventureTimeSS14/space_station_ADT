@@ -6,18 +6,20 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: ADT/Structures/Specific/tendril.rsi
-        state: tendril
-  - type: RandomSpawner
+    - state: red
+    - sprite: ADT/Structures/Specific/tendril.rsi
+      state: tendril
+  - type: EntityTableSpawner
     offset: 0
-    prototypes:
-      - ADTTendrilGoliath
-      - ADTTendrilLegion
-      - ADTTendrilLavaWatcher
-      - ADTTendrilIcewingWatcher
-      - ADTTendrilMagmawingWatcher
-      - ADTTendrilNightmareSpider
-#      - ADTTendrilHypertrophied
-#      - ADTTendrilDeath
-#      - ADTTendrilBloated
+    table: !type:GroupSelector
+      children:
+      - id: ADTTendrilLavaWatcher
+        weight: 2
+      - id: ADTTendrilLegion
+        weight: 2
+      - id: ADTTendrilGoliath
+        weight: 2
+      - id: ADTTendrilRandomThreat
+        weight: 3
+      - id: ADTTendrilDangerous
+        weight: 1

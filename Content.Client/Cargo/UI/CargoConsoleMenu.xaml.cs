@@ -18,7 +18,7 @@ namespace Content.Client.Cargo.UI
     [GenerateTypedNameReferences]
     public sealed partial class CargoConsoleMenu : FancyWindow
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private IGameTiming _timing = default!;
 
         private readonly IEntityManager _entityManager;
         private readonly IPrototypeManager _protoManager;
@@ -42,6 +42,8 @@ namespace Content.Client.Cargo.UI
         private string? _category;
 
         public List<ProtoId<CargoProductPrototype>> ProductCatalogue = new();
+
+        public Dictionary<ProtoId<CargoProductPrototype>, int> ProductCosts = new(); // ADT-Tweak
 
         public CargoConsoleMenu(EntityUid owner, IEntityManager entMan, IPrototypeManager protoManager, SpriteSystem spriteSystem)
         {
@@ -134,6 +136,13 @@ namespace Content.Client.Cargo.UI
             }
         }
 
+        // ADT-Tweak start
+        private int GetProductCost(CargoProductPrototype prototype)
+        {
+            return ProductCosts.TryGetValue(prototype.ID, out var cost) ? cost : prototype.Cost;
+        }
+        // ADT-Tweak end
+
         /// <summary>
         ///     Populates the list of products that will actually be shown, using the current filters.
         /// </summary>
@@ -160,7 +169,7 @@ namespace Content.Client.Cargo.UI
                         Product = prototype,
                         ProductName = { Text = prototype.Name },
                         MainButton = { ToolTip = prototype.Description },
-                        PointCost = { Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", prototype.Cost.ToString())) },
+                        PointCost = { Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", GetProductCost(prototype).ToString())) }, // ADT-Tweak
                         Icon = { Texture = _spriteSystem.Frame0(prototype.Icon) },
                     };
                     button.MainButton.OnPressed += args =>
@@ -230,7 +239,7 @@ namespace Content.Client.Cargo.UI
                             "cargo-console-menu-order-row-title",
                             ("productName", productName),
                             ("orderAmount", order.OrderQuantity),
-                            ("orderPrice", productProto.Cost)),
+                            ("orderPrice", GetProductCost(productProto))), // ADT-Tweak
                     },
 
                     Stride =
@@ -283,19 +292,25 @@ namespace Content.Client.Cargo.UI
 
             var i = 0;
             ActionOptions.Clear();
+            /* ADT-Tweak start
             ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-withdraw"), i);
             i++;
+            ADT-Tweak end */
             foreach (var account in bank.Accounts.Keys)
             {
                 if (account == console.Account)
                     continue;
                 var accountProto = _protoManager.Index(account);
                 ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-transfer",
-                    ("code", Loc.GetString(accountProto.Code))),
-                    i);
+                    ("code", Loc.GetString(accountProto.Code))), i); // ADT-Tweak
                 ActionOptions.SetItemMetadata(i, account);
                 i++;
             }
+
+            // ADT-Tweak start
+            if (i > 0)
+                ActionOptions.SelectId(0);
+            // ADT-Tweak end
         }
 
         public void UpdateStation(EntityUid station)

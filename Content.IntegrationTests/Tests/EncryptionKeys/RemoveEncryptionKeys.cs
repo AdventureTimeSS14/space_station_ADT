@@ -21,6 +21,11 @@ public sealed class RemoveEncryptionKeys : InteractionTest
             Assert.That(comp.Channels.First(), Is.EqualTo("Common"));
         });
 
+        // ADT-Tweak-Start
+        await InteractUsing("Multitool");
+        Assert.That(Comp<WiresPanelComponent>().Open, Is.True);
+        // ADT-Tweak-End
+
         // Remove the key
         await InteractUsing(Screw);
         Assert.Multiple(() =>

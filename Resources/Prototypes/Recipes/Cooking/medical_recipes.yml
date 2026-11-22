@@ -1,6 +1,6 @@
 - type: microwaveMealRecipe
   id: RecipeAloeCream
-  name: aloe cream recipe
+  name: recipe-aloe-cream # ADT Tweak
   result: AloeCream
   time: 10
   group: Medicinal
@@ -9,7 +9,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMedicatedSuture
-  name: medicated suture recipe
+  name: recipe-medicated-suture # ADT Tweak
   result: MedicatedSuture
   time: 10
   group: Medicinal
@@ -23,7 +23,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRegenerativeMesh
-  name: regenerative mesh recipe
+  name: recipe-regenerative-mesh # ADT Tweak
   result: RegenerativeMesh
   time: 10
   group: Medicinal

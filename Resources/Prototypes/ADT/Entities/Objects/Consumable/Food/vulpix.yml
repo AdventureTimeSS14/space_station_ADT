@@ -15,14 +15,13 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Vulpix.rsi
     state: vulpix
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: Blood
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 8
-        - ReagentId: Nutriment
-          Quantity: 3
+  - type: Solution
+    solution:
+      maxVol: 26
+      reagents:
+      - ReagentId: Blood
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 8
+      - ReagentId: Nutriment
+        Quantity: 3

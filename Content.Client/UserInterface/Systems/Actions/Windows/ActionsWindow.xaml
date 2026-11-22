@@ -15,6 +15,9 @@
                       PlaceHolder="{Loc ui-actionmenu-search-bar-placeholder-text}"/>
         </BoxContainer>
         <Button Name="ClearButton" Access="Public" Text="{Loc ui-actionmenu-clear-button}"/>
+        <!-- ADT-Tweak-Start -->
+        <CheckBox Name="RemovedOnlyButton" Access="Public" Text="{Loc adt-ui-actionmenu-removed-only}"/>
+        <!-- ADT-Tweak-End -->
         <Label Name="FilterLabel" Access="Public"/>
         <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
             <GridContainer Name="ResultsGrid" Access="Public" MaxGridWidth="300"/>

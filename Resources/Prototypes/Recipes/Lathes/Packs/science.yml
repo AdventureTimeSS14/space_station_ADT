@@ -25,6 +25,7 @@
   # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
+  # - TeleporterChipBlank # ADT-Tweak
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -89,16 +90,18 @@
   id: ScienceBoards
   recipes:
   - TurboItemRechargerCircuitboard
-  - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
-  - CircuitImprinterHyperConvectionMachineCircuitboard
+  # ADT-Tweak-Start
+  # - AutolatheHyperConvectionMachineCircuitboard
+  # - ProtolatheHyperConvectionMachineCircuitboard
+  # - CircuitImprinterHyperConvectionMachineCircuitboard
+  # ADT-Tweak-End
   - TechDiskComputerCircuitboard
   - FlatpackerMachineCircuitboard
   - SheetifierMachineCircuitboard
   - PowerCageRechargerCircuitboard
   - AnalysisComputerCircuitboard
   - AnomalyVesselCircuitboard
-  - AnomalyVesselExperimentalCircuitboard
+  # - AnomalyVesselExperimentalCircuitboard # ADT-Tweak
   - AnomalySynchronizerCircuitboard
   - ADTBotanicalSeedDNAManipulatorCircuitboard #ADT-Tweak
   - APECircuitboard
@@ -110,6 +113,8 @@
   - SlimeGrinderMachineCircuitboard # ADT-Tweak
   - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
   # ADT-Tweak-End
+  # - StationTeleportersControlCircuitboard # ADT-Tweak
+  # - StationTeleporterMachineCircuitboard # ADT-Tweak
 
 - type: latheRecipePack
   id: CameraBoards

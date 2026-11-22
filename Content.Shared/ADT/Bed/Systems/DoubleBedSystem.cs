@@ -16,8 +16,8 @@ namespace Content.Shared.ADT.Bed;
 /// </summary>
 public sealed class DoubleBedSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly PlaceableSurfaceSystem _placeableSurface = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private PlaceableSurfaceSystem _placeableSurface = default!;
 
     public override void Initialize()
     {

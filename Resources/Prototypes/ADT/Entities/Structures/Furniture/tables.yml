@@ -180,13 +180,7 @@
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -221,13 +215,7 @@
         Blunt: 100
     tableMassLimit: 60
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -348,16 +336,7 @@
     damageModifierSet: Wood
   - type: Injurable
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroy
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -400,16 +379,7 @@
         Blunt: 100
     tableMassLimit: 240
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 250
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 50

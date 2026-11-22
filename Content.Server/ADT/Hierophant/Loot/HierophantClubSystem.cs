@@ -1,4 +1,6 @@
+using System.Linq;
 using Content.Server.ADT.Hierophant.Effects;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
 using Content.Shared.ADT.Hierophant.Loot;
@@ -20,16 +22,16 @@ namespace Content.Server.ADT.Hierophant.Loot;
 
 public sealed class HierophantClubSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HierophantGridSystem _grid = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HierophantGridSystem _grid = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -91,7 +93,7 @@ public sealed class HierophantClubSystem : EntitySystem
 
         ent.Comp.NextUseAt = _timing.CurTime + ent.Comp.MeleeCooldown;
 
-        var coords = _grid.Anchor(args.HitEntities.Count > 0 ? args.HitEntities[0] : args.User);
+        var coords = _grid.Anchor(args.HitEntities.Count > 0 ? args.HitEntities.First() : args.User);
 
         if (!coords.IsValid(EntityManager))
             return;
@@ -116,7 +118,7 @@ public sealed class HierophantClubSystem : EntitySystem
 
         var range = GetBlastRange(ent, user);
 
-        foreach (var dir in HierophantAttacksSystem.Cardinals)
+        foreach (var dir in ADTMegafaunaGeometry.Cardinals)
         {
             for (var i = 1; i <= range; i++)
             {

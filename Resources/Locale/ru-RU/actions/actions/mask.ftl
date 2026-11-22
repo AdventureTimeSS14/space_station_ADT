@@ -1,2 +1,12 @@
 action-mask-pull-up-popup-message = Вы натягиваете { $mask } на лицо.
 action-mask-pull-down-popup-message = Вы приспускаете { $mask } с лица.
+verb-name-mask-pull-up = Поднять маску
+verb-description-mask-pull-up = Поднять маску.
+verb-name-mask-pull-down = Опустить маску
+verb-description-mask-pull-down = Опустить маску.
+verb-mask-pull-up-popup-message = { CAPITALIZE($puller) } поднимает вашу { $mask }!
+verb-mask-pull-down-popup-message = { CAPITALIZE($puller) } опускает вашу { $mask }!
+verb-mask-pulled-up-popup-message = Вы подняли { $mask } { $wearer }.
+verb-mask-pulled-down-popup-message = Вы опустили { $mask } { $wearer }.
+verb-mask-other-pulled-up-popup-message = { CAPITALIZE($puller) } поднял вашу { $mask }.
+verb-mask-other-pulled-down-popup-message = { CAPITALIZE($puller) } опустил вашу { $mask }.

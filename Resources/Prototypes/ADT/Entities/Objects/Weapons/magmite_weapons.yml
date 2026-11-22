@@ -36,13 +36,13 @@
     sprite: ADT/Objects/Weapons/Guns/Battery/cutter_magmite.rsi
   - type: BatteryAmmoProvider
     proto: ADTBulletCutterMagmite
-    fireCost: 60
+    fireCost: 20
 
 - type: entity
   parent: WeaponCrusher
   id: ADTWeaponCrusherMagmite
   name: magmite proto-kinetic crusher
-  description: A proto-kinetic crusher reforged on the world anvil. Its destabiliser chews straight through rock like a plasma cutter, ancient veins included.
+  description: A proto-kinetic crusher reforged on the world anvil. Its destabiliser chews straight through rock like a plasma cutter, hardened basalt included.
   components:
   - type: ADTMagmiteUpgradable
     result: ADTWeaponCrusherMagmite

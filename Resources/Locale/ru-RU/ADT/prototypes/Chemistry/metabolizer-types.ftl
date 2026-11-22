@@ -22,3 +22,4 @@ metabolizer-type-shadekin = Сумеречник
 metabolizer-type-resomi = Резоми
 metabolizer-type-yowie = Йови
 metabolizer-type-xenobio-slime = Мутированный слайм
+metabolizer-type-changeling = Генокрад

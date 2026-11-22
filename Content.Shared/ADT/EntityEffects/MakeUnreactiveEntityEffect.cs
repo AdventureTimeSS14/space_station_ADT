@@ -10,7 +10,7 @@ public sealed partial class MakeUnreactiveEntityEffect : EntityEffectBase<MakeUn
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-make-unreactive");
 
     public override LogImpact? Impact => LogImpact.Low;
 }

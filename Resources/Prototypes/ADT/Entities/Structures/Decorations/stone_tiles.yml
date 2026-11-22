@@ -74,3 +74,5 @@
     state: icon
     drawdepth: Mobs
   - type: InteractionOutline
+  - type: ADTPointOfInterest
+    title: adt-point-of-interest-world-anvil

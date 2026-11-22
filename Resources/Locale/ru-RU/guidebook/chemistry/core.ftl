@@ -36,3 +36,15 @@ guidebook-reagent-effects-metabolism-stage-rate = [bold]{ $stage }[/bold] [color
 guidebook-reagent-effects-metabolite-item = { $reagent } со скоростью { NATURALPERCENT($rate, 2) }
 guidebook-reagent-effects-metabolites = Метаболизируется в { $items }.
 guidebook-reagent-physical-description = [italic]На вид вещество { $description }.[/italic].
+
+guidebook-reagent-flammable-header = Горючая смесь
+guidebook-reagent-flammable-damage = [bold][color=#FF8A65]Урон от огня[/color][/bold] [color=gray]({ $damage } ед./с)[/color]
+guidebook-reagent-flammable-duration = [bold][color=#FF8A65]Время горения[/color][/bold] [color=gray]({ $duration } сек.)[/color]
+guidebook-reagent-flammable-radius = [bold][color=#FF8A65]Дальность струи[/color][/bold] [color=gray]({ $radius } { $radius ->
+        [one] плитка
+        [few] плитки
+       *[other] плиток
+    })[/color]
+guidebook-reagent-flammable-molotov = [bold][color=#FF8A65]Сила коктейля молотова[/color][/bold] [color=gray](+{ $value } к силе пламени за ед.)[/color]
+guidebook-reagent-flammable-vacuum-burns = [bold][color=#FFB199]В вакууме[/color][/bold] [color=gray]горит без кислорода[/color]
+guidebook-reagent-flammable-vacuum-extinguishes = [bold][color=#C9C9C9]В вакууме[/color][/bold] [color=gray]погаснет за { $seconds } сек.[/color]

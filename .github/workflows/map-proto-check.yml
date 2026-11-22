@@ -1,12 +1,16 @@
 name: Map proto references check
 
+# ADT-Tweak-start
 on:
-  pull_request:
-    branches: [ "**" ]
-  push:
-    branches: [ master ]
-
   workflow_dispatch:
+#on:
+#  pull_request:
+#    branches: [ "**" ]
+#  push:
+#    branches: [ master ]
+
+#  workflow_dispatch:
+# ADT-Tweak-end
 
 jobs:
   check-maps:

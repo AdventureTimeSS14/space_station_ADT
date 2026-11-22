@@ -236,6 +236,7 @@ public abstract partial class GameTest
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 _pairDestroyed = true; // Blow it up, we failed and it might be screwed.
+                RememberFailure(); // ADT-Tweak
                 return;
             }
 
@@ -250,16 +251,26 @@ public abstract partial class GameTest
         catch (Exception)
         {
             _pairDestroyed = true;
+            Assert.Fail();
             throw;
         }
         finally
         {
             PreFinalizeHook?.Invoke();
 
-            if (!_pairDestroyed)
-                await Pair.CleanReturnAsync();
-            else
-                await Pair.DisposeAsync();
+            // ADT-Tweak-Start
+            try
+            {
+                if (!_pairDestroyed)
+                    await Pair.CleanReturnAsync();
+                else
+                    await Pair.DisposeAsync();
+            }
+            finally
+            {
+                RestoreLostFailure();
+            }
+            // ADT-Tweak-End
         }
     }
 }

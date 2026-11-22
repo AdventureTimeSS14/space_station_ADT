@@ -22,3 +22,5 @@ reagent-name-grey-matter = серое вещество
 reagent-desc-grey-matter = Сок мыслей, вытекающий из ушей.
 reagent-name-sulfur-blood = серная кровь
 reagent-desc-sulfur-blood = На вкус почти как кислота.
+reagent-name-living-tissue = живая ткань
+reagent-desc-living-tissue = Смесь внутренностей инопланетного вида. Кажется, она на вас смотрит.

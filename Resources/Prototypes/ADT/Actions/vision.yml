@@ -1,20 +1,22 @@
 - type: entity
-  id: ActionToggleNightVision
+  id: ADTActionToggleNightVision
   categories: [HideSpawnMenu]
   name: Toggle nightvision
   description: Allows you to see even in complete darkness.
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/nightvision.rsi
-      state: icon_on
-    iconOn:
-      sprite: ADT/Interface/Actions/nightvision.rsi
-      state: icon_off
     itemIconStyle: BigAction
     useDelay: 0.25
+  - type: Sprite
+    sprite: ADT/Interface/Actions/nightvision.rsi
+    layers:
+    - state: icon_on
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon_off
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleNightVisionActionEvent
 
 - type: entity
   id: ActionToggleThermalVision
@@ -23,16 +25,18 @@
   description: Allows you to see even in complete darkness.
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/thermalvision.rsi
-      state: icon_on
-    iconOn:
-      sprite: ADT/Interface/Actions/thermalvision.rsi
-      state: icon_off
     itemIconStyle: BigAction
     useDelay: 0.25
+  - type: Sprite
+    sprite: ADT/Interface/Actions/thermalvision.rsi
+    layers:
+    - state: icon_on
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon_off
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleThermalVisionActionEvent
 
 - type: entity
   id: ActionToggleMesonVision
@@ -41,13 +45,15 @@
   description: Allows you to see even in complete darkness.
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/mesonvision.rsi
-      state: icon_on
-    iconOn:
-      sprite: ADT/Interface/Actions/mesonvision.rsi
-      state: icon_off
     itemIconStyle: BigAction
     useDelay: 0.25
+  - type: Sprite
+    sprite: ADT/Interface/Actions/mesonvision.rsi
+    layers:
+    - state: icon_on
+      map: ["enum.ActionVisuals.Icon"]
+    - state: icon_off
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleMesonActionEvent

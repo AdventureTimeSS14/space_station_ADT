@@ -34,3 +34,9 @@
   oldAge: 46
   youngAge: 31
   # ADT end
+  defaultSoundsBySex:
+  - UnisexVox
+  - UnisexVox
+  - UnisexVox
+  voices:
+  - UnisexVox

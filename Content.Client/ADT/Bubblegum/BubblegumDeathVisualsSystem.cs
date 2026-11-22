@@ -11,9 +11,9 @@ namespace Content.Client.ADT.Bubblegum;
 
 public sealed class BubblegumDeathVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private AnimationPlayerSystem _anim = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private const string DeathKey = "bubblegum_death";
     private const string SoulKey = "bubblegum_soul";

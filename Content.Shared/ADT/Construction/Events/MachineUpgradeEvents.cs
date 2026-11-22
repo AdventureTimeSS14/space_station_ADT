@@ -41,7 +41,8 @@ public sealed class RefreshPartsEvent : EntityEventArgs
     /// </summary>
     public static float GetTierMultiplier(float tier, float valuePerTier)
     {
-        return 1f + valuePerTier * (tier - 1f);
+        var tiersAbove = tier > 4f ? 3f + (tier - 4f) * 3f : tier - 1f;
+        return 1f + valuePerTier * tiersAbove;
     }
 }
 

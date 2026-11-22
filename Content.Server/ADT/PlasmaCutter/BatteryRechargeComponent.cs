@@ -23,5 +23,8 @@ public sealed partial class BatteryRechargeComponent : Component
     /// </summary>
     [DataField("storageMaxCapacity"), ViewVariables(VVAccess.ReadWrite)]
     public int StorageMaxCapacity = 7500;
+
+    [DataField]
+    public Dictionary<string, float> MaterialMultipliers = new();
 }
 

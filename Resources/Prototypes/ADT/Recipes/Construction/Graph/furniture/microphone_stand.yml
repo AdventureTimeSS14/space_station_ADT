@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: ADTMicrophoneStand
+  start: stand
+  graph:
+  - node: stand
+    entity: ADTMicrophoneStandEmpty
+    edges:
+    - to: standMicrophone
+      steps:
+      - tag: ADTMicrophoneInstrument
+        name: construction-graph-tag-microphone
+        icon:
+          sprite: Objects/Fun/Instruments/microphone.rsi
+          state: icon
+        doAfter: 2
+
+  - node: standMicrophone
+    entity: ADTMicrophoneStand

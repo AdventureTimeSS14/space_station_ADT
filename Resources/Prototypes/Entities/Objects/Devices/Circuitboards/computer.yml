@@ -24,13 +24,13 @@
     - type: FlavorProfile
       flavors:
       - cold
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 5
-          reagents:
-          - ReagentId: Silicon
-            Quantity: 5
+    - type: Solution
+      id: food
+      solution:
+        maxVol: 5
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 5
     - type: Tag
       tags:
       - VoxFood
@@ -582,6 +582,26 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: StationAiUploadComputer
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: StationTeleportersControlCircuitboard
+  name: teleporters control console board
+  description: A computer printed circuit board for a teleporter control console.
+  components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: ComputerStationTeleportersControl
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SyndicateTeleportersControlCircuitboard
+  name: syndicate teleporters control console board
+  description: A computer printed circuit board for a teleporter control console.
+  components:
+  - type: ComputerBoard
+    prototype: ComputerSyndicateTeleportersControl
 
 - type: entity
   parent: BaseComputerCircuitboard

@@ -1,5 +1,5 @@
-using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
+using Content.Shared.Gatherable;
+using Content.Shared.Gatherable.Components;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
 using Content.Shared.ADT.Crawling;
@@ -20,15 +20,15 @@ namespace Content.Server.ADT.Hierophant.Effects;
 
 public sealed class HierophantBlastSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GatherableSystem _gatherable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private GatherableSystem _gatherable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float TileRadius = 0.45f;
 

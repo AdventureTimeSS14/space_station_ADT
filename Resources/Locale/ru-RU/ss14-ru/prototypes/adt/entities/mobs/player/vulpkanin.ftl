@@ -1,0 +1,1 @@
+ent-ADTMobRandomVulpkanin = { ent-MobVulpkanin }

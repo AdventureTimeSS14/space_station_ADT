@@ -2,4 +2,5 @@ xeno-extract-reaction = Экстракт пузырится!
 xeno-extract-reaction-evil = Экстракт пузырится и шипит! Лучше отойти!
 xeno-extract-reaction-reagent = Экстракт пузырится! Его содержимое формируется в неизвестное вещество!
 xeno-extract-reaction-fail = Экстракт пузырится! Но ничего не происходит...
-xeno-extract-reaction-unreactive = [color=cyan]Экстракт на ощупь сухой. Его место в мусорке.[/color]
+xeno-extract-not-exhausted = Экстракт бурлит жизнью! Попробуйте залить в него кровь, воду или плазму.
+xeno-extract-exhausted = Экстракт исчерпан и больше не реагирует на реагенты. Остаётся только выбросить. Или всё-таки можно как-то его оживить?

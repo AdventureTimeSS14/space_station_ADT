@@ -398,6 +398,7 @@
   components:
     - type: BibleUser
     - type: Chaplain
+      maxFaith: 20 # ADT
     - type: GhostRole
       name: job-name-chaplain
     - type: Loadout
@@ -759,6 +760,8 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
+    - type: GhostVisibleAntag
+      name: ghost-role-information-syndie-soldier-teamlead-name
     - type: Loadout
       prototypes: [ SyndicateFootsoldierTeamLeaderGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
@@ -779,6 +782,8 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
+    - type: GhostVisibleAntag
+      name: ghost-role-information-syndie-soldier-name
     - type: Loadout
       prototypes: [ SyndicateFootsoldierGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]

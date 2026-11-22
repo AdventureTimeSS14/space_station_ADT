@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Text;
-using Content.Server.Botany;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.Botany.Components;
 using Content.Shared.ADT.Medical;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Interaction;
@@ -17,13 +17,13 @@ namespace Content.Server.ADT.Medical.EntitySystems;
 
 public sealed class DiseaseDiagnoserSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PaperSystem _paperSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PaperSystem _paperSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -100,7 +100,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
         Dirty(uid, comp);
     }
 
-    public string GetReport(BotanySwabComponent swabComponent)
+    public string GetReport(ADTAllergySwabComponent swabComponent)
     {
         StringBuilder builder = new();
 
@@ -135,7 +135,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
             return;
 
         var swabEnt = container.ContainedEntities.First();
-        if (!TryComp<BotanySwabComponent>(swabEnt, out var swabComponent))
+        if (!TryComp<ADTAllergySwabComponent>(swabEnt, out var swabComponent))
             return;
 
         var printed = Spawn("DiagnosisReportPaper", Transform(uid).Coordinates);

@@ -1,0 +1,231 @@
+- type: entity
+  parent: BaseStructure
+  id: ADTHeliosGatewayBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/descent.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: shaft_center
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Portal
+    canTeleportToOtherMaps: true
+    randomTeleport: false
+    departureSound:
+      collection: FootstepHull
+    arrivalSound:
+      collection: FootstepHull
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: ADTHeliosGatewayBase
+  id: ADTHeliosGatewayEntrance
+  name: спуск в шахту
+  description: Ступени уходят в темноту, намного глубже, чем должна позволять порода. Из глубины тянет теплом.
+  suffix: Гелиос, вход
+  components:
+  - type: ADTDungeonGateway
+    map: /Maps/ADT/Lavaland/helios_complex.yml
+    key: helios
+
+- type: entity
+  parent: ADTHeliosGatewayBase
+  id: ADTHeliosGatewayExit
+  name: подъём на поверхность
+  description: Длинная лестница ведёт наверх, где хотя бы есть небо. Сверху на ступени падает тёплый свет.
+  suffix: Гелиос, выход
+  components:
+  - type: Sprite
+    drawdepth: Overdoors
+    layers:
+    - state: exit_glow
+  - type: PointLight
+    radius: 4
+    energy: 1.4
+    color: "#FFB46A"
+  - type: ADTDungeonGatewayExit
+    key: helios
+
+- type: entity
+  id: ADTHeliosEntranceRoomMarker
+  parent: ADTBaseRoomMarker
+  name: спавнер входа в комплекс «Гелиос»
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    rotation: false
+    roomWhitelist:
+      tags:
+      - LavaDungeonHeliosEntrance
+
+- type: entity
+  parent: BaseStructure
+  id: ADTHeliosShaftSide
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/descent.rsi
+    drawdepth: FloorObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: ADTHeliosShaftSide
+  id: ADTHeliosShaftLeft
+  name: пролёт шахты
+  description: Ступени уходят в темноту. С этой стороны путь вниз перегорожен ржавым поручнем.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: shaft_left
+
+- type: entity
+  parent: ADTHeliosShaftSide
+  id: ADTHeliosShaftRight
+  name: пролёт шахты
+  description: Ступени уходят в темноту. С этой стороны путь вниз перегорожен ржавым поручнем.
+  suffix: Гелиос
+  components:
+  - type: Sprite
+    state: shaft_right
+
+- type: entity
+  id: ADTHeliosExitGlow
+  name: свет сверху
+  suffix: Гелиос
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Structures/Helios/descent.rsi
+    drawdepth: Overdoors
+    state: exit_glow
+
+- type: entity
+  parent: BaseStructure
+  id: ADTHeliosPitBase
+  abstract: true
+  name: провал
+  description: Пол камеры проломлен, и далеко внизу пульсирует красное свечение. Оттуда тянет жаром.
+  suffix: Гелиос
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Helios/descent.rsi
+    drawdepth: FloorTiles
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: ADTIndestructible
+  - type: Tag
+    tags:
+    - EmagImmune
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit0
+  components:
+  - type: Sprite
+    state: pit_0
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit1
+  components:
+  - type: Sprite
+    state: pit_1
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit2
+  components:
+  - type: Sprite
+    state: pit_2
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit3
+  components:
+  - type: Sprite
+    state: pit_3
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit4
+  components:
+  - type: Sprite
+    state: pit_4
+  - type: PointLight
+    radius: 3.5
+    energy: 1.6
+    color: "#FF4A1A"
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit5
+  components:
+  - type: Sprite
+    state: pit_5
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit6
+  components:
+  - type: Sprite
+    state: pit_6
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit7
+  components:
+  - type: Sprite
+    state: pit_7
+
+- type: entity
+  parent: ADTHeliosPitBase
+  id: ADTHeliosPit8
+  components:
+  - type: Sprite
+    state: pit_8

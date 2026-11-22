@@ -3,10 +3,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/actions_slime.rsi
-      state: hair
     itemIconStyle: BigAction
     useDelay: 1
+  - type: Sprite
+    sprite: ADT/Interface/Actions/actions_slime.rsi
+    layers:
+    - state: hair
   - type: InstantAction
     event: !type:MidroundCustomizationActionEvent

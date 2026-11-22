@@ -1,0 +1,66 @@
+uniform highp vec4 glazeColor;
+uniform highp vec4 spiceColor;
+uniform highp float seed;
+
+highp float sauceHash(highp vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7)) + seed * 17.13) * 43758.5453);
+}
+
+highp float sauceNoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    highp float a = sauceHash(i);
+    highp float b = sauceHash(i + vec2(1.0, 0.0));
+    highp float c = sauceHash(i + vec2(0.0, 1.0));
+    highp float d = sauceHash(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+highp vec3 sauceSoftLight(highp vec3 base, highp vec3 blend) {
+    highp vec3 dark = 2.0 * base * blend + base * base * (1.0 - 2.0 * blend);
+    highp vec3 light = sqrt(base) * (2.0 * blend - 1.0) + 2.0 * base * (1.0 - blend);
+    return mix(dark, light, step(vec3(0.5), blend));
+}
+
+highp vec4 applySauce(highp vec4 base, highp vec2 uv) {
+    if (base.a < 0.5 || (glazeColor.a <= 0.0 && spiceColor.a <= 0.0))
+        return base;
+
+    highp vec2 texel = TEXTURE_PIXEL_SIZE;
+    highp float interior = zTexture(uv + vec2(texel.x, 0.0)).a
+        * zTexture(uv - vec2(texel.x, 0.0)).a
+        * zTexture(uv + vec2(0.0, texel.y)).a
+        * zTexture(uv - vec2(0.0, texel.y)).a;
+    highp float saturation = max(max(base.r, base.g), base.b) - min(min(base.r, base.g), base.b);
+    highp float luminance = dot(base.rgb, vec3(0.299, 0.587, 0.114));
+    highp float food = max(smoothstep(0.06, 0.18, saturation), smoothstep(0.45, 0.65, luminance));
+    interior = step(0.5, interior) * step(0.5, food);
+
+    highp vec2 px = floor(uv / texel);
+    highp vec4 color = base;
+
+    if (glazeColor.a > 0.0) {
+        highp float n = sauceNoise(px * 0.3) * 0.7 + sauceNoise(px * 0.7 + 13.0) * 0.3;
+        highp float mask = smoothstep(0.47, 0.66, n) * interior * food;
+        highp vec3 glazed = sauceSoftLight(color.rgb, glazeColor.rgb);
+        glazed = mix(glazed, glazeColor.rgb, 0.25);
+        color.rgb = mix(color.rgb, glazed, mask * glazeColor.a);
+
+        highp float shine = sauceHash(px + vec2(31.0, 7.0));
+        if (mask > 0.85 && shine > 0.94)
+            color.rgb = mix(color.rgb, vec3(1.0), 0.3 * glazeColor.a);
+    }
+
+    if (spiceColor.a > 0.0 && interior > 0.5) {
+        highp float s = sauceHash(px * 1.73 + vec2(5.0, 11.0));
+        if (s < spiceColor.a)
+            color.rgb = mix(color.rgb, spiceColor.rgb, 0.7);
+    }
+
+    return color;
+}
+
+void fragment() {
+    COLOR = applySauce(zTexture(UV), UV);
+}

@@ -19,12 +19,12 @@ namespace Content.Client.ADT.Weather;
 
 public sealed partial class HeavyWindVisualsSystem : VirtualController
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedWeatherSystem _weather = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedWeatherSystem _weather = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private TimeSpan _lastEffect = TimeSpan.Zero;
     private EntityQuery<MapGridComponent> _gridQuery;

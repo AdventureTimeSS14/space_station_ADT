@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "State based copyright",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "copyright": "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/HEAD/icons/obj/fission/reactor_machines.dmi"
+    },
+    {
+      "name": "panel",
+      "copyright": "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/HEAD/icons/obj/fission/reactor_machines.dmi"
+    },
+    {
+      "name": "unlit",
+      "copyright": "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/HEAD/icons/obj/fission/reactor_machines.dmi"
+    },
+    {
+      "name": "building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ],
+      "copyright": "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/HEAD/icons/obj/fission/reactor_machines.dmi"
+    },
+    {
+      "name": "unlit-building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ],
+      "copyright": "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/HEAD/icons/obj/fission/reactor_machines.dmi"
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ],
+      "copyright": "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/HEAD/icons/obj/fission/reactor_machines.dmi"
+    }
+  ]
+}

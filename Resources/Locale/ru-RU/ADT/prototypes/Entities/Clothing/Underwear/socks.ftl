@@ -205,3 +205,7 @@ ent-ADTClothingUnderwearSocksThighCreepy = жуткие чулки
 
 ent-ADTClothingUnderwearSocksCow = коровьи носки
     .desc = Милые коровьи носки. Му-у-у!
+
+ent-ADTClothingUnderwearSocksStockingCow = коровьи чулки
+    .desc = Милые коровьи чулки. Му-у-у!
+

@@ -43,7 +43,8 @@
         radius: 2
         color: "#ffe89c"
         duration: 15
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 1
 
 - type: reagent
@@ -65,5 +66,6 @@
             Slash: -1
             Piercing: -1
             Heat: -1
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 3

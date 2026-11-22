@@ -20,6 +20,12 @@ public sealed partial class ADTDungeonRoomPrototype : IPrototype
     public Vector2i Size;
 
     [DataField]
+    public int Rotate;
+
+    [DataField]
+    public bool ReserveBounds = true;
+
+    [DataField]
     public Dictionary<string, ADTDungeonRoomTile> Legend = new();
 
     [DataField]
@@ -65,6 +71,9 @@ public sealed partial class ADTDungeonRoomEntities
 
     [DataField]
     public ADTComponentOverrides? Components;
+
+    [DataField]
+    public List<string> MissingComponents = new();
 
     [DataField(required: true)]
     public List<Vector2> Positions = new();

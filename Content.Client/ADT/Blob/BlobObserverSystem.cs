@@ -15,8 +15,8 @@ namespace Content.Client.ADT.Blob;
 
 public sealed class BlobObserverSystem : SharedBlobObserverSystem
 {
-    [Dependency] private readonly ILightManager _lightManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private ILightManager _lightManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -33,7 +33,6 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
         SubscribeNetworkEvent<RoundRestartCleanupEvent>(RoundRestartCleanup);
     }
 
-    [ValidatePrototypeId<FactionIconPrototype>]
     private const string BlobFaction = "ADTBlobFaction";
 
     private void OnShowBlobIcon<T>(Entity<T> ent, ref GetStatusIconsEvent args) where T : Component

@@ -1,3 +1,5 @@
+using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -6,8 +8,8 @@ using Robust.Shared.Map;
 namespace Content.Shared.ADT.Movement;
 public sealed class TileSpeedModifierSystem : EntitySystem
 {
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
 
     public override void Initialize()
     {
@@ -23,12 +25,16 @@ public sealed class TileSpeedModifierSystem : EntitySystem
             return;
 
         var speed = GetTileSpeedModifier(args.NewPosition);
+
+        if (HasComp<GhostComponent>(ent))
+            speed = 1f;
+
         if (MathHelper.CloseTo(speed, 1f))
         {
             if (HasComp<TileSpeedModifierComponent>(ent))
             {
                 RemComp<TileSpeedModifierComponent>(ent);
-                _speedModifier.RefreshMovementSpeedModifiers(ent);
+                _speedModifier.RefreshMovementSpeedModifiers(ent.Owner);
             }
 
             return;
@@ -43,7 +49,7 @@ public sealed class TileSpeedModifierSystem : EntitySystem
 
         comp.WalkSpeedModifier = speed;
         comp.SprintSpeedModifier = speed;
-        _speedModifier.RefreshMovementSpeedModifiers(ent);
+        _speedModifier.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnRefreshSpeed(Entity<TileSpeedModifierComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

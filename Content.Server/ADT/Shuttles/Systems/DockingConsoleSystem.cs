@@ -16,10 +16,10 @@ namespace Content.Server.ADT.Shuttles.Systems;
 
 public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
 
     public override void Initialize()
     {

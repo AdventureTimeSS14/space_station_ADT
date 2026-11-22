@@ -1,21 +1,21 @@
 ﻿<Document>
-  # Portable Scrubber
-  The portable scrubber is a portable machine that can be used to scrub the atmosphere in a room.
+  # Портативный скруббер
+  Портативный скруббер - это переносная машина, которая очищает атмосферу в комнате.
   <Box>
     <GuideEntityEmbed Entity="PortableScrubber"/>
   </Box>
 
-  It is invaluable for quickly removing unwanted gasses from a room when regular [textlink="scrubbers" link="AirScrubber"] are working too slow, or when a [textlink="scrubber" link="AirScrubber"] is not present.
+  Он незаменим, когда нужно быстро убрать ненужные газы из комнаты, а обычные [textlink="скрубберы" link="AirScrubber"] работают слишком медленно или их там вообще нет.
 
-  The portable scrubber requires [textlink="power" link="Power"] through a nearby [textlink="LV cable" link="VoltageNetworks"] to function.
+  Чтобы портативный скруббер работал, ему нужно [textlink="питание" link="Power"] от ближайшего [textlink="кабеля НВ" link="VoltageNetworks"].
 
-  The portable scrubber automatically starts removing all non-breathable gasses from the room when it is bolted (wrenched) to the floor.
+  Когда скруббер прикручивают гаечным ключом к полу, он сам начинает удалять из комнаты все газы, непригодные для дыхания.
 
-  It will stop scrubbing when unbolted (unwrenched) from the floor or when its internal volume is full. The scrubber has an internal capacity of [color=orange][protodata="PortableScrubber" comp="PortableScrubber" member="Volume"/] liters[/color].
+  Он перестаёт работать, когда его открепляют от пола или когда его внутренний объём заполняется. Внутри помещается [color=orange][protodata="PortableScrubber" comp="PortableScrubber" member="Volume"/] литров[/color].
 
-  ## Dumping Waste and Storage
-  The scrubber's internal volume can be emptied by anchoring (wrenching) onto a [textlink="connector" link="GasCanisters"].
+  ## Слив отходов и хранение
+  Чтобы опустошить скруббер, прикрутите его гаечным ключом к [textlink="порту подключения" link="GasCanisters"].
 
-  Stations commonly have a dedicated emptying point to quickly transfer the waste from the scrubber to the station's wastenet.
+  Обычно на станциях есть отдельное место для слива, откуда отходы из скруббера быстро уходят в сеть отходов станции.
 
 </Document>

@@ -1,7 +1,7 @@
 using System.Linq;
+using Content.Client.ADT.Guidebook;
 using Content.Client.Gameplay;
 using Content.Client.Guidebook;
-using Content.Client.Guidebook.Controls;
 using Content.Client.Lobby;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.UserInterface.Controls;
@@ -19,18 +19,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Guidebook;
 
-public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyState>, IOnStateEntered<GameplayState>, IOnStateExited<LobbyState>, IOnStateExited<GameplayState>, IOnSystemChanged<GuidebookSystem>
+public sealed partial class GuidebookUIController : UIController, IOnStateEntered<LobbyState>, IOnStateEntered<GameplayState>, IOnStateExited<LobbyState>, IOnStateExited<GameplayState>, IOnSystemChanged<GuidebookSystem>
 {
     [UISystemDependency] private readonly GuidebookSystem _guidebookSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private JobRequirementsManager _jobRequirements = default!;
 
     private const int PlaytimeOpenGuidebook = 60;
 
-    private GuidebookWindow? _guideWindow;
+    private ADTGuidebookWindow? _guideWindow; // ADT-Tweak
     private MenuButton? GuidebookButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.GuidebookButton;
-    private ProtoId<GuideEntryPrototype>? _lastEntry;
 
     public void OnStateEntered(LobbyState state)
     {
@@ -47,9 +46,10 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         DebugTools.Assert(_guideWindow == null);
 
         // setup window
-        _guideWindow = UIManager.CreateWindow<GuidebookWindow>();
+        _guideWindow = UIManager.CreateWindow<ADTGuidebookWindow>(); // ADT-Tweak
         _guideWindow.OnClose += OnWindowClosed;
         _guideWindow.OnOpen += OnWindowOpen;
+        _guideWindow.PopoutClosed += OnWindowClosed; // ADT-Tweak
 
         if (state is LobbyState &&
             _jobRequirements.FetchOverallPlaytime() < TimeSpan.FromMinutes(PlaytimeOpenGuidebook))
@@ -78,6 +78,7 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
 
     private void HandleStateExited()
     {
+        DisposeLegacyGuidebook(); // ADT-Tweak
         if (_guideWindow == null)
             return;
 
@@ -123,6 +124,11 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
 
     public void ToggleGuidebook()
     {
+        // ADT-Tweak-Start
+        if (CloseLegacyGuidebook(true) || ClosePopoutGuidebook())
+            return;
+        // ADT-Tweak-End
+
         if (_guideWindow == null)
             return;
 
@@ -137,17 +143,16 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         }
     }
 
+    // ADT-Tweak-Start
     private void OnWindowClosed()
     {
+        if (_guideWindow?.IsPoppedOut == true)
+            return;
+
         if (GuidebookButton != null)
             GuidebookButton.Pressed = false;
-
-        if (_guideWindow != null)
-        {
-            _guideWindow.ReturnContainer.Visible = false;
-            _lastEntry = _guideWindow.LastEntry;
-        }
     }
+    // ADT-Tweak-End
 
     private void OnWindowOpen()
     {
@@ -177,13 +182,15 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         if (_guideWindow == null)
             return;
 
+        CloseLegacyGuidebook(); // ADT-Tweak
         if (GuidebookButton != null)
             GuidebookButton.SetClickPressed(!_guideWindow.IsOpen);
 
+        var openHome = guides == null && selected == null && _guideWindow.Selected == null; // ADT-Tweak
         if (guides == null)
         {
             guides = _prototypeManager.EnumeratePrototypes<GuideEntryPrototype>()
-                .ToDictionary(x => new ProtoId<GuideEntryPrototype>(x.ID), x => (GuideEntry) x);
+                .ToDictionary(x => new ProtoId<GuideEntryPrototype>(x.ID), x => (GuideEntry)x);
         }
         else if (includeChildren)
         {
@@ -197,22 +204,18 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
 
         if (selected == null)
         {
-            if (_lastEntry is { } lastEntry && guides.ContainsKey(lastEntry))
+            if (_guideWindow.Selected is { } lastEntry && guides.ContainsKey(lastEntry))
             {
-                selected = _lastEntry;
+                selected = lastEntry;
             }
             else
             {
                 selected = _configuration.GetCVar(CCVars.DefaultGuide);
             }
         }
-        _guideWindow.UpdateGuides(guides, rootEntries, forceRoot, selected);
+        _guideWindow.UpdateGuides(guides, rootEntries, forceRoot, openHome ? null : selected); // ADT-Tweak
 
-        // Expand up to depth-2.
-        _guideWindow.Tree.SetAllExpanded(false);
-        _guideWindow.Tree.SetAllExpanded(true, 1);
-
-        _guideWindow.OpenCenteredRight();
+        _guideWindow.OpenSized(); // ADT-Tweak
     }
 
     public void OpenGuidebook(
@@ -238,6 +241,10 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
 
     public void CloseGuidebook()
     {
+        // ADT-Tweak-Start
+        CloseLegacyGuidebook(true);
+        ClosePopoutGuidebook();
+        // ADT-Tweak-End
         if (_guideWindow == null)
             return;
 

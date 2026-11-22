@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.Chat.Controls;
 using Content.Client.ADT.UI.Chat; 
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
@@ -21,8 +22,8 @@ namespace Content.Client.UserInterface.Systems.Chat.Widgets;
 [Virtual]
 public partial class ChatBox : UIWidget
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private readonly ISawmill _sawmill;
     private readonly ChatUIController _controller;
@@ -47,6 +48,7 @@ public partial class ChatBox : UIWidget
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
+        ChatInput.FilterButton.Popup.OnOpenCustomEmotes += OnOpenCustomEmotes; // ADT-Tweak
         // ADT-Tweak start
         ChatInput.OnSearchButtonPressed += ToggleSearch;
         ChatSearch.OnSearchChanged += OnSearchTextChanged;
@@ -81,7 +83,7 @@ public partial class ChatBox : UIWidget
         // ADT-Tweak end
 
         if (msg is { Read: false, AudioPath: { } })
-            _entManager.System<AudioSystem>().PlayGlobal(msg.AudioPath, Filter.Local(), false, AudioParams.Default.WithVolume(msg.AudioVolume));
+            _entManager.System<AudioSystem>().PlayGlobal(msg.AudioPath, Filter.Local(), false, AudioParams.Default.AddVolume(msg.AudioVolume));
 
         msg.Read = true;
 
@@ -135,6 +137,13 @@ public partial class ChatBox : UIWidget
     {
         ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
     }
+
+    // ADT-Tweak-Start
+    private void OnOpenCustomEmotes()
+    {
+        _controller.OpenCustomEmotesWindow();
+    }
+    // ADT-Tweak-End
 
     private void OnChannelSelect(ChatSelectChannel channel)
     {
@@ -241,6 +250,14 @@ public partial class ChatBox : UIWidget
 
         if (args.Function == ContentKeyFunctions.CycleChatChannelForward)
         {
+            // ADT-Tweak-Start
+            if (ChatInput.Input is PrayerHintLineEdit prayerInput && prayerInput.TryCompleteHint())
+            {
+                args.Handle();
+                return;
+            }
+            // ADT-Tweak-End
+
             CycleChatChannel(true);
             args.Handle();
             return;

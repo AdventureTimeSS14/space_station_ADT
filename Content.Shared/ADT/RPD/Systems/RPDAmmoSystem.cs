@@ -10,9 +10,9 @@ namespace Content.Shared.ADT.RPD.Systems;
 
 public sealed class RPDAmmoSystem : EntitySystem
 {
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

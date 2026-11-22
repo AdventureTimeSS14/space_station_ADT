@@ -1,0 +1,9 @@
+- files: ["sigh-1.ogg", "sigh-2.ogg", "snort-1.ogg", "snort-2.ogg", "snort-3.ogg"]
+  license: "Custom"
+  copyright: "Pixabay Content License"
+  source: "https://pixabay.com/service/license-summary/"
+
+- files: ["hoof_stomp.ogg"]
+  license: "Custom"
+  copyright: "Pixabay Content License"
+  source: "https://pixabay.com/service/license-summary/"

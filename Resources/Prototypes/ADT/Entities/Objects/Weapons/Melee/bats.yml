@@ -38,8 +38,9 @@
           True: {state: bat_on}
           False: {state: bat_off}
   - type: MeleeThrowOnHit
-    speed: 20
+    speed: 10
     distance: 1
+  - type: ADTThrowOnHitRestrictions
   - type: StealTarget
     stealGroup: ADTHosWeapon
 

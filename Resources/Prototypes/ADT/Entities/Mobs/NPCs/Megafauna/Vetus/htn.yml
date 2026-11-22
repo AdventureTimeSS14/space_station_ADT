@@ -1,0 +1,82 @@
+- type: utilityQuery
+  id: ADTVetusMeleeTargets
+  query:
+    - !type:NearbyHostilesQuery
+  considerations:
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve
+
+- type: htnCompound
+  id: ADTVetusAttackTargetCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: Dead
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: MeleeRange
+          services:
+            - !type:UtilityService
+              id: MeleeService
+              proto: ADTVetusMeleeTargets
+              key: Target
+
+- type: htnCompound
+  id: ADTVetusCombatPrecondition
+  branches:
+    - preconditions:
+        - !type:BuckledPrecondition
+          isBuckled: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnbuckleOperator
+            shutdownState: TaskFinished
+    - preconditions:
+        - !type:InContainerPrecondition
+          isInContainer: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: EscapeCompound
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTVetusMeleeTargets
+        - !type:HTNCompoundTask
+          task: ADTVetusAttackTargetCompound
+
+- type: htnCompound
+  id: ADTVetusCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: MegafaunaBusy
+      tasks:
+        - !type:HTNCompoundTask
+          task: DoAbsolutelyNothingCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ADTVetusCombatPrecondition
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound

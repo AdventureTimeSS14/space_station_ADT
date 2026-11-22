@@ -49,3 +49,4 @@ ent-OrganSlimePersonCore = разумное ядро слайма
 ent-OrganSlimePersonLungs = газовые мешки слайма
     .desc = { ent-OrganBaseLungs.desc }
     .suffix = { ent-OrganSlimePersonInternal.suffix }
+ent-OrganSlimePersonEyes = { ent-OrganBaseEyes }

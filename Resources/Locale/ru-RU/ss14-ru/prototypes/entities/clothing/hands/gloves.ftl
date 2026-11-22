@@ -73,3 +73,4 @@ ent-ClothingHandsGlovesBoxingRiggedRed = красные боксёрские п�
 ent-ClothingHandsGlovesBoxingRiggedBlue = синие боксёрские перчатки
     .suffix = Нечестные
     .desc = Синие перчатки для соревновательного бокса.
+ent-GlovesBoxingRiggedRandomSpawner = спавнер случайной подкрученной боксёрской перчатки

@@ -5,7 +5,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/senior_physician.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Medical/senior_physician.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -13,7 +13,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/senior_researcher.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Science/senior_researcher.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -21,7 +21,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/web.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Special/web.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -29,7 +29,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Security/security_blue.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -37,7 +37,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/bartender.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Service/bartender.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -45,7 +45,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Service/bartender_purple.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -53,7 +53,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Service/chef.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -61,7 +61,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Medical/chemistry.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -69,7 +69,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/detective.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Security/detective.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -77,7 +77,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Civilian/hawaiyellow.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -85,7 +85,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Security/hos_blue.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -93,7 +93,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/janitor.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Service/janitor.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -101,7 +101,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/kimono.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Civilian/kimono.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -109,7 +109,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/mime.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Service/mime.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -117,7 +117,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Service/monastic_robe_light.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -125,7 +125,7 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/paramedic.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Medical/paramedic.rsi
     state: equipped-INNERCLOTHING
 
 - type: marking
@@ -133,5 +133,5 @@
   bodyPart: Chest # ADT-Tweak: was [ RArm, LArm, LLeg, RLeg ], wizden schema is single-enum
   groupWhitelist: [Ghost]
   sprites:
-  - sprite: Clothing/Uniforms/Jumpsuit/pirate.rsi
+  - sprite: Clothing/Uniforms/Jumpsuits/Special/pirate.rsi
     state: equipped-INNERCLOTHING

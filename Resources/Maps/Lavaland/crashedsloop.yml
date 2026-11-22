@@ -1735,7 +1735,7 @@ entities:
     - type: Transform
       pos: 5.5,-3.5
       parent: 1
-- proto: WallRockBasalt
+- proto: ADTBasalt
   entities:
   - uid: 19
     components:
@@ -1867,7 +1867,7 @@ entities:
     - type: Transform
       pos: 5.5,5.5
       parent: 1
-- proto: WallRockBasaltGold
+- proto: ADTBasaltGold
   entities:
   - uid: 17
     components:

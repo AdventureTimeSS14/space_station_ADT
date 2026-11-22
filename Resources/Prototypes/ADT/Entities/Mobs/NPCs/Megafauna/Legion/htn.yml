@@ -1,0 +1,102 @@
+- type: utilityQuery
+  id: ADTLegionMegafaunaTargets
+  query:
+    - !type:NearbyHostilesQuery
+  considerations:
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve
+
+- type: htnCompound
+  id: ADTLegionMegafaunaMeleeCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: Dead
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: MeleeRange
+
+- type: htnCompound
+  id: ADTLegionMegafaunaRangedCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+        - !type:TargetInRangePrecondition
+          targetKey: Target
+          rangeKey: MeleeRange
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: Dead
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: ADTFleeCoordinates
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            targetKey: ADTFleeCoordinates
+            pathfindInPlanning: false
+            removeKeyOnFinish: false
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: LegionKeepRange
+
+- type: htnCompound
+  id: ADTLegionMegafaunaCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: LegionFiringLaser
+      tasks:
+        - !type:HTNCompoundTask
+          task: DoAbsolutelyNothingCompound
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: LegionCharging
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTLegionMegafaunaTargets
+        - !type:HTNCompoundTask
+          task: ADTLegionMegafaunaMeleeCompound
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTLegionMegafaunaTargets
+        - !type:HTNCompoundTask
+          task: ADTLegionMegafaunaRangedCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: DoAbsolutelyNothingCompound

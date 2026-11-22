@@ -42,8 +42,6 @@
   id: MetalMutation
   producedExtract: MetalSlimeExtract
   slimeColor: "#595959"
-  shouldHaveShader: true
-  shader: XenoMetallic
   maxOffspring: 4
   mutationChance: 0.45
   potentialMutations:

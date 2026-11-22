@@ -1,0 +1,31 @@
+- type: adtDishQuality
+  id: ADTDishQualityRuined
+  level: 0
+  name: adt-dish-quality-ruined
+  color: "#8b5a3c"
+  nutritionMultiplier: 0.5
+
+- type: adtDishQuality
+  id: ADTDishQualityNormal
+  level: 1
+  name: adt-dish-quality-normal
+  color: "#d8d8d8"
+  nutritionMultiplier: 1
+
+- type: adtDishQuality
+  id: ADTDishQualityGood
+  level: 2
+  name: adt-dish-quality-good
+  color: "#7ccf6a"
+  nutritionMultiplier: 1.2
+  wellFedEffect: ADTStatusEffectWellFed
+  wellFedDuration: 600
+
+- type: adtDishQuality
+  id: ADTDishQualityExcellent
+  level: 3
+  name: adt-dish-quality-excellent
+  color: "#f0c44c"
+  nutritionMultiplier: 1.4
+  wellFedEffect: ADTStatusEffectWellFedGreat
+  wellFedDuration: 1200

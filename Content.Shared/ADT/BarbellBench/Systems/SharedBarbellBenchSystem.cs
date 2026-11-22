@@ -7,10 +7,10 @@ namespace Content.Shared.ADT.BarbellBench.Systems;
 
 public abstract class SharedBarbellBenchSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actConts = default!;
-    [Dependency] protected readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] protected readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] private ActionContainerSystem _actConts = default!;
+    [Dependency] protected SharedActionsSystem _actionsSystem = default!;
+    [Dependency] protected SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected SharedContainerSystem Container = default!;
 
     public const string BarbellRepActionId = "ActionBarbellBenchPerformRep";
 

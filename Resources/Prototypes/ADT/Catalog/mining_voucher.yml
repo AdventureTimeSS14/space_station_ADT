@@ -73,6 +73,19 @@
 #  - drone passthrough ka modkit
 
 - type: thiefBackpackSet
+  id: MiningPKAUpgrades
+  name: mining-voucher-pka-upgrades-name
+  description: mining-voucher-pka-upgrades-description
+  sprite:
+    sprite: Objects/Tools/upgrade.rsi
+    state: base
+  content:
+  - PKAUpgradeFireRate
+  - PKAUpgradeRange
+  - ADTAdvancedOreBag
+  - SurvivalKnife
+
+- type: thiefBackpackSet
   id: MiningArmor
   name: mining-voucher-mining-armor-name
   description: mining-voucher-mining-armor-description

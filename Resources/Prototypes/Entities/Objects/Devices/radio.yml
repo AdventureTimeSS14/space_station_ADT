@@ -5,18 +5,41 @@
   id: RadioHandheld
   components:
   - type: TelecomExempt
-  - type: RadioMicrophone
-    broadcastChannel: Handheld
-  - type: RadioSpeaker
-    channels:
-    - Handheld
+# ADT-Tweak-Start
+  - type: ADTTunableRadio
+    frequency: 1330
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.RadioDeviceVisuals.Speaker:
+        enum.RadioDeviceVisualLayers.Speaker:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RadioDeviceVisuals.Broadcasting:
+        enum.RadioDeviceVisualLayers.Broadcasting:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ActivatableUI
+    key: enum.ADTTunableRadioUiKey.Key
+    requireActiveHand: false
+  - type: UserInterface
+    interfaces:
+      enum.ADTTunableRadioUiKey.Key:
+        type: TunableRadioBoundUserInterface
+# ADT-Tweak-End
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
     sprite: Objects/Devices/communication.rsi
     layers:
     - state: walkietalkie
+    # ADT-Tweak-Start
     - state: walkietalkie-on
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+    - state: walkietalkie-active
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      visible: false
+    # ADT-Tweak-End
     state: walkietalkie
   - type: Item
     sprite: Objects/Devices/communication.rsi
@@ -28,17 +51,29 @@
 - type: entity
   name: security radio
   description: A handy security radio.
-  parent: [ RadioHandheld, BaseSecurityContraband ]
+# ADT-Tweak-Start
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: RadioHandheldSecurity
   components:
+  - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Security
     listenRange: 1
   - type: RadioSpeaker
     channels:
     - Security
+  - type: Speech
+    speechVerb: Robotic
   - type: Sprite
     sprite: Objects/Devices/securityhandy.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
   - type: Item
     sprite: Objects/Devices/securityhandy.rsi
     heldPrefix: walkietalkie
+  - type: Tag
+    tags:
+    - Radio
+# ADT-Tweak-End

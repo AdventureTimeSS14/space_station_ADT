@@ -9,7 +9,7 @@ namespace Content.Server.ADT.BookPrinter.Commands
     [AdminCommand(AdminFlags.Server)]
     public sealed class DeleteBookCommand : LocalizedCommands
     {
-        [Dependency] private readonly IServerDbManager _db = default!;
+        [Dependency] private IServerDbManager _db = default!;
 
         public override string Command => "deletebook";
 
@@ -70,7 +70,7 @@ namespace Content.Server.ADT.BookPrinter.Commands
     [AdminCommand(AdminFlags.Server)]
     public sealed class ListBooksCommand : LocalizedCommands
     {
-        [Dependency] private readonly IServerDbManager _db = default!;
+        [Dependency] private IServerDbManager _db = default!;
 
         public override string Command => "listbooks";
 

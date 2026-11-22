@@ -1,0 +1,167 @@
+- type: entity
+  abstract: true
+  id: ADTGuideShadowlingIconBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Interface/Actions/shadowling.rsi
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingHatch
+  name: Раскрытие
+  components:
+  - type: Sprite
+    state: hatch
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingEnthrall
+  name: Порабощение
+  components:
+  - type: Sprite
+    state: enthrall
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingGlare
+  name: Взгляд
+  components:
+  - type: Sprite
+    state: glare
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingVeil
+  name: Завеса
+  components:
+  - type: Sprite
+    state: veil
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingShadowWalk
+  name: Теневой шаг
+  components:
+  - type: Sprite
+    state: shadow_walk
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingIcyVeins
+  name: Ледяные вены
+  components:
+  - type: Sprite
+    state: icy_veins
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingCollectiveMind
+  name: Коллективный разум
+  components:
+  - type: Sprite
+    state: collective_mind
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingBlindnessSmoke
+  name: Слепящий дым
+  components:
+  - type: Sprite
+    state: black_smoke
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingScreech
+  name: Крик
+  components:
+  - type: Sprite
+    state: screech
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingNullCharge
+  name: Обнуление
+  components:
+  - type: Sprite
+    state: null_charge
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingBlackRecuperation
+  name: Чёрное восстановление
+  components:
+  - type: Sprite
+    state: revive_thrall
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingDestroyEngines
+  name: Уничтожить двигатели
+  components:
+  - type: Sprite
+    state: extend_shuttle
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingAscend
+  name: Вознесение
+  components:
+  - type: Sprite
+    state: ascend
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingGuise
+  name: Личина
+  components:
+  - type: Sprite
+    state: shadow_walk
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideShadowlingDarksight
+  name: Тёмное зрение
+  components:
+  - type: Sprite
+    state: darksight
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideAscendantAnnihilate
+  name: Аннигиляция
+  components:
+  - type: Sprite
+    state: annihilate
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideAscendantHypnosis
+  name: Гипноз
+  components:
+  - type: Sprite
+    state: enthrall
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideAscendantPhaseShift
+  name: Фазовый сдвиг
+  components:
+  - type: Sprite
+    state: shadow_walk
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideAscendantLightningStorm
+  name: Грозовой шторм
+  components:
+  - type: Sprite
+    state: lightning_storm
+
+- type: entity
+  parent: ADTGuideShadowlingIconBase
+  id: ADTGuideAscendantBroadcast
+  name: Глас вознёсшегося
+  components:
+  - type: Sprite
+    state: transmit

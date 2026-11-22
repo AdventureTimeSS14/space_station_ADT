@@ -10,7 +10,7 @@ namespace Content.Shared.Weapons.Melee.MeleeBlacklist;
 
 public sealed class MeleeBlacklistSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<MeleeBlacklistComponent, AttemptMeleeEvent>(OnMeleeHit);

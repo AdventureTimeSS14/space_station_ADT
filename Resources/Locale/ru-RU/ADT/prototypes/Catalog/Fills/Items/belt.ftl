@@ -13,3 +13,19 @@ ent-ADTClothingBeltSheathZeroCosplayFilled = { ent-ADTClothingBeltSheathZeroFill
 ent-ClothingBeltSecurityLightbatonFilled = { ent-ClothingBeltSecurity }
     .desc = { ent-ClothingBeltSecurity.desc }
     .suffix = { "Заполнен, фонарь-дубинка" }
+
+ent-ADTClothingWarBeltMedicERTFilled = варбелт
+    .desc = Пояс с несколькими вместительными подсумками.
+    .suffix = { "Медик ОБР" }
+
+ent-ADTClothingWarBeltEngineerERTFilled = варбелт
+    .desc = Пояс с несколькими вместительными подсумками.
+    .suffix = { "Инженер ОБР" }
+
+ent-ADTClothingWarBeltJanitorERTFilled = варбелт
+    .desc = Пояс с несколькими вместительными подсумками.
+    .suffix = { "Уборщик ОБР" }
+
+ent-ADTClothingWarBeltSODOfficerFilled = варбелт
+    .desc = Пояс с несколькими вместительными подсумками.
+    .suffix = { "Офицер ДСО" }

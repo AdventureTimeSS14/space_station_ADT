@@ -21,6 +21,8 @@
   - type: Gps
     tag: MINE0
   - type: HandheldGPS
+  - type: ADTMagmiteUpgradable
+    result: ADTGpsMagmite
   - type: Appearance
   - type: GenericVisualizer
     visuals:

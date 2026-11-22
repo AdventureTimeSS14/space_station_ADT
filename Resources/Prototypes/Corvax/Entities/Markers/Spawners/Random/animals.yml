@@ -31,7 +31,7 @@
         - MobMouse
         - MobLizard
         - MobSlug
-        - MobFrog
+        - ADTMobFrog # ADT-Tweak
         - MobParrot
         - MobPenguin
         - MobSnake

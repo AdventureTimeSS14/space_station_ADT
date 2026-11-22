@@ -13,6 +13,42 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - CrewTransferScheduler
+    - ADTDiseaseAlertRule
+
+- type: gamePreset
+  showInVote: false # secret
+  id: Changeling
+  alias:
+    - ling
+    - lings
+    - changeling
+  name: adt-changeling-gamemode-title
+  description: adt-changeling-gamemode-description
+  rules:
+    - Changeling
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - ADTDiseaseAlertRule
+
+- type: gamePreset
+  showInVote: false # secret
+  id: ADTShadowling
+  alias:
+    - shadowling
+    - tenemorph
+  name: adt-shadowling-title
+  minPlayers: 25
+  description: adt-shadowling-description
+  rules:
+    - ADTShadowlingGameRule
+    - BasicRoundstartVariation
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+    - ADTDiseaseAlertRule
 
 - type: gamePreset
   id: TraitorLight
@@ -28,6 +64,7 @@
     - TraitorLightStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
+    - ADTDiseaseAlertRule
     - CrewTransferScheduler #ADT tweak
 
 #Версия всего понемногу
@@ -42,6 +79,7 @@
     - TraitorTripleGameRule
     - HereticTripleGameRule
     - ThiefSecretGameRule
+    - ADTDiseaseAlertRule
     # - ChangelingDuo # ADT tweak
     # - TraitorDuoGameRule
     # - HereticDuoGameRule
@@ -64,6 +102,7 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
+    - ADTDiseaseAlertRule
     - CrewTransferScheduler #ADT tweak
 
 

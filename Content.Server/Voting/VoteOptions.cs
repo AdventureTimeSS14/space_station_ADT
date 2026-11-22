@@ -54,6 +54,8 @@ namespace Content.Server.Voting
         /// </summary>
         public NetEntity? TargetEntity = null;
 
+        public Dictionary<int, int> BonusVotes = new(); // ADT-Tweak
+
         /// <summary>
         ///     Sets <see cref="InitiatorPlayer"/> and <see cref="InitiatorText"/>
         ///     by setting the latter to the player's name.

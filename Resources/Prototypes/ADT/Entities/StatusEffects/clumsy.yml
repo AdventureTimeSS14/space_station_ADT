@@ -1,0 +1,34 @@
+- type: entity
+  parent: StatusEffectClumsyKobold
+  id: ADTStatusEffectClumsyKoboldAdvanced
+  components:
+  - type: ClumsyGunStatusEffect
+    failDamage:
+      types:
+        Blunt: 2
+        Piercing: 7
+        Heat: 3
+
+- type: entity
+  parent: [ StatusEffectClumsyAll, MobStatusEffectBase ]
+  id: ADTStatusEffectClumsySlugcat
+  components:
+  - type: ClumsyGunStatusEffect
+    failDamage:
+      types:
+        Blunt: 20
+        Piercing: 15
+        Heat: 15
+
+- type: entity
+  parent: [ StatusEffectClumsyAll, MobStatusEffectBase ]
+  id: ADTStatusEffectClumsyTrait
+  components:
+  - type: ClumsyGunStatusEffect
+    failDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+        Heat: 3
+        Cold: 3
+        Shock: 3

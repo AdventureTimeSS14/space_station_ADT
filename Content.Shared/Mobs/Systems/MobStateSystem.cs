@@ -3,6 +3,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Systems; // ADT-Tweak
+using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
@@ -11,23 +12,21 @@ namespace Content.Shared.Mobs.Systems;
 [Virtual]
 public partial class MobStateSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!; // ADT-Tweak
-    private ISawmill _sawmill = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveMod = default!; // ADT-Tweak
 
-    private EntityQuery<MobStateComponent> _mobStateQuery;
+    [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
 
     public override void Initialize()
     {
-        _sawmill = _logManager.GetSawmill("MobState");
-        _mobStateQuery = GetEntityQuery<MobStateComponent>();
         base.Initialize();
+
         SubscribeEvents();
     }
 
@@ -56,7 +55,7 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState == MobState.Critical;
+        return component.CurrentState is MobState.SoftCritical or MobState.Critical; // ADT-Tweak
     }
 
     /// <summary>
@@ -82,7 +81,7 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState is MobState.Critical or MobState.Dead;
+        return component.CurrentState is MobState.SoftCritical or MobState.Critical or MobState.Dead; // ADT-Tweak
     }
 
     /// <summary>

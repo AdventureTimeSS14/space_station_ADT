@@ -41,3 +41,11 @@
   maxAge: 70
   oldAge: 71
   youngAge: 41
+  defaultSoundsBySex:
+  - MaleNovakid
+  - FemaleNovakid
+  - UnisexNovakid
+  voices:
+  - MaleNovakid
+  - FemaleNovakid
+  - UnisexNovakid

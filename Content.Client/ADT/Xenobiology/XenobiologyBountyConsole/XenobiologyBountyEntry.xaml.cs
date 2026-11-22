@@ -12,7 +12,7 @@ namespace Content.Client.ADT.Xenobiology.XenobiologyBountyConsole;
 [GenerateTypedNameReferences]
 public sealed partial class XenobiologyBountyEntry : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public Action? OnFulfillButtonPressed;
     public Action? OnSkipButtonPressed;

@@ -1,7 +1,7 @@
 using System.Linq;
+using Content.Shared.ADT.Containers;
 using Content.Shared.ADT.Lavaland.WorldAnvil;
 using Content.Shared.DoAfter;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Containers;
@@ -11,11 +11,10 @@ namespace Content.Server.ADT.Lavaland.WorldAnvil;
 
 public sealed class ADTMagmiteUpgradeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -29,6 +28,11 @@ public sealed class ADTMagmiteUpgradeSystem : EntitySystem
     private void OnCooled(Entity<ADTMagmiteUpgradeComponent> parts, ref TimedDespawnEvent args)
     {
         _popup.PopupEntity(Loc.GetString(parts.Comp.CoolMessage), parts, PopupType.MediumCaution);
+
+        if (parts.Comp.CooledPrototype is not { } cooled)
+            return;
+
+        SpawnNextToOrDrop(cooled, parts);
     }
 
     private void OnAfterInteract(Entity<ADTMagmiteUpgradeComponent> parts, ref AfterInteractEvent args)
@@ -77,22 +81,25 @@ public sealed class ADTMagmiteUpgradeSystem : EntitySystem
         {
             foreach (var container in _container.GetAllContainers(target, containers).ToList())
             {
+                if (ADTInternalContainers.IsInternal(container))
+                    continue;
+
                 _container.EmptyContainer(container);
             }
         }
 
-        var inHands = _hands.IsHolding(args.User, target);
-        var coordinates = inHands
-            ? _transform.GetMoverCoordinates(args.User)
-            : Transform(target).Coordinates;
+        var previousContainer = _container.TryGetContainingContainer((target, null, null), out var found)
+            ? found
+            : null;
+        var coordinates = _transform.GetMapCoordinates(target);
 
         Del(target);
         QueueDel(parts);
 
         var upgraded = Spawn(upgradable.Result, coordinates);
 
-        if (inHands)
-            _hands.TryPickupAnyHand(args.User, upgraded);
+        if (previousContainer != null && !TerminatingOrDeleted(previousContainer.Owner))
+            _container.Insert(upgraded, previousContainer);
 
         _popup.PopupEntity(Loc.GetString("adt-magmite-parts-upgraded"), args.User, args.User);
 

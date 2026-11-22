@@ -21,6 +21,10 @@ mining-voucher-survival-name = Набор выживальщика
 mining-voucher-survival-description =
     Содержит РПС утилизатора, что позволяет переносить ещё больше вещей,
     а так же спасательную капсулу и фальшфейер.
+mining-voucher-pka-upgrades-name = Набор улучшений ПКА
+mining-voucher-pka-upgrades-description =
+    Содержит модули скорострельности и дальности для ПКА,
+    улучшенную сумку для руды и нож выживания.
 mining-voucher-minebot-name = Набор роботизированных раскопок
 mining-voucher-minebot-description =
     Содержит маленького компаньона-копатьбота, который помогает вам хранить руду и охотиться на диких животных.
@@ -114,6 +118,12 @@ syndicate-commander-voucher-hardsuit-description = Усиленная верси
 syndicate-medic-voucher-hardsuit-name = кроваво-красный медицинский скафандр
 syndicate-medic-voucher-hardsuit-description = Тяжелобронированный и манёвренный продвинутый скафандр, предназначенный для полевых медицинских операций.
 
+syndicate-medic-voucher-mod-name = МОД "Медицинский"
+syndicate-medic-voucher-mod-description = Медицинская версия костюма "Gorlex Marauders". Рассчитана на полевую медицину под огнем.
+
+syndicate-commander-voucher-mod-name = МОД "Меркурий"
+syndicate-commander-voucher-mod-description = Сильно улучшенная версия обычного МОДа синдиката, что выполнена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.
+
 sec-voucher-mk58-name = МК 58
 sec-voucher-mk58-description = Дешёвый и распространённый пистолет, производимый дочерней компанией Nanotrasen. Использует патроны калибра 9х19 мм.
 
@@ -144,3 +154,30 @@ ertmedical-voucher-hardsuit-name = скафандр медика ОБР
 ertmedical-voucher-hardsuit-description = Защитный скафандр, выдаваемый медику Отряда Быстрого Реагирования кода "Гамма".
 ertmedical-voucher-mod-name = МОД ОБР "Вега"
 ertmedical-voucher-mod-description = Облегчённый МОД для медика Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.
+
+musician-voucher-harp-name = арфа
+musician-voucher-harp-description = Перебирая струны легко порезать пальцы, зато музыка красивая.
+musician-voucher-vibraphone-name = вибрафон
+musician-voucher-vibraphone-description = Хорошие вибрации повсюду.
+musician-voucher-contrabass-name = контрабас
+musician-voucher-contrabass-description = Идеален для создания приятного джазового ритма.
+musician-voucher-timpani-name = литавры
+musician-voucher-timpani-description = Делает БУМ-БУМ-БУМ-БУМ-БУМ!
+musician-voucher-marimba-name = маримба
+musician-voucher-marimba-description = Это маримба.
+musician-voucher-minimoog-name = минимуг
+musician-voucher-minimoog-description = Минимуг — это как космическое фортепиано, только ещё более космическое!
+musician-voucher-upright-piano-name = пианино
+musician-voucher-upright-piano-description = Я сказал пьянино!
+musician-voucher-piano-name = рояль
+musician-voucher-piano-description = При необходимости поднять на девятый этаж зовите карго.
+musician-voucher-taiko-name = тайко
+musician-voucher-taiko-description = Большой барабан. При одном взгляде на него возникает желание вдарить.
+musician-voucher-tom-drums-name = том-том
+musician-voucher-tom-drums-description = А куда делся остальной комплект?
+musician-voucher-tuba-name = туба
+musician-voucher-tuba-description = Большой папочка семейства духовых. Рядом с его великолепием чувствуешь себя неуверенно.
+musician-voucher-big-drums-name = ударная установка
+musician-voucher-big-drums-description = Ба-дум-тсс!
+musician-voucher-church-organ-name = церковный орган
+musician-voucher-church-organ-description = Эта штука действительно бахает.

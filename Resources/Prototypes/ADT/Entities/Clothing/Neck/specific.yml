@@ -7,10 +7,6 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Specific/secbadge.rsi
-    - type: Badge
-    - type: Tag
-      tags:
-      - ADTBadge
 
 - type: entity
   parent: ClothingNeckBase
@@ -37,6 +33,16 @@
       - Medical
 
 - type: entity
+  parent: ADTClothingNeckJeton
+  id: ADTClothingNeckJetonSmuggler
+  suffix: Smugglers
+
+- type: entity
+  parent: ADTClothingNeckJetonSmuggler
+  id: ADTClothingNeckJetonSmugglerBoss
+  suffix: Smugglers, Boss
+
+- type: entity
   parent: ClothingNeckBase
   id: ADTClothingNeckPatchTSF
   name: TSF patch
@@ -53,11 +59,9 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Specific/bronze_secbadge.rsi
-    - type: Badge
-    - type: Tag
-      tags:
-      - ADTBadge
-      - ADTBadgeBronze
+    - type: ADTAccessory
+      sprite: ADT/Clothing/Neck/Specific/bronze_secbadge.rsi
+      equippedState: equipped-NECK
 
 - type: entity
   parent: ClothingNeckBase
@@ -67,11 +71,9 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Specific/silver_secbadge.rsi
-    - type: Badge
-    - type: Tag
-      tags:
-      - ADTBadge
-      - ADTBadgeSilver
+    - type: ADTAccessory
+      sprite: ADT/Clothing/Neck/Specific/silver_secbadge.rsi
+      equippedState: equipped-NECK
 
 - type: entity
   parent: ClothingNeckBase
@@ -81,8 +83,6 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Specific/gold_secbadge.rsi
-    - type: Badge
-    - type: Tag
-      tags:
-      - ADTBadge
-      - ADTBadgeGolden
+    - type: ADTAccessory
+      sprite: ADT/Clothing/Neck/Specific/gold_secbadge.rsi
+      equippedState: equipped-NECK

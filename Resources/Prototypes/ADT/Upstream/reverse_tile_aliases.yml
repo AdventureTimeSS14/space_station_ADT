@@ -1,0 +1,39 @@
+- type: tileAlias
+  id: FloorExoBorg
+  target: FloorXenoborg
+
+- type: tileAlias
+  id: FloorExoViscera
+  target: FloorXeno
+
+- type: tileAlias
+  id: FloorExoHull
+  target: FloorXenoSteel
+
+- type: tileAlias
+  id: FloorExoTechmaint
+  target: FloorXenoMaint
+
+- type: tileAlias
+  id: FloorExoHorizontal
+  target: FloorDarkSquiggly
+
+- type: tileAlias
+  id: FloorExoVertical
+  target: FloorDarkSquiggly
+
+- type: tileAlias
+  id: FloorExoCornerSW
+  target: FloorXenoSteelCorner
+
+- type: tileAlias
+  id: FloorExoCornerSE
+  target: FloorXenoSteelCorner
+
+- type: tileAlias
+  id: FloorExoCornerNE
+  target: FloorXenoSteelCorner
+
+- type: tileAlias
+  id: FloorExoCornerNW
+  target: FloorXenoSteelCorner

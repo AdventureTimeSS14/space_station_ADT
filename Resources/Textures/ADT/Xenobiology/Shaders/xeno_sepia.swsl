@@ -1,5 +1,5 @@
 void fragment() {
-    highp vec4 sprite = texture(TEXTURE, UV);
+    highp vec4 sprite = zTexture(UV);
 
     if (sprite.a == 0.0) {
         discard;

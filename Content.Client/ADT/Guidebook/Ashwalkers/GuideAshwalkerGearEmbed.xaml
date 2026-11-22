@@ -1,0 +1,34 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              Orientation="Vertical"
+              Margin="5 4 5 4">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1c1a22" BorderThickness="1" BorderColor="#4a4458"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="4"/>
+            <BoxContainer Orientation="Vertical" Margin="8 6 8 8">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <BoxContainer Name="IconContainer" Orientation="Vertical" VerticalAlignment="Center"/>
+                    <RichTextLabel Name="NameLabel" VerticalAlignment="Center" Margin="8 0 0 0"/>
+                </BoxContainer>
+                <cc:HSeparator Margin="0 6 0 6"/>
+                <BoxContainer Name="CraftBox" Orientation="Vertical" Visible="False">
+                    <RichTextLabel Name="CraftHeader"/>
+                    <WrapContainer Name="CraftContainer" HorizontalExpand="True" Margin="0 4 0 0"/>
+                </BoxContainer>
+                <BoxContainer Name="DamageBox" Orientation="Vertical" Margin="0 8 0 0" Visible="False">
+                    <RichTextLabel Name="DamageHeader"/>
+                    <BoxContainer Name="DamageContainer" Orientation="Vertical" Margin="0 4 0 0"/>
+                </BoxContainer>
+                <BoxContainer Name="ArmorBox" Orientation="Vertical" Margin="0 8 0 0" Visible="False">
+                    <RichTextLabel Name="ArmorHeader"/>
+                    <BoxContainer Name="ArmorContainer" Orientation="Vertical" Margin="0 4 0 0"/>
+                </BoxContainer>
+                <RichTextLabel Name="NoteLabel" Margin="0 8 0 0" HorizontalExpand="True" Visible="False"/>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

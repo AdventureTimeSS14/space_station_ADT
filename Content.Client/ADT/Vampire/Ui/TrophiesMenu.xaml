@@ -1,0 +1,70 @@
+<controls:FancyWindow x:Class="Content.Client.ADT.Vampire.Ui.TrophiesMenu"
+                      xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      Title="{Loc 'vampire-trophies-ui-title'}"
+                      MinSize="550 680">
+
+    <PanelContainer Name="WindowBackground">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#0a0a0f" />
+        </PanelContainer.PanelOverride>
+    </PanelContainer>
+
+    <ScrollContainer VerticalExpand="True">
+        <BoxContainer Orientation="Vertical" Margin="10">
+
+            <!-- Trophies -->
+            <Label Text="{Loc 'vampire-trophies-ui-trophies'}" StyleClasses="LabelHeading"
+                   HorizontalAlignment="Center" Margin="0 0 0 5" FontColorOverride="#c92a2a"/>
+            <PanelContainer Margin="0 0 0 10">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#4cc9f0" ContentMarginBottomOverride="2" ContentMarginLeftOverride="2"/>
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <PanelContainer StyleClasses="AngleRect" Margin="0 0 0 10">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#14141f" BorderColor="#c92a2a" BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <GridContainer Name="OrganGrid" Columns="6" HorizontalExpand="True" Margin="5"/>
+            </PanelContainer>
+
+            <!-- Vampire Passives -->
+            <Label Text="{Loc 'vampire-trophies-ui-passives'}" StyleClasses="LabelHeading"
+                   HorizontalAlignment="Center" Margin="0 15 0 5" FontColorOverride="#c92a2a"/>
+            <PanelContainer Margin="0 0 0 10">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#4cc9f0" ContentMarginBottomOverride="2" ContentMarginLeftOverride="2"/>
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <PanelContainer StyleClasses="AngleRect" Margin="0 0 0 10">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#14141f" BorderColor="#c92a2a" BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <GridContainer Name="PassiveGrid" Columns="2" HSeparationOverride="15" VSeparationOverride="15"
+                               HorizontalAlignment="Center" HorizontalExpand="True" Margin="5"/>
+            </PanelContainer>
+
+            <!-- Abilities -->
+            <Label Text="{Loc 'vampire-trophies-ui-abilities'}" StyleClasses="LabelHeading"
+                   HorizontalAlignment="Center" Margin="0 15 0 5" FontColorOverride="#c92a2a"/>
+            <PanelContainer Margin="0 0 0 10">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#4cc9f0" ContentMarginBottomOverride="2" ContentMarginLeftOverride="2"/>
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <PanelContainer StyleClasses="AngleRect" Margin="0 0 0 10">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#14141f" BorderColor="#c92a2a" BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <GridContainer Name="AbilitiesContainer" Columns="4" HorizontalAlignment="Center"
+                               HorizontalExpand="True" Margin="5"/>
+            </PanelContainer>
+
+        </BoxContainer>
+    </ScrollContainer>
+</controls:FancyWindow>

@@ -10,7 +10,7 @@ using Robust.Shared.Player;
 namespace Content.Server.ADT.Silicons;
 public sealed class DoorClickSystem : EntitySystem
 {
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
 
     public override void Initialize()
     {

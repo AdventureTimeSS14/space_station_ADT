@@ -31,3 +31,10 @@
   maxAge: 350
   oldAge: 251
   youngAge: 151
+  defaultSoundsBySex:
+  - MaleHuman
+  - FemaleHuman
+  - FemaleHuman
+  voices:
+  - MaleHuman
+  - FemaleHuman

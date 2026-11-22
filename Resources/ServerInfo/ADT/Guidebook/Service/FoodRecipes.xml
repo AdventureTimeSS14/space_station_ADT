@@ -4,39 +4,106 @@
 
 Это последняя опубликованная версия сборника рецептов NanoTrasen Central Command Kitchen de Cuisine, предназначенного для шеф-поваров, готовящих блюда, используя посуду NanoTrasen.
 
+## Новая кулинария
 
-<GuideMicrowaveGroupEmbed Group="Base"/>
+Теперь приготовление еды состоит из нескольких этапов, а для большинства рецептов используется [color=#a4885c]электроплита[/color], у которой есть две конфорки и духовка.
 
-<GuideMicrowaveGroupEmbed Group="Pizza"/>
+Вы можете регулировать нагрев каждой конфорки отдельно через меню плиты или с помощью Alt+ЛКМ по нужной конфорке. Чтобы включить духовку, установите таймер в меню плиты. Когда установленное время истечёт, духовка подаст звуковой сигнал и автоматически выключится.
 
-<GuideMicrowaveGroupEmbed Group="Savory"/>
+### Приготовление блюд
 
-<GuideMicrowaveGroupEmbed Group="Breads"/>
+- [color=#a4885c]Жареные блюда[/color] готовятся на сковороде, в которую рекомендуется предварительно налить масло. Подсолнечное масло подходит для любых продуктов, оливковое лучше использовать для овощей и рыбы, а сливочное хорошо сочетается с мясом, хотя быстро подгорает при сильном нагреве. Если бросить на сковороду брусок или ломтик сливочного масла, он растает, тогда как в кастрюле или на противне масло останется обычным ингредиентом.
 
-<GuideMicrowaveGroupEmbed Group="Breakfast"/>
+  Вы можете жарить продукты без масла, однако в таком случае они будут пригорать вдвое быстрее, а качество готового блюда не сможет превысить обычное. Пока горячая сковорода стоит на включённой конфорке, она постоянно шипит и подсказывает, когда необходимо перевернуть содержимое. Если вовремя перевернуть продукты лопаткой, качество блюда повысится.
 
-<GuideMicrowaveGroupEmbed Group="Moth"/>
+  Чтобы определить готовность еды, следите за изменением её цвета. Если от еды начал подниматься дым, значит, она уже пережаривается.
 
-<GuideMicrowaveGroupEmbed Group="Pasta"/>
+- [color=#a4885c]Варёные блюда[/color] готовятся в кастрюле, в которую сначала необходимо налить воду (её можно набрать прямо из раковины), а затем добавить ингредиенты и приправы. Если содержимое кастрюли начнёт прилипать, помешайте его половником, чтобы улучшить результат приготовления.
 
-<GuideMicrowaveGroupEmbed Group="Dessert"/>
+  Когда суп будет готов, вода в кастрюле превратится в суп, который можно разлить по мискам. Чтобы набрать порцию, нажмите пустой миской на кастрюлю или кастрюлей на миску. Пока суп остаётся в кастрюле, вы можете добавлять в него дополнительные ингредиенты.
 
-<GuideMicrowaveGroupEmbed Group="Soup"/>
+- [color=#a4885c]Печёные блюда[/color] готовятся на противне, который необходимо поместить в духовку и установить подходящее время приготовления. Если вы готовите пиццу или пирог, сначала положите тесто на противень, чтобы оно заняло всю его поверхность, а затем разместите начинку сверху.
 
-<GuideMicrowaveGroupEmbed Group="Pie"/>
+- [color=#a4885c]Блины и вафли[/color] готовятся из жидкого теста, для которого необходимо смешать в мензурке 10 единиц муки, 10 единиц молока и одно разбитое яйцо. После смешивания вы получите 20 единиц жидкого теста, из которых 15 необходимо вылить на сковороду для приготовления блина или на противень для приготовления вафель.
 
-<GuideMicrowaveGroupEmbed Group="BarsAndCookies"/>
+  Чтобы добавить начинку, положите сверху до четырёх фруктов, ягод или кусочков шоколада, которые запекутся вместе с тестом. Если использовать исключительно ягоды или исключительно шоколад, вы получите соответствующий вариант блинов с ягодами или шоколадом.
 
-<GuideMicrowaveGroupEmbed Group="Cake"/>
+- [color=#a4885c]Сырые блюда[/color] собираются непосредственно на тарелке, поэтому для их приготовления достаточно разместить на ней подходящий набор ингредиентов. Если рецепт требует добавления реагентов, например сливок для торта, полейте ими содержимое тарелки из стакана или мензурки. Место на тарелке зависит от размера еды: крупная еда вроде целого торта или арбуза занимает всю тарелку, но ингредиенты её рецепта поместятся рядом.
 
-<GuideMicrowaveGroupEmbed Group="Salad"/>
+### Дополнительные особенности приготовления
 
-<GuideMicrowaveGroupEmbed Group="Icecreams"/>
+После приготовления вы можете полить блюдо соусом, соком или маслом из бутылки, чтобы на его поверхности появились соответствующие пятна. Если добавить соль или перец, на еде появятся небольшие крапинки.
 
-<GuideMicrowaveGroupEmbed Group="Holiday"/>
+Если набор ингредиентов не соответствует ни одному рецепту, приготовление всё равно завершится, однако вместо задуманного блюда вы получите жаркое, суп или запеканку из использованных продуктов. Такие блюда всегда считаются испорченными и практически не утоляют голод, но может кому-то понравится запеканка из баклажанов и BBQ соуса.
 
-<GuideMicrowaveGroupEmbed Group="Other"/>
+Во время приготовления необходимо самостоятельно следить за состоянием еды, поскольку плита не сообщает о готовности блюда. Когда еда приготовится, своевременно снимите её с огня, чтобы она не пересохла и
 
-<GuideMicrowaveGroupEmbed Group="Secret"/>
+<GuideADTCookingGroupEmbed Group="Base"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Base"/>
+
+<GuideADTCookingGroupEmbed Group="Pizza"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Pizza"/>
+
+<GuideADTCookingGroupEmbed Group="Savory"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Savory"/>
+
+<GuideADTCookingGroupEmbed Group="Breads"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Breads"/>
+
+<GuideADTCookingGroupEmbed Group="Breakfast"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Breakfast"/>
+
+<GuideADTCookingGroupEmbed Group="Moth"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Moth"/>
+
+<GuideADTCookingGroupEmbed Group="Pasta"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Pasta"/>
+
+<GuideADTCookingGroupEmbed Group="Dessert"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Dessert"/>
+
+<GuideADTCookingGroupEmbed Group="Soup"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Soup"/>
+
+<GuideADTCookingGroupEmbed Group="Pie"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Pie"/>
+
+<GuideADTCookingGroupEmbed Group="BarsAndCookies"/>
+
+<GuideADTMicrowaveGroupEmbed Group="BarsAndCookies"/>
+
+<GuideADTCookingGroupEmbed Group="Cake"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Cake"/>
+
+<GuideADTCookingGroupEmbed Group="Salad"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Salad"/>
+
+<GuideADTCookingGroupEmbed Group="Icecreams"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Icecreams"/>
+
+<GuideADTCookingGroupEmbed Group="Holiday"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Holiday"/>
+
+<GuideADTCookingGroupEmbed Group="Other"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Other"/>
+
+<GuideADTCookingGroupEmbed Group="Secret"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Secret"/>
 
 </Document>

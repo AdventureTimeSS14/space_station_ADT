@@ -1,0 +1,129 @@
+- type: thiefBackpackSet
+  id: ADTHarpInstrument
+  name: musician-voucher-harp-name
+  description: musician-voucher-harp-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: harp
+  content:
+  - HarpInstrument
+
+- type: thiefBackpackSet
+  id: ADTVibraphoneInstrument
+  name: musician-voucher-vibraphone-name
+  description: musician-voucher-vibraphone-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: vibraphone
+  content:
+  - VibraphoneInstrument
+
+- type: thiefBackpackSet
+  id: ADTContrabassInstrument
+  name: musician-voucher-contrabass-name
+  description: musician-voucher-contrabass-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: contrabass
+  content:
+  - ContrabassInstrument
+
+- type: thiefBackpackSet
+  id: ADTTimpaniInstrument
+  name: musician-voucher-timpani-name
+  description: musician-voucher-timpani-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: timpani
+  content:
+  - TimpaniInstrument
+
+- type: thiefBackpackSet
+  id: ADTMarimbaInstrument
+  name: musician-voucher-marimba-name
+  description: musician-voucher-marimba-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: marimba
+  content:
+  - MarimbaInstrument
+
+- type: thiefBackpackSet
+  id: ADTMinimoogInstrument
+  name: musician-voucher-minimoog-name
+  description: musician-voucher-minimoog-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: minimoog
+  content:
+  - MinimoogInstrument
+
+- type: thiefBackpackSet
+  id: ADTUprightPianoInstrument
+  name: musician-voucher-upright-piano-name
+  description: musician-voucher-upright-piano-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: piano-upright
+  content:
+  - UprightPianoInstrument
+
+- type: thiefBackpackSet
+  id: ADTPianoInstrument
+  name: musician-voucher-piano-name
+  description: musician-voucher-piano-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: piano
+  content:
+  - PianoInstrument
+
+- type: thiefBackpackSet
+  id: ADTTaikoInstrument
+  name: musician-voucher-taiko-name
+  description: musician-voucher-taiko-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: taiko
+  content:
+  - TaikoInstrument
+
+- type: thiefBackpackSet
+  id: ADTTomDrumsInstrument
+  name: musician-voucher-tom-drums-name
+  description: musician-voucher-tom-drums-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: toms
+  content:
+  - TomDrumsInstrument
+
+- type: thiefBackpackSet
+  id: ADTTubaInstrument
+  name: musician-voucher-tuba-name
+  description: musician-voucher-tuba-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: tuba
+  content:
+  - TubaInstrument
+
+- type: thiefBackpackSet
+  id: ADTBigDrumsInstrument
+  name: musician-voucher-big-drums-name
+  description: musician-voucher-big-drums-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: drum
+  content:
+  - BigDrumsInstrument
+
+- type: thiefBackpackSet
+  id: ADTChurchOrganInstrument
+  name: musician-voucher-church-organ-name
+  description: musician-voucher-church-organ-description
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: church-organ
+  content:
+  - ChurchOrganInstrument

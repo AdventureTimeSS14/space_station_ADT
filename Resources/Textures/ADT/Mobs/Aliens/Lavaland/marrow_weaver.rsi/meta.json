@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss220-space/Paradise (master220), icons/mob/lavaland/lavaland_monsters.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "weaver",
+            "directions": 4
+        },
+        {
+            "name": "weaver_dead"
+        },
+        {
+            "name": "weaver_ice",
+            "directions": 4
+        },
+        {
+            "name": "weaver_ice_dead"
+        }
+    ]
+}

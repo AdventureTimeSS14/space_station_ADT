@@ -1,15 +1,21 @@
+//
+
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[DataDefinition]
-[Prototype]
-public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
+[Prototype("hereticRitual")]
+public sealed partial class HereticRitualPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
+
+    /// <summary>
+    ///     How many entities ritual can create at once. less or equal than 0 means no limit.
+    /// </summary>
+    [DataField]
+    public int Limit;
 
     /// <summary>
     ///     How many entitites with specific names are required for the ritual?
@@ -24,7 +30,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// <summary>
     ///     Is there a custom behavior that needs to be executed?
     /// </summary>
-    [DataField(serverOnly: true)] public List<RitualCustomBehavior>? CustomBehaviors;
+    [DataField] public List<RitualCustomBehavior>? CustomBehaviors;
 
     /// <summary>
     ///     How many other entities will be created from the ritual?
@@ -54,9 +60,9 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// </summary>
     [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("ADT/Heretic/amber_focus.rsi"), "icon");
 
-    /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
-    public object Clone()
-    {
-        return MemberwiseClone();
-    }
+    /// <summary>
+    ///     Whether rune should play success animation on ritual success.
+    /// </summary>
+    [DataField]
+    public bool RuneSuccessAnimation = true;
 }

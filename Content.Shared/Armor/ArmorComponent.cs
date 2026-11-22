@@ -9,12 +9,13 @@ namespace Content.Shared.Armor;
 /// Used for clothing that reduces damage when worn.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedArmorSystem))]
+[AutoGenerateComponentState] // ADT-Tweak
 public sealed partial class ArmorComponent : Component
 {
     /// <summary>
     /// The damage reduction
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true), AutoNetworkedField] // ADT-Tweak
     public DamageModifierSet Modifiers = default!;
 
     /// <summary>

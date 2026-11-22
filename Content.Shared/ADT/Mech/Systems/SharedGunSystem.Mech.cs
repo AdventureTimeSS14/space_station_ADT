@@ -1,149 +1,139 @@
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.ADT.Mech.Equipment.Components;
 using Content.Shared.ADT.Weapons.Ranged.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
-using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Map;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
-    [Dependency] private readonly SharedMechSystem _mech = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
+    [Dependency] private SharedADTMechSystem _adtMech = default!;
+    [Dependency] private MechGunReloadSystem _mechReload = default!;
 
     protected virtual void InitializeMechGun()
     {
-        base.Initialize();
-        SubscribeLocalEvent<MechGunComponent, ShotAttemptedEvent>(OnShotAttempt);
+        SubscribeLocalEvent<MechGunComponent, ShotAttemptedEvent>(OnMechShotAttempt);
 
-        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
-        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, GetAmmoCountEvent>(OnMechAmmoCount);
+        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, TakeAmmoEvent>(OnBallisticMechTakeAmmo);
+        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, GetAmmoCountEvent>(OnBallisticMechAmmoCount);
 
-        SubscribeLocalEvent<BatteryMechAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
-        SubscribeLocalEvent<BatteryMechAmmoProviderComponent, GetAmmoCountEvent>(OnMechAmmoCount);
+        SubscribeLocalEvent<BatteryMechAmmoProviderComponent, TakeAmmoEvent>(OnBatteryMechTakeAmmo);
+        SubscribeLocalEvent<BatteryMechAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryMechAmmoCount);
 
-        SubscribeLocalEvent<HitscanMechAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
-        SubscribeLocalEvent<HitscanMechAmmoProviderComponent, GetAmmoCountEvent>(OnMechAmmoCount);
+        SubscribeLocalEvent<HitscanMechAmmoProviderComponent, TakeAmmoEvent>(OnHitscanMechTakeAmmo);
+        SubscribeLocalEvent<HitscanMechAmmoProviderComponent, GetAmmoCountEvent>(OnHitscanMechAmmoCount);
     }
 
-    private void OnShotAttempt(EntityUid uid, MechGunComponent comp, ref ShotAttemptedEvent args)
+    private void OnMechShotAttempt(Entity<MechGunComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (!TryComp<MechComponent>(args.User, out var mech))
+        if (!TryComp<MechComponent>(args.User, out var mech) || _adtMech.GetEquipmentMech(ent) != args.User)
         {
             args.Cancel();
             return;
         }
 
-        if (mech.Energy.Float() <= 0f)
+        if (mech.Energy <= 0 || !_adtMech.CanSelect(ent))
+        {
             args.Cancel();
+            return;
+        }
 
-        if (TryComp<BallisticMechAmmoProviderComponent>(uid, out var projMech) && projMech.Shots <= 0)
+        if (!TryComp<BallisticMechAmmoProviderComponent>(ent, out var ammo))
+            return;
+
+        _mechReload.CompleteReload((ent, ammo));
+        if (ammo.Shots <= 0 || _mechReload.IsReloading(ammo))
             args.Cancel();
     }
 
-    private void OnMechAmmoCount(EntityUid uid, MechAmmoProviderComponent component, ref GetAmmoCountEvent args)
+    private void OnBallisticMechAmmoCount(Entity<BallisticMechAmmoProviderComponent> ent, ref GetAmmoCountEvent args)
     {
-        switch (component)
+        _mechReload.CompleteReload(ent);
+        args.Count = ent.Comp.Shots;
+        args.Capacity = ent.Comp.Capacity;
+    }
+
+    private void OnBatteryMechAmmoCount(Entity<BatteryMechAmmoProviderComponent> ent, ref GetAmmoCountEvent args)
+    {
+        GetEnergyShots(ent, ent.Comp.ShotCost, ref args);
+    }
+
+    private void OnHitscanMechAmmoCount(Entity<HitscanMechAmmoProviderComponent> ent, ref GetAmmoCountEvent args)
+    {
+        GetEnergyShots(ent, ent.Comp.ShotCost, ref args);
+    }
+
+    private void GetEnergyShots(EntityUid gun, float cost, ref GetAmmoCountEvent args)
+    {
+        if (_adtMech.GetEquipmentMech(gun) is not { } mechUid ||
+            !TryComp<MechComponent>(mechUid, out var mech) ||
+            cost <= 0f)
         {
-            case BallisticMechAmmoProviderComponent projectile:
-                args.Count = projectile.Shots;
-                args.Capacity = projectile.Capacity;
+            args.Count = 0;
+            args.Capacity = 0;
+            return;
+        }
+
+        args.Count = (int) (mech.Energy.Float() / cost);
+        args.Capacity = (int) (mech.MaxEnergy.Float() / cost);
+    }
+
+    private void OnBallisticMechTakeAmmo(Entity<BallisticMechAmmoProviderComponent> ent, ref TakeAmmoEvent args)
+    {
+        _mechReload.CompleteReload(ent);
+
+        if (_mechReload.IsReloading(ent.Comp))
+            return;
+
+        var shots = Math.Min(args.Shots, ent.Comp.Shots);
+        if (shots <= 0)
+            return;
+
+        for (var i = 0; i < shots; i++)
+        {
+            var bullet = Spawn(ent.Comp.Prototype, args.Coordinates);
+            args.Ammo.Add((bullet, EnsureShootable(bullet)));
+        }
+
+        ent.Comp.Shots -= shots;
+        Dirty(ent);
+    }
+
+    private void OnBatteryMechTakeAmmo(Entity<BatteryMechAmmoProviderComponent> ent, ref TakeAmmoEvent args)
+    {
+        if (_adtMech.GetEquipmentMech(ent) is not { } mech)
+            return;
+
+        for (var i = 0; i < args.Shots; i++)
+        {
+            if (!_mech.TryChangeEnergy(mech, -ent.Comp.ShotCost))
                 break;
-            case BatteryMechAmmoProviderComponent:
-                args.Count = 5;
-                args.Capacity = 5;
-                break;
-            case HitscanMechAmmoProviderComponent:
-                args.Count = 5;
-                args.Capacity = 5;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+
+            var bullet = Spawn(ent.Comp.Prototype, args.Coordinates);
+            args.Ammo.Add((bullet, EnsureShootable(bullet)));
         }
     }
 
-    private void OnTakeAmmo(EntityUid uid, MechAmmoProviderComponent component, TakeAmmoEvent args)
+    private void OnHitscanMechTakeAmmo(Entity<HitscanMechAmmoProviderComponent> ent, ref TakeAmmoEvent args)
     {
-        var equipmentComp = Comp<MechEquipmentComponent>(uid);
+        if (_adtMech.GetEquipmentMech(ent) is not { } mech)
+            return;
 
-        switch (component)
+        var weakened = HasComp<MechSecondPilotControlComponent>(mech) && ent.Comp.WeakenedProto != null;
+        var proto = weakened ? ent.Comp.WeakenedProto!.Value : ent.Comp.Proto;
+        var cost = weakened ? ent.Comp.ShotCost * ent.Comp.WeakenedCostModifier : ent.Comp.ShotCost;
+
+        for (var i = 0; i < args.Shots; i++)
         {
-            case BallisticMechAmmoProviderComponent projectile:
-                var shots = Math.Min(args.Shots, projectile.Shots);
-
-                // Don't dirty if it's an empty fire.
-                if (shots == 0)
-                    return;
-
-                if (projectile.Reloading)
-                    return;
-
-                for (var i = 0; i < shots; i++)
-                {
-                    args.Ammo.Add(GetShootable(projectile, args.Coordinates));
-                    projectile.Shots--;
-                }
+            if (!_mech.TryChangeEnergy(mech, -cost))
                 break;
-            case BatteryMechAmmoProviderComponent battery:
-                if (args.Shots == 0)
-                    return;
 
-                for (var i = 0; i < args.Shots; i++)
-                {
-                    args.Ammo.Add(GetShootable(battery, args.Coordinates));
-                    if (!equipmentComp.EquipmentOwner.HasValue)
-                        break;
-                    if (!_mech.TryChangeEnergy(equipmentComp.EquipmentOwner.Value, -battery.ShotCost))
-                        break;
-                }
-                break;
-            case HitscanMechAmmoProviderComponent hitscan:
-                if (args.Shots == 0)
-                    return;
-
-                var weakened = equipmentComp.EquipmentOwner is { } gunner
-                               && HasComp<MechSecondPilotControlComponent>(gunner)
-                               && hitscan.WeakenedProto != null;
-
-                var hitscanProto = weakened ? hitscan.WeakenedProto!.Value : hitscan.Proto;
-                var hitscanCost = weakened ? hitscan.ShotCost * hitscan.WeakenedCostModifier : hitscan.ShotCost;
-
-                for (var i = 0; i < args.Shots; i++)
-                {
-                    var shot = Spawn(hitscanProto, args.Coordinates);
-                    args.Ammo.Add((shot, EnsureShootable(shot)));
-
-                    if (!equipmentComp.EquipmentOwner.HasValue)
-                        break;
-                    if (!_mech.TryChangeEnergy(equipmentComp.EquipmentOwner.Value, -hitscanCost))
-                        break;
-                }
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-
-        if (_netManager.IsServer)
-            Dirty(uid, component);
-    }
-
-    private (EntityUid? Entity, IShootable) GetShootable(MechAmmoProviderComponent component, EntityCoordinates coordinates)
-    {
-        switch (component)
-        {
-            case BallisticMechAmmoProviderComponent proj:
-                var ent = Spawn(proj.Prototype, coordinates);
-                return (ent, EnsureShootable(ent));
-            case BatteryMechAmmoProviderComponent battery:
-                var entBattery = Spawn(battery.Prototype, coordinates);
-                return (entBattery, EnsureShootable(entBattery));
-            case HitscanMechAmmoProviderComponent hitscan:
-                var entHitscan = Spawn(hitscan.Proto, coordinates);
-                return (entHitscan, EnsureShootable(entHitscan));
-            default:
-                throw new ArgumentOutOfRangeException();
+            var shot = Spawn(proto, args.Coordinates);
+            args.Ammo.Add((shot, EnsureShootable(shot)));
         }
     }
 }

@@ -26,9 +26,9 @@ namespace Content.Server.Construction
 {
     public sealed partial class ConstructionSystem
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
 #if EXCEPTION_TOLERANCE
-        [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+        [Dependency] private IRuntimeLog _runtimeLog = default!;
 #endif
 
         private readonly Queue<EntityUid> _constructionUpdateQueue = new();
@@ -42,7 +42,7 @@ namespace Content.Server.Construction
             SubscribeLocalEvent<ConstructionComponent, InteractUsingEvent>(EnqueueEvent,
                 new []{typeof(AnchorableSystem), typeof(PryingSystem), typeof(WeldableSystem)},
                 new []{typeof(EncryptionKeySystem)});
-            SubscribeLocalEvent<ConstructionComponent, OnTemperatureChangeEvent>(EnqueueEvent);
+            SubscribeLocalEvent<ConstructionComponent, TemperatureChangedEvent>(EnqueueRefEvent);
             SubscribeLocalEvent<ConstructionComponent, PartAssemblyPartInsertedEvent>(EnqueueEvent);
         }
 
@@ -382,7 +382,7 @@ namespace Content.Server.Construction
 
                 case TemperatureConstructionGraphStep temperatureChangeStep:
                 {
-                    if (ev is not OnTemperatureChangeEvent)
+                    if (ev is not TemperatureChangedEvent)
                         break;
 
                     // Some things, like microwaves, might need to block the temperature construction step from kicking in, or override it entirely.
@@ -400,7 +400,7 @@ namespace Content.Server.Construction
                     }
                     else if (TryComp<TemperatureComponent>(uid, out var tempComp))
                     {
-                        temp = tempComp.CurrentTemperature;
+                        temp = tempComp.Temperature;
                     }
                     else
                     {
@@ -544,6 +544,13 @@ namespace Content.Server.Construction
 
         #region Event Handlers
 
+        // Why does this system have you subscribe to an event,
+        // and then pass it through 5 layers of bullshit into a switch statement which tries to guess what event got passed?
+        private void EnqueueRefEvent<T>(Entity<ConstructionComponent> entity, ref T args) where T : struct
+        {
+            EnqueueEvent(entity, entity.Comp, args);
+        }
+
         /// <summary>
         ///     Queues a directed event to be handled by construction on the next update tick.
         ///     Used as a handler for any events that construction can listen to. <seealso cref="InitializeInteractions"/>
@@ -556,6 +563,11 @@ namespace Content.Server.Construction
         ///          in which case they will also be set as handled.</remarks>
         private void EnqueueEvent(EntityUid uid, ConstructionComponent construction, object args)
         {
+            // ADT-Tweak start
+            if (args is InteractUsingEvent interact && !_adtConstructionRestriction.CanUseGraph(interact.User, construction.Graph))
+                return;
+            // ADT-Tweak end
+
             // For handled events, we will check if the event leads to a valid construction interaction.
             // If it does, we mark the event as handled and then enqueue it as normal.
             if (args is HandledEntityEventArgs handled)

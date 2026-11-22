@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.SpaceWhale;
 
 public abstract class SharedTailedEntitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
 
     protected void UpdateTailPositions(Entity<TailedEntityComponent, TransformComponent> ent, float frameTime)
     {

@@ -16,9 +16,9 @@ public sealed class StaticOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> SeeingStaticShader = "SeeingStatic";
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _sharedPlayerManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ISharedPlayerManager _sharedPlayerManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;

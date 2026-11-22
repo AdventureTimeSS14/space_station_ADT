@@ -11,3 +11,6 @@ ent-ADTEncryptionKeyTSF = Ключ шифрования ТСФ
 ent-ADTEncryptionKeyTrader = ключ шифрования торговцев
     .desc = Ключ шифрования, используемый торговцами.
     .suffix = { "ТСФ" }
+
+ent-ADTEncryptionKeyLimaTen = ключ шифрования Лима-10
+    .desc = Ключ шифрования, используемый оперативниками группировки Лима-10.

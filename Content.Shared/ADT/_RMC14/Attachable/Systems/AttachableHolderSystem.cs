@@ -15,7 +15,6 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
-using Content.Shared.ADT.BarbellBench.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -31,15 +30,15 @@ namespace Content.Shared._RMC14.Attachable.Systems;
 
 public sealed class AttachableHolderSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedVerbSystem _verbSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedVerbSystem _verbSystem = default!;
 
     public override void Initialize()
     {
@@ -499,23 +498,10 @@ public sealed class AttachableHolderSystem : EntitySystem
         if (!HasComp<AttachableComponent>(attachableUid))
             return false;
 
-        //ADT-Tweak: Define that Barbell Exists
-        var isBarbellBench = TryComp<BarbellBenchComponent>(holder.Owner, out var bench);
-
         if (!string.IsNullOrWhiteSpace(slotId))
         {
             if (!_whitelist.IsWhitelistPass(holder.Comp.Slots[slotId].Whitelist, attachableUid))
                 return false;
-
-            //ADT-Tweak: Define that Barbell Exists
-            if (isBarbellBench &&
-                bench != null &&
-                slotId == bench.BarbellSlotId &&
-                _container.TryGetContainer(holder, slotId, out var barbellContainer) &&
-                barbellContainer.Count > 0)
-            {
-                return false;
-            }
 
             return true;
         }
@@ -524,16 +510,6 @@ public sealed class AttachableHolderSystem : EntitySystem
         {
             if (!_whitelist.IsWhitelistPass(holder.Comp.Slots[key].Whitelist, attachableUid))
                 continue;
-
-            //ADT-Tweak: Define that Barbell Exists
-            if (isBarbellBench &&
-                bench != null &&
-                key == bench.BarbellSlotId &&
-                _container.TryGetContainer(holder, key, out var container) &&
-                container.Count > 0)
-            {
-                continue;
-            }
 
             slotId = key;
             return true;
@@ -606,9 +582,6 @@ public sealed class AttachableHolderSystem : EntitySystem
         if (!HasComp<AttachableComponent>(attachableUid))
             return list;
 
-        //ADT-Tweak: Define that Barbell Exists
-        var isBarbellBench = TryComp<BarbellBenchComponent>(holder.Owner, out var bench);
-
         foreach (var slotId in holder.Comp.Slots.Keys)
         {
             if (!_whitelist.IsWhitelistPass(holder.Comp.Slots[slotId].Whitelist, attachableUid))
@@ -616,16 +589,6 @@ public sealed class AttachableHolderSystem : EntitySystem
 
             if (!ignoreLock && holder.Comp.Slots[slotId].Locked)
                 continue;
-
-            //ADT-Tweak: Define that Barbell Exists
-            if (isBarbellBench &&
-                bench != null &&
-                slotId == bench.BarbellSlotId &&
-                _container.TryGetContainer(holder, slotId, out var container) &&
-                container.Count > 0)
-            {
-                continue;
-            }
 
             list.Add(slotId);
         }

@@ -30,6 +30,7 @@ public sealed partial class ReactionJsonGenerator
             Converters =
             {
                 new UniversalJsonConverter<EntityEffect>(),
+                new Content.Server.ADT.GuideGenerator.ProtoIdJsonConverterFactory(), // ADT-Tweak
             }
         };
 

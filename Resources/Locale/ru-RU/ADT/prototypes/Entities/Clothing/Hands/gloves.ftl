@@ -48,3 +48,7 @@ ent-ADTClothingHandsGlovesGuerrilla = перчатки партизана
 
 ent-ADTClothingHandsGlovesVox = перчатки вокса
   .desc = Лёгкие перчатки причудливой формы с когтями.
+
+ent-ADTClothingHandsGlovesLongBlackGold = длинные чёрно-золотые перчатки
+    .desc = Длинные чёрные перчатки, которые не спасут вас от поджаривания.
+

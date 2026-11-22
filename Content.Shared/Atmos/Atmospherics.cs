@@ -45,13 +45,6 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float T20C = 293.15f;
 
-        // ADT-Tweak start
-        /// <summary>
-        ///     37ºC in K
-        /// </summary>
-        public const float T37C = 310.1f;
-        // ADT-Tweak end
-
         /// <summary>
         ///     -38.15ºC in K.
         ///     This is used to initialize roundstart freezer rooms.
@@ -110,6 +103,21 @@ namespace Content.Shared.Atmos
 
         public const float OxygenMolesGasMiner = MolesCellGasMiner * OxygenStandard;
         public const float NitrogenMolesGasMiner = MolesCellGasMiner * NitrogenStandard;
+
+        /// <summary>
+        /// Converts Grams to Kilograms.
+        /// </summary>
+        public const float gToKg = 0.001f;
+
+        /// <summary>
+        /// Convert kPa to Kg/m^2
+        /// </summary>
+        public const float kPaToKg_m2 = 0.00980665f;
+
+        /// <summary>
+        /// Convert Kg/m^2 to kPa
+        /// </summary>
+        public const float Kg_m2TokPa = 101.9716212978f;
 
         #endregion
 
@@ -244,7 +252,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 49; //ADT-Gas
+        public const int TotalNumberOfGases = 20; //ADT-Gas
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -255,7 +263,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope)
         /// </summary>
-        public const float FireHydrogenEnergyReleased = 284e4f;
+        public const float FireHydrogenEnergyReleased = 284e3f;
         public const float FireMinimumTemperatureToExist = T0C + 100f;
         public const float FireMinimumTemperatureToSpread = T0C + 150f;
         public const float FireSpreadRadiosityScale = 0.85f;
@@ -467,36 +475,7 @@ namespace Content.Shared.Atmos
         Zauker = 16,
         Halon = 17,
         Helium = 18,
-        AntiNoblium = 19,
-        DexalinPlus = 20,
-        Omnizine = 21,
-        Inaprovaline = 22,
-        Diphenhydramine = 23,
-        Ichor = 24,
-        Phlogiston = 25,
-        PolytrinicAcid = 26,
-        SulfuricAcid = 27,
-        FluorosulfuricAcid = 28,
-        Bicaridine = 29,
-        Tricordrazine = 30,
-        Dylovene = 31,
-        Epinephrine = 32,
-        Dexalin = 33,
-        Kelotane = 34,
-        Charcoal = 35,
-        Iron = 36,
-        Cryoxadone = 37,
-        ADTSilverSulfadiazine = 38,
-        Toxin = 39,
-        Chlorine = 40,
-        Fluorine = 41,
-        Radium = 42,
-        Neurotoxin = 43,
-        Lexorin = 44,
-        Histamine = 45,
-        Mercury = 46,
-        WeldingFuel = 47,
-        Ethanol = 48
+        AntiNoblium = 19
         //ADT-Gas-End
     }
 }

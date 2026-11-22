@@ -14,7 +14,10 @@ ent-ADTClothingHeadHelmetHardsuitDeathsquad = шлем стража времен
     .suffix = { "ОБВА" }
 
 ent-ADTClothingHeadHelmetHardsuitInquisitory = шлем инквизитора
-    .desc = Тебе дана власть над судьбами
+    .desc = Тебе дана власть над судьбами.
+
+ent-ADTClothingHeadHelmetHardsuitLeadInquisitory = шлем высшего инквизитора
+    .desc = Тебе дана власть над судьбами!
 
 ent-ADTClothingHeadHelmetHardsuitCybersunCrysis = шлем суперсолдата Cybersun
     .desc = Шлем суперсолдата Cybersun

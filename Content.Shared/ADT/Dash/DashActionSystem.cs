@@ -12,6 +12,7 @@ public sealed class DashActionSystem : EntitySystem
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedAnimatedEmotesSystem _emotes = default!;
 
     public override void Initialize()
     {
@@ -47,8 +48,7 @@ public sealed class DashActionSystem : EntitySystem
 
         if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
         {
-            emotes.Emote = args.Emote;
-            Dirty(args.Performer, emotes);
+            _emotes.SetEmote((args.Performer, emotes), args.Emote.Value);
         }
 
         args.Handled = true;

@@ -7,9 +7,9 @@ namespace Content.Client.ADT.MesonVision;
 
 public sealed class MesonVisionSystem : SharedMesonVisionSystem
 {
-    [Dependency] private readonly ILightManager _light = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private ILightManager _light = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -57,11 +57,16 @@ public sealed class MesonVisionSystem : SharedMesonVisionSystem
 
     private void Off()
     {
-        _overlay.RemoveOverlay(new MesonVisionOverlay());
+        _overlay.RemoveOverlay<MesonVisionOverlay>();
+        _overlay.RemoveOverlay<MesonLightingOverlay>();
     }
 
     private void Full(Entity<MesonVisionComponent> ent)
     {
-        _overlay.AddOverlay(new MesonVisionOverlay());
+        if (!_overlay.HasOverlay<MesonVisionOverlay>())
+            _overlay.AddOverlay(new MesonVisionOverlay());
+
+        if (!_overlay.HasOverlay<MesonLightingOverlay>())
+            _overlay.AddOverlay(new MesonLightingOverlay());
     }
 }

@@ -17,8 +17,8 @@ namespace Content.Server.ADT.SpeedBoostWake;
 
 public sealed class SlippingWakeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
 
     public override void Initialize()
     {

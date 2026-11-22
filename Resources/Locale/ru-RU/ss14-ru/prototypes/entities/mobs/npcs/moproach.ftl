@@ -1,2 +1,3 @@
 ent-MobMoproach = швабромоль
     .desc = У этой маленькой таракамоли тапочки-швабры на лапках! Как очаровательно!
+ent-SolutionMopMoproach = { ent-SolutionMopNormal }

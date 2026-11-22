@@ -17,7 +17,7 @@ namespace Content.Client.ADT.BookPrinter
     [GenerateTypedNameReferences]
     public sealed partial class BookPrinterWindow : DefaultWindow
     {
-        [Dependency] private readonly IEntityManager _entMan = default!;
+        [Dependency] private IEntityManager _entMan = default!;
         public event Action<BaseButton.ButtonEventArgs, PrintBookButton>? OnPrintBookButtonPressed;
         public event Action<GUIMouseHoverEventArgs, PrintBookButton>? OnPrintBookButtonMouseEntered;
         public event Action<GUIMouseHoverEventArgs, PrintBookButton>? OnPrintBookButtonMouseExited;

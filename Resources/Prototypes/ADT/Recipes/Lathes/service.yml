@@ -73,16 +73,6 @@
 
 
 - type: latheRecipe
-  id: ADTAdvancedReagentGrinderMachineCircuitboard
-  result: ADTAdvancedReagentGrinderMachineCircuitboard
-  completetime: 2
-  materials:
-    Glass: 1000
-    Steel: 500
-    Gold: 500
-    Copper: 100
-
-- type: latheRecipe
   id: BoxFolderRed
   result: BoxFolderRed
   completetime: 3

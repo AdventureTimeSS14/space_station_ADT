@@ -5,14 +5,14 @@
   forcedColoring: true
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfbearcheeks
   shader: unshaded
 
 - type: marking
   id: ADTDwarfHeadGlow
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   forcedColoring: true
   followSkinColor: false
   sprites:
@@ -23,7 +23,7 @@
 - type: marking
   id: ADTDwarfConstellationHead
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -38,7 +38,7 @@
 - type: marking
   id: ADTDwarfConstellationChest
   bodyPart: Chest
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -53,7 +53,7 @@
 - type: marking
   id: ADTDwarfConstellationLArm
   bodyPart: LArm
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -68,7 +68,7 @@
 - type: marking
   id: ADTDwarfConstellationLHand
   bodyPart: LHand
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -83,7 +83,7 @@
 - type: marking
   id: ADTDwarfConstellationRArm
   bodyPart: RArm
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -98,7 +98,7 @@
 - type: marking
   id: ADTDwarfConstellationRHand
   bodyPart: RHand
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -143,7 +143,7 @@
 - type: marking
   id: ADTDwarfConstellationRLeg
   bodyPart: RLeg
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -158,7 +158,7 @@
 - type: marking
   id: ADTDwarfConstellationRFoot
   bodyPart: RFoot
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
@@ -175,7 +175,7 @@
   bodyPart: Chest
   groupWhitelist: [Human]
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfchesthair
 
 - type: marking
@@ -183,7 +183,7 @@
   bodyPart: LArm
   groupWhitelist: [Human]
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfarmhair
 
 - type: marking
@@ -191,20 +191,20 @@
   bodyPart: LLeg
   groupWhitelist: [Human]
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfleghair
 
 - type: marking
   id: ADTDwarfTattooShootingStar
   bodyPart: Chest
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Celecern]
   coloring:
     default:
       type:
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarftattooshootingstar
   shader: unshaded
 

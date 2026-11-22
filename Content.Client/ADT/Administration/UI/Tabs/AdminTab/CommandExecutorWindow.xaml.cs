@@ -12,7 +12,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminbusTab
     [GenerateTypedNameReferences]
     public sealed partial class CommandExecutorWindow : DefaultWindow
     {
-        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
+        [Dependency] private IClientConsoleHost _consoleHost = default!;
 
         public CommandExecutorWindow()
         {

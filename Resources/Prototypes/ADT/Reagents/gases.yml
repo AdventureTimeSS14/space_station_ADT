@@ -8,14 +8,13 @@
   metabolisms:
     Respiration:
       effects:
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         # Filo tweak
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # Filo tweak
-        key: SeeingRainbows
-        component: SeeingRainbows
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 8
       - !type:HealthChange

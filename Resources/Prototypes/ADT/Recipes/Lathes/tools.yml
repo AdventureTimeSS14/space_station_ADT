@@ -7,6 +7,27 @@
     Plastic: 300
     Copper: 200
 
+- type: latheRecipe
+  id: ADTRPDBluespace
+  result: ADTRPDBluespace
+  completetime: 6
+  materials:
+    Steel: 1200
+    Plastic: 300
+    Silver: 100
+    ADTBScrystal: 150
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ADTClothingEyesGlassesGasTemperature
+  result: ADTClothingEyesGlassesGasTemperature
+  completetime: 4
+  materials:
+    Steel: 200
+    Plastic: 300
+    Glass: 500
+    Copper: 10
+
 #- type: latheRecipe
 #  id: RNDInducerRecipe
 #  result: ADTRNDInducer

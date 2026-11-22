@@ -10,7 +10,7 @@
   - type: Wires
     layoutId: AirlockSecurity
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 1000
@@ -63,7 +63,7 @@
   - type: Wires
     layoutId: AirlockSecurity
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 800
@@ -115,7 +115,7 @@
   - type: Wires
     layoutId: AirlockSecurity
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTrigger
         damage: 1000

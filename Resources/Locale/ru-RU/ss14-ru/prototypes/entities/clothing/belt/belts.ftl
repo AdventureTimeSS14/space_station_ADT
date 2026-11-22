@@ -40,3 +40,5 @@ ent-ClothingBeltSuspendersBlack = чёрные подтяжки
     .desc = { ent-ClothingBeltSuspendersRed.desc }
 ent-ClothingBeltWand = пояс для палочек
     .desc = Пояс, предназначенный для хранения различных волшебных палочек. Поясная сумка, полная экзотической магии.
+ent-ClothingBeltMilitaryWebbingERT = разгрузка ОБР
+    .desc = Тактическая разгрузка оперативников отряда быстрого реагирования.

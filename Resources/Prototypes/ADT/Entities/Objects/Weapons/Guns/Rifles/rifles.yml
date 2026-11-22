@@ -109,9 +109,12 @@
     sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
   # - type: RunAndGunSpreadModifier
     # modifier: 0.2
+  - type: GunWieldBonus
+    minAngle: -29.5
+    maxAngle: -44
   - type: Gun
-    minAngle: 20.5
-    maxAngle: 31
+    minAngle: 30
+    maxAngle: 45
     fireRate: 5.6
     #angleIncrease: 1
     #angleDecay: 12

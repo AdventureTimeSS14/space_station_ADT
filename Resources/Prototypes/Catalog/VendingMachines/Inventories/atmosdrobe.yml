@@ -1,18 +1,24 @@
 - type: vendingMachineInventory
   id: AtmosDrobeInventory
   startingInventory:
-    ClothingBackpackDuffelAtmospherics: 2
-    ClothingBackpackSatchelAtmospherics: 2
-    ClothingBackpackAtmospherics: 2
-    ClothingUniformJumpsuitAtmos: 3
-    ClothingUniformJumpskirtAtmos: 3
-    ClothingUniformJumpsuitAtmosCasual: 3 
-    ClothingAtmosphericsOveralls: 3 # CorvaxAtmosFashion
-    ClothingShoesColorWhite: 3
-    ClothingHeadsetEngineering: 2
-    ClothingHeadHelmetFire: 2
-    ClothingOuterSuitFire: 2
-    ClothingOuterWinterAtmos: 2
-    ClothingNeckScarfStripedLightBlue: 3
+    ADTVendingCategoryBackpacks: # ADT-Tweak
+        ClothingBackpackDuffelAtmospherics: 2
+        ClothingBackpackSatchelAtmospherics: 2
+        ClothingBackpackAtmospherics: 2
+    ADTVendingCategoryUniforms: # ADT-Tweak
+        ClothingUniformJumpsuitAtmos: 3
+        ClothingUniformJumpskirtAtmos: 3
+        ClothingUniformJumpsuitAtmosCasual: 3
+        ClothingAtmosphericsOveralls: 3 # CorvaxAtmosFashion
+    ADTVendingCategoryShoes: # ADT-Tweak
+        ClothingShoesColorWhite: 3
+    ADTVendingCategoryAccessories: # ADT-Tweak
+        ClothingHeadsetEngineering: 2
+        ClothingNeckScarfStripedLightBlue: 3
+    ADTVendingCategoryHead: # ADT-Tweak
+        ClothingHeadHelmetFire: 2
+    ADTVendingCategoryOuter: # ADT-Tweak
+        ClothingOuterSuitFire: 2
+        ClothingOuterWinterAtmos: 2
   contrabandInventory:
     ToyFigurineAtmosTech: 1

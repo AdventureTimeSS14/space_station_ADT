@@ -87,7 +87,7 @@
   branches:
     - preconditions:
         - !type:KeyExistsPrecondition
-          key: BubblegumWavesBusy
+          key: MegafaunaBusy
       tasks:
         - !type:HTNCompoundTask
           task: DoAbsolutelyNothingCompound

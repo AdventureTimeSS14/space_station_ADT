@@ -30,7 +30,7 @@ public sealed class MealsRecipesJsonGenerator
 
         var sliceableRecipes =
             entities
-                .Where(x => x.Components.TryGetComponent("SliceableFood", out var _))
+                .Where(x => x.Components.TryGetComponent("ToolRefinableSolution", out var _))
                 .Select(x => new SliceRecipeEntry(x))
                 .Where(x => x.Result != "") // SOMEONE THOUGHT THAT IT WOULD BE A GREAT IDEA TO PUT COMPONENT ON AN ITEM WITHOUT SPECIFYING THE OUTPUT THING.
                 .Where(x => x.Count > 0) // Just in case.
@@ -40,7 +40,7 @@ public sealed class MealsRecipesJsonGenerator
         var grindableRecipes =
             entities
                 .Where(x => x.Components.TryGetComponent("Extractable", out var _))
-                .Where(x => x.Components.TryGetComponent("SolutionContainerManager", out var _))
+                .Where(x => x.Components.TryGetComponent("Solution", out var _) || x.Components.TryGetComponent("SolutionManager", out var _))
                 .Where(x => (Regex.Match(x.ID.ToLower().Trim(), @".*[Ff]ood*").Success)) // we dont need some "organ" or "pills" prototypes.
                 .Select(x => new GrindRecipeEntry(x))
                 .Where(x => x.Result != null)

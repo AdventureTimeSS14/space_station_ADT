@@ -1,6 +1,8 @@
+using Content.Server.ADT.Mech.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -9,6 +11,8 @@ using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Vehicle.Components;
+using Content.Shared.Vehicle.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -17,14 +21,16 @@ namespace Content.Server.Mech.Systems;
 
 public sealed class MechCockpitSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private VehicleSystem _vehicle = default!;
+    [Dependency] private ADTMechSystem _adtMech = default!;
 
     public const string SeatSlotId = "adt-mech-cockpit-slot";
 
@@ -76,10 +82,10 @@ public sealed class MechCockpitSystem : EntitySystem
         if (FindCockpit(uid, comp) is not { } cockpit)
             return;
 
-        if (args.User == comp.PilotSlot.ContainedEntity)
+        if (args.User == _vehicle.GetOperatorOrNull(uid))
             return;
 
-        var whitelist = cockpit.Comp.PilotWhitelist ?? comp.PilotWhitelist;
+        var whitelist = cockpit.Comp.PilotWhitelist ?? CompOrNull<VehicleComponent>(uid)?.OperatorWhitelist;
         if (_whitelist.IsWhitelistFail(whitelist, args.User))
             return;
 
@@ -200,7 +206,7 @@ public sealed class MechCockpitSystem : EntitySystem
         if (!Resolve(uid, ref comp, false))
             return;
 
-        var pilot = comp.PilotSlot.ContainedEntity ?? entering;
+        var pilot = _vehicle.GetOperatorOrNull(uid) ?? entering;
         if (pilot == leaving)
             pilot = null;
 
@@ -235,17 +241,16 @@ public sealed class MechCockpitSystem : EntitySystem
             EnsureComp<MechControlLockedComponent>(crew);
             RemComp<InteractionRelayComponent>(crew);
         }
+
+        _adtMech.UpdateMouseRotation(crew);
     }
 
-    public void RelayDamageToPassenger(EntityUid uid, MechComponent comp, DamageChangedEvent args)
+    public void RelayDamageToPassenger(EntityUid uid, float multiplier, DamageSpecifier delta)
     {
-        if (!args.DamageIncreased || args.DamageDelta == null)
+        if (multiplier <= 0f || GetPassenger(uid) is not { } passenger)
             return;
 
-        if (GetPassenger(uid) is not { } passenger)
-            return;
-
-        _damageable.ChangeDamage(passenger, args.DamageDelta * comp.MechToPilotDamageMultiplier);
+        _damageable.ChangeDamage(passenger, delta * multiplier);
     }
 
     public EntityUid? GetPassenger(EntityUid mech)

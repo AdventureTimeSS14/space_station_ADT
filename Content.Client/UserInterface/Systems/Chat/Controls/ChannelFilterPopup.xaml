@@ -16,6 +16,7 @@
                     <TextEdit Name="HighlightEdit" MinHeight="150" Margin="5 5"/>
                 </PanelContainer>
                 <Button Name="HighlightButton" Text="{Loc 'hud-chatbox-highlights-button'}" ToolTip="{Loc 'hud-chatbox-highlights-tooltip'}"/>
+                <Button Name="CustomEmotesButton" Text="{Loc 'adt-custom-emotes-open'}" ToolTip="{Loc 'adt-custom-emotes-hint'}"/> <!-- ADT-Tweak -->
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>

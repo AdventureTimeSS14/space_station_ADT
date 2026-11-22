@@ -1,0 +1,23 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              Orientation="Vertical"
+              Margin="5 4 5 4">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1c1a22" BorderThickness="1" BorderColor="#4a4458"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="4"/>
+            <BoxContainer Orientation="Horizontal" Margin="8 6 8 8" HorizontalExpand="True">
+                <BoxContainer Name="BladeViewContainer" Orientation="Vertical" VerticalAlignment="Top"/>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8 0 0 0">
+                    <RichTextLabel Name="NameLabel"/>
+                    <RichTextLabel Name="DamageLabel" Margin="0 4 0 0"/>
+                    <cc:HSeparator Margin="0 6 0 6"/>
+                    <RichTextLabel Name="BonusLabel" HorizontalExpand="True"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

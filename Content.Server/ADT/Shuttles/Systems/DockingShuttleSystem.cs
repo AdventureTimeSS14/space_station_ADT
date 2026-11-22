@@ -12,9 +12,9 @@ namespace Content.Server.ADT.Shuttles.Systems;
 
 public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
 {
-    [Dependency] private readonly DockingConsoleSystem _console = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private DockingConsoleSystem _console = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()
     {

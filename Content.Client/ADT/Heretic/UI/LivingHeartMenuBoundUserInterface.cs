@@ -1,3 +1,5 @@
+//
+
 using Content.Shared.Heretic;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -7,8 +9,8 @@ namespace Content.Client.ADT.Heretic.UI;
 
 public sealed partial class LivingHeartMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     [NonSerialized] private LivingHeartMenu? _menu;
 

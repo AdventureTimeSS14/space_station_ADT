@@ -8,10 +8,10 @@ ui-escape-website = Boosty
 
 queue-title = В очереди
 queue-quit = Выйти
+queue-options = Настройки
 queue-position = Ваша позиция:
 queue-total = Всего в очереди:
-queue-priority-join = Приорити проход
-queue-website = Пройти без очереди!
+queue-website = Пройти без очереди
 
 ### Копирование текста в КПК
 

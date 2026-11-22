@@ -1,3 +1,5 @@
+//
+
 namespace Content.Server.Heretic.Components;
 
 [RegisterComponent]

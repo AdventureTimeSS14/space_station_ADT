@@ -1,0 +1,33 @@
+- type: oreSmeltPack
+  id: OreFurnaceBasic
+  recipes:
+  - SmeltSteel
+  - SmeltGlass
+  - SmeltPlasma
+  - SmeltUranium
+  - SmeltGold
+  - SmeltSilver
+  - SmeltBananium
+  - SmeltDiamond
+  - SmeltCopper
+  - SmeltZinc
+  - SmeltLead
+
+- type: oreSmeltPack
+  id: OreFurnaceReinforcedGlass
+  recipes:
+  - SmeltReinforcedGlass
+  - SmeltPlasmaGlass
+  - SmeltReinforcedPlasmaGlass
+
+- type: oreSmeltPack
+  id: OreFurnaceAdvanced
+  recipes:
+  - SmeltPlasteel
+  - SmeltUraniumGlass
+  - SmeltReinforcedUraniumGlass
+
+- type: oreSmeltPack
+  id: OreFurnaceBluespace
+  recipes:
+  - SmeltBluespaceCrystal

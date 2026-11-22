@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseItem
+  id: ADTMicrophoneStandEmpty
+  name: microphone stand
+  description: A stand for a microphone. Put a microphone on it to sing hands free.
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/microphone_stand.rsi
+    state: base
+  - type: Item
+    size: Huge
+    sprite: ADT/Objects/Fun/Instruments/microphone_stand.rsi
+  - type: Construction
+    graph: ADTMicrophoneStand
+    node: stand
+    deconstructionTarget: null
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMicrophoneStandEmpty
+  id: ADTMicrophoneStand
+  name: microphone stand
+  description: A microphone on a stand. Sing your heart out, hands free.
+  suffix: Microphone
+  components:
+  - type: Sprite
+    state: base-mike
+  - type: Icon
+    sprite: ADT/Objects/Fun/Instruments/microphone_stand.rsi
+    state: icon
+  - type: Item
+    heldPrefix: mike
+  - type: Construction
+    graph: ADTMicrophoneStand
+    node: standMicrophone
+    deconstructionTarget: null
+  - type: Instrument
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Aah": {52: 0}
+      "Ooh": {53: 0}
+      "Kweh": {4: 100}
+      "Waa": {5: 100}
+      "Wah": {6: 100}
+      "Vox": {85: 0}
+  - type: ActivatableUI
+    blockSpectators: true
+    inHandsOnly: false
+    singleUser: true
+    requiresComplex: true
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+  - type: TriggerOnVerb
+    text: microphone-stand-verb-remove-microphone
+  - type: SpawnEntityTableOnTrigger
+    useMapCoords: true
+    table: !type:AllSelector
+      children:
+      - id: ADTMicrophoneStandEmpty
+      - id: MicrophoneInstrument
+  - type: DeleteOnTrigger
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/Machines/button.ogg
+  - type: StaticPrice
+    price: 100

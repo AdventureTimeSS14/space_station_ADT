@@ -1,13 +1,10 @@
-using System.Linq;
-using Content.Server.Mech.Equipment.Components;
 using Content.Server.Popups;
 using Content.Shared.ADT.Mech.EntitySystems;
-using Content.Shared.ADT.Weapons.Ranged.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
+using Content.Shared.Vehicle.Systems;
 using Content.Shared.Whitelist;
 
 namespace Content.Server.Mech.Systems;
@@ -15,26 +12,20 @@ namespace Content.Server.Mech.Systems;
 /// <summary>
 /// Handles the insertion of mech equipment into mechs.
 /// </summary>
-public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Parent changed
+public sealed partial class MechEquipmentSystem : EntitySystem
 {
-    [Dependency] private readonly MechSystem _mech = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MechEquipmentLimitSystem _equipmentLimit = default!;
+    [Dependency] private MechSystem _mech = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private VehicleSystem _vehicle = default!;
+    [Dependency] private MechEquipmentLimitSystem _equipmentLimit = default!; // ADT-Tweak
 
     /// <inheritdoc/>
     public override void Initialize()
     {
-        base.Initialize();  // ADT fix I guess?
-
         SubscribeLocalEvent<MechEquipmentComponent, AfterInteractEvent>(OnUsed);
         SubscribeLocalEvent<MechEquipmentComponent, InsertEquipmentEvent>(OnInsertEquipment);
-
-        // ADT Content start
-        SubscribeLocalEvent<MechEquipmentComponent, EntityTerminatingEvent>(OnTerminating);
-        SubscribeLocalEvent<MechEquipmentComponent, MechEquipmentUiStateReadyEvent>(OnGetUIState);
-        // ADT Content end
     }
 
     private void OnUsed(EntityUid uid, MechEquipmentComponent component, AfterInteractEvent args)
@@ -49,7 +40,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
         if (mechComp.Broken)
             return;
 
-        if (args.User == mechComp.PilotSlot.ContainedEntity)
+        if (args.User == _vehicle.GetOperatorOrNull(mech))
             return;
 
         if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
@@ -58,7 +49,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
         if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used))
             return;
 
-        // ADT-Mech-Start
+        // ADT-Tweak-Start
         if (!_equipmentLimit.CanInsert(mech, args.Used, out var limitReason))
         {
             if (limitReason is { } popup)
@@ -66,7 +57,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
 
             return;
         }
-        // ADT-Mech-End
+        // ADT-Tweak-End
 
         _popup.PopupEntity(Loc.GetString("mech-equipment-begin-install", ("item", uid)), mech);
 
@@ -86,32 +77,6 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
         _popup.PopupEntity(Loc.GetString("mech-equipment-finish-install", ("item", uid)), args.Args.Target.Value);
         _mech.InsertEquipment(args.Args.Target.Value, uid);
 
-        // ADT Mech start
-        if (TryComp<MechComponent>(args.Args.Target, out var mech))
-        {
-            var ev = new PopulateMechEquipmentMenuEvent(mech.EquipmentContainer.ContainedEntities.Select(x => GetNetEntity(x)).ToList());
-            RaiseNetworkEvent(ev, args.Args.Target.Value);
-        }
-
-        // ADT Mech end
-
         args.Handled = true;
     }
-
-    // ADT Content start
-    private void OnTerminating(EntityUid uid, MechEquipmentComponent comp, ref EntityTerminatingEvent args)
-    {
-        _mech.UpdateUserInterfaceByEquipment(uid);
-    }
-
-    private void OnGetUIState(EntityUid uid, MechEquipmentComponent component, MechEquipmentUiStateReadyEvent args)
-    {
-        if (HasComp<MechGrabberComponent>(uid)) // Мне лень делать нормальную проверку, как-нибудь потом будет.
-            return;
-        if (HasComp<BallisticMechAmmoProviderComponent>(uid))
-            return;
-
-        args.States.Add(GetNetEntity(uid), null);
-    }
-    // ADT Content end
 }

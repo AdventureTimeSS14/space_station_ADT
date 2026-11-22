@@ -21,7 +21,7 @@ public sealed partial class DamageableSystem
     {
         if (!_damageableQuery.Resolve(entity, ref entity.Comp, false)
             || entity.Comp.DamageModifierSetId is not { } proto
-            || !_prototypeManager.Resolve(proto, out var modifierSet)
+            || !ProtoMan.Resolve(proto, out var modifierSet)
            )
             return null;
 
@@ -302,7 +302,7 @@ public sealed partial class DamageableSystem
     public DamageSpecifier GetPositiveDamage(Entity<DamageableComponent> ent, ProtoId<DamageGroupPrototype> group)
     {
         // No damage if no group exists...
-        if (!_prototypeManager.Resolve(group, out var groupProto))
+        if (!ProtoMan.Resolve(group, out var groupProto))
             return new DamageSpecifier();
 
         var damage = new DamageSpecifier();
@@ -399,26 +399,6 @@ public sealed partial class DamageableSystem
         // empty damage delta.
         OnEntityDamageChanged((ent, ent.Comp), new DamageSpecifier());
     }
-
-    // ADT-Tweak start
-    public void SetAllDamage(EntityUid uid, DamageableComponent? component, FixedPoint2 newValue)
-    {
-        if (!_damageableQuery.Resolve(uid, ref component, false))
-            return;
-
-        if (newValue < 0)
-            return;
-
-        foreach (var type in component.Damage.DamageDict.Keys)
-        {
-            component.Damage.DamageDict[type] = newValue;
-        }
-
-        // Setting damage does not count as 'dealing' damage, even if it is set to a larger value, so we pass an
-        // empty damage delta.
-        OnEntityDamageChanged((uid, component), new DamageSpecifier());
-    }
-    // ADT-Tweak end
 
     /// <summary>
     /// Set's the damage modifier set prototype for this entity.

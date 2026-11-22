@@ -139,7 +139,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 continue;
             }
 
-            var loadouts = groupLoadouts[..Math.Min(groupLoadouts.Count, groupProto.MaxLimit)];
+            var loadouts = groupProto.MaxLimit > 0 ? groupLoadouts[..Math.Min(groupLoadouts.Count, groupProto.MaxLimit)] : groupLoadouts;
 
             // Validate first
             for (var i = loadouts.Count - 1; i >= 0; i--)
@@ -318,6 +318,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             return false;
         }
 
+        // ADT-Tweak-Start
+        if (!Content.Shared.ADT.Sponsors.SponsorProfileValidation.IsLoadoutAllowed(session, collection, loadoutProto))
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("adt-sponsor-loadout-locked"));
+            return false;
+        }
+        // ADT-Tweak-End
+
         var valid = true;
 
         foreach (var effect in loadoutProto.Effects)
@@ -336,7 +344,8 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         var groupLoadouts = SelectedLoadouts[selectedGroup];
 
         // Need to unselect existing ones if we're at or above limit
-        var limit = Math.Max(0, groupLoadouts.Count + 1 - protoManager.Index(selectedGroup).MaxLimit);
+        var groupProto = protoManager.Index(selectedGroup);
+        var limit = groupProto.MaxLimit > 0 ? Math.Max(0, groupLoadouts.Count + 1 - protoManager.Index(selectedGroup).MaxLimit) : 0;
 
         for (var i = 0; i < groupLoadouts.Count; i++)
         {

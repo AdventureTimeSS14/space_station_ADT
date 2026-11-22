@@ -1,7 +1,5 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.ADT.Weapons.Ranged.Components;
 
 /// <summary>
@@ -11,8 +9,8 @@ namespace Content.Shared.ADT.Weapons.Ranged.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BatteryMechAmmoProviderComponent : MechAmmoProviderComponent
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Prototype = default!;
+    [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true)]
+    public EntProtoId Prototype = default!;
 
     [DataField("fireCost")]
     [AutoNetworkedField]

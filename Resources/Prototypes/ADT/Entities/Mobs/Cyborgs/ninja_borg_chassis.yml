@@ -1,0 +1,414 @@
+- type: entity
+  abstract: true
+  id: ADTNinjaBorgBase
+  parent: BaseBorgChassisNT
+  name: ninja cyborg
+  components:
+  - type: SiliconLawProvider
+    laws: Ninja
+  - type: NinjaBorgChassis
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrain"
+    silent: true
+  - type: AccessReader
+    access: [["SyndicateAgent"]] # У нас нет доступа под клан паука пока так
+
+- type: entity
+  id: ADTNinjaBorgChassisSecurity
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: ninja_sec
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: ninja_sec_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: ninja_sec_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 6
+    hasMindState: ninja_sec_e
+    noMindState: ninja_sec_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: ninja_sec
+    name: ниндзя-борг безопасности
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Security
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Security
+  - type: Inventory
+    templateId: borgTall
+  - type: TTS
+    voice: sentrybot
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon
+
+- type: entity
+  id: ADTNinjaBorgChassisEngineer
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: ninja_engi
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: ninja_engi_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: ninja_engi_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 7
+    hasMindState: ninja_engi_e
+    noMindState: ninja_engi_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: ninja_engi
+    name: ниндзя-борг-инженер
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Engineering
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Engineering
+    - Science
+  - type: Inventory
+    templateId: borgShort
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon
+
+- type: entity
+  id: ADTNinjaBorgChassisMedical
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: ninja_medical
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: ninja_medical_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: ninja_medical_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 7
+    hasMindState: ninja_medical_e
+    noMindState: ninja_medical_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: ninja_medical
+    name: ниндзя-борг-медик
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Medical
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Medical
+  - type: Inventory
+    templateId: borgDutch
+  - type: TTS
+    voice: fact_core
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHoverBorg
+      params:
+        volume: -6
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon
+
+- type: entity
+  id: ADTNinjaBorgChassisHeavy
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: ninjaheavy
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: ninjaheavy_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: ninjaheavy_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 6
+    hasMindState: ninjaheavy_e
+    noMindState: ninjaheavy_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: ninjaheavy
+    name: тяжёлый ниндзя-борг
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Supply
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Supply
+    - Science
+  - type: Inventory
+    templateId: borgTall
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon
+
+- type: entity
+  id: ADTNinjaBorgChassisSpider
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: ninjaspider
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: ninjaspider_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: ninjaspider_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 6
+    hasMindState: ninjaspider_e
+    noMindState: ninjaspider_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: ninjaspider
+    name: ниндзя-борг-паук
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: Inventory
+    templateId: borgShort
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon
+
+- type: entity
+  id: ADTNinjaBorgChassisBooty
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: bootyninja
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: bootyninja_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: bootyninja_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 9
+    hasMindState: bootyninja_e
+    noMindState: bootyninja_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: bootyninja
+    name: ниндзя-борг-официант
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: Inventory
+    templateId: borgTall
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon
+
+- type: entity
+  id: ADTNinjaBorgChassisBroBooty
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: male_bootyninja
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: male_bootyninja_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: male_bootyninja_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 9
+    hasMindState: male_bootyninja_e
+    noMindState: male_bootyninja_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: male_bootyninja
+    name: ниндзя-борг-братан
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: Inventory
+    templateId: borgTall
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon
+
+- type: entity
+  id: ADTNinjaBorgChassisMissM
+  parent: ADTNinjaBorgBase
+  name: ninja cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+    layers:
+    - state: missm_ninja
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: missm_ninja_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: missm_ninja_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 9
+    hasMindState: missm_ninja_e
+    noMindState: missm_ninja_e
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/ninja_robot.rsi
+      state: missm_ninja
+    name: ниндзя-борг МиссМ
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Service
+  - type: Inventory
+    templateId: borgTall
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleSyndicateWeapon

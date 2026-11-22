@@ -24,10 +24,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Emoting;
 using System.Linq;
+using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
-using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
+using Content.Shared.Changeling.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Heretic;
 using Content.Shared.ADT.BackStab;
@@ -115,6 +117,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly AreaSystem _area = default!;
+    [Dependency] private readonly SharedAnimatedEmotesSystem _emotes = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -130,7 +134,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeNinjutsu();
         InitializeHellRip();
         InitializePtsd();
-        InitializeCookbookTechnique();
         InitializeCanPerformCombo();
         InitializeWeaponCombos();
         InitializeTonfa();
@@ -169,7 +172,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         while (query.MoveNext(out var ent, out var comp))
         {
             if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+            {
                 comp.CurrentTarget = null;
+                Dirty(ent, comp);
+            }
 
             if (_timing.CurTime < comp.ResetTime
                 || comp.LastAttacks.Count == 0
@@ -327,9 +333,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return new()
         {
             Coefficients = specifier.DamageDict
-                .ToDictionary(x => x.Key.Id, _ => multiplier),
-            FlatReduction = specifier.DamageDict
-                .ToDictionary(x => x.Key.Id, _ => -modifier), // Minus mod because it subtracts values from damage
+                .ToDictionary(x => x.Key, _ => multiplier),
+            FlatReductions = specifier.DamageDict
+                .ToDictionary(x => x.Key, _ => -modifier),
         };
     }
 
@@ -484,7 +490,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
 
-        if (HasComp<ChangelingComponent>(user))
+        if (HasComp<ChangelingIdentityComponent>(user))
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), user, user);
             return false;
@@ -507,10 +513,14 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
         }
 
-        if (cqc.Blocked && comp.MartialArtsForm == MartialArtsForms.CloseQuartersCombat)
+        if (cqc.MartialArtsForm == comp.MartialArtsForm)
         {
-            _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
+            if (cqc.Blocked || cqc.AllowedAreas is not null && comp.AllowedAreas is null)
+                _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
+
             cqc.Blocked = false;
+            cqc.AllowedAreas = comp.AllowedAreas;
+            Dirty(user, cqc);
             return true;
         }
 
@@ -562,6 +572,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+        martialArtsKnowledgeComponent.AllowedAreas = comp.AllowedAreas;
         //martialArtsKnowledgeComponent.StartingStage = martialArtsPrototype.StartingStage;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
@@ -578,6 +589,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         newDamage.DamageDict.Add(martialArtsPrototype.DamageModifierType, martialArtsPrototype.BaseDamageModifier);
         meleeWeaponComponent.Damage += newDamage;
 
+        Dirty(user, martialArtsKnowledgeComponent);
         Dirty(user, canPerformComboComponent);
         Dirty(user, pullerComponent);
         return true;
@@ -618,6 +630,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
         }
 
+        if (!CanUseMartialArtInArea((ent.Owner, knowledgeComponent)))
+            return false;
+
         if (!proto.CanDoWhileProne && IsDown(ent))
         {
             _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-prone"), ent, ent);
@@ -642,6 +657,15 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
             return !standingState.Standing;
         }
+    }
+
+    protected bool CanUseMartialArtInArea(Entity<MartialArtsKnowledgeComponent> knowledge)
+    {
+        if (knowledge.Comp.AllowedAreas is not { Count: > 0 } allowedAreas)
+            return true;
+
+        var area = _area.GetAreaPrototypeId(Transform(knowledge.Owner).Coordinates);
+        return area is not null && allowedAreas.Contains(area.Value);
     }
 
     private void DoDamage(EntityUid ent,

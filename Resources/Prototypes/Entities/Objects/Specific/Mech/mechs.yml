@@ -1,11 +1,21 @@
-﻿- type: entity
+- type: entity
   id: BaseMech
   save: false
   abstract: true
   components:
   - type: MobMover
   - type: Mech
+    mechCycleAction: ADTActionMechCycleEquipment # ADT-Tweak
   - type: MechAir
+<<<<<<< HEAD
+=======
+  - type: Vehicle
+    canAttack: true
+    transferDamage: false # ADT-Tweak
+  - type: ContainerVehicle
+    containerId: "mech-pilot-slot"
+  - type: ContainerVehicleEntry
+>>>>>>> upstream/master
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
@@ -46,6 +56,7 @@
   - type: MeleeWeapon
     range: 1.2 # ADT-tweak 1.5 to 1.2
     hidden: true
+    animation: WeaponArcFist # ADT-Tweak
     attackRate: 0.75
     damage:
       types:
@@ -53,6 +64,7 @@
         Structural: 20
     soundHit:
       collection: MetalThud
+  - type: ADTNoWideAttack # ADT-Tweak
   - type: Puller
     needsHands: false
   - type: InputMover
@@ -103,7 +115,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 480 # ADT-Tweak
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -113,16 +125,19 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # ADT-tweak-Start
+  - type: ADTMech
+  - type: PointLight
+    enabled: false
+    radius: 9
+    energy: 2
+    lightMask: ADTLightMaskCircleCone
+    autoRot: true
+  - type: Prying
+    pryPowered: false
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      1000: Critical
-  - type: MobState
   - type: GrabProtection
-  - type: ZombieImmune
   - type: NoSlip
   - type: ProtectedFromStepTriggers
   - type: Prying
@@ -152,14 +167,7 @@
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     # ADT start - данные коэффициенты применять для небронированных гражданских мехов
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.75
-        Heat: 0.75
-        Structural: 1.0
-    maxintegrity: 170   # ADT-tweak. Правим очки здоровья меха
+    maxIntegrity: 204   # ADT-tweak. Правим очки здоровья меха
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -168,10 +176,31 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
-    pilotWhitelist:
+  # ADT-Tweak-Start
+  - type: ADTMech
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Structural: 1.0
+    pilotDamageMultiplier: 0.5 # ADT-Tweak
+  # ADT-Tweak-End
+  - type: Vehicle
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Cold: 0.75
+        Heat: 0.75
+        Shock: 0.75
+    operatorWhitelist:
       components:
         - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -218,6 +247,19 @@
         variation: 0.17
   - type: Mech
     # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    maxIntegrity: 342   # ADT-tweak. Правим очки здоровья меха
+    # ADT end
+    baseState: honker
+    openState: honker-open
+    brokenState: honker-broken
+    # ADT Start
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentClown
+    # ADT End
+  # ADT-Tweak-Start
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -225,20 +267,23 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
-    # ADT end
-    baseState: honker
-    openState: honker-open
-    brokenState: honker-broken
-    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.5 # ADT-Tweak
+  # ADT-Tweak-End
+  - type: Vehicle
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Cold: 0.5
+        Heat: 0.5
+        Shock: 0.5
+    operatorWhitelist:
       components:
       - HumanoidProfile
+  - type: VehicleHandBlocker
+    blockedHands: 2
     # ADT Start
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentClown
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.875
     baseSprintSpeed: 3.375
@@ -273,6 +318,18 @@
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    maxIntegrity: 342   # ADT-tweak. Правим очки здоровья меха
+    # ADT end
+    baseState: hamtr
+    openState: hamtr-open
+    brokenState: hamtr-broken
+    maxEquipmentAmount: 2
+    airtight: true
+    equipmentWhitelist:
+      tags:
+      - SmallMech
+  # ADT-Tweak-Start
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -280,18 +337,19 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
-    # ADT end
-    baseState: hamtr
-    openState: hamtr-open
-    brokenState: hamtr-broken
-    mechToPilotDamageMultiplier: 0.2
-    maxEquipmentAmount: 2
-    airtight: true
-    equipmentWhitelist:
-      tags:
-      - SmallMech
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.2 # ADT-Tweak
+  # ADT-Tweak-End
+  - type: Vehicle
+    requiresHands: false
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Cold: 0.2
+        Heat: 0.2
+        Shock: 0.2
+    operatorWhitelist:
       tags:
       - Hamster
   - type: MeleeWeapon
@@ -348,6 +406,15 @@
         volume: -10
   - type: Mech
     # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    maxIntegrity: 342   # ADT-tweak. Правим очки здоровья меха
+    # ADT end
+    baseState: vim
+    openState: vim-open
+    brokenState: vim-broken
+    maxEquipmentAmount: 0
+    airtight: true
+  # ADT-Tweak-Start
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -355,16 +422,19 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
-    # ADT end
-    baseState: vim
-    openState: vim-open
-    brokenState: vim-broken
-    maxEquipmentAmount: 0
-    # keep mouse safe
-    mechToPilotDamageMultiplier: 0.1
-    airtight: true
-    pilotWhitelist:
+    pilotDamageMultiplier: 0.1 # ADT-Tweak
+  # ADT-Tweak-End
+  - type: Vehicle
+    requiresHands: false
+    transferDamageModifier:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Cold: 0.1
+        Heat: 0.1
+        Shock: 0.1
+    operatorWhitelist:
       tags:
       - VimPilot
   - type: MeleeWeapon

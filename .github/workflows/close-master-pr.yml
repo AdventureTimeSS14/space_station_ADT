@@ -1,8 +1,12 @@
 name: Close PRs on master
 
+# ADT-Tweak-start
 on:
-  pull_request_target:
-    types: [ opened, ready_for_review ]
+  workflow_dispatch:
+#on:
+#  pull_request_target:
+#    types: [ opened, ready_for_review ]
+# ADT-Tweak-end
 
 jobs:
   run:

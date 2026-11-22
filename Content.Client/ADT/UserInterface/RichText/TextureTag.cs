@@ -12,7 +12,7 @@ namespace Content.Client.ADT.UserInterface.RichText;
 
 public sealed class TextureTag : BaseTextureTag, IMarkupTagHandler
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public string Name => "tex";
 

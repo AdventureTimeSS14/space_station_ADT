@@ -250,6 +250,10 @@
             type: [ Drask ]
             inverted: false
           amount: 1
+        # ADT-Tweak-Start
+        # - !type:AdjustTemperature
+        #   amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
+        # ADT-Tweak-End
 - type: reagent
   id: Doxarubixadone
   name: reagent-name-doxarubixadone
@@ -265,7 +269,7 @@
         - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
-            max: 213.0
+            max: 213.0 # ADT-Tweak
           damage:
             types:
              Cellular: -3 # ADT tweak
@@ -460,7 +464,7 @@
           inverted: true
       # End ADT tweak
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           max: 20
@@ -472,7 +476,7 @@
         conditions:
           # they gotta be in crit first
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           max: 20
@@ -494,7 +498,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           min: 0
@@ -543,9 +547,8 @@
       - !type:ModifyKnockdown
         time: 0.75
         type: Remove
-      - !type:GenericStatusEffect
-        key: Adrenaline # Guess what epinephrine is...
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline # Guess what epinephrine is...
         time: 5 # lingers less than hivemind reagent to give it a niche
 
 - type: reagent
@@ -620,7 +623,7 @@
       # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage:
           types:
             Asphyxiation: -2
@@ -632,7 +635,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         - !type:MobStateCondition
-          mobstate: Critical
+          mobstates: [ SoftCritical, Critical ] # ADT-Tweak
         damage:
           types:
             Bloodloss: -1
@@ -660,7 +663,8 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -10
         conditions:
         - !type:ReagentCondition
@@ -697,12 +701,12 @@
         conditions:
         - !type:TemperatureCondition
           max: 293.15
-        amount: 100000 # thermal energy, not temperature!
+        amount: 100000 # thermal energy, not temperature! ADT-Tweak
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
           min: 293.15
-        amount: -10000
+        amount: -10000 # ADT-Tweak
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -742,9 +746,9 @@
           - !type:ReagentCondition
             reagent: Barozine
             min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
-      - !type:GenericStatusEffect
-        key: PressureImmunity
-        component: PressureImmunity
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPressureImmunity
+        type: Add
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -869,14 +873,14 @@
           conditions:
             - !type:ReagentCondition
               reagent: Ambuzol
-              min: 10
+              min: 15
     Digestion:
       effects:
         - !type:CureZombieInfection
           conditions:
             - !type:ReagentCondition
               reagent: Ambuzol
-              min: 10
+              min: 15
 
 - type: reagent
   id: AmbuzolPlus
@@ -929,7 +933,8 @@
   metabolisms:
     Bloodstream:
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 6
         - !type:ModifyBloodLevel
           conditions:
@@ -1072,7 +1077,8 @@
     Bloodstream:
       effects:
       # what the hell, this isn't satiating at all!!
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1
 
   # Should heal quite literally everything, use in very small amounts
@@ -1406,7 +1412,8 @@
           min: 21
         probability: 0.4
       # ADT-Tweak-End
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1
       - !type:HealthChange
         conditions:
@@ -1429,10 +1436,16 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3
       - !type:HealthChange
         conditions:
+        # ADT-Tweak start
+        - !type:MetabolizerTypeCondition
+          type: [ Vampire ]
+          inverted: true
+        # ADT-Tweak end
         damage:
           types:
             Blunt: -0.2
@@ -1441,6 +1454,36 @@
             Shock: -0.2
             Cold: -0.2
             Holy: -2 # ADT Tweak
+      # ADT-Tweak-Start
+      - !type:HealthChange
+        conditions:
+        - !type:ChaplainCondition
+        damage:
+          types:
+            Heat: -1
+            Radiation: -1
+            Caustic: -1
+            Poison: -1
+            Asphyxiation: -1
+            Bloodloss: -1
+            Blunt: -1
+            Slash: -1
+            Piercing: -1
+            Cellular: -1
+            Cold: -1
+            Shock: -1
+      - !type:ModifyBleed
+        amount: -1.5
+        conditions:
+        - !type:ChaplainCondition
+      - !type:CleanBloodstream
+        cleanseRate: 1
+        conditions:
+        - !type:ChaplainCondition
+      - !type:ADTCureDiseases
+        conditions:
+        - !type:ChaplainCondition
+      # ADT-Tweak-End
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
@@ -1454,6 +1497,17 @@
         damage:
           types:
             Holy: 0.5
+    # ADT-Tweak start
+    Unholy:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 5
+      - !type:Emote
+        emote: Scream
+    # ADT-Tweak end
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -1581,10 +1635,14 @@
   metabolisms:
     Bloodstream:
       effects:
+      # ADT-Tweak-Start
+      # - !type:AdjustTemperature
+      #   amount: 80000 # Heats you up as it metabolizes necessitating constant cooling.
+      # ADT-Tweak-End
       - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
-          max: 213.0
+          max: 213.0 # ADT-Tweak
         damage:
           Brute: -1.5 # ADT tweak 3 > 1.5
           Burn: -2 # ADT tweak 3 > 2
@@ -1711,7 +1769,6 @@
       effects:
       - !type:Emote
         emote: Yawn
-        showInChat: true
         probability: 0.1
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -1725,6 +1782,9 @@
         effectProto: StatusEffectSeeingRainbow
         time: 10.0
         type: Remove
+      - !type:Antipsychotic # ADT-Tweak
+      - !type:ReduceHallucinations # ADT-Tweak
+        time: 20 # ADT-Tweak
       - !type:AdjustReagent
         reagent: Desoxyephedrine
         amount: -3.0

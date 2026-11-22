@@ -2,7 +2,7 @@ using Content.Shared.ADT.Silicons.StationAi;
 using Robust.Server.GameObjects;
 using Content.Server.Actions;
 using Robust.Shared.Player;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Shared.Robotics.Components;
 using Content.Shared.Robotics;
@@ -11,10 +11,10 @@ namespace Content.Server.ADT.Silicons.StationAi;
 
 public sealed partial class StationAiInfoSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     public override void Initialize()
     {
@@ -78,7 +78,7 @@ public sealed partial class StationAiInfoSystem : EntitySystem
         UpdateAllPdaUisOnStation();
     }
 
-    private void OnAlertLevelChanged(AlertLevelChangedEvent args)
+    private void OnAlertLevelChanged(ref AlertLevelChangedEvent args)
     {
         UpdateAllPdaUisOnStation();
     }
@@ -123,10 +123,9 @@ public sealed partial class StationAiInfoSystem : EntitySystem
     {
         var station = _station.GetOwningStation(uid);
         if (!TryComp(station, out AlertLevelComponent? alertComp) ||
-        alertComp.AlertLevels == null)
+            !ProtoMan.TryIndex(alertComp.CurrentAlertLevel, out var details))
             return;
-        component.StationAlertLevel = alertComp.CurrentLevel;
-        if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
-            component.StationAlertColor = details.Color;
+        component.StationAlertLevel = alertComp.CurrentAlertLevel;
+        component.StationAlertColor = details.Color;
     }
 }

@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterDedMorozDarkred
+  suffix: New Year
+  name: Dark red Ded Moroz suit
+  description: Suit clothing ded moroz
+  components:
+  - type: Sprite
+    sprite: ADT/Season/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter_darkred.rsi
+  - type: Clothing
+    sprite: ADT/Season/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter_darkred.rsi # Спрайты Кейси
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterDedMoroz
+  suffix: New Year
+  name: Ded Moroz suit
+  description: Suit clothing ded moroz
+  components:
+  - type: Sprite
+    sprite: ADT/Season/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
+  - type: Clothing
+    sprite: ADT/Season/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi

@@ -92,7 +92,7 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
         borderOverride.BackgroundColor = color;
 
         // Set labels
-        var gasData = SupermatterGasData.GasData[gas];
+        var gasData = SupermatterGasData.GasData.GetValueOrDefault(gas, new SupermatterGasFact(0, 0, 0, 0));
 
         GasLabel.Text = Loc.GetString(gasProto.Name) + ":";
 

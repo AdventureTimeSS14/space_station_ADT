@@ -4,5 +4,7 @@
 
 Мороженое - любимый замороженный десерт всех, от мала до велика. Только не предлагайте его новакидам!
 
-<GuideMicrowaveGroupEmbed Group="Icecreams"/>
+<GuideADTCookingGroupEmbed Group="Icecreams"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Icecreams"/>
 </Document>
