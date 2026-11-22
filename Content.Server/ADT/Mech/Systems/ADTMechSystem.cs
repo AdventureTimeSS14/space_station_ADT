@@ -1,7 +1,10 @@
 using System.Linq;
+using Content.Server.ADT.Mech.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
 using Content.Server.Mech.Systems;
+using Content.Shared.ADT.Emp;
+using Content.Shared.ADT.EMP;
 using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.Damage;
@@ -35,6 +38,9 @@ public sealed class ADTMechSystem : SharedADTMechSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MechEmpGlitchComponent, SetupMechUserEvent>(OnSetupGlitch);
+        SubscribeLocalEvent<MechEmpGlitchComponent, RemoveMechUserEvent>(OnRemoveGlitch);
+
         SubscribeLocalEvent<ADTMechComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<ADTMechComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<ADTMechComponent, EmpPulseEvent>(OnEmpPulse);
@@ -44,6 +50,41 @@ public sealed class ADTMechSystem : SharedADTMechSystem
         SubscribeLocalEvent<MechEquipmentDurabilityComponent, DamageChangedEvent>(OnEquipmentDamageChanged);
     }
 
+    private void OnSetupGlitch(Entity<MechEmpGlitchComponent> ent, ref SetupMechUserEvent args)
+    {
+        if (TryComp<EmpGlitchComponent>(args.Pilot, out var glitch))
+        {
+            ent.Comp.CachedCameraGlitchDurationMultiplier = glitch.DurationMultiplier;
+            ent.Comp.CachedCameraGlitchMotionStrength = glitch.MotionStrength;
+            ent.Comp.CachedCameraGlitchSmear = glitch.Smear;
+            ent.Comp.CachedCameraGlitchAmount = glitch.Glitch;
+            ent.Comp.HadCameraGlitch = true;
+        }
+
+        glitch = EnsureComp<EmpGlitchComponent>(args.Pilot);
+        glitch.DurationMultiplier = ent.Comp.CameraGlitchDurationMultiplier;
+        glitch.MotionStrength = ent.Comp.CameraGlitchMotionStrength;
+        glitch.Smear = ent.Comp.CameraGlitchSmear;
+        glitch.Glitch = ent.Comp.CameraGlitchAmount;
+    }
+
+    private void OnRemoveGlitch(Entity<MechEmpGlitchComponent> ent, ref RemoveMechUserEvent args)
+    {
+        if (ent.Comp.HadCameraGlitch)
+        {
+            var glitch = EnsureComp<EmpGlitchComponent>(args.Pilot);
+            glitch.DurationMultiplier = ent.Comp.CachedCameraGlitchDurationMultiplier;
+            glitch.MotionStrength = ent.Comp.CachedCameraGlitchMotionStrength;
+            glitch.Smear = ent.Comp.CachedCameraGlitchSmear;
+            glitch.Glitch = ent.Comp.CachedCameraGlitchAmount;
+        }
+        else
+        {
+            RemComp<EmpGlitchComponent>(args.Pilot);
+        }
+
+        ent.Comp.HadCameraGlitch = false;
+    }
     protected override void AddExtraVerbs(Entity<ADTMechComponent> ent, MechComponent mech, GetVerbsEvent<AlternativeVerb> args)
     {
         _cockpit.AddPassengerVerb(ent, mech, args);
@@ -122,6 +163,12 @@ public sealed class ADTMechSystem : SharedADTMechSystem
             return;
 
         var drain = FixedPoint2.Min(mech.Energy, args.EnergyConsumption / 100);
+
+        if (TryComp<EmpPowerDrainCapComponent>(ent.Owner, out var cap))
+        {
+            drain = MathF.Min((float)drain, cap.RelativeToMaxCharge ? (float)mech.MaxEnergy : (float)mech.Energy) * cap.CapPercentage;
+        }
+
         _mech.TryChangeEnergy(ent, -drain, mech);
         Spawn("EffectEmpPulse", Transform(ent).Coordinates);
     }
