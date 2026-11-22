@@ -68,6 +68,10 @@
   parent: BoxCardboard
   id: ADTNukeopsBoxFragGrenades
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,3
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector

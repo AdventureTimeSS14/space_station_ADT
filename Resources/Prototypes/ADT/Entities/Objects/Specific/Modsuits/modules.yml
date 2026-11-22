@@ -784,6 +784,8 @@
 - type: entity
   parent: ADTModsuitModBase
   id: ADTModsuitModEnergyShield
+  name: MOD energy shield module
+  description: MOD energy shield module
   components:
   - type: Sprite
     state: energy_shield
@@ -791,7 +793,7 @@
     maxHealth: 15
     rechargeTime: 300
   - type: ModSuitMod
-    complexity: 3
+    complexity: 5
     energyUsing: 0.5
     requiresFullEquip: true
     components:
