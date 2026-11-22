@@ -7,3 +7,7 @@ advertisement-civimed-6 = Стоят ли эти бумажки ТВОЕЙ жи�
 advertisement-civimed-7 = Порезался или обжёгся? Не беда, стоит лишь немного потратиться!
 advertisement-civimed-8 = Я не врач, но им можешь стать ТЫ! Скорее избавься от этой боли!
 advertisement-civimed-9 = Инспекция говорит что наши товары ТОЧНО помогут вам!
+advertisement-civimed-10 = Утопите боль в таблетках!
+advertisement-civimed-11 = Хочешь витаминку?
+advertisement-civimed-12 = Голоса становятся всё громче... Пока вы не примите таблетку галоперидола!
+advertisement-civimed-13 = Все престарелые пьют таблетки из этого автомата!

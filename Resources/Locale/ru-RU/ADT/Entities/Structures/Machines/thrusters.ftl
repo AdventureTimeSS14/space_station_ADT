@@ -1,9 +1,12 @@
-ent-ADTMediumThruster = средний ракетный двигатель
+ent-ADTThrusterMedium = средний ракетный двигатель
     .desc = { ent-BaseThruster.desc }
-ent-ADTBigThruster = большой ракетный двигатель
+ent-ADTThrusterMediumDebug = средний ракетный двигатель
     .desc = { ent-BaseThruster.desc }
-ent-ADTBigDebugThruster = { ent-ADTBigThruster }
-    .desc = { ent-ADTBigThruster.desc }
+    .suffix = Debug
+ent-ADTThrusterBig = большой ракетный двигатель
+    .desc = { ent-BaseThruster.desc }
+ent-ADTThrusterBigDebug = { ent-ADTThrusterBig }
+    .desc = { ent-ADTThrusterBig.desc }
     .suffix = Debug
 ent-ADTMediumLongThruster = средний длинный ракетный двигатель
     .desc = { ent-BaseThruster.desc }

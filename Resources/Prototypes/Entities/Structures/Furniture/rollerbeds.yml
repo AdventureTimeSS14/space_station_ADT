@@ -21,6 +21,7 @@
     - state: rollerbed_buckled
       map: ["buckledLayer"]
       visible: false
+    drawdepth: HighFloorObjects # ADT-tweak
   - type: MovedByPressure
   - type: DamageOnHighSpeedImpact
     soundHit:
