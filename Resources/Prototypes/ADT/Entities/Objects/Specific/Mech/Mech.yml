@@ -560,6 +560,10 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: EmpPowerDrainCap
+    capPercentage: 0.25
+  - type: MechEmpGlitch
+    cameraGlitchDurationMultiplier: 0.3
 
 - type: entity
   id: ADTMechPhazonBattery
