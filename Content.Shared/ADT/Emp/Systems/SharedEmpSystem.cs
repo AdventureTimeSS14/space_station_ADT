@@ -1,5 +1,6 @@
 using Content.Shared.ADT.CantShoot;
 using Content.Shared.ADT.EMP;
+using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 
@@ -33,16 +34,25 @@ public abstract partial class SharedEmpSystem
 
     private void OnInserted(Entity<EmpContainerProtectionComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
+        if (args.Container.ID != ent.Comp.ContainerId)
+            return;
+
         StartProtection(ent, args.Entity);
     }
 
     private void OnEjected(Entity<EmpContainerProtectionComponent> ent, ref EntRemovedFromContainerMessage args)
     {
+        if (args.Container.ID != ent.Comp.ContainerId)
+            return;
+
         StopProtection(ent, args.Entity);
     }
 
     private void StartProtection(Entity<EmpContainerProtectionComponent> ent, EntityUid battery)
     {
+        if (!HasComp<BatteryComponent>(battery))
+            return;
+
         var originalResistance = 1f;
         bool cap = false;
         bool capRelToMax = true;
