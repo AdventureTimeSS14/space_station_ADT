@@ -54,22 +54,15 @@ public abstract partial class SharedEmpSystem
             return;
 
         var originalResistance = 1f;
-        bool cap = false;
-        bool capRelToMax = true;
-        float capPercentage = 1f;
+        bool cap = TryComp<EmpPowerDrainCapComponent>(battery, out var drainCap);
+        bool capRelToMax = drainCap != null && drainCap.RelativeToMaxCharge;
+        float capPercentage = drainCap != null ? drainCap.CapPercentage : 1;
 
         if (TryComp<EmpResistanceComponent>(battery, out var resistance))
             originalResistance = resistance.StrengthMultiplier;
 
         if (ent.Comp.CapEnergyConsumption)
         {
-            if (TryComp<EmpPowerDrainCapComponent>(battery, out var drainCap))
-            {
-                cap = true;
-                capRelToMax = drainCap.RelativeToMaxCharge;
-                capPercentage = drainCap.CapPercentage;
-            }
-
             drainCap = EnsureComp<EmpPowerDrainCapComponent>(battery);
             drainCap.RelativeToMaxCharge = ent.Comp.CapRelativeToMaxCharge;
             drainCap.CapPercentage = ent.Comp.CapPercentage;
