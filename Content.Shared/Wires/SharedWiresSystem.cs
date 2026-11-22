@@ -106,6 +106,11 @@ public abstract partial class SharedWiresSystem : EntitySystem
         if (!IsPanelOpen(ent.Owner))
             return;
 
+        // ADT-Tweak start
+        if (args.User == ent.Owner && !ent.Comp.AllowSelfInteraction)
+            return;
+        // ADT-Tweak end
+
         var actor = args.User;
         var verb = new AlternativeVerb
         {
@@ -119,6 +124,12 @@ public abstract partial class SharedWiresSystem : EntitySystem
 
     public void OpenUserInterface(EntityUid uid, EntityUid actor)
     {
+        // ADT-Tweak start
+        if (actor == uid &&
+            (!TryComp<WiresPanelComponent>(uid, out var panel) || !panel.AllowSelfInteraction))
+            return;
+        // ADT-Tweak end
+
         UI.OpenUi(uid, WiresUiKey.Key, actor);
     }
 

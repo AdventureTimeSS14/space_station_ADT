@@ -15,7 +15,7 @@ namespace Content.Server.ADT.Silicons.Borgs;
 
 public sealed class ADTBorgSelfRepairSystem : EntitySystem
 {
-    [Dependency] private GameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private DamageableSystem _damage = default!;
     [Dependency] private FollowerSystem _follower = default!;

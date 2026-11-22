@@ -127,6 +127,7 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
+    allowSelfInteraction: false # ADT-Tweak
   # ADT-Tweak start
   - type: Wires
     boardName: adt-borg-wires-board-name

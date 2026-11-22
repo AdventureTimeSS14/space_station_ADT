@@ -24,6 +24,12 @@ public sealed partial class WiresPanelComponent : Component
     [AutoNetworkedField]
     public bool Visible = true;
 
+    // ADT-Tweak start
+    [DataField]
+    [AutoNetworkedField]
+    public bool AllowSelfInteraction = true;
+    // ADT-Tweak end
+
     [DataField("screwdriverOpenSound")]
     public SoundSpecifier ScrewdriverOpenSound = new SoundPathSpecifier("/Audio/Machines/screwdriveropen.ogg");
 
