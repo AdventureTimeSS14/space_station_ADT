@@ -36,15 +36,15 @@ public sealed class ADTBorgBrainLawsSystem : EntitySystem
 
     private void OnChassisMindAdded(Entity<ADTBorgAiLinkComponent> ent, ref MindAddedMessage args)
     {
+        if (!HasComp<SiliconLawBoundComponent>(ent))
+            return;
+
         if (!TryComp<BorgChassisComponent>(ent, out var chassis))
             return;
 
         if (chassis.BrainEntity is not { } brain
             || !TryComp<SiliconLawProviderComponent>(brain, out var provider)
             || !provider.Subverted)
-            return;
-
-        if (!HasComp<SiliconLawBoundComponent>(ent))
             return;
 
         _laws.NotifyHostBorgSubverted(brain);

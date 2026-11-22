@@ -11,12 +11,6 @@
   id: ADTBorgJetpackVoid
   parent: JetpackVoid
   components:
-    - type: MovementSpeedModifier
-      weightlessAcceleration: 1
-      weightlessFriction: 0.3
-      weightlessModifier: 1.2
-    - type: CanMoveInAir
-    - type: InputMover
     - type: GasTank
       releasePressure: 21.3
       air:
@@ -26,8 +20,6 @@
           - 0.615413716
     - type: Jetpack
       moleUsage: 0
-    - type: Physics
-      bodyType: KinematicController
 
 - type: entity
   id: ADTBorgResonator

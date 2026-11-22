@@ -111,18 +111,24 @@ public sealed class ADTBorgStorageHudSystem : EntitySystem
         if (_module is not { } module || !EntityManager.EntityExists(module))
             return;
 
-        if (args.Function == EngineKeyFunctions.UIClick &&
-            _player.LocalEntity is { } player &&
-            TryComp<HandsComponent>(player, out var hands) &&
-            _hands.TryGetActiveItem((player, hands), out var held))
+        if (args.Function == EngineKeyFunctions.UIClick)
         {
             args.Handle();
-            RaisePredictiveEvent(new ADTBorgStorageInsertHeldRequestEvent());
+
+            if (_player.LocalEntity is { } player &&
+                TryComp<HandsComponent>(player, out var hands) &&
+                _hands.TryGetActiveItem((player, hands), out var held))
+            {
+                RaisePredictiveEvent(new ADTBorgStorageInsertHeldRequestEvent());
+                return;
+            }
+
+            RaisePredictiveEvent(
+                new InteractInventorySlotEvent(EntityManager.GetNetEntity(module), altInteract: false));
             return;
         }
 
-        if (args.Function == EngineKeyFunctions.UIClick ||
-            args.Function == ContentKeyFunctions.ActivateItemInWorld)
+        if (args.Function == ContentKeyFunctions.ActivateItemInWorld)
         {
             args.Handle();
             RaisePredictiveEvent(
