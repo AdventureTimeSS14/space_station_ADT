@@ -19,6 +19,7 @@ public sealed partial class ADTBorgStorageModuleSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedBorgSystem _borg = default!;
 
     public override void Initialize()
     {
@@ -39,19 +40,14 @@ public sealed partial class ADTBorgStorageModuleSystem : EntitySystem
         if (!_hands.TryGetActiveItem((player, hands), out var held))
             return;
 
-        foreach (var module in chassis.ModuleContainer.ContainedEntities)
-        {
-            if (!HasComp<ADTBorgStorageModuleComponent>(module))
-                continue;
-
-            if (_storage.Insert(module, held.Value, out _, out var reason, player))
-                return;
-
-            if (reason != null)
-                _popup.PopupEntity(reason, module, player);
-
+        if (!_borg.TryGetStorageModule((player, chassis), out var module))
             return;
-        }
+
+        if (_storage.Insert(module.Value, held.Value, out _, out var reason, player))
+            return;
+
+        if (reason != null)
+            _popup.PopupEntity(reason, module.Value, player);
     }
 
     private void OnModuleRemoved(Entity<ADTBorgStorageModuleComponent> ent, ref EntGotRemovedFromContainerMessage args)

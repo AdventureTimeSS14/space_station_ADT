@@ -7,6 +7,7 @@ using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.ADT.TTS;
 using Content.Shared.Interaction.Components;
@@ -28,11 +29,6 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
     [Dependency] private SharedActionsSystem _actionsSystem = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private InteractionPopupSystem _interactionPopup = default!;
-
-    private static readonly ResPath BaseChassisRsi = new("Mobs/Silicon/chassis.rsi");
-    private const string BaseChassisSpriteState = "robot";
-    private const string BaseChassisTransponderName = "cyborg";
-    private const string BaseChassisInventoryTemplate = "borg";
     // ADT-Tweak end
 
     protected override void SelectBorgModule(Entity<BorgSwitchableTypeComponent> ent, ProtoId<BorgTypePrototype> borgType)
@@ -69,7 +65,7 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         {
             _borgSystem.SetTransponderSprite(
                 (ent.Owner, transponder),
-                new SpriteSpecifier.Rsi(prototype.SpriteRsi ?? BaseChassisRsi, prototype.SpriteBodyState)); // ADT-Tweak
+                new SpriteSpecifier.Rsi(prototype.SpriteRsi ?? BorgChassisBaseVisuals.Rsi, prototype.SpriteBodyState)); // ADT-Tweak
 
             _borgSystem.SetTransponderName(
                 (ent.Owner, transponder),
@@ -164,13 +160,13 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         {
             _borgSystem.SetTransponderSprite(
                 (ent.Owner, transponder),
-                new SpriteSpecifier.Rsi(BaseChassisRsi, BaseChassisSpriteState));
+                new SpriteSpecifier.Rsi(BorgChassisBaseVisuals.Rsi, BorgChassisBaseVisuals.BodyState));
 
-            _borgSystem.SetTransponderName((ent.Owner, transponder), BaseChassisTransponderName);
+            _borgSystem.SetTransponderName((ent.Owner, transponder), BorgChassisBaseVisuals.TransponderName);
         }
 
         if (TryComp(ent, out InventoryComponent? inventory))
-            _inventorySystem.SetTemplateId((ent.Owner, inventory), BaseChassisInventoryTemplate);
+            _inventorySystem.SetTemplateId((ent.Owner, inventory), BorgChassisBaseVisuals.InventoryTemplate);
 
         RemComp<SpriteMovementComponent>(ent);
 

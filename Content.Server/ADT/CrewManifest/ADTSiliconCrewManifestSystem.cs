@@ -45,10 +45,10 @@ public sealed class ADTSiliconCrewManifestSystem : EntitySystem
             if (chassis.BrainEntity is not { } brain)
                 continue;
 
-            if (!_npcFactionSystem.IsMember(uid, NanoTrasenFactionId))
+            if (_stationSystem.GetOwningStation(uid) != args.Station)
                 continue;
 
-            if (_stationSystem.GetOwningStation(uid) != args.Station)
+            if (!_npcFactionSystem.IsMember(uid, NanoTrasenFactionId))
                 continue;
 
             if (!IsCrewSiliconMind(uid, BorgJobId))

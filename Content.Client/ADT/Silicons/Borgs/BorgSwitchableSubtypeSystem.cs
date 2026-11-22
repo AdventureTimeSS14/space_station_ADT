@@ -12,12 +12,6 @@ namespace Content.Client.ADT.Silicons.Borgs;
 
 public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSubtypeSystem
 {
-    private static readonly ResPath BaseChassisRsi = new("Mobs/Silicon/chassis.rsi");
-    private const string BaseBodyState = "robot";
-    private const string BaseHasMindState = "robot_e";
-    private const string BaseNoMindState = "robot_e_r";
-    private const string BaseToggleLightState = "robot_l";
-
     [Dependency] private IResourceCache _resourceCache = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private AppearanceSystem _appearance = default!;
@@ -49,15 +43,15 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
         if (!TryComp(ent, out SpriteComponent? sprite))
             return;
 
-        if (!_resourceCache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / BaseChassisRsi, out var resource))
+        if (!_resourceCache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / BorgChassisBaseVisuals.Rsi, out var resource))
             return;
 
         if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
             hasPlayer = false;
 
-        sprite.LayerSetState(BorgVisualLayers.Body, BaseBodyState);
-        sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? BaseHasMindState : BaseNoMindState);
-        sprite.LayerSetState(BorgVisualLayers.LightStatus, BaseToggleLightState);
+        sprite.LayerSetState(BorgVisualLayers.Body, BorgChassisBaseVisuals.BodyState);
+        sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? BorgChassisBaseVisuals.HasMindState : BorgChassisBaseVisuals.NoMindState);
+        sprite.LayerSetState(BorgVisualLayers.LightStatus, BorgChassisBaseVisuals.ToggleLightState);
 
         sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
         sprite.LayerSetRSI(BorgVisualLayers.Light.GetHashCode(), resource.RSI);
@@ -65,7 +59,7 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
 
         if (TryComp(ent, out BorgChassisComponent? chassis))
         {
-            _borgSystem.SetMindStates((ent.Owner, chassis), BaseHasMindState, BaseNoMindState);
+            _borgSystem.SetMindStates((ent.Owner, chassis), BorgChassisBaseVisuals.HasMindState, BorgChassisBaseVisuals.NoMindState);
 
             if (TryComp(ent, out AppearanceComponent? appearance))
                 _appearance.QueueUpdate(ent, appearance);

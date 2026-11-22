@@ -8,6 +8,7 @@ using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
+using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -24,6 +25,7 @@ public sealed class ADTBorgStorageHudSystem : EntitySystem
     [Dependency] private IUserInterfaceManager _ui = default!;
     [Dependency] private HandsSystem _hands = default!;
     [Dependency] private ExamineSystem _examine = default!;
+    [Dependency] private SharedBorgSystem _borg = default!;
     
     private ADTBorgStorageButton? _boundButton;
     private EntityUid? _module;
@@ -82,16 +84,10 @@ public sealed class ADTBorgStorageHudSystem : EntitySystem
         }
 
         if (_player.LocalEntity is { } player &&
-            TryComp<BorgChassisComponent>(player, out var chassis))
+            TryComp<BorgChassisComponent>(player, out var chassis) &&
+            _borg.TryGetStorageModule((player, chassis), out var module))
         {
-            foreach (var ent in chassis.ModuleContainer.ContainedEntities)
-            {
-                if (!HasComp<ADTBorgStorageModuleComponent>(ent))
-                    continue;
-
-                _module = ent;
-                break;
-            }
+            _module = module;
         }
 
         if (_module == null)

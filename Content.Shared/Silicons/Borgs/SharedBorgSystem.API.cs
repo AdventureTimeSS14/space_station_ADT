@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ADT.Silicons.Borgs.Components; // ADT tweak
 using Content.Shared.Silicons.Borgs.Components;
@@ -256,6 +257,26 @@ public abstract partial class SharedBorgSystem
         brain = default;
         return false;
     }
+
+    // ADT-Tweak start
+    public bool TryGetStorageModule(Entity<BorgChassisComponent?> chassis, [NotNullWhen(true)] out EntityUid? module)
+    {
+        if (Resolve(chassis, ref chassis.Comp))
+        {
+            foreach (var moduleEnt in chassis.Comp.ModuleContainer.ContainedEntities)
+            {
+                if (!HasComp<ADTBorgStorageModuleComponent>(moduleEnt))
+                    continue;
+
+                module = moduleEnt;
+                return true;
+            }
+        }
+
+        module = null;
+        return false;
+    }
+    // ADT-Tweak end
 
     public bool TryGetHostBorgChassis(EntityUid brain, out EntityUid chassis)
     {
