@@ -7,15 +7,12 @@
   - type: Mech
     mechCycleAction: ADTActionMechCycleEquipment # ADT-Tweak
   - type: MechAir
-<<<<<<< HEAD
-=======
   - type: Vehicle
     canAttack: true
     transferDamage: false # ADT-Tweak
   - type: ContainerVehicle
     containerId: "mech-pilot-slot"
   - type: ContainerVehicleEntry
->>>>>>> upstream/master
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
