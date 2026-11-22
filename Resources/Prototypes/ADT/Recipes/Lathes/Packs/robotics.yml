@@ -5,6 +5,7 @@
   - ADTBorgModuleHarm
   - BorgModuleFlashImmunity
   - BorgModuleVTEC
+  - BorgModuleSelfRepair
 
 - type: latheRecipePack
   id: ADTModsuitPack

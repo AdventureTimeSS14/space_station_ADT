@@ -83,3 +83,6 @@ alerts-prying-desc = Вы можете вскрывать двери без ин
 
 alerts-changeling-chemicals-name = Химикаты
 alerts-changeling-chemicals-desc = Химикаты, хранящиеся в наших железах. Они нужны для работы многих наших способностей и со временем восстанавливаются.
+
+alerts-borg-selfrepair-name = Саморемонт
+alerts-borg-selfrepair-desc = Нажмите, чтобы выпустить или отозвать шар ремонта, восстанавливающий ваш корпус за счёт энергии батареи.

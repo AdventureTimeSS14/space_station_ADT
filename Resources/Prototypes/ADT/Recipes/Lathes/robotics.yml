@@ -47,6 +47,18 @@
     Copper: 300
 
 - type: latheRecipe
+  id: BorgModuleSelfRepair
+  result: BorgModuleSelfRepair
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 100
+    Plasma: 250
+    Copper: 300
+
+- type: latheRecipe
   id: ADTBorgModuleDetention
   result: ADTBorgModuleDetention
   completetime: 3

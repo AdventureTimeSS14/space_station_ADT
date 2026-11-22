@@ -970,3 +970,22 @@
     - type: SpeedBoosted
       speedMultiplier: 1.3
       infinite: true
+
+- type: entity
+  id: BorgModuleSelfRepair
+  parent: BaseBorgModule
+  name: self-repair cyborg module
+  description: A passive cyborg module with a repair orb. Click the self-repair alert to release or recall the orb — it restores the chassis over time, drawing power from the cell.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ComponentBorgModule
+    countsTowardsCapacity: false
+    components:
+    - type: ADTBorgSelfRepair
+      wispProto: ADTBorgRepairOrb
+      healAmount: 5
+      healInterval: 5
+      energyCost: 5

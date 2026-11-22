@@ -152,8 +152,8 @@
   - SalvageWeapons
 
 - type: technology
-  id: VtecSpeedManipulation
-  name: research-technology-vtec-speed-manipulation
+  id: AdvancedSecBorgModifiers
+  name: research-technology-advanced-sec-borg-modifiers
   icon:
     sprite: Objects/Specific/Robotics/borgmodule.rsi
     state: icon-xenoborg-space-movement
@@ -162,6 +162,7 @@
   cost: 10000
   recipeUnlocks:
   - BorgModuleVTEC
+  - BorgModuleSelfRepair
   position: 2,-2
   requiredTech:
   - WeaponizedLaserManipulation

@@ -71,7 +71,7 @@ public partial class JellyCoatingSystem : EntitySystem
 
         if (!HasComp<MechComponent>(target))
         {
-            _popup.PopupClient(Loc.GetString("jelly-coating-not-mech"), target, args.User);
+            _popup.PopupEntity(Loc.GetString("jelly-coating-not-mech"), target, args.User);
             return;
         }
 

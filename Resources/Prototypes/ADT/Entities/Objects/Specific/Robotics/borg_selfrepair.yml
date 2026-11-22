@@ -1,0 +1,22 @@
+- type: entity
+  id: ADTBorgRepairOrb
+  name: repair orb
+  description: A self-repair drone sphere of a cyborg. Slowly restores the chassis, drawing power from the cell.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borg_selfrepair.rsi
+    state: selfrepair_on
+    drawdepth: Ghosts
+    noRot: true
+    offset: "0,0.5"
+  - type: Transform
+    noRot: true
+  - type: Physics
+    bodyType: Kinematic
+    canCollide: false
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 1.2
+    color: "#7CFF8A"
