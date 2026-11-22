@@ -15,6 +15,7 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
     [Dependency] private IResourceCache _resourceCache = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private BorgSystem _borgSystem = default!;
 
     public override void Initialize()
@@ -49,13 +50,10 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
         if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
             hasPlayer = false;
 
-        sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
-        sprite.LayerSetRSI(BorgVisualLayers.Light.GetHashCode(), resource.RSI);
-        sprite.LayerSetRSI(BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI);
-
-        sprite.LayerSetState(BorgVisualLayers.Body, BorgChassisBaseVisuals.BodyState);
-        sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? BorgChassisBaseVisuals.HasMindState : BorgChassisBaseVisuals.NoMindState);
-        sprite.LayerSetState(BorgVisualLayers.LightStatus, BorgChassisBaseVisuals.ToggleLightState);
+        _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Body.GetHashCode(), resource.RSI, BorgChassisBaseVisuals.BodyState);
+        _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Light.GetHashCode(), resource.RSI,
+            hasPlayer ? BorgChassisBaseVisuals.HasMindState : BorgChassisBaseVisuals.NoMindState);
+        _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI, BorgChassisBaseVisuals.ToggleLightState);
 
         if (TryComp(ent, out BorgChassisComponent? chassis))
         {
@@ -85,13 +83,10 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
             if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
                 hasPlayer = false;
 
-            sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
-            sprite.LayerSetRSI(BorgVisualLayers.Light.GetHashCode(), resource.RSI);
-            sprite.LayerSetRSI(BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI);
-
-            sprite.LayerSetState(BorgVisualLayers.Body, subtypePrototype.SpriteBodyState);
-            sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? subtypePrototype.SpriteHasMindState : subtypePrototype.SpriteNoMindState);
-            sprite.LayerSetState(BorgVisualLayers.LightStatus, subtypePrototype.SpriteToggleLightState);
+            _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Body.GetHashCode(), resource.RSI, subtypePrototype.SpriteBodyState);
+            _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Light.GetHashCode(), resource.RSI,
+                hasPlayer ? subtypePrototype.SpriteHasMindState : subtypePrototype.SpriteNoMindState);
+            _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI, subtypePrototype.SpriteToggleLightState);
 
             if (TryComp(ent, out BorgChassisComponent? chassis))
             {
