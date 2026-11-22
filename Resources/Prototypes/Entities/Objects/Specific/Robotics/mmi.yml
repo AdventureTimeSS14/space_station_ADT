@@ -21,6 +21,12 @@
         components:
         - Brain
   - type: BorgBrain
+  # ADT-Tweak start
+  - type: SiliconLawProvider
+    laws: NTDefault
+  - type: SiliconLawBound
+  - type: IonStormTarget
+  # ADT-Tweak end
   - type: BlockMovement
   - type: Examiner
   - type: IntrinsicRadioReceiver
@@ -65,12 +71,6 @@
       whitelist:
         components:
         - Brain
-  # ADT-Tweak start: законы и взлом хранятся в мозге, а не в корпусе
-  - type: SiliconLawProvider
-    laws: NTDefault
-  - type: SiliconLawBound
-  - type: IonStormTarget
-  # ADT-Tweak end
 
 - type: entity
   parent: BaseItem

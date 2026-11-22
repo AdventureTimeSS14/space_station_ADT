@@ -172,7 +172,7 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
             // new laws may allow antagonist behaviour so make it clear for admins
             // ADT-Tweak start
             if (_mind.TryGetMind(ent, out var mindId, out _)
-                || TryGetHostBorgChassis(ent, out var chassis) && _mind.TryGetMind(chassis, out mindId, out _))
+                || _borg.TryGetHostBorgChassis(ent, out var chassis) && _mind.TryGetMind(chassis, out mindId, out _))
             {
                 EnsureSubvertedSiliconRole(mindId);
             }
@@ -207,18 +207,12 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
     // ADT-Tweak start
     private bool IsHostBorgEmagged(EntityUid uid)
     {
-        return TryGetHostBorgChassis(uid, out var chassis) && _emag.CheckFlag(chassis, EmagType.Interaction);
-    }
-
-    private bool TryGetHostBorgChassis(EntityUid uid, out EntityUid chassis)
-    {
-        chassis = Transform(uid).ParentUid;
-        return HasComp<BorgChassisComponent>(chassis);
+        return _borg.TryGetHostBorgChassis(uid, out var chassis) && _emag.CheckFlag(chassis, EmagType.Interaction);
     }
 
     public void NotifyHostBorgSubverted(EntityUid providerUid)
     {
-        if (!TryGetHostBorgChassis(providerUid, out var chassis))
+        if (!_borg.TryGetHostBorgChassis(providerUid, out var chassis))
             return;
 
         if (!TryComp<ActorComponent>(chassis, out var actor))
@@ -383,7 +377,7 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
             Dirty(uid, component);
 
             if (!_mind.TryGetMind(uid, out var mindId, out _)
-                && TryGetHostBorgChassis(uid, out var chassis))
+                && _borg.TryGetHostBorgChassis(uid, out var chassis))
             {
                 _mind.TryGetMind(chassis, out mindId, out _);
             }
@@ -443,6 +437,9 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
         var borgs = AllEntityQuery<BorgChassisComponent, NpcFactionMemberComponent>();
         while (borgs.MoveNext(out var uid, out var chassis, out _))
         {
+            if (!_faction.IsMember(uid, "NanoTrasen"))
+                continue;
+
             if (HasComp<SiliconLawProviderComponent>(uid))
                 continue;
 

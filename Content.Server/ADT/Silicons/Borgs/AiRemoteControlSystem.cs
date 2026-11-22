@@ -7,6 +7,7 @@ using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.StationAi;
@@ -29,6 +30,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 {
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SiliconLawSystem _lawSystem = default!;
+    [Dependency] private SharedBorgSystem _borg = default!;
     [Dependency] private SharedStationAiSystem _stationAiSystem = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private UserInterfaceSystem _userInterface = default!;
@@ -282,13 +284,8 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     public void RewriteLaws(EntityUid from, EntityUid to)
     {
-        var fromSource = from;
-        if (TryComp<BorgChassisComponent>(from, out var fromChassis) && fromChassis.BrainEntity is { } fromBrain)
-            fromSource = fromBrain;
-
-        var toSource = to;
-        if (TryComp<BorgChassisComponent>(to, out var toChassis) && toChassis.BrainEntity is { } toBrain)
-            toSource = toBrain;
+        var fromSource = _borg.TryGetBorgBrain(from, out var fromBrain) ? fromBrain : from;
+        var toSource = _borg.TryGetBorgBrain(to, out var toBrain) ? toBrain : to;
 
         if (!TryComp<SiliconLawProviderComponent>(fromSource, out var fromLawsComp))
             return;

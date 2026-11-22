@@ -41,7 +41,7 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// <remarks>
     /// This count is on top of the modules specified in <see cref="DefaultModules"/>.
     /// </remarks>
-    /// <seealso cref="BorgChassisComponent.ModuleCount"/>
+    /// <seealso cref="SharedBorgSystem.CountOccupiedModuleSlots"/> # ADT-Tweak
     [DataField]
     public int ExtraModuleCount { get; set; } = 0;
 

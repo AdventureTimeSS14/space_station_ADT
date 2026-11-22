@@ -153,6 +153,9 @@ public sealed partial class ADTBorgLawSyncWireAction : ComponentWireAction<ADTBo
 
     public override bool Mend(EntityUid user, Wire wire, ADTBorgAiLinkComponent comp)
     {
+        if (comp.LawSyncEnabled)
+            return true;
+
         comp.LawSyncEnabled = true;
 
         if (!comp.AiLinkEnabled)

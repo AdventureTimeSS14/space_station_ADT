@@ -3,7 +3,8 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Overlays;
 using Content.Shared.Popups;
-using Content.Shared.Silicons.Borgs.Components; // ADT-Tweak
+using Content.Shared.Silicons.Borgs;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Wires;
@@ -22,6 +23,7 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private SharedAudioSystem _audio = default!; // ADT-Tweak
+    [Dependency] protected SharedBorgSystem _borg = default!; // ADT-Tweak
 
     /// <summary>
     /// Minimum length of generated ion storm law identifiers.
@@ -75,8 +77,7 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
         if (!TryComp<SiliconLawProviderComponent>(uid, out var lawcomp))
         // ADT-Tweak start
         {
-            if (!TryComp<BorgChassisComponent>(uid, out var borgChassis)
-                || borgChassis.BrainEntity is not { } borgBrain
+            if (!_borg.TryGetBorgBrain(uid, out var borgBrain)
                 || !HasComp<SiliconLawProviderComponent>(borgBrain))
                 return;
 

@@ -244,6 +244,24 @@ public abstract partial class SharedBorgSystem
 
         return count;
     }
+
+    public bool TryGetBorgBrain(EntityUid chassis, out EntityUid brain)
+    {
+        if (TryComp(chassis, out BorgChassisComponent? borg) && borg.BrainEntity is { } b)
+        {
+            brain = b;
+            return true;
+        }
+
+        brain = default;
+        return false;
+    }
+
+    public bool TryGetHostBorgChassis(EntityUid brain, out EntityUid chassis)
+    {
+        chassis = Transform(brain).ParentUid;
+        return HasComp<BorgChassisComponent>(chassis);
+    }
     // ADT-Tweak end
 
     /// <summary>

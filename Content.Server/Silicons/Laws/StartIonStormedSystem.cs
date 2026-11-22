@@ -1,3 +1,4 @@
+using Content.Shared.Silicons.Borgs; // ADT-Tweak
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Administration.Logs;
@@ -13,6 +14,7 @@ public sealed partial class StartIonStormedSystem : EntitySystem
     [Dependency] private IonStormSystem _ionStorm = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SiliconLawSystem _siliconLaw = default!;
+    [Dependency] private SharedBorgSystem _borg = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -31,8 +33,7 @@ public sealed partial class StartIonStormedSystem : EntitySystem
         var stormUid = ent.Owner;
         var stormBound = lawBound;
         var stormComp = target;
-        if (TryComp<BorgChassisComponent>(ent.Owner, out var chassis)
-            && chassis.BrainEntity is { } brain
+        if (_borg.TryGetBorgBrain(ent.Owner, out var brain)
             && TryComp<SiliconLawBoundComponent>(brain, out var brainBound)
             && TryComp<IonStormTargetComponent>(brain, out var brainTarget))
         {
