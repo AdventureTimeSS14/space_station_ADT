@@ -25,3 +25,4 @@ research-technology-adt-rped = РПЕД
 research-technology-adt-bluespace-rped = Блюспейс-РПЕД
 research-technology-adt-bluespace-rpd = Блюспейс-РРТ
 research-technology-adt-nanopaste = Робототехническая нанопаста
+research-technology-adt-sec-borg-energytac = Тактическое энерговооружение СБ-борга

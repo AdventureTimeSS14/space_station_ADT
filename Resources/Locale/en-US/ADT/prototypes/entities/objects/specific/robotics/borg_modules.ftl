@@ -63,3 +63,7 @@ ent-WeaponTetherGunRecharging = tether gun
 ent-WeaponForceGunRecharging = force gun
     .suffix = Recharging
     .desc = { ent-WeaponForceGun.desc }
+ent-BorgModuleEnergyTac = tactical energy module
+    .desc = A module with a compact energy rifle featuring three firing modes - stun, disable and lethal.
+ent-ADTBorgWeaponEnergyTac = tactical energy rifle
+    .desc = A compact energy rifle with three firing modes - stun, disable and lethal. Designed for cyborgs, recharges on its own.

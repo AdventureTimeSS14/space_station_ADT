@@ -166,3 +166,18 @@
   position: 2,-2
   requiredTech:
   - WeaponizedLaserManipulation
+
+- type: technology
+  id: ADTSecBorgEnergyTac
+  name: research-technology-adt-sec-borg-energytac
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/energytac.rsi
+    state: base
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - BorgModuleEnergyTac
+  position: 4,-1
+  requiredTech:
+  - ConcentratedLaserWeaponry

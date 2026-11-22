@@ -218,6 +218,7 @@
     layers:
     - state: science
     - state: icon-anomalies-adv
+      sprite: /Textures/ADT/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
     - item: AnomalyScanner
@@ -230,7 +231,7 @@
           tags:
           - AnomalyCore
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-anomaly-module }
+    icon: { sprite: /Textures/ADT/Interface/Actions/actions_borg.rsi, state: adv-anomaly-module }
 
 - type: entity
   id: ADTBorgModuleVirology
@@ -988,3 +989,19 @@
       healAmount: 5
       healInterval: 5
       energyCost: 5
+
+- type: entity
+  id: BorgModuleEnergyTac
+  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: tactical energy module
+  description: A module with a compact energy rifle featuring three firing modes - stun, disable and lethal.
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icons-harm
+  - type: ItemBorgModule
+    hands:
+    - item: ADTBorgWeaponEnergyTac
+  - type: BorgModuleIcon
+    icon: { sprite: "/Textures/ADT/Objects/Weapons/Guns/Battery/energytac.rsi", state: base }

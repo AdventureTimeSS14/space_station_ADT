@@ -1,7 +1,7 @@
 {
     "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147), icon-virology by Richard Blonski, icon-storage/icon-storage-duffel/icon-storage-bs are hue-shifted variants of the upstream borgmodule generic icon, Byrd module icons ported from OmuStation (art-module By EchoOfNothing, others modified by Balenar)",
+    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147), icon-virology by Richard Blonski, icon-storage/icon-storage-duffel/icon-storage-bs are hue-shifted variants of the upstream borgmodule generic icon, Byrd module icons ported from OmuStation (art-module By EchoOfNothing, others modified by Balenar), icon-anomalies-adv by Davyei (Discord), ported from space-wizards PR #40522",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,9 @@
         },
         {
             "name": "icon-rpd"
+        },
+        {
+            "name": "icon-anomalies-adv"
         },
         {
             "name": "icon-virology"

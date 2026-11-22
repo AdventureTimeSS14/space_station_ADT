@@ -1,7 +1,7 @@
 {
     "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by discord: Cethet, for space station 14, salvage-module by ledniky, (discord:726481288713732147), viro-module by Richard Blonski), Byrd module icons ported from OmuStation (art-module By EchoOfNothing, others modified by Balenar)",
+    "copyright": "Made by discord: Cethet, for space station 14, salvage-module by ledniky, (discord:726481288713732147), viro-module by Richard Blonski), Byrd module icons ported from OmuStation (art-module By EchoOfNothing, others modified by Balenar), adv-anomaly-module by Davyei (Discord), ported from space-wizards PR #40522",
     "size": {
         "x": 32,
         "y": 32
@@ -27,6 +27,9 @@
         },
         {
             "name": "advancedanomaly-module"
+        },
+        {
+            "name": "adv-anomaly-module"
         },
         {
             "name": "advancedrescue-module"

@@ -77,3 +77,7 @@ ent-WeaponTetherGunRecharging = тросомёт
 ent-WeaponForceGunRecharging = гравиган
     .suffix = Перезаряжаемый
     .desc = { ent-WeaponForceGun.desc }
+ent-BorgModuleEnergyTac = модуль тактической энергии киборга
+    .desc = Модуль с компактной энерговинтовкой с тремя режимами огня: оглушение, отключение и летальный.
+ent-ADTBorgWeaponEnergyTac = тактическая энерговинтовка
+    .desc = Компактная энерговинтовка с тремя режимами огня: оглушение, отключение и летальный. Создана для киборгов, перезаряжается сама.

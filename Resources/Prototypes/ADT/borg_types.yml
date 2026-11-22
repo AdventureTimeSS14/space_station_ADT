@@ -59,6 +59,7 @@
   - Science
 
   # Visual
+  spriteRsi: /Textures/ADT/Mobs/Silicon/chassis.rsi
   inventoryTemplateId: borgShort
   spriteBodyState: science
   spriteHasMindState: science_e

@@ -38,7 +38,7 @@
 - type: borgSubtype
   parentBorgType: science
   id: default_science
-  sprite: Mobs/Silicon/chassis.rsi
+  sprite: ADT/Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisScience
 
 - type: borgSubtype
