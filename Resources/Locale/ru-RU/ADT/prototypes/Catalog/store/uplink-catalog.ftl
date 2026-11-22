@@ -275,5 +275,32 @@ uplink-adt-rapier-desc = Тонкий клинок синдиката, проб�
 
 uplink-grip-module-name = Фиксатор рукояти
 uplink-grip-module-desc = Вставляется в оружие ближнего боя или щит. Предмет не выпадет из рук при толчке, подскальзывании или падении, но его всё ещё можно выбросить самому или выхватить приёмом боевого искусства.
+
+adt-uplink-ammo-bulldog-beanbag-name = Барабанный магазин (12х70 травматические)
+adt-uplink-ammo-bulldog-beanbag-desc = Магазин с патронами 12х70 травматические для дробовика "Бульдог"
+adt-uplink-ammo-bulldog-incendiary-name = Барабанный магазин (12х70 зажигательные)
+adt-uplink-ammo-bulldog-incendiary-desc = Магазин с патронами 12х70 зажигательные для дробовика "Бульдог"
+adt-uplink-ammo-revolver-name = Спидлоадер (.357 магнум)
+adt-uplink-ammo-revolver-desc = Спидлоадер на 6 патронов .357 магнум для револьвера. Совместим с "Питоном".
+adt-uplink-ammo-revolver-incendiary-name = Спидлоадер (.357 магнум зажигательные)
+adt-uplink-ammo-revolver-incendiary-desc = Спидлоадер на 6 зажигательных патронов .357 магнум для револьвера. Совместим с "Питоном".
+adt-uplink-ammo-ak-incendiary-name = Магазин для штурмовой винтовки (7.62х39 мм зажигательные)
+adt-uplink-ammo-ak-incendiary-desc = Магазин с зажигательными патронами калибра 7.62х39 мм, совместим с штурмовой винтовкой "АКМС"
+
+adt-uplink-frag-box-name = Коробка осколочных гранат
+adt-uplink-frag-box-desc = Семь осколочных гранат. Просто. Разрушительно.
+
+adt-uplink-minibomb-box-name = Коробка минибомб
+adt-uplink-minibomb-box-desc = Три минибомбы синдиката с пятисекундным фитилём. Небольшие пробоины обшивки прилагаются.
+
+adt-uplink-incendiary-grenade-box-name = Коробка зажигательных гранат
+adt-uplink-incendiary-grenade-box-desc = Четыре зажигательные гранаты. Не оставляют невредимым ничего и никого.
+
+adt-uplink-shrapnel-grenade-box-name = Коробка шрапнельных гранат
+adt-uplink-shrapnel-grenade-box-desc = Четыре гранаты с осколками. Острая мотивация во все стороны.
+
+adt-uplink-modsuit-energy-shield-name = Модуль энергощита MOD
+adt-uplink-modsuit-energy-shield-desc = Модуль скафандра, окружающий носителя личным дефлекторным полем. Поле полностью гасит 15 любых попаданий, после чего схлопывается и перезаряжается пять минут.
+
 uplink-adt-antiviral-medipen-name = Антивирусный медипен
 uplink-adt-antiviral-medipen-desc = Одноразовый медипен, который излечивает носителя от всех вирусов сразу.

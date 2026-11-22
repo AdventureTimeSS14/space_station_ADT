@@ -1530,3 +1530,156 @@
     Telecrystal: 1
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkAmmoBulldogBeanbag
+  name: adt-uplink-ammo-bulldog-beanbag-name
+  description: adt-uplink-ammo-bulldog-beanbag-desc
+  productEntity: MagazineShotgunBeanbag
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkAmmoBulldogIncendiary
+  name: adt-uplink-ammo-bulldog-incendiary-name
+  description: adt-uplink-ammo-bulldog-incendiary-desc
+  productEntity: MagazineShotgunIncendiary
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkAmmoRevolver
+  name: adt-uplink-ammo-revolver-name
+  description: adt-uplink-ammo-revolver-desc
+  productEntity: SpeedLoaderMagnum
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkAmmoRevolverIncendiary
+  name: adt-uplink-ammo-revolver-incendiary-name
+  description: adt-uplink-ammo-revolver-incendiary-desc
+  productEntity: SpeedLoaderMagnumIncendiary
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkAmmoAkIncendiary
+  name: adt-uplink-ammo-ak-incendiary-name
+  description: adt-uplink-ammo-ak-incendiary-desc
+  productEntity: MagazineLightRifleIncendiary
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkFragBox
+  name: adt-uplink-frag-box-name
+  description: adt-uplink-frag-box-desc
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  productEntity: ADTNukeopsBoxFragGrenades
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkMiniBombBox
+  name: adt-uplink-minibomb-box-name
+  description: adt-uplink-minibomb-box-desc
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  productEntity: ADTNukeopsBoxMiniBombs
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkIncendiaryGrenadeBox
+  name: adt-uplink-incendiary-grenade-box-name
+  description: adt-uplink-incendiary-grenade-box-desc
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  productEntity: ADTNukeopsBoxIncendiaryGrenades
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkShrapnelGrenadeBox
+  name: adt-uplink-shrapnel-grenade-box-name
+  description: adt-uplink-shrapnel-grenade-box-desc
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  productEntity: ADTNukeopsBoxShrapnelGrenades
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkModsuitEnergyShield
+  name: adt-uplink-modsuit-energy-shield-name
+  description: adt-uplink-modsuit-energy-shield-desc
+  icon: { sprite: ADT/Objects/Specific/Modsuits/modules.rsi, state: energy_shield }
+  productEntity: ADTModsuitModEnergyShield
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables

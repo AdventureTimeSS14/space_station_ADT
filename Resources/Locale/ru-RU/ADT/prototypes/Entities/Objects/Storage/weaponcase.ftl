@@ -12,3 +12,6 @@ ent-ADTBaseWeaponCaseNTTonfaBlueshield = оружейный кейс
 
 ent-ADTBaseWeaponCaseNT = оружейный кейс
     .desc = Изящный оружейный кейс, скрывающий в себе что-то смертоносно дорогое.
+
+ent-ADTSyndicateWeaponCase = оружейный кейс Синдиката
+    .desc = Прочный кейс с символикой Синдиката. Внутри явно что-то ценное.

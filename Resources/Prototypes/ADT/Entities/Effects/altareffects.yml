@@ -61,3 +61,16 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/Effects/zillyhoo_summon.ogg
+
+- type: entity
+  id: ADTModsuitShieldBubble
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Effects/modsuit_energy_shield.rsi
+    state: shield
+    drawdepth: OverMobs
+    noRot: true
+  - type: Tag
+    tags:
+    - HideContextMenu
