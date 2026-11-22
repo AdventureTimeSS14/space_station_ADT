@@ -449,7 +449,9 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
             if (TryComp<ADTBorgAiLinkComponent>(uid, out var link) && (!link.AiLinkEnabled || !link.LawSyncEnabled))
                 continue;
 
-            if (chassis.BrainEntity is not { } brain || !HasComp<SiliconLawProviderComponent>(brain))
+            if (chassis.BrainEntity is not { } brain ||
+                !TryComp<SiliconLawProviderComponent>(brain, out var brainLaws) ||
+                brainLaws.Subverted)
                 continue;
 
             SetLawsSilent(newLaws, brain);
