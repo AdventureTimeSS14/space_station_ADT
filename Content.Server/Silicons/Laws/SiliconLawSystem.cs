@@ -443,6 +443,9 @@ var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels, component.V
         var borgs = AllEntityQuery<BorgChassisComponent, NpcFactionMemberComponent>();
         while (borgs.MoveNext(out var uid, out var chassis, out _))
         {
+            if (HasComp<SiliconLawProviderComponent>(uid))
+                continue;
+
             if (TryComp<ADTBorgAiLinkComponent>(uid, out var link) && (!link.AiLinkEnabled || !link.LawSyncEnabled))
                 continue;
 
