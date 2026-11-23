@@ -16,17 +16,22 @@ public sealed partial class EmpSystem
     {
         _overlayMan.AddOverlay(_overlay);
 
-        SubscribeLocalEvent<EmpGlitchComponent, ComponentShutdown>(StopGlitch);
-        SubscribeLocalEvent<EmpGlitchComponent, LocalPlayerDetachedEvent>(StopGlitch);
+        SubscribeLocalEvent<EmpGlitchComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<EmpGlitchComponent, LocalPlayerDetachedEvent>(OnDetach);
 
         SubscribeNetworkEvent<DoEmpGlitchMessage>(OnEmpGlitch);
     }
 
-    private void StopGlitch<T>(Entity<EmpGlitchComponent> ent, ref T args)
+    private void OnShutdown(Entity<EmpGlitchComponent> ent, ref ComponentShutdown args)
     {
         if (_player.LocalEntity != ent.Owner)
             return;
 
+        _overlay.Stop();
+    }
+
+    private void OnDetach(Entity<EmpGlitchComponent> ent, ref LocalPlayerDetachedEvent args)
+    {
         _overlay.Stop();
     }
 
