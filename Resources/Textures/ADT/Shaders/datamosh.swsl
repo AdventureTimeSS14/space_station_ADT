@@ -21,11 +21,11 @@ highp vec3 samplePrev(highp vec2 uv) {
     uv = clamp(uv, 0.0, 1.0);
     uv.y = 1.0 - uv.y;
 
-    return texture(PREV_TEXTURE, uv).rgb;
+    return zTextureSpec(PREV_TEXTURE, uv).rgb;
 }
 
 highp vec3 sampleCurr(highp vec2 uv) {
-    return texture(SCREEN_TEXTURE, clamp(uv, 0.0, 1.0)).rgb;
+    return zTextureSpec(SCREEN_TEXTURE, clamp(uv, 0.0, 1.0)).rgb;
 }
 
 // ------------------------------------------------- block motion estimation
@@ -38,7 +38,7 @@ highp vec2 estimateMotion(highp vec2 blockCenterUV, highp vec2 blockUV) {
 
     for (int j = -1; j <= 1; j++) {
         for (int i = -1; i <= 1; i++) {
-            vec2 p = blockCenterUV + vec2(float(i), float(j)) * blockUV * 0.33;
+            highp vec2 p = blockCenterUV + vec2(float(i), float(j)) * blockUV * 0.33;
 
             highp float ix = luma(sampleCurr(p + vec2(d.x, 0.0))) - luma(sampleCurr(p - vec2(d.x, 0.0)));
             highp float iy = luma(sampleCurr(p + vec2(0.0, d.y))) - luma(sampleCurr(p - vec2(0.0, d.y)));
