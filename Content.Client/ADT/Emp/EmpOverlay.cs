@@ -70,6 +70,7 @@ public sealed partial class EmpOverlay : Overlay
         if (progress > 1)
         {
             Stop();
+            return;
         }
 
         var worldHandle = args.WorldHandle;
