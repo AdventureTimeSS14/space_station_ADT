@@ -276,6 +276,16 @@
   name: brigmedic hardsuit
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: Clothing
@@ -464,6 +474,16 @@
   name: chief medical officer's hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
   - type: Clothing
@@ -502,6 +522,16 @@
   name: experimental research hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
   - type: Clothing
@@ -529,6 +559,10 @@
   - type: Item
     # size: Huge
     size: Normal #ADT Tweak
+    # ADT-Tweak-Start
+    shape:
+    - 0,0,1,1
+    # ADT-Tweak-End
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -618,12 +652,20 @@
   name: blood-red hardsuit
   description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: PressureProtection
@@ -711,6 +753,16 @@
   name: syndicate elite hardsuit
   description: An elite version of the blood-red hardsuit, with improved radiation resistance and fireproofing. Property of Gorlex Marauders.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
   - type: Clothing
@@ -768,6 +820,16 @@
   name: syndicate commander hardsuit
   description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
   - type: Clothing
@@ -945,8 +1007,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
   - type: ExplosionResistance
@@ -979,8 +1039,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
   - type: PressureProtection
@@ -1019,8 +1077,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
   - type: DNALocker # ADT-Tweak костыль
@@ -1039,8 +1095,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
   - type: DNALocker # ADT-Tweak костыль
@@ -1059,8 +1113,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
   - type: FireProtection
@@ -1089,8 +1141,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
   - type: DNALocker # ADT-Tweak костыль
@@ -1109,8 +1159,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
   - type: Tag
@@ -1133,8 +1181,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: Item
     size: Huge
-    shape:
-    - 0,0,3,3
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
   - type: DNALocker # ADT-Tweak костыль
@@ -1147,6 +1193,16 @@
   name: death squad hardsuit
   description: An advanced hardsuit favored by commandos for use in special operations.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
   - type: Clothing
@@ -1198,6 +1254,16 @@
   name: CBURN exosuit
   description: A lightweight yet strong exosuit used for special cleanup operations.
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
   - type: Clothing

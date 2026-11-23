@@ -1,0 +1,71 @@
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineHalloween
+  name: HalloMate
+  description: A vending machine for Halloween things.
+  components:
+  - type: ADTVendingMachine
+    pack: ADTHalloweenMateInventory
+  - type: VendingMachineVisuals
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  #- type: Advertise
+  #  pack: ClothesMateAds
+  - type: Speech
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Season/Structures/Machines/VendingMachines/halloweenmat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#c2adff"
+
+# Таблеткомат
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineLoveVend
+  name: LoveVend
+  description: Happy Valentine's Day!
+  components:
+  - type: ADTVendingMachine
+    priceMultiplier: 0.8
+    pack: ADTLoveLandInventory
+  - type: VendingMachineVisuals
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: Speech
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Season/Structures/Machines/VendingMachines/lovevend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#c2adff"
+  - type: StaticPrice
+    price: -4000
+

@@ -47,6 +47,9 @@ public sealed class SponsorGrant
     [JsonPropertyName("revokedBy")]
     public Guid? RevokedBy { get; set; }
 
+    [JsonPropertyName("legacy")]
+    public bool Legacy { get; set; }
+
     /// <param name="nowUtc">Текущее время в UTC</param>
     public bool IsActive(DateTime nowUtc)
     {
@@ -76,6 +79,7 @@ public sealed class SponsorGrant
             Revoked = Revoked,
             RevokedAt = RevokedAt,
             RevokedBy = RevokedBy,
+            Legacy = Legacy,
         };
     }
 }

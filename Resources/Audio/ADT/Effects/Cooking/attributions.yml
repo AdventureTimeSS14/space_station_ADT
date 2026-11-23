@@ -1,0 +1,19 @@
+- files: ["fry_loop.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation (sound/machines/grill/grillsizzle.ogg), converted to mono and looped"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/machines/grill/grillsizzle.ogg"
+
+- files: ["boil_loop.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Boiling Soup by jorickhoofd (via tgstation sound/effects/soup_boil), joined, converted to mono and looped"
+  source: "https://freesound.org/people/jorickhoofd/sounds/632783/"
+
+- files: ["oven_loop.ogg", "oven_open.ogg", "oven_close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation (sound/machines/oven), converted to mono, loop made from oven_loop_mid.ogg"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/machines/oven"
+
+- files: ["fry_drop.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation (sound/machines/fryer/deep_fryer_immerse.ogg), converted to mono"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/machines/fryer/deep_fryer_immerse.ogg"

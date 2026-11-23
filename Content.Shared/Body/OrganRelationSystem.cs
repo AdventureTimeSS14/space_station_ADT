@@ -21,7 +21,11 @@ public sealed partial class OrganRelationSystem : EntitySystem
         if (ent.Comp.Parent is not { } parentUid)
             return;
 
-        var parentComp = _parent.Comp(parentUid);
+        // ADT-Tweak-Start
+        if (!_parent.TryComp(parentUid, out var parentComp))
+            return;
+        // ADT-Tweak-End
+
         parentComp.Children.Remove(ent);
         Dirty(parentUid, parentComp);
     }
@@ -33,7 +37,11 @@ public sealed partial class OrganRelationSystem : EntitySystem
 
         foreach (var childUid in ent.Comp.Children)
         {
-            var childComp = _child.Comp(childUid);
+            // ADT-Tweak-Start
+            if (!_child.TryComp(childUid, out var childComp))
+                continue;
+            // ADT-Tweak-End
+
             childComp.Parent = null;
 
             Dirty(childUid, childComp);

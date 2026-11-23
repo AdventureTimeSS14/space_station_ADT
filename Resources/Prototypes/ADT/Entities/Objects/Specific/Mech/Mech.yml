@@ -20,6 +20,16 @@
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    # ADT end
+    maxIntegrity: 378
+    baseState: ripleymkii
+    openState: ripleymkii-open
+    brokenState: ripleymkii-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentIndustrial
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -27,16 +37,7 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    # ADT end
-    maxintegrity: 315
-    baseState: ripleymkii
-    openState: ripleymkii-open
-    brokenState: ripleymkii-broken
-    mechToPilotDamageMultiplier: 0.5
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentIndustrial
+    pilotDamageMultiplier: 0.5
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -92,6 +93,15 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 216
+    baseState: odysseus
+    openState: odysseus-open
+    brokenState: odysseus-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentMed
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.75
@@ -99,15 +109,7 @@
         Piercing: 0.75
         Heat: 0.75
         Structural: 1.0
-    maxintegrity: 180
-    baseState: odysseus
-    openState: odysseus-open
-    brokenState: odysseus-broken
-    mechToPilotDamageMultiplier: 0.5
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentMed
+    pilotDamageMultiplier: 0.5
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -129,7 +131,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 380
+        damage: 456
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -169,6 +171,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 312
+    baseState: clarke
+    openState: clarke-open
+    brokenState: clarke-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentIndustrial
+    maxEquipmentAmount: 3
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -176,16 +188,7 @@
         Piercing: 1.2
         Heat: 1
         Structural: 0.7
-    maxintegrity: 260
-    baseState: clarke
-    openState: clarke-open
-    brokenState: clarke-broken
-    mechToPilotDamageMultiplier: 0.25
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentIndustrial
-    maxEquipmentAmount: 3
+    pilotDamageMultiplier: 0.25
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -212,7 +215,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 480
+        damage: 576
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -253,15 +256,7 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
-    modifiers:
-      coefficients:
-        Blunt: 1
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 1.2
-        Structural: 1.0
-    mechToPilotDamageMultiplier: 0.15
-    maxintegrity: 200
+    maxIntegrity: 240
     baseState: paddy
     openState: paddy-open
     brokenState: paddy-broken
@@ -270,6 +265,15 @@
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
+  - type: ADTMech
+    modifiers:
+      coefficients:
+        Blunt: 1
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 1.2
+        Structural: 1.0
+    pilotDamageMultiplier: 0.15
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -294,7 +298,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 270
+        damage: 324
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -333,6 +337,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
+    maxIntegrity: 384
+    baseState: gygax
+    openState: gygax-open
+    brokenState: gygax-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 2
+  - type: ADTMech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов
         Blunt: 0.3
@@ -340,16 +354,7 @@
         Piercing: 0.5
         Heat: 0.6
         Structural: 1.0
-    maxintegrity: 320
-    baseState: gygax
-    openState: gygax-open
-    brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 2
+    pilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -369,7 +374,7 @@
   - type: MechOverload
     damage:
       types:
-        Heat: 12
+        Heat: 4
   - type: AccessReader
     access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
   - type: Storage
@@ -380,7 +385,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 520
+        damage: 624
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -419,6 +424,16 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    maxIntegrity: 480
+    baseState: durand
+    openState: durand-open
+    brokenState: durand-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 3
+  - type: ADTMech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.25
@@ -426,16 +441,7 @@
         Piercing: 0.3
         Heat: 0.4
         Structural: 0.9
-    maxintegrity: 400
-    baseState: durand
-    openState: durand-open
-    brokenState: durand-broken
-    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 3
+    pilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -464,7 +470,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 720
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -503,15 +509,7 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    modifiers:
-      coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.5
-        Heat: 0.5
-        Structural: 1.2
-    mechToPilotDamageMultiplier: 0.25
-    maxintegrity: 230
+    maxIntegrity: 276
     baseState: phazon
     openState: phazon-open
     brokenState: phazon-broken
@@ -520,6 +518,15 @@
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 2
+  - type: ADTMech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.5
+        Structural: 1.2
+    pilotDamageMultiplier: 0.25
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -549,7 +556,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 430
+        damage: 516
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -585,15 +592,7 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: darkgygax
   - type: Mech
-    modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.4
-        Heat: 0.6
-        Structural: 1.0
-    mechToPilotDamageMultiplier: 0.10
-    maxintegrity: 380
+    maxIntegrity: 456
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
@@ -602,6 +601,15 @@
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 3
+  - type: ADTMech
+    modifiers:
+      coefficients: #коэффициенты для легкобронированных мехов
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.6
+        Structural: 1.0
+    pilotDamageMultiplier: 0.10
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -621,7 +629,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 560
+        damage: 672
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -658,15 +666,7 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    modifiers:
-      coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Structural: 0.9
-    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 440
+    maxIntegrity: 528
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
@@ -675,6 +675,15 @@
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 4
+  - type: ADTMech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Structural: 0.9
+    pilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -706,7 +715,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 640
+        damage: 768
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -742,15 +751,7 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: ntgygax
   - type: Mech
-    modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.5
-        Heat: 0.5
-        Structural: 1.0
-    mechToPilotDamageMultiplier: 0.10
-    maxintegrity: 380
+    maxIntegrity: 456
     baseState: ntgygax
     openState: ntgygax-open
     brokenState: ntgygax-broken
@@ -759,6 +760,15 @@
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
     maxEquipmentAmount: 3
+  - type: ADTMech
+    modifiers:
+      coefficients: #коэффициенты для легкобронированных мехов
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.5
+        Heat: 0.5
+        Structural: 1.0
+    pilotDamageMultiplier: 0.10
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -778,7 +788,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 560
+        damage: 672
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -815,15 +825,7 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    modifiers:
-      coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Structural: 0.9
-    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 440
+    maxIntegrity: 528
     baseState: marauder
     openState: marauder-open
     brokenState: marauder-broken
@@ -832,6 +834,15 @@
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
+  - type: ADTMech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Structural: 0.9
+    pilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -860,7 +871,7 @@
     thresholdsOverride:
     - trigger:
         !type:DamageTrigger
-        damage: 640
+        damage: 768
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -896,15 +907,7 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: seraph
   - type: Mech
-    modifiers:
-      coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.15
-        Slash: 0.15
-        Piercing: 0.15
-        Heat: 0.15
-        Structural: 0.9
-    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 500
+    maxIntegrity: 600
     baseState: seraph
     openState: seraph-open
     brokenState: seraph-broken
@@ -912,7 +915,22 @@
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentSec
+  - type: PointLight
+    enabled: false
+    radius: 15
+    energy: 3
+    lightMask: ADTLightMaskCircleCone
+    autoRot: true
     maxEquipmentAmount: 5
+  - type: ADTMech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.15
+        Slash: 0.15
+        Piercing: 0.15
+        Heat: 0.15
+        Structural: 0.9
+    pilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -932,7 +950,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 720
       behaviors:
       - !type:PlaySoundBehavior
         sound:

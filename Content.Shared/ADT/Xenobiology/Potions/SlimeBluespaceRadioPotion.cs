@@ -21,6 +21,11 @@ public sealed partial class SlimeBluespaceRadioPotionComponent : Component
     public HashSet<ProtoId<RadioChannelPrototype>> Channels = default!;
 }
 
+[RegisterComponent, NetworkedComponent]
+public sealed partial class SlimeBluespaceRadioComponent : Component
+{
+}
+
 public sealed partial class SlimeBluespaceRadioPotionSystem : EntitySystem
 {
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -29,6 +34,7 @@ public sealed partial class SlimeBluespaceRadioPotionSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SlimeBluespaceRadioPotionComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<SlimeBluespaceRadioComponent, RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
     }
 
     private void OnAfterInteract(Entity<SlimeBluespaceRadioPotionComponent> ent, ref AfterInteractEvent args)
@@ -51,8 +57,17 @@ public sealed partial class SlimeBluespaceRadioPotionSystem : EntitySystem
         Dirty(target, transmitter);
         Dirty(target, activeRadio);
         EnsureComp<IntrinsicRadioReceiverComponent>(target);
+        EnsureComp<SlimeBluespaceRadioComponent>(target);
 
         _popup.PopupPredicted(Loc.GetString("xeno-potion-radio-applied", ("name", Name(target))), target, target);
         PredictedQueueDel(args.Used);
+    }
+
+    private void OnRadioReceiveAttempt(Entity<SlimeBluespaceRadioComponent> ent, ref RadioReceiveAttemptEvent args)
+    {
+        if (TryComp<WearingHeadsetComponent>(ent, out var wearingHeadset)
+            && TryComp<EncryptionKeyHolderComponent>(wearingHeadset.Headset, out var headsetKeys)
+            && headsetKeys.Channels.Contains(args.Channel.ID))
+            args.Cancelled = true;
     }
 }

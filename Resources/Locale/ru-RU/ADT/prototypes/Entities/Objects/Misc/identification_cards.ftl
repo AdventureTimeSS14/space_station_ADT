@@ -244,3 +244,18 @@ ent-ADTIntendantIDCard = ID карта интенданта
 
 ent-ADTPassagerRDIDCard = ID карта научного руководителя
         .desc = ID карта научного руководителя.
+
+ent-ADTCentcomInspectorIDCard = ID карта ревизора центком
+    .desc = ID карта центком ревизора.
+
+ent-ADTCentcomInquisitorIDCard = ID карта инквизитора
+    .desc = ID карта инквизитора.
+
+ent-ADTCentcomOperatorIDCard = ID карта оператора центком
+    .desc = ID карта центком оператора.
+
+ent-ADTCentcomOfficerIDCard = ID карта офицера Центком
+    .desc = ID карта центком офицера.
+
+ent-ADTSODOfficerIDCard = ID карта ДСО офицера
+    .desc = ID карта ДСО офицера.

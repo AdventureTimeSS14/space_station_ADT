@@ -3,6 +3,13 @@
   parent: MobHuman
   id: ADTMobSovietBunkerBase
   components:
+    - type: ADTNpcBreathing
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: ADTExpeditionNPCHunger
+        Thirst:
+          prototype: ADTExpeditionNPCThirst
     - type: NpcFactionMember
       factions:
         - ADTSovietBunker
@@ -10,10 +17,26 @@
     - type: MobMover
     - type: ADTNpcGear
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -90,19 +113,12 @@
       - ADTNamesSovietRank
       - ADTNamesSovietSurnameFemale
       language: NeoRusskiya
-    - type: GhostTakeoverAvailable
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-soldier-name
-      description: ghost-role-information-adt-soviet-soldier-description
-      rules: ghost-role-information-freeagent-rules
-      raffle:
-        settings: default
 
 - type: entity
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerSoldier
   name: soviet soldier
-  description: Солдат из давно забытого отряда СССП.
+  description: A soldier from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -110,26 +126,23 @@
         - ADTSovietBunkerShotgunnerGear
         - ADTSovietBunkerMarksmanGear
         - ADTSovietBunkerRocketeerGear
-        - ADTSovietBunkerSniperGear
+        - ADTSovietBunkerMachineGunnerGear
 
 - type: entity
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerRifleman
   name: soviet rifleman
-  description: Автоматчик из давно забытого отряда СССП.
+  description: A rifleman from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
         - ADTSovietBunkerRiflemanGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-rifleman-name
-      description: ghost-role-information-adt-soviet-rifleman-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerShotgunner
   name: soviet shotgunner
-  description: Штурмовик из давно забытого отряда СССП.
+  description: A shotgunner from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -138,6 +151,18 @@
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -152,54 +177,42 @@
           8
         ADTSafeReloadRangeLoose: !type:Single
           8
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-shotgunner-name
-      description: ghost-role-information-adt-soviet-shotgunner-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerMarksman
   name: soviet marksman
-  description: Марксман из давно забытого отряда СССП.
+  description: A marksman from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
         - ADTSovietBunkerMarksmanGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-marksman-name
-      description: ghost-role-information-adt-soviet-marksman-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerRocketeer
   name: soviet rocketeer
-  description: Ракетчик из давно забытого отряда СССП.
+  description: A rocketeer from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
         - ADTSovietBunkerRocketeerGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-rocketeer-name
-      description: ghost-role-information-adt-soviet-rocketeer-description
 
 - type: entity
   parent: ADTMobSovietBunkerBase
-  id: ADTMobSovietBunkerSniper
-  name: soviet sniper
-  description: Снайпер из давно забытого отряда СССП.
+  id: ADTMobSovietBunkerMachineGunner
+  name: soviet machine gunner
+  description: A machine gunner from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
-        - ADTSovietBunkerSniperGear
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-sniper-name
-      description: ghost-role-information-adt-soviet-sniper-description
+        - ADTSovietBunkerMachineGunnerGear
 
 - type: entity
   parent: ADTMobSovietBunkerBase
   id: ADTMobSovietBunkerMedic
   name: soviet medic
-  description: Медик из давно забытого отряда СССП.
+  description: A medic from a long-forgotten USSP squad.
   components:
     - type: Loadout
       prototypes:
@@ -208,6 +221,18 @@
       rootTask:
         task: ADTExpeditionMedicCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -222,30 +247,48 @@
           6
         ADTSafeReloadRangeLoose: !type:Single
           10
-    - type: GhostRole
-      name: ghost-role-information-adt-soviet-medic-name
-      description: ghost-role-information-adt-soviet-medic-description
 
 - type: entity
+  abstract: true
   parent: MobHuman
-  id: ADTMobSmugglerPirate
-  name: smuggler pirate
-  description: Контрабандист или пират с базы на задворках космоса.
+  id: ADTMobSmugglerBase
   components:
+    - type: ADTNpcBreathing
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: ADTExpeditionNPCHunger
+        Thirst:
+          prototype: ADTExpeditionNPCThirst
+    - type: IdBind
+      bindPDAOwner: false
     - type: NpcFactionMember
       factions:
-        - ADTSmugglersPirates
-    - type: Loadout
-      prototypes:
-        - ADTSmugglerPirateGearPlaceholder
+        - ADTSmugglers
     - type: InputMover
     - type: MobMover
     - type: ADTNpcGear
     - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
     - type: HTN
       rootTask:
         task: ADTExpeditionHumanoidCompound
       blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
         ADTMeleeSwitchRange: !type:Single
           1.8
         ADTFollowRange: !type:Single
@@ -273,20 +316,329 @@
       - judy
       - v_female
       clearFemaleFacialHair: true
-      nameFormat: name-format-adt-smuggler-pirate
+      nameFormat: name-format-adt-smuggler
       nameSegments:
       - NamesFakeHumanFirst
       - ADTNamesSmugglerNickname
       femaleNameSegments:
       - NamesFirstFemale
       - ADTNamesSmugglerNickname
-    - type: GhostTakeoverAvailable
-    - type: GhostRole
-      name: ghost-role-information-adt-smuggler-pirate-name
-      description: ghost-role-information-adt-smuggler-pirate-description
-      rules: ghost-role-information-freeagent-rules
-      raffle:
-        settings: default
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmuggler
+  name: smuggler
+  description: A smuggler from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerRiflemanGear
+        - ADTSmugglerHunterGear
+        - ADTSmugglerShotgunnerGear
+        - ADTSmugglerRaiderGear
+        - ADTSmugglerThugGear
+        - ADTSmugglerHeavyGear
+        - ADTSmugglerTrooperGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerRifleman
+  name: smuggler rifleman
+  description: A smuggler rifleman from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerRiflemanGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerHunter
+  name: smuggler hunter
+  description: A smuggler hunter from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerHunterGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerShotgunner
+  name: smuggler shotgunner
+  description: A smuggler shotgunner from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerShotgunnerGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          0.1
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          8
+        ADTSafeReloadRangeLoose: !type:Single
+          8
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerRaider
+  name: smuggler raider
+  description: A smuggler raider from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerRaiderGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerThug
+  name: smuggler thug
+  description: A smuggler thug from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerThugGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerHeavy
+  name: smuggler heavy
+  description: A smuggler heavy gunner from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerHeavyGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerTrooper
+  name: smuggler trooper
+  description: A smuggler trooper from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerTrooperGear
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerMedic
+  name: smuggler medic
+  description: A smuggler medic from a base on the outskirts of space.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerMedicGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionMedicCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+
+- type: entity
+  abstract: true
+  parent: MobHuman
+  id: ADTMobMarauderBase
+  components:
+    - type: ADTNpcBreathing
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: ADTExpeditionNPCHunger
+        Thirst:
+          prototype: ADTExpeditionNPCThirst
+    - type: IdBind
+      bindPDAOwner: false
+    - type: NpcFactionMember
+      factions:
+        - ADTMarauders
+    - type: InputMover
+    - type: MobMover
+    - type: ADTNpcGear
+    - type: ADTNpcCombatMemory
+      avoidObstacles: true
+      obstacleMask:
+      - BulletImpassable
+    - type: ADTPreciseProjectileTarget
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+    - type: SSDIndicator
+      isSSD: false
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      voices:
+      - guard_guardsman_sergeant_dow
+      - tychus
+      - butch
+      femaleVoices:
+      - female_commander
+      - v_female
+      - judy
+      clearFemaleFacialHair: true
+      nameFormat: name-format-adt-marauder
+      nameSegments:
+      - NamesLastMilitary
+      - ADTNamesMarauderCallsign
+      femaleNameSegments:
+      - NamesLastMilitary
+      - ADTNamesMarauderCallsign
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauder
+  name: Gorlex marauder
+  description: A fighter of the Gorlex Marauders, the Syndicate's strike wing.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderRiflemanGear
+        - ADTMarauderRiflemanGear
+        - ADTMarauderRiflemanGear
+        - ADTMarauderBreacherGear
+        - ADTMarauderGunnerGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderRifleman
+  name: marauder rifleman
+  description: A Gorlex Marauders rifleman.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderRiflemanGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderBreacher
+  name: marauder breacher
+  description: A Gorlex Marauders breacher.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderBreacherGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderGunner
+  name: marauder gunner
+  description: A Gorlex Marauders machine gunner.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderGunnerGear
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderMedic
+  name: marauder medic
+  description: A Gorlex Marauders medic.
+  components:
+    - type: Loadout
+      prototypes:
+        - ADTMarauderMedicGear
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionMedicCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          5.5
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -295,13 +647,13 @@
   suffix: DO NOT MAP
   description: Commander of the USSP outpost.
   components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerOfficerGear
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-ostapenko-name
-      description: ghost-role-information-adt-ussp-ostapenko-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -310,13 +662,13 @@
   suffix: DO NOT MAP
   description: Deputy commander for political affairs of the USSP outpost.
   components:
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerOfficerGear
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
       sex: Female
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-lisitsyna-name
-      description: ghost-role-information-adt-ussp-lisitsyna-description
 
 - type: entity
   parent: ADTMobSovietBunkerMedic
@@ -329,9 +681,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Female
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-yusupova-name
-      description: ghost-role-information-adt-ussp-yusupova-description
 
 - type: entity
   parent: ADTMobSovietBunkerShotgunner
@@ -344,9 +693,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-zaitsev-name
-      description: ghost-role-information-adt-ussp-zaitsev-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -359,9 +705,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-gavrilov-name
-      description: ghost-role-information-adt-ussp-gavrilov-description
 
 - type: entity
   parent: [ MobUrsus, ADTMobSovietBunkerRocketeer ]
@@ -370,6 +713,13 @@
   suffix: DO NOT MAP
   description: Driver-mechanic of the USSP outpost, an ursus from Ursam (Urodelus II).
   components:
+    - type: ADTNpcBreathing
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: ADTExpeditionNPCHunger
+        Thirst:
+          prototype: ADTExpeditionNPCThirst
     - type: NpcFactionMember
       factions:
         - ADTSovietBunker
@@ -381,9 +731,6 @@
       hairStyles: []
       femaleHairStyles: []
       hairColors: []
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-burogriv-name
-      description: ghost-role-information-adt-ussp-burogriv-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -396,9 +743,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-kovalchuk-name
-      description: ghost-role-information-adt-ussp-kovalchuk-description
 
 - type: entity
   parent: ADTMobSovietBunkerShotgunner
@@ -411,9 +755,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-mamedov-name
-      description: ghost-role-information-adt-ussp-mamedov-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -426,9 +767,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-somov-name
-      description: ghost-role-information-adt-ussp-somov-description
 
 - type: entity
   parent: ADTMobSovietBunkerMarksman
@@ -441,9 +779,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-galiev-name
-      description: ghost-role-information-adt-ussp-galiev-description
 
 - type: entity
   parent: ADTMobSovietBunkerRocketeer
@@ -456,9 +791,6 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-kvyatkovsky-name
-      description: ghost-role-information-adt-ussp-kvyatkovsky-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -471,24 +803,18 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-tikhonov-name
-      description: ghost-role-information-adt-ussp-tikhonov-description
 
 - type: entity
-  parent: ADTMobSovietBunkerSniper
+  parent: ADTMobSovietBunkerMachineGunner
   id: ADTMobSovietBunkerLiWei
   name: Private Li Wei
   suffix: DO NOT MAP
-  description: Best marksman of the USSP outpost.
+  description: Machine gunner of the USSP outpost.
   components:
     - type: RandomHumanoidAppearance
       nameSegments: []
       femaleNameSegments: []
       sex: Male
-    - type: GhostRole
-      name: ghost-role-information-adt-ussp-li-wei-name
-      description: ghost-role-information-adt-ussp-li-wei-description
 
 - type: entity
   parent: ADTMobSovietBunkerRifleman
@@ -501,6 +827,207 @@
       nameSegments: []
       femaleNameSegments: []
       sex: Male
+
+- type: entity
+  parent: ADTMobSovietBunkerRifleman
+  id: ADTMobSovietBunkerColonel
+  name: Colonel Gromov
+  suffix: DO NOT MAP
+  description: Commander of the USSP garrison.
+  components:
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: NormalSatiationHunger
+        Thirst:
+          prototype: NormalSatiationThirst
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        500: SoftCritical
+        550: Critical
+        600: Dead
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        180: 0.7
+        240: 0.5
+    - type: Loadout
+      prototypes:
+        - ADTSovietBunkerOfficerGear
+    - type: RandomHumanoidAppearance
+      nameSegments: []
+      femaleNameSegments: []
+      sex: Male
+    - type: ADTNpcSquadCommander
+      faction: ADTSovietBunker
+      actions:
+        Follow: ADTActionSquadFollowUSSP
+        Positions: ADTActionSquadPositionsUSSP
+        Engage: ADTActionSquadEngageUSSP
+        StandDown: ADTActionSquadStandDownUSSP
+      channel: ADTUSSPChannel
+      lines:
+        Follow: ADTSquadSovietFollow
+        Positions: ADTSquadSovietPositions
+        Engage: ADTSquadSovietEngage
+        StandDown: ADTSquadSovietStandDown
+    - type: GhostTakeoverAvailable
     - type: GhostRole
-      name: ghost-role-information-adt-ussp-belov-name
-      description: ghost-role-information-adt-ussp-belov-description
+      name: ghost-role-information-adt-ussp-colonel-name
+      description: ghost-role-information-adt-ussp-colonel-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerBoss
+  name: smuggler market boss
+  description: Owner of the smuggler market.
+  components:
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: NormalSatiationHunger
+        Thirst:
+          prototype: NormalSatiationThirst
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        500: SoftCritical
+        550: Critical
+        600: Dead
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        180: 0.7
+        240: 0.5
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerBossGearArmorPiercing
+        - ADTSmugglerBossGearBlast
+        - ADTSmugglerBossGearIncendiary
+        - ADTSmugglerBossGearShrapnel
+        - ADTSmugglerBossGearUranium
+    - type: HTN
+      rootTask:
+        task: ADTExpeditionHumanoidCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        ADTNavAccess: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15
+        AggroVisionRadius: !type:Single
+          20
+        ADTAdvanceRange: !type:Single
+          6
+        ADTMeleeSwitchRange: !type:Single
+          1.8
+        ADTFollowRange: !type:Single
+          2.5
+        ADTMeleeLeaveRange: !type:Single
+          3.5
+        ADTPistolRange: !type:Single
+          0.1
+        ADTPistolLeaveRange: !type:Single
+          8
+        ADTEmptyPistolRange: !type:Single
+          6
+        ADTSafeReloadRangeLoose: !type:Single
+          10
+        ADTExplosiveSafeRange: !type:Single
+          5.5
+    - type: RandomHumanoidAppearance
+      nameFormat: name-format-adt-smuggler-boss
+    - type: ADTNpcSquadCommander
+      faction: ADTSmugglers
+      actions:
+        Follow: ADTActionSquadFollowSmugglers
+        Positions: ADTActionSquadPositionsSmugglers
+        Engage: ADTActionSquadEngageSmugglers
+        StandDown: ADTActionSquadStandDownSmugglers
+      channel: Freelance
+      lines:
+        Follow: ADTSquadSmugglerFollow
+        Positions: ADTSquadSmugglerPositions
+        Engage: ADTSquadSmugglerEngage
+        StandDown: ADTSquadSmugglerStandDown
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-smuggler-boss-name
+      description: ghost-role-information-adt-smuggler-boss-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: ADTMobSmugglerBase
+  id: ADTMobSmugglerTrader
+  name: smuggler trader
+  description: A trader at the smuggler market.
+  components:
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: NormalSatiationHunger
+        Thirst:
+          prototype: NormalSatiationThirst
+    - type: Loadout
+      prototypes:
+        - ADTSmugglerTraderGear
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-smuggler-trader-name
+      description: ghost-role-information-adt-smuggler-trader-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: ADTMobMarauderBase
+  id: ADTMobMarauderVeteran
+  name: Gorlex marauder veteran
+  description: A seasoned Gorlex Marauder who leads the squad.
+  components:
+    - type: Satiation
+      satiations:
+        Hunger:
+          prototype: NormalSatiationHunger
+        Thirst:
+          prototype: NormalSatiationThirst
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        500: SoftCritical
+        550: Critical
+        600: Dead
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        180: 0.7
+        240: 0.5
+    - type: Loadout
+      prototypes:
+        - ADTMarauderVeteranGear
+    - type: RandomHumanoidAppearance
+      nameFormat: name-format-adt-marauder-veteran
+    - type: ADTNpcSquadCommander
+      faction: ADTMarauders
+      actions:
+        Follow: ADTActionSquadFollowMarauders
+        Positions: ADTActionSquadPositionsMarauders
+        Engage: ADTActionSquadEngageMarauders
+        StandDown: ADTActionSquadStandDownMarauders
+      channel: Syndicate
+      lines:
+        Follow: ADTSquadMarauderFollow
+        Positions: ADTSquadMarauderPositions
+        Engage: ADTSquadMarauderEngage
+        StandDown: ADTSquadMarauderStandDown
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-adt-marauder-veteran-name
+      description: ghost-role-information-adt-marauder-veteran-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default

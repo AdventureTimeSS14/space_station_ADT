@@ -23,4 +23,13 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<int> ParticleGlobalBudget =
         CVarDef.Create("particles.global_budget", 8000, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Auto LOD threshold: once this many emitters are in view at once, all regular emitters
+    /// scale their emission down proportionally (sqrt falloff, minimum 25%) instead of fighting
+    /// over the particle budget. Gameplay critical effects (IgnoreQualitySettings) are unaffected.
+    /// 0 disables it.
+    /// </summary>
+    public static readonly CVarDef<int> ParticleAutoLodEmitters =
+        CVarDef.Create("particles.auto_lod_emitters", 48, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

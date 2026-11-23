@@ -4,6 +4,7 @@ using Content.Server.Interaction;
 using Content.Server.Mech.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Robust.Shared.Audio.Systems;

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Content.Client.ADT.SpawnMenu.UI;
 using Content.Shared.ADT.SpawnMenu;
 using JetBrains.Annotations;
@@ -17,12 +18,16 @@ namespace Content.Client.ADT.SpawnMenu;
 public sealed class ADTEntitySpawningUIController : UIController
 {
     [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ILogManager _log = default!;
     [Dependency] private IPlacementManager _placement = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
 
     private ADTEntitySpawnWindow? _window;
 
     private ADTEntitySpawnIndex? _index;
+    private Dictionary<string, string>? _paths;
+    private int _buildVersion;
+    private ISawmill _sawmill = default!;
     private readonly List<ADTSpawnListItem> _shown = new();
     private readonly List<(ADTEntitySpawnEntry Entry, int Rank, int Order)> _matched = new();
     private readonly List<(string Raw, string Normalized)> _activeTags = new();
@@ -43,6 +48,7 @@ public sealed class ADTEntitySpawningUIController : UIController
     {
         base.Initialize();
 
+        _sawmill = _log.GetSawmill("adt.spawnmenu");
         _favorites = new ADTSpawnIdList(Settings.Favorites, Storage.QueueSave);
         _recent = new ADTSpawnIdList(Settings.Recent, Storage.QueueSave, RecentLimit);
         _showService = Settings.ShowService;
@@ -110,17 +116,53 @@ public sealed class ADTEntitySpawningUIController : UIController
 
         _query = ADTSpawnSearchQuery.Parse(string.Empty);
         _activeTags.Clear();
-        _indexDirty = true;
+
+        if (_index == null)
+            _window.ShowLoading();
+        else
+            PopulateWindow();
     }
 
-    private void RebuildIndex()
+    private async void RebuildIndex()
     {
-        if (_window == null || _window.Disposed)
+        _indexDirty = false;
+        var version = ++_buildVersion;
+        var index = new ADTEntitySpawnIndex();
+        var paths = _paths;
+
+        var built = await Task.Run(() => BuildIndex(index, paths));
+        if (version != _buildVersion)
             return;
 
-        _indexDirty = false;
-        _index ??= new ADTEntitySpawnIndex();
-        _index.Rebuild();
+        if (built == null)
+        {
+            _indexDirty = true;
+            return;
+        }
+
+        _index = built;
+        _paths = built.Paths;
+        PopulateWindow();
+    }
+
+    private ADTEntitySpawnIndex? BuildIndex(ADTEntitySpawnIndex index, Dictionary<string, string>? paths)
+    {
+        try
+        {
+            index.Rebuild(paths);
+            return index;
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Failed to build entity spawn index: {e}");
+            return null;
+        }
+    }
+
+    private void PopulateWindow()
+    {
+        if (_window == null || _window.Disposed || _index == null)
+            return;
 
         _window.SetCategories(_index.Roots, GetSelectedNode());
         UpdateShown();
@@ -341,7 +383,7 @@ public sealed class ADTEntitySpawningUIController : UIController
             return;
 
         _indexDirty = true;
-        _index?.InvalidatePaths();
+        _paths = null;
 
         if (_window is { Disposed: false, IsOpen: true })
             RebuildIndex();

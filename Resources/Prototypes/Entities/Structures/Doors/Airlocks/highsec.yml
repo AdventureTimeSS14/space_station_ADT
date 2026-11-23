@@ -118,6 +118,7 @@
     damageModifierSet: StrongMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
+  - type: SparksOnDamage # ADT-Tweak
   - type: Destructible
     thresholds:
     - trigger:

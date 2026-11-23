@@ -1,4 +1,6 @@
-- type: guideEntry
-  id: CorvaxVulpkanin
-  name: species-name-vulpkanin
-  text: "/ServerInfo/Corvax/Guidebook/Mobs/Vulpkanin.xml"
+# ADT-Tweak-Start
+# - type: guideEntry
+#   id: CorvaxVulpkanin
+#   name: species-name-vulpkanin
+#   text: "/ServerInfo/Corvax/Guidebook/Mobs/Vulpkanin.xml"
+# ADT-Tweak-End

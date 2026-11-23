@@ -1,4 +1,6 @@
 using Content.Shared.Actions;
+using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Roles;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -16,6 +18,18 @@ namespace Content.Shared.ADT.VendingMachines
         /// </summary>
         [DataField("pack", required: true)]
         public ProtoId<VendingMachineInventoryPrototype> PackPrototypeId;
+
+        [DataField]
+        public ProtoId<CargoAccountPrototype>? RevenueAccount;
+
+        [DataField]
+        public ProtoId<CargoAccountPrototype>? DiscountAccount;
+
+        [DataField]
+        public List<ProtoId<JobPrototype>> DiscountJobs = new();
+
+        [DataField]
+        public float DiscountPercent = 0.7f;
 
         [DataField]
         public Dictionary<string, VendingMachineInventoryEntry> Inventory = new();
@@ -190,4 +204,4 @@ namespace Content.Shared.ADT.VendingMachines
 
         public bool Broken;
     }
-}
+}

@@ -1,3 +1,4 @@
+using Content.Client.ADT.Drawing.Canvas;
 using Content.Client.ADT.Drawing.Sync;
 using Content.Client.ADT.Drawing.UI;
 using Content.Shared.ADT.Drawing;
@@ -17,6 +18,9 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
     private CanvasSyncSession? _session;
     private CanvasSubmitWindow? _submit;
     private CanvasEaselBoundUserInterfaceState? _state;
+    private CanvasDocument? _submitDocument;
+    private (string Title, string Description)? _pendingSubmit;
+    private (string Title, string Description)? _flushSubmit;
     private bool _disposing;
 
     public CanvasEaselBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
@@ -39,6 +43,8 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
         _sync.SessionStarted += OnSessionStarted;
         _sync.SessionUpdated += OnSessionUpdated;
         _sync.SessionClosed += OnSessionClosed;
+        _sync.LayerSyncFailed += OnLayerSyncFailed;
+        _sync.FlushReady += OnFlushReady;
 
         if (_sync.Active is { Detached: false } active)
             OnSessionStarted(active);
@@ -137,9 +143,89 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
         }
 
         _submit = new CanvasSubmitWindow();
-        _submit.Submitted += (title, description) => SendMessage(new CanvasEaselSubmitMessage(title, description));
+        _submit.Submitted += OnSubmitted;
         _submit.OnClose += () => _submit = null;
         _submit.OpenCentered();
+    }
+
+    private void OnSubmitted(string title, string description)
+    {
+        if (_session is not { } session)
+            return;
+
+        ClearPendingSubmit();
+        if (session.Collaboration.LocalRole != CanvasRole.Host)
+        {
+            _panel?.ShowHint(Loc.GetString("adt-canvas-submit-not-host"));
+            return;
+        }
+
+        _flushSubmit = (title, description);
+        _sync.RequestFlush(session.Painting);
+        _panel?.ShowHint(Loc.GetString("adt-canvas-submit-collecting"));
+    }
+
+    private void OnFlushReady(CanvasSyncSession session)
+    {
+        if (session != _session || _flushSubmit is not { } submit)
+            return;
+
+        _flushSubmit = null;
+        MergeAndSubmit(session, submit.Title, submit.Description);
+    }
+
+    private void MergeAndSubmit(CanvasSyncSession session, string title, string description)
+    {
+        var document = session.Document;
+        if (!document.MergeVisibleLayers())
+        {
+            _panel?.ShowHint(Loc.GetString("adt-canvas-submit-merge-failed"));
+            return;
+        }
+
+        if (!document.HasPendingWork)
+        {
+            SendMessage(new CanvasEaselSubmitMessage(title, description));
+            return;
+        }
+
+        ClearPendingSubmit();
+        _pendingSubmit = (title, description);
+        _submitDocument = document;
+        document.WorkSettled += OnWorkSettled;
+        _panel?.ShowHint(Loc.GetString("adt-canvas-submit-waiting"));
+    }
+
+    private void OnWorkSettled()
+    {
+        var pending = _pendingSubmit;
+        var document = _submitDocument;
+        ClearPendingSubmit();
+
+        if (pending is not { } submit || document == null || _session?.Document != document)
+            return;
+
+        _panel?.ShowHint(null);
+        SendMessage(new CanvasEaselSubmitMessage(submit.Title, submit.Description));
+    }
+
+    private void ClearPendingSubmit()
+    {
+        if (_submitDocument != null)
+            _submitDocument.WorkSettled -= OnWorkSettled;
+
+        if (_flushSubmit != null && _session != null)
+            _sync.CancelFlush(_session.Painting);
+
+        _submitDocument = null;
+        _pendingSubmit = null;
+        _flushSubmit = null;
+    }
+
+    private void OnLayerSyncFailed(CanvasSyncSession session, string message)
+    {
+        if (session == _session)
+            _panel?.ShowHint(message);
     }
 
     private void OnSessionUpdated(CanvasSyncSession session)
@@ -176,9 +262,15 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
             return;
         }
 
+        if (session.Flushing && role != CanvasRole.Host)
+        {
+            _drawing.SetSessionStatus(Loc.GetString("adt-canvas-session-flushing", ("name", state?.HostName ?? "?")), true);
+            return;
+        }
+
         if (role == CanvasRole.Viewer)
         {
-            _drawing.SetSessionStatus(Loc.GetString("adt-canvas-session-viewer", ("name", state?.HostName ?? "?")), false, true);
+            _drawing.SetSessionStatus(Loc.GetString("adt-canvas-session-viewer", ("name", state?.HostName ?? "?")), true);
             return;
         }
 
@@ -204,6 +296,7 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
         if (_session != null)
             _sync.Detach(_session.Painting);
 
+        ClearPendingSubmit();
         _drawing = null;
         _panel = null;
         _session = null;
@@ -220,6 +313,8 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
 
     private void CloseDrawing()
     {
+        ClearPendingSubmit();
+
         var drawing = _drawing;
         _drawing = null;
         _panel = null;
@@ -244,6 +339,8 @@ public sealed class CanvasEaselBoundUserInterface : BoundUserInterface
         _sync.SessionStarted -= OnSessionStarted;
         _sync.SessionUpdated -= OnSessionUpdated;
         _sync.SessionClosed -= OnSessionClosed;
+        _sync.LayerSyncFailed -= OnLayerSyncFailed;
+        _sync.FlushReady -= OnFlushReady;
 
         if (_session != null)
             _sync.Detach(_session.Painting);

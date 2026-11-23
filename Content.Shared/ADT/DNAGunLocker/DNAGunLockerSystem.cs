@@ -1,121 +1,110 @@
-using Content.Shared.Hands;
-using Content.Shared.Verbs;
-using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Utility;
-using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Emag.Systems;
+using Content.Shared.CombatMode;
 using Content.Shared.Electrocution;
-using Robust.Shared.Timing;
+using Content.Shared.Emag.Systems;
+using Content.Shared.Hands;
+using Content.Shared.Popups;
+using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.DNAGunLocker;
 
-public sealed partial class SharedDNAGunLockerSystem : EntitySystem
+public sealed class DNAGunLockerSystem : EntitySystem
 {
-
-    [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedElectrocutionSystem _electrocution = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DNAGunLockerComponent, HandSelectedEvent>(OnHand);
-        SubscribeLocalEvent<DNAGunLockerComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerbs);
-        SubscribeLocalEvent<DNAGunLockerComponent, GotEmaggedEvent>(OnEmaggedPersonalGun);
+        SubscribeLocalEvent<DNAGunLockerComponent, HandSelectedEvent>(OnHandSelected);
+        SubscribeLocalEvent<DNAGunLockerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<DNAGunLockerComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<DNAGunLockerComponent, ShotAttemptedEvent>(OnShotAttempted);
     }
 
-    private void OnHand(EntityUid uid, DNAGunLockerComponent component, HandSelectedEvent args)
+    private void OnHandSelected(Entity<DNAGunLockerComponent> ent, ref HandSelectedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (ent.Comp.GunOwner != null)
             return;
-        //Log.Debug($"{ToPrettyString(uid)} было завладето {ToPrettyString(args.User)}");
-        if (TryComp<GunComponent>(uid, out var compGun))
-        {
-            MakeWeaponPersonal(uid, compGun, component, args.User);
-        }
-        Dirty(uid, component);
+
+        SetOwner(ent, args.User, args.User);
     }
 
-    private void OnAltVerbs(EntityUid uid, DNAGunLockerComponent component, GetVerbsEvent<AlternativeVerb> args)
+    private void OnGetVerbs(Entity<DNAGunLockerComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        AlternativeVerb verbPersonalize = new()
+        var user = args.User;
+        args.Verbs.Add(new AlternativeVerb
         {
-            Act = () => AltPrivateWeaponPersonal(uid, component, args.User),
+            Act = () => TogglePersonalization(ent, user),
             Text = Loc.GetString("gun-personalize-verb"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
             Priority = -20,
-        };
-        args.Verbs.Add(verbPersonalize);
+        });
     }
 
-    /// <summary>
-    /// ADT, modern. This method makes weapon personal, making everyone except user not able to shoot with it.
-    /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    /// <param name="user"></param>
-    /// <param name="popup"></param>
-    private void MakeWeaponPersonal(EntityUid uid, GunComponent gunComp, DNAGunLockerComponent dnaComp,
-     EntityUid? user = null, bool popup = false)
+    private void TogglePersonalization(Entity<DNAGunLockerComponent> ent, EntityUid user)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-        if (dnaComp.GunOwner != null)
+        if (ent.Comp.GunOwner == null)
         {
-            if (popup)
-                _popup.PopupPredicted(Loc.GetString("gun-personalize-error"), uid, user);
+            SetOwner(ent, user, user);
             return;
         }
-        dnaComp.GunOwner = user;
-        _popup.PopupPredicted(Loc.GetString("gun-was-personalized"), uid, user);
-        _audio.PlayPredicted(dnaComp.LockSound, uid, user);
 
-        Dirty(uid, dnaComp);
+        if (ent.Comp.GunOwner != user)
+        {
+            _popup.PopupClient(Loc.GetString("gun-personalize-error"), ent, user);
+            return;
+        }
+
+        ent.Comp.GunOwner = null;
+        Dirty(ent);
+
+        _popup.PopupClient(Loc.GetString("gun-personalize-unlocked"), ent, user);
+        _audio.PlayPredicted(ent.Comp.LockSound, ent, user);
     }
 
-    private void AltPrivateWeaponPersonal(EntityUid uid, DNAGunLockerComponent dnaComp, EntityUid user)
+    private void SetOwner(Entity<DNAGunLockerComponent> ent, EntityUid owner, EntityUid user)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-        // Если оружие еще не имеет владельца
-        if (dnaComp.GunOwner == null)
-        {
-            // Установить пользователя как владельца
-            dnaComp.GunOwner = user;
-            _popup.PopupPredicted(Loc.GetString("gun-was-personalized"), uid, user);
-            _audio.PlayPredicted(dnaComp.LockSound, uid, user);
-            return;
-        }
-        // Если владелец заходит в эту функцию
-        else if (dnaComp.GunOwner == user)
-        {
-            // Сбросить владельца
-            dnaComp.GunOwner = null;
-            _popup.PopupPredicted(Loc.GetString("gun-personalize-unlocked"), uid, user);
-            _audio.PlayPredicted(dnaComp.LockSound, uid, user);
-            return;
-        }
-        // Если заходит другой пользователь, не владелец оружия
-        else
-        {
-            _popup.PopupPredicted(Loc.GetString("gun-personalize-error"), uid, user);
-        }
+        ent.Comp.GunOwner = owner;
+        Dirty(ent);
+
+        _popup.PopupClient(Loc.GetString("gun-was-personalized"), ent, user);
+        _audio.PlayPredicted(ent.Comp.LockSound, ent, user);
     }
 
-    private void OnEmaggedPersonalGun(EntityUid uid, DNAGunLockerComponent component, GotEmaggedEvent ev)
+    private void OnEmagged(Entity<DNAGunLockerComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (args.Handled || ent.Comp.IsEmagged)
             return;
-        if ((ev.Handled || component.IsEmagged) && TryComp<DNAGunLockerComponent>(uid, out var _))
+
+        ent.Comp.IsEmagged = true;
+        Dirty(ent);
+
+        _audio.PlayPredicted(ent.Comp.SparkSound, ent, args.UserUid);
+        _popup.PopupClient(Loc.GetString("gun-component-upgrade-emag"), ent, args.UserUid);
+        args.Handled = true;
+    }
+
+    private void OnShotAttempted(Entity<DNAGunLockerComponent> ent, ref ShotAttemptedEvent args)
+    {
+        if (args.Cancelled || ent.Comp.IsEmagged || ent.Comp.GunOwner == args.User)
             return;
-        _audio.PlayPredicted(component.SparkSound, uid, ev.UserUid);
-        _popup.PopupPredicted(Loc.GetString("gun-component-upgrade-emag"), uid, ev.UserUid);
-        component.IsEmagged = true;
-        ev.Handled = true;
-        Dirty(uid, component);
+
+        args.Cancel();
+
+        _electrocution.TryDoElectrocution(args.User, null, ent.Comp.ShockDamage, ent.Comp.ShockTime, refresh: true, ignoreInsulation: true);
+        _popup.PopupClient(Loc.GetString("gun-personalize-fuck"), args.User, args.User);
+        _audio.PlayPredicted(ent.Comp.ElectricSound, ent, args.User);
+
+        if (TryComp<CombatModeComponent>(args.User, out var combatMode))
+            _combatMode.SetInCombatMode(args.User, false, combatMode);
     }
 }

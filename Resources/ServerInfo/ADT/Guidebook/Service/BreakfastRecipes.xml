@@ -4,6 +4,8 @@
 
 Отличный способ начать смену! Или, возможно, угостить команду поздним завтраком в середине рабочего дня.
 
-<GuideMicrowaveGroupEmbed Group="Breakfast"/>
+<GuideADTCookingGroupEmbed Group="Breakfast"/>
+
+<GuideADTMicrowaveGroupEmbed Group="Breakfast"/>
 
 </Document>

@@ -12,9 +12,13 @@ drop-pod-console-deploy-button = DEPLOY DROP POD
 drop-pod-console-status-ready = Status: Ready to launch.
 drop-pod-console-status-not-ready = Status: System recharging. Please wait.
 drop-pod-console-status-launched = Status: Drop pod already deployed.
+drop-pod-console-status-war = Status: War unavailable ({ $time } seconds).
+
+drop-pod-console-popup-war = War: pod unavailable for another { $time } seconds.
+drop-pod-console-popup-tc = Not enough telecrystals: { $cost } TC required.
+drop-pod-console-popup-launched = Drop pod already deployed.
 
 drop-pod-console-tc-label = Telecrystals: { $balance } / { $cost } TC
-drop-pod-console-war-active = WAR ACTIVE — Pod unavailable for { $time } seconds
 drop-pod-console-tc-slot-name = Telecrystal slot
 
 drop-pod-console-notice = WARNING: Operatives not seated during landing will sustain injuries.

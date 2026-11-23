@@ -10,6 +10,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
 using Content.Shared.Database;
 using JetBrains.Annotations;
+using Content.Shared.ADT.Lathe;
+using Content.Shared.Lathe;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -26,6 +28,7 @@ public sealed partial class MaterialStorageSystem : SharedMaterialStorageSystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private StackSystem _stackSystem = default!;
+    [Dependency] private ADTLatheAccessSystem _latheAccess = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -61,6 +64,11 @@ public sealed partial class MaterialStorageSystem : SharedMaterialStorageSystem
 
         if (!_actionBlocker.CanInteract(player, uid))
             return;
+
+        // ADT-Tweak start
+        if (HasComp<LatheComponent>(uid) && !_latheAccess.TryUse(uid, player))
+            return;
+        // ADT-Tweak end
 
         if (!component.CanEjectStoredMaterials || !ProtoMan.TryIndex<MaterialPrototype>(msg.Material, out var material))
             return;

@@ -28,8 +28,8 @@
       - MobWatcherLavaland
       - ADTMobLavalandGoliath
       - ADTMobLegion
-      - ADTMobNightmareSpider
-      - ADTMobShockSpider
+      - ADTMobMarrowWeaver
+      - ADTMobMarrowWeaverFrost
       - ADTMobBSCrab
       - MobBasilisk
       - MobHivelord
@@ -182,32 +182,32 @@
       - MobAbomination
 
 - type: entity
-  name: Nightmare Spider Spawner
-  id: ADTSpawnMobNightmareSpider
+  name: marrow weaver spawner
+  id: ADTSpawnMobMarrowWeaver
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
       - state: green
-      - sprite: ADT/Mobs/Animals/spiders.rsi
-        state: nightmare_spider
+      - sprite: ADT/Mobs/Aliens/Lavaland/marrow_weaver.rsi
+        state: weaver
   - type: ConditionalSpawner
     prototypes:
-      - ADTMobNightmareSpider
+      - ADTMobMarrowWeaver
 
 - type: entity
-  name: Shock Spider Spawner
-  id: ADTSpawnMobShockSpider
+  name: frostbite weaver spawner
+  id: ADTSpawnMobMarrowWeaverFrost
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
       - state: green
-      - sprite: ADT/Mobs/Animals/spiders.rsi
-        state: ice_spider
+      - sprite: ADT/Mobs/Aliens/Lavaland/marrow_weaver.rsi
+        state: weaver_ice
   - type: ConditionalSpawner
     prototypes:
-      - ADTMobShockSpider
+      - ADTMobMarrowWeaverFrost
 
 - type: entity
   name: Rouny Spawner

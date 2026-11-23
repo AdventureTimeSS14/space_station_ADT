@@ -27,6 +27,12 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+  # ADT-Tweak-Start
+  - ADTClothingNeckLocketSteel
+  - ADTClothingNeckHeartSteel
+  - ADTClothingNeckLocketSilver
+  - ADTClothingNeckHeartSilver
+  # ADT-Tweak-End
   #ADT-tweak-start
   # - ClothingNeckLGBTPin
   # - ClothingNeckAromanticPin
@@ -55,6 +61,7 @@
   - AcousticGuitarInstrument
   - RockGuitarInstrument
   - BassGuitarInstrument
+  - FretlessBassGuitarInstrument
   - HarmonicaInstrument
   - SynthesizerInstrument
   # instrument-end
@@ -173,7 +180,10 @@
   loadouts:
   - CaptainHead
   - CaptainCap
-  - ADTClothingAdmiralHat # ADT Loadout
+  # ADT-Loadout-Start
+  - ADTClothingAdmiralHat
+  - ADTClothingHeadHatBeretCommand
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -230,6 +240,7 @@
   - HoPHead
   # ADT-Loadouts-Start
   - ADTHatBeretHOP
+  - ADTClothingHeadHatBeretCommand
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -475,6 +486,7 @@
   # ADT tweak start
   - ADTClothingUniformJumpsuitTurtleneckRed
   - ADTClothingUniformJumpskirtTurtleneckRed
+  - ADTClothingUniformDressRD
   # ADT tweak end
 
 #- type: loadoutGroup
@@ -600,6 +612,7 @@
   - JanitorHead
   # ADT-tweak-start
   - ADTJanitorHeadbandTacticalMaid
+  - ADTClothingHeadMaidHeadband
   # ADT-tweak-end
 
 - type: loadoutGroup
@@ -842,7 +855,7 @@
   id: Instruments
   name: loadout-group-instruments
   minLimit: 0
-  maxLimit: 2
+  maxLimit: 3 #ADT-Tweak 2 > 3
   loadouts:
   - ADTBoxJukeBoxPlayer #ADT-Tweak
   - Glockenspiel
@@ -856,6 +869,7 @@
   - BassGuitar
   - RockGuitar
   - AcousticGuitar
+  - FretlessBassGuitar #ADT-Tweak
   - Banjo
   - Violin
   - Viola
@@ -891,6 +905,7 @@
   - QuartermasterBeret
   # ADT-Loadouts-Start
   - ADTCargoTechnicianBeret
+  - ADTClothingHeadHatBeretCommand
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1057,8 +1072,11 @@
   name: loadout-group-chief-engineer-head
   minLimit: 0
   loadouts:
+  # ADT-Loadout-Start
   - ChiefEngineerHead
-  - ADTChiefEngineerBeret # ADT tweak
+  - ADTChiefEngineerBeret
+  - ADTClothingHeadHatBeretCommand
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -1262,6 +1280,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
+  - ADTClothingHeadHatBeretCommand #ADT-Tweak
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -1342,6 +1361,7 @@
   - ADTClothingUniformJumpsuitTurtleneckBlack
   - ADTClothingUniformJumpskirtTurtleneckBlack
   - ADTClothingUniformJumpsuitTurtleneckPurple
+  - ADTClothingUniformJumpsuitScientistHL
   - ADTClothingUniformJumpskirtTurtleneckPurple
   - ADTClothingUniformJumpsuitTurtleneckWhite
   - ADTClothingUniformJumpskirtTurtleneckWhite
@@ -1430,6 +1450,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - ADTClothingHeadHatBeretCommand  #ADT-Tweak
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1526,6 +1547,7 @@
   - SecurityJumpskirtGrey
   - TrooperUniform
   # ADT-Loadouts-Start
+  - ADTUniformJumpsuitDSS
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray

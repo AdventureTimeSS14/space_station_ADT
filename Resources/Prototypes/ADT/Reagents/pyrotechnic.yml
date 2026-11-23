@@ -28,3 +28,28 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
+
+- type: reagent
+  id: ADTPlasmaDust
+  name: reagent-name-adt-plasma-dust
+  group: Pyrotechnic
+  desc: reagent-desc-adt-plasma-dust
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#500064"
+  tileReactions:
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 1.5
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:Flammable
+        multiplier: 0.4
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.5

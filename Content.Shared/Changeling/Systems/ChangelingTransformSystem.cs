@@ -1,234 +1,323 @@
-// ADT: Закомментировано из-за использования генокрада от Goob Station
-// using Content.Shared.Actions;
-// using Content.Shared.Administration.Logs;
-// using Content.Shared.Body;
-// using Content.Shared.Changeling.Components;
-// using Content.Shared.Cloning;
-// using Content.Shared.Database;
-// using Content.Shared.DoAfter;
-// using Content.Shared.IdentityManagement;
-// using Content.Shared.Popups;
-// using Content.Shared.Storage;
-// using Robust.Shared.Audio.Systems;
-// using Robust.Shared.Containers;
-// using Robust.Shared.Network;
-// using Robust.Shared.Prototypes;
+using Content.Shared.Actions;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Body;
+using Content.Shared.Changeling.Components;
+using Content.Shared.Cloning;
+using Content.Shared.Database;
+using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Popups;
+using Content.Shared.Storage;
+using Content.Shared.Store.Components;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 
-// namespace Content.Shared.Changeling.Systems;
+namespace Content.Shared.Changeling.Systems;
 
-// public sealed partial class ChangelingTransformSystem : EntitySystem
-// {
-//     [Dependency] private INetManager _net = default!;
-//     [Dependency] private SharedActionsSystem _actions = default!;
-//     [Dependency] private SharedUserInterfaceSystem _ui = default!;
-//     [Dependency] private SharedDoAfterSystem _doAfter = default!;
-//     [Dependency] private MetaDataSystem _metaData = default!;
-//     [Dependency] private SharedPopupSystem _popup = default!;
-//     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
-//     [Dependency] private SharedAudioSystem _audio = default!;
-//     [Dependency] private SharedCloningSystem _cloning = default!;
-//     [Dependency] private SharedVisualBodySystem _visualBody = default!;
-//     [Dependency] private SharedContainerSystem _container = default!;
-//     [Dependency] private IdentitySystem _identity = default!;
-//     [Dependency] private SharedChangelingIdentitySystem _changelingIdentity = default!;
+public sealed partial class ChangelingTransformSystem : EntitySystem
+{
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedCloningSystem _cloning = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private SharedChangelingIdentitySystem _changelingIdentity = default!;
 
-//     private const string ChangelingBuiXmlGeneratedName = "ChangelingTransformBoundUserInterface";
-//     public override void Initialize()
-//     {
-//         base.Initialize();
+    private const string ChangelingBuiXmlGeneratedName = "ChangelingTransformBoundUserInterface";
+    public override void Initialize()
+    {
+        base.Initialize();
 
-//         SubscribeLocalEvent<ChangelingTransformComponent, MapInitEvent>(OnMapInit);
-//         SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformActionEvent>(OnTransformAction);
-//         SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformIdentitySelectMessage>(OnTransformSelected);
-//         SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformIdentityDropMessage>(OnTransformDrop);
-//         SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformDoAfterEvent>(OnSuccessfulTransform);
-//         SubscribeLocalEvent<ChangelingTransformComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ChangelingTransformComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformActionEvent>(OnTransformAction);
+        SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformIdentitySelectMessage>(OnTransformSelected);
+        SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformIdentityDropMessage>(OnTransformDrop);
+        SubscribeLocalEvent<ChangelingTransformComponent, ChangelingTransformDoAfterEvent>(OnSuccessfulTransform);
+        SubscribeLocalEvent<ChangelingTransformComponent, ComponentShutdown>(OnShutdown);
 
-//         // Components that need special handling outside of cloning.
-//         SubscribeLocalEvent<StorageComponent, BeforeChangelingTransformEvent>(StorageBeforeTransform);
-//     }
+        // Components that need special handling outside of cloning.
+        SubscribeLocalEvent<StorageComponent, BeforeChangelingTransformEvent>(StorageBeforeTransform);
+    }
 
-//     private void OnMapInit(Entity<ChangelingTransformComponent> ent, ref MapInitEvent init)
-//     {
-//         _actions.AddAction(ent, ref ent.Comp.ChangelingTransformActionEntity, ent.Comp.ChangelingTransformAction);
+    private void OnMapInit(Entity<ChangelingTransformComponent> ent, ref MapInitEvent init)
+    {
+        _actions.AddAction(ent, ref ent.Comp.ChangelingTransformActionEntity, ent.Comp.ChangelingTransformAction);
 
-//         var userInterfaceComp = EnsureComp<UserInterfaceComponent>(ent);
-//         _ui.SetUi((ent, userInterfaceComp), ChangelingTransformUiKey.Key, new InterfaceData(ChangelingBuiXmlGeneratedName));
-//     }
+        var userInterfaceComp = EnsureComp<UserInterfaceComponent>(ent);
+        _ui.SetUi((ent, userInterfaceComp), ChangelingTransformUiKey.Key, new InterfaceData(ChangelingBuiXmlGeneratedName));
+    }
 
-//     private void OnShutdown(Entity<ChangelingTransformComponent> ent, ref ComponentShutdown args)
-//     {
-//         if (ent.Comp.ChangelingTransformActionEntity != null)
-//         {
-//             _actions.RemoveAction(ent.Owner, ent.Comp.ChangelingTransformActionEntity);
-//         }
-//     }
+    private void OnShutdown(Entity<ChangelingTransformComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.ChangelingTransformActionEntity != null)
+        {
+            _actions.RemoveAction(ent.Owner, ent.Comp.ChangelingTransformActionEntity);
+        }
+    }
 
-//     private void OnTransformAction(Entity<ChangelingTransformComponent> ent,
-//         ref ChangelingTransformActionEvent args)
-//     {
-//         if (!TryComp<UserInterfaceComponent>(ent, out var userInterfaceComp))
-//             return;
+    private void OnTransformAction(Entity<ChangelingTransformComponent> ent,
+        ref ChangelingTransformActionEvent args)
+    {
+        if (!TryComp<UserInterfaceComponent>(ent, out var userInterfaceComp))
+            return;
 
-//         if (!HasComp<ChangelingIdentityComponent>(ent))
-//             return;
+        if (!HasComp<ChangelingIdentityComponent>(ent))
+            return;
 
-//         if (!_ui.IsUiOpen((ent, userInterfaceComp), ChangelingTransformUiKey.Key, args.Performer))
-//         {
-//             _ui.OpenUi((ent, userInterfaceComp), ChangelingTransformUiKey.Key, args.Performer);
-//         } //TODO: Can add a Else here with TransformInto and CloseUI to make a quick switch,
-//           // issue right now is that Radials cover the Action buttons so clicking the action closes the UI (due to clicking off a radial causing it to close, even with UI)
-//           // but pressing the number does.
-//     }
+        if (!_ui.IsUiOpen((ent, userInterfaceComp), ChangelingTransformUiKey.Key, args.Performer))
+        {
+            _ui.OpenUi((ent, userInterfaceComp), ChangelingTransformUiKey.Key, args.Performer);
+        } //TODO: Can add a Else here with TransformInto and CloseUI to make a quick switch,
+          // issue right now is that Radials cover the Action buttons so clicking the action closes the UI (due to clicking off a radial causing it to close, even with UI)
+          // but pressing the number does.
+    }
 
-//     private void OnTransformSelected(Entity<ChangelingTransformComponent> ent,
-//         ref ChangelingTransformIdentitySelectMessage args)
-//     {
-//         if (!TryGetEntity(args.TargetIdentity, out var targetIdentity))
-//             return;
+    private void OnTransformSelected(Entity<ChangelingTransformComponent> ent,
+        ref ChangelingTransformIdentitySelectMessage args)
+    {
+        if (!TryGetEntity(args.TargetIdentity, out var targetIdentity))
+            return;
 
-//         if (!TryComp<ChangelingIdentityComponent>(ent, out var identity))
-//             return;
+        if (!TryComp<ChangelingIdentityComponent>(ent, out var identity))
+            return;
 
-//         if (identity.CurrentIdentity == targetIdentity)
-//             return; // don't transform into ourselves
+        // ADT-Tweak-Start
+        if (_doAfter.IsRunning(ent.Comp.TransformDoAfter))
+        {
+            var cancelOnly = ent.Comp.TransformTarget == targetIdentity || identity.CurrentIdentity == targetIdentity;
+            _doAfter.Cancel(ent.Comp.TransformDoAfter);
 
-//         if (!_changelingIdentity.TryGetDataFromIdentity((ent.Owner, identity), targetIdentity.Value, out _))
-//             return; // this identity does not belong to this player
+            if (cancelOnly)
+            {
+                _popup.PopupEntity(Loc.GetString("adt-changeling-transform-cancelled"), ent.Owner, ent.Owner);
+                return;
+            }
+        }
+        // ADT-Tweak-End
 
-//         TransformInto(ent.AsNullable(), targetIdentity.Value);
-//     }
+        if (identity.CurrentIdentity == targetIdentity)
+            return; // don't transform into ourselves
 
-//     private void OnTransformDrop(Entity<ChangelingTransformComponent> ent,
-//         ref ChangelingTransformIdentityDropMessage args)
-//     {
-//         if (!TryGetEntity(args.TargetIdentity, out var targetIdentity))
-//             return;
+        if (!_changelingIdentity.TryGetDataFromIdentity((ent.Owner, identity), targetIdentity.Value, out _))
+            return; // this identity does not belong to this player
 
-//         if (!TryComp<ChangelingIdentityComponent>(ent, out var identity))
-//             return;
+        // check for things which could prevent us from transforming
+        var evA = new ChangelingAttemptTransformEvent(false, null, targetIdentity.Value);
+        RaiseLocalEvent(ent.Owner, ref evA);
 
-//         if (!ent.Comp.ManualDrop)
-//             return; // can't drop identities in this mode
+        if (evA.Cancelled)
+        {
+            if (evA.Reason != null)
+                _popup.PopupEntity(evA.Reason, ent.Owner, ent.Owner, PopupType.Large);
 
-//         if (identity.CurrentIdentity == targetIdentity)
-//             return; // don't drop our current identity
+            return;
+        }
 
-//         if (!_changelingIdentity.TryGetDataFromIdentity((ent.Owner, identity), targetIdentity.Value, out _))
-//             return; // this identity does not belong to this player
+        var evB = new ChangelingAttemptTransformIntoEvent(false, null, ent.Owner);
+        RaiseLocalEvent(targetIdentity.Value, ref evB);
 
-//         _popup.PopupEntity(Loc.GetString("changeling-transform-bui-drop-identity-entity-popup", ("entity", targetIdentity.Value)), ent.Owner, ent.Owner, PopupType.Large);
-//         _changelingIdentity.DropStoredIdentity(ent.Owner, targetIdentity.Value);
-//     }
+        if (evB.Cancelled)
+        {
+            if (evB.Reason != null)
+                _popup.PopupEntity(evB.Reason, ent.Owner, ent.Owner, PopupType.Large);
 
-//     /// <summary>
-//     /// Transform the changeling into another identity.
-//     /// This can be any cloneable humanoid and doesn't have to be stored in the ChangelingIdentityComponent,
-//     /// so make sure to validate the target before.
-//     /// </summary>
-//     public void TransformInto(Entity<ChangelingTransformComponent?> ent, EntityUid targetIdentity)
-//     {
-//         if (!Resolve(ent, ref ent.Comp))
-//             return;
+            return;
+        }
 
-//         var selfMessage = Loc.GetString("changeling-transform-attempt-self", ("user", Identity.Entity(ent.Owner, EntityManager)));
-//         var othersMessage = Loc.GetString("changeling-transform-attempt-others", ("user", Identity.Entity(ent.Owner, EntityManager)));
-//         _popup.PopupEntity(
-//             selfMessage,
-//             othersMessage,
-//             ent,
-//             ent,
-//             PopupType.MediumCaution);
+        TransformInto(ent.AsNullable(), targetIdentity.Value);
+    }
 
-//         if (_net.IsServer)
-//         {
-//             ent.Comp.CurrentTransformSound = _audio.Stop(ent.Comp.CurrentTransformSound); // cancel any previous sounds first
-//             ent.Comp.CurrentTransformSound = _audio.PlayPvs(ent.Comp.TransformAttemptNoise, ent)?.Entity;
-//         }
+    private void OnTransformDrop(Entity<ChangelingTransformComponent> ent,
+        ref ChangelingTransformIdentityDropMessage args)
+    {
+        if (!TryGetEntity(args.TargetIdentity, out var targetIdentity))
+            return;
 
-//         if (TryComp<ChangelingStoredIdentityComponent>(targetIdentity, out var storedIdentity) && storedIdentity.OriginalSession != null)
-//             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player} begun an attempt to transform into \"{Name(targetIdentity)}\" ({storedIdentity.OriginalSession:player}) ");
-//         else
-//             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player} begun an attempt to transform into \"{Name(targetIdentity)}\"");
+        if (!TryComp<ChangelingIdentityComponent>(ent, out var identity))
+            return;
 
-//         _doAfter.TryStartDoAfter(new DoAfterArgs(
-//             EntityManager,
-//             ent,
-//             ent.Comp.TransformWindup,
-//             new ChangelingTransformDoAfterEvent(),
-//             ent,
-//             target: targetIdentity)
-//         {
-//             DuplicateCondition = DuplicateConditions.None,
-//             RequireCanInteract = false,
-//             DistanceThreshold = null,
-//             ExamineText = ent.Comp.TransformExamine == null ? null : Loc.GetString(ent.Comp.TransformExamine, ("user", Identity.Entity(ent, EntityManager)))
-//         });
-//     }
+        if (!ent.Comp.ManualDrop)
+            return; // can't drop identities in this mode
 
-//     private void OnSuccessfulTransform(Entity<ChangelingTransformComponent> ent,
-//         ref ChangelingTransformDoAfterEvent args)
-//     {
-//         args.Handled = true;
+        if (identity.CurrentIdentity == targetIdentity)
+            return; // don't drop our current identity
 
-//         if (args.Cancelled)
-//         {
-//             // Only stop the sound if we finish transforming successfully.
-//             ent.Comp.CurrentTransformSound = _audio.Stop(ent.Comp.CurrentTransformSound);
-//             return;
-//         }
-//         ent.Comp.CurrentTransformSound = null;
+        if (HasComp<ChangelingUnremovableIdentityComponent>(targetIdentity.Value))
+            return; // can't drop the horror form
 
-//         if (!ProtoMan.Resolve(ent.Comp.TransformCloningSettings, out var settings))
-//             return;
+        if (!_changelingIdentity.TryGetDataFromIdentity((ent.Owner, identity), targetIdentity.Value, out _))
+            return; // this identity does not belong to this player
 
-//         if (args.Target is not { } targetIdentity)
-//             return;
+        // ADT-Tweak-Start
+        if (ent.Comp.TransformTarget == targetIdentity && _doAfter.IsRunning(ent.Comp.TransformDoAfter))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-changeling-transform-drop-transforming"), ent.Owner, ent.Owner);
+            return;
+        }
+        // ADT-Tweak-End
 
-//         EntityUid? previousIdentity = null;
+        _popup.PopupEntity(Loc.GetString("changeling-transform-bui-drop-identity-entity-popup", ("entity", targetIdentity.Value)), ent.Owner, ent.Owner, PopupType.Large);
+        _changelingIdentity.DropStoredIdentity(ent.Owner, targetIdentity.Value);
+    }
 
-//         if (TryComp<ChangelingIdentityComponent>(ent.Owner, out var identityComp) && !ent.Comp.ManualDrop)
-//             previousIdentity = identityComp.CurrentIdentity;
+    /// <summary>
+    /// Transform the changeling into another identity.
+    /// This can be any cloneable humanoid and doesn't have to be stored in the ChangelingIdentityComponent,
+    /// so make sure to validate the target before.
+    /// Calls <see cref="TransformIntoNow"/> after a doafter.
+    /// </summary>
+    public void TransformInto(Entity<ChangelingTransformComponent?> ent, EntityUid targetIdentity)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
 
-//         var beforeTransformEvent = new BeforeChangelingTransformEvent(targetIdentity);
-//         RaiseLocalEvent(args.User, beforeTransformEvent);
+        if (HasComp<ChangelingHorrorComponent>(targetIdentity))
+        {
+            // the horror transformation is instantaneous
+            TransformIntoNow((ent.Owner, ent.Comp), targetIdentity);
+            return;
+        }
 
-//         _visualBody.CopyAppearanceFrom(targetIdentity, args.User);
-//         _cloning.CloneComponents(targetIdentity, args.User, settings);
+        var selfMessage = Loc.GetString("changeling-transform-attempt-self", ("user", Identity.Entity(ent.Owner, EntityManager)));
+        var othersMessage = Loc.GetString("changeling-transform-attempt-others", ("user", Identity.Entity(ent.Owner, EntityManager)));
+        _popup.PopupEntity(
+            selfMessage,
+            othersMessage,
+            ent,
+            ent,
+            PopupType.MediumCaution);
 
-//         if (settings.CopyStatusEffects)
-//             _cloning.CopyStatusEffects(targetIdentity, args.User, settings.StatusEffectWhitelist, settings.StatusEffectBlacklist);
+        if (_net.IsServer)
+        {
+            ent.Comp.CurrentTransformSound = _audio.Stop(ent.Comp.CurrentTransformSound); // cancel any previous sounds first
+            ent.Comp.CurrentTransformSound = _audio.PlayPvs(ent.Comp.TransformAttemptNoise, ent)?.Entity;
+        }
 
-//         if (TryComp<ChangelingStoredIdentityComponent>(targetIdentity, out var storedIdentity) && storedIdentity.OriginalSession != null)
-//             _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner):player} successfully transformed into \"{Name(targetIdentity)}\" ({storedIdentity.OriginalSession:player})");
-//         else
-//             _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner):player} successfully transformed into \"{Name(targetIdentity)}\"");
+        if (TryComp<ChangelingStoredIdentityComponent>(targetIdentity, out var storedIdentity) && storedIdentity.OriginalSession != null)
+            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player} begun an attempt to transform into \"{Name(targetIdentity)}\" ({storedIdentity.OriginalSession:player}) ");
+        else
+            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player} begun an attempt to transform into \"{Name(targetIdentity)}\"");
 
-//         _metaData.SetEntityName(ent, Name(targetIdentity), raiseEvents: false); // Don't raise events because we don't want to rename the ID card.
-//         _metaData.SetEntityDescription(ent, Description(targetIdentity));
-//         _identity.QueueIdentityUpdate(ent); // We have to manually refresh the identity because we did not raise events.
+        // ADT-Tweak-Start
+        if (_doAfter.TryStartDoAfter(new DoAfterArgs(
+            EntityManager,
+            ent,
+            ent.Comp.TransformWindup,
+            new ChangelingTransformDoAfterEvent(),
+            ent,
+            target: targetIdentity)
+        {
+            DuplicateCondition = DuplicateConditions.None,
+            RequireCanInteract = false,
+            DistanceThreshold = null,
+            ExamineText = ent.Comp.TransformExamine == null ? null : Loc.GetString(ent.Comp.TransformExamine, ("user", Identity.Entity(ent, EntityManager)))
+        }, out var doAfterId))
+        {
+            ent.Comp.TransformDoAfter = doAfterId;
+            ent.Comp.TransformTarget = targetIdentity;
+        }
+        // ADT-Tweak-End
+    }
 
-//         Dirty(ent);
 
-//         if (TryComp<ChangelingIdentityComponent>(ent, out var identity)) // in case we ever get changelings that don't store identities
-//         {
-//             identity.CurrentIdentity = targetIdentity;
-//             Dirty(ent.Owner, identity);
-//         }
+    private void OnSuccessfulTransform(Entity<ChangelingTransformComponent> ent,
+        ref ChangelingTransformDoAfterEvent args)
+    {
+        args.Handled = true;
 
-//         var afterTransformEvent = new AfterChangelingTransformEvent(targetIdentity);
-//         RaiseLocalEvent(args.User, afterTransformEvent);
+        // ADT-Tweak-Start
+        var isCurrent = ent.Comp.TransformDoAfter is { } currentId && currentId.Index == args.DoAfter.Index;
+        if (isCurrent)
+        {
+            ent.Comp.TransformDoAfter = null;
+            ent.Comp.TransformTarget = null;
+        }
+        // ADT-Tweak-End
 
-//         if (previousIdentity != null)
-//             _changelingIdentity.DropStoredIdentity(ent.Owner, previousIdentity.Value);
-//     }
+        if (args.Cancelled)
+        {
+            // Only stop the sound if we finish transforming successfully.
+            if (isCurrent) // ADT-Tweak
+                ent.Comp.CurrentTransformSound = _audio.Stop(ent.Comp.CurrentTransformSound);
+            return;
+        }
 
-//     private void StorageBeforeTransform(Entity<StorageComponent> ent, ref BeforeChangelingTransformEvent args)
-//     {
-//         if (HasComp<StorageComponent>(args.StoredIdentity))
-//             return; // If we have a storage component and the target has one as well, then do nothing.
+        ent.Comp.CurrentTransformSound = null;
 
-//         // If the target identity does not have a storage anymore, drop all items inside our storage so that they don't become unreachable.
-//         _container.EmptyContainer(ent.Comp.Container);
-//     }
-// }
+        if (args.Target is not { } targetIdentity)
+            return;
+
+        // ADT-Tweak-Start
+        if (TerminatingOrDeleted(targetIdentity)
+            || !TryComp<ChangelingIdentityComponent>(ent, out var identity)
+            || !_changelingIdentity.TryGetDataFromIdentity((ent.Owner, identity), targetIdentity, out _))
+            return;
+        // ADT-Tweak-End
+
+        // Transform the entity
+        TransformIntoNow(ent, targetIdentity);
+    }
+
+    /// <summary>
+    /// Transforms the changeling into the given identity, but without doafters or popups. Keep in mind they still need a ChangelingTransformComponent
+    /// </summary>
+    public void TransformIntoNow(Entity<ChangelingTransformComponent> ent, EntityUid targetIdentity)
+    {
+        if (!ProtoMan.Resolve(ent.Comp.TransformCloningSettings, out var settings))
+            return;
+
+        var beforeTransformEvent = new BeforeChangelingTransformEvent(targetIdentity);
+        RaiseLocalEvent(ent.Owner, beforeTransformEvent);
+
+        _visualBody.CopyAppearanceFrom(targetIdentity, ent.Owner);
+        _cloning.CloneComponents(targetIdentity, ent.Owner, settings);
+
+        if (settings.CopyStatusEffects)
+            _cloning.CopyStatusEffects(targetIdentity, ent.Owner, settings.StatusEffectWhitelist, settings.StatusEffectBlacklist);
+
+        if (TryComp<ChangelingStoredIdentityComponent>(targetIdentity, out var storedIdentity) && storedIdentity.OriginalSession != null)
+            _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner):player} successfully transformed into \"{Name(targetIdentity)}\" ({storedIdentity.OriginalSession:player})");
+        else
+            _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner):player} successfully transformed into \"{Name(targetIdentity)}\"");
+
+        _metaData.SetEntityName(ent, Name(targetIdentity), raiseEvents: false); // Don't raise events because we don't want to rename the ID card.
+        _metaData.SetEntityDescription(ent, Description(targetIdentity));
+        _identity.QueueIdentityUpdate(ent); // We have to manually refresh the identity because we did not raise events.
+
+        Dirty(ent);
+
+        EntityUid? oldIdentity = null;
+        if (TryComp<ChangelingIdentityComponent>(ent, out var identity)) // in case we ever get changelings that don't store identities
+        {
+            oldIdentity = identity.CurrentIdentity;
+            identity.CurrentIdentity = targetIdentity;
+            Dirty(ent.Owner, identity);
+        }
+
+        var afterTransformEvent = new AfterChangelingTransformEvent(targetIdentity, oldIdentity);
+        RaiseLocalEvent(ent.Owner, afterTransformEvent);
+
+        if (oldIdentity != null && !ent.Comp.ManualDrop)
+            _changelingIdentity.DropStoredIdentity(ent.Owner, oldIdentity.Value);
+
+    }
+
+    private void StorageBeforeTransform(Entity<StorageComponent> ent, ref BeforeChangelingTransformEvent args)
+    {
+        if (HasComp<StorageComponent>(args.StoredIdentity))
+            return; // If we have a storage component and the target has one as well, then do nothing.
+
+        // If the target identity does not have a storage anymore, drop all items inside our storage so that they don't become unreachable.
+        _container.EmptyContainer(ent.Comp.Container);
+    }
+}

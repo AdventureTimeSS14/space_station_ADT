@@ -221,7 +221,7 @@ doc-text-printer-application-appointment-interim =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-КОМ/ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАЯВЛЕНИЕ О НАЗНАЧЕНИИ НА ВРИО

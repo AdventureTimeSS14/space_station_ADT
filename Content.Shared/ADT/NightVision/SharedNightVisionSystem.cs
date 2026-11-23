@@ -7,6 +7,7 @@ using Content.Shared.Rounding;
 using Content.Shared.Toggleable;
 using Content.Shared.ADT.Eye.Blinding;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.NightVision;
@@ -25,9 +26,10 @@ public abstract class SharedNightVisionSystem : EntitySystem
         SubscribeLocalEvent<NightVisionComponent, MapInitEvent>(OnNightVisionMapInit);
         SubscribeLocalEvent<NightVisionComponent, AfterAutoHandleStateEvent>(OnNightVisionAfterHandle);
         SubscribeLocalEvent<NightVisionComponent, ComponentRemove>(OnNightVisionRemove);
+        SubscribeLocalEvent<NightVisionComponent, ToggleNightVisionActionEvent>(OnNightVisionToggleAction);
 
         SubscribeLocalEvent<NightVisionItemComponent, GetItemActionsEvent>(OnNightVisionItemGetActions);
-        SubscribeLocalEvent<NightVisionItemComponent, ToggleActionEvent>(OnNightVisionItemToggle);
+        SubscribeLocalEvent<NightVisionItemComponent, ToggleNightVisionActionEvent>(OnNightVisionItemToggle);
         SubscribeLocalEvent<NightVisionItemComponent, GotEquippedEvent>(OnNightVisionItemGotEquipped);
         SubscribeLocalEvent<NightVisionItemComponent, GotUnequippedEvent>(OnNightVisionItemGotUnequipped);
         SubscribeLocalEvent<NightVisionItemComponent, ActionRemovedEvent>(OnNightVisionItemActionRemoved);
@@ -47,6 +49,9 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
     private void OnNightVisionMapInit(Entity<NightVisionComponent> ent, ref MapInitEvent args)
     {
+        if (ent.Comp.ToggleAction is { } action)
+            _actions.AddAction(ent.Owner, ref ent.Comp.ToggleActionEntity, action);
+
         UpdateAlert(ent);
     }
 
@@ -55,7 +60,18 @@ public abstract class SharedNightVisionSystem : EntitySystem
         if (ent.Comp.Alert is { } alert)
             _alerts.ClearAlert(ent.Owner, alert);
 
+        _actions.RemoveAction(ent.Owner, ent.Comp.ToggleActionEntity);
+
         NightVisionRemoved(ent);
+    }
+
+    private void OnNightVisionToggleAction(Entity<NightVisionComponent> ent, ref ToggleNightVisionActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        Toggle((ent.Owner, ent.Comp));
     }
 
     private void OnNightVisionItemGetActions(Entity<NightVisionItemComponent> ent, ref GetItemActionsEvent args)
@@ -69,7 +85,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         args.AddAction(ref ent.Comp.Action, ent.Comp.ActionId);
     }
 
-    private void OnNightVisionItemToggle(Entity<NightVisionItemComponent> ent, ref ToggleActionEvent args)
+    private void OnNightVisionItemToggle(Entity<NightVisionItemComponent> ent, ref ToggleNightVisionActionEvent args)
     {
         if (args.Handled)
             return;
@@ -123,6 +139,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         };
 
         Dirty(ent);
+        _actions.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.State == NightVisionState.Full);
         UpdateAlert((ent, ent.Comp));
     }
 
@@ -164,9 +181,12 @@ public abstract class SharedNightVisionSystem : EntitySystem
             var nightVision = EnsureComp<NightVisionComponent>(user);
             item.Comp.PreviousShader = nightVision.Shader;
             item.Comp.PreviousEffectPrototype = nightVision.EffectPrototype;
+            item.Comp.PreviousTint = nightVision.Tint;
+            item.Comp.PreviousOverlay = nightVision.Overlay;
             nightVision.State = NightVisionState.Full;
             nightVision.Shader = item.Comp.Shader;
             nightVision.EffectPrototype = item.Comp.EffectPrototype;
+            nightVision.Tint = null;
             nightVision.Overlay = true;
             Dirty(user, nightVision);
 
@@ -214,7 +234,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
                 if (item.Comp.PreviousEffectPrototype != null)
                     nightVision.EffectPrototype = item.Comp.PreviousEffectPrototype.Value;
 
-                nightVision.Overlay = false;
+                nightVision.Tint = item.Comp.PreviousTint;
+                nightVision.Overlay = item.Comp.PreviousOverlay;
                 Dirty(user.Value, nightVision);
                 RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
             }
@@ -222,6 +243,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
         item.Comp.PreviousShader = null;
         item.Comp.PreviousEffectPrototype = null;
+        item.Comp.PreviousTint = null;
+        item.Comp.PreviousOverlay = false;
 
         if (playSound && wasActive && !_timing.ApplyingState && soundUser != null)
             _audio.PlayLocal(item.Comp.SoundOff, item, soundUser);
@@ -238,6 +261,39 @@ public abstract class SharedNightVisionSystem : EntitySystem
         ent.Comp.State = active ? NightVisionState.Full : NightVisionState.Off;
         ent.Comp.Overlay = overlay;
         Dirty(ent, ent.Comp);
+        _actions.SetToggled(ent.Comp.ToggleActionEntity, active);
         UpdateAlert((ent.Owner, ent.Comp));
+    }
+
+    public void SetVision(Entity<NightVisionComponent?> ent, string shader, EntProtoId effect, Color? tint, bool overlay, bool innate)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        ent.Comp.Shader = shader;
+        ent.Comp.EffectPrototype = effect;
+        ent.Comp.Tint = tint;
+        ent.Comp.Overlay = overlay;
+        ent.Comp.Innate = innate;
+        Dirty(ent, ent.Comp);
+        NightVisionChanged((ent.Owner, ent.Comp));
+    }
+
+    public void SetToggleAction(Entity<NightVisionComponent?> ent, EntProtoId? action)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        _actions.RemoveAction(ent.Owner, ent.Comp.ToggleActionEntity);
+        ent.Comp.ToggleActionEntity = null;
+        ent.Comp.ToggleAction = action;
+
+        if (action is { } id)
+        {
+            _actions.AddAction(ent.Owner, ref ent.Comp.ToggleActionEntity, id);
+            _actions.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.State == NightVisionState.Full);
+        }
+
+        Dirty(ent, ent.Comp);
     }
 }

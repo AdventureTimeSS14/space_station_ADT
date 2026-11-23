@@ -138,14 +138,18 @@ public sealed partial class MetabolizerSystem : EntitySystem
         if (solution.Contents.Count == 0)
             return;
 
+        // ADT-Tweak-Start
+        var ev = new MetabolismExclusionEvent();
+        RaiseLocalEvent(solutionOwner.Value, ref ev);
+
+        if (!HasMetabolizableReagent(solution, ev.Reagents))
+            return;
+        // ADT-Tweak-End
+
         LookupSolution(ent, solutionData, true, out var transferSolution, out var transferSolutionEntity, out _);
 
         // Copy the solution do not edit the original solution list
         var list = solution.Contents.ToList();
-
-        // Collecting blood reagent for filtering
-        var ev = new MetabolismExclusionEvent();
-        RaiseLocalEvent(solutionOwner.Value, ref ev);
 
         // randomize the reagent list so we don't have any weird quirks
         // like alphabetical order or insertion order mattering for processing
@@ -155,6 +159,7 @@ public sealed partial class MetabolizerSystem : EntitySystem
         var isDead = _mobStateSystem.IsDead(solutionOwner.Value);
 
         int reagents = 0;
+        var changed = false; // ADT-Tweak
         foreach (var (reagent, quantity) in list)
         {
             if (!ProtoMan.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto))
@@ -178,6 +183,7 @@ public sealed partial class MetabolizerSystem : EntitySystem
                     solution.RemoveReagent(reagent, FixedPoint2.New(1));
                 }
 
+                changed = true; // ADT-Tweak
                 continue;
             }
 
@@ -207,7 +213,7 @@ public sealed partial class MetabolizerSystem : EntitySystem
             // лежат на органах, а компоненты аллергий/зависимостей - на мобе (directed-подписки).
             // Эффекты можно подменить (аллергия добавляет урон), поэтому берём из события.
             var reagentEffectsEvent = new GetReagentEffectsEvent(reagent, entry.Effects);
-            RaiseLocalEvent(actualEntity, reagentEffectsEvent);
+            RaiseLocalEvent(actualEntity, ref reagentEffectsEvent);
             var effects = reagentEffectsEvent.Effects;
             // ADT-Tweak-End
 
@@ -249,6 +255,7 @@ public sealed partial class MetabolizerSystem : EntitySystem
             if (mostToRemove > FixedPoint2.Zero)
             {
                 solution.RemoveReagent(reagent, mostToRemove);
+                changed = true; // ADT-Tweak
 
                 // We have processed a reagant, so count it towards the cap
                 reagents += 1;
@@ -263,12 +270,30 @@ public sealed partial class MetabolizerSystem : EntitySystem
             }
         }
 
+        // ADT-Tweak-Start
+        if (!changed)
+            return;
+        // ADT-Tweak-End
+
         _solutionContainerSystem.UpdateChemicals(solutionEntity.Value);
         if (transferSolutionEntity is not null)
         {
             _solutionContainerSystem.UpdateChemicals(transferSolutionEntity.Value);
         }
     }
+
+    // ADT-Tweak-Start
+    private static bool HasMetabolizableReagent(Solution solution, List<ReagentId> excluded)
+    {
+        foreach (var (reagent, _) in solution.Contents)
+        {
+            if (!excluded.Contains(reagent))
+                return true;
+        }
+
+        return false;
+    }
+    // ADT-Tweak-End
 
     private void TryMetabolize(Entity<MetabolizerComponent, OrganComponent?, SolutionManagerComponent?> ent)
     {

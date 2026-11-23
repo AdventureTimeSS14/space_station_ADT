@@ -17,3 +17,7 @@ ent-ADTMobMouseSpace = космическая мышь
 ent-ADTMobMonkeyAdvanced = обезьяна
     .desc = вам кажется эта обезьяна немного лучше других владеет своими конечностями, чем её собратья
     .suffix = Продвинутый
+ent-ADTMobFrog = лягушка
+    .desc = Прыг прыг прыг. Выглядит мокрой.
+ent-ADTSpawnMobFrog = спавнер лягушка
+    .desc = { ent-MarkerBase.desc }

@@ -5,6 +5,7 @@ using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Medical;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Pinpointer;
@@ -190,6 +191,9 @@ public sealed partial class JaunterPortalSystem : EntitySystem
             return;
 
         if (HasComp<MegafaunaComponent>(otherUid))
+            return;
+
+        if (HasComp<GhostComponent>(otherUid))
             return;
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/Mining/fultext_launch.ogg"), args.OtherEntity);

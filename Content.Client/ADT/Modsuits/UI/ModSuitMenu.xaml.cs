@@ -69,20 +69,20 @@ public sealed partial class ModSuitMenu : FancyWindow
 
         LockButton.Text = modComp.UserName != null ? Loc.GetString("mod-lock") : Loc.GetString("mod-locked");
         ModUsername.Text = modComp.UserName != null ? Loc.GetString("mod-user") + modComp.UserName : Loc.GetString("mod-no-user");
-        switch (_modsuit.GetPartsToggleStatus(_mod, modComp))
+        if (_modsuit.IsFullyCovered(_mod, modComp))
         {
-            case ModSuitAttachedStatus.NoneToggled:
-                ModState.ModulateSelfOverride = new Color(0.86f, 0.22f, 0.22f, 0.7f);
-                ModState.Text = Loc.GetString("mod-none-toggled");
-                break;
-            case ModSuitAttachedStatus.PartlyToggled:
-                ModState.ModulateSelfOverride = new Color(0.95f, 0.78f, 0.25f, 1f);
-                ModState.Text = Loc.GetString("mod-partly-toggled");
-                break;
-            case ModSuitAttachedStatus.AllToggled:
-                ModState.ModulateSelfOverride = new Color(0.35f, 0.84f, 0.33f, 1f);
-                ModState.Text = Loc.GetString("mod-all-toggled");
-                break;
+            ModState.ModulateSelfOverride = new Color(0.35f, 0.84f, 0.33f, 1f);
+            ModState.Text = Loc.GetString("mod-all-toggled");
+        }
+        else if (_modsuit.GetPartsToggleStatus(_mod, modComp) == ModSuitAttachedStatus.NoneToggled)
+        {
+            ModState.ModulateSelfOverride = new Color(0.86f, 0.22f, 0.22f, 0.7f);
+            ModState.Text = Loc.GetString("mod-none-toggled");
+        }
+        else
+        {
+            ModState.ModulateSelfOverride = new Color(0.95f, 0.78f, 0.25f, 1f);
+            ModState.Text = Loc.GetString("mod-partly-toggled");
         }
     }
 

@@ -91,6 +91,24 @@
         },
         {
             "name": "id-taumaturg"
+        },
+        {
+            "name": "idcardinspector"
+        },
+        {
+            "name": "idcardinquisitor"
+        },
+        {
+            "name": "idcardinspectorinquisitor"
+        },
+        {
+            "name": "idcentcomofficer"
+        },
+        {
+            "name": "idcentcomoperator"
+        },
+        {
+            "name": "idsodofficer"
         }
     ]
 }

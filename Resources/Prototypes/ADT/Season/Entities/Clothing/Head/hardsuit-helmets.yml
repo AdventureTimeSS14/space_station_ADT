@@ -1,0 +1,37 @@
+- type: entity
+  parent: [ ClothingHeadHardsuitBase , ADTClothingHeadHelmetHardsuitRiotERT ]
+  id: ADTClothingHeadHelmetHardsuitEVENTServant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_servant_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_servant_helmet.rsi
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase , ADTClothingHeadHelmetHardsuitRiotERT ]
+  id: ADTClothingHeadHelmetHardsuitEVENTMed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_med_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_med_helmet.rsi
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase , ClothingHeadHelmetHardsuitSyndieCommander ]
+  id: ADTClothingHeadHelmetHardsuitEVENTsunshine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals: {}
+  - type: Clothing
+    sprite: ADT/Season/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi

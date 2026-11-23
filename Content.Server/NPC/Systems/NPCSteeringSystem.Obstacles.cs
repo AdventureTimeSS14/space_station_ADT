@@ -1,9 +1,11 @@
+using Content.Server.ADT.NPC;
 using Content.Server.Destructible;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Pathfinding;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Doors.Systems;
 using Content.Shared.NPC;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -37,6 +39,8 @@ public sealed partial class NPCSteeringSystem
     [Dependency] private EntityQuery<DoorComponent> _doorQuery = default!;
     [Dependency] private EntityQuery<ClimbableComponent> _climbableQuery = default!;
     [Dependency] private EntityQuery<DestructibleComponent> _destructibleQuery = default!;
+    [Dependency] private SharedDoorSystem _door = default!; // ADT-Tweak
+    [Dependency] private ADTNpcNavMemorySystem _adtNavMemory = default!; // ADT-Tweak
 
     private SteeringObstacleStatus TryHandleFlags(EntityUid uid, NPCSteeringComponent component, PathPoly poly)
     {
@@ -80,6 +84,35 @@ public sealed partial class NPCSteeringSystem
             var isDoor = (poly.Data.Flags & PathfindingBreadcrumbFlag.Door) != 0x0;
             var isAccessRequired = (poly.Data.Flags & PathfindingBreadcrumbFlag.Access) != 0x0;
             var isClimbable = (poly.Data.Flags & PathfindingBreadcrumbFlag.Climb) != 0x0;
+
+            // ADT-Tweak-Start
+            if (isDoor && (component.Flags & PathFlags.Access) != 0x0)
+            {
+                var anyClosed = false;
+
+                foreach (var ent in obstacleEnts)
+                {
+                    if (!_doorQuery.TryGetComponent(ent, out var door) || door.State == DoorState.Open)
+                        continue;
+
+                    if (door.State == DoorState.Opening)
+                        return SteeringObstacleStatus.Continuing;
+
+                    anyClosed = true;
+
+                    if ((door.BumpOpen || door.ClickOpen) && _door.TryOpen(ent, door, uid, quiet: true))
+                        return SteeringObstacleStatus.Continuing;
+
+                    _adtNavMemory.BlockTile(uid, ent);
+                }
+
+                if (!anyClosed)
+                    return SteeringObstacleStatus.Completed;
+
+                if ((component.Flags & (PathFlags.Prying | PathFlags.Smashing)) == 0x0)
+                    return SteeringObstacleStatus.Failed;
+            }
+            // ADT-Tweak-End
 
             // Just walk into it stupid
             if (isDoor && !isAccessRequired)

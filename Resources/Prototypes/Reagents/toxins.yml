@@ -537,7 +537,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, XenobioSlime, Novakid, Slime] # ADT-Tweak
+          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, Felinid, XenobioSlime, Novakid, Slime, Vampire] # ADT-Tweak
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -547,12 +547,12 @@
         probability: 0.1
         conditions:
           - !type:MetabolizerTypeCondition
-            type: [ Animal, Vox, Plant, Ursus, Reptilian, XenobioSlime, Novakid, Slime ] # ADT-Tweak
+            type: [ Animal, Vox, Plant, Ursus, Reptilian, Felinid, XenobioSlime, Novakid, Slime, Vampire ] # ADT-Tweak
             inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Ursus, Felinid, Reptilian, XenobioSlime, Novakid, Slime ] # ADT-Tweak
+          type: [ Animal, Vox, Ursus, Felinid, Reptilian, XenobioSlime, Novakid, Slime, Vampire ] # ADT-Tweak
           inverted: true
         damage:
           types:
@@ -567,7 +567,7 @@
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Ursus, Reptilian, Felinid] # ADT-Tweak
+          type: [ Animal, Ursus, Reptilian, Felinid, Vampire] # ADT-Tweak
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
@@ -599,6 +599,10 @@
         damage:
           types:
             Poison: 0.06
+      # ADT-Tweak start
+      - !type:ADTVampireGarlic
+        probability: 0.25
+      # ADT-Tweak end
 
 - type: reagent
   id: Honk

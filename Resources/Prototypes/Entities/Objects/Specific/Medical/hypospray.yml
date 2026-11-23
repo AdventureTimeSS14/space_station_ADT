@@ -10,10 +10,12 @@
     solutionName: hypospray
     ignoreClosed: false
     ignoreBlockers: true # ADT-Tweak
-    activeModeProtoId: HyposprayDynamicMode
+    # ADT-Tweak-Start
+    activeModeProtoId: ADTHyposprayDynamicMode
     allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+    - ADTHyposprayDynamicMode
+    - ADTHyposprayInjectMode
+    # ADT-Tweak-End
   - type: ExaminableSolution
     solution: hypospray
     exactVolume: true
@@ -95,6 +97,16 @@
       #   visible: false
   - type: Item
     sprite: Objects/Specific/Medical/syndihypo.rsi
+  # ADT-Tweak-Start
+  - type: Injector
+    solutionName: hypospray
+    ignoreClosed: false
+    ignoreBlockers: true
+    activeModeProtoId: HyposprayDynamicMode
+    allowedModes:
+    - HyposprayDynamicMode
+    - HyposprayInjectMode
+  # ADT-Tweak-End
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: hypo_fill

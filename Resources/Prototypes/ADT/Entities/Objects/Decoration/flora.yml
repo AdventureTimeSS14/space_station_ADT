@@ -15,3 +15,44 @@
   - type: Sprite
     sprite: ADT/Objects/Decoration/palm_tree.rsi
     state: palm2
+
+- type: entity
+  parent: BaseTreeSnow
+  id: ADTFloraTreeSnowy1
+  name: snowy tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/snowy_trees.rsi
+    state: snowy_tree1
+
+- type: entity
+  parent: ADTFloraTreeSnowy1
+  id: ADTFloraTreeSnowy2
+  name: snowy tree
+  components:
+  - type: Sprite
+    state: snowy_tree2
+
+- type: entity
+  parent: ADTFloraTreeSnowy1
+  id: ADTFloraTreeSnowy3
+  name: snowy tree
+  components:
+  - type: Sprite
+    state: snowy_tree3
+
+- type: entity
+  parent: ADTFloraTreeSnowy1
+  id: ADTFloraTreeSnowy4
+  name: snowy tree
+  components:
+  - type: Sprite
+    state: snowy_tree4
+
+- type: entity
+  parent: ADTFloraTreeSnowy1
+  id: ADTFloraTreeSnowy5
+  name: snowy tree
+  components:
+  - type: Sprite
+    state: snowy_tree5

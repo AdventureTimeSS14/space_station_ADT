@@ -1,6 +1,18 @@
-# ADT: Закомментировано из-за использования генокрада от Goob Station
-# # ADT: закомментировано — используется генокрад от Goob Station, перевод в Resources/Locale/ru-RU/ADT/_Goobstation/Changeling/
-# # ent-BaseChangelingObjective = { ent-BaseObjective }
-# #     .desc = { ent-BaseObjective.desc }
-# # ent-ChangelingSurviveObjective = Выживите.
-# #     .desc = Мы должны остаться живыми любой ценой.
+ent-BaseChangelingObjective = { ent-BaseObjective }
+    .desc = { ent-BaseObjective.desc }
+ent-ChangelingSurviveObjective = Выживите.
+    .desc = Мы должны остаться живыми любой ценой.
+ent-ChangelingDevouredCountObjective = { ent-BaseChangelingObjective }
+    .desc = { ent-BaseChangelingObjective.desc }
+ent-ChangelingExtractedCountObjective = { ent-BaseChangelingObjective }
+    .desc = { ent-BaseChangelingObjective.desc }
+ent-ChangelingEscapeIdentityObjective = { ent-BaseChangelingObjective }
+    .desc = Мы должны сбежать под личностью цели, имея при себе ID-карту с её именем.
+ent-ChangelingEscapeDepartmentObjective = { ent-BaseChangelingObjective }
+    .desc = Мы должны сбежать под личностью любого сотрудника этого отдела, имея при себе его ID-карту.
+ent-ChangelingKillRandomPersonObjective = { ent-BaseChangelingObjective }
+    .desc = Этот человек - наша добыча. Мы должны убедиться, что он останется мёртвым на станции.
+ent-ChangelingMostDevouredObjective = Поглотите больше всех гуманоидов.
+    .desc = Мы должны поглотить больше уникальных гуманоидов, чем любой другой генокрад.
+ent-ChangelingMostExtractedObjective = Извлеките больше всех личностей.
+    .desc = Мы должны извлечь больше уникальных последовательностей ДНК, чем любой другой генокрад, поглощением или иным способом.

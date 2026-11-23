@@ -16,6 +16,7 @@ public sealed partial class ADTTargetAlivePrecondition : HTNPrecondition
         if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager) || _entManager.Deleted(target))
             return false;
 
-        return _entManager.System<MobStateSystem>().IsAlive(target);
+        var mobState = _entManager.System<MobStateSystem>();
+        return mobState.IsAlive(target) || mobState.IsSoftCritical(target);
     }
 }

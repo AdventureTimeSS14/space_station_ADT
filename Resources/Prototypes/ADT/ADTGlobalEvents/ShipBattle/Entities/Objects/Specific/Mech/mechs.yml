@@ -12,6 +12,16 @@
     - map: [ "enum.MechVisualLayers.Base" ]
       state: onestar_tsf
   - type: Mech
+    maxIntegrity: 480
+    baseState: onestar_tsf
+    openState: onestar_tsf-open
+    brokenState: onestar_tsf-broken
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 4
+  - type: ADTMech
     modifiers:
       coefficients:
         Blunt: 0.1
@@ -21,16 +31,7 @@
         Radiation: 0.0
         Caustic: 0.2
         Structural: 0.5
-    maxintegrity: 400
-    baseState: onestar_tsf
-    openState: onestar_tsf-open
-    brokenState: onestar_tsf-broken
-    mechToPilotDamageMultiplier: 0.0
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 4
+    pilotDamageMultiplier: 0.0
   - type: Vehicle
     operatorWhitelist:
       components:
@@ -62,7 +63,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 720
       behaviors:
       - !type:PlaySoundBehavior
         sound:

@@ -1,8 +1,11 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared.ADT.Cards.Card;
 using Content.Shared.ADT.Cards.Hand;
 using Content.Shared.ADT.Cards.Stack;
 using Robust.Client.GameObjects;
+using Robust.Client.Player;
+using Robust.Shared.Containers;
 
 namespace Content.Client.ADT.Cards.Hand;
 
@@ -13,6 +16,8 @@ public sealed class CardHandSystem : EntitySystem
 {
     private readonly Dictionary<Entity<CardHandComponent>, int> _notInit = [];
     [Dependency] private CardSpriteSystem _cardSpriteSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
 
     /// <inheritdoc/>
@@ -23,6 +28,49 @@ public sealed class CardHandSystem : EntitySystem
         SubscribeNetworkEvent<CardStackQuantityChangeEvent>(OnStackUpdate);
         SubscribeNetworkEvent<CardStackReorderedEvent>(OnStackReorder);
         SubscribeNetworkEvent<CardStackFlippedEvent>(OnStackFlip);
+        SubscribeLocalEvent<CardHandComponent, EntGotInsertedIntoContainerMessage>(OnContainerChanged);
+        SubscribeLocalEvent<CardHandComponent, EntGotRemovedFromContainerMessage>(OnContainerChanged);
+        _player.LocalPlayerAttached += OnLocalPlayerChanged;
+        _player.LocalPlayerDetached += OnLocalPlayerChanged;
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _player.LocalPlayerAttached -= OnLocalPlayerChanged;
+        _player.LocalPlayerDetached -= OnLocalPlayerChanged;
+    }
+
+    private void OnLocalPlayerChanged(EntityUid uid)
+    {
+        var query = AllEntityQuery<CardHandComponent>();
+        while (query.MoveNext(out var ent, out var comp))
+        {
+            UpdateSprite(ent, comp);
+        }
+    }
+
+    private bool ShouldHideFaces(EntityUid uid)
+    {
+        if (!TryComp(uid, out TransformComponent? xform)
+            || !_container.TryGetOuterContainer(uid, xform, out var container))
+            return false;
+
+        return container.Owner != _player.LocalEntity;
+    }
+
+    private void OnContainerChanged<T>(EntityUid uid, CardHandComponent comp, T args)
+        => UpdateSprite(uid, comp);
+
+    private void ShowBack(Entity<SpriteComponent> sprite, List<EntityUid>? hiddenCards, int cardIndex, int layerIndex)
+    {
+        if (hiddenCards is null
+            || cardIndex >= hiddenCards.Count
+            || !TryComp(hiddenCards[cardIndex], out CardComponent? card)
+            || card.BackSprite.Count <= 0)
+            return;
+
+        sprite.Comp.LayerSetSprite(layerIndex, card.BackSprite[0]);
     }
 
     public override void Update(float frameTime)
@@ -73,6 +121,7 @@ public sealed class CardHandSystem : EntitySystem
         _cardSpriteSystem.TryAdjustLayerQuantity((uid, sprite, cardStack), comp.CardLimit);
 
         var cardCount = Math.Min(cardStack.Cards.Count, comp.CardLimit);
+        var hiddenCards = ShouldHideFaces(uid) ? cardStack.Cards.TakeLast(cardCount).ToList() : null;
 
         // Frontier: zero/one card case
         if (cardCount <= 0)
@@ -90,6 +139,7 @@ public sealed class CardHandSystem : EntitySystem
                 cardCount,
                 (sprt, cardIndex, layerIndex) =>
                 {
+                    ShowBack(sprt, hiddenCards, cardIndex, layerIndex);
                     sprt.Comp.LayerSetRotation(layerIndex, Angle.FromDegrees(0));
                     sprt.Comp.LayerSetOffset(layerIndex, new Vector2(0, 0.10f));
                     sprt.Comp.LayerSetScale(layerIndex, new Vector2(comp.Scale, comp.Scale));
@@ -111,6 +161,7 @@ public sealed class CardHandSystem : EntitySystem
                     var x = (-(comp.XOffset / 2)) + cardIndex * intervalSize;
                     var y = -(x * x) + 0.10f;
 
+                    ShowBack(sprt, hiddenCards, cardIndex, layerIndex);
                     sprt.Comp.LayerSetRotation(layerIndex, Angle.FromDegrees(-angle));
                     sprt.Comp.LayerSetOffset(layerIndex, new Vector2(x, y));
                     sprt.Comp.LayerSetScale(layerIndex, new Vector2(comp.Scale, comp.Scale));

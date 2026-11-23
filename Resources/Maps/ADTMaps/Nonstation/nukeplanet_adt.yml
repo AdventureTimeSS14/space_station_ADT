@@ -6649,6 +6649,14 @@ entities:
     - type: Transform
       pos: 0.03361702,-6.368435
       parent: 2
+- proto: ADTComputerCameraConsoleSyndicate
+  entities:
+  - uid: 950
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,-3.5
+      parent: 2
 - proto: BaseComputer
   entities:
   - uid: 947
@@ -6668,12 +6676,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-1.5
-      parent: 2
-  - uid: 950
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,-3.5
       parent: 2
 - proto: Beaker
   entities:

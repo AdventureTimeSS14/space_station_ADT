@@ -6,6 +6,14 @@
   description: A void suit made for paramedics.
   suffix: Personal, LemonLimeLord
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Construction
     graph: ADTParamedicHardsuitTransforms
     node: icon
@@ -85,6 +93,11 @@
   categories: [ HideSpawnMenu ]
   suffix: Personal, LemonLimeLord
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
   - type: Sprite
     sprite: ADT/Special/Personal/lemon_paramedic_helmet.rsi
     layers:
@@ -253,6 +266,14 @@
   description: A void suit made for paramedics.
   suffix: Personal, NetzCaro
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    zones:
+    - chest
+    - arms
+    - hands
+    - legs
+    - feet
   - type: Sprite
     sprite: ADT/Special/Personal/netzcaro_paramedic_hardsuit.rsi
     layers:
@@ -338,6 +359,11 @@
   categories: [ HideSpawnMenu ]
   suffix: Personal, NetzCaro
   components:
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.4
+    zones:
+    - head
   - type: Sprite
     sprite: ADT/Special/Personal/netzcaro_paramedic_helmet.rsi
   - type: Clothing

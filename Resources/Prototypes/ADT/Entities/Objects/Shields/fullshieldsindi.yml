@@ -1,6 +1,6 @@
 - type: entity
   name: Full Riot syndicate Shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: ADTFullRiotShieldSyndicate
   suffix: Full Shield
   description: A big big red shield. yeah.  very creative.

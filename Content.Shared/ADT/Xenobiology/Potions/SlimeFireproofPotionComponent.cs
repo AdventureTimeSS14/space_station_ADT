@@ -13,4 +13,7 @@ public sealed partial class SlimeFireproofPotionComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public int RemainingUses = 3;
+
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromMinutes(10);
 }

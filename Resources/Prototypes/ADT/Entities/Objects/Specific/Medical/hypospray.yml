@@ -217,6 +217,12 @@
     solution:
       maxVol: 10
       reagents: []
+  - type: Injector
+    currentTransferAmount: null
+    ignoreBlockers: true
+    activeModeProtoId: ADTCustomMedipenInjectMode
+    allowedModes:
+    - ADTCustomMedipenInjectMode
   - type: Tag
     tags:
     - ADTMedipen

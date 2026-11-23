@@ -1,0 +1,49 @@
+- type: guideEntry
+  id: ADTArkana
+  name: species-name-demon
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Arkan.xml"
+
+- type: guideEntry
+  id: ADTDrask
+  name: species-name-drask
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Drask.xml"
+
+- type: guideEntry
+  id: ADTKobolt
+  name: species-name-kobolt
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Kobalt.xml"
+
+- type: guideEntry
+  id: ADTCelecern
+  name: species-name-celecern
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Celecern.xml"
+
+- type: guideEntry
+  id: ADTTajaran
+  name: species-name-tajaran
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Tajaran.xml"
+
+- type: guideEntry
+  id: ADTUrsus
+  name: species-name-ursus
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Urs.xml"
+
+- type: guideEntry
+  id: ADTFelinid
+  name: species-name-felinid
+  text: "/ServerInfo/ADT/Guidebook/Mobs/Felinid.xml"
+
+- type: guideEntry
+  id: ADTIPC
+  name: species-name-ipc
+  text: "/ServerInfo/ADT/SpeciesDescriptions/IPC.xml"
+
+- type: guideEntry
+  id: ADTNovakid
+  name: species-name-novakid
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Novakid.xml"
+
+- type: guideEntry
+  id: ADTResomi
+  name: species-name-resomi
+  text: "/ServerInfo/ADT/SpeciesDescriptions/Resomi.xml"

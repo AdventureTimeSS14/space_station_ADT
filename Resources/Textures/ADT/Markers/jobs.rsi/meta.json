@@ -45,6 +45,18 @@
         },
         {
             "name": "barber"
+        },
+        {
+            "name": "officer_sod"
+        },
+        {
+            "name": "officer_cc"
+        },
+        {
+            "name": "inquisitor_cc"
+        },
+        {
+            "name": "inspector_cc"
         }
     ]
 }

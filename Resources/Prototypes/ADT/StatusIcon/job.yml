@@ -159,3 +159,43 @@
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
     state: ADTHairdresser
   jobName: job-name-ADTbarber
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTCentcomInspector
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTCentcomInspector
+  jobName: job-name-ADTCentcomInspector
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTCentcomOfficer
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTCentcomOfficer
+  jobName: job-name-ADTCentcomOfficer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTCentcomOperator
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTCentcomOperator
+  jobName: job-name-ADTCentcomOperator
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTSODOfficer
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTSODOfficer
+  jobName: job-name-ADTSODOfficer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTCentcomInquisitor
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTInquisition
+  jobName: job-name-ADTInquisition

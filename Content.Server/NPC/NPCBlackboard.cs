@@ -324,6 +324,8 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
     /// Can the NPC path through blob tiles for steering.
     /// </summary>
     public const string NavBlob = "NavBlob";
+
+    public const string ADTNavAccess = "ADTNavAccess";
     // ADT-Tweak-End
 
     /// <summary>

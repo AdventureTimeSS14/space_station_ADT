@@ -1,0 +1,149 @@
+- type: entity
+  name: Eger
+  parent: [BaseItem, BaseGunWieldable, BaseMajorContraband]
+  id: ADTWeaponShotgunEger
+  description: A bolt-action hunting shotgun fed from a 5-round magazine. Uses .50 shotgun shells.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/eger.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,0
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/eger.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1.25
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: GunSpreadModifier
+    spread: 0.4
+  - type: UniqueAction
+  - type: PumpAction
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Corvax/Weapons/Guns/Cock/shotgun_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineShotgunEger
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazineShotgunEger
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - ShellShotgun
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  name: trench shotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMajorContraband]
+  id: ADTWeaponShotgunTrench
+  description: A semi-automatic shotgun with a fixed bayonet. Uses .50 shotgun shells.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/trench_shotgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/trench_shotgun_inhands_64x.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/trench_shotgun_equipped.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1.25
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/trench_shotgun.ogg
+  - type: BallisticAmmoProvider
+    capacity: 6
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 12
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: AltFireMelee
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  name: forged shotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMajorContraband]
+  id: ADTWeaponShotgunForged
+  description: A break-action double-barreled shotgun forged by smuggler gunsmiths. Uses .50 shotgun shells.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/forged_shotgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/forged_shotgun.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 4
+  - type: GunSpreadModifier
+    spread: 0.8
+  - type: BallisticAmmoProvider
+    capacity: 2
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: StaticPrice
+    price: 700

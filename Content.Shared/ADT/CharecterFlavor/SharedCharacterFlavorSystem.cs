@@ -123,6 +123,12 @@ public static class HeadshotHashHelper
             var pathStart = url.IndexOf('/', schemeEnd + 3);
             var host = pathStart > 0 ? url.Substring(schemeEnd + 3, pathStart - schemeEnd - 3) : url.Substring(schemeEnd + 3);
 
+            foreach (var c in host)
+            {
+                if (!(c is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or >= '0' and <= '9' or '.' or '-'))
+                    return false;
+            }
+
             if (!host.Equals(allowedDomain, StringComparison.Ordinal) &&
                 !host.EndsWith("." + allowedDomain, StringComparison.Ordinal))
                 return false;

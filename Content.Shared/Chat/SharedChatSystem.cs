@@ -1,6 +1,7 @@
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
 using Content.Shared.ActionBlocker;
+using Content.Shared.ADT.Chat;
 using Content.Shared.ADT.Language;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
@@ -89,6 +90,13 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// </summary>
     public SpeechVerbPrototype GetSpeechVerb(EntityUid source, string message, SpeechComponent? speech = null)
     {
+        // ADT-Tweak-Start
+        var overrideEv = new GetSpeechVerbOverrideEvent(message);
+        RaiseLocalEvent(source, ref overrideEv);
+        if (overrideEv.SpeechVerb is { } overrideVerb && ProtoMan.TryIndex(overrideVerb, out var overrideProto))
+            return overrideProto;
+        // ADT-Tweak-End
+
         if (!Resolve(source, ref speech, false))
             return ProtoMan.Index(DefaultSpeechVerb);
 

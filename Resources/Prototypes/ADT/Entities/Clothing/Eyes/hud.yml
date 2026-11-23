@@ -25,3 +25,11 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Helmets/security.rsi
   - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesHudMedical
+  id: ADTClothingEyesHudVirology
+  name: virology hud
+  description: A medical heads-up display with a built-in chemical analyser.
+  components:
+  - type: SolutionScanner

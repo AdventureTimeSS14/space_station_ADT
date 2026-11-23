@@ -61,6 +61,10 @@
     - ADTGemBracers
     - ADTLavaBoat
     - ADTOar
+    - ADTFootwrapsGoliath
+    - ADTGoliathGloves
+    - ADTSkullCodpiece
+    - ADTClothingNeckBoneTalisman
   - type: TTS
   - type: BreathingImmunity
   - type: AshStormImmune

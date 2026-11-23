@@ -12,6 +12,12 @@
       effects:
       - !type:Satiate
         satiationType: Hunger
+        # ADT-Tweak start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Vampire ]
+          inverted: true
+        # ADT-Tweak end
       - !type:HealthChange # ADT-Tweak start
         damage:
           types:

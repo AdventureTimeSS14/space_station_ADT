@@ -7,6 +7,8 @@ ent-ADTClothingHeadSquidGameHood = капюшон организатора Иг�
 
 ent-ADTClothingHeadHelmetMiner = шахтёрский капюшон
     .desc = Пропитан отчаянием и безнадежностью.
+ent-ADTClothingHeadHelmetMinerUnplatable = { ent-ADTClothingHeadHelmetMiner }
+    .desc = { ent-ADTClothingHeadHelmetMiner.desc }
 
 ent-ADTClothingHeadHatHoodChaplainLeader = капюшон религиозного лидера
     .desc = Прекрасный способ подчеркнуть НЕ сектанский строй НЕ культа.
@@ -34,3 +36,38 @@ ent-ADTClothingHeadHoodDownjacket = капюшон куртки
 ent-ADTClothingHeadHoodHoody = капюшон худи
     .desc = Капюшон, чтобы держать голову в тепле.
 
+ent-ADTClothingHeadHoodDownjacket_black = капюшон пуховика
+    .desc = Капюшон, чтобы держать голову в тепле.
+ent-ADTClothingHeadHoodDownjacket_blue = { ent-ADTClothingHeadHoodDownjacket_black }
+    .desc = { ent-ADTClothingHeadHoodDownjacket_black.desc }
+ent-ADTClothingHeadHoodDownjacket_brown = { ent-ADTClothingHeadHoodDownjacket_black }
+    .desc = { ent-ADTClothingHeadHoodDownjacket_black.desc }
+ent-ADTClothingHeadHoodDownjacket_green = { ent-ADTClothingHeadHoodDownjacket_black }
+    .desc = { ent-ADTClothingHeadHoodDownjacket_black.desc }
+ent-ADTClothingHeadHoodDownjacket_merc = { ent-ADTClothingHeadHoodDownjacket_black }
+    .desc = { ent-ADTClothingHeadHoodDownjacket_black.desc }
+ent-ADTClothingHeadHoodDownjacket_red = { ent-ADTClothingHeadHoodDownjacket_black }
+    .desc = { ent-ADTClothingHeadHoodDownjacket_black.desc }
+ent-ADTClothingHeadHoodDownjacket_white = { ent-ADTClothingHeadHoodDownjacket_black }
+    .desc = { ent-ADTClothingHeadHoodDownjacket_black.desc }
+
+ent-ADTClothingHeadHoodHoody_black = капюшон худи
+    .desc = Капюшон, чтобы держать голову в тепле.
+ent-ADTClothingHeadHoodHoody_beige = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_blue = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_brown = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_darkblue = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_gray = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_green = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_purple = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_red = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }
+ent-ADTClothingHeadHoodHoody_white = { ent-ADTClothingHeadHoodHoody_black }
+    .desc = { ent-ADTClothingHeadHoodHoody_black.desc }

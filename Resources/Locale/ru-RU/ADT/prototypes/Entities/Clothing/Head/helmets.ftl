@@ -32,6 +32,9 @@ ent-ADTClothingHeadHelmetTrueTemplar = шлем крестоносца
 ent-ADTClothingHeadHelmetBlueShield = шлем офицера синего щита
     .desc = Очень прочный шлем, разработанный для корпуса синих щитов.
 
+ent-ADTClothingHeadHelmetCentcomOfficer = шлем офицера центком
+    .desc = Очень прочный шлем, разработанный для офицеров Центком.
+
 ent-ADTClothingHeadHelmetAssault = штурмовой шлем с забралом
     .desc = Стандартная защитная экипировка. Защищает голову и лицо от пуль.
 

@@ -1,6 +1,9 @@
 using System.Numerics;
+using Content.Client.ADT.Explosion;
 using Content.Client.ADT.Posing;
+using Content.Client.Camera;
 using Content.Client.Eye;
+using Content.Client.Movement.Systems;
 using Content.Client.Orbit;
 using Content.Client.Viewport;
 using Content.Shared.Movement.Components;
@@ -29,6 +32,10 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
         UpdatesAfter.Add(typeof(EyeLerpingSystem));
         UpdatesAfter.Add(typeof(PosingSystem));
         UpdatesAfter.Add(typeof(OrbitVisualsSystem));
+        UpdatesAfter.Add(typeof(ContentEyeSystem));
+        UpdatesAfter.Add(typeof(CameraRecoilSystem));
+        UpdatesAfter.Add(typeof(ADTScreenShakeSystem));
+        UpdatesAfter.Add(typeof(AnimationPlayerSystem));
     }
 
     public override void FrameUpdate(float frameTime)
@@ -67,7 +74,7 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
         {
             var hadState = _states.Remove(uid, out var state);
             var baseOffset = hadState && sprite.Offset == state.Expected
-                ? sprite.Offset - state.Applied
+                ? state.Base
                 : sprite.Offset;
 
             if (sprite.Scale == Vector2.One || xform.MapID != eye.Position.MapId)
@@ -104,7 +111,7 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
             if (sprite.Offset != expected)
                 _sprite.SetOffset((uid, sprite), expected);
 
-            _nextStates[uid] = new SnapState(applied, expected);
+            _nextStates[uid] = new SnapState(baseOffset, expected);
         }
 
         RestoreAll();
@@ -116,7 +123,7 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
         foreach (var (uid, state) in _states)
         {
             if (TryComp(uid, out SpriteComponent? sprite) && sprite.Offset == state.Expected)
-                _sprite.SetOffset((uid, sprite), sprite.Offset - state.Applied);
+                _sprite.SetOffset((uid, sprite), state.Base);
         }
 
         _states.Clear();
@@ -141,5 +148,5 @@ public sealed class ADTScaledSpritePixelSnapSystem : EntitySystem
         return (-viewRotation).RotateVec(viewOffset);
     }
 
-    private readonly record struct SnapState(Vector2 Applied, Vector2 Expected);
+    private readonly record struct SnapState(Vector2 Base, Vector2 Expected);
 }

@@ -5,11 +5,13 @@ using Content.Client.Animations;
 using Content.Client.Clickable;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Mech.Components;
+using Content.Shared.Mech.Equipment.Components;
 using Content.Shared._RMC14.Weapons.Ranged.Flamer; // ADT-Tweak
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
@@ -41,6 +43,8 @@ namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
+    private const float MechMuzzleOffset = 1f; // ADT-Tweak
+
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private InputSystem _inputSystem = default!;
@@ -303,9 +307,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         RemoveShootable(ent.Value);
                     break;
                 case HitscanAmmoComponent:
-                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
-                    Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                    if (TryComp<MechComponent>(user, out var hmech)) // ADT-tweak
+                    if (HasComp<MechComponent>(user)) // ADT-tweak
                     {
                         Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, CompOrNull<VehicleComponent>(user)?.Operator);
                         Recoil(CompOrNull<VehicleComponent>(user)?.Operator, direction, gun.Comp.CameraRecoilScalarModified);
@@ -366,6 +368,19 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
         }
 
+        // ADT-Tweak-start
+        var trackOffset = Vector2.UnitX / 2f;
+        var mechOwner = gunXform.ParentUid;
+        if (HasComp<MechEquipmentComponent>(gunUid) && HasComp<MechComponent>(mechOwner))
+        {
+            tracked = mechOwner;
+            trackOffset = Vector2.UnitX * MechMuzzleOffset;
+        }
+
+        if (HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity) && tracked != _player.LocalEntity && !HasComp<HallucinationComponent>(tracked))
+            tracked = null;
+        // ADT-Tweak-end
+
         var ent = Spawn(message.Prototype, coordinates);
         TransformSystem.SetWorldRotationNoLerp(ent, message.Angle);
 
@@ -373,7 +388,7 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             var track = EnsureComp<TrackUserComponent>(ent);
             track.User = tracked;
-            track.Offset = Vector2.UnitX / 2f;
+            track.Offset = trackOffset; // ADT-Tweak
         }
 
         var lifetime = 0.4f;

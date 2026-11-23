@@ -124,9 +124,35 @@
   - Magistrate # ADT-Roles
 
 #
-# Расширенный доступ должен работать ТОЛЬКО и ИСКЛЮЧИТЕЛЬНО на шлюзы, выдаётся автоматически всем СБшникам в ЯК и выше
-# обязательно используйте этот комментарий
+# Расширенный доступ - это НЕ уровень доступа, а предустановка для кнопки. Не удаляет доступы которые уже были на карте, лишь выдаёт.
 #
-- type: accessLevel
-  id: ADTExtended
-  name: id-card-access-level-extended
+- type: accessGroup
+  id: ADTAccessExtended
+  tags:
+  - Command
+  - Cryogenics
+  - EmergencyShuttleRepealAll
+  - Security
+  - Detective
+  - Armory
+  - Brig
+  - Lawyer
+  - Engineering
+  - Atmospherics
+  - Medical
+  - Chemistry
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - IAA
+  - BlueShield
+  - Magistrate

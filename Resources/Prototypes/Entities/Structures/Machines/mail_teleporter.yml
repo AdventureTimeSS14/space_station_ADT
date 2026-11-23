@@ -53,3 +53,11 @@
   - type: DeliverySpawner
     table: !type:NestedSelector
       tableId: RandomDeliveryBasic
+  # ADT-Tweak start
+  - type: ADTHolidayComponents
+    holidays:
+      ADTNewYearSeason:
+      - type: DeliverySpawner
+        table: !type:NestedSelector
+          tableId: ADTHolidayDeliveryNewYear
+  # ADT-Tweak end

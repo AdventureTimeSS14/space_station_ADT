@@ -56,6 +56,9 @@
     sprite: ADT/Clothing/Head/Specific/hairflower_gold.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Specific/hairflower_gold.rsi
+    slots:
+    - HEAD
+    - NECK
   - type: StaticPrice
     price: 40
 
@@ -89,6 +92,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Specific/visor_gambler.rsi
   - type: Foldable
+    canFoldInsideContainer: true
     unfoldVerbText: fold-flip-verb
     foldVerbText: fold-flip-verb
   - type: FoldableClothing
@@ -114,6 +118,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Specific/visor_pizza.rsi
   - type: Foldable
+    canFoldInsideContainer: true
     unfoldVerbText: fold-flip-verb
     foldVerbText: fold-flip-verb
   - type: FoldableClothing

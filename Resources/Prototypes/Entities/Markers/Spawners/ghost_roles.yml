@@ -29,6 +29,7 @@
       settings: default
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
+  - type: SpawnInVentSpawner # ADT-Tweak
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -204,6 +205,26 @@
     layers:
     - state: green
     - sprite: Objects/Weapons/Melee/energykatana.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSpaceChangeling
+  components:
+  - type: GhostRole
+    name: ghost-role-information-space-changeling-name
+    description: ghost-role-information-space-changeling-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleChangeling
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Melee/armblade.rsi
       state: icon
 
 - type: entity

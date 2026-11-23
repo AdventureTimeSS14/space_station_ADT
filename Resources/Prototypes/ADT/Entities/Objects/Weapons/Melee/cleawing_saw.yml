@@ -11,6 +11,7 @@
       map: [ "enum.ToggleableVisuals.Layer" ]
   - type: MeleeWeapon
     attackRate: 2.5
+    range: 2
     damage:
       types:
         Slash: 10

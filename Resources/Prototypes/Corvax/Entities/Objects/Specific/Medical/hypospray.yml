@@ -20,10 +20,12 @@
     solution: hypospray
   - type: Injector
     ignoreBlockers: true
-    activeModeProtoId: HyposprayDynamicMode
+    # ADT-Tweak-Start
+    activeModeProtoId: ADTHyposprayDynamicMode
     allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+    - ADTHyposprayDynamicMode
+    - ADTHyposprayInjectMode
+    # ADT-Tweak-End
   - type: UseDelay
     delay: 2.5
   - type: StaticPrice

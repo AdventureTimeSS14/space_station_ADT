@@ -523,6 +523,17 @@
   - type: Item
     sprite: Objects/Misc/qm_clipboard.rsi
     size: Normal
+  # ADT-Tweak start
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 2000
+  - type: DeviceLinkSource
+    range: 2000
+    ports:
+      - OrderSender
+  # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Misc/qm_clipboard.rsi
   - type: Storage

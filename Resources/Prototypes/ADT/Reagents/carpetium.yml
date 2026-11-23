@@ -1,0 +1,269 @@
+- type: reagent
+  id: ADTCarpetiumWhite
+  name: reagent-name-adt-carpetium-white
+  group: Special
+  desc: reagent-desc-adt-carpetium-white
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#DCDCDC"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetWhite
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 15
+
+- type: reagent
+  id: ADTCarpetiumSkyBlue
+  name: reagent-name-adt-carpetium-skyblue
+  group: Special
+  desc: reagent-desc-adt-carpetium-skyblue
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#557E9F"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetSBlue
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 20
+
+- type: reagent
+  id: ADTCarpetiumBlue
+  name: reagent-name-adt-carpetium-blue
+  group: Special
+  desc: reagent-desc-adt-carpetium-blue
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#356287"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetBlue
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 4
+
+- type: reagent
+  id: ADTCarpetiumGreen
+  name: reagent-name-adt-carpetium-green
+  group: Special
+  desc: reagent-desc-adt-carpetium-green
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#2A6E47"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetGreen
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 8
+
+- type: reagent
+  id: ADTCarpetiumOrange
+  name: reagent-name-adt-carpetium-orange
+  group: Special
+  desc: reagent-desc-adt-carpetium-orange
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#9D480C"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetOrange
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 8
+
+- type: reagent
+  id: ADTCarpetiumBlack
+  name: reagent-name-adt-carpetium-black
+  group: Special
+  desc: reagent-desc-adt-carpetium-black
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#23242C"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetBlack
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 2
+
+- type: reagent
+  id: ADTCarpetiumCyan
+  name: reagent-name-adt-carpetium-cyan
+  group: Special
+  desc: reagent-desc-adt-carpetium-cyan
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#046767"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetCyan
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 8
+
+- type: reagent
+  id: ADTCarpetiumPink
+  name: reagent-name-adt-carpetium-pink
+  group: Special
+  desc: reagent-desc-adt-carpetium-pink
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#91265E"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetPink
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 4
+
+- type: reagent
+  id: ADTCarpetiumPurple
+  name: reagent-name-adt-carpetium-purple
+  group: Special
+  desc: reagent-desc-adt-carpetium-purple
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: carpet
+  color: "#4F3365"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: CarpetPurple
+    maxOnTileWhitelist:
+      tags: [ Carpet ]
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 15

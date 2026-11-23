@@ -12,6 +12,7 @@ namespace Content.Client.ADT.Drawing.Sync;
 public sealed class CanvasRemoteStroke
 {
     public readonly HashSet<int> Tiles = new();
+    public byte Layer;
     public double LastActivity;
     public bool Finished;
 }
@@ -31,7 +32,8 @@ public readonly record struct CanvasRemoteEvent(
     int Y,
     byte Pressure,
     float TaperOut,
-    CanvasStrokeBrush Brush);
+    CanvasStrokeBrush Brush,
+    byte Layer = CanvasConstants.BaseLayer);
 
 public readonly record struct CanvasCursorKey(
     double At,
@@ -130,8 +132,76 @@ public sealed class CanvasCollaboration : IDisposable
         _timing = timing;
 
         _document.Stroker.StrokeStarted += OnLocalStrokeStarted;
-        _document.Stroker.PointAdded += OnLocalPoint;
+        _document.Stroker.PointAdded += OnBasePoint;
         _document.Stroker.StrokeEnded += OnLocalStrokeEnded;
+        _document.Layers.LayerAdded += AttachLayer;
+        _document.Layers.Changed += OnLayersChanged;
+
+        foreach (var layer in _document.Layers.Layers)
+        {
+            AttachLayer(layer);
+        }
+    }
+
+    private void AttachLayer(CanvasLayer layer)
+    {
+        if (!layer.Own)
+            return;
+
+        layer.Stroker.StrokeStarted += (stroke, tag) =>
+        {
+            if (layer.Registered)
+                StartOutgoing(stroke, tag, layer.Stroker, layer.ServerId);
+            else
+                EndOutgoing();
+        };
+        layer.Stroker.PointAdded += point => OnLocalPoint(layer.Stroker, point);
+        layer.Stroker.StrokeEnded += OnLocalStrokeEnded;
+    }
+
+    private void OnLayersChanged()
+    {
+        if (_outgoing is { Layer: not CanvasConstants.BaseLayer } outgoing &&
+            _document.Layers.FindServer(outgoing.Layer) is not { Own: true })
+        {
+            EndOutgoing();
+        }
+
+        foreach (var participant in _participants.Values)
+        {
+            HideStrokesOnHiddenLayers(participant);
+        }
+    }
+
+    private bool LayerShown(byte layer)
+    {
+        return layer == CanvasConstants.BaseLayer || _document.Layers.FindServer(layer) is { Shown: true };
+    }
+
+    private void HideStrokesOnHiddenLayers(CanvasRemoteParticipant participant)
+    {
+        if (participant.Preview is not { } preview)
+            return;
+
+        if (participant.ActiveStroke is { } active &&
+            participant.Strokes.TryGetValue(active, out var current) &&
+            !LayerShown(current.Layer))
+        {
+            EndRemote(participant);
+        }
+
+        foreach (var (id, stroke) in participant.Strokes.ToList())
+        {
+            if (LayerShown(stroke.Layer))
+                continue;
+
+            participant.Strokes.Remove(id);
+            foreach (var index in stroke.Tiles)
+            {
+                if (preview.IsAllocated(index))
+                    preview.ResetTile(index);
+            }
+        }
     }
 
     public CanvasRole LocalRole { get; private set; } = CanvasRole.Viewer;
@@ -251,9 +321,15 @@ public sealed class CanvasCollaboration : IDisposable
         {
             case CanvasStrokePhase.Begin:
             {
+                if (msg.Layer != CanvasConstants.BaseLayer &&
+                    (msg.Brush.Erase || _document.Layers.FindServer(msg.Layer) is not { Shown: true }))
+                {
+                    break;
+                }
+
                 var at = Schedule(participant, msg.Time, msg.Time);
                 Enqueue(participant, new CanvasRemoteEvent(at, CanvasRemoteEventKind.Begin, msg.StrokeId,
-                    msg.StartX, msg.StartY, msg.StartPressure, msg.TaperOut, msg.Brush));
+                    msg.StartX, msg.StartY, msg.StartPressure, msg.TaperOut, msg.Brush, msg.Layer));
                 break;
             }
 
@@ -325,6 +401,9 @@ public sealed class CanvasCollaboration : IDisposable
         if (participant.ActiveStroke != null)
             EndRemote(participant);
 
+        if (!LayerShown(ev.Layer))
+            return;
+
         if (participant.Preview == null)
         {
             participant.Preview = new PaintSurface(_document.Width, _document.Height, Color.Transparent, sparse: true)
@@ -347,6 +426,7 @@ public sealed class CanvasCollaboration : IDisposable
             PressureAffectsOpacity = brush.PressureAffectsOpacity,
             MinSizeFraction = brush.MinSizeFraction,
             MinOpacityFraction = brush.MinOpacityFraction,
+            Pixel = brush.Pixel,
         };
         participant.Stroker.TaperOutLength = ev.TaperOut;
 
@@ -356,6 +436,7 @@ public sealed class CanvasCollaboration : IDisposable
         participant.Strokes[ev.StrokeId] = new CanvasRemoteStroke
         {
             LastActivity = Now,
+            Layer = ev.Layer,
         };
 
         participant.Stroker.Handle(RemoteSample(ev.X, ev.Y, ev.Pressure, PenPhase.Down), (int) ev.StrokeId);
@@ -632,7 +713,14 @@ public sealed class CanvasCollaboration : IDisposable
 
     private void OnLocalStrokeStarted(StrokeRecord stroke, int tag)
     {
-        if (LocalRole == CanvasRole.Viewer || stroke.Points.Count == 0)
+        StartOutgoing(stroke, tag, _document.Stroker, CanvasConstants.BaseLayer);
+    }
+
+    private void StartOutgoing(StrokeRecord stroke, int tag, BrushStroker stroker, byte layer)
+    {
+        EndOutgoing();
+
+        if (LocalRole == CanvasRole.Viewer || stroke.Points.Count == 0 || stroke.Settings.LocalOnly)
             return;
 
         var start = stroke.Points[0];
@@ -641,7 +729,7 @@ public sealed class CanvasCollaboration : IDisposable
         var settings = stroke.Settings;
         var now = Now;
 
-        _outgoing = new OutgoingStroke((uint) tag, x, y)
+        _outgoing = new OutgoingStroke((uint) tag, x, y, stroker, layer)
         {
             NextFlush = now + StrokeFlushInterval,
         };
@@ -649,6 +737,7 @@ public sealed class CanvasCollaboration : IDisposable
         _send(new MsgCanvasStroke
         {
             Painting = _painting,
+            Layer = layer,
             StrokeId = (uint) tag,
             Time = NowStamp,
             Phase = CanvasStrokePhase.Begin,
@@ -662,17 +751,23 @@ public sealed class CanvasCollaboration : IDisposable
                 Math.Clamp(settings.MinOpacityFraction, 0f, 1f),
                 settings.PressureAffectsSize,
                 settings.PressureAffectsOpacity,
-                stroke.Erase),
-            TaperOut = Math.Clamp(_document.Stroker.TaperOutLength, 0f, CanvasConstants.MaxSide),
+                stroke.Erase,
+                settings.Pixel),
+            TaperOut = Math.Clamp(stroker.TaperOutLength, 0f, CanvasConstants.MaxSide),
             StartX = x,
             StartY = y,
             StartPressure = ToByte(start.Pressure),
         });
     }
 
-    private void OnLocalPoint(StrokePoint point)
+    private void OnBasePoint(StrokePoint point)
     {
-        if (_outgoing == null)
+        OnLocalPoint(_document.Stroker, point);
+    }
+
+    private void OnLocalPoint(BrushStroker stroker, StrokePoint point)
+    {
+        if (_outgoing == null || _outgoing.Stroker != stroker)
             return;
 
         _outgoing.Points.Add((point, NowStamp));
@@ -685,16 +780,25 @@ public sealed class CanvasCollaboration : IDisposable
         if (_outgoing is not { } outgoing || outgoing.Id != (uint) tag)
             return;
 
+        EndOutgoing();
+    }
+
+    private void EndOutgoing()
+    {
+        if (_outgoing is not { } outgoing)
+            return;
+
         FlushStroke(outgoing);
         _outgoing = null;
 
         _send(new MsgCanvasStroke
         {
             Painting = _painting,
+            Layer = outgoing.Layer,
             StrokeId = outgoing.Id,
             Time = NowStamp,
             Phase = CanvasStrokePhase.End,
-            TaperOut = Math.Clamp(_document.Stroker.TaperOutLength, 0f, CanvasConstants.MaxSide),
+            TaperOut = Math.Clamp(outgoing.Stroker.TaperOutLength, 0f, CanvasConstants.MaxSide),
         });
     }
 
@@ -725,6 +829,7 @@ public sealed class CanvasCollaboration : IDisposable
         _send(new MsgCanvasStroke
         {
             Painting = _painting,
+            Layer = outgoing.Layer,
             StrokeId = outgoing.Id,
             Time = first,
             Phase = CanvasStrokePhase.Points,
@@ -735,14 +840,18 @@ public sealed class CanvasCollaboration : IDisposable
     private sealed class OutgoingStroke
     {
         public readonly uint Id;
+        public readonly BrushStroker Stroker;
+        public readonly byte Layer;
         public readonly List<(StrokePoint Point, uint Time)> Points = new();
         public int LastX;
         public int LastY;
         public double NextFlush;
 
-        public OutgoingStroke(uint id, int x, int y)
+        public OutgoingStroke(uint id, int x, int y, BrushStroker stroker, byte layer)
         {
             Id = id;
+            Stroker = stroker;
+            Layer = layer;
             LastX = x;
             LastY = y;
         }
@@ -800,8 +909,10 @@ public sealed class CanvasCollaboration : IDisposable
     public void Dispose()
     {
         _document.Stroker.StrokeStarted -= OnLocalStrokeStarted;
-        _document.Stroker.PointAdded -= OnLocalPoint;
+        _document.Stroker.PointAdded -= OnBasePoint;
         _document.Stroker.StrokeEnded -= OnLocalStrokeEnded;
+        _document.Layers.LayerAdded -= AttachLayer;
+        _document.Layers.Changed -= OnLayersChanged;
 
         foreach (var participant in _participants.Values)
         {

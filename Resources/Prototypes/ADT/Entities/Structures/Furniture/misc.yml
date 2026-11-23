@@ -94,6 +94,18 @@
   - type: Pullable
   - type: PunchingBagAnimations
     animationState: swinging
+  - type: TrainingEquipment
+    maxCreditPerAction: 10
+    firstActionCredit: 3
+    tiers:
+    - time: 900
+      staminaBonus: 0.1
+      unarmedDamageBonus: 0.05
+      pullDensityReduction: 0.4
+    - time: 1800
+      staminaBonus: 0.2
+      unarmedDamageBonus: 0.1
+      pullDensityReduction: 0.7
 
 # Часовой шкаф
 

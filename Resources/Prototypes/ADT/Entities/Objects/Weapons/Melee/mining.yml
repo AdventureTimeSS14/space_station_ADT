@@ -5,7 +5,7 @@
   description: A pickaxe with a diamond pick head. Extremely robust at cracking rock walls and digging up dirt.
   components:
   - type: ADTMiningTool
-    toolSpeed: 0.2
+    toolSpeed: 0.1
     useSound:
       path: /Audio/ADT/Mining/picaxe1.ogg
   - type: Sprite

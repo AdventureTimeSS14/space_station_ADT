@@ -7,11 +7,11 @@ using Content.Server.Administration.Managers;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Drawing;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
-using Content.Shared.Ghost.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -35,6 +35,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -49,6 +50,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
 
     private bool _enabled;
     private long _maxPaintingBytes;
+    private long _maxLayerBytes;
     private int _maxSessions;
     private int _maxSessionsPerPlayer;
     private TimeSpan _hostGrace;
@@ -86,6 +88,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
 
         Subs.CVar(_cfg, ADTCCVars.CanvasEnabled, v => _enabled = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasMaxPaintingMb, v => _maxPaintingBytes = v * 1024L * 1024L, true);
+        Subs.CVar(_cfg, ADTCCVars.CanvasMaxLayersMb, v => _maxLayerBytes = v * 1024L * 1024L, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasMaxSessions, v => _maxSessions = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasMaxSessionsPerPlayer, v => _maxSessionsPerPlayer = v, true);
         Subs.CVar(_cfg, ADTCCVars.CanvasHostGrace, v => _hostGrace = TimeSpan.FromSeconds(v), true);
@@ -101,6 +104,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
         _players.PlayerStatusChanged += OnPlayerStatusChanged;
         InitializeNet();
         InitializeLive();
+        InitializeLayers();
     }
 
     public override void Shutdown()
@@ -136,6 +140,9 @@ public sealed partial class CanvasSessionSystem : EntitySystem
                 CloseSession(session, CanvasCloseReason.HostAway);
                 continue;
             }
+
+            if (session.FlushId != 0)
+                UpdateFlush(session, now);
 
             if (session.Dirty && !session.Saving && now >= session.NextAutosave)
                 Autosave(session);
@@ -292,6 +299,11 @@ public sealed partial class CanvasSessionSystem : EntitySystem
         _ui.SetUiState(ent.Owner, CanvasEaselUiKey.Key, state);
     }
 
+    private bool CanPaint(EntityUid uid)
+    {
+        return _actionBlocker.CanComplexInteract(uid);
+    }
+
     private string DisplayName(ICommonSession player)
     {
         return player.AttachedEntity is { } attached
@@ -375,7 +387,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
             return;
         }
 
-        if (HasComp<GhostComponent>(args.Actor))
+        if (!CanPaint(args.Actor))
         {
             Popup(ent.Owner, args.Actor, "adt-canvas-error-ghost");
             return;
@@ -649,7 +661,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
     {
         foreach (var tile in snapshot.Tiles)
         {
-            if (!session.TryGetIndex(tile.Key, out var index))
+            if (tile.Key.Layer != CanvasConstants.BaseLayer || !session.TryGetIndex(tile.Key, out var index))
                 continue;
 
             var content = tile.Content;
@@ -813,7 +825,7 @@ public sealed partial class CanvasSessionSystem : EntitySystem
 
         var newBlobs = new Dictionary<CanvasHash, byte[]>();
         long bytes = 0;
-        foreach (var hash in session.ReferencedHashes())
+        foreach (var hash in session.BaseHashes())
         {
             if (!session.Blobs.TryGetValue(hash, out var data))
                 continue;

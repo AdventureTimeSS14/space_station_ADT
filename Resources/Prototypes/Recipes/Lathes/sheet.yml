@@ -4,7 +4,7 @@
   completetime: 0
   materials:
     RawIron: 100
-    Coal: 30
+    # Coal: 30 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetSteel30
@@ -12,7 +12,7 @@
   completetime: 2
   materials:
     RawIron: 3000
-    Coal: 1000
+    # Coal: 1000 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetGlass1
@@ -46,7 +46,7 @@
   materials:
     RawQuartz: 100
     RawIron: 50
-    Coal: 15
+    # Coal: 15 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetRGlass30
@@ -55,7 +55,7 @@
   materials:
     RawQuartz: 3000
     RawIron: 1500
-    Coal: 500
+    # Coal: 500 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetPGlass1
@@ -81,7 +81,7 @@
     RawQuartz: 100
     RawPlasma: 100
     RawIron: 50
-    Coal: 15
+    # Coal: 15 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetRPGlass30
@@ -91,7 +91,7 @@
     RawQuartz: 3000
     RawPlasma: 3000
     RawIron: 1500
-    Coal: 500
+    # Coal: 500 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetPlasma1
@@ -114,7 +114,7 @@
   materials:
     RawPlasma: 100
     RawIron: 200 #Twice as durable as steel, Twice the material cost
-    Coal: 30
+    # Coal: 30 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetPlasteel30
@@ -123,7 +123,7 @@
   materials:
     RawPlasma: 3000
     RawIron: 6000 #Twice as durable as steel, Twice the material cost
-    Coal: 1000
+    # Coal: 1000 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetUranium30
@@ -156,7 +156,7 @@
     RawUranium: 100
     RawQuartz: 100
     RawIron: 50
-    Coal: 15
+    # Coal: 15 # ADT-Tweak
 
 - type: latheRecipe
   id: SheetRUGlass30
@@ -166,7 +166,7 @@
     RawUranium: 3000
     RawQuartz: 3000
     RawIron: 1500
-    Coal: 500
+    # Coal: 500 # ADT-Tweak
 
 - type: latheRecipe
   id: IngotGold30

@@ -1,0 +1,67 @@
+- type: adtCookingMedium
+  id: ADTCookingMediumSunflower
+  reagent: ADTOilSunflower
+  method: Fried
+  minAmount: 5
+  consumption: 5
+  flammable: true
+  smokeToFire:
+    High: 30
+
+- type: adtCookingMedium
+  id: ADTCookingMediumCornoil
+  reagent: Cornoil
+  method: Fried
+  minAmount: 5
+  consumption: 5
+  flammable: true
+  smokeToFire:
+    High: 30
+
+- type: adtCookingMedium
+  id: ADTCookingMediumOil
+  reagent: Oil
+  method: Fried
+  minAmount: 5
+  consumption: 5
+  flammable: true
+  smokeToFire:
+    High: 25
+
+- type: adtCookingMedium
+  id: ADTCookingMediumOlive
+  reagent: OilOlive
+  method: Fried
+  minAmount: 5
+  consumption: 5
+  flammable: true
+  bonusTags:
+  - Fruit
+  - Vegetable
+  bonusIngredients:
+  - FoodMeatFish
+  burnMultipliers:
+    High: 1.5
+  smokeToFire:
+    High: 20
+
+- type: adtCookingMedium
+  id: ADTCookingMediumButter
+  reagent: Butter
+  method: Fried
+  minAmount: 5
+  consumption: 5
+  flammable: true
+  bonusTags:
+  - Meat
+  burnMultipliers:
+    High: 2
+  smokeToFire:
+    High: 15
+
+- type: adtCookingMedium
+  id: ADTCookingMediumWater
+  reagent: Water
+  method: Boiled
+  minAmount: 10
+  consumption: 0

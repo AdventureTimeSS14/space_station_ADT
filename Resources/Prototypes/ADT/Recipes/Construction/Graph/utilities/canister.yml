@@ -8,6 +8,6 @@
       steps:
       - material: Plasteel
         amount: 2
-
+        doAfter: 5
   - node: done
     entity: StorageCanister

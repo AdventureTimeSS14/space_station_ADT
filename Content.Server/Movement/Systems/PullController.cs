@@ -81,6 +81,7 @@ public sealed partial class PullController : VirtualController
 
     // ADT-Tweak-Start
     [Dependency] private EntityQuery<FixturesComponent> _fixturesQuery = default!;
+    [Dependency] private TrainingProgressSystem _training = default!;
 
     private readonly Dictionary<EntityUid, Dictionary<string, float>> _originalDensities = new();
     private readonly List<EntityUid> _densityRestoreBuffer = new();
@@ -116,16 +117,9 @@ public sealed partial class PullController : VirtualController
         if (args.PullerUid is not { Valid: true } puller)
             return;
 
-        if (!TryComp<TrainingProgressComponent>(puller, out var training) || training.Strength < 0.40f)
+        var reduction = _training.GetPullDensityReduction(puller);
+        if (reduction <= 0f)
             return;
-
-        float reduction;
-        if (training.Strength >= 1.00f)
-            reduction = 1.00f;
-        else if (training.Strength >= 0.70f)
-            reduction = 0.70f;
-        else
-            reduction = 0.40f;
 
         ApplyDensityReduction(ent, reduction);
     }

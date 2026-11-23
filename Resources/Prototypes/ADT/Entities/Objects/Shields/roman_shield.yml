@@ -1,6 +1,6 @@
 - type: entity
   name: roman shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: ADTRomanShield
   description: The old shield of the Roman Empire, although it looks old, can still serve you faithfully.
   components:

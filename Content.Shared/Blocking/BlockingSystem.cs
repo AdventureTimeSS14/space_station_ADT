@@ -115,6 +115,13 @@ private void OnToggleAction(Entity<BlockingComponent> entity, ref ToggleActionEv
         //ADT-Tweak-Start
         if (!entity.Comp.IsHasBlockingToggle)
             return;
+
+        if (!entity.Comp.IsRaised && !CanShieldProtect(entity, args.Performer))
+        {
+            CantBlockError(args.Performer);
+            args.Handled = true;
+            return;
+        }
         //ADT-Tweak-End
 
         if (!_handQuery.TryGetComponent(args.Performer, out var hands))
@@ -187,20 +194,13 @@ private void OnToggleAction(Entity<BlockingComponent> entity, ref ToggleActionEv
             return false;
         }
 
-        //Don't allow someone to block if someone else is on the same tile
-        var playerTileRef = _turf.GetTileRef(xform.Coordinates);
-        if (playerTileRef != null)
+        // ADT-Tweak-Start
+        if (!TryPrepareShieldPush(user, xform, entity.Comp, out var pushTarget, out var pushed))
         {
-            var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
-            foreach (var uid in intersecting)
-            {
-                if (uid != user && _mobQuery.HasComponent(uid))
-                {
-                    TooCloseError(user);
-                    return false;
-                }
-            }
+            TooCloseError(user);
+            return false;
         }
+        // ADT-Tweak-End
 
         //Don't allow someone to block if they're somehow not anchored.
         _transformSystem.AnchorEntity(user, xform);
@@ -209,6 +209,8 @@ private void OnToggleAction(Entity<BlockingComponent> entity, ref ToggleActionEv
             CantBlockError(user);
             return false;
         }
+
+        PushFromShield(user, pushed, pushTarget); // ADT-Tweak
         _actionsSystem.SetToggled(entity.Comp.BlockingToggleActionEntity, true);
         _popupSystem.PopupEntity(msgUser, msgOther, user, user);
 

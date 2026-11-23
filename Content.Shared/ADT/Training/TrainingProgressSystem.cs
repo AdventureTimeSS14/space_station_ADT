@@ -1,21 +1,27 @@
 using Content.Shared.ADT.Silicon;
-using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Training;
 
 public sealed class TrainingProgressSystem : EntitySystem
 {
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
 
-    private const float Tier1Threshold = 0.40f;
-    private const float Tier2Threshold = 0.70f;
-    private const float Tier3Threshold = 1.00f;
-    private const float StrengthPerAction = 0.02f;
-    private const float StaminaBonusAmount = 25f;
+    public override void Initialize()
+    {
+        base.Initialize();
 
-    public void AddTrainingProgress(EntityUid performer)
+        SubscribeLocalEvent<TrainingProgressComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<TrainingProgressComponent, RefreshStaminaCritThresholdEvent>(OnRefreshCritThreshold);
+    }
+
+    public void AddTrainingProgress(EntityUid performer, EntityUid equipment)
     {
         if (!performer.Valid || TerminatingOrDeleted(performer))
             return;
@@ -23,30 +29,67 @@ public sealed class TrainingProgressSystem : EntitySystem
         if (HasComp<MobIpcComponent>(performer))
             return;
 
+        if (!TryComp<TrainingEquipmentComponent>(equipment, out var settings))
+            return;
+
+        var now = _timing.CurTime;
         var training = EnsureComp<TrainingProgressComponent>(performer);
-        var previousStrength = training.Strength;
-        training.Strength += StrengthPerAction;
-        Dirty(performer, training);
 
-        var crossedThreshold =
-            (previousStrength < Tier1Threshold && training.Strength >= Tier1Threshold) ||
-            (previousStrength < Tier2Threshold && training.Strength >= Tier2Threshold) ||
-            (previousStrength < Tier3Threshold && training.Strength >= Tier3Threshold);
+        var credit = training.LastTraining == TimeSpan.Zero
+            ? settings.FirstActionCredit
+            : now - training.LastTraining;
 
-        if (crossedThreshold)
+        if (credit > settings.MaxCreditPerAction)
+            credit = settings.MaxCreditPerAction;
+
+        if (credit < TimeSpan.Zero)
+            credit = TimeSpan.Zero;
+
+        training.LastTraining = now;
+        training.TrainedTime += credit;
+
+        var tier = 0;
+        for (var i = 0; i < settings.Tiers.Count; i++)
         {
+            if (training.TrainedTime >= settings.Tiers[i].Time)
+                tier = i + 1;
+        }
+
+        if (tier > training.Tier)
+        {
+            var reached = settings.Tiers[tier - 1];
+            training.Tier = tier;
+            training.StaminaBonus = reached.StaminaBonus;
+            training.UnarmedDamageBonus = reached.UnarmedDamageBonus;
+            training.PullDensityReduction = reached.PullDensityReduction;
+            Dirty(performer, training);
+
+            _stamina.RefreshStaminaCritThreshold(performer);
             _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
+            return;
         }
 
-        if (training.Strength >= Tier3Threshold && !training.StaminaBonusApplied)
-        {
-            if (TryComp<StaminaComponent>(performer, out var staminaComp))
-            {
-                staminaComp.CritThreshold += StaminaBonusAmount;
-                training.StaminaBonusApplied = true;
-                Dirty(performer, staminaComp);
-                Dirty(performer, training);
-            }
-        }
+        Dirty(performer, training);
+    }
+
+    public float GetPullDensityReduction(EntityUid uid)
+    {
+        return TryComp<TrainingProgressComponent>(uid, out var training) ? training.PullDensityReduction : 0f;
+    }
+
+    private void OnRefreshCritThreshold(Entity<TrainingProgressComponent> ent, ref RefreshStaminaCritThresholdEvent args)
+    {
+        args.ThresholdValue *= 1f + ent.Comp.StaminaBonus;
+    }
+
+    private void OnMeleeHit(Entity<TrainingProgressComponent> ent, ref MeleeHitEvent args)
+    {
+        if (!args.IsHit || args.Weapon != args.User || args.User != ent.Owner)
+            return;
+
+        if (ent.Comp.UnarmedDamageBonus <= 0f)
+            return;
+
+        args.BonusDamage += args.BaseDamage * ent.Comp.UnarmedDamageBonus;
     }
 }

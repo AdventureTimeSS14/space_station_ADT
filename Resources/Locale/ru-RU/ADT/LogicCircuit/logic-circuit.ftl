@@ -10,3 +10,13 @@ logic-circuit-error-unknown-pin = У элемента нет такого кон
 logic-circuit-error-input-already-wired = К одному входу подключено два провода: { $detail }.
 logic-circuit-error-config-too-long = Слишком длинное значение в настройках элемента { $detail }.
 logic-circuit-error-not-enough-power = Не хватает мощности: { $detail }.
+logic-circuit-error-malformed = Схема повреждена.
+logic-circuit-error-invalid-node-id = В имени элемента недопустимые символы.
+logic-circuit-apply-cooldown = Схему нельзя применять так часто.
+
+logic-circuit-json-error-read = Не удалось прочитать файл схемы.
+logic-circuit-json-error-write = Не удалось сохранить файл схемы.
+logic-circuit-json-error-too-large = Файл схемы больше { $detail } КБ.
+logic-circuit-json-error-syntax = Файл схемы не является корректным JSON, ошибка на позиции { $detail }.
+logic-circuit-json-error-format = Неверное поле в файле схемы: { $detail }.
+logic-circuit-json-error-version = Неподдерживаемая версия файла схемы: { $detail }.

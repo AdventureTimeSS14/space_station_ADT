@@ -1,0 +1,262 @@
+- type: microwaveMealRecipe
+  id: ADTMicrowaveAnomalyMeat
+  name: meat anomaly recipe
+  result: FoodMeatAnomaly
+  time: 5
+  group: Savory
+  solids:
+    AnomalyCoreFlesh: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveAnomalyMeatCooked
+  name: cooked meat anomaly recipe
+  result: FoodMeatAnomalyCooked
+  time: 5
+  group: Savory
+  solids:
+    FoodMeatAnomaly: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDonkpocketBerry
+  name: warm berry-pocket recipe
+  result: FoodDonkpocketBerryWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocketBerry: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDonkpocketCarp
+  name: warm carp-pocket recipe
+  result: FoodDonkpocketCarpWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocketCarp: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDonkpocketHonk
+  name: warm honk-pocket recipe
+  result: FoodDonkpocketHonkWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocketHonk: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDonkpocketMoth
+  name: warm moth-pocket recipe
+  result: FoodDonkpocketMothWarm
+  time: 5
+  group: Moth
+  solids:
+    FoodDonkpocketMoth: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDonkpocketStonk
+  name: warm stonk-pocket recipe
+  result: FoodDonkpocketStonkWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocketStonk: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDriedCannabis
+  name: dried cannabis leaves recipe
+  result: LeavesCannabisDried
+  time: 10
+  group: Other
+  solids:
+    LeavesCannabis: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDriedCannabisRainbow
+  name: dried rainbow cannabis leaves recipe
+  result: LeavesCannabisRainbowDried
+  time: 10
+  group: Other
+  solids:
+    LeavesCannabisRainbow: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDriedCannabisWhite
+  name: dried cannabis white leaves recipe
+  result: ADTLeavesCannabisWhiteDried
+  time: 10
+  group: Other
+  solids:
+    ADTLeavesCannabisWhite: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDriedTeaLeaves
+  name: dried tea leaves recipe
+  result: LeavesTeaDried
+  time: 10
+  group: Other
+  solids:
+    LeavesTea: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDriedTobacco
+  name: dried tobacco leaves recipe
+  result: LeavesTobaccoDried
+  time: 10
+  group: Other
+  solids:
+    LeavesTobacco: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDrinkTeaMicCherry
+  name: CherryTeaMicrowave
+  result: ADTDrinkCherryTeaGlass
+  time: 10
+  group: Other
+  reagents:
+    ADTCherrypackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDrinkTeaMicOrange
+  name: OrangeTeaMicrowave
+  result: ADTDrinkOrangeTeaGlass
+  time: 10
+  group: Other
+  reagents:
+    ADTOrangepackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveDrinkTeaMicWatermelon
+  name: WatermelonTeaMicrowave
+  result: ADTDrinkWatermelonTeaGlass
+  time: 10
+  group: Other
+  reagents:
+    ADTWatermelonpackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveInertAnomalyMeat
+  name: inert meat anomaly recipe
+  result: FoodMeatAnomaly
+  time: 5
+  group: Savory
+  solids:
+    AnomalyCoreFleshInert: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveMoldyBreadSlice
+  name: moldy bread slice recipe
+  result: FoodBreadMoldySlice
+  time: 5
+  group: Breads
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodFlyAmanita: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowavePopcorn
+  name: popcorn recipe
+  result: FoodSnackPopcorn
+  time: 20
+  group: Savory
+  solids:
+    FoodCorn: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveTrashBakedBananaPeel
+  name: baked banana peel recipe
+  result: TrashBakedBananaPeel
+  time: 5
+  group: Other
+  solids:
+    TrashBananaPeel: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveWarmDankpocket
+  name: warm dank pocket recipe
+  result: FoodDonkpocketDankWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocketDank: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveWarmDonkpocket
+  name: warm donk pocket recipe
+  result: FoodDonkpocketWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocket: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveWarmDonkpocketSpicy
+  name: warm spicy donk-pocket recipe
+  result: FoodDonkpocketSpicyWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocketSpicy: 1
+  recipeType:
+  - ADTMicrowave
+
+- type: microwaveMealRecipe
+  id: ADTMicrowaveWarmDonkpocketTeriyaki
+  name: warm teriyaki-pocket recipe
+  result: FoodDonkpocketTeriyakiWarm
+  time: 5
+  group: Savory
+  solids:
+    FoodDonkpocketTeriyaki: 1
+  recipeType:
+  - ADTMicrowave

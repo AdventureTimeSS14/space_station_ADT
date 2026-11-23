@@ -991,6 +991,9 @@ public sealed partial class NuclearReactorSystem : EntitySystem
     }
 
     public static bool AdjustControlRods(NuclearReactorComponent comp, float change) {
+        if (!float.IsFinite(change))
+            return false;
+
         var newSet = Math.Clamp(comp.ControlRodInsertion + change, 0, 2);
         if (comp.ControlRodInsertion != newSet)
         {

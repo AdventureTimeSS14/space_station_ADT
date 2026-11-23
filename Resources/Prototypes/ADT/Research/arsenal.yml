@@ -48,6 +48,7 @@
   tier: 1
   cost: 5000
   recipeUnlocks:
+    - ADTAttachmentMagneticHarnessRecipe
     - ADTAttachmentVerticalGripRecipe
     - ADTAttachmentLaserSightRecipe
     - ADTAttachmentReflexSightRecipe

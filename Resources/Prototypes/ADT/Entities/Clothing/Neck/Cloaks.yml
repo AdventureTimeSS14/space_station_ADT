@@ -101,7 +101,7 @@
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/invisible_cloak.rsi
   - type: ThermalCloak
-    opacity: 0.08
+    opacity: 0.01
     cooldown: 7
     restrictWeapons: true
     cloakedHideLayers:

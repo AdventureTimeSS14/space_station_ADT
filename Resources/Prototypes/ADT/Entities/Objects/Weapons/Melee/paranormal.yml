@@ -5,7 +5,6 @@
   - type: DamageBonusHoly #HW
   - type: ForTheWorthy
   - type: HolyDamage
-  - type: DivineIntervention # ADT Heretic: защита от касаний еретика
 
 - type: entity
   parent: ClothingHandsBase

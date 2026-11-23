@@ -135,6 +135,7 @@
         ClothingHeadPropellerHat: 2
         ADTClothingVoucherHatsoft: 8 #ADT-Tweak-ClothingVoucher
     ADTVendingCategoryAccessories:
+        ADTClothingVoucherArmbands: 8
         ClothingBeltStorageWaistbag: 3
         ClothingEyesGlasses: 6
         ClothingEyesGlassesCheapSunglasses: 3 #ADT-Tweak-Move

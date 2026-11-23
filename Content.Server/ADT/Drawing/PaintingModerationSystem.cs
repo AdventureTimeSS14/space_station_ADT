@@ -18,12 +18,15 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Drawing;
 
 public sealed class PaintingModerationSystem : EntitySystem
 {
     public const string NotificationChannel = "adt_painting_changed";
+
+    private static readonly EntProtoId SpawnedPainting = "ADTPainting";
 
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly PaintingBlobStoreSystem _blobStore = default!;
@@ -83,6 +86,11 @@ public sealed class PaintingModerationSystem : EntitySystem
     public bool CanBan(ICommonSession player)
     {
         return _admins.HasAdminFlag(player, AdminFlags.Ban);
+    }
+
+    public bool CanSpawn(ICommonSession player)
+    {
+        return _admins.HasAdminFlag(player, AdminFlags.Spawn);
     }
 
     public async Task<string?> CheckDrawAccess(Guid userId)
@@ -187,6 +195,33 @@ public sealed class PaintingModerationSystem : EntitySystem
         var verb = pinned ? "pinned" : "unpinned";
         _adminLog.Add(LogType.CanvasModeration, LogImpact.Low, $"{admin.Name} {verb} painting {paintingUid}");
         return Loc.GetString(pinned ? "adt-canvas-mod-pinned" : "adt-canvas-mod-unpinned");
+    }
+
+    public async Task<string> SpawnPainting(ICommonSession admin, Guid paintingUid)
+    {
+        if (!CanSpawn(admin))
+            return Loc.GetString("adt-canvas-mod-no-access");
+
+        var summary = await _db.GetPaintingSummaryAsync(paintingUid);
+        if (summary == null)
+            return Loc.GetString("adt-canvas-mod-not-found");
+
+        if (summary.Status != AdtPaintingStatus.Approved)
+            return Loc.GetString("adt-canvas-mod-spawn-not-approved");
+
+        if (admin.AttachedEntity is not { } attached || TerminatingOrDeleted(attached))
+            return Loc.GetString("adt-canvas-mod-spawn-no-entity");
+
+        var item = Spawn(SpawnedPainting, Transform(attached).Coordinates);
+        var painting = EnsureComp<PaintingComponent>(item);
+        painting.PaintingUid = summary.PaintingUid;
+        painting.Size = new Vector2i(summary.Width, summary.Height);
+        painting.Title = summary.Title;
+        Dirty(item, painting);
+
+        _adminLog.Add(LogType.CanvasModeration, LogImpact.Low,
+            $"{admin.Name} spawned painting {paintingUid} \"{summary.Title}\" as {ToPrettyString(item)}");
+        return Loc.GetString("adt-canvas-mod-spawned", ("title", summary.Title));
     }
 
     public async Task<string> Ban(ICommonSession admin, Guid userId, int minutes, string reason)

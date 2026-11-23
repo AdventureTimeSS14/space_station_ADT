@@ -4,6 +4,8 @@ logic-circuit-window-enabled = Включена
 logic-circuit-window-apply = Применить
 logic-circuit-window-revert = Отменить
 logic-circuit-window-fit = Вписать
+logic-circuit-window-export = Экспорт
+logic-circuit-window-import = Импорт
 logic-circuit-window-broken = Схема повреждена и не работает.
 
 logic-circuit-palette-filter = Фильтр

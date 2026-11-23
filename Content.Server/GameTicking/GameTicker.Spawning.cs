@@ -390,6 +390,11 @@ namespace Content.Server.GameTicking
             if (!_userDb.IsLoadComplete(player))
                 return;
 
+            // ADT-Tweak start
+            if (_queueManager.IsInQueue(player))
+                return;
+            // ADT-Tweak end
+
             SpawnPlayer(player, station, jobId, silent: silent);
         }
 
@@ -401,6 +406,11 @@ namespace Content.Server.GameTicking
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
                 return;
+
+            // ADT-Tweak start
+            if (_queueManager.IsInQueue(player))
+                return;
+            // ADT-Tweak end
 
             PlayerJoinGame(player);
             SpawnObserver(player);

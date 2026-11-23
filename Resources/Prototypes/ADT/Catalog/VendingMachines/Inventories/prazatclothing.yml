@@ -11,17 +11,14 @@
         ADTClothingHeadArtdecoHairpin: 4
         ADTClothingHeadHatFedoraBeige: 4
         ADTClothingHeadHatFedoraWhite: 4
-        ADTClothingHeadHatCarpFedora: 4
         ADTClothingHeadHatBraided: 4
         ADTClothingHeadHairflowerGold: 4
-        ADTClothingHeadMaidHeadband: 4
         ADTClothingHeadVisorGambler: 4
-        ADTClothingHeadVisorPizza: 4
         ADTClothingHeadHatWideBrimmed: 4
         ADTClothingHeadHatWideBrimmedBlack: 4
     ADTVendingCategoryUniforms: # ADT-Tweak
         ADTClothingVoucherAdidas: 8
-        ADTClothingVoucherCasualShirt: 8
+        ADTClothingVoucherCasualShirt: 12
         ADTClothingVoucherKeikogi: 8
         ADTClothingVoucherSweatercut: 8
         ADTClothingVoucherKilt: 8
@@ -35,14 +32,6 @@
         ADTClothingUniformJumpsuitCamouflageTshirt: 5
         ADTClothingUniformJumpsuitCamouflageTshirtDesert: 5
         ADTClothingUniformJumpsuitSerious: 5
-        ADTClothingUniformJumpsuitBlackShirt: 5
-        ADTClothingUniformJumpsuitBlueShirt: 5
-        ADTClothingUniformJumpsuitPurpleShirt: 5
-        ADTClothingUniformJumpsuitRedShirt: 5
-        ADTClothingUniformJumpsuitWhiteShirt: 5
-        ADTClothingUniformJumpsuitFancyShirt: 5
-        ADTClothingUniformJumpsuitRedPlaidShirt: 5
-        ADTClothingUniformJumpsuitHawaiiShirt: 5
         ADTClothingUniformJumpsuitGothicAttire: 5
         ADTClothingUniformJumpsuitOldGreySuit: 5
         ADTClothingUniformJumpsuitOldBrownSuit: 5
@@ -72,7 +61,6 @@
         ADTClothingUniformDressPink: 2
         ADTClothingUniformDressPrecise: 2
         ADTClothingUniformDressQipao: 2
-        ADTClothingUniformDressRD: 2
         ADTClothingUniformDressRose: 2
         ADTClothingUniformDressVictorianBlack: 2
         ADTClothingUniformDressTealSuit: 2
@@ -88,12 +76,6 @@
         ADTClothingUniformJumpsuitChessboard: 4
         ADTClothingUniformJumpsuitJeansnavel: 4
         ADTClothingUniformJumpsuitDenimShorts: 4
-        ADTClothingUniformJumpsuitTonnyShirt: 4
-        ADTClothingUniformJumpsuitNavyShirt: 4
-        ADTClothingUniformJumpsuitTurtleneckBeige: 4
-        ADTClothingUniformJumpsuitScientistHL: 4
-        ADTClothingUniformJumpsuitPizzaDelivery: 4
-        ADTClothingUniformJumpsuitLimbuscoShirt: 4
         ADTClothingUniformJumpsuitSecurityClub: 4
         ADTClothingUniformJumpsuitGorka: 4
         ADTClothingUniformJumpsuitTacticalBlack: 4
@@ -104,8 +86,6 @@
         ADTClothingUniformJumpsuitSuitGold: 2
         ADTClothingUniformJumpsuitSportUSSP: 4
     ADTVendingCategoryOuter: # ADT-Tweak
-        ADTClothingVoucherDownjacket: 8
-        ADTClothingVoucherHoody: 8
         ADTClothingOuterDutch: 5
         ADTClothingOuterWhiteSweatshirtTop: 5
         ADTClothingOuterGraySweatshirtTop: 5
@@ -114,7 +94,6 @@
         ADTClothingOuterLettermanSyndie: 5
         ADTClothingOuterLettermanBlack: 5
         ADTClothingOuterWinterRussianCoat: 5
-        ADTClothingOuterCaptainCoat: 2
     ADTVendingCategoryAccessories: # ADT-Tweak
         ADTClothingVoucherTie: 8
         ADTClothingVoucherBowtie: 8
@@ -130,36 +109,19 @@
         ADTClothingBeltBlackSuspenders: 5
         ADTClothingBeltBrownSuspenders: 5
         ADTClothingHandsGlovesLongBlackGold: 4
-        ADTClothingNeckArmband: 6
-        ADTClothingNeckArmbandMed: 6
         ADTClothingNeckScientistHLTie: 4
         ADTClothingNeckLocketGold: 3
-        ADTClothingNeckLocketSilver: 3
-        ADTClothingNeckLocketSteel: 3
         ADTClothingNeckHeartGold: 3
-        ADTClothingNeckHeartSilver: 3
-        ADTClothingNeckHeartSteel: 3
         ADTClothingNeckPendantGoldDiamond: 2
         ADTClothingNeckPendantGoldEmerald: 2
         ADTClothingNeckPendantGoldPlasma: 2
         ADTClothingNeckPendantGoldRuby: 2
         ADTClothingNeckPendantGoldSapphire: 2
-        ADTClothingNeckPendantSilverDiamond: 2
-        ADTClothingNeckPendantSilverEmerald: 2
-        ADTClothingNeckPendantSilverPlasma: 2
-        ADTClothingNeckPendantSilverRuby: 2
-        ADTClothingNeckPendantSilverSapphire: 2
-        ADTClothingNeckPendantSteelDiamond: 2
-        ADTClothingNeckPendantSteelEmerald: 2
-        ADTClothingNeckPendantSteelPlasma: 2
-        ADTClothingNeckPendantSteelRuby: 2
-        ADTClothingNeckPendantSteelSapphire: 2
     ADTVendingCategoryShoes: # ADT-Tweak
         ADTClothingVoucherHeels: 8
         ADTClothingVoucherSandals: 8
         ClothingShoesBootsLaceup: 5
         ADTClothingFootLightShoes: 5
-        ADTClothingFootWhiteSandals: 5
         ADTClothingFootBlackBoots: 5
     ADTVendingCategoryUnderwear: # ADT-Tweak
         ADTClothingVoucherUnderwearBoxers: 8
@@ -173,14 +135,5 @@
         ADTClothingVoucherUnderwearSocksKnee: 8
         ADTClothingVoucherUnderwearStockings: 8
         # Бельё
-        ADTClothingUnderwearBottomBoxersILoveArcan: 5
-        ADTClothingUnderwearBottomBoxersPink: 5
-        ADTClothingUnderwearBottomBoxersTSF: 5
-        ADTClothingUnderwearBottomPantiesAmerica: 5
-        ADTClothingUnderwearBottomPantiesPink: 5
-        ADTClothingUnderwearSocksStockingCow: 5
-        ADTClothingUnderwearTopBigbraCow: 5
-        ADTClothingUnderwearTopBraAmerica: 5
-        ADTClothingUnderwearTopBraPink: 5
   contrabandInventory:
     ADTClothingUniformJumpsuitAnarchyTshirt: 3

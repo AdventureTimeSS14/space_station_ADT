@@ -13,6 +13,10 @@
       key_slots:
       - EncryptionKeyCommon
   - type: Headset
+  # ADT-Tweak-Start
+  - type: WiresPanel
+    openingTool: Pulsing
+  # ADT-Tweak-End
   - type: EncryptionKeyHolder
     keySlots: 4
   - type: Sprite

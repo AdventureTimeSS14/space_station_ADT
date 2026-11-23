@@ -27,6 +27,8 @@
     - id: VentClog
     - id: WormholesSpawn # ADT-Tweak Wormholes Spawns now correctly without admin abuse
     - id: SpaceEmperorSpawn # ADT Tweak
+    - id: CargoCategorySurgeEvent # ADT Tweak
+    - id: ADTDiseaseOutbreak # ADT-Tweak
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -48,7 +50,8 @@
     - id: SleeperAgents
   #  - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    - id: WizardSpawn
+  #  - id: WizardSpawn # ADT-Tweak
+    - id: SpaceChangelingSpawn
     - id: BlobSpawn # ADT tweak blob
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph
@@ -237,6 +240,39 @@
     antags:
     - !type:FixedAntagCount
       proto: Dragon
+  - type: DynamicRuleCost
+    cost: 75
+
+- type: entity
+  parent: BaseAntagGhostRoleRule
+  id: SpaceChangelingSpawn
+  components:
+  - type: StationEvent
+    weight: 6
+    earliestStart: 20 # can start early since lings need time to start doing stuff
+    reoccurrenceDelay: 40
+    minimumPlayers: 20
+    duration: null
+    occursDuringRoundEnd: false
+  - type: SpaceSpawnRule
+    spawnDistance: 80
+  - type: AntagSpawner
+    prototype: MobHeadSlugElder
+  - type: ChangelingRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroupDevourDummy
+      maxPicks: 1
+    - groups: ChangelingObjectiveGroupEscapeDummy
+      maxPicks: 1
+    - groups: ChangelingObjectiveGroupKillDummy
+      maxPicks: 1
+    maxDifficulty: 8
+  - type: AntagSelection
+    agentName: changeling-round-end-agent-name
+    antags:
+    - !type:FixedAntagCount
+      proto: SpaceChangeling
   - type: DynamicRuleCost
     cost: 75
 

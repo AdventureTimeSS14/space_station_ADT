@@ -61,7 +61,6 @@
   words: [ "see the truth", "hallucinate", "увидь истину", "увидьте истину", "галлюцинируй", "галлюцинируйте" ]
   effects:
   - !type:ADTHallucinate
-    key: ADTHallucinations
     pack: SupermatterPack
     time: 15
 

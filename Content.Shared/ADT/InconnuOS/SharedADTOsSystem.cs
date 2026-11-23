@@ -7,6 +7,7 @@ namespace Content.Shared.ADT.InconnuOS;
 public abstract class SharedADTOsSystem : EntitySystem
 {
     [Dependency] protected IPrototypeManager Prototypes = default!;
+    [Dependency] private SharedADTLogicCircuitSystem _logic = default!;
 
     public OsLimits GetLimits(ADTOperatingSystemComponent component)
     {
@@ -106,6 +107,14 @@ public abstract class SharedADTOsSystem : EntitySystem
             return false;
         }
 
+        LogicCircuitLayout? cleanCircuit = null;
+        if (circuit != null && !_logic.TrySanitize(circuit, _logic.GetFileLimits(), out cleanCircuit, out _, out _))
+        {
+            error = OsValidationError.BadCircuit;
+            detail = OsPath.GetName(full);
+            return false;
+        }
+
         if (!TryCheckParents(disk, full, out error, out detail))
             return false;
 
@@ -138,7 +147,7 @@ public abstract class SharedADTOsSystem : EntitySystem
             Path = full,
             Kind = kind,
             Text = text,
-            Circuit = circuit?.Clone(),
+            Circuit = cleanCircuit,
             Modified = now,
         };
 

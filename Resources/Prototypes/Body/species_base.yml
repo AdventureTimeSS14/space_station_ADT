@@ -96,7 +96,6 @@
     - Adrenaline
     # ADT-Tweak start
     - Weakness
-    - ADTHallucinations
     - ADTStarvation
     # ADT-Tweak end
   - type: Identity
@@ -232,11 +231,11 @@
     - weight: 22
       popup: catch-breath-nothing
       sound: /Audio/ADT/Alerts/CatchBreath/catch-breath-nothing.ogg
-  - type: Absorbable
   - type: MobState
   - type: OfferItem
   - type: RadiationPopup
   - type: PickupHumans
+    handsRequired: 1
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage

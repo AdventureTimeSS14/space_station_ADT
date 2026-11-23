@@ -30,3 +30,8 @@
   equipment:
     jumpsuit: ADTClothingUniformJumpskirtTurtleneckAzure
     
+# Neck
+- type: loadout
+  id: ADTClothingNeckArmbandMed
+  equipment:
+    neck: ADTClothingNeckArmbandMed

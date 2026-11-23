@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Making by prazat911 for Adventure Time Project. 'standart' created by ihaveaeye. 'VLM' by BlueMoon",
+  "copyright": "Making by prazat911 for Adventure Time Project. 'standart' created by ihaveaeye. 'VLM' by BlueMoon. 'poster_corgi_party' and 'poster_corgi_party_paws' by Netwy",
   "size": {
     "x": 32,
     "y": 32
@@ -126,6 +126,12 @@
     },
     {
       "name": "VLM"
+    },
+    {
+      "name": "poster_corgi_party"
+    },
+    {
+      "name": "poster_corgi_party_paws"
     }
   ]
 }

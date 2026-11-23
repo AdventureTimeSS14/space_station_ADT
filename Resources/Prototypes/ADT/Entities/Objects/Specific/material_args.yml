@@ -42,8 +42,8 @@
 
 - type: entity
   id: ADTCookbookManual
-  name: cookbook of techniques
-  description: A cookbook describing in detail how to exquisitely cook a chop from a bun thief.
+  name: Close Quarters Cooking
+  description: A cookbook teaching the secret art of Close Quarters Cooking. An exquisite chop from a bun thief is guaranteed.
   parent: BaseItem
   components:
   - type: Sprite

@@ -173,6 +173,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
             component.PathfindToken?.Cancel();
             component.PathfindToken = null;
             component.CurrentPath.Clear();
+            component.Status = SteeringStatus.Moving; // ADT-Tweak
         }
         else
         {

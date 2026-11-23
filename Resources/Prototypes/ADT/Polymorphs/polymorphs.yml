@@ -328,7 +328,7 @@
 - type: polymorph
   id: ADTPolymorphFrog
   configuration:
-    entity: MobFrog
+    entity: ADTMobFrog
     forced: true
     transferName: true
     allowRepeatedMorphs: False

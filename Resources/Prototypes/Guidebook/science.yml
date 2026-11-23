@@ -3,17 +3,20 @@
   name: guide-entry-science
   text: "/ServerInfo/Guidebook/Science/Science.xml"
   children:
-  - Technologies
+  # - Technologies # ADT-Tweak
   - AnomalousResearch
   - Xenoarchaeology
   - Xenobiology # VG-Tweak
   - Robotics
 
-- type: guideEntry
-  id: Technologies
-  name: guide-entry-technologies
-  text: "/ServerInfo/Guidebook/Science/Technologies.xml"
-  filterEnabled: True
+# ADT-Tweak-Start
+# - type: guideEntry
+#   id: Technologies
+#   name: guide-entry-technologies
+#   text: "/ServerInfo/Guidebook/Science/Technologies.xml"
+#   filterEnabled: True
+
+# ADT-Tweak-End
 
 - type: guideEntry
   id: AnomalousResearch

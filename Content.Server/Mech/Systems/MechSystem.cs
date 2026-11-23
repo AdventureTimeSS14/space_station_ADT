@@ -130,7 +130,6 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
 
         RemoveEquipment(uid, equip, component);
-        UpdateUserInterface(uid); // ADT-Tweak
     }
 
     [SubscribeLocalEvent]
@@ -145,35 +144,32 @@ public sealed partial class MechSystem : SharedMechSystem
     {
         var integrity = component.MaxIntegrity - _damageable.GetTotalDamage((uid, args.Damageable));
         SetIntegrity(uid, integrity, component);
-        OnDamageChangedADT(uid, component, args); // ADT-Tweak
     }
 
-    // ADT-Tweak-Start
-    // [SubscribeLocalEvent]
-    // private void RelayGrabberUiMessage(EntityUid uid, MechComponent component, ref MechGrabberEjectMessage args)
-    // {
-    //     ReceiveEquipmentUiMesssages(component, args);
-    // }
+    [SubscribeLocalEvent]
+    private void RelayGrabberUiMessage(EntityUid uid, MechComponent component, ref MechGrabberEjectMessage args)
+    {
+        ReceiveEquipmentUiMesssages(component, args);
+    }
 
-    // [SubscribeLocalEvent]
-    // private void RelaySoundboardUiMessage(EntityUid uid, MechComponent component, ref MechSoundboardPlayMessage args)
-    // {
-    //     ReceiveEquipmentUiMesssages(component, args);
-    // }
+    [SubscribeLocalEvent]
+    private void RelaySoundboardUiMessage(EntityUid uid, MechComponent component, ref MechSoundboardPlayMessage args)
+    {
+        ReceiveEquipmentUiMesssages(component, args);
+    }
 
-    // private void ReceiveEquipmentUiMesssages<T>(MechComponent component, T args) where T : MechEquipmentUiMessage
-    // {
-    //     var ev = new MechEquipmentUiMessageRelayEvent(args);
-    //     var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
-    //     var argEquip = GetEntity(args.Equipment);
+    private void ReceiveEquipmentUiMesssages<T>(MechComponent component, T args) where T : MechEquipmentUiMessage
+    {
+        var ev = new MechEquipmentUiMessageRelayEvent(args);
+        var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
+        var argEquip = GetEntity(args.Equipment);
 
-    //     foreach (var equipment in allEquipment)
-    //     {
-    //         if (argEquip == equipment)
-    //             RaiseLocalEvent(equipment, ev);
-    //     }
-    // }
-    // ADT-Tweak-End
+        foreach (var equipment in allEquipment)
+        {
+            if (argEquip == equipment)
+                RaiseLocalEvent(equipment, ev);
+        }
+    }
 
     public override void UpdateUserInterface(EntityUid uid, MechComponent? component = null)
     {
@@ -192,7 +188,6 @@ public sealed partial class MechSystem : SharedMechSystem
         {
             EquipmentStates = ev.States
         };
-        Dirty(uid, component); // ADT-Tweak
         _ui.SetUiState(uid, MechUiKey.Key, state);
     }
 
@@ -266,21 +261,19 @@ public sealed partial class MechSystem : SharedMechSystem
     }
 
     #region Atmos Handling
-    // ADT-Tweak-Start
-    // [SubscribeLocalEvent]
-    // private void OnInhale(Entity<VehicleOperatorComponent> ent, ref InhaleLocationEvent args)
-    // {
-    //     if (ent.Comp.Vehicle is not { } vehicle ||
-    //         !TryComp<MechComponent>(vehicle, out var mech) ||
-    //         !TryComp<MechAirComponent>(vehicle, out var mechAir))
-    //     {
-    //         return;
-    //     }
+    [SubscribeLocalEvent]
+    private void OnInhale(Entity<VehicleOperatorComponent> ent, ref InhaleLocationEvent args)
+    {
+        if (ent.Comp.Vehicle is not { } vehicle ||
+            !TryComp<MechComponent>(vehicle, out var mech) ||
+            !TryComp<MechAirComponent>(vehicle, out var mechAir))
+        {
+            return;
+        }
 
-    //     if (mech.Airtight)
-    //         args.Gas = mechAir.Air;
-    // }
-    // ADT-Tweak-End
+        if (mech.Airtight)
+            args.Gas = mechAir.Air;
+    }
 
     [SubscribeLocalEvent]
     private void OnExhale(Entity<VehicleOperatorComponent> ent, ref ExhaleLocationEvent args)

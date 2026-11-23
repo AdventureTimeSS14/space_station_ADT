@@ -568,6 +568,17 @@
     - CasualShirtGreen
     - CasualShirtTeal
     - CasualShirtYellow
+    - CasualShirtBlack
+    - CasualShirtBlue
+    - CasualShirtPurple
+    - CasualShirtRed
+    - CasualShirtWhite
+    - CasualShirtFancy
+    - CasualShirtRedPlaid
+    - CasualShirtHawaii
+    - CasualShirtTonny
+    - CasualShirtNavy
+    - CasualShirtLimbusco
     typeDropPlace: InHands
   - type: StaticPrice
     price: 30
@@ -813,3 +824,30 @@
     typeDropPlace: InHands
   - type: StaticPrice
     price: 30
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherArmbands
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/armband.rsi
+        state: white-icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - ArmbandWhite
+    - ArmbandBlue
+    - ArmbandBlack
+    - ArmbandLazure
+    - ArmbandGreen
+    - ArmbandOrange
+    - ArmbandPurple
+    - ArmbandRed
+    - ArmbandYellow
+    typeDropPlace: InHands
+  - type: StaticPrice
+    price: 20

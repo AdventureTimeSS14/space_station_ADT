@@ -78,7 +78,9 @@
   id: HeadRevGear
   storage:
     back:
-    - Flash
-    - ClothingEyesGlassesSunglasses
-    - ADTToolboxRevolution #ADT revolution
+    # ADT-Tweak-Start
+    # - Flash
+    # - ClothingEyesGlassesSunglasses
+    - ADTBoxSurvivalRevolution
+    # ADT-Tweak-End
 

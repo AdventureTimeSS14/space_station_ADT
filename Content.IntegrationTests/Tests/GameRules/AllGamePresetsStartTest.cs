@@ -12,19 +12,23 @@ using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Preferences;
+using Robust.Shared;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 
 namespace Content.IntegrationTests.Tests.GameRules;
 
 [TestFixture]
+// Some presets require 1000 players. Keep PVS and its entity budgets enabled so
+// round start does not send every entity in one state and exceed the deserialization allocation limit.
+[EnsureCVar(Side.Server, typeof(CVars), nameof(CVars.NetPVS), true)]
 public sealed class AllGamePresetsStartTest : AntagTest
 {
     /// <summary>
     /// A list of blacklisted <see cref="GamePresetPrototype"/> for this test. Some down streams might make changes which nuke upstream game modes they don't use.
     /// This prevents them from being tested. If you use this to silence valid test fails and your game fails to start. Skill issue. Do 100 push-ups.
     /// </summary>
-    private static readonly HashSet<string> IgnoredPresets = []; // Is a string to prevent YAML Linter from freaking if this is empty.
+    private static readonly HashSet<string> IgnoredPresets = ["Wizard", "AllAtOnce", "AllerAtOnce"]; // ADT-Tweak
 
     private static string[] _gamePresets = GameDataScrounger.PrototypesOfKind<GamePresetPrototype>().Where(p => !IgnoredPresets.Contains(p)).ToArray();
 

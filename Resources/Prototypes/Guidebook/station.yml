@@ -1,13 +1,16 @@
-- type: guideEntry
-  id: SS14
-  name: guide-entry-ss14
-  priority: 20
-  text: "/ServerInfo/Guidebook/SpaceStation14.xml"
-  children:
-  - Jobs
-  - Survival
-  - Antagonists
-  - Glossary
+# ADT-Tweak-Start
+# - type: guideEntry
+#   id: SS14
+#   name: guide-entry-ss14
+#   priority: 20
+#   text: "/ServerInfo/Guidebook/SpaceStation14.xml"
+#   children:
+#   - Jobs
+#   - Survival
+#   - Antagonists
+#   - Glossary
+
+# ADT-Tweak-End
 
 - type: guideEntry
   id: Glossary

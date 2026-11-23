@@ -24,6 +24,8 @@ ent-ADTClothingModsuitBackScience = МОД "Научный"
 
 ent-ADTClothingModsuitBackSyndicate = МОД "Синдикат"
     .desc = Костюм, разработанный "Gorlex Marauders", предлагающий броню, признанную незаконной в большинстве секторов.
+ent-ADTClothingModsuitBackSyndicateMedic = МОД "Медицинский"
+    .desc = Медицинская версия костюма "Gorlex Marauders". Рассчитана на полевую медицину под огнем.
 
 ent-ADTClothingModsuitBackSafeguard = МОД "Диктатор"
     .desc = Улучшенная версия простого охранного МОДА, что был создан специально для ГСБ. Жаждит забить генокрада собой досмерти!
@@ -85,7 +87,7 @@ ent-ADTClothingModsuitBackERTMedical = МОД ОБР "Вега"
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
-
+    .desc = Переключает элементы MOD
 # Шлемы
 ent-ADTClothingHeadHelmetModsuitBase = шлем МОДа "Базовый"
     .desc = Шлем от МОДа.
@@ -104,6 +106,8 @@ ent-ADTClothingHeadHelmetModsuitSecurity = шлем МОДа "Охранный"
 ent-ADTClothingHeadHelmetModsuitScience = шлем МОДа "Научный"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitSyndicate = шлем МОДа "Синдикат"
+    .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitSyndicateMedic = шлем МОДа "Медицинский"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitSafeguard = шлем МОДа "Диктатор"
     .desc = Шлем, что 24/7 сканирует агентов вокруг.
@@ -163,6 +167,8 @@ ent-ADTClothingOuterModsuitBodyScience = оболочка МОДа "Научны
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodySyndicate = оболочка МОДа "Синдикат"
     .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodySyndicateMedic = оболочка МОДа "Медицинский"
+    .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodySafeguard = оболочка МОДа "Диктатор"
     .desc = Готова впитать любую пулю от ядерного оперативника!
 ent-ADTClothingOuterModsuitBodyAdvanced = оболочка МОДа "Инженерный Продвинутый"
@@ -221,6 +227,8 @@ ent-ADTClothingModsuitShoesScience = ботинки МОДа "Научный"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesSyndicate = ботинки МОДа "Синдикат"
     .desc = Базовые ботинки от МОДа.
+ent-ADTClothingModsuitShoesSyndicateMedic = ботинки МОДа "Медицинский"
+    .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesSafeguard = ботинки МОДа "Диктатор"
     .desc = Испачканы кровью революционеров.
 ent-ADTClothingModsuitBso = ботинки МОДа "Синий щит"
@@ -270,6 +278,8 @@ ent-ADTClothingHandsModsuitScience = перчатки МОДа "Научный"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitSyndicate = перчатки МОДа "Синдикат"
     .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitSyndicateMedic = перчатки МОДа "Медицинский"
+    .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitSafeguard = перчатки МОДа "Диктатор"
     .desc = Властно сжимают шею еретика!
 ent-ADTClothingHandsModsuitBso = перчатки МОДа "Синий щит"
@@ -308,3 +318,20 @@ ent-ADTClothingHandsModsuitERTEngineer = перчатки МОДа ОБР "Ка�
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitERTMedical = перчатки МОДа ОБР "Вега"
     .desc = Базовые перчатки от МОДа.
+
+ent-ADTClothingModsuitBackBaseEmpty = { ent-ADTClothingModsuitBackBase }
+    .desc = { ent-ADTClothingModsuitBackBase.desc }
+ent-ADTClothingModsuitBackAtmosEmpty = { ent-ADTClothingModsuitBackAtmos }
+    .desc = { ent-ADTClothingModsuitBackAtmos.desc }
+ent-ADTClothingModsuitBackClownEmpty = { ent-ADTClothingModsuitBackClown }
+    .desc = { ent-ADTClothingModsuitBackClown.desc }
+ent-ADTClothingModsuitBackEngineeringEmpty = { ent-ADTClothingModsuitBackEngineering }
+    .desc = { ent-ADTClothingModsuitBackEngineering.desc }
+ent-ADTClothingModsuitBackMedicalEmpty = { ent-ADTClothingModsuitBackMedical }
+    .desc = { ent-ADTClothingModsuitBackMedical.desc }
+ent-ADTClothingModsuitBackMiningEmpty = { ent-ADTClothingModsuitBackMining }
+    .desc = { ent-ADTClothingModsuitBackMining.desc }
+ent-ADTClothingModsuitBackScienceEmpty = { ent-ADTClothingModsuitBackScience }
+    .desc = { ent-ADTClothingModsuitBackScience.desc }
+ent-ADTClothingModsuitBackSecurityEmpty = { ent-ADTClothingModsuitBackSecurity }
+    .desc = { ent-ADTClothingModsuitBackSecurity.desc }

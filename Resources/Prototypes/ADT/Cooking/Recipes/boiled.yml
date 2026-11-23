@@ -1,0 +1,577 @@
+- type: adtCookingRecipe
+  id: ADTCookBisque
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodTomato
+    count: 1
+  - id: FoodMushroom
+    count: 1
+  - id: FoodMeatFish
+    count: 1
+  time: 20
+  result: FoodSoupBisque
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookBungoSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodBungo
+    count: 2
+  - id: FoodChiliPepper
+    count: 1
+  time: 20
+  result: FoodSoupBungo
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookButterNoodles
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodButterSlice
+    count: 2
+  time: 20
+  result: FoodNoodlesButter
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookChiliClown
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodOnionSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: ClothingShoesClown
+    count: 1
+  time: 60
+  result: FoodSoupChiliClown
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookChowMein
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodEggplant
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodCorn
+    count: 1
+  reagents:
+    Egg: 6
+  time: 20
+  result: FoodNoodlesChowmein
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookClownTears
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodOnionSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: BikeHorn
+    count: 1
+  time: 30
+  result: FoodSoupClown
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookClownTearsSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodBanana
+    count: 1
+  - id: MaterialBananium
+    count: 1
+  - id: ShardGlass
+    count: 1
+  time: 20
+  result: FoodSoupClown
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookCopypasta
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodNoodles
+    count: 2
+  time: 20
+  result: FoodNoodlesCopy
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookEggRice
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodRiceBoiled
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  reagents:
+    Egg: 6
+  time: 30
+  result: FoodRiceEgg
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookEscargotSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodOnionSlice
+    count: 1
+  - id: FoodGarlic
+    count: 1
+  - id: FoodButterSlice
+    count: 2
+  - id: FoodMeatSnailCooked
+    count: 1
+  time: 20
+  result: FoodSoupEscargot
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookEyeballSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: OrganHumanEyes
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodPotato
+    count: 1
+  time: 20
+  result: FoodSoupEyeball
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealChesnechkaRecipe
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 1
+  - id: FoodGarlic
+    count: 1
+  - id: FoodOnionSlice
+    count: 1
+  time: 20
+  result: ADTFoodSoupChesnechka
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealUtopenciRecipe
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodOnionSlice
+    count: 1
+  reagents:
+    Vinegar: 10
+    Mustard: 10
+  time: 20
+  result: ADTFoodMeatUtopenci
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSawdustSoupRecipe
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: MaterialWoodPlank1
+    count: 1
+  reagents:
+    TableSalt: 10
+  time: 30
+  result: ADTFoodSoupSawdust
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoupAnimalEyeball
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: ADTOrganAnimalEyes
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodPotato
+    count: 1
+  time: 20
+  result: ADTFoodSoupAnimalEyeball
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoupBorschtRecipe
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodCabbage
+    count: 1
+  - id: FoodPotato
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodOnionSlice
+    count: 1
+  - id: FoodTomato
+    count: 2
+  time: 20
+  result: FoodSoupBeet
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoupBorschtRedRecipe
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodCabbage
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodTomato
+    count: 3
+  reagents:
+    TableSalt: 5
+  time: 20
+  result: FoodSoupBeetRed
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoupMisoRecipe
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodSoybeans
+    count: 1
+  - id: FoodMushroom
+    count: 1
+  reagents:
+    Soysauce: 5
+  time: 20
+  result: FoodSoupMiso
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoupMysteryRecipe
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMushroom
+    count: 1
+  - id: FoodPotato
+    count: 1
+  reagents:
+    TableSalt: 5
+  time: 20
+  result: FoodSoupMystery
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookFoodSoupPotato
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodPotato
+    count: 2
+  - id: FoodCarrot
+    count: 1
+  - id: FoodOnion
+    count: 1
+  time: 20
+  result: FoodSoupPotato
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookHotChili
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodOnionSlice
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 40
+  result: FoodSoupChiliHot
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookMeatballSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMeatMeatball
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodPotato
+    count: 1
+  time: 20
+  result: FoodSoupMeatball
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookMeatballSpaghetti
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodMeatMeatball
+    count: 1
+  time: 20
+  result: FoodNoodlesMeatball
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookMisoColaSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodSoupMiso
+    count: 1
+  reagents:
+    Cola: 5
+  time: 30
+  result: DisgustingSweptSoup
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookMonkeysDelightSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodBanana
+    count: 1
+  - id: MonkeyCube
+    count: 1
+  reagents:
+    Flour: 5
+    TableSalt: 1
+    Blackpepper: 1
+  time: 20
+  result: FoodSoupMonkey
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookMushroomSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMushroom
+    count: 2
+  reagents:
+    Milk: 5
+  time: 20
+  result: FoodSoupMushroom
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookNettleSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: Nettle
+    count: 1
+  - id: FoodAmbrosiaDeus
+    count: 1
+  - id: FoodPotato
+    count: 1
+  reagents:
+    Egg: 6
+  time: 20
+  result: FoodSoupNettle
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookOnionSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodOnionSlice
+    count: 5
+  - id: FoodCheeseSlice
+    count: 1
+  time: 20
+  result: FoodSoupOnion
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookPastaTomato
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodTomato
+    count: 2
+  time: 20
+  result: FoodNoodles
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookPeaSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodPeaPod
+    count: 3
+  time: 20
+  result: FoodSoupPea
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookPelmeni
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMeatMeatball
+    count: 1
+  - id: FoodDoughSlice
+    count: 3
+  time: 20
+  result: FoodPelmeniBowl
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRiceGumbo
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodRiceBoiled
+    count: 1
+  - id: FoodMeatCutlet
+    count: 2
+  - id: FoodChiliPepper
+    count: 2
+  time: 30
+  result: FoodRiceGumbo
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRicePork
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodRiceBoiled
+    count: 1
+  - id: FoodMeatCutlet
+    count: 3
+  time: 30
+  result: FoodRicePork
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookStewSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMeatCutlet
+    count: 3
+  - id: FoodTomato
+    count: 1
+  - id: FoodPotato
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodEggplant
+    count: 1
+  - id: FoodMushroom
+    count: 1
+  time: 20
+  result: FoodSoupStew
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookTomatoBloodSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodBloodTomato
+    count: 2
+  reagents:
+    Blood: 10
+  time: 20
+  result: FoodSoupTomatoBlood
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookTomatoSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodTomato
+    count: 2
+  time: 20
+  result: FoodSoupTomato
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookVegetableSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodCorn
+    count: 1
+  - id: FoodCarrot
+    count: 1
+  - id: FoodPotato
+    count: 1
+  - id: FoodEggplant
+    count: 1
+  time: 20
+  result: FoodSoupVegetable
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookWingFangChuSoup
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMeatXenoCutlet
+    count: 5
+  reagents:
+    Soysauce: 10
+  time: 20
+  result: FoodSoupWingFangChu
+  group: Soup
+
+- type: adtCookingRecipe
+  id: ADTCookWingFangChuSoupSpider
+  method: Boiled
+  cookware: Pot
+  ingredients:
+  - id: FoodMeatSpider
+    count: 2
+  reagents:
+    Soysauce: 5
+  time: 20
+  result: FoodSoupWingFangChu
+  group: Soup

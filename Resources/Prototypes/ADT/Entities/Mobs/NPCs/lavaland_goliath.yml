@@ -17,8 +17,19 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.85
     baseSprintSpeed: 0.85
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 2000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Destructible
-    thresholds:
+    thresholdsOverride:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
@@ -57,7 +68,6 @@
     factions:
     - SimpleHostile
   - type: HTN
-    constantlyReplan: false
     rootTask:
       task: GoliathCompound
     blackboard:
@@ -112,7 +122,6 @@
       0: Alive
       400: Dead
   - type: HTN
-    constantlyReplan: false
     rootTask:
       task: ADTLavalandGoliathAncientCompound
     blackboard:

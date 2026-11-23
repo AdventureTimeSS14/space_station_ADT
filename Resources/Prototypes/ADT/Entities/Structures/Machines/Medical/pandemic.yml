@@ -1,0 +1,83 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
+  id: ADTPandemic
+  name: ПанД.Е.М.И.К 220
+  description: Высокотехнологичная машина для исследования вирусных культур. Лучший друг вирусолога.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/Medical/pandemic.rsi
+    snapCardinals: true
+    layers:
+    - state: pandemic
+      map: [ "base" ]
+    - state: pandemic_loaded
+      shader: unshaded
+      map: [ "enum.ADTPandemicVisuals.HasBeaker" ]
+      visible: false
+    - state: waitlight
+      shader: unshaded
+      map: [ "enum.ADTPandemicVisuals.Busy" ]
+      visible: false
+  - type: Icon
+    sprite: ADT/Structures/Machines/Medical/pandemic.rsi
+    state: pandemic
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTPandemicVisuals.HasBeaker:
+        enum.ADTPandemicVisuals.HasBeaker:
+          True: { visible: True }
+          False: { visible: False }
+      enum.ADTPandemicVisuals.Busy:
+        enum.ADTPandemicVisuals.Busy:
+          True: { visible: True }
+          False: { visible: False }
+      enum.PowerDeviceVisuals.Powered:
+        base:
+          True: { state: pandemic }
+          False: { state: pandemic_unpowered }
+  - type: ADTPandemic
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        name: adt-pandemic-beaker-slot
+        insertSound:
+          path: /Audio/Machines/terminal_insert_disc.ogg
+        ejectSound:
+          path: /Audio/Machines/tray_eject.ogg
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ActivatableUI
+    key: enum.ADTPandemicUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ADTPandemicUiKey.Key:
+        type: ADTPandemicBoundUserInterface
+  - type: Machine
+    board: ADTPandemicMachineCircuitboard
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: WiresVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: StaticPrice
+    price: 500

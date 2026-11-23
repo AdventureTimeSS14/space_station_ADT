@@ -1,0 +1,139 @@
+- type: entity
+  id: ADTBulletImpactEffectReactive30
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: [ "enum.EffectLayers.Unshaded" ]
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/reactive30.rsi
+      state: impact_bolt
+  - type: TimedDespawn
+    lifetime: 0.3
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: EffectVisuals
+
+- type: entity
+  parent: BaseBullet
+  id: ADTBulletReactive30
+  categories: [ HideSpawnMenu ]
+  name: bullet (.30 reactive)
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/reactive30.rsi
+    layers:
+    - state: bullet_bolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectReactive30
+    damage:
+      types:
+        Piercing: 40
+        Structural: 60
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: ADTBulletReactive30Blast
+  categories: [ HideSpawnMenu ]
+  name: bullet (.30 reactive blast)
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/reactive30.rsi
+    layers:
+    - state: bullet_bolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectReactive30
+    damage:
+      types:
+        Blunt: 15
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 5
+    intensitySlope: 3
+    totalIntensity: 20
+    canCreateVacuum: false
+
+- type: entity
+  parent: BaseBulletIncendiary
+  id: ADTBulletReactive30Incendiary
+  categories: [ HideSpawnMenu ]
+  name: bullet (.30 reactive incendiary)
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/reactive30.rsi
+    layers:
+    - state: bullet_bolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectReactive30
+    damage:
+      types:
+        Piercing: 20
+        Heat: 15
+  - type: IgniteOnCollide
+    fireStacks: 1
+
+- type: entity
+  parent: BaseBulletPractice
+  id: ADTBulletReactive30Practice
+  categories: [ HideSpawnMenu ]
+  name: bullet (.30 reactive practice)
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/reactive30.rsi
+    layers:
+    - state: bullet_bolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectReactive30
+    damage:
+      types:
+        Blunt: 5
+
+- type: entity
+  parent: BaseBullet
+  id: ADTPelletReactive30Shrapnel
+  categories: [ HideSpawnMenu ]
+  name: shrapnel (.30 reactive)
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+
+- type: entity
+  parent: ADTPelletReactive30Shrapnel
+  id: ADTPelletReactive30ShrapnelSpread
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: ADTPelletReactive30Shrapnel
+    count: 6
+    spread: 20
+
+- type: entity
+  parent: BaseBulletUranium
+  id: ADTBulletReactive30Uranium
+  categories: [ HideSpawnMenu ]
+  name: bullet (.30 reactive uranium)
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/reactive30.rsi
+    layers:
+    - state: bullet_bolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectReactive30
+    damage:
+      types:
+        Piercing: 25
+        Radiation: 15

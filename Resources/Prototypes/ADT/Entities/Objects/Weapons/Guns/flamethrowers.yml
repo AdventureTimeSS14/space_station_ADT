@@ -313,7 +313,7 @@
     node: makeshift_tank_ready
 
 - type: entity
-  parent: RMCGrenadeMolotovEmpty
+  parent: [ DrinkBottlePlasticBase, BaseMinorContraband ]
   id: RMCTankFlamerMakeshiftUnfinished
   name: makeshift flamer unfinished
   suffix: empty

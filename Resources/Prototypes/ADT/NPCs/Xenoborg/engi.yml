@@ -4,6 +4,28 @@
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:ADTFindAllyOperator
+            range: 2
+            minDamage: 0.05
+            allowCritical: true
+            components:
+              - type: Repairable
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTSelectBorgItemOperator
+            activate: true
+            items:
+              - WelderExperimental
+              - RefuelingWelder
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTReachRange
+          operator: !type:InteractWithOperator
+            targetKey: Target
+
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ADTFindAllyOperator
             range: 10
             minDamage: 0.05
             allowCritical: true
@@ -22,12 +44,12 @@
             removeKeyOnFinish: false
             targetKey: TargetCoordinates
             pathfindKey: TargetPathfind
-            rangeKey: InteractRange
+            rangeKey: MeleeRange
         - !type:HTNPrimitiveTask
           preconditions:
             - !type:TargetInRangePrecondition
               targetKey: Target
-              rangeKey: InteractRange
+              rangeKey: ADTReachRange
           operator: !type:InteractWithOperator
             targetKey: Target
 

@@ -12,12 +12,12 @@
   - type: Item
     size: Normal
   - type: Battery
-    pricePerJoule: 0.15
-    maxCharge: 600
-    startingCharge: 600
+    pricePerJoule: 0.05
+    maxCharge: 1800
+    startingCharge: 1800
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 20
+    autoRechargeRate: 1.8
   - type: SolutionManager
     solutions:
     - XenobioVolatileOrganSolution

@@ -1,0 +1,11 @@
+- type: entity
+  parent: CrateLivestock
+  id: ADTCrateNPCFrog
+  name: crate of frogs
+  description: A crate containing four frogs.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ADTMobFrog
+        amount: 4

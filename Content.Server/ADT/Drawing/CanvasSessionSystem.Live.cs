@@ -69,6 +69,9 @@ public sealed partial class CanvasSessionSystem
                 if (member.OpenStrokes.Count >= MaxOpenStrokes && !member.OpenStrokes.Contains(msg.StrokeId))
                     return;
 
+                if (!session.CanCommit(player.UserId, msg.Layer))
+                    return;
+
                 member.OpenStrokes.Add(msg.StrokeId);
                 break;
 
@@ -98,7 +101,9 @@ public sealed partial class CanvasSessionSystem
             !_sessions.TryGetValue(msg.Painting, out var session) ||
             session.State == CanvasSessionState.Loading ||
             !session.Members.TryGetValue(player.UserId, out var member) ||
-            !member.Present)
+            !member.Present ||
+            player.AttachedEntity is not { } attached ||
+            !CanPaint(attached))
         {
             return;
         }

@@ -16,8 +16,10 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
+using Content.Shared.Movement.Components;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Stacks;
+using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Warps;
@@ -59,6 +61,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private DecalSystem _decalSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -181,11 +184,15 @@ public sealed class DropPodConsoleSystem : EntitySystem
             }
         }
 
+        var podContents = new HashSet<EntityUid>();
+        CollectDescendants(podGrid, podContents);
+
         var nearby = _lookup.GetEntitiesInRange(podCoords, 6f,
             LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries);
         foreach (var target in nearby)
         {
             if (target == podGrid) continue;
+            if (podContents.Contains(target)) continue;
             var targetXform = Transform(target);
 
             if (targetXform.GridUid == podGrid)
@@ -228,7 +235,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
             && !TerminatingOrDeleted(stationGridUid.Value)
             && TryComp<MapGridComponent>(stationGridUid.Value, out var stationGridComp))
         {
-            MergeIntoStation(podGrid, podGridComp, stationGridUid.Value, stationGridComp);
+            MergeIntoStation(podGrid, podGridComp, stationGridUid.Value, stationGridComp, podContents);
         }
         else
         {
@@ -242,7 +249,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
     /// </summary>
     private void MergeIntoStation(
         EntityUid podGrid, MapGridComponent podComp,
-        EntityUid stationGrid, MapGridComponent stationComp)
+        EntityUid stationGrid, MapGridComponent stationComp,
+        HashSet<EntityUid> podContents)
     {
         // Build matrices BEFORE any rotation changes so world positions of children are still valid.
         var podWorldMatrix = _transform.GetWorldMatrix(podGrid);
@@ -266,7 +274,11 @@ public sealed class DropPodConsoleSystem : EntitySystem
         {
             var stationTileIdx = baseTile + tileRef.GridIndices;
             foreach (var stale in _mapSystem.GetAnchoredEntities(stationGrid, stationComp, stationTileIdx).ToList())
+            {
+                if (podContents.Contains(stale))
+                    continue;
                 QueueDel(stale);
+            }
             tilesToSet.Add((stationTileIdx, tileRef.Tile));
         }
         _mapSystem.SetTiles((stationGrid, stationComp), tilesToSet);
@@ -296,16 +308,45 @@ public sealed class DropPodConsoleSystem : EntitySystem
                 baseTile.X * stationComp.TileSize,
                 baseTile.Y * stationComp.TileSize);
 
+            Vector2i oldPodTile = default;
+            if (wasAnchored)
+                oldPodTile = _mapSystem.TileIndicesFor(podGrid, podComp, childXform.Coordinates);
+
             _transform.SetCoordinates((child, Transform(child), MetaData(child)), new EntityCoordinates(stationGrid, entityStationLocal), unanchor: false);
             // Restore pod-local rotation (SetCoordinates doesn't preserve it when changing parent).
             _transform.SetLocalRotation(child, podLocalRot);
 
             if (wasAnchored)
-                _transform.AnchorEntity(child, Transform(child));
+            {
+                var newStationTile = _mapSystem.TileIndicesFor(stationGrid, stationComp, childXform.Coordinates);
+                _mapSystem.RemoveFromSnapGridCell(podGrid, podComp, oldPodTile, child);
+                _mapSystem.AddToSnapGridCell(stationGrid, stationComp, newStationTile, child);
+            }
         }
 
         // 3. Remove the now-empty pod grid.
+        foreach (var child in podContents)
+        {
+            if (TryComp<InputMoverComponent>(child, out var mover) && mover.RelativeEntity == podGrid)
+            {
+                var childXform = Transform(child);
+                mover.RelativeEntity = childXform.GridUid ?? childXform.MapUid;
+                Dirty(child, mover);
+            }
+        }
+
         QueueDel(podGrid);
+    }
+
+    private void CollectDescendants(EntityUid root, HashSet<EntityUid> into)
+    {
+        var enumerator = Transform(root).ChildEnumerator;
+
+        while (enumerator.MoveNext(out var child))
+        {
+            if (into.Add(child))
+                CollectDescendants(child, into);
+        }
     }
 
     // Find all grids that belong to stations marked with DropPodTargetStationComponent
@@ -343,30 +384,19 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var elapsed = _timing.CurTime - comp.LastLaunchTime;
         var cooldownReady = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
 
-        var isAtWar = comp.WarDeclaredTime != null;
         var warCooldownRemaining = 0;
-        var warNukieArriveDelay = TimeSpan.Zero;
-
-        var nukeopsQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
-        while (nukeopsQuery.MoveNext(out _, out var nukeops))
+        if (comp.WarDeclaredTime is { } warDeclared)
         {
-            if (nukeops.WarDeclaredTime != null)
-            {
-                var warTime = _timing.CurTime - nukeops.WarDeclaredTime.Value;
-                warNukieArriveDelay = nukeops.WarNukieArriveDelay;
-                if (warTime < nukeops.WarNukieArriveDelay)
-                {
-                    warCooldownRemaining = (int)Math.Ceiling((nukeops.WarNukieArriveDelay - warTime).TotalSeconds);
-                }
-                break;
-            }
+            var warTime = _timing.CurTime - warDeclared;
+            var warNukieArriveDelay = GetWarArriveDelay();
+            if (warTime < warNukieArriveDelay)
+                warCooldownRemaining = (int)Math.Ceiling((warNukieArriveDelay - warTime).TotalSeconds);
         }
-
-        comp.WarDeclaredTime = comp.WarDeclaredTime ?? _timing.CurTime;
+        var isAtWar = comp.WarDeclaredTime != null;
 
         var tcCount = GetTcInSlot(uid);
         var currentCost = isAtWar ? comp.WarCost : comp.PeaceCost;
-        var canLaunch = cooldownReady && tcCount >= currentCost;
+        var canLaunch = cooldownReady && tcCount >= currentCost && warCooldownRemaining == 0;
 
         var cooldownRemaining = cooldownReady ? 0 : (int)Math.Ceiling((comp.Cooldown - elapsed).TotalSeconds);
 
@@ -434,6 +464,17 @@ public sealed class DropPodConsoleSystem : EntitySystem
         return stack.Count;
     }
 
+    private TimeSpan GetWarArriveDelay()
+    {
+        var query = EntityQueryEnumerator<NukeopsRuleComponent>();
+        while (query.MoveNext(out _, out var nukeops))
+        {
+            if (nukeops.WarDeclaredTime != null)
+                return nukeops.WarNukieArriveDelay;
+        }
+        return TimeSpan.FromMinutes(15);
+    }
+
     private void OnDeployMessage(Entity<DropPodConsoleComponent> ent, ref DropPodConsoleDeployMessage args)
     {
         var (uid, comp) = ent;
@@ -446,7 +487,10 @@ public sealed class DropPodConsoleSystem : EntitySystem
         }
 
         if (dropPod.Launched)
+        {
+            _popup.PopupEntity(Loc.GetString("drop-pod-console-popup-launched"), uid, args.Actor);
             return;
+        }
 
         if ((_timing.CurTime - comp.LastLaunchTime) < comp.Cooldown)
             return;
@@ -454,21 +498,12 @@ public sealed class DropPodConsoleSystem : EntitySystem
         if (comp.WarDeclaredTime != null)
         {
             var warTime = _timing.CurTime - comp.WarDeclaredTime.Value;
-            var warNukieArriveDelay = TimeSpan.FromMinutes(15); // default > NukeopsRuleComponent 15 minutes
-            var nukeopsQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
-            while (nukeopsQuery.MoveNext(out _, out var nukeops))
-            {
-                if (nukeops.WarDeclaredTime != null)
-                {
-                    warNukieArriveDelay = nukeops.WarNukieArriveDelay;
-                    break;
-                }
-            }
-
+            var warNukieArriveDelay = GetWarArriveDelay();
             if (warTime < warNukieArriveDelay)
             {
-                var timeRemain = warNukieArriveDelay - warTime;
-                Log.Debug($"DropPodConsole {ToPrettyString(uid)}: launch blocked by war cooldown, {timeRemain:mm\\:ss} remaining.");
+                var timeRemain = (int)Math.Ceiling((warNukieArriveDelay - warTime).TotalSeconds);
+                Log.Debug($"DropPodConsole {ToPrettyString(uid)}: launch blocked by war cooldown, {timeRemain}s remaining.");
+                _popup.PopupEntity(Loc.GetString("drop-pod-console-popup-war", ("time", timeRemain)), uid, args.Actor);
                 return;
             }
         }
@@ -479,7 +514,10 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var currentCost = isAtWar ? comp.WarCost : comp.PeaceCost;
 
         if (tcCount < currentCost)
+        {
+            _popup.PopupEntity(Loc.GetString("drop-pod-console-popup-tc", ("cost", currentCost)), uid, args.Actor);
             return;
+        }
 
         var targetBeaconEnt = GetEntity(args.TargetBeacon);
 
@@ -672,9 +710,6 @@ public sealed class DropPodConsoleSystem : EntitySystem
         MapGridComponent stationComp,
         List<(Vector2i GridIndices, Tile Tile)> tilesToSet)
     {
-        if (!HasComp<DecalGridComponent>(stationGrid))
-            return;
-
         if (tilesToSet.Count == 0)
             return;
 

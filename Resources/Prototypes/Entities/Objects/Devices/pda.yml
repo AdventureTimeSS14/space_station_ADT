@@ -1048,6 +1048,23 @@
     maxScanRange: null
     scanDelay: 0
     silent: true
+  # ADT-Tweak-Start
+  - type: ADTDiseaseViewer
+  - type: UserInterface
+    interfaces:
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+      enum.ADTPandemicUiKey.Key:
+        type: ADTPandemicBoundUserInterface
+  # ADT-Tweak-End
   - type: CartridgeLoader
     notificationsEnabled: false
     diskSpace: 10 # ADT tweak

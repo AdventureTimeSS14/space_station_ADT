@@ -78,6 +78,13 @@
   description: A void helmet made for paramedics.
   categories: [ HideSpawnMenu ]
   components:
+  # ADT-Tweak-Start
+  - type: ADTVirusProtection
+    permeability: 0.6
+    airborne: 0.5
+    zones:
+    - head
+  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/paramedic_hardsuithead.rsi # ADT tweak респрайт от празата
     layers:

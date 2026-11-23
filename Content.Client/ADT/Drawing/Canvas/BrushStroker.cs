@@ -3,6 +3,13 @@ using Content.Client.ADT.Drawing.Input;
 
 namespace Content.Client.ADT.Drawing.Canvas;
 
+public enum LiquifyMode : byte
+{
+    Push,
+    Grow,
+    Shrink,
+}
+
 public sealed class BrushSettings
 {
     public Color Color = Color.Black;
@@ -14,14 +21,39 @@ public sealed class BrushSettings
     public bool PressureAffectsOpacity;
     public float MinSizeFraction = 0.05f;
     public float MinOpacityFraction = 0.05f;
+    public bool Pixel;
+    public bool Blur;
+    public float BlurStrength = 0.6f;
+    public float BlurHardness = 0.5f;
+    public bool Liquify;
+    public LiquifyMode LiquifyMode;
+    public float LiquifyStrength = 0.7f;
+    public float LiquifyHardness = 0.3f;
+    public CanvasSelection? Selection;
+
+    public int PixelSize => Math.Clamp((int) MathF.Round(Size), 1, PixelMaxSize);
+
+    public bool LocalOnly => Blur || Liquify;
+
+    public const int PixelMaxSize = 16;
+    public const float BlurSpacing = 0.12f;
 
     public float DiameterAt(float pressure)
     {
+        if (Pixel)
+            return PixelSize;
+
+        if (Liquify)
+            return Size;
+
         return PressureAffectsSize ? Size * Lerp(MinSizeFraction, 1f, pressure) : Size;
     }
 
     public float OpacityAt(float pressure)
     {
+        if (Pixel)
+            return Opacity;
+
         return PressureAffectsOpacity ? Opacity * Lerp(MinOpacityFraction, 1f, pressure) : Opacity;
     }
 
@@ -67,6 +99,8 @@ public sealed class BrushStroker
     private float _lastPressure;
     private float _carry;
     private int _tailStart;
+    private Vector2 _lastDab;
+    private bool _warpNearest;
     private readonly List<float> _distances = new();
 
     public BrushStroker(PaintSurface surface, BrushSettings settings)
@@ -80,6 +114,8 @@ public sealed class BrushStroker
     public float TaperOutLength { get; set; }
 
     public bool Active => _stroke != null;
+
+    private float Taper => _active.Pixel || _active.LocalOnly ? 0f : TaperOutLength;
 
     public event Action<StrokeRecord, int, int[]>? StrokeFinished;
 
@@ -109,13 +145,20 @@ public sealed class BrushStroker
                     Finish();
 
                 _active = Settings.Clone();
+                _warpNearest = _active.Pixel;
+                if (_active.LocalOnly)
+                {
+                    _active.Pixel = false;
+                    _active.Spacing = MathF.Max(_active.Spacing, BrushSettings.BlurSpacing);
+                }
+
                 _stroke = new StrokeRecord(_active, sample.Tool == PenTool.Eraser);
                 _strokeTag = tag;
                 _tailStart = 0;
-                _surface.BeginStroke(_active.Color, _stroke.Erase);
+                _surface.BeginStroke(_active.Color, _stroke.Erase, selection: _active.Selection);
                 _stroke.Points.Add(point);
 
-                if (TaperOutLength > 0f)
+                if (Taper > 0f)
                     RedrawTail();
                 else
                     Start(point);
@@ -143,7 +186,7 @@ public sealed class BrushStroker
             return;
 
         _active = stroke.Settings;
-        _surface.BeginStroke(_active.Color, stroke.Erase, clipTile);
+        _surface.BeginStroke(_active.Color, stroke.Erase, clipTile, _active.Selection);
         Trace(stroke.Points);
         _surface.EndStroke(record: false);
     }
@@ -156,7 +199,7 @@ public sealed class BrushStroker
 
         stroke.Points.Add(point);
 
-        if (TaperOutLength > 0f)
+        if (Taper > 0f)
             RedrawTail();
         else
             Segment(point.Position, point.Pressure);
@@ -169,7 +212,7 @@ public sealed class BrushStroker
         var stroke = _stroke!;
         _stroke = null;
 
-        if (TaperOutLength > 0f)
+        if (Taper > 0f)
         {
             if (stroke.Points.Count == 1)
                 DabAt(stroke.Points[0].Position, stroke.Points[0].Pressure);
@@ -264,12 +307,21 @@ public sealed class BrushStroker
     {
         _lastPos = point.Position;
         _lastPressure = point.Pressure;
+        _lastDab = point.Position;
         _carry = 0f;
         DabAt(point.Position, point.Pressure);
     }
 
     private void Segment(Vector2 to, float toPressure)
     {
+        if (_active.Pixel)
+        {
+            PixelLine(_lastPos, to);
+            _lastPos = to;
+            _lastPressure = toPressure;
+            return;
+        }
+
         var from = _lastPos;
         var fromPressure = _lastPressure;
         var length = Vector2.Distance(from, to);
@@ -303,8 +355,69 @@ public sealed class BrushStroker
         _lastPressure = toPressure;
     }
 
+    private void PixelLine(Vector2 from, Vector2 to)
+    {
+        var x0 = (int) MathF.Floor(from.X);
+        var y0 = (int) MathF.Floor(from.Y);
+        var x1 = (int) MathF.Floor(to.X);
+        var y1 = (int) MathF.Floor(to.Y);
+        var dx = Math.Abs(x1 - x0);
+        var dy = -Math.Abs(y1 - y0);
+        var sx = x0 < x1 ? 1 : -1;
+        var sy = y0 < y1 ? 1 : -1;
+        var err = dx + dy;
+
+        while (true)
+        {
+            PixelAt(x0, y0);
+            if (x0 == x1 && y0 == y1)
+                break;
+
+            var e2 = 2 * err;
+            if (e2 >= dy)
+            {
+                err += dy;
+                x0 += sx;
+            }
+
+            if (e2 <= dx)
+            {
+                err += dx;
+                y0 += sy;
+            }
+        }
+    }
+
+    private void PixelAt(int x, int y)
+    {
+        var size = _active.PixelSize;
+        var offset = (size - 1) / 2;
+        _surface.FillCells(x - offset, y - offset, size, _active.Opacity);
+    }
+
     private void DabAt(Vector2 position, float pressure)
     {
+        if (_active.Liquify)
+        {
+            var motion = position - _lastDab;
+            _lastDab = position;
+            _surface.WarpDab(position, motion, _active.DiameterAt(pressure) * 0.5f, _active.LiquifyHardness,
+                _active.LiquifyStrength, _active.LiquifyMode, _warpNearest);
+            return;
+        }
+
+        if (_active.Blur)
+        {
+            _surface.BlurDab(position, _active.DiameterAt(pressure) * 0.5f, _active.BlurHardness, _active.BlurStrength);
+            return;
+        }
+
+        if (_active.Pixel)
+        {
+            PixelAt((int) MathF.Floor(position.X), (int) MathF.Floor(position.Y));
+            return;
+        }
+
         var radius = _active.DiameterAt(pressure) * 0.5f;
         _surface.Dab(position, radius, _active.Hardness, _active.OpacityAt(pressure));
     }

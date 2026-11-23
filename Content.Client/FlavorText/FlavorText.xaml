@@ -6,6 +6,10 @@
 
     <PanelContainer HorizontalExpand="True" VerticalExpand="True">
         <!-- Основной контент -->
+        <ScrollContainer HorizontalExpand="True"
+                         VerticalExpand="True"
+                         HScrollEnabled="False"
+                         VScrollEnabled="True">
         <BoxContainer Orientation="Vertical"
                       HorizontalExpand="True"
                       VerticalExpand="True"
@@ -43,7 +47,7 @@
                     <ui:Label Text="{Loc 'flavor-interface-exploitable-title'}"
                               Margin="0 0 0 8"
                               StyleClasses="LabelHeading"/>
-                    <ui:Label Text="{Loc 'flavor-interface-exploitable-desc'}"
+                    <ui:RichTextLabel Text="{Loc 'flavor-interface-exploitable-desc'}"
                               Margin="0 0 0 18"/>
 
                     <TextEdit Name="CExploitableInput"
@@ -65,7 +69,7 @@
                     <ui:Label Text="{Loc 'flavor-interface-headshot-url'}"
                               Margin="0 0 0 8"
                               StyleClasses="LabelHeading"/>
-                    <ui:Label Text="{Loc 'flavor-interface-headshot-url-desc'}"
+                    <ui:RichTextLabel Text="{Loc 'flavor-interface-headshot-url-desc'}"
                               Margin="0 0 0 18"/>
                     <ui:LineEdit Name="CHeadshotUrlInput"
                                  Access="Public"
@@ -76,6 +80,7 @@
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>
+        </ScrollContainer>
 
         <!-- Overlay с кнопкой правил -->
         <controls:StripeBack Name="RulesOverlay"

@@ -3,3 +3,4 @@ lathe-menu-reagent-amount-missing = Требуется реагент: { $amount
 lathe-menu-reagent-no-beaker = [color=red]Требуется мензурка с реагентом[/color]
 lathe-menu-beaker-inserted = Мензурка с реагентом вставлена
 lathe-menu-beaker-not-inserted = Мензурка с реагентом не вставлена
+lathe-access-denied = Недостаточно доступа для работы со станком.

@@ -6,6 +6,15 @@
   name: bowl
   description: A simple bowl, used for soups and salads.
   components:
+  # ADT-Tweak-Start
+  - type: ADTPlate
+    layout: ADTPlateSmall
+    maxItems: 2
+    maxWeight: 2
+  - type: ContainerContainer
+    containers:
+      adt_plate: !type:Container
+  # ADT-Tweak-End
   - type: Item
     shape:
     - 0,0,1,0

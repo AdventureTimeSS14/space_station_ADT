@@ -767,7 +767,14 @@
   - type: Sprite
     sprite: ADT/Special/Personal/toys.rsi
     state: plushie_morulu
-
+  - type: Item
+    sprite: ADT/Special/Personal/toys.rsi
+    inhandVisuals:
+      left:
+      - state: morulu-inhand-left
+      right:
+      - state: morulu-inhand-right
+  
 #Glide
 - type: entity
   parent: BasePlushie

@@ -80,3 +80,6 @@ alerts-stealthy-name = Карманничество
 alerts-stealthy-desc = Определяет режим скрытой кражи. Нажмите для переключения.
 alerts-prying-name = Взлом
 alerts-prying-desc = Вы можете вскрывать двери без инструментов с помощью альтернативного взаимодействия.
+
+alerts-changeling-chemicals-name = Химикаты
+alerts-changeling-chemicals-desc = Химикаты, хранящиеся в наших железах. Они нужны для работы многих наших способностей и со временем восстанавливаются.

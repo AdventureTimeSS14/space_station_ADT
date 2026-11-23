@@ -60,6 +60,9 @@ public sealed partial class ADTLavalandGoliathComponent : Component
     public Angle ReflectSpread = Angle.FromDegrees(45);
 
     [DataField]
+    public float ReflectedLifetime = 0.14f;
+
+    [DataField]
     public float LaserResistThreshold = 30f;
 
     [DataField]
@@ -91,6 +94,15 @@ public sealed partial class ADTLavalandGoliathComponent : Component
 
     [DataField]
     public Color WindUpColor = Color.FromHex("#FF5050");
+
+    [DataField]
+    public float RetaliatePadding = 2f;
+
+    [DataField]
+    public float MaxRetaliateRadius = 20f;
+
+    [ViewVariables]
+    public float? BaseAggroRadius;
 
     [ViewVariables]
     public TimeSpan NextThink;

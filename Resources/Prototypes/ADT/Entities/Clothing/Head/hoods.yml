@@ -33,6 +33,7 @@
       - WhitelistChameleon
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/squidgame.rsi
+    state: icon
   - type: Clothing
     sprite: ADT/Clothing/Head/hoods/squidgame.rsi
   - type: HideLayerClothing
@@ -158,7 +159,7 @@
   id: ADTClothingHeadHatVoxHood
   categories: [HideSpawnMenu]
   name: vox hood
-  components: 
+  components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/vox_hood.rsi
   - type: Clothing
@@ -185,6 +186,7 @@
   id: ADTClothingHeadHoodDownjacket_black
   name: jacket hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_black.rsi
@@ -195,6 +197,7 @@
   id: ADTClothingHeadHoodDownjacket_blue
   name: jacket hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_blue.rsi
@@ -205,6 +208,7 @@
   id: ADTClothingHeadHoodDownjacket_brown
   name: jacket hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_brown.rsi
@@ -215,6 +219,7 @@
   id: ADTClothingHeadHoodDownjacket_green
   name: jacket hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_green.rsi
@@ -225,6 +230,7 @@
   id: ADTClothingHeadHoodDownjacket_merc
   name: jacket hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_merc.rsi
@@ -235,6 +241,7 @@
   id: ADTClothingHeadHoodDownjacket_red
   name: jacket hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_red.rsi
@@ -245,6 +252,7 @@
   id: ADTClothingHeadHoodDownjacket_white
   name: jacket hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Downjacket/hooddownjacket_white.rsi
@@ -255,6 +263,7 @@
   id: ADTClothingHeadHoodHoody_beige
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_beige.rsi
@@ -265,6 +274,7 @@
   id: ADTClothingHeadHoodHoody_black
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_black.rsi
@@ -275,6 +285,7 @@
   id: ADTClothingHeadHoodHoody_blue
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_blue.rsi
@@ -285,6 +296,7 @@
   id: ADTClothingHeadHoodHoody_brown
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_brown.rsi
@@ -295,6 +307,7 @@
   id: ADTClothingHeadHoodHoody_darkblue
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_darkblue.rsi
@@ -305,6 +318,7 @@
   id: ADTClothingHeadHoodHoody_gray
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_gray.rsi
@@ -315,6 +329,7 @@
   id: ADTClothingHeadHoodHoody_green
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_green.rsi
@@ -325,6 +340,7 @@
   id: ADTClothingHeadHoodHoody_purple
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_purple.rsi
@@ -335,6 +351,7 @@
   id: ADTClothingHeadHoodHoody_red
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_red.rsi
@@ -345,6 +362,7 @@
   id: ADTClothingHeadHoodHoody_white
   name: hoody hood
   description: A hood to keep your head warm.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/Hoody/hoodhoody_white.rsi

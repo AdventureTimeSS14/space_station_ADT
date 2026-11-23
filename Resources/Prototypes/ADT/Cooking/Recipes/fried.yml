@@ -1,0 +1,557 @@
+- type: adtCookingRecipe
+  id: ADTCookBaconBurger
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodBreadBun
+    count: 1
+  - id: FoodMeatBacon
+    count: 1
+  - id: FoodCheeseSlice
+    count: 2
+  time: 20
+  result: FoodBurgerBacon
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookButteredToast
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 1
+  reagents:
+    Butter: 5
+  time: 10
+  result: FoodBreadButteredToast
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookCarrotFries
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodCarrot
+    count: 1
+  reagents:
+    TableSalt: 2
+  time: 30
+  result: FoodMealFriesCarrot
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCheesyFries
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodPotato
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  reagents:
+    TableSalt: 2
+  time: 30
+  result: FoodMealFriesCheesy
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookCornInButter
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodCorn
+    count: 1
+  reagents:
+    Butter: 5
+  time: 20
+  result: FoodMealCornInButter
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookDoubleRatKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatRat
+    count: 2
+  - id: FoodKebabSkewer
+    count: 1
+  time: 40
+  result: FoodMeatRatdoubleKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFiestaKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodCorn
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodKebabSkewer
+    count: 1
+  time: 10
+  result: FoodMeatFiestaKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodBakedNugget
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatChickenCutlet
+    count: 1
+  reagents:
+    Flour: 5
+  time: 10
+  result: FoodBakedNugget
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodChickenFriedRecipe
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatChickenCutlet
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  time: 20
+  result: FoodMeatChickenFried
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodChickenFriedVoxRecipe
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatChickenCutlet
+    count: 1
+  - id: FoodMushroom
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  time: 20
+  result: FoodMeatChickenFriedVox
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealBologneseRecipe
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodMeat
+    count: 1
+  - id: FoodTomato
+    count: 1
+  time: 20
+  result: ADTFoodMealBolognese
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealCheeseMeatballRecipe
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodMeatMeatball
+    count: 2
+  time: 20
+  result: ADTFoodMealCheeseMeatball
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealCreamMeatballRecipe
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: ADTFoodMealCream
+    count: 1
+  - id: FoodMeatMeatball
+    count: 2
+  time: 20
+  result: ADTFoodMealCreamMeatball
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealOmelette
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodCheeseSlice
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 1
+  time: 20
+  result: FoodMealOmelette
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMealTomatoMeatballRecipe
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodNoodlesBoiled
+    count: 1
+  - id: FoodMeatMeatball
+    count: 2
+  - id: FoodTomato
+    count: 2
+  time: 20
+  result: ADTFoodMealTomatoMeatball
+  group: Pasta
+
+- type: adtCookingRecipe
+  id: ADTCookFoodMeatSmokedSausage
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeat
+    count: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+    Hotsauce: 5
+  time: 20
+  result: ADTFoodMeatSmokedSausage
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookFrenchToast
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 1
+  - id: ADTFoodEggRaw
+    count: 1
+  reagents:
+    Milk: 5
+  time: 10
+  result: FoodBreadFrenchToast
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookFries
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodPotato
+    count: 1
+  reagents:
+    TableSalt: 2
+  time: 30
+  result: FoodMealFries
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookGrilledCheeseSandwich
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodBreadPlainSlice
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  reagents:
+    Butter: 5
+  time: 20
+  result: FoodBakedGrilledCheeseSandwich
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookGrilledCheeseSandwichCotton
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodBreadCottonSlice
+    count: 2
+  - id: FoodCheeseSlice
+    count: 1
+  reagents:
+    Butter: 5
+  time: 20
+  result: FoodBakedGrilledCheeseSandwichCotton
+  group: Moth
+
+- type: adtCookingRecipe
+  id: ADTCookHawaiianKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodChiliPepper
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodPineappleSlice
+    count: 1
+  - id: FoodKebabSkewer
+    count: 1
+  time: 10
+  result: FoodMeatHawaiianKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookHumanKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatHuman
+    count: 1
+  - id: FoodKebabSkewer
+    count: 1
+  time: 30
+  result: FoodMeatHumanKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookLizardKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatLizard
+    count: 1
+  - id: FoodKebabSkewer
+    count: 1
+  time: 30
+  result: FoodMeatLizardtailKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookMeatKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatCutlet
+    count: 3
+  - id: FoodKebabSkewer
+    count: 1
+  time: 10
+  result: FoodMeatKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookNachosCheesy
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodDoughTortillaFlat
+    count: 1
+  reagents:
+    TableSalt: 1
+  time: 20
+  result: FoodMealNachosCheesy
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookRatKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatRat
+    count: 1
+  - id: FoodKebabSkewer
+    count: 1
+  time: 20
+  result: FoodMeatRatKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookSnakeKebab
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodMeatSnake
+    count: 1
+  - id: FoodKebabSkewer
+    count: 1
+  reagents:
+    Wine: 5
+  time: 30
+  result: FoodMeatSnakeKebab
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoBeef
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodTacoShell
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  time: 20
+  result: FoodTacoBeef
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoBeefSupreme
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodTacoShell
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodMeatCutlet
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  - id: FoodOnionSlice
+    count: 2
+  time: 20
+  result: FoodTacoBeefSupreme
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoChicken
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodTacoShell
+    count: 1
+  - id: FoodMeatChickenCutlet
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  time: 20
+  result: FoodTacoChicken
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoChickenSupreme
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodTacoShell
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodMeatChickenCutlet
+    count: 1
+  - id: FoodTomato
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  - id: FoodOnionSlice
+    count: 2
+  time: 20
+  result: FoodTacoChickenSupreme
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoDragon
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodTacoShell
+    count: 1
+  - id: FoodMeatDragonCutlet
+    count: 2
+  - id: FoodChiliPepper
+    count: 1
+  time: 20
+  result: FoodTacoDragon
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoFish
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodTacoShell
+    count: 1
+  - id: FoodMeatFish
+    count: 1
+  - id: FoodOnionSlice
+    count: 2
+  - id: FoodTomato
+    count: 1
+  - id: FoodCabbage
+    count: 1
+  time: 20
+  result: FoodTacoFish
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoRat
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodTacoShell
+    count: 1
+  - id: FoodCheeseSlice
+    count: 1
+  - id: FoodMeatRat
+    count: 1
+  time: 20
+  result: FoodTacoRat
+  group: Savory
+
+- type: adtCookingRecipe
+  id: ADTCookTacoShell
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: FoodDoughTortillaFlat
+    count: 1
+  time: 10
+  result: FoodTacoShell
+  group: Breads
+
+- type: adtCookingRecipe
+  id: ADTCookFriedEgg
+  method: Fried
+  cookware: Pan
+  ingredients:
+  - id: ADTFoodEggRaw
+    count: 1
+  time: 15
+  result: ADTFoodMealFriedEgg
+  group: Breakfast
+
+- type: adtCookingRecipe
+  id: ADTCookPancake
+  method: Fried
+  cookware: Pan
+  reagents:
+    ADTPancakeBatter: 15
+  toppingTags:
+  - Fruit
+  toppingIds:
+  - FoodSnackChocolateBar
+  - ADTFoodSnackChocolateBarChunk
+  maxToppings: 4
+  toppingResults:
+  - toppings:
+    - FoodBerries
+    result: FoodBakedPancakeBb
+  - toppings:
+    - FoodSnackChocolateBar
+    - ADTFoodSnackChocolateBarChunk
+    result: FoodBakedPancakeCc
+  time: 10
+  result: FoodBakedPancake
+  group: Breakfast

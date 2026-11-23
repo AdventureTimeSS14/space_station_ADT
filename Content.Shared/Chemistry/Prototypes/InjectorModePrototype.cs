@@ -127,6 +127,12 @@ public sealed partial class InjectorModePrototype : IPrototype, IInheritingProto
 
     [DataField]
     public bool RequiresExposedSkin;
+
+    [DataField]
+    public TimeSpan SuitMobTime;
+
+    [DataField]
+    public float SuitSelfModifier;
     // ADT-Tweak end
 
 }

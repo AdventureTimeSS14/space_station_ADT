@@ -2,21 +2,23 @@
   id: ADTChaplain
   icons:
   - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
-    state: power0
-  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
-    state: power1
-  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
-    state: power2
-  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
-    state: power3
-  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
-    state: power4
-  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
-    state: power5
+    state: base
+  alertViewEntity: ADTAlertChaplainFaithSpriteView
   name: alerts-chaplain-name
   description: alerts-chaplain-desc
-  minSeverity: 0
-  maxSeverity: 5
+
+- type: entity
+  id: ADTAlertChaplainFaithSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GenericCounterAlert
+    glyphWidth: 5
+  - type: Sprite
+    sprite: /Textures/ADT/Interface/chaplain-alert.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "1" ]
+    - map: [ "10" ]
 
 
 - type: alert
@@ -252,3 +254,27 @@
   description: alerts-nicotine-craving-desc
   minSeverity: 0
   maxSeverity: 2
+
+- type: alert
+  id: ADTKineticInterference
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/kinetic_interference.rsi
+    state: icon
+  name: alerts-adt-kinetic-interference-name
+  description: alerts-adt-kinetic-interference-desc
+
+- type: alert
+  id: ADTWellFed
+  icons:
+  - sprite: /Textures/Interface/Alerts/hunger.rsi
+    state: overfed
+  name: alerts-adt-well-fed-name
+  description: alerts-adt-well-fed-desc
+
+- type: alert
+  id: ADTWellFedGreat
+  icons:
+  - sprite: /Textures/Interface/Alerts/hunger.rsi
+    state: overfed
+  name: alerts-adt-well-fed-great-name
+  description: alerts-adt-well-fed-great-desc

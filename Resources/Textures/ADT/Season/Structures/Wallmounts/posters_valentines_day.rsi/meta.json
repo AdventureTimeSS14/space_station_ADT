@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "dv_love_contraband"
+        },
+        {
+            "name": "space_love_contraband"
+        },
+        {
+            "name": "valentina_legit"
+        },
+        {
+            "name": "valentina2_legit"
+        },
+        {
+            "name": "valentina3_legit"
+        },
+        {
+            "name": "valentina4_legit"
+        },
+        {
+            "name": "valentina5_legit"
+        },
+        {
+            "name": "valentina6_legit"
+        }
+    ]
+}

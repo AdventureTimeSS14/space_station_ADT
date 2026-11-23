@@ -1,4 +1,4 @@
-# Классы СССП: названия мобов, спавнеров, призрачных ролей и их оружия.
+# Классы СССП, контрабандистов и мародёров: названия мобов, спавнеров и оружия.
 # Случайный солдат описан в expedition-npcs.ftl.
 
 ent-ADTMobSovietBunkerRifleman = автоматчик СССП
@@ -9,8 +9,8 @@ ent-ADTMobSovietBunkerMarksman = марксман СССП
     .desc = Марксман из давно забытого отряда СССП.
 ent-ADTMobSovietBunkerRocketeer = ракетчик СССП
     .desc = Ракетчик из давно забытого отряда СССП.
-ent-ADTMobSovietBunkerSniper = снайпер СССП
-    .desc = Снайпер из давно забытого отряда СССП.
+ent-ADTMobSovietBunkerMachineGunner = пулемётчик СССП
+    .desc = Пулемётчик из давно забытого отряда СССП.
 ent-ADTMobSovietBunkerMedic = медик СССП
     .desc = Медик из давно забытого отряда СССП.
 
@@ -18,21 +18,50 @@ ent-ADTSpawnMobSovietBunkerRiflemanExpedition = спавнер автоматч�
 ent-ADTSpawnMobSovietBunkerShotgunnerExpedition = спавнер штурмовика СССП
 ent-ADTSpawnMobSovietBunkerMarksmanExpedition = спавнер марксмана СССП
 ent-ADTSpawnMobSovietBunkerRocketeerExpedition = спавнер ракетчика СССП
-ent-ADTSpawnMobSovietBunkerSniperExpedition = спавнер снайпера СССП
+ent-ADTSpawnMobSovietBunkerMachineGunnerExpedition = спавнер пулемётчика СССП
 ent-ADTSpawnMobSovietBunkerMedicExpedition = спавнер медика СССП
 
-ghost-role-information-adt-soviet-rifleman-name = Автоматчик СССП
-ghost-role-information-adt-soviet-rifleman-description = Вы автоматчик давно забытого отряда СССП. Ведите огонь по незваным гостям из своего АКМ.
-ghost-role-information-adt-soviet-shotgunner-name = Штурмовик СССП
-ghost-role-information-adt-soviet-shotgunner-description = Вы штурмовик давно забытого отряда СССП. Ваше оружие обрез, действуйте на ближней дистанции.
-ghost-role-information-adt-soviet-marksman-name = Марксман СССП
-ghost-role-information-adt-soviet-marksman-description = Вы марксман давно забытого отряда СССП. Бейте врага метко со средней дистанции из винтовки Мосина.
-ghost-role-information-adt-soviet-rocketeer-name = Ракетчик СССП
-ghost-role-information-adt-soviet-rocketeer-description = Вы ракетчик давно забытого отряда СССП. Ваше оружие РПГ-7 с тандемными снарядами, берегите их.
-ghost-role-information-adt-soviet-sniper-name = Снайпер СССП
-ghost-role-information-adt-soviet-sniper-description = Вы снайпер давно забытого отряда СССП. Поражайте врагов издалека из винтовки Христова.
-ghost-role-information-adt-soviet-medic-name = Медик СССП
-ghost-role-information-adt-soviet-medic-description = Вы медик давно забытого отряда СССП. Держитесь позади товарищей и спасайте раненых.
+# Классы контрабандистов
+ent-ADTMobSmugglerRifleman = стрелок контрабандистов
+    .desc = Стрелок контрабандистов с базы на задворках космоса.
+ent-ADTMobSmugglerHunter = охотник контрабандистов
+    .desc = Охотник контрабандистов с базы на задворках космоса.
+ent-ADTMobSmugglerShotgunner = штурмовик контрабандистов
+    .desc = Штурмовик контрабандистов с базы на задворках космоса.
+ent-ADTMobSmugglerRaider = налётчик контрабандистов
+    .desc = Налётчик контрабандистов с базы на задворках космоса.
+ent-ADTMobSmugglerThug = боевик контрабандистов
+    .desc = Боевик контрабандистов с базы на задворках космоса.
+ent-ADTMobSmugglerHeavy = тяжёлый стрелок контрабандистов
+    .desc = Тяжёлый стрелок контрабандистов с базы на задворках космоса.
+ent-ADTMobSmugglerTrooper = автоматчик контрабандистов
+    .desc = Автоматчик контрабандистов с базы на задворках космоса.
+ent-ADTMobSmugglerMedic = медик контрабандистов
+    .desc = Медик контрабандистов с базы на задворках космоса.
+
+ent-ADTSpawnMobSmugglerRiflemanExpedition = спавнер стрелка контрабандистов
+ent-ADTSpawnMobSmugglerHunterExpedition = спавнер охотника контрабандистов
+ent-ADTSpawnMobSmugglerShotgunnerExpedition = спавнер штурмовика контрабандистов
+ent-ADTSpawnMobSmugglerRaiderExpedition = спавнер налётчика контрабандистов
+ent-ADTSpawnMobSmugglerThugExpedition = спавнер боевика контрабандистов
+ent-ADTSpawnMobSmugglerHeavyExpedition = спавнер тяжёлого стрелка контрабандистов
+ent-ADTSpawnMobSmugglerTrooperExpedition = спавнер автоматчика контрабандистов
+ent-ADTSpawnMobSmugglerMedicExpedition = спавнер медика контрабандистов
+
+# Классы мародёров Горлекса
+ent-ADTMobMarauderRifleman = стрелок мародёров
+    .desc = Стрелок Мародёров Горлекса.
+ent-ADTMobMarauderBreacher = штурмовик мародёров
+    .desc = Штурмовик Мародёров Горлекса.
+ent-ADTMobMarauderGunner = пулемётчик мародёров
+    .desc = Пулемётчик Мародёров Горлекса.
+ent-ADTMobMarauderMedic = медик мародёров
+    .desc = Медик Мародёров Горлекса.
+
+ent-ADTSpawnMobMarauderRiflemanExpedition = спавнер стрелка мародёров
+ent-ADTSpawnMobMarauderBreacherExpedition = спавнер штурмовика мародёров
+ent-ADTSpawnMobMarauderGunnerExpedition = спавнер пулемётчика мародёров
+ent-ADTSpawnMobMarauderMedicExpedition = спавнер медика мародёров
 
 # Оружие классов
 ent-ADTWeaponLauncherRocketFrag = РПГ-7
@@ -57,16 +86,10 @@ ent-ADTSpawnMobXenoborgScoutExpedition = спавнер ксеноборга-р�
 ent-ADTSpawnMobXenoborgStealthExpedition = спавнер ксеноборга-невидимки
 ent-ADTSpawnMobXenoborgEngiExpedition = спавнер ксеноборга-инженера
 
-ghost-role-information-adt-xenoborg-heavy-name = Тяжёлый ксеноборг
-ghost-role-information-adt-xenoborg-heavy-description = Вы тяжёлый ксеноборг. Поливайте органиков лазером с дистанции и возвращайтесь к инженеру на ремонт.
-ghost-role-information-adt-xenoborg-scout-name = Ксеноборг-разведчик
-ghost-role-information-adt-xenoborg-scout-description = Вы ксеноборг-разведчик. Быстро сближайтесь с органиками и рубите их клинком.
-ghost-role-information-adt-xenoborg-stealth-name = Ксеноборг-невидимка
-ghost-role-information-adt-xenoborg-stealth-description = Вы ксеноборг-невидимка. Включайте маскировку, подкрадывайтесь и усыпляйте органиков ноктюрином.
-ghost-role-information-adt-xenoborg-engi-name = Ксеноборг-инженер
-ghost-role-information-adt-xenoborg-engi-description = Вы ксеноборг-инженер. Чините других ксеноборгов сваркой и вскрывайте двери для отряда.
-
 # Личный состав заставы СССП
+ent-ADTMobSovietBunkerColonel = Полковник Громов Андрей Васильевич
+    .desc = Командующий гарнизоном СССП. Отдаёт приказы бойцам по рации.
+    .suffix = не маппить
 ent-ADTMobSovietBunkerOstapenko = Майор Остапенко Виктор Ильич
     .desc = Начальник заставы СССП.
     .suffix = не маппить
@@ -104,12 +127,15 @@ ent-ADTMobSovietBunkerTikhonov = Рядовой Тихонов
     .desc = Боец заставы СССП.
     .suffix = не маппить
 ent-ADTMobSovietBunkerLiWei = Рядовой Ли Вэй
-    .desc = Лучший стрелок заставы СССП.
+    .desc = Пулемётчик заставы СССП.
     .suffix = не маппить
 ent-ADTMobSovietBunkerBelov = М. н. с. Белов Лев Андреевич
     .desc = Младший научный сотрудник Института планетологии АН СССП, прикомандирован к заставе.
     .suffix = не маппить
 
+ent-ADTSpawnMobSovietBunkerColonelExpedition = спавнер: Полковник Громов Андрей Васильевич
+    .desc = Спавнер именного бойца заставы СССП.
+    .suffix = не маппить
 ent-ADTSpawnMobSovietBunkerOstapenkoExpedition = спавнер: Майор Остапенко Виктор Ильич
     .desc = Спавнер именного бойца заставы СССП.
     .suffix = не маппить
@@ -153,31 +179,3 @@ ent-ADTSpawnMobSovietBunkerBelovExpedition = спавнер: М. н. с. Бел�
     .desc = Спавнер именного бойца заставы СССП.
     .suffix = не маппить
 
-ghost-role-information-adt-ussp-ostapenko-name = Майор Остапенко Виктор Ильич
-ghost-role-information-adt-ussp-ostapenko-description = Вы майор Остапенко, начальник заставы СССП. Командуйте бойцами и удержите заставу.
-ghost-role-information-adt-ussp-lisitsyna-name = Капитан Лисицына Ирина Сергеевна
-ghost-role-information-adt-ussp-lisitsyna-description = Вы капитан Лисицына, заместитель начальника заставы по политической части. Поддерживайте боевой дух и дисциплину.
-ghost-role-information-adt-ussp-yusupova-name = Лейтенант медслужбы Юсупова Дина Рашидовна
-ghost-role-information-adt-ussp-yusupova-description = Вы лейтенант медслужбы Юсупова, начальник медпункта заставы. Держитесь позади и спасайте раненых.
-ghost-role-information-adt-ussp-zaitsev-name = Прапорщик Зайцев Пётр Кузьмич
-ghost-role-information-adt-ussp-zaitsev-description = Вы прапорщик Зайцев, старшина заставы. Склад и хозяйство на вас, а в бою ваш обрез.
-ghost-role-information-adt-ussp-gavrilov-name = Старший сержант Гаврилов Олег Петрович
-ghost-role-information-adt-ussp-gavrilov-description = Вы старший сержант Гаврилов, энергетик заставы и пилот шаттла «Кедровка».
-ghost-role-information-adt-ussp-burogriv-name = Сержант Бурогрив Аркадий
-ghost-role-information-adt-ussp-burogriv-description = Вы сержант Бурогрив, механик-водитель заставы, урс из Урсама. Ваше оружие РПГ-7.
-ghost-role-information-adt-ussp-kovalchuk-name = Ефрейтор Ковальчук Тарас
-ghost-role-information-adt-ussp-kovalchuk-description = Вы ефрейтор Ковальчук, радист заставы. Держите связь и прикрывайте товарищей.
-ghost-role-information-adt-ussp-mamedov-name = Рядовой Мамедов Эльдар
-ghost-role-information-adt-ussp-mamedov-description = Вы рядовой Мамедов, повар заставы. Кормите бойцов, а при нужде берите обрез.
-ghost-role-information-adt-ussp-somov-name = Рядовой Сомов
-ghost-role-information-adt-ussp-somov-description = Вы рядовой Сомов, боец заставы СССП.
-ghost-role-information-adt-ussp-galiev-name = Рядовой Галиев
-ghost-role-information-adt-ussp-galiev-description = Вы рядовой Галиев, марксман заставы СССП.
-ghost-role-information-adt-ussp-kvyatkovsky-name = Рядовой Квятковский
-ghost-role-information-adt-ussp-kvyatkovsky-description = Вы рядовой Квятковский, ракетчик заставы СССП.
-ghost-role-information-adt-ussp-tikhonov-name = Рядовой Тихонов
-ghost-role-information-adt-ussp-tikhonov-description = Вы рядовой Тихонов, боец заставы СССП.
-ghost-role-information-adt-ussp-li-wei-name = Рядовой Ли Вэй
-ghost-role-information-adt-ussp-li-wei-description = Вы рядовой Ли Вэй, лучший стрелок заставы. Поражайте врагов издалека.
-ghost-role-information-adt-ussp-belov-name = М. н. с. Белов Лев Андреевич
-ghost-role-information-adt-ussp-belov-description = Вы м. н. с. Белов из Института планетологии АН СССП, прикомандированы к заставе.

@@ -25,4 +25,17 @@ public sealed partial class CentComRandomEventComponent : Component
         {7, 1f},
         {8, 1f}
     };
+
+    [DataField("variantCounts")]
+    public Dictionary<int, int> VariantCounts = new()
+    {
+        {3, 8},
+        {4, 4},
+        {6, 15},
+        {7, 7},
+        {8, 18}
+    };
+
+    [DataField("maxBansPerRound")]
+    public int MaxBansPerRound = 15;
 }

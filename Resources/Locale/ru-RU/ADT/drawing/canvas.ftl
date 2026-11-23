@@ -4,6 +4,10 @@ ent-ADTCanvasBase = холст
     .desc = Холст, натянутый на деревянную раму. Поставьте его на мольберт, чтобы рисовать.
 ent-ADTCanvasSmall = маленький холст
     .desc = { ent-ADTCanvasBase.desc }
+ent-ADTCanvasPixelSmall = маленький холст для пиксель-арта
+    .desc = Холст 32×32 для пиксель-арта. Поставьте его на мольберт, чтобы рисовать.
+ent-ADTCanvasPixel = холст для пиксель-арта
+    .desc = Холст 64×64 для пиксель-арта. Поставьте его на мольберт, чтобы рисовать.
 ent-ADTCanvasLarge = большой холст
     .desc = { ent-ADTCanvasBase.desc }
 ent-ADTCanvasHuge = огромный холст
@@ -90,7 +94,7 @@ adt-canvas-host-busy = Этот игрок уже хостит другой хо
 adt-canvas-host-received = Теперь вы хост этого холста.
 adt-canvas-revert-nothing = С последнего сохранения ничего не менялось.
 adt-canvas-revert-done = Холст откачен к последнему сохранению.
-adt-canvas-error-ghost = Призраки не могут рисовать.
+adt-canvas-error-ghost = Вы не можете рисовать в таком виде.
 adt-canvas-error-parent = Не удалось продолжить эту картину: нужна своя одобренная работа и чистый холст того же размера.
 adt-canvas-easel-approved = Одобренные работы
 adt-canvas-easel-continue-new = Продолжить как новую
@@ -109,3 +113,8 @@ adt-canvas-rules-text =
     - отсылки к реальным конфликтам и трагическим событиям, к реальным странам, их политике и политикам.
 
     Если сомневаетесь, можно ли такое рисовать, лучше не рисуйте.
+adt-canvas-layer-sync-too-large = Слой {$name} слишком большой и больше не передаётся соавторам.
+adt-canvas-layer-sync-failed = Не удалось передать слой {$name} соавторам.
+adt-canvas-layer-create-full = В сессии уже слишком много слоёв, поэтому слой {$name} пока виден только вам. Он появится у соавторов, когда кто-нибудь удалит свой слой.
+adt-canvas-submit-collecting = Сбор изменений соавторов перед отправкой...
+adt-canvas-session-flushing = {$name} отправляет картину на модерацию, рисование ненадолго заблокировано.

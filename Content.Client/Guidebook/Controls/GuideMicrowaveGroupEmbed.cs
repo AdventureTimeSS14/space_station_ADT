@@ -52,12 +52,18 @@ public sealed partial class GuideMicrowaveGroupEmbed : BoxContainer, IDocumentTa
     {
         var prototypes = _prototype.EnumeratePrototypes<FoodRecipePrototype>()
             .Where(p => p.Group.Equals(group))
-            .OrderBy(p => p.Name);
+            .OrderBy(p => _prototype.TryIndex(p.Result, out var result) ? result.Name : p.ID); // ADT-Tweak
 
         foreach (var recipe in prototypes)
         {
             if (recipe.HideInGuidebook) // Frontier: super secret recipes
                 continue; // Frontier: super secret recipes
+
+            // ADT-Tweak-Start
+            const int activeTypes = (int) (MicrowaveRecipeType.ADTMicrowave | MicrowaveRecipeType.ADTAssembler | MicrowaveRecipeType.MedicalAssembler | MicrowaveRecipeType.TribalOven);
+            if ((recipe.RecipeType & activeTypes) == 0)
+                continue;
+            // ADT-Tweak-End
 
             var embed = new GuideMicrowaveEmbed(recipe);
             AddChild(embed);

@@ -1,10 +1,12 @@
 using Content.Shared.ADT.Lavaland.Components;
 using Content.Shared.Armor;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Lavaland;
 
@@ -47,10 +49,12 @@ public abstract class SharedADTGoliathPlatingSystem : EntitySystem
         foreach (var type in ent.Comp.Types)
         {
             var current = modifiers.Coefficients.GetValueOrDefault(type, 1f);
-            modifiers.Coefficients[type] = MathF.Max(current - ent.Comp.Step, ent.Comp.MinCoefficient);
+            var step = ent.Comp.Steps.GetValueOrDefault(type, ent.Comp.Step);
+            modifiers.Coefficients[type] = MathF.Max(current - step, GetMinCoefficient(ent.Comp, type));
         }
 
         _armor.SetArmorModifiers(ent.Owner, modifiers, armor);
+        OnPlated(ent);
 
         ent.Comp.Plates++;
         Dirty(ent);
@@ -75,6 +79,10 @@ public abstract class SharedADTGoliathPlatingSystem : EntitySystem
     {
     }
 
+    protected virtual void OnPlated(Entity<ADTGoliathPlatableComponent> ent)
+    {
+    }
+
     private static bool IsPlatable(Entity<ADTGoliathPlatableComponent> ent)
     {
         return ent.Comp.Types.Count > 0;
@@ -87,10 +95,15 @@ public abstract class SharedADTGoliathPlatingSystem : EntitySystem
 
         foreach (var type in ent.Comp.Types)
         {
-            if (armor.Modifiers.Coefficients.GetValueOrDefault(type, 1f) > ent.Comp.MinCoefficient)
+            if (armor.Modifiers.Coefficients.GetValueOrDefault(type, 1f) > GetMinCoefficient(ent.Comp, type))
                 return true;
         }
 
         return false;
+    }
+
+    private static float GetMinCoefficient(ADTGoliathPlatableComponent comp, ProtoId<DamageTypePrototype> type)
+    {
+        return comp.MinCoefficients.GetValueOrDefault(type, comp.MinCoefficient);
     }
 }

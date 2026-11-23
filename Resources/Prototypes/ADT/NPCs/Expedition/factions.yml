@@ -1,6 +1,32 @@
 - type: npcFaction
   id: ADTSovietBunker
   hostile:
+  - ADTAshWalker
+  - ADTBlob
+  - ADTMarauders
+  - ADTShadowling
+  - ADTSmugglers
+  - ADTSpaceMobs
+  - Dragon
+  - Heretic
+  - KMT
+  - NanoTrasen
+  - PetsNT
+  - Pirate
+  - Revolutionary
+  - SimpleHostile
+  - SpaceSecFaction
+  - Syndicate
+  - TSF
+  - Ursus
+  - Wizard
+  - Xeno
+  - Xenoborg
+  - Zombie
+
+- type: npcFaction
+  id: ADTSmugglers
+  hostile:
   - NanoTrasen
   - SimpleHostile
   - Xeno
@@ -14,16 +40,27 @@
   - Xenoborg
 
 - type: npcFaction
-  id: ADTSmugglersPirates
+  id: ADTMarauders
+  friendly:
+  - Syndicate
   hostile:
-  - NanoTrasen
-  - SimpleHostile
-  - Xeno
-  - PetsNT
-  - Zombie
-  - Heretic
-  - Ursus
+  - ADTAshWalker
+  - ADTBlob
+  - ADTShadowling
+  - ADTSovietBunker
+  - ADTSpaceMobs
   - Dragon
-  - AllHostile
+  - Heretic
+  - KMT
+  - NanoTrasen
+  - PetsNT
+  - Pirate
+  - Revolutionary
+  - SimpleHostile
+  - SpaceSecFaction
+  - TSF
+  - Ursus
   - Wizard
+  - Xeno
   - Xenoborg
+  - Zombie

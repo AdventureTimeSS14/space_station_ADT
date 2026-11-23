@@ -93,6 +93,7 @@ loadout-group-roboticist-outerclothing = Робототехник, верхня�
 loadout-group-roboticist-gloves = Робототехник, перчатки
 loadout-group-mechanical-assembler-id-adt = Робототехник, ID
 # Security
+loadout-group-security-masks-adt = Служба безопасности, лицо
 loadout-group-sheriff-id-adt = Глава службы безопасности, ID
 loadout-group-senior-officer-jumpsuit = Офицер-инструктор, комбинезон
 loadout-group-senior-officer-backpack = Офицер-инструктор, рюкзак
@@ -151,3 +152,11 @@ loadout-group-ccc-outer-clothing = консультант Центком, вер
 loadout-group-ccc-shoes = консультант Центком, обувь
 loadout-group-ccc-hands = консультант Центком, перчатки
 loadout-group-ccc-socks = консультант Центком, носки
+loadout-group-service-worker-head-adt = Сервисный работник, голова
+loadout-group-musician-head-adt = Музыкант, голова
+loadout-group-medical-doctor-neck-adt = Врач, шея
+
+loadout-group-adt-virologist-jumpsuit = Вирусолог, комбинезон
+loadout-group-adt-virologist-outerclothing = Вирусолог, верхняя одежда
+loadout-group-adt-virologist-backpack = Вирусолог, сумка
+loadout-group-adt-virologist-belt = Вирусолог, пояс

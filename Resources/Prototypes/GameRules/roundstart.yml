@@ -222,7 +222,7 @@
       proto: Traitor
       range:
         min: 1
-        max: 7 # ADT-Tweak
+        max: 8 # ADT-Tweak
 
 - type: entity
   id: TraitorReinforcement # This shouldn't be in here but I'm not sure where to put it :(
@@ -244,45 +244,37 @@
     - !type:FixedAntagCount
       proto: TraitorReinforcement
 
-# ADT: Закомментировано из-за использования генокрада от Goob Station
-# - type: entity
-#   id: Changeling
-#   parent: BaseGameRule
-#   components:
-#   - type: GameRule
-#     minPlayers: 25
-#   - type: AntagSelection
-#     agentName: changeling-round-end-agent-name
-#     selectionTime: IntraPlayerSpawn
-#     definitions:
-#     - prefRoles: [ Changeling ]
-#       max: 3
-#       playerRatio: 15
-#       briefing:
-#         text: changeling-role-greeting
-#         color: Red
-#         sound: /Audio/Ambience/Antag/changeling_start.ogg
-#       components:
-#       - type: ChangelingDevour
-#       - type: ChangelingIdentity
-#       - type: ChangelingTransform
-#       - type: ActionGrant
-#         actions:
-#         - ActionChangelingStore
-#       # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
-#       - type: Store
-#         name: store-preset-name-changeling
-#         categories:
-#         - ChangelingAbilities
-#         currencyWhitelist:
-#         - ChangelingDNA
-#         balance:
-#           ChangelingDNA: 50
-#       mindRoles:
-#       - MindRoleChangeling
-#   - type: AntagObjectives
-#     objectives:
-#     - ChangelingSurviveObjective
+- type: entity
+  id: Changeling
+  parent: [BaseGameRule, BaseRoundstartAntagRule]
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 240
+      max: 420
+    cancelPresetOnTooFewPlayers: false
+  - type: AntagSelection
+    agentName: changeling-round-end-agent-name
+    antags:
+    - !type:LinearAntagCount
+      proto: Changeling
+      playerRatio: 14 # ADT-Tweak
+      range:
+        min: 1
+        max: 6 # ADT-Tweak
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroupDevourDummy
+      maxPicks: 1
+    - groups: ChangelingObjectiveGroupEscapeDummy
+      maxPicks: 1
+    - groups: ChangelingObjectiveGroupKillDummy
+      maxPicks: 1
+    maxDifficulty: 8
+  - type: DynamicRuleCost
+    cost: 75
 
 - type: entity
   id: Revolutionary
@@ -299,13 +291,17 @@
       playerRatio: 15
       range:
         min: 1
-        max: 3
+        max: 4 # ADT-Tweak
     # ADT-Tweak-Start
     - !type:LinearAntagCount
       proto: Rev
       range:
         min: 1
         max: 6
+  - type: RevolutionaryCentComEvents
+    events:
+    - ADTCentComRandomEventRevolution
+    - ADTRevSalaryCutEvent
     # ADT-Tweak-End
   - type: DynamicRuleCost
     cost: 200

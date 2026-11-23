@@ -1,38 +1,32 @@
-using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.DNAGunLocker;
 
-[RegisterComponent]
-[NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DNAGunLockerComponent : Component
 {
-    /// <summary>
-    /// ADT. personableWeapon emagged
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool IsEmagged = false;
+    [DataField, AutoNetworkedField]
+    public bool IsEmagged;
 
-    /// <summary>
-    /// Emag sound effects.
-    /// </summary>
-    [DataField("sparkSound")]
+    [DataField, AutoNetworkedField]
+    public EntityUid? GunOwner;
+
+    [DataField]
+    public int ShockDamage = 10;
+
+    [DataField]
+    public TimeSpan ShockTime = TimeSpan.FromSeconds(3);
+
+    [DataField]
     public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks")
     {
         Params = AudioParams.Default.WithVolume(8),
     };
 
-    [DataField("lockSound")]
+    [DataField]
     public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/ADT/dna-lock.ogg");
 
-    [DataField("electricSound")]
+    [DataField]
     public SoundSpecifier ElectricSound = new SoundPathSpecifier("/Audio/Effects/PowerSink/electric.ogg");
-
-    //ADT TWEAK START
-    /// <summary>
-    /// ADT. personableWeapon field
-    /// </summary>
-    [DataField("gunOwner"), ViewVariables(VVAccess.ReadWrite)]
-    public EntityUid? GunOwner = null;
-    //ADT END
 }

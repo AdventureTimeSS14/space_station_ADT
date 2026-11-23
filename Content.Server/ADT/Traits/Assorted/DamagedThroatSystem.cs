@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Shared.ADT.VoiceOfGod;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -29,6 +30,9 @@ public sealed class DamagedThroatSystem : EntitySystem
     {
         // Don't damage if whispering
         if (args.ObfuscatedMessage != null)
+            return;
+
+        if (HasComp<ADTVoiceOfGodSpeakerComponent>(uid))
             return;
 
         // Don't damage if using excluded language (e.g., sign language)
