@@ -127,7 +127,7 @@
         #  - ADTMegaCell
       # ADT-tweak-end
   - type: EmpContainerProtection
-    multiplier: 1
+    strengthMultiplier: 1
     capEnergyConsumption: true
     capRelativeToMaxCharge: false
     capPercentage: 0.5

@@ -54,12 +54,16 @@ public abstract partial class SharedEmpSystem
             return;
 
         var originalResistance = 1f;
+        var originalDurationMult = 1f;
         bool cap = TryComp<EmpPowerDrainCapComponent>(battery, out var drainCap);
         bool capRelToMax = drainCap != null && drainCap.RelativeToMaxCharge;
         float capPercentage = drainCap != null ? drainCap.CapPercentage : 1;
 
         if (TryComp<EmpResistanceComponent>(battery, out var resistance))
+        {
             originalResistance = resistance.StrengthMultiplier;
+            originalDurationMult = resistance.DurationMultiplier;
+        }
 
         if (ent.Comp.CapEnergyConsumption)
         {
@@ -68,10 +72,12 @@ public abstract partial class SharedEmpSystem
             drainCap.CapPercentage = ent.Comp.CapPercentage;
         }
 
-        var baseBatteryData = new EmpContainerProtectionComponent.BatteryData(originalResistance, cap, capRelToMax, capPercentage);
+        var baseBatteryData = new EmpContainerProtectionComponent.BatteryData(originalResistance, originalDurationMult, cap, capRelToMax, capPercentage);
         ent.Comp.Batteries.TryAdd(battery, baseBatteryData);
 
-        EnsureComp<EmpResistanceComponent>(battery).StrengthMultiplier *= ent.Comp.Multiplier;
+        resistance = EnsureComp<EmpResistanceComponent>(battery);
+        resistance.StrengthMultiplier *= ent.Comp.StrengthMultiplier;
+        resistance.DurationMultiplier *= ent.Comp.DurationMultiplier;
     }
 
     private void StopProtection(Entity<EmpContainerProtectionComponent> ent, EntityUid battery)
@@ -79,10 +85,16 @@ public abstract partial class SharedEmpSystem
         if (!ent.Comp.Batteries.TryGetValue(battery, out var original))
             return;
 
-        if (original.Protection == 1f)
+        if (original.Protection == 1f && original.DurationMult == 1f)
+        {
             RemComp<EmpResistanceComponent>(battery);
+        }
         else
-            EnsureComp<EmpResistanceComponent>(battery).StrengthMultiplier = original.Protection;
+        {
+            var resistance = EnsureComp<EmpResistanceComponent>(battery);
+            resistance.StrengthMultiplier = original.Protection;
+            resistance.DurationMultiplier = original.DurationMult;
+        }
 
         if (!original.CapConsumption)
             RemComp<EmpPowerDrainCapComponent>(battery);

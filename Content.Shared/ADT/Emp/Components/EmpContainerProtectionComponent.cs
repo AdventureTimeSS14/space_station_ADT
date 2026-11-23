@@ -13,7 +13,10 @@ public sealed partial class EmpContainerProtectionComponent : Component
     public string ContainerId = "cell_slot";
 
     [DataField]
-    public float Multiplier = 0f;
+    public float StrengthMultiplier = 0f;
+
+    [DataField]
+    public float DurationMultiplier = 1f;
 
     [DataField]
     public bool CapEnergyConsumption = false;
@@ -27,13 +30,15 @@ public sealed partial class EmpContainerProtectionComponent : Component
     public struct BatteryData
     {
         public float Protection;
+        public float DurationMult;
         public bool CapConsumption;
         public bool CapRelativeToMax;
         public float CapPercentage;
 
-        public BatteryData(float protection, bool cap, bool capType, float capPercentage)
+        public BatteryData(float protection, float durationMult, bool cap, bool capType, float capPercentage)
         {
             Protection = protection;
+            DurationMult = durationMult;
             CapConsumption = cap;
             CapRelativeToMax = capType;
             CapPercentage = capPercentage;
