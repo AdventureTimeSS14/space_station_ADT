@@ -1373,10 +1373,10 @@ ent-ADTImprovisedGuitarInstrumentMar = поцарапанная грейтара
     .desc = Обычная грейтара, покрашенная в фиолетовый цвет, аварийный ящик инструментов заполнен всякой электроникой, на боку выцарапаны символы М.А.Р.
     .suffix = { "Именное, Carneline" }
 
-ent-ADTClothingNeckDesignerOliver28 = плащ проэктировщика
+ent-ADTClothingNeckDesignerOliver28 = плащ проектировщика
     .desc = Плотный, пропитанный порохом и гарью плащ, являющийся свидетельством большого упорства на пути к не менее большой цели. На внутренней стороне плаща имеется вшивной ярлык «Собственность Олифера Рехлера»
     .suffix = { "Спонсорское, Oliver28" }
 
-ent-ClothingHeadHatHoodOliver28 = плащ проэктировщика
+ent-ClothingHeadHatHoodOliver28 = плащ проектировщика
     .desc = { ent-ADTClothingNeckOliver.desc }
     .suffix = { "Спонсорское, Oliver28" }
