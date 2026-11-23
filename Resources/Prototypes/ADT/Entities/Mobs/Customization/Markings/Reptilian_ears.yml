@@ -57,3 +57,17 @@
       state: magus_ears
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: magus_neck
+
+- type: marking
+  id: ADTReptilianAntennaDune
+  bodyPart: HeadTop
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+    state: dune_antenna
+  - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+    state: dune_antenna_marks
+  - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+    state: dune_fullhead_antenna
+  - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+    state: dune_fullhead_antenna_marks

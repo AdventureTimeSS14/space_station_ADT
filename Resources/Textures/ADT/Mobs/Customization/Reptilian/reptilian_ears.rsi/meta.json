@@ -54,6 +54,22 @@
         {
             "name": "sylveon_tertiary",
             "directions": 4
+        },
+        {
+            "name": "dune_antenna",
+            "directions": 4
+        },
+        {
+            "name": "dune_antenna_marks",
+            "directions": 4
+        },
+        {
+            "name": "dune_fullhead_antenna",
+            "directions": 4
+        },
+        {
+            "name": "dune_fullhead_antenna_marks",
+            "directions": 4
         }
     ]
 }
