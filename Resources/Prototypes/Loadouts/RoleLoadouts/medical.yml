@@ -28,6 +28,8 @@
   - Trinkets
  # - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -57,6 +59,8 @@
   - ADTSprayPaints # ADT-Tweak
  # - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -80,6 +84,8 @@
   - ADTSprayPaints # ADT-Tweak
   # - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobChemist
@@ -104,6 +110,8 @@
   - ADTSprayPaints # ADT-Tweak
  # - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
 
 - type: roleLoadout
   id: JobParamedic
@@ -134,3 +142,5 @@
   - ADTSprayPaints # ADT-Tweak
  # - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTPersonalLoadoutCivilian # ADT-Tweak personal
+  - ADTPersonalLoadoutPlushie # ADT-Tweak personal
