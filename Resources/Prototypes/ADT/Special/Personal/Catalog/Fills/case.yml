@@ -417,5 +417,5 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingHandsGlovesCombatOliver28
+        - id: ADTClothingHandsGlovesCombatOliver28
         - id: ADTClothingNeckDesignerOliver28
