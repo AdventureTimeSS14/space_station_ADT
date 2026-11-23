@@ -1,9 +1,11 @@
 # Head
 - type: loadout
   id: SeniorPhysicianBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # ADT-Tweak start
+  # effects:
+  # - !type:GroupLoadoutEffect
+  #  proto: SeniorPhysician
+  # ADT-Tweak end
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
 
@@ -53,17 +55,21 @@
 
 - type: loadout
   id: SeniorPhysicianJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # ADT-Tweak start
+  # effects:
+  # - !type:GroupLoadoutEffect
+  #  proto: SeniorPhysician
+  # ADT-Tweak end
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
 
 - type: loadout
   id: SeniorPhysicianJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # ADT-Tweak start
+  # effects:
+  # - !type:GroupLoadoutEffect
+  #  proto: SeniorPhysician
+  # ADT-Tweak end
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
 
