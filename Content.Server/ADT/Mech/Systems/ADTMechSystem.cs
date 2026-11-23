@@ -166,7 +166,7 @@ public sealed class ADTMechSystem : SharedADTMechSystem
 
         if (TryComp<EmpPowerDrainCapComponent>(ent.Owner, out var cap))
         {
-            drain = MathF.Min((float)drain, cap.RelativeToMaxCharge ? (float)mech.MaxEnergy : (float)mech.Energy) * cap.CapPercentage;
+            drain = MathF.Min((float)drain, (cap.RelativeToMaxCharge ? (float)mech.MaxEnergy : (float)mech.Energy) * cap.CapPercentage);
         }
 
         _mech.TryChangeEnergy(ent, -drain, mech);
