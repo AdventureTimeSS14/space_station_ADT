@@ -91,8 +91,7 @@ marking-TailShark-shark_tail-shark_tail = Хвост
 marking-TailSnake = Унатх, хвост (Змея)
 marking-TailSnake-snake = Хвост
 marking-TailDune = Унатх, хвост (Дюна)
-marking-TailDune-dune_tail = Хвост
-marking-TailDune-dune_tail_wagging_fulff = Хвост
+marking-TailDune-dune_tail_wagging_fluff = Хвост
 
 # Морды
 marking-SnoutEasternDW = Унатх, морда (Восточный дракон 1)
@@ -108,7 +107,6 @@ marking-ADTFangs-Fangs = Клыки
 marking-ADTReptilianFullheadDune = Унатх, воротник (Дюна)
 marking-ADTReptilianFullheadDune-dune_fullhead = Воротник
 marking-ADTReptilianFullheadDune-dune_fullhead_frills = Пушистый воротник
-
 
 # Торс
 marking-ADTReptilianBodyfluffDune = Унатх, торс (Дюна)
@@ -154,6 +152,6 @@ marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
 marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг
 marking-ADTReptilianAntennaDune = Унатх, уши (Дюна)
 marking-ADTReptilianAntennaDune-dune_antenna = Антенны
-marking-ADTReptilianAntennaDune-dune_antenna_marking = Антенны с отметкой
-marking-ADTReptilianAntennaDune-dune_fullhead_antenna = Полноразмерные антенны
-marking-ADTReptilianAntennaDune-dune_fullhead_antenna_marking = Полноразмерные антенны с отметкой
+marking-ADTReptilianAntennaDune-dune_antenna_marking = Узор антенн
+marking-ADTReptilianAntennaDune-dune_fullhead_antenna = Большие антенны
+marking-ADTReptilianAntennaDune-dune_fullhead_antenna_marking = Узор больших антенн

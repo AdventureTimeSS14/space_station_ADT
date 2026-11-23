@@ -76,10 +76,6 @@
             "directions": 4
         },
         {
-            "name": "dune_tail",
-            "directions": 4
-        },
-        {
             "name": "dune_tail_wagging_fluff",
             "directions": 4,
             "delays": [
