@@ -17891,3 +17891,11 @@ Entries:
     id: 2143
     pr_number: 3719
     time: '2026-11-21T13:17:02Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Медицинские роли теперь имеют именные и расовые предметы в лоадауте,
+        type: Fix}
+      - {message: Для одежды ВВ теперь не требуется время, type: Fix}
+    id: 2144
+    pr_number: 3727
+    time: '2026-11-23T12:19:55Z'
