@@ -232,7 +232,7 @@
 #Oliver28
 - type: entity
   parent: ClothingHandsGlovesColorBlack
-  id: ClothingHandsGlovesCombatOliver28
+  id: ADTClothingHandsGlovesCombatOliver28
   name: worn combat gloves
   description: Their protective properties have deteriorated over time, but they still protect the wearer from electric shock just as well.
   suffix: Sponsor, Oliver28, only for an engineer
