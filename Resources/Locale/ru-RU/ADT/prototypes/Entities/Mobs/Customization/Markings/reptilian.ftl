@@ -104,9 +104,10 @@ marking-ADTFangs = Клыки унатха
 marking-ADTFangs-Fangs = Клыки
 
 # Воротник
-marking-ADTReptilianFullheadDune = Унатх, воротник (Дюна)
+marking-ADTReptilianFullheadDune = Унатх, воротник с антеннами (Дюна)
 marking-ADTReptilianFullheadDune-dune_fullhead = Воротник
-marking-ADTReptilianFullheadDune-dune_fullhead_frills = Пушистый воротник
+marking-ADTReptilianFullgeadFrillsDune = Унатх, воротник без антенн (Дюна)
+marking-ADTReptilianFullheadDune-dune_fullhead_frills = Воротник
 
 # Торс
 marking-ADTReptilianBodyfluffDune = Унатх, торс (Дюна)
@@ -150,8 +151,11 @@ marking-ADTLizardSnoutpiercings = Пирсинг
 marking-ADTLizardHornsKoboldEarspiercings = Унатх, уши (Проколотые)
 marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
 marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг
-marking-ADTReptilianAntennaDune = Унатх, уши (Дюна)
+marking-ADTReptilianAntennaDune = Унатх, антенны (Дюна)
 marking-ADTReptilianAntennaDune-dune_antenna = Антенны
-marking-ADTReptilianAntennaDune-dune_antenna_marking = Узор антенн
-marking-ADTReptilianAntennaDune-dune_fullhead_antenna = Большие антенны
-marking-ADTReptilianAntennaDune-dune_fullhead_antenna_marking = Узор больших антенн
+marking-ADTReptilianAntennaMarksDune = Унатх, антенны с метками (Дюна)
+marking-ADTReptilianAntennaMarksDune-dune_antenna_marking = Антенны
+marking-ADTReptilianAntennaFullheadnDune = Унатх, большие антенны (Дюна)
+marking-ADTReptilianAntennaFullheadDune-dune_fullhead_antenna = Антенны
+marking-ADTReptilianAntennaFullheadMarksDune = Унатх, большие антенны с метками (Дюна)
+marking-ADTReptilianAntennaFullheadMarksDune-dune_fullhead_antenna_marking = Антенны

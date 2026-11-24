@@ -65,9 +65,27 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
     state: dune_antenna
+
+- type: marking
+  id: ADTReptilianAntennaMarksDune
+  bodyPart: HeadTop
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
     state: dune_antenna_marks
+
+- type: marking
+  id: ADTReptilianFullheadAntennaDune
+  bodyPart: HeadTop
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
     state: dune_fullhead_antenna
+
+- type: marking
+  id: ADTReptilianFullheadAntennaMarksDune
+  bodyPart: HeadTop
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
     state: dune_fullhead_antenna_marks
