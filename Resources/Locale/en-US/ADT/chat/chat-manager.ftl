@@ -1,0 +1,1 @@
+chat-manager-entity-say-unknown-wrap-message = [BubbleHeader]Someone[/BubbleHeader] says, [font={$fontType} size={$fontSize}]{ chat-manager-speech-double-quote-begin }[BubbleContent]{$message}[/BubbleContent]{ chat-manager-speech-double-quote-end }[/font]
