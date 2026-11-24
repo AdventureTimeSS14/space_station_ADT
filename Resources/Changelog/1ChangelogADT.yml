@@ -17909,3 +17909,9 @@ Entries:
     id: 2145
     pr_number: 3720
     time: '2026-11-24T17:55:44Z'
+  - author: Archeron
+    changes:
+      - {message: Частично изменено расположение некоторых черт персонажа, type: Tweak}
+    id: 2146
+    pr_number: 3722
+    time: '2026-11-24T17:59:01Z'
