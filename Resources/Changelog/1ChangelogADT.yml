@@ -17915,3 +17915,13 @@ Entries:
     id: 2146
     pr_number: 3722
     time: '2026-11-24T17:59:01Z'
+  - author: Ebstral
+    changes:
+      - {message: что добавили, type: Add}
+      - {message: что убрали, type: Remove}
+      - {message: что подправили, type: Tweak}
+      - {message: что исправили, type: Fix}
+      - {message: Исправлены ссылки в новом гайдбуке., type: Fix}
+    id: 2147
+    pr_number: 3728
+    time: '2026-11-24T21:08:45Z'
