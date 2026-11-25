@@ -91,7 +91,8 @@ marking-TailShark-shark_tail-shark_tail = Хвост
 marking-TailSnake = Унатх, хвост (Змея)
 marking-TailSnake-snake = Хвост
 marking-TailDune = Унатх, хвост (Дюна)
-marking-TailDune-dune_tail_wagging_fluff = Хвост
+marking-TailDune-dune_tail = Хвост
+marking-TailDune-dune_tail_fluff = Хитин
 
 # Морды
 marking-SnoutEasternDW = Унатх, морда (Восточный дракон 1)
