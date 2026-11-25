@@ -97,3 +97,5 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: dune_tail_wagging
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: dune_tail_fluff_wagging
