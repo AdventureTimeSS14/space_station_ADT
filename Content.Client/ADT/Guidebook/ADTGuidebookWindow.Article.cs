@@ -193,7 +193,11 @@ public sealed partial class ADTGuidebookWindow
             if (representation.RepresentedPrototype != prototype || representation is not Control control)
                 continue;
 
-            FilterBar.Clear();
+            if (!control.Visible)
+                control.Visible = true;
+
+            if (control is ADTLazySlot slot)
+                slot.Materialize();
             ScrollTo(control);
             return;
         }
