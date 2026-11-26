@@ -65,3 +65,67 @@
       state: easterndw_primary
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
       state: easterndnw_secondary
+
+- type: marking
+  id: ADTReptilianEyesDune
+  bodyPart: Eyes
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_eyes
+
+- type: marking
+  id: ADTReptilianBodyfluffDune
+  bodyPart: Chest
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_bodyfluff
+
+- type: marking
+  id: ADTReptilianFullheadDune
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_fullhead
+
+- type: marking
+  id: ADTReptilianFullgeadFrillsDune
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_fullhead_frills
+
+- type: marking
+  id: ADTReptilianLefLeftDune
+  bodyPart: LLeg
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_leg_left
+
+- type: marking
+  id: ADTReptilianLegRightDune
+  bodyPart: RLeg
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_leg_right
+
+- type: marking
+  id: ADTReptilianArmLeftDune
+  bodyPart: LArm
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_arm_left
+
+- type: marking
+  id: ADTReptilianArmRightDune
+  bodyPart: RArm
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: dune_arm_right
