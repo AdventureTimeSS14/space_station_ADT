@@ -54,7 +54,7 @@
   id: ADTFloorTileItemDarkPlasticMono
   components:
   - type: Sprite
-    state: black-plastic-mono
+    state: dark-plastic-mono
   - type: Item
     heldPrefix: black
   - type: FloorTile
