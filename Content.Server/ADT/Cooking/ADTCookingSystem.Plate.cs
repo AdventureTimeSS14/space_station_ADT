@@ -62,13 +62,65 @@ public sealed partial class ADTCookingSystem
 
         args.Handled = true;
 
-        if (ent.Comp.Contents.ContainedEntities.Count >= ent.Comp.MaxItems)
+        if (!CanPlaceOnPlate(ent, args.Used))
         {
             _popup.PopupEntity(Loc.GetString("adt-plate-full"), ent, args.User);
             return;
         }
 
         Container.Insert(args.Used, ent.Comp.Contents);
+    }
+
+    private bool CanPlaceOnPlate(Entity<ADTPlateComponent> plate, EntityUid item)
+    {
+        if (CanFitOnPlate(plate, item))
+            return true;
+
+        if (plate.Comp.Contents.ContainedEntities.Count >= plate.Comp.MaxItems)
+            return false;
+
+        var items = new List<EntityUid>(plate.Comp.Contents.ContainedEntities) { item };
+        foreach (var recipe in _proto.EnumeratePrototypes<ADTCookingRecipePrototype>())
+        {
+            if (recipe.Cookware == ADTCookwareType.Plate && FitsIngredients(items, recipe.Ingredients))
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool FitsIngredients(List<EntityUid> items, List<ADTCookingIngredient> ingredients)
+    {
+        var left = new int[ingredients.Count];
+        for (var i = 0; i < ingredients.Count; i++)
+        {
+            left[i] = ingredients[i].Count;
+        }
+
+        foreach (var item in items)
+        {
+            var proto = MetaData(item).EntityPrototype?.ID;
+            var slot = -1;
+
+            for (var i = 0; i < ingredients.Count && slot < 0; i++)
+            {
+                if (left[i] > 0 && ingredients[i].Id is { } id && id.Id == proto)
+                    slot = i;
+            }
+
+            for (var i = 0; i < ingredients.Count && slot < 0; i++)
+            {
+                if (left[i] > 0 && ingredients[i].Id == null && ingredients[i].Tag is { } tag && _tag.HasTag(item, tag))
+                    slot = i;
+            }
+
+            if (slot < 0)
+                return false;
+
+            left[slot]--;
+        }
+
+        return true;
     }
 
     private bool IsPlateRecipeIngredient(EntityUid item)
@@ -117,8 +169,8 @@ public sealed partial class ADTCookingSystem
         var moved = 0;
         foreach (var item in new List<EntityUid>(cookware.Comp.Contents.ContainedEntities))
         {
-            if (plate.Comp.Contents.ContainedEntities.Count >= plate.Comp.MaxItems)
-                break;
+            if (!CanPlaceOnPlate(plate, item))
+                continue;
 
             if (Container.Insert(item, plate.Comp.Contents))
                 moved++;

@@ -53,6 +53,7 @@
   - type: ADTPlate
     layout: ADTPlateLarge
     maxItems: 10
+    maxWeight: 10
   - type: ContainerContainer
     containers:
       adt_plate: !type:Container
@@ -112,6 +113,7 @@
   - type: ADTPlate
     layout: ADTPlateSmall
     maxItems: 2
+    maxWeight: 2
   - type: ContainerContainer
     containers:
       adt_plate: !type:Container
@@ -163,6 +165,7 @@
   - type: ADTPlate
     layout: ADTPlateLarge
     maxItems: 10
+    maxWeight: 10
   - type: ContainerContainer
     containers:
       adt_plate: !type:Container
@@ -191,6 +194,7 @@
   - type: ADTPlate
     layout: ADTPlateSmall
     maxItems: 2
+    maxWeight: 2
   - type: ContainerContainer
     containers:
       adt_plate: !type:Container

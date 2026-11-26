@@ -172,25 +172,49 @@ namespace Content.IntegrationTests.Tests
                 .Select(p => p.ID)
                 .ToList();
 
-            await server.WaitPost(() =>
-            {
-                foreach (var protoId in protoIds)
-                {
-                    mapSys.CreateMap(out var mapId);
-                    var grid = mapSys.CreateGridEntity(mapId);
-                    var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
-                    foreach (var (_, component) in sEntMan.GetNetComponents(ent))
-                    {
-                        sEntMan.Dirty(ent, component);
-                    }
-                }
-            });
+            // ADT-Tweak start
+            const int batchSize = 250;
+            var cEntMan = client.ResolveDependency<IEntityManager>();
+            var clientReceived = 0;
+            var batchMaps = new List<MapId>(batchSize);
 
-            await pair.RunUntilSynced();
+            foreach (var batch in protoIds.Chunk(batchSize))
+            {
+                await server.WaitPost(() =>
+                {
+                    foreach (var protoId in batch)
+                    {
+                        mapSys.CreateMap(out var mapId);
+                        batchMaps.Add(mapId);
+                        var grid = mapSys.CreateGridEntity(mapId);
+                        var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
+                        foreach (var (_, component) in sEntMan.GetNetComponents(ent))
+                        {
+                            sEntMan.Dirty(ent, component);
+                        }
+                    }
+                });
+
+                await pair.RunUntilSynced();
+                clientReceived += cEntMan.EntityCount;
+
+                await server.WaitPost(() =>
+                {
+                    foreach (var mapId in batchMaps)
+                    {
+                        if (mapSys.MapExists(mapId))
+                            mapSys.DeleteMap(mapId);
+                    }
+                });
+                batchMaps.Clear();
+
+                await pair.RunUntilSynced();
+            }
 
             // Make sure the client actually received the entities
             // 500 is completely arbitrary. Note that the client & sever entity counts aren't expected to match.
-            Assert.That(client.ResolveDependency<IEntityManager>().EntityCount, Is.GreaterThan(500));
+            Assert.That(clientReceived, Is.GreaterThan(500));
+            // ADT-Tweak end
 
             await server.WaitPost(() =>
             {

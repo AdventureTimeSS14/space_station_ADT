@@ -45,6 +45,33 @@ public sealed class CanvasMember
     public bool CanDraw => Role != CanvasRole.Viewer;
 }
 
+public sealed class CanvasSessionLayer
+{
+    public readonly byte Id;
+    public readonly NetUserId Owner;
+    public readonly int LocalId;
+    public readonly CanvasSessionTile[] Tiles;
+    public string Name;
+    public float Opacity;
+    public bool Visible;
+
+    public CanvasSessionLayer(byte id, NetUserId owner, int localId, int tileCount, string name, float opacity, bool visible)
+    {
+        Id = id;
+        Owner = owner;
+        LocalId = localId;
+        Tiles = new CanvasSessionTile[tileCount];
+        Name = name;
+        Opacity = opacity;
+        Visible = visible;
+    }
+
+    public CanvasLayerInfo Info()
+    {
+        return new CanvasLayerInfo(Id, Owner, LocalId, Name, Opacity, Visible);
+    }
+}
+
 public sealed class CanvasJoinRequest
 {
     public readonly bool Invite;
@@ -72,6 +99,7 @@ public sealed class CanvasSession
     public readonly Dictionary<NetUserId, CanvasMember> Members = new();
     public readonly Dictionary<NetUserId, CanvasJoinRequest> Requests = new();
     public readonly Dictionary<NetUserId, int> Contributions = new();
+    public readonly List<CanvasSessionLayer> Layers = new();
     public CanvasTileContent[] SavedTiles;
 
     public EntityUid Easel;
@@ -86,6 +114,12 @@ public sealed class CanvasSession
     public bool Closed;
     public bool Submitting;
     public byte NextIndex;
+    public byte NextLayerId = 1;
+    public uint FlushId;
+    public uint FlushRequest;
+    public uint NextFlushId = 1;
+    public TimeSpan FlushDeadline;
+    public readonly HashSet<NetUserId> FlushWaiting = new();
 
     public CanvasSession(Guid paintingUid, int width, int height)
     {
@@ -117,6 +151,74 @@ public sealed class CanvasSession
         return Members.TryGetValue(user, out var member) && member.CanDraw;
     }
 
+    public bool CanCommit(NetUserId user, byte layer)
+    {
+        if (!CanCommit(user))
+            return false;
+
+        return layer == CanvasConstants.BaseLayer || FindLayer(layer)?.Owner == user;
+    }
+
+    public CanvasSessionLayer? FindLayer(byte id)
+    {
+        foreach (var layer in Layers)
+        {
+            if (layer.Id == id)
+                return layer;
+        }
+
+        return null;
+    }
+
+    public CanvasSessionLayer? FindLayer(NetUserId owner, int localId)
+    {
+        foreach (var layer in Layers)
+        {
+            if (layer.Owner == owner && layer.LocalId == localId)
+                return layer;
+        }
+
+        return null;
+    }
+
+    public int LayerCount(NetUserId owner)
+    {
+        var count = 0;
+        foreach (var layer in Layers)
+        {
+            if (layer.Owner == owner)
+                count++;
+        }
+
+        return count;
+    }
+
+    public bool TryAllocateLayerId(out byte id)
+    {
+        for (var attempt = 0; attempt < byte.MaxValue; attempt++)
+        {
+            id = NextLayerId;
+            NextLayerId = NextLayerId >= byte.MaxValue - 1 ? (byte) 1 : (byte) (NextLayerId + 1);
+
+            if (FindLayer(id) == null)
+                return true;
+        }
+
+        id = CanvasConstants.BaseLayer;
+        return false;
+    }
+
+    public List<CanvasLayerInfo> LayerInfos()
+    {
+        var result = new List<CanvasLayerInfo>(Layers.Count);
+        foreach (var layer in Layers)
+        {
+            result.Add(layer.Info());
+        }
+
+        return result;
+    }
+
     public bool TryAllocateIndex(out byte index)
     {
         for (var attempt = 0; attempt < CanvasConstants.NoAuthor; attempt++)
@@ -145,16 +247,31 @@ public sealed class CanvasSession
     public bool TryGetIndex(CanvasTileKey key, out int index)
     {
         index = -1;
-        if (key.Layer != 0 || key.X >= TilesX || key.Y >= TilesY)
+        if (key.X >= TilesX || key.Y >= TilesY)
             return false;
 
         index = key.Y * TilesX + key.X;
         return true;
     }
 
-    public CanvasTileKey KeyOf(int index)
+    public CanvasSessionTile[]? TilesOf(byte layer)
     {
-        return new CanvasTileKey(0, (ushort) (index % TilesX), (ushort) (index / TilesX));
+        return layer == CanvasConstants.BaseLayer ? Tiles : FindLayer(layer)?.Tiles;
+    }
+
+    public bool TryGetTiles(CanvasTileKey key, out CanvasSessionTile[] tiles, out int index)
+    {
+        tiles = Array.Empty<CanvasSessionTile>();
+        if (!TryGetIndex(key, out index) || TilesOf(key.Layer) is not { } found)
+            return false;
+
+        tiles = found;
+        return true;
+    }
+
+    public CanvasTileKey KeyOf(int index, byte layer = CanvasConstants.BaseLayer)
+    {
+        return new CanvasTileKey(layer, (ushort) (index % TilesX), (ushort) (index / TilesX));
     }
 
     public Vector2i TileSize(int index)
@@ -164,10 +281,32 @@ public sealed class CanvasSession
             CanvasConstants.TileExtent(Height, index / TilesX));
     }
 
-    public long ReferencedBytes()
+    public long BytesAfterReplace(byte layer, int index, CanvasHash hash, int length)
+    {
+        var hashes = new HashSet<CanvasHash>();
+        if (layer == CanvasConstants.BaseLayer)
+        {
+            AddHashes(hashes, Tiles, index);
+        }
+        else
+        {
+            foreach (var other in Layers)
+            {
+                AddHashes(hashes, other.Tiles, other.Id == layer ? index : -1);
+            }
+        }
+
+        var total = BytesOf(hashes);
+        if (!hashes.Contains(hash))
+            total += length;
+
+        return total;
+    }
+
+    private long BytesOf(HashSet<CanvasHash> hashes)
     {
         long total = 0;
-        foreach (var hash in ReferencedHashes())
+        foreach (var hash in hashes)
         {
             if (Blobs.TryGetValue(hash, out var data))
                 total += data.Length;
@@ -176,16 +315,31 @@ public sealed class CanvasSession
         return total;
     }
 
-    public HashSet<CanvasHash> ReferencedHashes()
+    public HashSet<CanvasHash> BaseHashes()
     {
         var result = new HashSet<CanvasHash>();
-        foreach (var tile in Tiles)
+        AddHashes(result, Tiles);
+        return result;
+    }
+
+    public HashSet<CanvasHash> ReferencedHashes()
+    {
+        var result = BaseHashes();
+        foreach (var layer in Layers)
         {
-            if (tile.Content.Kind == CanvasTileKind.Blob)
-                result.Add(tile.Content.Hash);
+            AddHashes(result, layer.Tiles);
         }
 
         return result;
+    }
+
+    private static void AddHashes(HashSet<CanvasHash> result, CanvasSessionTile[] tiles, int skip = -1)
+    {
+        for (var i = 0; i < tiles.Length; i++)
+        {
+            if (i != skip && tiles[i].Content.Kind == CanvasTileKind.Blob)
+                result.Add(tiles[i].Content.Hash);
+        }
     }
 
     public void DropUnreferencedBlobs()

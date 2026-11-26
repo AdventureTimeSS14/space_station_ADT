@@ -1,11 +1,10 @@
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.ADT.Weapons.Medbeam;
 using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
-using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Components;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Mech.EntitySystems;
@@ -13,7 +12,7 @@ namespace Content.Shared.Mech.EntitySystems;
 public abstract partial class SharedMechToolSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedADTMechSystem _adtMech = default!;
     [Dependency] private SharedMechSystem _mech = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
 
@@ -67,7 +66,7 @@ public abstract partial class SharedMechToolSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var owner = CompOrNull<MechEquipmentComponent>(uid)?.EquipmentOwner;
+        var owner = _adtMech.GetEquipmentMech(uid);
 
         if (owner != args.User || !TryComp<MechComponent>(owner, out var mech))
         {
@@ -87,7 +86,6 @@ public abstract partial class SharedMechToolSystem : EntitySystem
             return;
         }
 
-        if (_net.IsServer)
-            _mech.TryChangeEnergy(owner.Value, -comp.EnergyCost, mech);
+        _mech.TryChangeEnergy(owner.Value, -comp.EnergyCost, mech);
     }
 }

@@ -1,0 +1,165 @@
+# SPDX-FileCopyrightText: 2021-2026 Corvax
+# SPDX-FileCopyrightText: 2024-2026 Wega Team
+# SPDX-FileCopyrightText: 2026 Adventure Time SS14 contributors
+#
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Ported from Wega (https://github.com/wega-team/ss14-wega).
+# Modified by Adventure Time SS14 in 2026
+
+- type: entity
+  parent: MobBat
+  id: MobBats
+  name: bats
+  description: "A pack of bats, controlled by the will of a vampire. They swarm around, attacking enemies and draining blood."
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - sprite: ADT/Vampire/Mobs/Animals/bats.rsi
+      state: bats
+      map: ["enum.DamageStateVisualLayers.Base"]
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bats
+      Dead:
+        Base: bats_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 10
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 150
+  - type: ActionGrant
+    actions:
+    - ActionVampireResonantShriek
+  - type: LeechMeleeWeapon
+    healGroups:
+      groups:
+        Brute: -1
+        Burn: -1
+        Airloss: -1
+        Toxin: -1
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 13
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 500
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Vampire
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - StunImmune
+
+- type: entity
+  parent:
+  - BaseSimpleMob
+  - MobCombat
+  - MobBloodstream
+  - MobFlammable
+  - BaseMobAnimal
+  id: MobHellHound
+  name: hound
+  description: "A terrifying dog from the underworld, summoned by a vampire. Its claws and teeth can tear through even steel."
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - sprite: ADT/Vampire/Mobs/Animals/hellhound.rsi
+      state: hellhound
+      map: ["enum.DamageStateVisualLayers.Base"]
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hellhound
+      Dead:
+        Base: hellhound_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 4.5
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
+  - type: ActionGrant
+    actions:
+    - ActionVampireLungeFinale
+  - type: LeechMeleeWeapon
+    healGroups:
+      groups:
+        Brute: -1
+        Burn: -1
+        Airloss: -1
+        Toxin: -1
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 15
+        Structural: 80
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      140: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 500
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
+  - type: Climbing
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Vampire
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - StunImmune
+  - type: MobPrice
+    price: 1000
+  - type: Perishable

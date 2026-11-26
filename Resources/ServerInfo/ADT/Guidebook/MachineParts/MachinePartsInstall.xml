@@ -332,7 +332,7 @@
 ### Двигатели шаттла
 
 <Box>
-<GuideEntityEmbed Entity="ADTBigThruster"/>
+<GuideEntityEmbed Entity="ADTThrusterBig"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="MicroServoStockPart"/>

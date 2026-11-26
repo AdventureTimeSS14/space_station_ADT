@@ -138,9 +138,9 @@ public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem
         }
 
         // ADT-Tweak-Start
-        if (TryComp(entity, out TTSComponent? tts))
+        if (prototype.VoicePrototypeId is { } voice && TryComp(entity, out TTSComponent? tts))
         {
-            tts.VoicePrototypeId = prototype.VoicePrototypeId;
+            tts.VoicePrototypeId = voice;
         }
         // ADT-Tweak-End
 

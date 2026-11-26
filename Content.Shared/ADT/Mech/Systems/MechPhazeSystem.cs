@@ -30,6 +30,8 @@ public sealed class MechPhazeSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
+        args.Handled = true;
         TogglePhaze(uid);
     }
     private void OnEjectPilotEvent(EntityUid uid, MechPhazeComponent comp, MechEjectPilotEvent args)
@@ -51,8 +53,8 @@ public sealed class MechPhazeSystem : EntitySystem
             var collisionGroup = comp.Phazed ? CollisionGroup.MidImpassable : CollisionGroup.GhostImpassable;
             _physics.SetCollisionMask(uid, fixture.Key, fixture.Value, (int)collisionGroup, fixtures);
             comp.Phazed = !comp.Phazed;
-            if (_netMan.IsServer)
-                _appearance.SetData(uid, MechPhazingVisuals.Phazing, comp.Phazed);
+            Dirty(uid, comp);
+            _appearance.SetData(uid, MechPhazingVisuals.Phazing, comp.Phazed);
         }
     }
 
@@ -74,11 +76,10 @@ public sealed class MechPhazeSystem : EntitySystem
                 continue;
             phaze.Accumulator = 0f;
 
-            if (TryComp<MechComponent>(uid, out var mech))
+            if (TryComp<MechComponent>(uid, out var mech) &&
+                (!_mech.TryChangeEnergy(uid, phaze.EnergyDelta, mech) || mech.Energy <= 0))
             {
-                _mech.TryChangeEnergy(uid, phaze.EnergyDelta);
-                if (mech.Energy <= 0)
-                    TogglePhaze(uid);
+                TogglePhaze(uid);
             }
         }
     }

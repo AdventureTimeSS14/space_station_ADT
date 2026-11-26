@@ -6,6 +6,6 @@
 
 <GuideADTCookingGroupEmbed Group="Savory"/>
 
-<GuideMicrowaveGroupEmbed Group="Savory"/>
+<GuideADTMicrowaveGroupEmbed Group="Savory"/>
 
 </Document>

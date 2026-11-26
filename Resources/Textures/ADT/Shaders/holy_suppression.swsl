@@ -1,0 +1,21 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float Intensity;
+
+const highp vec3 lumaWeights = vec3(0.299, 0.587, 0.114);
+const highp vec3 holyTint = vec3(1.0, 0.95, 0.8);
+
+void fragment()
+{
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp float strength = clamp(Intensity, 0.0, 1.0);
+
+    highp float luma = dot(color.rgb, lumaWeights);
+    color.rgb = mix(color.rgb, vec3(luma), strength * 0.5);
+    color.rgb = mix(color.rgb, color.rgb * holyTint + vec3(0.06, 0.05, 0.02), strength * 0.6);
+
+    highp float dist = distance(UV, vec2(0.5, 0.5));
+    highp float glow = smoothstep(0.35, 0.85, dist) * strength;
+    color.rgb = mix(color.rgb, vec3(1.0, 0.97, 0.85), glow * 0.45);
+
+    COLOR = vec4(clamp(color.rgb, 0.0, 1.0), color.a);
+}

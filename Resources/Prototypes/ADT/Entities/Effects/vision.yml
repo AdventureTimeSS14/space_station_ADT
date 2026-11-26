@@ -78,3 +78,44 @@
     softness: 16
     falloff: 4.2
     castShadows: true
+
+- type: entity
+  id: ADTEffectNightVisionVampire
+  categories: [ HideSpawnMenu ]
+  name: night vision vampire
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.4
+    radius: 8
+    softness: 24
+    falloff: 4.5
+    castShadows: true
+
+- type: entity
+  parent: ADTEffectNightVisionVampire
+  id: ADTEffectNightVisionVampireStrong
+  categories: [ HideSpawnMenu ]
+  name: night vision vampire strong
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.45
+    radius: 12
+    softness: 24
+    falloff: 4.5
+    castShadows: true
+
+- type: entity
+  parent: ADTEffectNightVisionVampire
+  id: ADTEffectNightVisionVampireSupreme
+  categories: [ HideSpawnMenu ]
+  name: night vision vampire supreme
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.5
+    radius: 15
+    softness: 24
+    falloff: 4.5
+    castShadows: true

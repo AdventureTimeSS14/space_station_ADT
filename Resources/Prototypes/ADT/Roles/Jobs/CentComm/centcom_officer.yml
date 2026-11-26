@@ -1,0 +1,46 @@
+- type: job
+  id: ADTCentcomOfficer
+  name: job-name-ADTCentcomOfficer
+  description: job-description-ADTCentcomOfficer
+  playTimeTracker: JobADTCentcomOfficer
+  setPreference: false
+  startingGear: ADTCentcomOfficerGear
+  icon: "JobIconADTCentcomOfficer"
+  supervisors: job-supervisors-centcom # Corvax-JobSupervisors
+  accessGroups:
+  - AllAccess
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ADTCentcomOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ADTClothingModsuitBackCentcom
+    shoes: ClothingShoesBootsCombatFilled
+    head: ADTClothingHeadHelmetCentcomOfficer
+    mask: ADTClothingCentcomSwatMask
+    neck: ADTClothingCentralCommandShoulder
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingCentcomOfficerArmor
+    id: ADTCentcomOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityLightbatonFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponEnergyMagnum
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksCentcom
+  storage:
+    back:
+    - Flash #ADT-CustomADTLoadout
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
+    - BoxFolderCentComClipboardThreePapers
+    - RubberStampCentcom
+    - BoxFolderCentCom
+    - ClothingHandsKnuckleDustersStun
+    - BoxHandcuff
+    - ADTBaseUplinkBOBERT

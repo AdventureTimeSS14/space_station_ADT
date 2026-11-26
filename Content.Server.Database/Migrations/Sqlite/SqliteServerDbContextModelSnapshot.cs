@@ -436,6 +436,30 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtMapRotation", b =>
+                {
+                    b.Property<string>("Server")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("server");
+
+                    b.Property<string>("MapId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("map_id");
+
+                    b.Property<double>("BonusPerPlayer")
+                        .HasColumnType("REAL")
+                        .HasColumnName("bonus_per_player");
+
+                    b.Property<DateTime?>("LastPlayed")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_played");
+
+                    b.HasKey("Server", "MapId")
+                        .HasName("PK_adt_map_rotation");
+
+                    b.ToTable("adt_map_rotation", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdtPainting", b =>
                 {
                     b.Property<int>("PaintingId")

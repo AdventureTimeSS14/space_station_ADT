@@ -16,6 +16,12 @@ public static class CanvasConstants
     public const int MaxBlobRequest = 64;
     public const int MaxTiles = MaxSide / TileSize * (MaxSide / TileSize);
 
+    public const byte BaseLayer = 0;
+    public const int MaxLayersPerMember = 8;
+    public const int MaxSessionLayers = 32;
+    public const int MaxLayerNameLength = 32;
+    public const int MaxManifestTiles = MaxTiles * (MaxSessionLayers + 1);
+
     public const int ThumbSide = 256;
     public const int MaxTitleLength = 64;
     public const int MaxDescriptionLength = 256;

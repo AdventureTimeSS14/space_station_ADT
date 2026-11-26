@@ -232,28 +232,6 @@
   suffix: Personal, AroJan
   description: "No"
 
-- type: entity
-  parent: ClothingMaskNeckGaiter
-  id: ADTClothingMaskNeckGaiterModShinoba
-  name: modified neck gaiter
-  description: Breathable gaiters — what more could you ask for?
-  suffix: sponsor, shinoba
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/neckgaiter.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/neckgaiter.rsi
-  - type: IdentityBlocker
-    coverage: MOUTH
-  - type: BreathMask
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-
 # Darkiich
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -277,3 +255,31 @@
   components:
   - type: Sprite
     sprite: ADT/Special/Personal/niksan_cloak.rsi
+
+#IronLotus
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckCloakIronLotus
+  name: плащ "Железный лотус"
+  description: Прочный плащ огненных тонов, обрамлённый золотыми нитями. Голову прикрывает белый мех. Создан из специального материала, устойчивого к огню.
+  suffix: Personal, IronLotus, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_cloak.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckMantleBlueShieldShinoba
+  name: officer "Blueshield"'s mantle
+  description: A mantle specially tailored for Blueshield officers. On the inside of the cloak you can see a tag with the worn inscription “SecInstuct”.
+  suffix: sponsor, shinoba
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Shinoba/blueshield.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Shinoba/blueshield.rsi
+  - type: Item
+    size: Normal

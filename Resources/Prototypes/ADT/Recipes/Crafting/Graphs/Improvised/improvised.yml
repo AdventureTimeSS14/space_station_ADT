@@ -255,14 +255,6 @@
   objectType: Item
 
 - type: construction
-  id: ADTMolotovGrenade
-  graph: ADTMolotovGrenade
-  startNode: start
-  targetNode: molotov_ready
-  category: construction-category-weapons
-  objectType: Item
-
-- type: construction
   id: ADTBoltCard
   graph: ADTBoltCard
   startNode: start

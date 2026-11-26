@@ -1,4 +1,3 @@
-using Content.Shared.Atmos;
 using Robust.Shared.Serialization;
 using System.Diagnostics.CodeAnalysis;
 
@@ -13,8 +12,6 @@ namespace Content.Shared.ADT.SeedDna;
 public sealed class SeedDataDto
 {
     public Dictionary<string, SeedChemQuantityDto>? Chemicals;
-    public Dictionary<Gas, float>? ConsumeGasses;
-    public Dictionary<Gas, float>? ExudeGasses;
     public float? NutrientConsumption;
     public float? WaterConsumption;
     public float? IdealHeat;

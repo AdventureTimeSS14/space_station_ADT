@@ -21,6 +21,9 @@ public sealed partial class CargoCategorySurgeRuleComponent : Component
     public int MaxCategories = 3;
 
     [DataField]
+    public float ExpensiveProbability = 0.5f;
+
+    [DataField]
     public int ExpensiveMinPercent = 50;
 
     [DataField]

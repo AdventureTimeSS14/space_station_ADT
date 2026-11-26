@@ -127,6 +127,7 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  - CrystallizerMachineCircuitboard # ADT-Tweak
 # ADT Research Console Rework start
   position: 2,-1
   requiredTech:
@@ -189,6 +190,7 @@
   # - HellfireFreezerMachineCircuitBoard # ADT-Tweak
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  - ADTClothingEyesGlassesGasTemperature ## ADT-Tweak
   technologyPrerequisites:
   - AtmosphericTech
 # ADT Research Console Rework start

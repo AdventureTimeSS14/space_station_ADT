@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "copyright": "Sources: gold ingot (Objects/Materials/ingots.rsi), hydroponics produce (Objects/Specific/Hydroponics), diamond (Objects/Materials/materials.rsi), star nugget (Objects/Consumable/Food/Baked/nuggets.rsi), d20 die (Objects/Fun/dice.rsi), NanoTrasen coin (ADT/Objects/Fun/nanotrasen_coin.rsi), resized by CrimeMoot",
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {"name": "seven"},
+    {"name": "cherry"},
+    {"name": "banana"},
+    {"name": "strawberry"},
+    {"name": "grape"},
+    {"name": "watermelon"},
+    {"name": "diamond"},
+    {"name": "star"},
+    {"name": "wild"},
+    {"name": "scatter"}
+  ]
+}

@@ -201,3 +201,30 @@
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-black
+
+#Marksman
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsGlovesMarksman
+  name: перчатки "Марксман"
+  description: Пара окровавленных обмоток, способных скрыть порезы и шрамы на ладонях носителя, если таковые имеются.
+  suffix: Personal, Marksman, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Marksman/marksman_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Marksman/marksman_gloves.rsi
+
+#IronLotus
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsGlovesIronLotus
+  name: перчатки "Железный лотус"
+  description: Чёрные перчатки с вышивкой в виде золотого дракона. Прекрасно подчёркивают чувство стиля носителя.
+  suffix: Personal, IronLotus, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_gloves.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_gloves.rsi

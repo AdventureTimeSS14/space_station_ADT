@@ -20,7 +20,8 @@
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="JudoCombatGrab">
-  Наносит [color=#5BB8E0]55[/color] урона по выносливости и [color=#E05B5B]5[/color] Blunt-урона.
+  Только по лежачей цели. Наносит [color=#5BB8E0]55[/color] урона по выносливости
+  и [color=#E05B5B]5[/color] Blunt-урона.
   </ADTGuideCombo>
 
   <ADTGuideCombo Combo="JudoEyeGouge">

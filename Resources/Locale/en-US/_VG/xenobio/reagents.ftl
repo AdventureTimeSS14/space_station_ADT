@@ -23,6 +23,9 @@ xenobio-reagent-jelly-pink-desc = Turns any hostile mob docile and tame. You too
 xenobio-reagent-jelly-green-name = Green slime jelly
 xenobio-reagent-jelly-green-desc = Turns any humanoid that ingests enough of it into a Slimeperson. Slimepeople might get a chance to mutate on consumption!
 
+xenobio-reagent-jelly-adamantine-name = Adamantine slime jelly
+xenobio-reagent-jelly-adamantine-desc = An ordinary slime jelly, drained of its regenerative properties. Mixing it with omnizine brings them back.
+
 xenobio-reagent-toxin-human-name = Human mutation toxin
 xenobio-reagent-toxin-human-desc = Turns any humanoid that ingests enough of it into a Human.
 

@@ -38,3 +38,10 @@
   - /Audio/ADT/Special/Personal/ravenn599_mask_off/off4_cmb.ogg
   - /Audio/ADT/Special/Personal/ravenn599_mask_off/off5_cmb.ogg
   - /Audio/ADT/Special/Personal/ravenn599_mask_off/off6_cmb.ogg
+
+- type: soundCollection
+  id: ADTWeaponPistolMagnumClimberGunshot
+  files:
+  - /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_gunshot1.ogg
+  - /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_gunshot2.ogg
+  - /Audio/ADT/Special/Personal/DerTropischeInsel/357climber_gunshot3.ogg

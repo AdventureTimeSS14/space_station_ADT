@@ -120,6 +120,14 @@ namespace Content.Server.GameTicking
                     }
                     // ADT-Tweak-end
 
+                    // ADT-Tweak-Start
+                    if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers && !HandleLobbyWarmupConnect())
+                    {
+                        _roundStartCountdownHasNotStartedYetDueToNoPlayers = false;
+                        _roundStartTime = _gameTiming.CurTime + LobbyDuration;
+                    }
+                    // ADT-Tweak-End
+
                     // ADT-Tweak-start: Постит в дис админчата, о заходе новых игроков
                     if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)) && firstConnection)
                     {
@@ -144,12 +152,6 @@ namespace Content.Server.GameTicking
                         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/Effects/newplayerping.ogg"),
                             Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false,
                             audioParams: new AudioParams { Volume = -5f });
-
-                    if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers)
-                    {
-                        _roundStartCountdownHasNotStartedYetDueToNoPlayers = false;
-                        _roundStartTime = _gameTiming.CurTime + LobbyDuration;
-                    }
 
                     // ADT-Tweak start
                     if (session.Channel.IsConnected)

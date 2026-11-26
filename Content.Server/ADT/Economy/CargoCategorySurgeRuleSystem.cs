@@ -30,15 +30,12 @@ public sealed partial class CargoCategorySurgeRuleSystem : StationEventSystem<Ca
             return;
 
         var count = Math.Min(component.MaxCategories, _random.Next(1, categories.Count + 1));
+        var pool = new List<string>(categories);
         var picked = new List<string>(count);
-        while (picked.Count < count)
-        {
-            var category = _random.Pick(categories);
-            if (!picked.Contains(category))
-                picked.Add(category);
-        }
+        for (var i = 0; i < count; i++)
+            picked.Add(_random.PickAndTake(pool));
 
-        var expensive = _random.Prob(0.5f);
+        var expensive = _random.Prob(Math.Clamp(component.ExpensiveProbability, 0f, 1f));
         var percent = expensive
             ? _random.Next(component.ExpensiveMinPercent, component.ExpensiveMaxPercent + 1)
             : _random.Next(component.CheapMinPercent, component.CheapMaxPercent + 1);

@@ -10,7 +10,7 @@
         amount: 1
         doAfter: 1
   - node: armband
-    entity: ADTClothingNeckArmband
+    entity: ADTClothingNeckArmbandWhite
 
 - type: constructionGraph
   id: ADTClothingNeckArmbandMed

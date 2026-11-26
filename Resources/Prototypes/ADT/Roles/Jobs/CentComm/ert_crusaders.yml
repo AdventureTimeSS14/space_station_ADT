@@ -1,0 +1,112 @@
+- type: job
+  id: ADTERTCrusaderMaster
+  name: job-name-ADTERTCrusaderMaster
+  description: job-description-ADTERTCrusaderMaster
+  playTimeTracker: JobADTERTCrusaderMaster
+  setPreference: false
+  startingGear: ADTERTCrusaderMasterGear
+  icon: "JobIconERTChaplain"
+  supervisors: job-supervisors-centcom
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: job
+  id: ADTERTCrusaderKnight
+  name: job-name-ADTERTCrusaderKnight
+  description: job-description-ADTERTCrusaderKnight
+  playTimeTracker: JobADTERTCrusaderKnight
+  setPreference: false
+  startingGear: ADTERTCrusaderKnightGear
+  icon: "JobIconERTChaplain"
+  supervisors: job-supervisors-ADTERTCrusader
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: job
+  id: ADTERTCrusaderHospitaller
+  name: job-name-ADTERTCrusaderHospitaller
+  description: job-description-ADTERTCrusaderHospitaller
+  playTimeTracker: JobADTERTCrusaderHospitaller
+  setPreference: false
+  startingGear: ADTERTCrusaderHospitallerGear
+  icon: "JobIconERTChaplain"
+  supervisors: job-supervisors-ADTERTCrusader
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: ADTERTCrusaderBaseGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
+    back: ClothingBackpackERTChaplain
+    shoes: ClothingShoesLeather
+    gloves: ADTClothingHandsGlovesCrusader
+    head: ADTClothingHeadHelmetTrueTemplar
+    neck: ADTGoldCross
+    outerClothing: ADTClothingOuterArmorCrusader
+    suitstorage: ADTCrusaderSword
+    id: ERTChaplainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ADTShipBattleClothingBeltWarbelt
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: CombatMedipen
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  inhand:
+  - ADTCrusaderShield
+
+- type: startingGear
+  id: ADTERTCrusaderKnightGear
+  parent: ADTERTCrusaderBaseGear
+  storage:
+    belt:
+    - MedicatedSuture
+    - RegenerativeMesh
+    - ADTHemostasisAutoInjector
+    - CombatMedipen
+    back:
+    - ADTMedkitERTFilled
+    - PinpointerNuclear
+    - CrowbarRed
+    - ChemistryBottleHolywater
+
+- type: startingGear
+  id: ADTERTCrusaderHospitallerGear
+  parent: ADTERTCrusaderBaseGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMonasticRobeLight
+    belt: ADTClothingWarBeltMedicERTFilled
+  storage:
+    back:
+    - ADTMedkitAdvancedERT
+    - ADTMedkitERTFilled
+    - HandheldCrewMonitor
+    - DefibrillatorCompact
+    - PinpointerNuclear
+    - ChemistryBottleHolywater
+    - ChemistryBottleHolywater
+
+- type: startingGear
+  id: ADTERTCrusaderMasterGear
+  parent: ADTERTCrusaderBaseGear
+  storage:
+    belt:
+    - MedicatedSuture
+    - RegenerativeMesh
+    - ADTHemostasisAutoInjector
+    - CombatMedipen
+    back:
+    - Bible
+    - ADTMedkitERTFilled
+    - PinpointerNuclear
+    - JawsOfLife
+    - ChemistryBottleHolywater
+    - BoxFolderCentCom
+    - RubberStampCentcom

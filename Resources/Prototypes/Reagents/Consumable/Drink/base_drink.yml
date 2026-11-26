@@ -47,6 +47,7 @@
   id: BaseAlcohol
   group: Drinks
   abstract: true
+  intensityMod: 0.2 # ADT-Tweak
   slipData:
     requiredSlipSpeed: 3.5
   friction: 0.4

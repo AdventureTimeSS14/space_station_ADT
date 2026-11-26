@@ -41,7 +41,16 @@
   color: "#0c344d"
   weight: -1 # ADT EDIT
   roles:
-  - CentralCommandOfficial
+  # ADT-Tweak start
+  - ADTCentralCommandOfficial
+  - ADTCentcomInspector
+  - ADTCentcomInquisitor
+  - ADTERTCrusaderMaster
+  - ADTERTCrusaderKnight
+  - ADTERTCrusaderHospitaller
+  - ADTCentcomOfficer
+  - ADTSODOfficer
+  # ADT-Tweak end
   - CBURN
   - ERTLeader
   - ERTChaplain
@@ -111,6 +120,7 @@
   # ADT-Tweak
   - ADTPathologist
   - ADTSeniorPhysician
+  - ADTVirologist
   # ADT-Tweak
 
 - type: department

@@ -5,15 +5,14 @@
   components:
   - type: CloneableStatusEffect
 
-# ADT: Закомментировано из-за использования генокрада от Goob Station
-# - type: entity
-#   abstract: true
-#   id: ChangelingStatusEffectBase # Used to whitelist specific status effects to be cloneable by the changeling. Primarily some traits.
-#   components:
-#   - type: ChangelingCloneableStatusEffect
+- type: entity
+  abstract: true
+  id: ChangelingStatusEffectBase # Used to whitelist specific status effects to be cloneable by the changeling. Primarily some traits.
+  components:
+  - type: ChangelingCloneableStatusEffect
 
 - type: entity
-  parent: [ BloodstreamStatusEffectBase, TraitStatusEffectBase ]
+  parent: [ BloodstreamStatusEffectBase, TraitStatusEffectBase, ChangelingStatusEffectBase ]
   id: TraitStatusEffectHemophilia
   components:
   - type: HemophiliaStatusEffect

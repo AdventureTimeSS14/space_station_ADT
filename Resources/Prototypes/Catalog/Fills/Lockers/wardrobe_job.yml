@@ -168,10 +168,26 @@
   table: !type:AllSelector
     children:
     - id: ClothingUniformJumpsuitVirology
-    - id: ClothingBackpackVirology
-    - id: ClothingShoesColorWhite
-    - id: ClothingOuterCoatLabViro
+      amount: 2
     - id: ClothingUniformJumpskirtVirology
+      amount: 2
+    - id: ClothingOuterCoatLabViro
+      amount: 2
+    - id: ClothingShoesColorWhite
+      amount: 2
+    # ADT-Tweak-Start
+    - id: ClothingMaskSterile
+      amount: 2
+    - id: ClothingHandsGlovesLatex
+      amount: 2
+    - id: ADTBioBag
+      amount: 2
+    # ADT-Tweak-End
+    - id: ClothingBackpackVirology
+    # ADT-Tweak-Start
+    - id: ClothingBackpackSatchelVirology
+    - id: ClothingBackpackDuffelVirology
+    # ADT-Tweak-End
 
 - type: entity
   id: WardrobeScienceFilled

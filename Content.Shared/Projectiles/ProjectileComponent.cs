@@ -92,6 +92,10 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public bool ProjectileSpent;
+    // ADT-Tweak-Start
+    [DataField]
+    public bool IgnoreTargeted;
+    // ADT-Tweak-End
     /// <summary>
     ///     When a projectile has this threshold set, it will continue to penetrate entities until the damage dealt reaches this threshold.
     /// </summary>

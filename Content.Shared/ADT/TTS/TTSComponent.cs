@@ -15,10 +15,23 @@ public sealed partial class TTSComponent : Component
     [DataField("voice")]
     public ProtoId<TTSVoicePrototype>? VoicePrototypeId = "glados";
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TTSVoicePrototype? Voice
+    {
+        get
+        {
+            if (VoicePrototypeId is not { } id)
+                return null;
+
+            return IoCManager.Resolve<IPrototypeManager>().TryIndex(id, out var voice) ? voice : null;
+        }
+        set => VoicePrototypeId = value?.ID;
+    }
+
     /// <summary>
     /// Service effect the entity constantly speaks through, for example <c>robotic</c>.
-    /// Null means a clean voice.
+    /// Empty means a clean voice.
     /// </summary>
     [DataField]
-    public string? Effect;
+    public string Effect = string.Empty;
 }

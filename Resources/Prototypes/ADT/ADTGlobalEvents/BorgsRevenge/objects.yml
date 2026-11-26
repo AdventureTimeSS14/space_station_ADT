@@ -106,6 +106,12 @@
     - ADTSiliconEmotes
     - Unimplantable
     - ADTVendingCargoAccount
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        locked: true
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
   - type: Access
     groups:
     - AllAccess
@@ -181,7 +187,7 @@
       cell_slot:
         locked: true
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
+        startingItem: PowerCellHigh
   - type: Lock
     locked: true
     lockOnClick: false
@@ -194,6 +200,7 @@
   - type: BatterySlotRequiresLock
     itemSlot: cell_slot
   - type: PickupHumans
+    handsRequired: 1
   - type: MobIpc
     disablePointLightOnDeath: true
   - type: InteractionPopup
@@ -307,11 +314,6 @@
     prototype: IPCDeathgasp
     onAnyState: true
   - type: TTS # Corvax-TTS
-  - type: LanguageSpeaker
-    languages:
-      GalacticCommon: Speak
-      BorgTalk: Speak
-      RobotTalk: Speak
   - type: Tag
     tags:
     - CanPilot
@@ -374,6 +376,13 @@
   - type: SoftWalk
   - type: MirrorReflection
   - type: AiRemoteController
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      SiliconCollectiveMind: Speak
+      RobotTalk: Understand
+
 
 - type: entity
   id: MobIPCEventCombat
@@ -398,3 +407,152 @@
   storage:
     back:
     - ADTBoxSurvivalSiliconSecurity
+
+- type: entity
+  parent: [BaseWeaponEnergyTurretIndestructible, ConstructibleMachine]
+  id: ADTWeaponEnergyTurretStationAIEvent
+  name: sentry turret
+  description: A high-tech autonomous weapons system designed to keep unauthorized personnel out of sensitive areas.
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      body:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 60
+        mask:
+          - Impassable
+      turret:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 60
+        mask:
+          - MachineMask
+        layer:
+          - MachineLayer
+        hard: false
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+    drawdepth: HighFloorObjects
+    granularLayersRendering: true
+    layers:
+    - state: support
+      renderingStrategy: NoRotation
+    - state: base_shadow
+      map: [ "shadow" ]
+    - state: base
+      map: [ "base" ]
+    - state: stun
+      map: [ "enum.DeployableTurretVisuals.Weapon" ]
+      shader: "unshaded"
+      visible: false
+    - state: cover_closed
+      map: [ "enum.DeployableTurretVisuals.Turret" ]
+      renderingStrategy: NoRotation
+    - state: cover_light_on
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      shader: "unshaded"
+      renderingStrategy: NoRotation
+      visible: false
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      renderingStrategy: NoRotation
+      visible: false
+  - type: AnimationPlayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BatteryWeaponFireModeVisuals.State:
+        enum.DeployableTurretVisuals.Weapon:
+          BulletEnergyTurretDisabler: { state: stun }
+          BulletEnergyTurretLaser: { state: lethal }
+      enum.DeployableTurretVisuals.Broken:
+        base:
+          True: { state: destroyed }
+          False: { state: base }
+  - type: HTN
+    enabled: false
+  - type: StationAiWhitelist
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: BatteryAmmoProvider
+    proto: BulletEnergyTurretDisabler
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletEnergyTurretDisabler
+      fireCost: 100
+    - proto: BulletEnergyTurretLaser
+      fireCost: 100
+  - type: DeployableTurret
+    retractedDamageModifierSetId: Metallic
+    deployedDamageModifierSetId: FlimsyMetallic
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Repairable
+    doAfterDelay: 10
+    allowSelfRepair: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: TurretControlAI
+    transmitFrequencyId: TurretAI
+    sendBroadcastAttemptEvent: true
+    prefix: device-address-prefix-turret
+    examinableAddress: true
+  - type: DeviceNetworkRequiresPower
+  - type: WiredNetworkConnection
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-weapon-energy-turret
+    layoutId: WeaponEnergyTurret
+  - type: Lock
+    locked: true
+    unlockOnClick: false
+  - type: LockedWiresPanel
+  - type: UseDelay
+    delay: 1.2
+  - type: AccessReader
+    access: [["StationAi"], ["ResearchDirector"]]
+  - type: StationAiTurret
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Borg
+    - BasicSilicon
+  - type: Machine
+    board: WeaponEnergyTurretAIMachineCircuitboard

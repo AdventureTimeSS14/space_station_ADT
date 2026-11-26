@@ -1,4 +1,5 @@
-﻿using Content.Shared.MouseRotator;
+﻿using Content.Shared.Mech.Components;
+using Content.Shared.MouseRotator;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -24,6 +25,11 @@ public sealed partial class MouseRotatorSystem : SharedMouseRotatorSystem
             return;
 
         var player = _player.LocalEntity;
+
+        // ADT-Tweak-Start
+        if (TryComp<MechPilotComponent>(player, out var mechPilot) && HasComp<MouseRotatorComponent>(mechPilot.Mech))
+            player = mechPilot.Mech;
+        // ADT-Tweak-End
 
         if (player == null || !TryComp<MouseRotatorComponent>(player, out var rotator))
             return;

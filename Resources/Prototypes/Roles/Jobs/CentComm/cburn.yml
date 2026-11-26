@@ -24,6 +24,8 @@
   - !type:AddComponentSpecial
     components:
       - type: ADTTenCodeKnowledge
+      - type: ADTVirusImmune
+        absolute: true
   # ADT-Tweak-End
 
 - type: startingGear

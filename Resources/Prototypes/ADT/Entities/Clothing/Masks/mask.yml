@@ -225,7 +225,7 @@
     - Snout
 
 - type: entity
-  id: ADTMaskCoif
+  id: ADTClothingMaskCoif
   parent: BaseItem
   name: heat absorbent coif
   description: A close-fitting cap that covers the top, back, and sides of the head. Can also be adjusted to cover the lower part of the face so it keeps the user warm in harsh conditions.
@@ -240,6 +240,10 @@
     price: 25
   - type: IdentityBlocker
     coverage: MOUTH
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
   - type: Item
     storedRotation: -90
     size: Small
@@ -529,7 +533,7 @@
   parent: ClothingMaskBase
   id: ADTClothingMaskVox
   name: vox mask
-  components: 
+  components:
   - type: Sprite
     sprite: ADT/Clothing/Mask/vox_mask.rsi
   - type: Clothing
@@ -540,3 +544,31 @@
     slots:
     - Snout
   - type: BreathMask
+
+- type: entity
+  parent: ClothingMaskGasSwat
+  id: ADTClothingCentcomSwatMask
+  name: Centcom SWAT mask
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/centcom_swat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/centcom_swat.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+  - type: ShowJobIcons
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95

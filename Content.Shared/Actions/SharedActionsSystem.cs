@@ -4,6 +4,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Actions;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
@@ -305,8 +306,10 @@ public abstract partial class SharedActionsSystem : EntitySystem
         if (IsCooldownActive(action, curTime))
             return false;
 
+        var target = GetEntity(ev.EntityTarget);
+
         // check for action use prevention
-        var attemptEv = new ActionAttemptEvent(user);
+        var attemptEv = new ActionAttemptEvent(user, target);
         RaiseLocalEvent(action, ref attemptEv);
         if (attemptEv.Cancelled)
         {
@@ -597,7 +600,11 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
         UpdateAction(action);
 
-        var performed = new ActionPerformedEvent(performer);
+        EntityUid? actionTarget = null;
+        if (actionEvent is EntityTargetActionEvent targetEv)
+            actionTarget = targetEv.Target;
+
+        var performed = new ActionPerformedEvent(performer, actionTarget);
         RaiseLocalEvent(action, ref performed);
     }
     #endregion
@@ -698,6 +705,11 @@ public abstract partial class SharedActionsSystem : EntitySystem
         performer.Comp.Actions.Add(ent);
         Dirty(performer, performer.Comp);
         ActionAdded((performer, performer.Comp), (ent, ent.Comp));
+
+        // ADT-Tweak-start
+        var ev = new ActionAddedDirectEvent(ent);
+        RaiseLocalEvent(performer.Owner, ref ev);
+        // ADT-Tweak-end
         return true;
     }
 

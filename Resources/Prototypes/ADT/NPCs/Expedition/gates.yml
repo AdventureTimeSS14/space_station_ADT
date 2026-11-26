@@ -63,3 +63,14 @@
               targetKey: Target
               rangeKey: ADTSafeReloadRangeLoose
           operator: !type:NoOperator
+
+- type: htnCompound
+  id: ADTGateExplosive
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: ADTExplosiveSafeRange
+          operator: !type:NoOperator

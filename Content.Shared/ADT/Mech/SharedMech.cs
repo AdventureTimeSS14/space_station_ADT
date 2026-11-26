@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Mech;
@@ -11,53 +12,41 @@ public sealed partial class MechTurnLightsEvent : InstantActionEvent
 {
 }
 
-/// <summary>
-/// Raised on mech equipment destruction.
-/// </summary>
-[ByRefEvent]
-public record struct MechEquipmentDestroyedEvent();
+public sealed partial class MechOpenEquipmentRadialEvent : InstantActionEvent
+{
+}
 
-/// <summary>
-/// Raised on the mech during pilot setup
-/// </summary>
-/// <param name="Pilot"></param>
+public sealed partial class MechCycleEquipmentEvent : InstantActionEvent
+{
+}
+
+public sealed partial class MechReloadEvent : InstantActionEvent
+{
+}
+
 [ByRefEvent]
 public record struct SetupMechUserEvent(EntityUid Pilot);
 
 [ByRefEvent]
 public record struct RemoveMechUserEvent(EntityUid Pilot);
 
-/// <summary>
-/// Sent to server when player selects mech equipment in radial menu.
-/// </summary>
+[ByRefEvent]
+public record struct MechSealToggledEvent(bool Sealed);
+
 [Serializable, NetSerializable]
 public sealed partial class SelectMechEquipmentEvent : EntityEventArgs
 {
-    public NetEntity User;
+    public NetEntity Mech;
     public NetEntity? Equipment;
 
-    public SelectMechEquipmentEvent(NetEntity user, NetEntity? equipment)
+    public SelectMechEquipmentEvent(NetEntity mech, NetEntity? equipment)
     {
-        User = user;
+        Mech = mech;
         Equipment = equipment;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed partial class PopulateMechEquipmentMenuEvent : EntityEventArgs
-{
-    public List<NetEntity> Equipment;
-
-    public PopulateMechEquipmentMenuEvent(List<NetEntity> equipment)
-    {
-        Equipment = equipment;
-    }
-}
-
-/// <summary>
-/// Exsists just to avoid exceptions but close radial menu on mech exit
-/// </summary>
-[Serializable, NetSerializable]
-public sealed partial class CloseMechMenuEvent : EntityEventArgs
+public sealed partial class MechDrillDoAfterEvent : SimpleDoAfterEvent
 {
 }

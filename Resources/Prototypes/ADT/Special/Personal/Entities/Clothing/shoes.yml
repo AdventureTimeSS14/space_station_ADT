@@ -125,3 +125,31 @@
     sprite: ADT/Special/Personal/Illumy/arbitrator_boots.rsi
   - type: Clothing
     sprite: ADT/Special/Personal/Illumy/arbitrator_boots.rsi
+
+#Marksman
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingBootsMarksman
+  name: ботинки "Марксман"
+  description: Чёрные как смоль ботинки, способные перенести любые условия.
+  suffix: Personal, Marksman, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Marksman/marksman_shoes.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/Marksman/marksman_shoes.rsi
+
+#IronLotus
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesIronLotus
+  name: туфли "Железный лотус"
+  description: Стильные туфли, подчёркивающие официальный статус и деловой вид.
+  suffix: Personal, IronLotus, DeadLament
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_shoes.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Special/Personal/IronLotus/iron_lotus_shoes.rsi

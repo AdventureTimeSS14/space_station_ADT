@@ -53,9 +53,15 @@ public sealed partial class CargoSystem
                    ?? Loc.GetString("cargo-console-fund-transfer-user-unknown");
         if (args.Account == null)
         {
+            // ADT-Tweak start
+            if (!_emag.CheckFlag(ent, EmagType.Interaction))
+                return;
+            // ADT-Tweak end
+
             var stackPrototype = ProtoMan.Index(ent.Comp.CashType);
             _stack.SpawnAtPosition(args.Amount, stackPrototype, Transform(ent).Coordinates);
 
+            /* ADT-Tweak start
             if (!_emag.CheckFlag(ent, EmagType.Interaction))
             {
                 var msg = Loc.GetString("cargo-console-fund-withdraw-broadcast",
@@ -65,6 +71,7 @@ public sealed partial class CargoSystem
                     ("code1", Loc.GetString(ourAccount.Code)));
                 _radio.SendRadioMessage(ent, msg, ourAccount.RadioChannel, ent, escapeMarkup: false);
             }
+            ADT-Tweak end */
         }
         else
         {

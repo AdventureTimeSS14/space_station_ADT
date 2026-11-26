@@ -1,25 +1,24 @@
 ﻿<Document>
-  # Pipes
-  Pipes are used to distribute gasses from one place to another.
-  There are a wide variety of pipes available to construct:
+  # Трубы
+  По трубам газ поступает из одного места в другое.
+  Строить можно трубы самых разных видов:
 
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="straight"/>
-    <GuideEntityEmbed Entity="GasPipeHalf" Caption="half"/>
-    <GuideEntityEmbed Entity="GasPipeBend" Caption="bend"/>
-    <GuideEntityEmbed Entity="GasPipeTJunction" Caption="T junction"/>
-    <GuideEntityEmbed Entity="GasPipeFourway" Caption="fourway"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="прямая"/>
+    <GuideEntityEmbed Entity="GasPipeHalf" Caption="половина"/>
+    <GuideEntityEmbed Entity="GasPipeBend" Caption="изгиб"/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Caption="тройник"/>
+    <GuideEntityEmbed Entity="GasPipeFourway" Caption="крестовина"/>
   </Box>
 
-  Pipes will [color=#a4885c]automatically connect[/color] to other pipes when anchored (or wrenched) to the hull to form a [textlink="network of pipes." link="PipeNetworks"]
-  A network of pipes is commonly called a [textlink="pipenet" link="PipeNetworks"].
+  Когда трубу закрепляют гаечным ключом на обшивке, она [color=#a4885c]сама соединяется[/color] с соседними трубами в [textlink="сеть труб" link="PipeNetworks"].
 
-  Pipes will [color=red]not connect[/color] to pipes that are already connected to a different pipe.
-  For example, building a bent pipe on top of a straight pipe to form a makeshift T-junction will not work.
+  Труба [color=red]не соединится[/color] с трубой, которая уже соединена с другой трубой в этом направлении.
+  Например, если построить изгиб поверх прямой трубы, чтобы получить самодельный тройник, ничего не выйдет.
 
-  However, two pipes can share a tile as long as one isn't obstructing the other's connection to another pipe.
-  For example, two bend pipes can be placed on the same tile, with one moving gas from north to east, and the other moving gas from west to south.
+  Однако две трубы могут стоять на одной клетке, если одна не мешает другой соединиться с соседями.
+  Например, на одной клетке можно поставить два изгиба, один из которых ведёт газ с севера на восток, а другой с запада на юг.
 
-  You can color pipes (and most equipment that handles gasses) using a spray painter.
-  This is commonly done to distinguish the air and waste components of the station's Distro pipenet.
+  Трубы, как и большинство газового оборудования, можно перекрашивать краскопультом.
+  Обычно так различают воздушную часть и часть отходов в распределительной сети станции.
 </Document>

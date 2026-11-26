@@ -1,0 +1,10 @@
+guide-entry-adt-corporate-law = Корпоративный закон
+guide-entry-adt-corporate-law-rights = Права
+guide-entry-adt-corporate-law-light = Лёгкие нарушения (1XX)
+guide-entry-adt-corporate-law-medium = Средние нарушения (2XX)
+guide-entry-adt-corporate-law-heavy = Тяжкие нарушения (3XX)
+guide-entry-adt-corporate-law-grave = Сверхтяжкие нарушения (4XX)
+guide-entry-adt-corporate-law-critical = Критические нарушения (5XX)
+guide-entry-adt-corporate-law-punishments = Наказания и модификаторы
+guide-entry-adt-corporate-law-prisoners = Нарушения заключённых
+guide-entry-adt-corporate-law-terms = Зоны, должности и термины

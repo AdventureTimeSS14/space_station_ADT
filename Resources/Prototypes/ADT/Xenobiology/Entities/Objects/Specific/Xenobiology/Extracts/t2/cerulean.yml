@@ -10,30 +10,11 @@
       color: "#2A52BE"
   - type: SlimeExtract
     extractReactions:
-    - CeruleanSlimeExtractWaterReaction
     - CeruleanSlimeExtractPlasmaReaction
     - CeruleanSlimeExtractBloodReaction
   - type: Tag
     tags:
     - XenobiologyCeruleanExtract
-
-- type: extractReaction
-  id: CeruleanSlimeExtractWaterReaction
-  requirements:
-    Water: 1
-  effects:
-  - effect: !type:PopupMessage
-      type: Pvs
-      messages: [ "xeno-extract-reaction" ]
-    scalingOffset: 0
-  - effect: !type:PlaySoundEffect
-      sound: /Audio/Effects/Chemistry/bubbles.ogg
-    scalingOffset: 0
-  - effect: !type:CreateGas
-      gas: Pluoxium
-      moles: 55
-    scalingOffset: 1
-  shouldDelete: false
 
 - type: extractReaction
   id: CeruleanSlimeExtractPlasmaReaction

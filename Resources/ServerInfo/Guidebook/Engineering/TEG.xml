@@ -1,13 +1,13 @@
 <Document>
-  # Thermo-electric Engine (TEG)
+  # Термоэлектрический генератор (ТЭГ)
 
   Термоэлектрический Генератор вырабатывает энергию за счет теплообмена между горячими и холодными газами. На станции горячий газ может быть добыт из газодобытчика, например пара, или в результате сжигания плазмы. Другой же газ можно охладить с помощью охладителя или через космос, используя радиаторы.
 
   Работа ТЭГа, по большей части, опирается на атмосферный трубопровод и его настройку. Самым важным и особенным компонентом является ядро, в котором и происходит реакция, всё остальное - выстраиваемое атмосферное оборудование. Важно, что схема постройки ТЭГа может быть разной в зависимости от станции и навыков Атмос-техника, однако общие компоненты обычно одинаковы.
 
-  ## Generator
+  ## Генератор
 
-  The main generator itself is a machine made up of 3 major parts: the central generator and two "circulators", in this arrangement:
+  Сам генератор состоит из трёх основных частей: центрального генератора и двух насосов-циркуляторов, которые расположены так:
 
   <Box>
     <GuideEntityEmbed Entity="TegCirculator" Rotation="180" Caption="" Margin="0"/>
@@ -21,25 +21,23 @@
 
   Неважно какая сторона будет горячей, а какая холодной, необходима лишь разница в температуре между ними. Газы в двух "контурах" никогда не смешиваются, между ними происходит только обмен энергией. Горячая сторона будет охлаждаться, холодная - нагреваться.
 
-  ## The Pipes
+  ## Трубы
 
   Здесь присутствуют только 2 вещи, о которых нужно беспокоиться: Горячий контур (где циркулирует раскалённый газ), и холодный контур (где циркулирует отработанный охлаждённый газ, который после утилизируется в космос или снова запускается в цикл). Важно, чтобы [bold]трубопроводы НЕ смешивались[/bold], так как в ТЭГе между ними должно передаваться только тепло.
 
-  # The Hot Loop
+  # Горячий контур
 
   Как сказал однажды один мудрец: [color=#a4885c]"Лучший способ сделать что-то горячим - поджечь это"[/color]. Чтож, возможно не всегда это самый лучший вариант, но к счастью в вашем отделе есть всё необходимое, чтобы делать это с умом.
 
   Кроме сказанного выше, существует множество способов чтобы нагреть (или охладить) газы; здесь мы рассмотрим 2 основных метода, используемые при настройке горячего контура ТЭГа: [color=red]Газодобытчик[/color], и [color=red]Камера сгорания[/color].
 
-  ## The Pipe Burn
+  ## Горение в трубе
 
-  Also known as the naive method, this is generally discouraged when working for efficiency. However, if all you need is a smidge of power to run the station, and you don't feel like setting up the burn chamber, this method will do.
+  Этот способ ещё называют наивным, и если вам важна эффективность, его лучше не использовать. Однако если станции нужно совсем немного энергии, а настраивать камеру сгорания не хочется, этот способ подойдёт.
 
-  [color=#444444]TODO: Remove this section when atmos pipes are updated to have pressure/temperature limits in a future atmos refactor.[/color]
-
-  Most (if not all) pipe burns follow this general layout:
+  Почти любое горение в трубе собирается по такой схеме:
   <Box>
-    Gas input -> High-pressure pump -> Pipe segment (with heater) -> Low-pressure pump -> Circulator
+    Подача газа -> насос высокого давления -> участок трубы (с нагревателем) -> насос низкого давления -> циркулятор
   </Box>
   <Box>
     <GuideEntityEmbed Entity="GasMixer" Rotation="90" Caption="" Margin="-1"/>
@@ -51,15 +49,15 @@
   <Box>
     <GuideEntityEmbed Entity="GasThermoMachineHeaterEnabled" Caption="" Rotation="180" Margin="0"/>
   </Box>
-  - The Gas input is pretty self-explanatory; this is where you will input the O2-Plasma mix to be burnt. A 2:1 (67/33) ratio of Oxygen to Plasma is recommended for the hottest burn.
-  - The High-pressure pump serves 2 purposes; first, it prevents the burn from backwashing into the supply pipe, which would be.. bad, for many reasons. Second, it maintains a positive pressure in the following pipe segment, which is important to allow the burn to continue, especially since hot gases expand.
-  - The Pipe segment is where the burn actually occurs; to start it off, one can use a heater to increase the temperature up to the ignition temperature of Plasma. Afterwards, the reaction should be self-sustaining, so long as the Pressure and Moles supplied remains high enough. [color=#a4885c]Be warned[/color]; if you wish to remove the heater, it will carry some of this superheated gas with it, transferring it to the next pipenet you connect it to. Best to space the gas through a space vent, if you must.
-  - The Low-pressure pump (whose pressure should be [italic]slightly lower[/italic] than the input pump) prevents [italic]all[/italic] the gas from passing through the circulator, which could result in the loss of the Moles required to sustain a burn.
-  - The Circulator is where this generated heat will flow to the cold loop; afterwards, feel free to space the waste gases.
+  - Через подачу газа поступает смесь кислорода и плазмы, которая будет гореть. Чтобы горение было самым горячим, используйте соотношение кислорода к плазме 2:1 (67/33).
+  - Насос высокого давления выполняет две задачи. Во-первых, он не даёт огню вернуться в подающую трубу, что было бы очень плохо по многим причинам. Во-вторых, он поддерживает избыточное давление на следующем участке трубы, чтобы горение продолжалось, ведь горячие газы расширяются.
+  - На участке трубы и происходит горение. Чтобы его начать, нагрейте газ нагревателем до температуры воспламенения плазмы. После этого реакция поддерживает сама себя, пока давление и количество поступающих молей остаются достаточно высокими. [color=#a4885c]Будьте осторожны[/color]: если вы снимете нагреватель, он унесёт с собой часть раскалённого газа и передаст его в следующую сеть труб, к которой вы его подключите. Если снять его всё же нужно, лучше сначала выпустить газ в космос через вентиляцию.
+  - Давление насоса низкого давления должно быть [italic]немного ниже[/italic], чем у входного насоса. Тогда через циркулятор проходит не [italic]весь[/italic] газ, и в трубе остаётся достаточно молей, чтобы горение не прекратилось.
+  - Через циркулятор полученное тепло уходит в холодный контур, а отработанные газы после него можно выпустить в космос.
 
-  Note: Pressure pumps are used here as, while they pump on pressure (not flow-rate, which is comparatively faster), they are a bit easier to control when it comes to the limited Plasma supply on-station. However, the steps shown can be followed with volumetric pumps too.
+  Здесь используются насосы давления, потому что они качают по давлению, а не по объёму, и это медленнее, зато так проще расходовать ограниченный запас плазмы на станции. Те же шаги можно повторить и с объёмными насосами.
 
-  ## The Burn Chamber
+  ## Камера сгорания
 
   Камера сгорания - ещё один способ нагрева газа, который, впрочем, обычно используется для других целей.
 
@@ -68,7 +66,7 @@
   - Отвод в космос
   - Массив скрубберов
 
-  Here is one layer of an example setup:
+  Вот один из слоёв примерной схемы:
   <Box>
     <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
     <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
@@ -107,13 +105,13 @@
 
   Важно, что многие настройки - ситуативны. Вы сами вольны менять схемы и конструкции камеры сгорания под собственные нужды. Если вы можете сделать её более действенной - замечательно! Я вам не мамочка, чтобы командовать как и что делать.
 
-  # The Cold Loop
+  # Холодный контур
 
   Для работы ТЭГа, кроме Горячего контура, также необходимо настроить и Холодный. Тем не менее, Холодный контур обычно менее технологичен, чем Горячий; на самом деле "холодным" он должен быть лишь относительно, важна лишь весомая разница между температурами в насосах, так что подойдёт и комнатная температура.
 
-  There are 3 main methods you will see used for the Cold Loop: [color=#a4885c]The Water Cooler[/color] (see: Liltenhead's video on the TEG), [color=cyan]the Coolant Array[/color] and [color=#a4885c]the Freezer Loop[/color].
+  Для холодного контура обычно используют один из трёх способов: [color=#a4885c]водяной охладитель[/color], [color=cyan]массив охлаждения[/color] или [color=#a4885c]морозильный цикл[/color].
 
-  ## The Water Cooler
+  ## Водяной охладитель
 
   Относительно простой метод, очень схожий со схемой в Горячем контуре (так как работают они по одному принципу), заключающийся во взятии бесполезного газа из газодобытчика и/или собранных "мусорных" газов со станции и пропустить их через насос ТЭГа, а после выпустить в космос. Это достаточно дешёвый и простой метод, жертвующий эффективностью генератора.
 

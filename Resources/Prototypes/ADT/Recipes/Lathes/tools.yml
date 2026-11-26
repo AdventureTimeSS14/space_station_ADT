@@ -17,6 +17,17 @@
     Silver: 100
     ADTBScrystal: 150
 
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ADTClothingEyesGlassesGasTemperature
+  result: ADTClothingEyesGlassesGasTemperature
+  completetime: 4
+  materials:
+    Steel: 200
+    Plastic: 300
+    Glass: 500
+    Copper: 10
+
 #- type: latheRecipe
 #  id: RNDInducerRecipe
 #  result: ADTRNDInducer

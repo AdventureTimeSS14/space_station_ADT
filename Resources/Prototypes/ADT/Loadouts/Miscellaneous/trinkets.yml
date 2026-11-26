@@ -21,6 +21,13 @@
   groupBy: "instruments"
 
 - type: loadout
+  id: FretlessBassGuitarInstrument
+  storage:
+    back:
+    - FretlessBassGuitarInstrument
+  groupBy: "instruments"
+
+- type: loadout
   id: HarmonicaInstrument
   storage:
     back:
@@ -164,3 +171,19 @@
     proto: ADTPlaytimePendantSilver
   equipment:
     neck: ADTClothingNeckHeartSilver
+
+# Assistant job trinket. Both requirements use the existing loadout effects.
+- type: loadout
+  id: ADTImprovisedGuitarInstrument
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobMusician
+      time: 7200
+  - !type:JobRequirementLoadoutEffect
+    requirement: !type:RoleTimeRequirement
+      role: JobPassenger
+      time: 18000
+  inhand:
+  - ADTImprovisedGuitarInstrument
+  groupBy: "instruments"

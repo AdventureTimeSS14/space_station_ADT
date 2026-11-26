@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by discord:prazat911",
+  "copyright": "white base Created by discord:prazat911, modified by discord:filokini",
   "size": {
     "y": 32,
     "x": 32
@@ -9,11 +9,73 @@
   "states": [
     {
       "directions": 4,
-      "name": "equipped-NECK"
+      "name": "white-equipped-NECK"
     },
     {
-      "directions": 1,
-      "name": "icon"
+      "directions": 4,
+      "name": "black-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "blue-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "green-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "lazure-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "orange-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "purple-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "red-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "yellow-equipped-NECK"
+    },
+    {
+      "directions": 4,
+      "name": "med-equipped-NECK"
+    },
+    {
+      "name": "white-icon"
+    },
+    {
+      "name": "black-icon"
+    },
+    {
+      "name": "blue-icon"
+    },
+    {
+      "name": "green-icon"
+    },
+    {
+      "name": "lazure-icon"
+    },
+    {
+      "name": "orange-icon"
+    },
+    {
+      "name": "purple-icon"
+    },
+    {
+      "name": "red-icon"
+    },
+    {
+      "name": "yellow-icon"
+    },
+    {
+      "name": "med-icon"
     }
   ]
 }

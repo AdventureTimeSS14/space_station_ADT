@@ -37,6 +37,9 @@
         cleanseRate: 1
         conditions:
         - !type:HereticOrGhoulCondition
+      - !type:ADTCureDiseases
+        conditions:
+        - !type:HereticOrGhoulCondition
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         time: 15.0

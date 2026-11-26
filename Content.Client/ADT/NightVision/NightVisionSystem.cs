@@ -18,6 +18,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
     private string? _activeShader;
     private string? _activeEffect;
     private bool _activeOverlay;
+    private Color? _activeTint;
 
     public override void Initialize()
     {
@@ -58,7 +59,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         var wantsOverlay = ent.Comp.Overlay;
 
         if (_effect != null &&
-            (_activeShader != ent.Comp.Shader || _activeEffect != effectId || _activeOverlay != wantsOverlay))
+            (_activeShader != ent.Comp.Shader || _activeEffect != effectId || _activeOverlay != wantsOverlay || _activeTint != ent.Comp.Tint))
             AttemptRemoveVision(force: true);
 
         if (_effect != null)
@@ -67,10 +68,11 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _activeShader = ent.Comp.Shader;
         _activeEffect = effectId;
         _activeOverlay = wantsOverlay;
+        _activeTint = ent.Comp.Tint;
 
         if (wantsOverlay && _prototypes.TryIndex<ShaderPrototype>(ent.Comp.Shader, out var shaderProto))
         {
-            _overlay = new NightVisionOverlay(shaderProto);
+            _overlay = new NightVisionOverlay(shaderProto, ent.Comp.Tint);
             _overlayMan.AddOverlay(_overlay);
         }
 
@@ -92,6 +94,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _activeShader = null;
         _activeEffect = null;
         _activeOverlay = false;
+        _activeTint = null;
 
         if (_effect != null)
         {

@@ -1,0 +1,42 @@
+- type: job
+  id: ADTCentcomInspector
+  name: job-name-ADTCentcomInspector
+  description: job-description-ADTCentcomInspector
+  playTimeTracker: JobADTCentcomInspector
+  setPreference: false
+  startingGear: ADTCentComInspectorGear
+  icon: "JobIconADTCentcomInspector"
+  supervisors: job-supervisors-centcom # Corvax-JobSupervisors
+  accessGroups:
+  - AllAccess
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ADTCentComInspectorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ADTClothingModsuitBackCentcom
+    neck: ClothingNeckCloakCentcom
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatCentcomcap
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesHop
+    outerClothing: ADTClothingOuterCoatCentCom
+    mask: ClothingMaskGasCentcom
+    id: ADTCentcomInspectorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: BoxFolderCentComClipboardThreePapers
+    pocket1: WeaponPistolN1984
+    pocket2: DoubleEmergencyOxygenTankFilled
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksCentcom
+  storage:
+    back:
+    - Flash #ADT-CustomADTLoadout
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
+    - MagazineMagnum
+    - MagazineMagnum

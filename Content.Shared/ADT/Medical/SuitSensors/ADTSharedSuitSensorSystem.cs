@@ -182,6 +182,7 @@ public abstract class ADTSharedSuitSensorSystem : EntitySystem
             return;
 
         ent.Comp.User = args.Wearer;
+        ent.Comp.NextUpdate = _timing.CurTime;
         Dirty(ent);
     }
 
@@ -191,6 +192,7 @@ public abstract class ADTSharedSuitSensorSystem : EntitySystem
             return;
 
         ent.Comp.User = null;
+        ent.Comp.NextUpdate = _timing.CurTime;
         Dirty(ent);
     }
 
@@ -282,6 +284,7 @@ public abstract class ADTSharedSuitSensorSystem : EntitySystem
             return;
 
         ent.Comp.User = args.Container.Owner;
+        ent.Comp.NextUpdate = _timing.CurTime;
         Dirty(ent);
     }
 
@@ -296,6 +299,7 @@ public abstract class ADTSharedSuitSensorSystem : EntitySystem
             return;
 
         ent.Comp.User = null;
+        ent.Comp.NextUpdate = _timing.CurTime;
         Dirty(ent);
     }
 
@@ -386,6 +390,7 @@ public abstract class ADTSharedSuitSensorSystem : EntitySystem
             return;
 
         sensors.Comp.Mode = mode;
+        sensors.Comp.NextUpdate = _timing.CurTime;
         Dirty(sensors);
 
         if (userUid != null)

@@ -239,3 +239,38 @@
   - type: Sprite
     sprite: ADT/Special/Personal/durachilqa_dice.rsi
     state: d20_20
+
+- type: entity
+  id: ADTOtherModifiedDefibrillatorShinoba
+  parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
+  name: modified defibrillator
+  description: it is small in size and distinguished by its build
+  suffix: sponsor, shinoba
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Shinoba/defibsmall.rsi
+    layers:
+      - state: icon
+      - state: screen
+        map: [ "enum.ToggleableVisuals.Layer" ]
+        visible: false
+        shader: unshaded
+      - state: ready
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+        shader: unshaded
+  - type: Item
+    size: Normal
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    useCharge: 50
+  - type: Defibrillator
+    zapHeal:
+      types:
+        Asphyxiation: -50
+        Bloodloss: -30
+        Shock: 15
+    doAfterDuration: 20
+  - type: DoAfter
+  - type: Tag
+    tags:
+    - Defibrillator

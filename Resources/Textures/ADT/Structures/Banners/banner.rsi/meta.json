@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by prazat911 (discord) for Adventure Time",
+  "copyright": "Made by prazat911 (discord) for Adventure Time, crusader sprited by Inconnu(discord:inconnu1337)",
   "size": {
     "x": 32,
     "y": 32
@@ -138,6 +138,9 @@
     },
     {
       "name": "vulp"
+    },
+    {
+      "name": "crusader"
     }
   ]
 }

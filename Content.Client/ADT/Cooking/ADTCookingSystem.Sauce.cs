@@ -9,14 +9,13 @@ namespace Content.Client.ADT.Cooking;
 public sealed partial class ADTCookingSystem
 {
     private static readonly ProtoId<ShaderPrototype> SauceShader = "ADTFoodSauce";
-    private static readonly ProtoId<ShaderPrototype> SauceDisplacedShader = "ADTFoodSauceDisplaced";
 
-    private ShaderInstance? CreateSauceShader(EntityUid dish, bool displaced)
+    private ShaderInstance? CreateSauceShader(EntityUid dish)
     {
         if (!TryComp<ADTDishComponent>(dish, out var comp) || comp.Glaze == null && comp.Spice == null)
             return null;
 
-        var shader = _proto.Index(displaced ? SauceDisplacedShader : SauceShader).InstanceUnique();
+        var shader = _proto.Index(SauceShader).InstanceUnique();
         shader.SetParameter("glazeColor", ToParameter(comp.Glaze));
         shader.SetParameter("spiceColor", ToParameter(comp.Spice));
         shader.SetParameter("seed", (dish.Id % 89) * 0.37f);
@@ -30,7 +29,7 @@ public sealed partial class ADTCookingSystem
 
     private void ApplySauce(Entity<SpriteComponent> ent)
     {
-        var shader = CreateSauceShader(ent, false);
+        var shader = CreateSauceShader(ent);
         var index = -1;
         foreach (var spriteLayer in ent.Comp.AllLayers)
         {

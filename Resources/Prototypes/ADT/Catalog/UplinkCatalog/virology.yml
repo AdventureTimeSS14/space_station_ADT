@@ -1,0 +1,27 @@
+- type: listing
+  id: ADTUplinkViralInjector
+  name: adt-uplink-viral-injector-name
+  description: adt-uplink-viral-injector-desc
+  productEntity: ADTViralInjector
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - ADTVirologist
+
+- type: listing
+  id: ADTUplinkGbsCulture
+  name: adt-uplink-gbs-culture-name
+  description: adt-uplink-gbs-culture-desc
+  productEntity: ADTVirusCultureBottleGbs
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - ADTVirologist

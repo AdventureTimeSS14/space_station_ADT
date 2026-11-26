@@ -77,7 +77,7 @@ public sealed class VendingMachineBoundUserInterface : BoundUserInterface
         base.ReceiveMessage(message);
 
         if (message is VendingMachineUserInfoMessage info)
-            _menu?.SetUserInfo(info.Balance, info.IgnoreBalance);
+            _menu?.SetUserInfo(info.Balance, info.IgnoreBalance, info.Discount);
     }
 
     private void OnItemSelected(VendingMachineInventoryEntry entry, int count, Color? paintColor)

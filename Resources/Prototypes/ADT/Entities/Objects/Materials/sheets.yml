@@ -48,6 +48,17 @@
 
 - type: entity
   parent: ADTSheetLead
+  id: ADTSheetLead5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: lead
+  - type: Stack
+    stackType: Lead
+    count: 5
+
+- type: entity
+  parent: ADTSheetLead
   id: ADTSheetLead1
   components:
   - type: Sprite
@@ -100,6 +111,17 @@
   - type: Stack
     stackType: Copper
     count: 10
+
+- type: entity
+  parent: ADTSheetCopper
+  id: ADTSheetCopper5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: copper
+  - type: Stack
+    stackType: Copper
+    count: 5
 
 - type: entity
   parent: ADTSheetCopper
@@ -157,6 +179,17 @@
   - type: Stack
     stackType: Zinc
     count: 10
+
+- type: entity
+  parent: ADTSheetZinc
+  id: ADTSheetZinc5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: zinc
+  - type: Stack
+    stackType: Zinc
+    count: 5
 
 - type: entity
   parent: ADTSheetZinc

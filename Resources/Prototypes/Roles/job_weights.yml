@@ -12,7 +12,7 @@
     ERTSecurity: 0
     ERTMedical: 0
     ERTJanitor: 0
-    CentralCommandOfficial: 0
+    ADTCentralCommandOfficial: 15 # ADT-Tweak
     Passenger: 0
     Bartender: 0
     Botanist: 0
@@ -60,8 +60,12 @@
     ADTBattleShipExecutionalOfficerTSF: 18
     ADTBattleShipMarineLeutenantKMT: 10
     ADTBattleShipMarineLeutenantTSF: 10
+    ADTSODOfficer: 16
     ADTBlueShieldOfficer: 15
     ADTCentcomConsultant: 15
+    ADTCentcomInspector: 15
+    ADTCentcomInquisitor: 15
+    ADTCentcomOfficer: 15
     ADTSeniorEngineer: 9
     ADTSeniorPhysician: 9
     ADTSeniorResearcher: 9

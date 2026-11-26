@@ -11,7 +11,6 @@
   - type: SlimeExtract
     extractReactions:
     - DarkBlueSlimeExtractWaterReaction
-    - DarkBlueSlimeExtractPlasmaReaction
     - DarkBlueSlimeExtractBloodReaction
   - type: Tag
     tags:
@@ -32,24 +31,6 @@
   - effect: !type:CreateEntityReactionEffect
       entity: SlimeFireproofPotion
       number: 1
-    scalingOffset: 1
-  shouldDelete: false
-
-- type: extractReaction
-  id: DarkBlueSlimeExtractPlasmaReaction
-  requirements:
-    Plasma: 1
-  effects:
-  - effect: !type:PopupMessage
-      type: Pvs
-      messages: [ "xeno-extract-reaction-evil" ]
-    scalingOffset: 0
-  - effect: !type:PlaySoundEffect
-      sound: /Audio/Effects/Chemistry/bubbles.ogg
-    scalingOffset: 0
-  - effect: !type:CreateGas
-      gas: Frezon
-      moles: 35
     scalingOffset: 1
   shouldDelete: false
 

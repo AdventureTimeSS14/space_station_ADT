@@ -111,6 +111,16 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
                 hologramSprite.LayerSetShader(i, "unshaded");
         }
 
+        // ADT-Tweak-Start
+        foreach (var layer in hologramSprite.AllLayers)
+        {
+            if (layer is SpriteComponent.Layer spriteLayer &&
+                spriteLayer.ActualRsi?.TryGetState(spriteLayer.State, out var state) == true &&
+                state.IsAnimated)
+                _sprite.LayerSetAnimationTime(spriteLayer, (float)(_timing.RealTime.TotalSeconds % state.TotalDelay));
+        }
+        // ADT-Tweak-End
+
         UpdateHologramShader(hologram, hologramSprite, holopadhologram, shader);
     }
 

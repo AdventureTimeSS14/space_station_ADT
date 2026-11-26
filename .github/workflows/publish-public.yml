@@ -43,6 +43,35 @@ jobs:
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: release
+        path: release/*
+        if-no-files-found: error
+        compression-level: 0
+        retention-days: 2
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4.2.2
+      with:
+        submodules: true
+
+    - name: Get Engine Tag
+      run: |
+        cd RobustToolbox
+        git fetch --depth=1
+
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: release
+        path: release
+
     - name: Enable BBR
       continue-on-error: true
       run: |

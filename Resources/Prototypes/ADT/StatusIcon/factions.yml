@@ -7,3 +7,27 @@
   showTo:
     components:
     - ShowAntagIcons
+
+- type: factionIcon
+  id: Schizophrenic
+  priority: 10
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/schizo_icons.rsi
+    state: hallucinating
+  showTo:
+    components:
+    - Schizophrenia
+    - Hallucination
+    - ShowAntagIcons
+
+- type: factionIcon
+  id: Hallucination
+  priority: 10
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/schizo_icons.rsi
+    state: hallucination
+  showTo:
+    components:
+    - Schizophrenia
+    - Hallucination
+    - ShowAntagIcons

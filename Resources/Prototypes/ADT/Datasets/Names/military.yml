@@ -28,8 +28,26 @@
     prefix: names-military-ert-first-dataset-
     count: 3
 
+- type: localizedDataset
+  id: NamesFirstInquisitor
+  values:
+    prefix: names-inquisitor-first-dataset-
+    count: 1
+
+- type: localizedDataset
+  id: NamesFirstSODOfficer
+  values:
+    prefix: names-sodofficer-first-dataset-
+    count: 1 #
+
 # - type: localizedDataset
 #   id: NamesFirstDeadSquad
 #   values:
 #     prefix: names-military-deadsquad-first-dataset-
 #     count: 2
+
+- type: localizedDataset
+  id: ADTNamesCrusader
+  values:
+    prefix: names-ADTNamesCrusader-
+    count: 40

@@ -49,15 +49,6 @@ public sealed partial class ADTNpcCombatMemoryComponent : Component
     public float NearestHostile = float.MaxValue;
 
     [ViewVariables]
-    public EntityUid? Leader;
-
-    [ViewVariables]
-    public TimeSpan NextLeaderCheck;
-
-    [DataField]
-    public TimeSpan LeaderCheckInterval = TimeSpan.FromSeconds(2);
-
-    [ViewVariables]
     public GameTick ObstacleTick;
 
     [ViewVariables]

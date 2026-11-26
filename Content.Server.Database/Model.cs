@@ -63,6 +63,7 @@ namespace Content.Server.Database
         public DbSet<AdtPoll> AdtPoll { get; set; } = null!;
         public DbSet<AdtPollResponse> AdtPollResponse { get; set; } = null!;
         public DbSet<AdtPollPending> AdtPollPending { get; set; } = null!;
+        public DbSet<AdtMapRotation> AdtMapRotation { get; set; } = null!;
         // ADT-Tweak-End
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<CustomVoteLog> CustomVoteLog { get; set; } = null!;
