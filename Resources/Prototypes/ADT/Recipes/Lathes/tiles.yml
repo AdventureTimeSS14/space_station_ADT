@@ -65,3 +65,83 @@
   materials:
     Steel: 25
     Wood: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemDarkCorner
+  result: ADTFloorTileItemDarkCorner
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemDarkEdge
+  result: ADTFloorTileItemDarkEdge
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemDarkHalf
+  result: ADTFloorTileItemDarkHalf
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemDarkPlasticCorner
+  result: ADTFloorTileItemDarkPlasticCorner
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemDarkPlasticEdge
+  result: ADTFloorTileItemDarkPlasticEdge
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemDarkPlasticHalf
+  result: ADTFloorTileItemDarkPlasticHalf
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemSteelCorner
+  result: ADTFloorTileItemSteelCorner
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemSteelEdge
+  result: ADTFloorTileItemSteelEdge
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemSteelHalf
+  result: ADTFloorTileItemSteelHalf
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemWhiteCorner
+  result: ADTFloorTileItemWhiteCorner
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemWhiteEdge
+  result: ADTFloorTileItemWhiteEdge
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemWhiteHalf
+  result: ADTFloorTileItemWhiteHalf
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemCatwalkDark
+  result: ADTFloorTileItemCatwalkDark
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemCatwalkPlasticDark
+  result: ADTFloorTileItemCatwalkPlasticDark
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemCatwalkSteel
+  result: ADTFloorTileItemCatwalkSteel
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemCatwalkWhite
+  result: ADTFloorTileItemCatwalkWhite
