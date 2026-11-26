@@ -17925,3 +17925,9 @@ Entries:
     id: 2147
     pr_number: 3728
     time: '2026-11-24T21:08:45Z'
+  - author: Vepayn
+    changes:
+      - {message: Добавлены новые кастомизации для унатхов и кобольдов, type: Add}
+    id: 2148
+    pr_number: 3730
+    time: '2026-11-26T22:02:06Z'
