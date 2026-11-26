@@ -809,6 +809,14 @@
   allowRotationMirror: true
 
 - type: tile
+  id: ADTFloorDarkPlasticMono
+  name: adt-tiles-floor-dark-plastic-mono
+  sprite: /Textures/ADT/Tiles/floors/dark-plastic-mono.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkPlasticMono
+
+- type: tile
   id: ADTFloorDarkPlasticCorner
   name: adt-tiles-floor-dark-plastic-corner
   sprite: /Textures/ADT/Tiles/floors/dark-plastic-corner.png

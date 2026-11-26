@@ -83,6 +83,11 @@
 
 - type: latheRecipe
   parent: BaseSteelTileRecipe
+  id: ADTFloorTileItemDarkPlasticMono
+  result: ADTFloorTileItemDarkPlasticMono
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
   id: ADTFloorTileItemDarkPlasticCorner
   result: ADTFloorTileItemDarkPlasticCorner
 

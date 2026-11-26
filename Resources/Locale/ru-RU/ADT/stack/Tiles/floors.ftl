@@ -1,0 +1,17 @@
+adt-stack-dark-corner-tile = чёрный угловой пол
+adt-stack-dark-edge-tile = чёрный 
+adt-stack-dark-half-tile = чёрный половинчатый пол
+adt-stack-dark-plastic-mono-tile = чёрный пластиковый моно пол
+adt-stack-dark-plastic-corner-tile = чёрный пластиковый угловой пол
+adt-stack-dark-plastic-edge-tile = чёрный 
+adt-stack-dark-plastic-half-tile = чёрный пластиковый половинчатый пол
+adt-stack-steel-corner-tile = стальной угловой пол
+adt-stack-steel-edge-tile = стальной
+adt-stack-steel-half-tile = стальной половинчатый пол
+adt-stack-white-corner-tile = белый угловой пол
+adt-stack-white-edge-tile = белый 
+adt-stack-white-half-tile = белый половинчатый пол
+adt-stack-catwalk-dark-tile = чёрный мостик
+adt-stack-catwalk-plastic-dark-tile = чёрный пластиковый мостик
+adt-stack-catwalk-steel-tile = стальной мостик
+ adt-stack-catwalk-white-tile = белый мостик

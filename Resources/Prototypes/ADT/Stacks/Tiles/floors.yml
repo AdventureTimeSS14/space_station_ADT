@@ -18,6 +18,12 @@
 
 - type: stack
   parent: BaseTileStack
+  id: ADTFloorTileDarkPlasticMonoStack
+  name: adt-stack-dark-plastic-mono-tile
+  spawn: ADTFloorTileItemDarkPlasticMono
+
+- type: stack
+  parent: BaseTileStack
   id: ADTFloorTileDarkPlasticCornerStack
   name: adt-stack-dark-plastic-corner-tile
   spawn: ADTFloorTileItemDarkPlasticCorner

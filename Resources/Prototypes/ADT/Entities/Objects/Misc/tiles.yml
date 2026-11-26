@@ -49,6 +49,22 @@
     stackType: ADTFloorTileDarkHalfStack
 
 - type: entity
+  name: dark plastic mono
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemDarkPlasticMono
+  components:
+  - type: Sprite
+    state: black-plastic-mono
+  - type: Item
+    heldPrefix: black
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkPlasticMono
+  - type: Stack
+    stackType: ADTFloorTileDarkPlasticMonoStack
+
+- type: entity
   name: dark plastic tile
   parent: ADTFloorTileItemDarkCorner
   id: ADTFloorTileItemDarkPlasticCorner

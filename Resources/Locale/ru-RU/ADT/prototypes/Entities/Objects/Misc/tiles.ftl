@@ -8,6 +8,9 @@ ent-ADTFloorTileItemDarkHalf = чёрный пол
     .desc = Может послужить неплохим метательным оружием.
     .suffix = половинчатый
 
+ent-ADTFloorTileItemDarkPlasticMono = чёрный пластиковый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = моно
 ent-ADTFloorTileItemDarkPlasticCorner = чёрный пластиковый пол
     .desc = Может послужить неплохим метательным оружием.
     .suffix = угловой

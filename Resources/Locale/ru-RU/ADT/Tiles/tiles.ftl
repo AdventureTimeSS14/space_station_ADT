@@ -59,6 +59,7 @@ tiles-adt-ussp-steel-red-floor = красная стальная плитка
 adt-tiles-floor-dark-corner = угловой чёрный пол
 adt-tiles-floor-dark-edge = стыковой чёрный пол
 adt-tiles-floor-dark-half = половинчатый чёрный пол
+adt-tiles-floor-dark-plastic-mono = чёрный пластиковый моно-пол
 adt-tiles-floor-dark-plastic-corner = угловой черный пластиковый пол
 adt-tiles-floor-dark-plastic-edge = стыковой чёрный пластиковый пол
 adt-tiles-floor-dark-plastic-half = половинчатый чёрный пластиковый пол
