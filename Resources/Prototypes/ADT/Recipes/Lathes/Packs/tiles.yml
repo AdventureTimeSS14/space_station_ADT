@@ -1,0 +1,19 @@
+- type: latheRecipePack
+  id: ADTTiles
+  recipes:
+  - ADTFloorTileItemDarkCorner
+  - ADTFloorTileItemDarkEdge
+  - ADTFloorTileItemDarkHalf
+  - ADTFloorTileItemDarkPlasticCorner
+  - ADTFloorTileItemDarkPlasticEdge
+  - ADTFloorTileItemDarkPlasticHalf
+  - ADTFloorTileItemSteelCorner
+  - ADTFloorTileItemSteelEdge
+  - ADTFloorTileItemSteelHalf
+  - ADTFloorTileItemWhiteCorner
+  - ADTFloorTileItemWhiteEdge
+  - ADTFloorTileItemWhiteHalf
+  - ADTFloorTileItemCatwalkDark
+  - ADTFloorTileItemCatwalkPlasticDark
+  - ADTFloorTileItemCatwalkSteel
+  - ADTFloorTileItemCatwalkWhite

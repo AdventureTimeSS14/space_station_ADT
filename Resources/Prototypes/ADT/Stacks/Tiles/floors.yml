@@ -1,0 +1,95 @@
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileDarkCornerStack
+  name: adt-stack-dark-corner-tile
+  spawn: ADTFloorTileItemDarkCorner
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileDarkEdgeStack
+  name: adt-stack-dark-edge-tile
+  spawn: ADTFloorTileItemDarkEdge
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileDarkHalfStack
+  name: adt-stack-dark-half-tile
+  spawn: ADTFloorTileItemDarkHalf
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileDarkPlasticCornerStack
+  name: adt-stack-dark-plastic-corner-tile
+  spawn: ADTFloorTileItemDarkPlasticCorner
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileDarkPlasticEdgeStack
+  name: adt-stack-dark-plastic-edge-tile
+  spawn: ADTFloorTileItemDarkPlasticEdge
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileDarkPlasticHalfStack
+  name: adt-stack-dark-plastic-half-tile
+  spawn: ADTFloorTileItemDarkPlasticHalf
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileSteelCornerStack
+  name: adt-stack-steel-corner-tile
+  spawn: ADTFloorTileItemSteelCorner
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileSteelEdgeStack
+  name: adt-stack-steel-edge-tile
+  spawn: ADTFloorTileItemSteelEdge
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileSteelHalfStack
+  name: adt-stack-steel-half-tile
+  spawn: ADTFloorTileItemSteelHalf
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileWhiteCornerStack
+  name: adt-stack-white-corner-tile
+  spawn: ADTFloorTileItemWhiteCorner
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileWhiteEdgeStack
+  name: adt-stack-white-edge-tile
+  spawn: ADTFloorTileItemWhiteEdge
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileWhiteHalfStack
+  name: adt-stack-white-half-tile
+  spawn: ADTFloorTileItemWhiteHalf
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileCatwalkDarkStack
+  name: adt-stack-catwalk-dark-tile
+  spawn: ADTFloorTileItemCatwalkDark
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileCatwalkPlasticDarkStack
+  name: adt-stack-catwalk-plastic-dark-tile
+  spawn: ADTFloorTileItemCatwalkPlasticDark
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileCatwalkSteelStack
+  name: adt-stack-catwalk-steel-tile
+  spawn: ADTFloorTileItemCatwalkSteel
+
+- type: stack
+  parent: BaseTileStack
+  id: ADTFloorTileCatwalkWhiteStack
+  name: adt-stack-catwalk-white-tile
+  spawn: ADTFloorTileItemCatwalkWhite
