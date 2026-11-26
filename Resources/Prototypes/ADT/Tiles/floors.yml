@@ -941,7 +941,7 @@
   itemDrop: ADTFloorTileItemCatwalkSteel
 
 - type: tile
-  id: ADTFloorCatwalkwhite
+  id: ADTFloorCatwalkWhite
   name: adt-tiles-floor-catwalk-white
   sprite: /Textures/ADT/Tiles/floors/catwalk-white.png
   parent: BaseStationTile
