@@ -90,6 +90,9 @@ marking-TailShark-shark_fin = Хвост, конец
 marking-TailShark-shark_tail-shark_tail = Хвост
 marking-TailSnake = Унатх, хвост (Змея)
 marking-TailSnake-snake = Хвост
+marking-TailDune = Унатх, хвост (Дюна)
+marking-TailDune-dune_tail = Хвост
+marking-TailDune-dune_tail_fluff = Хитин
 
 # Морды
 marking-SnoutEasternDW = Унатх, морда (Восточный дракон 1)
@@ -100,6 +103,30 @@ marking-SnoutEasternDNW-easterndw_primary = Морда, 1
 marking-SnoutEasternDNW-easterndnw_secondary = Морда, 2
 marking-ADTFangs = Клыки унатха
 marking-ADTFangs-Fangs = Клыки
+
+# Воротник
+marking-ADTReptilianFullheadDune = Унатх, воротник с антеннами (Дюна)
+marking-ADTReptilianFullheadDune-dune_fullhead = Воротник
+marking-ADTReptilianFullgeadFrillsDune = Унатх, воротник без антенн (Дюна)
+marking-ADTReptilianFullheadDune-dune_fullhead_frills = Воротник
+
+# Торс
+marking-ADTReptilianBodyfluffDune = Унатх, торс (Дюна)
+marking-ADTReptilianBodyfluffDune-dune_bodyfluff = Торс
+
+# Руки и ноги
+marking-ADTReptilianLefLeftDune = Унатх, левая нога (Дюна)
+marking-ADTReptilianLefLeftDune-dune_leg_left = Левая нога
+marking-ADTReptilianLegRightDune = Унатх, правая нога (Дюна)
+marking-ADTReptilianLegRightDune-dune_leg_right = Правая нога
+marking-ADTReptilianArmLeftDune = Унатх, левая рука (Дюна)
+marking-ADTReptilianArmLeftDune-dune_arm_left = Левая рука
+marking-ADTReptilianArmRightDune = Унатх, правая рука (Дюна)
+marking-ADTReptilianArmRightDune-dune_arm_right = Правая рука
+
+# Глаза
+marking-ADTReptilianEyesDune = Унатх, глаза (Дюна)
+marking-ADTReptilianEyesDune-dune_eyes = Глаза
 
 # Уши
 marking-EarsSylveon = Унатх, уши (Сильвеон)
@@ -125,3 +152,7 @@ marking-ADTLizardSnoutpiercings = Пирсинг
 marking-ADTLizardHornsKoboldEarspiercings = Унатх, уши (Проколотые)
 marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
 marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг
+marking-ADTReptilianAntennaDune = Унатх, антенны (Дюна)
+marking-ADTReptilianAntennaDune-dune_antenna = Антенны
+marking-ADTReptilianAntennaFullheadDune = Унатх, большие антенны (Дюна)
+marking-ADTReptilianAntennaFullheadDune-dune_fullhead_antenna = Антенны
