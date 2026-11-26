@@ -14,4 +14,4 @@ adt-stack-white-half-tile = белый половинчатый пол
 adt-stack-catwalk-dark-tile = чёрный мостик
 adt-stack-catwalk-plastic-dark-tile = чёрный пластиковый мостик
 adt-stack-catwalk-steel-tile = стальной мостик
- adt-stack-catwalk-white-tile = белый мостик
+adt-stack-catwalk-white-tile = белый мостик
