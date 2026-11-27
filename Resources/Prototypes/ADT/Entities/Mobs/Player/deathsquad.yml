@@ -123,6 +123,7 @@
     - Hypospray
     - ADTWeaponsTacticalAxe
     - ADTMedkitERTFilled
+    - ADTFultonDeathSquad
   inhand:
     - ADTWeaponMinigun
 
@@ -202,6 +203,7 @@
     - Hypospray
     - ADTWeaponsTacticalAxe
     - ADTMedkitERTFilled
+    - ADTFultonDeathSquad
   inhand:
     - ADTWeaponsTacticalHammerMega
 
@@ -247,6 +249,7 @@
     - Hypospray
     - ADTWeaponsTacticalAxe
     - ADTMedkitERTFilled
+    - ADTFultonDeathSquad
   inhand:
     - WeaponPulseRifle
 
@@ -295,6 +298,7 @@
     - WeaponCaseNT40mmGrenadeDrumBlast
     - WeaponCaseNT40mmGrenadeDrumBlastHEAT
     - WeaponCaseNT40mmGrenadeDrumEMPBaton
+    - ADTFultonDeathSquad
   inhand:
     - ADTWeaponLauncherMGL
 
@@ -343,6 +347,8 @@
     - ADTMagazineBoxReactive30Can
     - ADTMagazineBoxReactive30Can
     - ADTMagazineBoxReactive30CanIncendiary
+    - ADTFultonDeathSquad
+    - FultonBeacon
   inhand:
     - ADTMacheteCommandos
     - ADTWeaponPistolBonecrusher
