@@ -595,6 +595,8 @@
     autoRechargeRate: 200
   - type: ADTGripModuleHolder
   - type: DNALocker
+  - type: EmpResistance
+    strengthMultiplier: 0
   # ADT tweak end
 
 - type: entity
