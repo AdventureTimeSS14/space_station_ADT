@@ -3,10 +3,13 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Overlays;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Wires;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Silicons.Laws;
 
@@ -19,6 +22,8 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
     [Dependency] private SharedStunSystem _stunSystem = default!;
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedAudioSystem _audio = default!; // ADT-Tweak
+    [Dependency] protected SharedBorgSystem _borg = default!; // ADT-Tweak
 
     /// <summary>
     /// Minimum length of generated ion storm law identifiers.
@@ -70,8 +75,29 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
         component.OwnerName = Name(args.UserUid);
 
         if (!TryComp<SiliconLawProviderComponent>(uid, out var lawcomp))
+        // ADT-Tweak start
+        {
+            if (!_borg.TryGetBorgBrain(uid, out var borgBrain)
+                || !HasComp<SiliconLawProviderComponent>(borgBrain))
+                return;
+
+            var brainEv = new SiliconEmaggedEvent(args.UserUid);
+            RaiseLocalEvent(borgBrain, ref brainEv);
+
+            _audio.PlayPredicted(component.EmaggedSound, uid, args.UserUid);
+            _popup.PopupEntity(Loc.GetString("laws-notify-subverted"), uid, uid);
+
+            if (_mind.TryGetMind(uid, out var borgMindId, out _)
+                || _mind.TryGetMind(borgBrain, out borgMindId, out _))
+                EnsureSubvertedSiliconRole(borgMindId);
+
+            _stunSystem.TryUpdateParalyzeDuration(uid, component.StunTime);
+
+            args.Handled = true;
             return;
-            
+        }
+        // ADT-Tweak end
+
         NotifyLawsChanged((uid, lawcomp), component.EmaggedSound);
         if(_mind.TryGetMind(uid, out var mindId, out _))
             EnsureSubvertedSiliconRole(mindId);

@@ -6,6 +6,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Silicons.Borgs;
 
@@ -41,7 +42,7 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// <remarks>
     /// This count is on top of the modules specified in <see cref="DefaultModules"/>.
     /// </remarks>
-    /// <seealso cref="BorgChassisComponent.ModuleCount"/>
+    /// <seealso cref="SharedBorgSystem.CountOccupiedModuleSlots"/> # ADT-Tweak
     [DataField]
     public int ExtraModuleCount { get; set; } = 0;
 
@@ -98,6 +99,11 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// </summary>
     [DataField]
     public string SpriteBodyState { get; set; } = "robot";
+
+    // ADT-Tweak start
+    [DataField]
+    public ResPath? SpriteRsi { get; set; }
+    // ADT-Tweak end
 
     /// <summary>
     /// An optional movement sprite state for the main borg body.

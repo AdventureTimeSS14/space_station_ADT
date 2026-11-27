@@ -1,6 +1,10 @@
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Silicons.Borgs; // ADT-Tweak
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Random;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -12,12 +16,23 @@ public sealed partial class IonStormSystem : EntitySystem
     [Dependency] private SiliconLawSystem _siliconLaw = default!;
     [Dependency] private IRobustRandom _robustRandom = default!;
     [Dependency] private IonLawSystem _ionLaw = default!;
+    [Dependency] private SharedBorgSystem _borg = default!; // ADT-Tweak
 
     /// <summary>
     /// Randomly alters the laws of an individual silicon.
     /// </summary>
     public void IonStormTarget(Entity<SiliconLawBoundComponent, IonStormTargetComponent> ent)
     {
+        // ADT-Tweak start
+        if (!HasComp<StationAiHeldComponent>(ent)
+            && (!_borg.TryGetHostBorgChassis(ent, out var hostBorg)
+                || HasComp<SiliconLawProviderComponent>(hostBorg)
+                || HasComp<AiRemoteControllerComponent>(hostBorg)))
+        {
+            return;
+        }
+        // ADT-Tweak end
+
         var lawBound = ent.Comp1;
         var target = ent.Comp2;
         if (!_robustRandom.Prob(target.Chance))

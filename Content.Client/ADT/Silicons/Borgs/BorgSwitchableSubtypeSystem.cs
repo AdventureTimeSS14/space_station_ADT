@@ -6,6 +6,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Silicons.Borgs;
 
@@ -14,6 +15,7 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
     [Dependency] private IResourceCache _resourceCache = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private BorgSystem _borgSystem = default!;
 
     public override void Initialize()
@@ -32,6 +34,34 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
     private void AfterStateHandler(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         UpdateVisuals(ent);
+
+        if (ent.Comp.BorgSubtype == null)
+            ResetToBaseVisuals(ent);
+    }
+
+    private void ResetToBaseVisuals(Entity<BorgSwitchableSubtypeComponent> ent)
+    {
+        if (!TryComp(ent, out SpriteComponent? sprite))
+            return;
+
+        if (!_resourceCache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / BorgChassisBaseVisuals.Rsi, out var resource))
+            return;
+
+        if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
+            hasPlayer = false;
+
+        _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Body.GetHashCode(), resource.RSI, BorgChassisBaseVisuals.BodyState);
+        _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Light.GetHashCode(), resource.RSI,
+            hasPlayer ? BorgChassisBaseVisuals.HasMindState : BorgChassisBaseVisuals.NoMindState);
+        _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI, BorgChassisBaseVisuals.ToggleLightState);
+
+        if (TryComp(ent, out BorgChassisComponent? chassis))
+        {
+            _borgSystem.SetMindStates((ent.Owner, chassis), BorgChassisBaseVisuals.HasMindState, BorgChassisBaseVisuals.NoMindState);
+
+            if (TryComp(ent, out AppearanceComponent? appearance))
+                _appearance.QueueUpdate(ent, appearance);
+        }
     }
 
     protected override void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
@@ -53,13 +83,10 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
             if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
                 hasPlayer = false;
 
-            sprite.LayerSetState(BorgVisualLayers.Body, subtypePrototype.SpriteBodyState);
-            sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? subtypePrototype.SpriteHasMindState : subtypePrototype.SpriteNoMindState);
-            sprite.LayerSetState(BorgVisualLayers.LightStatus, subtypePrototype.SpriteToggleLightState);
-
-            sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
-            sprite.LayerSetRSI(BorgVisualLayers.Light.GetHashCode(), resource.RSI);
-            sprite.LayerSetRSI(BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI);
+            _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Body.GetHashCode(), resource.RSI, subtypePrototype.SpriteBodyState);
+            _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.Light.GetHashCode(), resource.RSI,
+                hasPlayer ? subtypePrototype.SpriteHasMindState : subtypePrototype.SpriteNoMindState);
+            _sprite.LayerSetRsi((ent, sprite), BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI, subtypePrototype.SpriteToggleLightState);
 
             if (TryComp(ent, out BorgChassisComponent? chassis))
             {

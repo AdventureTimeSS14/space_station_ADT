@@ -1,7 +1,7 @@
 {
     "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by discord: Cethet, for space station 14, salvage-module by ledniky, (discord:726481288713732147)",
+    "copyright": "Made by discord: Cethet, for space station 14, salvage-module by ledniky, (discord:726481288713732147), viro-module by Richard Blonski), Byrd module icons ported from OmuStation (art-module By EchoOfNothing, others modified by Balenar), adv-anomaly-module by Davyei (Discord), ported from space-wizards PR #40522",
     "size": {
         "x": 32,
         "y": 32
@@ -18,6 +18,75 @@
         },
         {
             "name": "rped-module"
+        },
+        {
+            "name": "viro-module"
+        },
+        {
+            "name": "art-module"
+        },
+        {
+            "name": "advancedanomaly-module"
+        },
+        {
+            "name": "adv-anomaly-module"
+        },
+        {
+            "name": "advancedrescue-module"
+        },
+        {
+            "name": "advancedxenobio-module"
+        },
+        {
+            "name": "BFD-module"
+        },
+        {
+            "name": "BFG-module"
+        },
+        {
+            "name": "book-module"
+        },
+        {
+            "name": "botany-module"
+        },
+        {
+            "name": "chef-module"
+        },
+        {
+            "name": "cleanade-module"
+        },
+        {
+            "name": "flatpack-module"
+        },
+        {
+            "name": "foam-module"
+        },
+        {
+            "name": "fulton-module"
+        },
+        {
+            "name": "gravity-module"
+        },
+        {
+            "name": "nuclear-module"
+        },
+        {
+            "name": "spray-module"
+        },
+        {
+            "name": "xenobio-module"
+        },
+        {
+            "name": "yeet-module"
+        },
+        {
+            "name": "medgun-module"
+        },
+        {
+            "name": "detective-module"
+        },
+        {
+            "name": "jetpack-module"
         }
     ]
 }

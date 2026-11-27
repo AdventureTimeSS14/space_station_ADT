@@ -89,6 +89,11 @@
     folded: true
   - type: Strap
     enabled: False
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - RollerBed
+  # ADT-Tweak end
 
 - type: entity
   id: CheapRollerBed
@@ -118,6 +123,11 @@
     folded: true
   - type: Strap
     enabled: False
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - RollerBed
+  # ADT-Tweak end
 
 - type: entity
   id: EmergencyRollerBed
@@ -147,3 +157,8 @@
     folded: true
   - type: Strap
     enabled: False
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - RollerBed
+  # ADT-Tweak end

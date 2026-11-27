@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.ADT.CrewManifest;
 using Content.Server.Administration;
 using Content.Server.EUI;
 using Content.Server.Station.Systems;
@@ -113,6 +114,11 @@ public sealed partial class CrewManifestSystem : EntitySystem
     /// <returns>The name and crew manifest entries (unordered) of the station.</returns>
     public (string name, CrewManifestEntries? entries) GetCrewManifest(EntityUid station)
     {
+        // ADT-Tweak start
+        if (HasComp<StationDataComponent>(station))
+            BuildCrewManifest(station);
+        // ADT-Tweak end
+
         var valid = _cachedEntries.TryGetValue(station, out var manifest);
         return (valid ? MetaData(station).EntityName : string.Empty, valid ? manifest : null);
     }
@@ -233,6 +239,11 @@ public sealed partial class CrewManifestSystem : EntitySystem
             ProtoMan.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));
         }
+
+        // ADT-Tweak start
+        var crewEntriesCollectEv = new CrewManifestEntriesCollectEvent(station, entriesSort);
+        RaiseLocalEvent(crewEntriesCollectEv);
+        // ADT-Tweak end
 
         var jobWeights = Comp<StationDataComponent>(station).JobWeights;
         if (JobUIComparer.TryCreate(ProtoMan, jobWeights, out var comparer))

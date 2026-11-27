@@ -24,3 +24,6 @@ research-technology-adt-quantum-parts = Квантовые машинные ча
 research-technology-adt-rped = РПЕД
 research-technology-adt-bluespace-rped = Блюспейс-РПЕД
 research-technology-adt-bluespace-rpd = Блюспейс-РРТ
+research-technology-adt-nanopaste = Робототехническая нанопаста
+research-technology-adt-sec-borg-energytac = Тактическое энерговооружение СБ-борга
+research-technology-adt-borg-emp-protection = Защита боргов от ЭМИ

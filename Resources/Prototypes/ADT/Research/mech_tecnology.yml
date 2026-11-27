@@ -104,6 +104,7 @@
   - ADTClarkeHead
   - ADTClarkeCentralElectronics
   - ADTClarkePeripheralsElectronics
+  - BorgModuleBFG
   position: 1,0
   requiredTech:
   - RipleyAPLU

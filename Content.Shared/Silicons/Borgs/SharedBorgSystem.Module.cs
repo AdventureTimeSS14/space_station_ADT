@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.ADT.Interaction.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
@@ -83,11 +84,19 @@ public abstract partial class SharedBorgSystem
         var chassis = args.Container.Owner;
 
         if (!TryComp<BorgChassisComponent>(chassis, out var chassisComp) ||
-            args.Container != chassisComp.ModuleContainer ||
-            !chassisComp.Active)
+            args.Container != chassisComp.ModuleContainer)
             return;
 
+        // ADT-Tweak start
+        if (!chassisComp.Active && !ModuleStaysActiveOnShutdown(module))
+            return;
+        // ADT-Tweak end
+
         InstallModule((chassis, chassisComp), module.AsNullable());
+
+        // ADT-Tweak start
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(chassis);
+        // ADT-Tweak end
     }
 
     private void OnModuleGotRemoved(Entity<BorgModuleComponent> module, ref EntGotRemovedFromContainerMessage args)
@@ -122,6 +131,11 @@ public abstract partial class SharedBorgSystem
         }
 
         UninstallModule((chassis, chassisComp), module.AsNullable());
+
+        // ADT-Tweak start: модуль мог добавить компоненты скорости — обновляем модификаторы
+        if (!TerminatingOrDeleted(chassis))
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(chassis);
+        // ADT-Tweak end
 
         // Default modules should not be dropped so let's remove them.
         if (TryComp<BorgModuleComponent>(module, out var moduleComp) && moduleComp.DefaultModule)
@@ -228,6 +242,13 @@ public abstract partial class SharedBorgSystem
             {
                 if (module.Comp.StoredItems.TryGetValue(slot.HandId, out var storedItem))
                 {
+                    if (HasComp<HandPlaceholderComponent>(storedItem))
+                    {
+                        PredictedQueueDel(storedItem);
+                        module.Comp.StoredItems.Remove(slot.HandId);
+                        continue;
+                    }
+
                     item = storedItem;
                     // DoPickup handles removing the item from the container.
                 }
@@ -279,9 +300,17 @@ public abstract partial class SharedBorgSystem
         {
             if (_hands.TryGetHeldItem((chassis.Owner, hands), slot.HandId, out var held))
             {
-                RemComp<UnremoveableComponent>(held.Value);
-                _container.Insert(held.Value, container);
-                module.Comp.StoredItems[slot.HandId] = held.Value;
+                if (HasComp<HandPlaceholderComponent>(held.Value))
+                {
+                    PredictedQueueDel(held.Value);
+                    module.Comp.StoredItems.Remove(slot.HandId);
+                }
+                else
+                {
+                    RemComp<UnremoveableComponent>(held.Value);
+                    _container.Insert(held.Value, container);
+                    module.Comp.StoredItems[slot.HandId] = held.Value;
+                }
             }
             else
             {

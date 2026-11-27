@@ -637,3 +637,87 @@
     spreadAddition: 20
     staminaDamage: 4
 # ADT TWEAK END
+
+- type: entity
+  name: Foam Force Astro Ace
+  suffix: Recharging
+  parent: BaseWeaponBattery
+  id: WeaponBorgRifleFoam
+  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Foam/foam_rifle.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Fun/Foam/foam_rifle.rsi
+  - type: Item
+    sprite: Objects/Fun/Foam/foam_rifle_inhand_64x.rsi
+    size: Normal
+  - type: PacifismAllowedGun
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: BatteryAmmoProvider
+    proto: BulletFoam
+    fireCost: 10
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1
+  - type: AmmoCounter
+
+
+- type: entity
+  name: tactical energy rifle
+  parent: BaseWeaponBattery
+  id: ADTBorgWeaponEnergyTac
+  description: A compact energy rifle with three firing modes - stun, disable and lethal. Designed for cyborgs, recharges on its own.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/energytac.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-2
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+      visible: false
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Gun
+    fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    clumsyProof: true
+  - type: BatteryAmmoProvider
+    proto: BulletLaser
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: ADTBulletDisabler
+      fireCost: 60
+    - proto: BulletLaser
+      fireCost: 60
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 30
+  - type: Item
+    size: Normal

@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/blob/301152fa134cacf4e4a9e1e20e0868c33d550ccf/icons/obj/guns/energy.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "mag-unshaded-0",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "mag-unshaded-1"
+        },
+        {
+            "name": "mag-unshaded-2"
+        }
+    ]
+}

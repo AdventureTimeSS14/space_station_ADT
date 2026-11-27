@@ -50,6 +50,7 @@
   - DiamondReactorGasChannel
   - GoldReactorHeatExchanger
   - DiamondReactorHeatExchanger
+  - BorgModuleNuclear
   - GoldGasTurbineBlade
   - DiamondGasTurbineBlade
   - GoldGasTurbineStator

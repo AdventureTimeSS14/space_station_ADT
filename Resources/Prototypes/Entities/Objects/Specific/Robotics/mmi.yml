@@ -21,6 +21,12 @@
         components:
         - Brain
   - type: BorgBrain
+  # ADT-Tweak start
+  - type: SiliconLawProvider
+    laws: NTDefault
+  - type: SiliconLawBound
+  - type: IonStormTarget
+  # ADT-Tweak end
   - type: BlockMovement
   - type: Examiner
   - type: IntrinsicRadioReceiver
@@ -137,3 +143,9 @@
       whitelist:
         components:
         - SecretStash
+    # ADT-Tweak start
+    - type: SiliconLawProvider
+      laws: NTDefault
+    - type: SiliconLawBound
+    - type: IonStormTarget
+    # ADT-Tweak end

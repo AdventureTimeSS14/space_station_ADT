@@ -116,3 +116,9 @@ alerts-prying-desc = You can innately pry doors open using alternative interacti
 
 alerts-changeling-chemicals-name = Chemicals
 alerts-changeling-chemicals-desc = The chemicals stored within our glands. We use them for many of our abilities to function. They regenerate over time.
+
+alerts-borg-selfrepair-name = Self-repair
+alerts-borg-selfrepair-desc = Click to release or recall a repair orb that restores your chassis, consuming power cell charge.
+
+alerts-borg-jetpack-name = Jetpack
+alerts-borg-jetpack-desc = Click to toggle the built-in jetpack.

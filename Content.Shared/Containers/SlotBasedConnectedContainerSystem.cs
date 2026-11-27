@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -15,6 +17,7 @@ public sealed partial class SlotBasedConnectedContainerSystem : EntitySystem
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedHandsSystem _hands = default!; // ADT-Tweak 
 
     /// <inheritdoc />
     public override void Initialize()
@@ -39,16 +42,16 @@ public sealed partial class SlotBasedConnectedContainerSystem : EntitySystem
             return false;
         }
 
-        return TryGetConnectedContainer(uid, component.TargetSlot, component.ContainerWhitelist, out slotEntity);
+        return TryFindConnectedContainer(uid, component, out slotEntity); // ADT-Tweak 
     }
 
     private void OnGettingConnectedContainer(Entity<SlotBasedConnectedContainerComponent> ent, ref GetConnectedContainerEvent args)
     {
-        if (TryGetConnectedContainer(ent, ent.Comp.TargetSlot, ent.Comp.ContainerWhitelist, out var val))
+        if (TryFindConnectedContainer(ent, ent.Comp, out var val)) // ADT-Tweak 
             args.ContainerEntity = val;
     }
 
-    private bool TryGetConnectedContainer(EntityUid uid, SlotFlags slotFlag, EntityWhitelist? providerWhitelist, [NotNullWhen(true)] out EntityUid? slotEntity)
+    private bool TryFindConnectedContainer(EntityUid uid, SlotBasedConnectedContainerComponent component, [NotNullWhen(true)] out EntityUid? slotEntity) // ADT-Tweak 
     {
         slotEntity = null;
 
@@ -56,17 +59,31 @@ public sealed partial class SlotBasedConnectedContainerSystem : EntitySystem
             return false;
 
         var user = container.Owner;
-        if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, slotFlag))
+        if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, component.TargetSlot)) // ADT-Tweak 
             return false;
 
         while (enumerator.NextItem(out var item))
         {
-            if (_whitelistSystem.IsWhitelistFailOrNull(providerWhitelist, item))
+            if (_whitelistSystem.IsWhitelistFailOrNull(component.ContainerWhitelist, item)) // ADT-Tweak 
                 continue;
 
             slotEntity = item;
             return true;
         }
+
+        // ADT-Tweak start
+        if (component.CheckHands)
+        {
+            foreach (var item in _hands.EnumerateHeld((user, null)))
+            {
+                if (_whitelistSystem.IsWhitelistFailOrNull(component.ContainerWhitelist, item))
+                    continue;
+
+                slotEntity = item;
+                return true;
+            }
+        }
+        // ADT-Tweak end
 
         return false;
     }

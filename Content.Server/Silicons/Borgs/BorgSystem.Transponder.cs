@@ -53,7 +53,7 @@ public sealed partial class BorgSystem
                 meta.EntityName,
                 chargeFraction,
                 hpPercent,
-                chassis.ModuleCount,
+                CountOccupiedModuleSlots(uid), // ADT-Tweak
                 hasBrain,
                 canDisable,
                 HasComp<AiRemoteControllerComponent>(uid)); // ADT-Tweak-AiRemoteControl

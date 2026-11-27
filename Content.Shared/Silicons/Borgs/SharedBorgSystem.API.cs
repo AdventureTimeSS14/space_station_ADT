@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ADT.Silicons.Borgs.Components; // ADT tweak
 using Content.Shared.Silicons.Borgs.Components;
@@ -193,6 +194,11 @@ public abstract partial class SharedBorgSystem
             if (!_moduleQuery.TryGetComponent(moduleEnt, out var moduleComp))
                 continue;
 
+            // ADT-Tweak start
+            if (ModuleStaysActiveOnShutdown(moduleEnt))
+                continue;
+            // ADT-Tweak end
+
             UninstallModule(borg, (moduleEnt, moduleComp));
         }
     }
@@ -206,6 +212,79 @@ public abstract partial class SharedBorgSystem
         Dirty(ent);
     }
 
+    // ADT-Tweak start
+    public bool ModuleCountsTowardsCapacity(EntityUid module)
+    {
+        if (HasComp<ADTBorgStorageModuleComponent>(module))
+            return false;
+
+        return !TryComp<ComponentBorgModuleComponent>(module, out var compModule) || compModule.CountsTowardsCapacity;
+    }
+
+    public bool ModuleStaysActiveOnShutdown(EntityUid module)
+    {
+        if (HasComp<ADTBorgStorageModuleComponent>(module))
+            return true;
+
+        return TryComp<ComponentBorgModuleComponent>(module, out var compModule) && !compModule.DeactivatesWithBorg;
+    }
+
+    public int CountOccupiedModuleSlots(Entity<BorgChassisComponent?> chassis)
+    {
+        if (!Resolve(chassis, ref chassis.Comp))
+            return 0;
+
+        var count = 0;
+        foreach (var moduleEnt in chassis.Comp.ModuleContainer.ContainedEntities)
+        {
+            if (!ModuleCountsTowardsCapacity(moduleEnt))
+                continue;
+
+            count++;
+        }
+
+        return count;
+    }
+
+    public bool TryGetBorgBrain(EntityUid chassis, out EntityUid brain)
+    {
+        if (TryComp(chassis, out BorgChassisComponent? borg) && borg.BrainEntity is { } b)
+        {
+            brain = b;
+            return true;
+        }
+
+        brain = default;
+        return false;
+    }
+
+    // ADT-Tweak start
+    public bool TryGetStorageModule(Entity<BorgChassisComponent?> chassis, [NotNullWhen(true)] out EntityUid? module)
+    {
+        if (Resolve(chassis, ref chassis.Comp))
+        {
+            foreach (var moduleEnt in chassis.Comp.ModuleContainer.ContainedEntities)
+            {
+                if (!HasComp<ADTBorgStorageModuleComponent>(moduleEnt))
+                    continue;
+
+                module = moduleEnt;
+                return true;
+            }
+        }
+
+        module = null;
+        return false;
+    }
+    // ADT-Tweak end
+
+    public bool TryGetHostBorgChassis(EntityUid brain, out EntityUid chassis)
+    {
+        chassis = Transform(brain).ParentUid;
+        return HasComp<BorgChassisComponent>(chassis);
+    }
+    // ADT-Tweak end
+
     /// <summary>
     /// Checks if a given module can be inserted into a borg.
     /// </summary>
@@ -214,7 +293,7 @@ public abstract partial class SharedBorgSystem
         if (!Resolve(chassis, ref chassis.Comp) || !Resolve(module, ref module.Comp))
             return false;
 
-        if (chassis.Comp.ModuleContainer.ContainedEntities.Count >= chassis.Comp.MaxModules)
+        if (CountOccupiedModuleSlots(chassis) >= chassis.Comp.MaxModules) // ADT-Tweak
         {
             _popup.PopupEntity(Loc.GetString("borg-module-too-many"), chassis.Owner, user);
             return false;

@@ -6,6 +6,7 @@
   save: false
   abstract: true
   components:
+  - type: Stripping # ADT-Tweak
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -77,6 +78,8 @@
     # Start ADT Tweak
       enum.BorgInfoUiKey.BorgInfo:
         type: BorgInfoBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: CrewManifestViewer
     ownerKey: enum.BorgInfoUiKey.BorgInfo
   - type: BorgInfo
@@ -89,9 +92,11 @@
     - ActionViewLaws
   - type: EmagSiliconLaw
     stunTime: 5
-  - type: SiliconLawProvider
-    laws: NTDefault # Corvax-NTDefault
-  - type: IonStormTarget
+  # ADT-Tweak start: законы и взлом хранятся в мозге (MMI/позитрон),
+  #- type: SiliconLawProvider
+  #  laws: NTDefault # Corvax-NTDefault
+  #- type: IonStormTarget
+  # ADT-Tweak-End
   - type: Inventory
     templateId: borg
   - type: Hands
@@ -123,6 +128,13 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
+    allowSelfInteraction: false # ADT-Tweak
+  # ADT-Tweak start
+  - type: Wires
+    boardName: adt-borg-wires-board-name
+    layoutId: ADTBorg
+  - type: ADTBorgAiLink
+  # ADT-Tweak end
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -273,7 +285,7 @@
   parent: BaseBorgChassisNotIonStormable
   id: BaseBorgChassis
   components:
-  - type: IonStormTarget
+  # - type: IonStormTarget # ADT-Tweak
   - type: RadioJobIconOverride # ADT-Tweak
     iconId: JobIconBorg
   - type: Destructible
@@ -395,6 +407,17 @@
   # ADT-Tweak start
   - type: BorgFlashStun
     stunDuration: 4
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    transmitFrequencyId: SurveillanceCamera
+    receiveFrequencyId: SurveillanceCameraGeneral
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: true
+    id: borg
+    useEntityNameAsCameraId: true
+    setupAvailableNetworks:
+    - SurveillanceCameraGeneral
   # ADT-Tweak end
 
 - type: entity

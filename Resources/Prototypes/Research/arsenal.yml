@@ -59,6 +59,7 @@
   # - ADTWeaponIonRifle
   # - ADTWeaponIonCarbine
   - ADTBorgModuleHarm #ADT secborg
+  - BorgModuleFlashImmunity #ADT secborg
   - ADTMechGunImmolatorLaser
   position: 2,-1
   requiredTech:

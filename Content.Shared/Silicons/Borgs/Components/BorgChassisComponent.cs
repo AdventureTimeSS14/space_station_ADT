@@ -101,11 +101,13 @@ public sealed partial class BorgChassisComponent : Component
     [ViewVariables]
     public Container ModuleContainer = default!;
 
+    /* ADT-Tweak start
     /// <summary>
     /// How many modules are currently installed?
     /// </summary>
     [ViewVariables]
     public int ModuleCount => ModuleContainer.ContainedEntities.Count;
+    ADT-Tweak end */
     #endregion
 
     /// <summary>

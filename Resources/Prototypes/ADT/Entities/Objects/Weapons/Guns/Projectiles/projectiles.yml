@@ -603,3 +603,41 @@
     proto: BulletLaserHeavy
     count: 4 #60 heat damage if you hit all your shots, but narrower spread
     spread: 10
+
+- type: entity
+  parent: ADTBulletKineticAccelerator
+  id: ADTBulletIndustrialKineticAccelerator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 70
+        Structural: 50
+  - type: TimedDespawn
+    lifetime: 0.2
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: ADTBulletGrenadeLubenade
+  name: lubenade grenade round
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: cleanade
+  - type: SmokeOnTrigger
+    duration: 3.5
+    spreadAmount: 30
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceLube
+        Quantity: 30
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg

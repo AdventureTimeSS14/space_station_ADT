@@ -188,7 +188,7 @@
   components:
   - type: BorgModule
     borgFitTypes:
-    - borg-type-generic
+    - borg-type-science # ADT-Tweak
   - type: Tag
     tags:
     - BorgModuleScience
@@ -482,22 +482,19 @@
     - state: icon-cables
   - type: ItemBorgModule
     hands:
-    - item: CableApcStack10
-      hand:
+    - hand:
         emptyRepresentative: CableApcStack10
         emptyLabel: borg-slot-cables-empty
         whitelist:
           tags:
           - CableCoil
-    - item: CableMVStack10
-      hand:
+    - hand:
         emptyRepresentative: CableMVStack10
         emptyLabel: borg-slot-cables-empty
         whitelist:
           tags:
           - CableCoil
-    - item: CableHVStack10
-      hand:
+    - hand:
         emptyRepresentative: CableHVStack10
         emptyLabel: borg-slot-cables-empty
         whitelist:
@@ -577,15 +574,13 @@
     - state: icon-inflatable
   - type: ItemBorgModule
     hands:
-    - item: InflatableDoorStack
-      hand:
+    - hand:
         emptyRepresentative: InflatableDoorStack
         emptyLabel: borg-slot-inflatable-door-empty
         whitelist:
           tags:
           - Inflatable
-    - item: InflatableWallStack
-      hand:
+    - hand:
         emptyRepresentative: InflatableWallStack
         emptyLabel: borg-slot-inflatable-wall-empty
         whitelist:
@@ -599,7 +594,7 @@
 # cargo modules
 - type: entity
   id: BorgModuleAppraisal
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleCargoBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: appraisal cyborg module
   components:
   - type: Sprite
@@ -660,7 +655,7 @@
 
 - type: entity
   id: BorgModuleTraversal
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleCargoBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: traversal cyborg module
   components:
   - type: Sprite
@@ -707,7 +702,7 @@
 
 - type: entity
   id: BorgModuleConstruction
-  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleEngineeringBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: construction cyborg module
   components:
   - type: Sprite
@@ -725,6 +720,8 @@
           - ADTSteelSheet
           - Sheet
           - Metal
+          - Ingot
+          - CableCoil
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
@@ -734,6 +731,8 @@
           - ADTSteelSheet
           - Sheet
           - Metal
+          - Ingot
+          - CableCoil
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
@@ -743,21 +742,33 @@
           - ADTSteelSheet
           - Sheet
           - Metal
+          - Ingot
+          - CableCoil
     - hand:
         emptyRepresentative: DoorElectronics
         emptyLabel: borg-slot-circuitboards-empty
         whitelist:
           components:
           - Circuitboard
+          - BorgModule
         blacklist:
           components:
           - SiliconLawProvider
+    # ADT-Tweak start
+    - hand:
+        emptyRepresentative: RapidPartExchangerBorg
+        whitelist:
+          components:
+          - PartExchanger
+    # ADT-Tweak end
     - hand:
         emptyRepresentative: MicroServoStockPart #ADT-Tweak: machine parts
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:
           - ConstructionMaterial
+          components: # ADT-Tweak
+          - MachinePart
     - hand:
         emptyRepresentative: SpaceHeaterFlatpack
         emptyLabel: borg-slot-flatpacks-empty
@@ -784,6 +795,18 @@
           - FloorTile
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
+  # ADT-Tweak start
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-engineer
+    - borg-type-generic
+    - borg-type-science
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleEngineering
+    - BorgModuleScience
+  # ADT-Tweak end
 
 - type: entity
   id: BorgModuleRCD
@@ -808,7 +831,7 @@
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
   id: BorgModuleCustodial
-  parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleJanitorBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: custodial cyborg module
   components:
   - type: Sprite
@@ -820,8 +843,7 @@
     - item: LightReplacerFilled
     - item: BorgTrashBag
     - item: Plunger
-    - item: SoapNT
-      hand:
+    - hand:
         emptyLabel: borg-slot-soap-empty
         emptyRepresentative: SoapNT
         whitelist:
@@ -832,7 +854,7 @@
 
 - type: entity
   id: BorgModuleCleaning
-  parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleJanitorBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: cleaning cyborg module
   components:
   - type: Sprite
@@ -866,8 +888,7 @@
     - item: BorgMegaSprayBottle
     - item: HoloprojectorBorg
     - item: BorgDropper
-    - item: Beaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-beakers-empty
         emptyRepresentative: Beaker
         whitelist:
@@ -898,7 +919,7 @@
 
 - type: entity
   id: BorgModuleTopicals
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleMedicalBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: first aid cyborg module
   components:
   - type: Sprite
@@ -909,22 +930,19 @@
     hands:
     - item: HandheldHealthAnalyzer
     - item: AdvancedJetInjector
-    - item: Gauze
-      hand:
+    - hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Gauze
         whitelist:
           components:
           - Healing
-    - item: Brutepack
-      hand:
+    - hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Brutepack
         whitelist:
           components:
           - Healing
-    - item: Ointment
-      hand:
+    - hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Ointment
         whitelist:
@@ -935,7 +953,7 @@
 
 - type: entity
   id: BorgModuleRescue
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleMedicalBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: rescue cyborg module
   components:
   - type: Sprite
@@ -949,6 +967,15 @@
     - item: Crowbar
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
+    # ADT-Tweak start
+    - hand:
+        emptyRepresentative: BodyBagFolded
+        whitelist:
+          tags:
+          - RollerBed
+          - BodyBag
+    # ADT-Tweak end
+    - item: HandheldStationMapUnpowered # ADT: из объединённого ADTBorgModuleRescue
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
@@ -964,16 +991,14 @@
   - type: ItemBorgModule
     hands:
     - item: HandLabeler
-    - item: Syringe
-      hand:
+    - hand:
         emptyLabel: borg-slot-injector-dropper-empty
         emptyRepresentative: Syringe
         whitelist:
           tags:
           - Dropper
           - Syringe
-    - item: PillCanister
-      hand:
+    - hand:
         emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: PillCanister
         whitelist:
@@ -981,8 +1006,7 @@
           - PillCanister
           - Bottle
           - Pill
-    - item: Beaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-chemical-containers-empty
         emptyRepresentative: Beaker
         whitelist:
@@ -990,8 +1014,7 @@
           - FitsInDispenser
           tags:
           - ChemDispensable
-    - item: Beaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-chemical-containers-empty
         emptyRepresentative: Beaker
         whitelist:
@@ -1037,7 +1060,7 @@
 # todo: if science ever gets their own custom robot, add more "sci" modules.
 - type: entity
   id: BorgModuleArtifact
-  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScienceBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: artifact cyborg module
   components:
   - type: Sprite
@@ -1047,23 +1070,26 @@
   - type: ItemBorgModule
     hands:
     - item: NodeScanner
-    - item: SprayBottle
     - item: GasAnalyzer
+    - item: HolofanProjectorBorg # ADT-Tweak
     - item: BorgDropper
-    - item: ChemistryEmptyVial
-      hand:
-        emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: ChemistryEmptyVial
+    # ADT-Tweak start
+    - hand:
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
         whitelist:
           components:
           - FitsInDispenser
+          tags:
+          - ChemDispensable
+      # ADT-Tweak end
     - item: GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 
 - type: entity
   id: BorgModuleAnomaly
-  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScienceBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: anomaly cyborg module
   components:
   - type: Sprite
@@ -1071,30 +1097,33 @@
     - state: science
     - state: icon-anomalies
   - type: ItemBorgModule
+    # ADT-Tweak start: порт space-wizards PR #40522 — вторая рука строительства
+    # заменена на руку под ядро аномалии, репрезентатив первой — плазма
     hands:
     - item: AnomalyScanner
     - item: AnomalyLocatorUnpowered
     - item: AnomalyLocatorWideUnpowered
     - item: HandLabeler
     - hand:
-        emptyRepresentative: SheetRGlass
+        emptyRepresentative: SheetPlasma
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:
           - ConstructionMaterial
     - hand:
-        emptyRepresentative: SheetRPGlass
-        emptyLabel: borg-slot-construction-empty
+        emptyRepresentative: AnomalyCoreBluespaceInert
+        emptyLabel: borg-slot-anomaly-core
         whitelist:
           tags:
-          - ConstructionMaterial
+          - AnomalyCore
+    # ADT-Tweak end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: anomaly-module }
 
 # service modules
 - type: entity
   id: BorgModuleService
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleServiceBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: service cyborg module
   components:
   - type: Sprite
@@ -1131,8 +1160,7 @@
     - item: RubberStampApproved
     - item: RubberStampDenied
     - item: BorgDropper
-    - item: DrinkShaker
-      hand:
+    - hand:
         emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: DrinkShaker
         whitelist:
@@ -1144,7 +1172,7 @@
 
 - type: entity
   id: BorgModuleMusique
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleServiceBasic, BaseProviderBorgModule ] # ADT-Tweak start
   name: musique cyborg module
   components:
   - type: Sprite
@@ -1153,22 +1181,19 @@
     - state: icon-musique
   - type: ItemBorgModule
     hands:
-    - item: SynthesizerInstrument
-      hand:
+    - hand:
         emptyLabel: borg-slot-instruments-empty
         emptyRepresentative: SynthesizerInstrument
         whitelist:
           components:
           - Instrument
-    - item: ElectricGuitarInstrument
-      hand:
+    - hand:
         emptyLabel: borg-slot-instruments-empty
         emptyRepresentative: ElectricGuitarInstrument
         whitelist:
           components:
           - Instrument
-    - item: SaxophoneInstrument
-      hand:
+    - hand:
         emptyLabel: borg-slot-instruments-empty
         emptyRepresentative: SaxophoneInstrument
         whitelist:

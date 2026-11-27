@@ -10,14 +10,16 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
-    - BorgModuleScience #until sciborgs are added
+    - BorgModuleBasic # ADT-Tweak
+    # - BorgModuleScience #until sciborgs are added
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - BorgModuleInflatable
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
+  # - BorgModuleArtifact
+  # - BorgModuleAnomaly
   radioChannels:
   - Science
 
@@ -49,6 +51,7 @@
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - BorgModuleConstruction
   - BorgModuleRCD
@@ -93,6 +96,7 @@
 # ADT-Tweak-End
   - BorgModuleAppraisal
   - ADTBorgModuleSalvage #ADT-Tweak
+  - ADTBorgModuleStorage # ADT-Tweak
 
   radioChannels:
   - Supply
@@ -127,6 +131,7 @@
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool # ADT-Tweak
   - BorgModuleCleaning
   - BorgModuleCustodial
@@ -168,7 +173,8 @@
   # ADT-Tweak-Start: "MedborgModuleUpdate"
   - ADTBorgModuleChemical
   - BorgModuleTopicals
-  - ADTBorgModuleRescue
+  - BorgModuleRescue
+  - ADTBorgModuleStorage
   # ADT-Tweak-end
 
   radioChannels:
@@ -225,6 +231,7 @@
 
   defaultModules:
 #  - BorgModulePrying
+  - ADTBorgModuleStorage # ADT-Tweak
   - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService

@@ -190,3 +190,12 @@
     Plasma: 300
     ADTBScrystal: 200
     Copper: 500
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: NanopasteRecipe
+  result: Nanopaste1
+  materials:
+    Steel: 500
+    Glass: 500
+    Plasma: 300

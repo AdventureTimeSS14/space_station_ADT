@@ -77,6 +77,7 @@
   recipeUnlocks:
     - ADTAdvancedPlantAnalyzer
     - ADTAdvancedWateringCan
+    - BorgModuleAdvancedBotany
   position: 1,-1
   requiredTech:
   - Hydroponics

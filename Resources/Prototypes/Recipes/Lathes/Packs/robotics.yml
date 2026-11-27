@@ -17,6 +17,8 @@
   - BorgModuleFireExtinguisher
   - BorgModuleInflatable
   - BorgModuleArtistry
+  - ADTBorgModuleStorageDuffel # ADT-Tweak
+  - BorgModuleTracker # ADT-Tweak
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -39,6 +41,7 @@
 - type: latheRecipePack
   id: BorgModules
   recipes:
+  - BorgModuleAdvancedAnomaly # ADT-Tweak
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
   - BorgModuleAdvancedClowning
@@ -46,6 +49,7 @@
   #- BorgModuleAdvancedChemical  # новые модули сделал отдельно в папке ADT
   - ADTBorgModuleAdvancedSalvage
   - ADTBorgModuleRPD
+  - BorgModuleEmpProtection
   # ADT-Tweak-End
 
 - type: latheRecipePack
@@ -74,3 +78,8 @@
     - MechEquipmentGrabber
     - MechEquipmentHorn
     - MechEquipmentGrabberSmall
+
+- type: latheRecipePack
+  id: ADTNanopaste
+  recipes:
+  - NanopasteRecipe

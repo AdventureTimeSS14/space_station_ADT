@@ -443,6 +443,12 @@ public sealed partial class WiresSystem : SharedWiresSystem
         if (!IsPanelOpen(uid))
             return;
 
+        // ADT-Tweak start
+        if (args.User == uid &&
+            (!TryComp<WiresPanelComponent>(uid, out var panel) || !panel.AllowSelfInteraction))
+            return;
+        // ADT-Tweak end
+
         if (Tool.HasQuality(args.Used, CuttingQuality, tool) ||
             Tool.HasQuality(args.Used, PulsingQuality, tool))
         {

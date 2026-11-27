@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "science sprite by Davyei (Discord), ported from space-wizards PR #40522",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "science",
+            "directions": 4
+        },
+        {
+            "name": "science_e",
+            "directions": 4
+        },
+        {
+            "name": "science_e_r",
+            "directions": 4
+        },
+        {
+            "name": "science_l",
+            "directions": 4
+        }
+    ]
+}

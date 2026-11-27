@@ -40,6 +40,15 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
     {
         if (TryComp(entity, out SpriteComponent? sprite))
         {
+            // ADT-Tweak start
+            if (prototype.SpriteRsi is { } spriteRsi)
+            {
+                _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.Body, spriteRsi, prototype.SpriteBodyState);
+                _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.Light, spriteRsi, prototype.SpriteHasMindState);
+                _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.LightStatus, spriteRsi, prototype.SpriteToggleLightState);
+            }
+            // ADT-Tweak end
+
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
         }

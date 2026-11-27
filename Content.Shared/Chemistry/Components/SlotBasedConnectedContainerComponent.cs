@@ -22,4 +22,9 @@ public sealed partial class SlotBasedConnectedContainerComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? ContainerWhitelist;
+
+    // ADT-Tweak start
+    [DataField]
+    public bool CheckHands;
+    // ADT-Tweak end
 }

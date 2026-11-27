@@ -91,5 +91,5 @@ public sealed partial class DroppableBorgItem
     public EntProtoId ID;
 
     [DataField]
-    public EntityWhitelist Whitelist;
+    public EntityWhitelist? Whitelist;
 }

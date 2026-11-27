@@ -1,0 +1,46 @@
+- type: entity
+  id: Nanopaste
+  name: nanopaste
+  parent: BaseHealingItem
+  description: A canister of self-assembling nanomachines. Repairs a silicon chassis completely without opening the wire panel.
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Objects/Specific/Medical/medical.rsi
+    state: nanopaste
+  - type: Item
+    size: Tiny
+  - type: Healing
+    damageContainers:
+    - Silicon
+    damage:
+      types:
+        Heat: -15
+        Shock: -15
+        Blunt: -15
+        Slash: -15
+        Piercing: -15
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: Nanopaste
+    count: 10
+
+- type: entity
+  id: Nanopaste5
+  parent: Nanopaste
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: Nanopaste
+    count: 5
+
+- type: entity
+  id: Nanopaste1
+  parent: Nanopaste
+  suffix: 1
+  components:
+  - type: Stack
+    stackType: Nanopaste
+    count: 1

@@ -150,3 +150,34 @@
   position: 0,1
   requiredTech:
   - SalvageWeapons
+
+- type: technology
+  id: AdvancedSecBorgModifiers
+  name: research-technology-advanced-sec-borg-modifiers
+  icon:
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    state: security
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - BorgModuleVTEC
+  - BorgModuleSelfRepair
+  position: 2,-2
+  requiredTech:
+  - WeaponizedLaserManipulation
+
+- type: technology
+  id: ADTSecBorgEnergyTac
+  name: research-technology-adt-sec-borg-energytac
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/energytac.rsi
+    state: base
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - BorgModuleEnergyTac
+  position: 4,-1
+  requiredTech:
+  - ConcentratedLaserWeaponry

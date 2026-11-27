@@ -1,0 +1,37 @@
+- type: constructionGraph
+  id: BorgModuleYeetCraft
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: borgmoduleyeet
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: construction-graph-tag-pipe
+      - tag: Handcuffs
+        icon:
+          sprite: Objects/Misc/cablecuffs.rsi
+          state: cuff
+          color: red
+        name: construction-graph-tag-cuffs
+      - material: Steel
+        amount: 6
+        doAfter: 10
+      - tag: BorgModuleGeneric
+        icon:
+          sprite: Objects/Specific/Robotics/borgmodule.rsi
+          state: generic
+        name: construction-graph-tag-genericborgmodule
+  - node: borgmoduleyeet
+    entity: BorgModuleYEET
+
+- type: construction
+  id: BorgModuleYeet
+  graph: BorgModuleYeetCraft
+  startNode: start
+  targetNode: borgmoduleyeet
+  category: construction-category-misc
+  objectType: Item

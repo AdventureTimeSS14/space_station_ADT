@@ -82,6 +82,7 @@
   - SlimeScannerXenobio
   - ClothingBackpackXenoBioTank
   - ClothingBeltChemBagXenobiologyHolding
+  - BorgModuleAdvancedXenobio
   position: 3,0
   requiredTech:
   - AlternativeResearch
@@ -213,3 +214,18 @@
   position: 0,-2
   requiredTech:
   - ADTRpedTech
+
+- type: technology
+  id: ADTNanopasteTech
+  name: research-technology-adt-nanopaste
+  icon:
+    sprite: /Textures/ADT/Objects/Specific/Medical/medical.rsi
+    state: nanopaste
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - NanopasteRecipe
+  position: 1,1
+  requiredTech:
+  - MechanicalCompression
