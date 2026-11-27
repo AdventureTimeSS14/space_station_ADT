@@ -64,7 +64,7 @@ public abstract partial class SharedBatterySystem : EntitySystem
         var consumption = args.EnergyConsumption;
         if (TryComp<EmpPowerDrainCapComponent>(ent.Owner, out var cap))
         {
-            consumption = MathF.Min(consumption, (cap.RelativeToMaxCharge ? ent.Comp.MaxCharge : ent.Comp.LastCharge) * cap.CapPercentage);
+            consumption = MathF.Min(consumption, (cap.RelativeToMaxCharge ? ent.Comp.MaxCharge : GetCharge(ent.AsNullable())) * cap.CapPercentage);
         }
 
         // ADT-Tweak-end
