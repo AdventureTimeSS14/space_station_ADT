@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:cherreshnia & discord:prazat911",
+    "copyright": "Created by discord:cherreshnia & discord:prazat911. Dune sprited by sadboiiiiiiiiiiiiiiiiiiiii (discord).",
     "size": {
         "x": 32,
         "y": 32
@@ -117,6 +117,38 @@
         },
         {
             "name": "tatto_skelet_leg_r",
+            "directions": 4
+        },
+        {
+            "name": "dune_eyes",
+            "directions": 4
+        },
+        {
+            "name": "dune_bodyfluff",
+            "directions": 4
+        },
+        {
+            "name": "dune_fullhead",
+            "directions": 4
+        },
+        {
+            "name": "dune_fullhead_frills",
+            "directions": 4
+        },
+        {
+            "name": "dune_leg_left",
+            "directions": 4
+        },
+        {
+            "name": "dune_leg_right",
+            "directions": 4
+        },
+        {
+            "name": "dune_arm_left",
+            "directions": 4
+        },
+        {
+            "name": "dune_arm_right",
             "directions": 4
         }
     ]
