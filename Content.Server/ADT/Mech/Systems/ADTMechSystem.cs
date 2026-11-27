@@ -3,7 +3,6 @@ using Content.Server.ADT.Mech.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
 using Content.Server.Mech.Systems;
-using Content.Shared.ADT.Emp;
 using Content.Shared.ADT.EMP;
 using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Mech.EntitySystems;
@@ -66,6 +65,7 @@ public sealed class ADTMechSystem : SharedADTMechSystem
         glitch.MotionStrength = ent.Comp.CameraGlitchMotionStrength;
         glitch.Smear = ent.Comp.CameraGlitchSmear;
         glitch.Glitch = ent.Comp.CameraGlitchAmount;
+        Dirty(args.Pilot, glitch);
     }
 
     private void OnRemoveGlitch(Entity<MechEmpGlitchComponent> ent, ref RemoveMechUserEvent args)
@@ -77,6 +77,7 @@ public sealed class ADTMechSystem : SharedADTMechSystem
             glitch.MotionStrength = ent.Comp.CachedCameraGlitchMotionStrength;
             glitch.Smear = ent.Comp.CachedCameraGlitchSmear;
             glitch.Glitch = ent.Comp.CachedCameraGlitchAmount;
+            Dirty(args.Pilot, glitch);
         }
         else
         {
@@ -85,6 +86,7 @@ public sealed class ADTMechSystem : SharedADTMechSystem
 
         ent.Comp.HadCameraGlitch = false;
     }
+
     protected override void AddExtraVerbs(Entity<ADTMechComponent> ent, MechComponent mech, GetVerbsEvent<AlternativeVerb> args)
     {
         _cockpit.AddPassengerVerb(ent, mech, args);

@@ -23,8 +23,6 @@ public sealed partial class EmpSystem : SharedEmpSystem
         SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
 
         SubscribeLocalEvent<EmpOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); // ADT-Tweak
-
-        InitializeADT();    // ADT-Tweak
     }
     private void OnRadioSendAttempt(EntityUid uid, EmpDisabledComponent component, ref RadioSendAttemptEvent args)
     {

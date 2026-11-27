@@ -12,8 +12,6 @@ public sealed partial class EmpSystem : SharedEmpSystem
         base.Initialize();
 
         SubscribeLocalEvent<EmpDisabledComponent, ComponentStartup>(OnStartup);
-
-        InitializeADT();    // ADT-Tweak
     }
 
     private void OnStartup(Entity<EmpDisabledComponent> ent, ref ComponentStartup args)

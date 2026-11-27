@@ -1,3 +1,5 @@
+using Robust.Shared.Prototypes;
+
 namespace Content.Server.ADT.Emp.Components;
 
 [RegisterComponent]
@@ -12,12 +14,13 @@ public sealed partial class EmpSpeechComponent : Component
     [DataField]
     public int AccentsAmount = 3;
 
-    public static HashSet<string> Accents = new()
+    [DataField]
+    public List<EntProtoId> Accents = new()
     {
         "StatusEffectStutter",
         "StatusEffectScrambled",
         "StatusEffectOwO",
         "StatusEffectAllCaps",
-        "StatusEffectBark"
+        "StatusEffectBark",
     };
 }

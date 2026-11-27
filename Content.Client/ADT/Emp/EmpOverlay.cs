@@ -1,77 +1,62 @@
 using System.Numerics;
+using Content.Shared.ADT.EMP;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.Emp;
 
-public sealed partial class EmpOverlay : Overlay
+public sealed class EmpOverlay : Overlay
 {
-    [Dependency] private IPrototypeManager _proto = default!;
-    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+
+    private static readonly ProtoId<ShaderPrototype> DatamoshShader = "Datamosh";
+    private const float BlockSize = 16f;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
-    private ShaderInstance _datamoshShader;
-    private const string DatamoshShaderProto = "Datamosh";
-    private const float BlockSize = 16f;
-
-    private bool _isActive = false;
+    private readonly ShaderInstance _datamoshShader;
     private IRenderTexture? _prevFrame;
-
-    private TimeSpan _startTime;
-    private TimeSpan _endTime;
-    private float _motionStrength;
-    private float _smear;
-    private float _glitch;
+    private EmpGlitchComponent? _glitch;
+    private TimeSpan _glitchStart;
 
     public EmpOverlay()
     {
         IoCManager.InjectDependencies(this);
 
-        _datamoshShader = _proto.Index<ShaderPrototype>(DatamoshShaderProto).InstanceUnique();
-    }
-
-    public void DoEffect(float duration, float motionStrength, float smear, float glitch)
-    {
-        _isActive = true;
-        _startTime = _timing.CurTime;
-        _endTime = _timing.CurTime + TimeSpan.FromSeconds(duration);
-
-        _motionStrength = motionStrength;
-        _smear = smear;
-        _glitch = glitch;
-    }
-
-    public void Stop()
-    {
-        _isActive = false;
-        _prevFrame?.Dispose();
-        _prevFrame = null;
+        _datamoshShader = _proto.Index(DatamoshShader).InstanceUnique();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        return _isActive;
+        if (!_entMan.TryGetComponent(_player.LocalEntity, out _glitch) || _timing.CurTime >= _glitch.GlitchEnd)
+        {
+            ResetFrame();
+            return false;
+        }
+
+        if (_glitch.GlitchStart != _glitchStart)
+        {
+            ResetFrame();
+            _glitchStart = _glitch.GlitchStart;
+        }
+
+        return true;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture == null)
+        if (ScreenTexture == null || _glitch == null)
             return;
 
-        var curDiff = _timing.CurTime - _startTime;
-        var endDiff = _endTime - _startTime;
-        var progress = (float)curDiff.TotalSeconds / (float)endDiff.TotalSeconds;
-
-        if (progress > 1)
-        {
-            Stop();
-            return;
-        }
+        var progress = (float)((_timing.CurTime - _glitch.GlitchStart) / (_glitch.GlitchEnd - _glitch.GlitchStart));
 
         var worldHandle = args.WorldHandle;
         var viewport = args.Viewport;
@@ -96,13 +81,25 @@ public sealed partial class EmpOverlay : Overlay
         _datamoshShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
         _datamoshShader.SetParameter("uBlockSize", BlockSize);
         _datamoshShader.SetParameter("uProgress", progress);
-        _datamoshShader.SetParameter("uMotionStrength", _motionStrength);
-        _datamoshShader.SetParameter("uSmear", _smear);
-        _datamoshShader.SetParameter("uGlitch", _glitch);
+        _datamoshShader.SetParameter("uMotionStrength", _glitch.MotionStrength);
+        _datamoshShader.SetParameter("uSmear", _glitch.Smear);
+        _datamoshShader.SetParameter("uGlitch", _glitch.Glitch);
         _datamoshShader.SetParameter("uResolution", ScreenTexture.Size);
 
         worldHandle.UseShader(_datamoshShader);
         worldHandle.DrawRect(args.WorldBounds, Color.White);
         worldHandle.UseShader(null);
+    }
+
+    private void ResetFrame()
+    {
+        _prevFrame?.Dispose();
+        _prevFrame = null;
+    }
+
+    protected override void DisposeBehavior()
+    {
+        ResetFrame();
+        base.DisposeBehavior();
     }
 }
