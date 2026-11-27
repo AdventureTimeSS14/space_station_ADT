@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.ADT.CantShoot;
 using Content.Shared.ADT.EMP;
 using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -28,7 +27,7 @@ public abstract partial class SharedEmpSystem
         args.Duration = component.DisablingTime;
     }
 
-    private void OnDisabledShot(EntityUid uid, EmpDisabledComponent component, ref ShotAttemptedEvent args)
+    private void OnDisabledShot(Entity<EmpDisabledComponent> ent, ref ShotAttemptedEvent args)
     {
         args.Cancel();
     }
@@ -59,9 +58,9 @@ public abstract partial class SharedEmpSystem
 
         var originalResistance = 1f;
         var originalDurationMult = 1f;
-        bool cap = TryComp<EmpPowerDrainCapComponent>(battery, out var drainCap);
-        bool capRelToMax = drainCap != null && drainCap.RelativeToMaxCharge;
-        float capPercentage = drainCap != null ? drainCap.CapPercentage : 1;
+        var cap = TryComp<EmpPowerDrainCapComponent>(battery, out var drainCap);
+        var capRelToMax = drainCap?.RelativeToMaxCharge ?? false;
+        var capPercentage = drainCap?.CapPercentage ?? 1f;
 
         if (TryComp<EmpResistanceComponent>(battery, out var resistance))
         {

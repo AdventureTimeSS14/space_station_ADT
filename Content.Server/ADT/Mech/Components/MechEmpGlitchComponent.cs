@@ -1,10 +1,8 @@
 namespace Content.Server.ADT.Mech.Components;
 
-
 [RegisterComponent]
 public sealed partial class MechEmpGlitchComponent : Component
 {
-    #region Glitch config
     [DataField]
     public float CameraGlitchDurationMultiplier = .25f;
 
@@ -31,6 +29,4 @@ public sealed partial class MechEmpGlitchComponent : Component
 
     [ViewVariables]
     public float CachedCameraGlitchAmount = 0.5f;
-    #endregion
-
 }

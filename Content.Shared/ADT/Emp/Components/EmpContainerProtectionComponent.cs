@@ -1,9 +1,6 @@
-using Content.Shared.ADT.EMP;
-using Robust.Shared.GameStates;
-
 namespace Content.Shared.ADT.EMP;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class EmpContainerProtectionComponent : Component
 {
     [ViewVariables]
@@ -27,21 +24,5 @@ public sealed partial class EmpContainerProtectionComponent : Component
     [DataField]
     public float CapPercentage = 0.5f;
 
-    public struct BatteryData
-    {
-        public float Protection;
-        public float DurationMult;
-        public bool CapConsumption;
-        public bool CapRelativeToMax;
-        public float CapPercentage;
-
-        public BatteryData(float protection, float durationMult, bool cap, bool capType, float capPercentage)
-        {
-            Protection = protection;
-            DurationMult = durationMult;
-            CapConsumption = cap;
-            CapRelativeToMax = capType;
-            CapPercentage = capPercentage;
-        }
-    }
+    public record struct BatteryData(float Protection, float DurationMult, bool CapConsumption, bool CapRelativeToMax, float CapPercentage);
 }

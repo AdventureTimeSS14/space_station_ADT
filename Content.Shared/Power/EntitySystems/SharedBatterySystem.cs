@@ -62,14 +62,11 @@ public abstract partial class SharedBatterySystem : EntitySystem
 
         // ADT-Tweak-start
         var consumption = args.EnergyConsumption;
-        if (TryComp<EmpPowerDrainCapComponent>(ent.Owner, out var cap))
-        {
+        if (TryComp<EmpPowerDrainCapComponent>(ent, out var cap))
             consumption = MathF.Min(consumption, (cap.RelativeToMaxCharge ? ent.Comp.MaxCharge : GetCharge(ent.AsNullable())) * cap.CapPercentage);
-        }
 
+        UseCharge(ent.AsNullable(), consumption);
         // ADT-Tweak-end
-
-        UseCharge(ent.AsNullable(), consumption);   // ADT-Tweak: using modified local variable
     }
 
     private void OnExamine(Entity<BatteryComponent> ent, ref ExaminedEvent args)
