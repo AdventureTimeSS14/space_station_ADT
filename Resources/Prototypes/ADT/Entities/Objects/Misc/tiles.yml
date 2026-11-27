@@ -56,7 +56,7 @@
   - type: Sprite
     state: dark-plastic-mono
   - type: Item
-    heldPrefix: black
+    heldPrefix: dark
   - type: FloorTile
     outputs:
       - Plating
