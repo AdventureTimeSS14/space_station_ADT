@@ -1,0 +1,1554 @@
+- type: reactiveGroup
+  id: ADTMakeupSkin
+
+- type: Tag
+  id: ADTTheatricalMakeupApplied
+
+- type: Tag
+  id: ADTMakeupFaceReptilian
+
+- type: Tag
+  id: ADTMakeupFaceVox
+
+- type: Tag
+  id: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalGuard
+  name: theatrical makeup protection
+  components:
+  - type: TriggerOnGotInsertedIntoContainer
+    containerId: status-effects
+    keyOut: mark
+  - type: AddTagsOnTrigger
+    keysIn: [mark]
+    targetUser: true
+    tags: [ADTTheatricalMakeupApplied]
+  - type: TriggerOnGotRemovedFromContainer
+    containerId: status-effects
+    keyOut: unmark
+  - type: RemoveTagsOnTrigger
+    keysIn: [unmark]
+    targetUser: true
+    tags: [ADTTheatricalMakeupApplied]
+
+- type: reagent
+  id: ADTMakeupPigmentBase
+  abstract: true
+  name: adt-makeup-pigment-name
+  desc: adt-makeup-pigment-desc
+  group: Medicine
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: medicine
+  color: "#eed9d9"
+  splashBlocked: true
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClownWigBase
+  abstract: true
+  components:
+  - type: Clothing
+    slots: [HEAD, NECK]
+    equippedState: equipped-HEAD
+  - type: HideLayerClothing
+    slots: [Hair]
+
+- type: entityEffect
+  id: ADTMakeupClearStyleBasicClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicClown, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicClownReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicClownVox, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicClownVulpkanin, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleBasicMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicMime, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicMimeReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicMimeVox, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupBasicMimeVulpkanin, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalClown, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalClownReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalClownVox, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalClownVulpkanin, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalBananaClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBananaClown, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBananaClownReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBananaClownVox, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalSecurityClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSecurityClown, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSecurityClownReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSecurityClownVox, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalBlushingClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingClown, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingClownReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingClownVox, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingClownVulpkanin, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalAbyssClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalAbyssClown, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalCluwne
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalCluwne, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalCluwneReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalCluwneVox, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalCluwneVulpkanin, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalBallisticClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBallisticClown, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalMime, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalMimeReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalMimeVox, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalMimeVulpkanin, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalBlushingMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingMime, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingMimeReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingMimeVox, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBlushingMimeVulpkanin, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalSadMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSadMime, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSadMimeReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSadMimeVox, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalScaredMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalScaredMime, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalScaredMimeReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalScaredMimeVox, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearStyleTheatricalSecurityMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSecurityMime, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSecurityMimeReptilian, type: Remove, time: null }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalSecurityMimeVox, type: Remove, time: null }
+
+- type: entityEffect
+  id: ADTMakeupClearBasic
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearStyleBasicClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleBasicMime }
+
+- type: entityEffect
+  id: ADTMakeupPrepareTheatrical
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalGuard, type: Set, time: null }
+  - !type:NestedEffect { proto: ADTMakeupClearBasic }
+
+- type: entityEffect
+  id: ADTMakeupClearGroupTheatricalClassic
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBananaClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSecurityClown }
+
+- type: entityEffect
+  id: ADTMakeupClearGroupTheatricalAbyss
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBlushingClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalAbyssClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalCluwne }
+
+- type: entityEffect
+  id: ADTMakeupClearGroupTheatricalMasks
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBallisticClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalMime }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBlushingMime }
+
+- type: entityEffect
+  id: ADTMakeupClearGroupTheatricalMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSadMime }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalScaredMime }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSecurityMime }
+
+- type: entityEffect
+  id: ADTMakeupClearTheatrical
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+
+- type: reagent
+  id: ADTMakeupPigmentBasicClown
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyBasicClown }
+
+- type: entityEffect
+  id: ADTMakeupApplyBasicClown
+  guidebookText: adt-makeup-effect
+  conditions:
+  - !type:TagCondition
+    tag: ADTTheatricalMakeupApplied
+    inverted: true
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearStyleBasicMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicClown
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox, ADTMakeupFaceVulpkanin]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicClownReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicClownVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicClownVulpkanin
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicClown
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicClownReptilian
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicClownVox
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face-vox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicClownVulpkanin
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face-vulpkanin
+
+- type: reagent
+  id: ADTMakeupPigmentBasicMime
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyBasicMime }
+
+- type: entityEffect
+  id: ADTMakeupApplyBasicMime
+  guidebookText: adt-makeup-effect
+  conditions:
+  - !type:TagCondition
+    tag: ADTTheatricalMakeupApplied
+    inverted: true
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearStyleBasicClown }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicMime
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox, ADTMakeupFaceVulpkanin]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicMimeReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicMimeVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupBasicMimeVulpkanin
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicMime
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicMimeReptilian
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicMimeVox
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK-vox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupBasicMimeVulpkanin
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK-vulpkanin
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalClown
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalClown }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBananaClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSecurityClown }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalClown
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox, ADTMakeupFaceVulpkanin]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalClownReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalClownVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalClownVulpkanin
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalClown
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalClownReptilian
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalClownVox
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face-vox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalClownVulpkanin
+  name: Classic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+        state: face-vulpkanin
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalBananaClown
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalBananaClown }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalBananaClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSecurityClown }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBananaClown
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBananaClownReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBananaClownVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBananaClown
+  name: Banana clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BananaClown.rsi
+        state: face
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBananaClownReptilian
+  name: Banana clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BananaClown.rsi
+        state: face-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBananaClownVox
+  name: Banana clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BananaClown.rsi
+        state: face-vox
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalSecurityClown
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalSecurityClown }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalSecurityClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBananaClown }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSecurityClown
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSecurityClownReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSecurityClownVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSecurityClown
+  name: Security clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/SecurityClown.rsi
+        state: face
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSecurityClownReptilian
+  name: Security clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/SecurityClown.rsi
+        state: face-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSecurityClownVox
+  name: Security clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/SecurityClown.rsi
+        state: face-vox
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalBlushingClown
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalBlushingClown }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalBlushingClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalAbyssClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalCluwne }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingClown
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox, ADTMakeupFaceVulpkanin]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingClownReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingClownVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingClownVulpkanin
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingClown
+  name: Blushing clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BlushingClown.rsi
+        state: face
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingClownReptilian
+  name: Blushing clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BlushingClown.rsi
+        state: face-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingClownVox
+  name: Blushing clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BlushingClown.rsi
+        state: face-vox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingClownVulpkanin
+  name: Blushing clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BlushingClown.rsi
+        state: face-vulpkanin
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalAbyssClown
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalAbyssClown }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalAbyssClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBlushingClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalCluwne }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalAbyssClown, type: Set, time: null, delay: 0.25 }
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalAbyssClown
+  name: Abyss clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/AbyssClown.rsi
+        state: face
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalCluwne
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalCluwne }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalCluwne
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBlushingClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalAbyssClown }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalCluwne
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox, ADTMakeupFaceVulpkanin]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalCluwneReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalCluwneVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalCluwneVulpkanin
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalCluwne
+  name: Cursed clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Cluwne.rsi
+        state: face
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalCluwneReptilian
+  name: Cursed clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Cluwne.rsi
+        state: face-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalCluwneVox
+  name: Cursed clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Cluwne.rsi
+        state: face-vox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalCluwneVulpkanin
+  name: Cursed clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/Cluwne.rsi
+        state: face-vulpkanin
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalBallisticClown
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalBallisticClown }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalBallisticClown
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalMime }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBlushingMime }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalBallisticClown, type: Set, time: null, delay: 0.25 }
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBallisticClown
+  name: Ballistic clown makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Objects/Fun/FaceMakeup/BallisticClown.rsi
+        state: face
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalMime
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalMime }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBallisticClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBlushingMime }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalMime
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox, ADTMakeupFaceVulpkanin]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalMimeReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalMimeVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalMimeVulpkanin
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalMime
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalMimeReptilian
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalMimeVox
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK-vox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalMimeVulpkanin
+  name: Classic mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime.rsi
+        state: equipped-MASK-vulpkanin
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalBlushingMime
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalBlushingMime }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalBlushingMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalBallisticClown }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalMime }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingMime
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox, ADTMakeupFaceVulpkanin]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingMimeReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingMimeVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalBlushingMimeVulpkanin
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVulpkanin
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingMime
+  name: Blushing mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/blushingmime.rsi
+        state: equipped-MASK
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingMimeReptilian
+  name: Blushing mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/blushingmime.rsi
+        state: equipped-MASK-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingMimeVox
+  name: Blushing mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/blushingmime.rsi
+        state: equipped-MASK-vox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalBlushingMimeVulpkanin
+  name: Blushing mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/blushingmime.rsi
+        state: equipped-MASK-vulpkanin
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalSadMime
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalSadMime }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalSadMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalScaredMime }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSecurityMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSadMime
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSadMimeReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSadMimeVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSadMime
+  name: Sad mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Clothing/Mask/sadmime.rsi
+        state: equipped-MASK
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSadMimeReptilian
+  name: Sad mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Clothing/Mask/sadmime.rsi
+        state: equipped-MASK-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSadMimeVox
+  name: Sad mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Clothing/Mask/sadmime.rsi
+        state: equipped-MASK-vox
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalScaredMime
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalScaredMime }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalScaredMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSadMime }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSecurityMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalScaredMime
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalScaredMimeReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalScaredMimeVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalScaredMime
+  name: Scared mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Clothing/Mask/scaredmime.rsi
+        state: equipped-MASK
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalScaredMimeReptilian
+  name: Scared mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Clothing/Mask/scaredmime.rsi
+        state: equipped-MASK-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalScaredMimeVox
+  name: Scared mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: ADT/Clothing/Mask/scaredmime.rsi
+        state: equipped-MASK-vox
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalSecurityMime
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalSecurityMime }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalSecurityMime
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupPrepareTheatrical }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalClassic }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalAbyss }
+  - !type:NestedEffect { proto: ADTMakeupClearGroupTheatricalMasks }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalSadMime }
+  - !type:NestedEffect { proto: ADTMakeupClearStyleTheatricalScaredMime }
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSecurityMime
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:AnyTagCondition
+      tags: [ADTMakeupFaceReptilian, ADTMakeupFaceVox]
+      inverted: true
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSecurityMimeReptilian
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceReptilian
+  - !type:ModifyStatusEffect
+    effectProto: ADTMakeupTheatricalSecurityMimeVox
+    type: Set
+    time: null
+    delay: 0.25
+    conditions:
+    - !type:TagCondition
+      tag: ADTMakeupFaceVox
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSecurityMime
+  name: Security mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime_security.rsi
+        state: equipped-MASK
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSecurityMimeReptilian
+  name: Security mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime_security.rsi
+        state: equipped-MASK-reptilian
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTMakeupTheatricalSecurityMimeVox
+  name: Security mime makeup
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SimpleSpriteOverlay
+      layerMap: adt_face_makeup
+      overlaySprite:
+        sprite: Clothing/Mask/mime_security.rsi
+        state: equipped-MASK-vox
+
+- type: reagent
+  id: ADTMakeupPigmentTheatricalRemove
+  parent: ADTMakeupPigmentBase
+  reactiveEffects:
+    ADTMakeupSkin:
+      methods: [Touch]
+      effects:
+      - !type:NestedEffect { proto: ADTMakeupApplyTheatricalRemove }
+
+- type: entityEffect
+  id: ADTMakeupApplyTheatricalRemove
+  guidebookText: adt-makeup-effect
+  effects:
+  - !type:NestedEffect { proto: ADTMakeupClearTheatrical }
+  - !type:ModifyStatusEffect { effectProto: ADTMakeupTheatricalGuard, type: Remove, time: null }
+
+- type: entity
+  parent: ADTClownWigBase
+  id: ADTClownWigClown
+  name: Classic clown wig
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+    state: equipped-HEAD
+  - type: Clothing
+    sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+  - type: Item
+    sprite: ADT/Objects/Fun/FaceMakeup/Clown.rsi
+
+- type: entity
+  parent: ADTClownWigBase
+  id: ADTClownWigBananaClown
+  name: Banana clown wig
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/FaceMakeup/BananaClown.rsi
+    state: equipped-HEAD
+  - type: Clothing
+    sprite: ADT/Objects/Fun/FaceMakeup/BananaClown.rsi
+  - type: Item
+    sprite: ADT/Objects/Fun/FaceMakeup/BananaClown.rsi
+
+- type: entity
+  parent: ADTClownWigBase
+  id: ADTClownWigSecurityClown
+  name: Security clown wig
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/FaceMakeup/SecurityClown.rsi
+    state: equipped-HEAD
+  - type: Clothing
+    sprite: ADT/Objects/Fun/FaceMakeup/SecurityClown.rsi
+  - type: Item
+    sprite: ADT/Objects/Fun/FaceMakeup/SecurityClown.rsi
+
+- type: entity
+  parent: ADTClownWigBase
+  id: ADTClownWigBlushingClown
+  name: Blushing clown wig
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/FaceMakeup/BlushingClown.rsi
+    state: equipped-HEAD
+  - type: Clothing
+    sprite: ADT/Objects/Fun/FaceMakeup/BlushingClown.rsi
+  - type: Item
+    sprite: ADT/Objects/Fun/FaceMakeup/BlushingClown.rsi
+
+- type: entity
+  parent: ADTClownWigBase
+  id: ADTClownWigAbyssClown
+  name: Abyss clown wig
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/FaceMakeup/AbyssClown.rsi
+    state: equipped-HEAD
+  - type: Clothing
+    sprite: ADT/Objects/Fun/FaceMakeup/AbyssClown.rsi
+  - type: Item
+    sprite: ADT/Objects/Fun/FaceMakeup/AbyssClown.rsi
+
+- type: entity
+  parent: ADTClownWigBase
+  id: ADTClownWigCluwne
+  name: Cursed clown wig
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/FaceMakeup/Cluwne.rsi
+    state: equipped-HEAD
+  - type: Clothing
+    sprite: ADT/Objects/Fun/FaceMakeup/Cluwne.rsi
+  - type: Item
+    sprite: ADT/Objects/Fun/FaceMakeup/Cluwne.rsi
+
+- type: entity
+  parent: ADTClownWigBase
+  id: ADTClownWigBallisticClown
+  name: Ballistic clown wig
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/FaceMakeup/BallisticClown.rsi
+    state: equipped-HEAD
+  - type: Clothing
+    sprite: ADT/Objects/Fun/FaceMakeup/BallisticClown.rsi
+  - type: Item
+    sprite: ADT/Objects/Fun/FaceMakeup/BallisticClown.rsi
