@@ -48868,18 +48868,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 7
   - uid: 6666
     components:
     - type: Transform
@@ -49445,20 +49435,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 5
-        adt-accessories: !type:Container
-          ents: []
 - proto: ClothingUniformJumpsuitRecruitSyndie
   entities:
   - uid: 6760
@@ -84521,14 +84499,6 @@ entities:
     components:
     - type: Transform
       parent: 6889
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 80
-          reagents: []
-        food:
-          reagents: []
-      containers: []
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage

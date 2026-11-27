@@ -29,15 +29,15 @@
   - ADT_Bagel
   - ADT_Barratry
 # Lowpop 20 - 35
-  - ADT_Packed
+ # - ADT_Packed
   - ADT_Saltern
   - ADT_Aspid
   - ADT_Cluster
 # Micropop 0 - 20
   - ADT_Reach
   - ADT_Silly
-  - ADT_Pump
-  - ADT_Sphere
+ # - ADT_Pump
+ # - ADT_Sphere
 
 # ADT Maps Выведенные на переработку
   # - ADT_Gate пока минока не начнёт нормально работать
@@ -56,6 +56,9 @@
   # - ADT_SalternHalloween
 
 # ADT NewYear (Не забудьте отключить обычные)
+  - ADT_Packed_New_Year
+  - ADT_Sphere_New_Year
+  - ADT_Pump_New_Year
   # - ADT_AspidNewYear
   # - ADT_BagelNewYear
   # - ADT_BoxNewYear
