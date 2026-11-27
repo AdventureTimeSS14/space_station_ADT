@@ -1,6 +1,4 @@
-
 using Content.Shared.Alert;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.ShowEnergy;
@@ -10,5 +8,9 @@ public sealed partial class ShowEnergyAlarmComponent : Component
 {
     [DataField]
     public ProtoId<AlertPrototype> PowerAlert = "ModsuitPower";
+
+    [DataField]
+    public bool ShowWithoutBattery;
+
     public EntityUid? User;
 }
