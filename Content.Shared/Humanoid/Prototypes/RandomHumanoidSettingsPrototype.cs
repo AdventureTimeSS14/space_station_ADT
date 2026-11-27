@@ -14,6 +14,9 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<RandomHumanoidSettingsPrototype>))]
     public string[]? Parents { get; private set; }
 
+    [DataField("species")] // ADT-tweak start
+    public ProtoId<SpeciesPrototype>? Species { get; private set; } // ADT-tweak end
+
     [AbstractDataField]
     [NeverPushInheritance]
     public bool Abstract { get; private set; }

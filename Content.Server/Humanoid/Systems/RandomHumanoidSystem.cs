@@ -38,7 +38,9 @@ public sealed partial class RandomHumanoidSystem : EntitySystem
         if (!ProtoMan.TryIndex<RandomHumanoidSettingsPrototype>(prototypeId, out var prototype))
             throw new ArgumentException("Could not get random humanoid settings");
 
-        var profile = HumanoidCharacterProfile.Random(prototype.SpeciesBlacklist);
+        var profile = prototype.Species != null // ADT-tweak start
+            ? HumanoidCharacterProfile.RandomWithSpecies(prototype.Species.Value.Id) // ADT-tweak end
+            : HumanoidCharacterProfile.Random(prototype.SpeciesBlacklist);
         var speciesProto = ProtoMan.Index<SpeciesPrototype>(profile.Species);
         var humanoid = EntityManager.CreateEntityUninitialized(speciesProto.Prototype, coordinates);
 
