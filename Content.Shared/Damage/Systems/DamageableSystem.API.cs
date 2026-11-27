@@ -71,12 +71,19 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
+// ADT-Tweak Start
+//         bool ignoreGlobalModifiers = false
+// ADT-Tweak End
+        bool ignoreGlobalModifiers = false,
+        float armorPenetration = 0f
     )
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
+// ADT-Tweak Start
+//         return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
+// ADT-Tweak End
+        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers, armorPenetration);
     }
 
     /// <summary>
@@ -97,12 +104,19 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
+// ADT-Tweak Start
+//         bool ignoreGlobalModifiers = false
+// ADT-Tweak End
+        bool ignoreGlobalModifiers = false,
+        float armorPenetration = 0f
     )
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-        newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
+// ADT-Tweak Start
+//         newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
+// ADT-Tweak End
+        newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers, armorPenetration);
         return !newDamage.Empty;
     }
 
@@ -123,7 +137,11 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
+// ADT-Tweak Start
+//         bool ignoreGlobalModifiers = false
+// ADT-Tweak End
+        bool ignoreGlobalModifiers = false,
+        float armorPenetration = 0f
     )
     {
         var damageDone = new DamageSpecifier();
@@ -144,11 +162,17 @@ public sealed partial class DamageableSystem
         if (!ignoreResistances)
         {
             if (GetDamageModifierSet(ent) is { } modifierSet)
-                damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+// ADT-Tweak Start
+//                 damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+// ADT-Tweak End
+                damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet, armorPenetration);
 
             // TODO DAMAGE
             // byref struct event.
-            var ev = new DamageModifyEvent(damage, origin);
+// ADT-Tweak Start
+//             var ev = new DamageModifyEvent(damage, origin);
+// ADT-Tweak End
+            var ev = new DamageModifyEvent(damage, origin, armorPenetration);
             RaiseLocalEvent(ent, ev);
             damage = ev.Damage;
 
@@ -418,7 +442,10 @@ public sealed partial class DamageableSystem
     /// <summary>
     /// Gets the damages currently sustained by an entity.
     /// </summary>
-    [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")]
+// ADT-Tweak Start
+//     [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")]
+// ADT-Tweak End
+//  [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")] Starlight-edit: Removed since it's lie and there's no alternative ways
     public DamageSpecifier GetAllDamage(Entity<DamageableComponent?> ent)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp))
@@ -430,7 +457,10 @@ public sealed partial class DamageableSystem
     /// <summary>
     /// Gets the total amount of damage currently sustained by an entity.
     /// </summary>
-    [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")]
+// ADT-Tweak Start
+//     [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")]
+// ADT-Tweak End
+//  [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")] Starlight-edit: Removed since it's lie and there's no alternative ways
     public FixedPoint2 GetTotalDamage(Entity<DamageableComponent?> ent)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
@@ -442,7 +472,10 @@ public sealed partial class DamageableSystem
     /// <summary>
     /// Gets the total amount of damage currently sustained by an entity, indexed by damage group.
     /// </summary>
-    [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")]
+// ADT-Tweak Start
+//     [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")]
+// ADT-Tweak End
+//  [Obsolete("Do not rely on the ability to determine a numerically quantifiable amount of damage")] Starlight-edit: Removed since it's lie and there's no alternative ways
     public IReadOnlyDictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> GetDamagePerGroup(Entity<DamageableComponent?> ent)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp))

@@ -116,11 +116,16 @@ public abstract partial class SharedGunSystem
             return;
         }
 
-        void SimulateInsertAmmo(EntityUid ammo, EntityUid ammoProvider, EntityCoordinates coordinates)
-        {
+// ADT-Tweak Start
+//         void SimulateInsertAmmo(EntityUid ammo, EntityUid ammoProvider, EntityCoordinates coordinates)
+//         {
+// ADT-Tweak End
+        void SimulateInsertAmmo(EntityUid ammo, EntityUid ammoProvider, EntityCoordinates coordinates) =>
             // We call SharedInteractionSystem to raise contact events. Checks are already done by this point.
             _interaction.InteractUsing(args.User, ammo, ammoProvider, coordinates, checkCanInteract: false, checkCanUse: false);
-        }
+// ADT-Tweak Start
+//         }
+// ADT-Tweak End
 
         List<(EntityUid? Entity, IShootable Shootable)> ammo = new();
         var evTakeAmmo = new TakeAmmoEvent(1, ammo, Transform(uid).Coordinates, args.User);
@@ -233,9 +238,12 @@ public abstract partial class SharedGunSystem
     }
 
     protected int GetBallisticShots(BallisticAmmoProviderComponent component)
-    {
-        return component.Entities.Count + component.UnspawnedCount;
-    }
+// ADT-Tweak Start
+//     {
+//         return component.Entities.Count + component.UnspawnedCount;
+//     }
+// ADT-Tweak End
+        => component.Entities.Count + component.UnspawnedCount;
 
     private void OnBallisticTakeAmmo(Entity<BallisticAmmoProviderComponent> ent, ref TakeAmmoEvent args)
     {
@@ -254,7 +262,10 @@ public abstract partial class SharedGunSystem
             {
                 ent.Comp.UnspawnedCount--;
                 DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-                ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
+// ADT-Tweak Start
+//                 ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
+// ADT-Tweak End
+                ammoEntity = PredictedSpawnAtPosition(ent.Comp.Proto, args.Coordinates);
             }
 
             if (ammoEntity is not { } ammoEnt)
@@ -301,19 +312,26 @@ public abstract partial class SharedGunSystem
     /// Returns true if the given <paramref name="entity"/>'s ballistic ammunition is full, false otherwise.
     /// </summary>
     public bool IsFull(Entity<BallisticAmmoProviderComponent> entity)
-    {
-        return GetBallisticShots(entity.Comp) >= entity.Comp.Capacity;
-    }
+// ADT-Tweak Start
+//     {
+//         return GetBallisticShots(entity.Comp) >= entity.Comp.Capacity;
+//     }
+// ADT-Tweak End
+        => GetBallisticShots(entity.Comp) >= entity.Comp.Capacity;
 
     /// <summary>
     /// Returns whether or not <paramref name="inserted"/> can be inserted into <paramref name="entity"/>, based on
     /// available space and whitelists.
     /// </summary>
     public bool CanInsertBallistic(Entity<BallisticAmmoProviderComponent> entity, EntityUid inserted)
-    {
-        return !_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.Whitelist, inserted) &&
-               !IsFull(entity);
-    }
+// ADT-Tweak Start
+//     {
+//         return !_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.Whitelist, inserted) &&
+//                !IsFull(entity);
+//     }
+// ADT-Tweak End
+        => !_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.Whitelist, inserted)
+        && !IsFull(entity);
 
     /// <summary>
     /// Attempts to insert <paramref name="inserted"/> into <paramref name="entity"/> as ammunition. Returns true on

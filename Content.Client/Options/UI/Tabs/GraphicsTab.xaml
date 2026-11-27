@@ -1,4 +1,7 @@
-﻿<tabs:GraphicsTab xmlns="https://spacestation14.io"
+<!-- ADT-Tweak Start -->
+<!-- ﻿<tabs:GraphicsTab xmlns="https://spacestation14.io" -->
+<!-- ADT-Tweak End -->
+<tabs:GraphicsTab xmlns="https://spacestation14.io"
           xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs"
           xmlns:ui="clr-namespace:Content.Client.Options.UI">
     <BoxContainer Orientation="Vertical">
@@ -26,6 +29,12 @@
                 <CheckBox Name="ParallaxLowQualityCheckBox" Text="{Loc 'ui-options-parallax-low-quality'}" />
                 <CheckBox Name="AmbientOcclusionCheckBox" Text="{Loc 'ui-options-ambient-occlusion'}" />
                 <ui:OptionSlider Name="SharpnessSlider" Title="{Loc 'ui-options-sharpness'}" />
+                <CheckBox Name="TracesCheckBox"
+                          Text="{Loc 'ui-options-trace'}"
+                          ToolTip="{Loc 'ui-options-trace-tooltip'}" />
+                <CheckBox Name="HitscanPredictionCheckBox"
+                          Text="{Loc 'ui-options-hitscan-prediction'}"
+                          ToolTip="{Loc 'ui-options-hitscan-prediction-tooltip'}" />
 
                 <!-- Interface -->
                 <Label Text="{Loc 'ui-options-interface-label'}" StyleClasses="LabelKeyText"/>

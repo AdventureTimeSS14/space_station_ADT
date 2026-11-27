@@ -609,6 +609,17 @@ public sealed partial class BloodstreamSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// ADT: blood color for hitscan spray decals (Starlight Shooting 2.0).
+    /// </summary>
+    public Color GetBloodColor(Entity<BloodstreamComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))
+            return Color.Red;
+
+        return ent.Comp.BloodReferenceSolution.GetColor(null);
+    }
+
     public void TryAddBlood(Entity<BloodstreamComponent?> ent, FixedPoint2 amountToAdd)
     {
         if (amountToAdd <= 0)

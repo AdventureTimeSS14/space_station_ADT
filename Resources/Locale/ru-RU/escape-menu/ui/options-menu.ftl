@@ -1,4 +1,4 @@
-﻿## General stuff
+## General stuff
 
 ui-options-title = Игровые настройки
 ui-options-tab-accessibility = Доступность
@@ -8,6 +8,7 @@ ui-options-tab-controls = Управление
 ui-options-tab-audio = Аудио
 ui-options-tab-network = Сеть
 ui-options-tab-misc = Основные
+ui-options-tab-ui = Интерфейс
 ui-options-apply = Сохранить и применить
 ui-options-reset-all = Сброс изменений
 ui-options-default = Сброс к настройкам по умолчанию
@@ -108,6 +109,30 @@ ui-options-vp-vertical-fit-tooltip =
 ui-options-vp-low-res = Изображение низкого разрешения
 ui-options-parallax-low-quality = Низкокачественный параллакс (фон)
 ui-options-ambient-occlusion = Отображать окружающее затенение
+ui-options-trace = Отображать следы пуль
+ui-options-trace-tooltip = Если при стрельбе есть лаги, снимите галочку для повышения производительности.
+ui-options-hitscan-prediction = Предсказывать попадания hitscan
+ui-options-hitscan-prediction-tooltip = Рисовать свои выстрелы hitscan до подтверждения сервером.
+ui-options-ui-style = Оформление
+ui-options-chat-width = Ширина отдельного чата
+ui-options-ui-ranged-sight = Прицел
+ui-options-ranged-sight = Прицел дальнего боя
+ui-options-melee-sight = Прицел ближнего боя
+ui-options-ui-sight-hash = Код настроек прицела
+ui-options-ranged-sight-scale = Масштаб прицела
+ui-options-ranged-sight-offset = Смещение прицела
+ui-options-ranged-sight-rotation = Поворачивать прицел дальнего боя
+ui-options-melee-sight-rotation = Поворачивать прицел ближнего боя
+ui-options-held-item-show-mode = Показ предмета в руке
+ui-options-held-item-show-always = Всегда
+ui-options-held-item-show-combat = Только в боевом режиме
+ui-options-held-item-show-outside-combat = Только вне боевого режима
+ui-options-held-item-show-never = Никогда
+ui-options-sight-bolt-indicator = Индикатор затвора
+ui-options-sight-jam-indicator = Индикатор клина
+ui-options-sight-heat-indicator = Индикатор нагрева
+ui-options-sight-main-color = Основной цвет
+ui-options-sight-second-color = Дополнительный цвет
 ui-options-fps-counter = Показать счётчик FPS
 ui-options-vp-width = Ширина окна игры:
 ui-options-hud-layout = Тип HUD:

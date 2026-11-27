@@ -92,4 +92,9 @@ public enum IconSmoothingMode : byte
     // ADT-Tweak start
     Bitmask,
     // ADT-Tweak end
+
+    /// <summary>
+    /// Starlight: sprites that only line up in a straight row, such as flipped tables.
+    /// </summary>
+    Linear,
 }

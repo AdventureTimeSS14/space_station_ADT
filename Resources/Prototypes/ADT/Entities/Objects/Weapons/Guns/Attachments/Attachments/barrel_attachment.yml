@@ -28,6 +28,7 @@
     - ADTAttachmentSuppressor
   - type: AttachableVisuals
     prefix: suppressor
+    muzzleFraction: 0.359
   - type: AttachableSilencer
     sound:
       collection: ADTSilencedShoot
@@ -51,4 +52,5 @@
     - ADTAttachmentAntiLyingWarrior
   - type: AttachableVisuals
     prefix: antilying
+    muzzleFraction: 0.516
   - type: AttachableAntiLyingWarrior

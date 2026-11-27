@@ -1,0 +1,42 @@
+- type: !PartialOnly entity
+  id: BaseWeaponBattery
+  components:
+  - type: GunHeat
+    heatPerShot: 2000
+
+- type: !PartialOnly entity
+  id: BaseLaserRifle
+  components:
+  - type: GunHeat
+    heatPerShot: 2500
+    heatRate: 10
+    coolRate: 5
+
+- type: !PartialOnly entity
+  id: BaseWeaponPowerCell
+  components:
+  - type: GunHeat
+    heatPerShot: 2000
+
+- type: !PartialOnly entity
+  id: BaseWeaponBatterySmall
+  components:
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: UseBeforeWield
+
+- type: !PartialOnly entity
+  id: BaseWeaponPowerCellSmall
+  components:
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: UseBeforeWield
+
+- type: !PartialOnly entity
+  id: WeaponDisablerSMG
+  components:
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: UseBeforeWield
+  - type: GunHeat
+    heatPerShot: 1000

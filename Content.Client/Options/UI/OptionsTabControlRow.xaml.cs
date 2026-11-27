@@ -186,7 +186,13 @@ public sealed partial class OptionsTabControlRow : Control
         }
 
         UpdateButtonState();
+        OptionsChanged?.Invoke();
     }
+
+    /// <summary>
+    /// Raised after the visible option values are loaded, changed, applied, or reset.
+    /// </summary>
+    public event Action? OptionsChanged;
 
     /// <summary>
     /// Re-loads options in the settings from backing values.
@@ -207,6 +213,7 @@ public sealed partial class OptionsTabControlRow : Control
     public void ValueChanged()
     {
         UpdateButtonState();
+        OptionsChanged?.Invoke();
     }
 
     private void UpdateButtonState()
@@ -229,6 +236,7 @@ public sealed partial class OptionsTabControlRow : Control
 
         _cfg.SaveToFile();
         UpdateButtonState();
+        OptionsChanged?.Invoke();
     }
 
     private void ResetButtonPressed(BaseButton.ButtonEventArgs obj)
@@ -239,6 +247,7 @@ public sealed partial class OptionsTabControlRow : Control
         }
 
         UpdateButtonState();
+        OptionsChanged?.Invoke();
     }
 
     private void DefaultButtonPressed(BaseButton.ButtonEventArgs obj)
@@ -247,6 +256,8 @@ public sealed partial class OptionsTabControlRow : Control
         {
             option.ResetToDefault();
         }
+
+        OptionsChanged?.Invoke();
 
         UpdateButtonState();
     }

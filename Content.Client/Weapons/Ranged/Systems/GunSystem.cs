@@ -3,9 +3,14 @@ using Content.Shared.Vehicle.Components; // ADT-Tweak
 using System.Numerics;
 using Content.Client.Animations;
 using Content.Client.Clickable;
+using Content.Client.DisplacementMap;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.Effects;
 using Content.Shared.ADT.Hallucinations.Components;
+using Content.Shared.ADT.Utility;
+using Content.Shared.ADT.Weapons.Hitscan.Events;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
@@ -13,6 +18,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared._RMC14.Weapons.Ranged.Flamer; // ADT-Tweak
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Weapons.Hitscan.Components;
@@ -35,6 +41,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
@@ -51,6 +58,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private IOverlayManager _overlayManager = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private AnimationPlayerSystem _animPlayer = default!;
     [Dependency] private SharedRMCFlamerSystem _rmcFlamer = default!; // ADT-Tweak
     [Dependency] private ClickableSystem _clickable = default!;
@@ -60,8 +68,11 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private SpriteTreeSystem _spriteTree = default!;
+    [Dependency] private DisplacementMapSystem _displacement = default!;
 
     public static readonly EntProtoId HitscanProto = "HitscanEffect";
+    public const string ImpactProto = "ImpactEffect";
+    private DisplacementEffect _displacementEffect = null!;
     private GunTargetEntityComparer _comparer = default!;
 
     public bool SpreadOverlay
@@ -93,6 +104,7 @@ public sealed partial class GunSystem : SharedGunSystem
     }
 
     private bool _spreadOverlay;
+    private bool _tracesEnabled = true;
 
     public override void Initialize()
     {
@@ -103,12 +115,25 @@ public sealed partial class GunSystem : SharedGunSystem
 
         // Plays animated effects on the client.
         SubscribeNetworkEvent<HitscanEvent>(OnHitscan);
+        _cfg.OnValueChanged(ADTCCVars.TracesEnabled, OnTracesEnabledChanged, true);
+        _displacementEffect = _proto.Index<DisplacementEffect>("displacementEffect");
 
         InitializeMagazineVisuals();
-        InitializeSpentAmmo();
+// ADT-Tweak Start
+//         InitializeSpentAmmo();
+// ADT-Tweak End
+        InitializePrediction();
 
         _comparer = new GunTargetEntityComparer();
     }
+
+    public override void Shutdown()
+    {
+        _cfg.UnsubValueChanged(ADTCCVars.TracesEnabled, OnTracesEnabledChanged);
+        base.Shutdown();
+    }
+
+    private void OnTracesEnabledChanged(bool enabled) => _tracesEnabled = enabled;
 
 
     private void OnMuzzleFlash(MuzzleFlashEvent args)
@@ -120,14 +145,30 @@ public sealed partial class GunSystem : SharedGunSystem
 
     private void OnHitscan(HitscanEvent ev)
     {
-        // ALL I WANT IS AN ANIMATED EFFECT
+// ADT-Tweak Start
+//         // ALL I WANT IS AN ANIMATED EFFECT
+//
+//         // TODO EFFECTS
+//         // This is very jank
+//         // because the effect consists of three unrelatd entities, the hitscan beam can be split appart.
+//         // E.g., if a grid rotates while part of the beam is parented to the grid, and part of it is parented to the map.
+//         // Ideally, there should only be one entity, with one sprite that has multiple layers
+//         // Or at the very least, have the other entities parented to the same entity to make sure they stick together.
+// ADT-Tweak End
+        // Starlight Shooting 2.0 multi-segment traces
+        if (ev.Traces is { Count: > 0 } traces)
+        {
+            var skip = TryConsumePredictedHitscan(ev);
+            var delay = 0f;
+            for (var i = skip; i < traces.Count; i++)
+                delay = FireTraceEffect(ev, delay, traces[i]);
+            return;
+        }
 
-        // TODO EFFECTS
-        // This is very jank
-        // because the effect consists of three unrelatd entities, the hitscan beam can be split appart.
-        // E.g., if a grid rotates while part of the beam is parented to the grid, and part of it is parented to the map.
-        // Ideally, there should only be one entity, with one sprite that has multiple layers
-        // Or at the very least, have the other entities parented to the same entity to make sure they stick together.
+        // Legacy sprite list (BSA / lasers)
+        if (ev.Sprites is null || !_tracesEnabled)
+            return;
+
         foreach (var a in ev.Sprites)
         {
             if (a.Sprite is not SpriteSpecifier.Rsi rsi)
@@ -152,11 +193,17 @@ public sealed partial class GunSystem : SharedGunSystem
             _sprite.SetScale((ent, sprite), new Vector2(a.Distance, 1f));
             sprite[EffectLayers.Unshaded].Visible = true;
 
-            var lifetime = ev.Lifetime > 0f ? ev.Lifetime : 0.48f; // ADT-Tweak BSA
+// ADT-Tweak Start
+//             var lifetime = ev.Lifetime > 0f ? ev.Lifetime : 0.48f; // ADT-Tweak BSA
+// ADT-Tweak End
+            var lifetime = ev.Lifetime > 0f ? ev.Lifetime : 0.48f;
 
             var anim = new Animation()
             {
-                Length = TimeSpan.FromSeconds(lifetime), // ADT-Tweak BSA
+// ADT-Tweak Start
+//                 Length = TimeSpan.FromSeconds(lifetime), // ADT-Tweak BSA
+// ADT-Tweak End
+                Length = TimeSpan.FromSeconds(lifetime),
                 AnimationTracks =
                 {
                     new AnimationTrackSpriteFlick()
@@ -174,21 +221,352 @@ public sealed partial class GunSystem : SharedGunSystem
         }
     }
 
+// ADT-Tweak Start
+//     public override void Update(float frameTime)
+// ADT-Tweak End
+    /// <summary>
+    /// Starlight FireEffect — beam + impact as one visual beat.
+    /// Impact spawns when the stretch ends; first impact_laser frame is a line tip that
+    /// matches the beam (same angle, same Y scale), so the shot reads as one piece.
+    /// </summary>
+    private float FireTraceEffect(HitscanEvent visuals, float delay, HitscanTrace trace)
+    {
+// ADT-Tweak Start
+//         base.Update(frameTime);
+// ADT-Tweak End
+        // The real bullet speed is so high that the bullet isn't visible at all. So, let's slow it down 5x.
+        var length = trace.Distance / (visuals.Speed / 5000f);
+        if (trace.MuzzleCoordinates is { } muzzleCoordinates)
+        {
+            if (visuals.MuzzleFlash is { } muzzle && (_tracesEnabled || visuals.Bullet is null))
+                RenderFlash(muzzleCoordinates, trace.Angle, muzzle, 1f, false, false, length, delay, visuals);
+
+// ADT-Tweak Start
+//         if (!Timing.IsFirstTimePredicted)
+// ADT-Tweak End
+            if (visuals.Bullet is { } bullet)
+                RenderBullet(muzzleCoordinates, trace.Angle, bullet, trace.Distance, length, delay);
+        }
+
+        if (visuals.TravelFlash is { } travel && trace.TravelCoordinates is { } travelCoordinates && (_tracesEnabled || visuals.Bullet is null))
+            RenderFlash(travelCoordinates, trace.Angle, travel, trace.Distance, true, false, length, delay, visuals);
+
+        delay += length;
+
+        if ((visuals.ImpactFlash is not null || trace.ImpactedEnt is not null) && (_tracesEnabled || visuals.Bullet is null))
+        {
+            // Starlight waits for the beam, then spawns impact. Pass delay=0 here (not delay
+            // again) so the tip flash starts at arrival — their upstream double-delay made the
+            // burst nearly invisible, but the tip still looked "solid" via LayerSetRsiState.
+            var arrival = delay;
+            Timer.Spawn((int) arrival, () =>
+            {
+                if (visuals.ImpactFlash is { } impact)
+                    RenderFlash(trace.ImpactCoordinates, trace.Angle, impact, 1f, false, true, length, 0f, visuals);
+
+                if (visuals.ImpactSparks is { } sparks)
+                    RenderImpactSparks(trace.ImpactCoordinates, trace.Angle, sparks);
+
+                if (trace.ImpactedEnt is { } netEnt && GetEntity(netEnt) is { Valid: true } ent)
+                    RenderDisplacementImpact(GetCoordinates(trace.ImpactCoordinates), trace.Angle, ent, visuals);
+            });
+        }
+
+        return delay;
+    }
+
+    private void RenderDisplacementImpact(EntityCoordinates coords, Angle angle, EntityUid target, HitscanEvent visuals)
+    {
+        if (!TryComp(coords.EntityId, out TransformComponent? relativeXform))
+            return;
+
+        // Walls and floors keep a hole. Mobs get the wound and blood on the tile.
+        if (!HasComp<MobStateComponent>(target) && visuals.BulletHole is { } hole)
+            SpawnBulletHole(coords, angle, relativeXform, hole, visuals.BulletHoleOffset);
+
+        if (!TryComp<SpriteComponent>(target, out var sprite))
+            return;
+
+        // Displacement map is authored for 32×32; pick the first matching layer (not merely the first RSI layer).
+        if (!sprite.AllLayers.TryFirstOrDefault(
+                x => (x.ActualRsi ?? x.Rsi) != null
+                     && x.RsiState.IsValid
+                     && x.PixelSize.X == 32
+                     && x.PixelSize.Y == 32,
+                out var layer))
+            return;
+
+        var ent = Spawn(ImpactProto, coords);
+        var spriteComp = Comp<SpriteComponent>(ent);
+        var spriteEnt = (ent, spriteComp);
+
+        var xform = Transform(ent);
+        var targetWorldRot = angle + _xform.GetWorldRotation(relativeXform);
+        var delta = targetWorldRot - _xform.GetWorldRotation(xform);
+        _xform.SetLocalRotationNoLerp(ent, xform.LocalRotation + delta, xform);
+
+        // Directional layers counter-rotate, so the copied side stays upright and faces
+        // along the shot, into the target. The displacement streak rotates with the entity.
+
+        // Layer map key must be the string "unshaded" (see ImpactEffect prototype) so
+        // DisplacementMapSystem can resolve CopyToShaderParameters.LayerKey.
+        const string impactLayer = "unshaded";
+        _sprite.LayerSetRsi(spriteEnt, impactLayer, (layer.ActualRsi ?? layer.Rsi)!);
+        _sprite.LayerSetRsiState(spriteEnt, impactLayer, layer.RsiState);
+        spriteComp[impactLayer].Visible = true;
+        _displacement.TryAddDisplacement(_displacementEffect.Displacement, spriteEnt, 0, impactLayer, out _);
+    }
+
+    private void RenderBullet(NetCoordinates coordinates, Angle angle, ExtendedSpriteSpecifier sprite, float distance, float length, float delay)
+    {
+        if (sprite.Sprite is not SpriteSpecifier.Rsi rsi)
+            return;
+
+        var coords = GetCoordinates(coordinates);
+        if (!TryComp(coords.EntityId, out TransformComponent? relativeXform))
+            return;
+
+        var ent = Spawn(HitscanProto, coords);
+        RecordPredictedEffect(ent); // Starlight
+        var spriteComp = Comp<SpriteComponent>(ent);
+        var spriteEnt = (ent, spriteComp);
+
+        var xform = Transform(ent);
+        var targetWorldRot = angle + _xform.GetWorldRotation(relativeXform);
+        var delta = targetWorldRot - _xform.GetWorldRotation(xform);
+        _xform.SetLocalRotationNoLerp(ent, xform.LocalRotation + delta, xform);
+
+        spriteComp[EffectLayers.Unshaded].AutoAnimated = false;
+        spriteComp[EffectLayers.Unshaded].Visible = true;
+        _sprite.LayerSetSprite(spriteEnt, EffectLayers.Unshaded, rsi);
+        _sprite.LayerSetRsiState(spriteEnt, EffectLayers.Unshaded, rsi.RsiState);
+        _sprite.SetOffset(spriteEnt, new Vector2(1f, 0f));
+        _sprite.SetRotation(spriteEnt, 1.5708f);
+        _sprite.SetColor(spriteEnt, sprite.SpriteColor);
+        _sprite.SetVisible(spriteEnt, delay == 0);
+
+        var time = delay + length;
+        var despawn = Comp<TimedDespawnComponent>(ent);
+        // Lifetime in seconds; EffectVisuals also deletes on anim end. Do not add +1000s.
+        despawn.Lifetime = time / 1000f + 0.15f;
+
+        if (delay != 0)
+            Timer.Spawn((int) delay, () =>
+            {
+                if (TryComp(ent, out spriteComp))
+                    _sprite.SetVisible((ent, spriteComp), true);
+            });
+
+        Timer.Spawn((int) time, () =>
+        {
+            if (TryComp(ent, out spriteComp))
+                _sprite.SetVisible((ent, spriteComp), false);
+        });
+
+        var anim = new Animation()
+        {
+            Length = TimeSpan.FromMilliseconds(time),
+            AnimationTracks =
+            {
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Offset),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(new Vector2(1f, 0f), delay / 1000f),
+                        new AnimationTrackProperty.KeyFrame(new Vector2(distance + 1.0f, 0f), length / 1000f),
+                        new AnimationTrackProperty.KeyFrame(new Vector2(distance + 1.0f, 0f), 0.15f),
+                    },
+                    InterpolationMode = AnimationInterpolationMode.Linear
+                }
+            }
+        };
+
+        _animPlayer.Play(ent, anim, "hitscan-effect");
+    }
+
+    /// <summary>
+    /// Starlight-style flash with ADT thickness. Impact linger is longer than stock +100ms:
+    /// impact_laser needs ~0.6s to reach the burst frames; 100ms left it on the thin tip
+    /// frame so the hit looked random / missing. EffectVisuals deletes when this anim ends.
+    /// </summary>
+    private void RenderFlash(NetCoordinates coordinates, Angle angle, SpriteSpecifier sprite, float distance, bool travel, bool end, float length, float delay, HitscanEvent visuals)
+    {
+        if (end)
+            length = 0;
+
+        // Linger comes from the hitscan prototype. Firearm fades are about 0.5–0.7s;
+        // impact_laser starts its burst at 0.8s and holds the last frame for 0.5s.
+        var lingerMs = (end ? visuals.ImpactLinger : travel ? visuals.TravelLinger : visuals.MuzzleLinger) * 1000f;
+        var time = delay + length + lingerMs;
+
+        if (sprite is not SpriteSpecifier.Rsi rsi)
+            return;
+
+        var coords = GetCoordinates(coordinates);
+        if (!TryComp(coords.EntityId, out TransformComponent? relativeXform))
+            return;
+
+// ADT-Tweak Start
+//         var entityNull = _player.LocalEntity;
+// ADT-Tweak End
+        var ent = Spawn(HitscanProto, coords);
+        var spriteComp = Comp<SpriteComponent>(ent);
+        var spriteEnt = (ent, spriteComp);
+
+        var xform = Transform(ent);
+        var targetWorldRot = angle + _xform.GetWorldRotation(relativeXform);
+        var delta = targetWorldRot - _xform.GetWorldRotation(xform);
+        _xform.SetLocalRotationNoLerp(ent, xform.LocalRotation + delta, xform);
+
+        _sprite.LayerSetSprite(spriteEnt, EffectLayers.Unshaded, rsi);
+        _sprite.LayerSetRsiState(spriteEnt, EffectLayers.Unshaded, rsi.RsiState);
+        // Hold the first frame while the shot travels, then play the fade through to the last frame.
+        // A manual flick kept rewriting the same timestamp and froze the animation in the middle.
+        if (spriteComp[EffectLayers.Unshaded] is SpriteComponent.Layer flashLayer)
+        {
+            flashLayer.Loop = false;
+            flashLayer.AutoAnimated = false;
+            var fadeAt = (int) (delay + length);
+            if (fadeAt <= 0)
+                flashLayer.AutoAnimated = true;
+            else
+            {
+                Timer.Spawn(fadeAt, () =>
+                {
+                    if (Deleted(ent) || Comp<SpriteComponent>(ent)[EffectLayers.Unshaded] is not SpriteComponent.Layer layer)
+                        return;
+
+                    layer.Loop = false;
+                    layer.AutoAnimated = true;
+                });
+            }
+        }
+
+        var flashThickness = visuals.FlashThickness;
+        var beamStart = visuals.BeamStartScale;
+        // The travel entity sits on the midpoint. Keep the tail on the muzzle while the head
+        // reaches the impact exactly when the impact flash is spawned.
+        var beamStartOffset = travel ? -distance / 2f + beamStart / 2f : 0f;
+        if (travel)
+        {
+            _sprite.SetScale(spriteEnt, new Vector2(beamStart, flashThickness));
+            _sprite.SetOffset(spriteEnt, new Vector2(beamStartOffset, 0f));
+        }
+        else
+            _sprite.SetScale(spriteEnt, new Vector2(1f, flashThickness));
+
+        spriteComp[EffectLayers.Unshaded].Visible = true;
+        _sprite.SetVisible(spriteEnt, delay == 0);
+
+        var despawn = Comp<TimedDespawnComponent>(ent);
+        despawn.Lifetime = time / 1000f + 0.15f;
+
+        if (delay != 0)
+            Timer.Spawn((int) delay, () =>
+            {
+                if (!Deleted(ent))
+                    _sprite.SetVisible(spriteEnt, true);
+            });
+
+        Timer.Spawn((int) time, () =>
+        {
+            if (!Deleted(ent))
+                _sprite.SetVisible(spriteEnt, false);
+        });
+
+        var anim = new Animation()
+        {
+            Length = TimeSpan.FromMilliseconds(time),
+            AnimationTracks = { }
+        };
+
+// ADT-Tweak Start
+//         if (entityNull == null || !TryComp<CombatModeComponent>(entityNull, out var combat) || !combat.IsInCombatMode)
+// ADT-Tweak End
+        if (travel)
+        {
+            // KeyTime is a gap after the previous frame, not a timestamp.
+            // Stretch lasts exactly the flight time, then the short linger. Impact is spawned at the same moment.
+            var stretch = length / 1000f;
+            var linger = lingerMs / 1000f;
+            anim.AnimationTracks.Add(new AnimationTrackComponentProperty()
+            {
+                ComponentType = typeof(SpriteComponent),
+                Property = nameof(SpriteComponent.Scale),
+                KeyFrames =
+                {
+                    new AnimationTrackProperty.KeyFrame(new Vector2(beamStart, flashThickness), delay / 1000f),
+                    new AnimationTrackProperty.KeyFrame(new Vector2(distance, flashThickness), stretch),
+                    new AnimationTrackProperty.KeyFrame(new Vector2(distance, flashThickness), linger),
+                },
+                InterpolationMode = AnimationInterpolationMode.Linear
+            });
+            anim.AnimationTracks.Add(new AnimationTrackComponentProperty()
+            {
+                ComponentType = typeof(SpriteComponent),
+                Property = nameof(SpriteComponent.Offset),
+                KeyFrames =
+                {
+                    new AnimationTrackProperty.KeyFrame(new Vector2(beamStartOffset, 0f), delay / 1000f),
+                    new AnimationTrackProperty.KeyFrame(Vector2.Zero, stretch),
+                    new AnimationTrackProperty.KeyFrame(Vector2.Zero, linger),
+                },
+                InterpolationMode = AnimationInterpolationMode.Linear
+            });
+        }
+
+        _animPlayer.Play(ent, anim, "hitscan-effect");
+    }
+
+    private void RenderImpactSparks(NetCoordinates coordinates, Angle angle, string prototype)
+    {
+        var coords = GetCoordinates(coordinates);
+        if (!coords.IsValid(EntityManager) || !TryComp(coords.EntityId, out TransformComponent? relativeXform))
+            return;
+
+        var ent = Spawn(prototype, coords);
+        RecordPredictedEffect(ent);
+        FaceAlong(ent, angle, relativeXform);
+    }
+
+    private void SpawnBulletHole(EntityCoordinates coords, Angle angle, TransformComponent relativeXform, string prototype, float offset)
+    {
+        var hole = Spawn(prototype, coords.Offset(angle.ToVec() * offset));
+        RecordPredictedEffect(hole);
+        FaceAlong(hole, angle, relativeXform);
+    }
+
+    private void FaceAlong(EntityUid ent, Angle angle, TransformComponent relativeXform)
+    {
+        var xform = Transform(ent);
+        var targetWorldRot = angle + _xform.GetWorldRotation(relativeXform);
+        var delta = targetWorldRot - _xform.GetWorldRotation(xform);
+        _xform.SetLocalRotationNoLerp(ent, xform.LocalRotation + delta, xform);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        if (_player.LocalEntity is not EntityUid entity)
+            return;
+
+        foreach (var heldGun in EnumerateGuns(entity))
+        {
+            if (heldGun.Comp.NextFire <= Timing.CurTime && heldGun.Comp.BurstActivated)
+                ContinueBurst(entity, heldGun);
+        }
+
+// ADT-Tweak Start
+//         var entity = entityNull.Value;
+// ADT-Tweak End
         if (!Timing.IsFirstTimePredicted)
             return;
 
-        var entityNull = _player.LocalEntity;
-
-        if (entityNull == null || !TryComp<CombatModeComponent>(entityNull, out var combat) || !combat.IsInCombatMode)
-        {
+        if (!TryComp<CombatModeComponent>(entity, out var combat) || !combat.IsInCombatMode)
             return;
-        }
-
-        var entity = entityNull.Value;
 
         if (!TryGetGun(entity, out var gun))
         {
@@ -197,7 +575,10 @@ public sealed partial class GunSystem : SharedGunSystem
 
         var useKey = gun.Comp.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
 
-        if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down && !gun.Comp.BurstActivated)
+// ADT-Tweak Start
+//         if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down && !gun.Comp.BurstActivated)
+// ADT-Tweak End
+        if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down) // Starlight-edit
         {
             if (gun.Comp.ShotCounter != 0)
                 RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gun) });
@@ -224,13 +605,13 @@ public sealed partial class GunSystem : SharedGunSystem
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 
-
         RaisePredictiveEvent(new RequestShootEvent
         {
             Target = target,
             Coordinates = GetNetCoordinates(coordinates),
             Gun = GetNetEntity(gun),
             Continuous = _cfg.GetCVar(CCVars.ControlHoldToAttackRanged),
+            Tick = Timing.CurTick, // Starlight
         });
     }
 
@@ -242,11 +623,20 @@ public sealed partial class GunSystem : SharedGunSystem
         // Rather than splitting client / server for every ammo provider it's easier
         // to just delete the spawned entities. This is for programmer sanity despite the wasted perf.
         // This also means any ammo specific stuff can be grabbed as necessary.
-        var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
-        var worldAngle = direction.ToAngle().Opposite();
+// ADT-Tweak Start
+//         var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
+//         var worldAngle = direction.ToAngle().Opposite();
+// ADT-Tweak End
+        var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates);
+        var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
+        var mapDirection = GetShotMapDirection(gun, fromMap.Position, toMap);
+        var direction = -mapDirection;
+        var worldAngle = mapDirection.ToAngle();
+        var ammoIndex = -1;
 
         foreach (var (ent, shootable) in ammo)
         {
+            ammoIndex++;
             if (throwItems)
             {
                 Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
@@ -264,6 +654,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (!cartridge.Spent)
                     {
                         SetCartridgeSpent(ent!.Value, cartridge, true);
+                        PredictCartridge(gun, cartridge.Prototype, ammoIndex, fromMap, mapDirection, user);
                         MuzzleFlash(gun, cartridge, worldAngle, user);
                         if (TryComp<MechComponent>(user, out var cmech))    // ADT Mechs
                         {
@@ -284,6 +675,11 @@ public sealed partial class GunSystem : SharedGunSystem
                         userImpulse = false;
                         Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
                     }
+
+                    // Starlight-start
+                    if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value) && !gun.Comp.Pump)
+                        Audio.PlayPredicted(cartridge.EjectSound, gun, user, EjectSoundParams);
+                    // Starlight-end
 
                     if (IsClientSide(ent!.Value))
                         Del(ent.Value);
@@ -317,6 +713,10 @@ public sealed partial class GunSystem : SharedGunSystem
                         Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                         Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
                     }
+
+                    // Starlight #6369: client hitscan ammo left invisible entities on mechs.
+                    if (ent != null && IsClientSide(ent.Value))
+                        Del(ent.Value);
                     break;
                 // ADT-Tweak-start
                 case RMCFlamerAmmoProviderComponent flamer:
@@ -335,7 +735,11 @@ public sealed partial class GunSystem : SharedGunSystem
         if (!Timing.IsFirstTimePredicted || user == null || recoil == Vector2.Zero || recoilScalar == 0)
             return;
 
-        _recoil.KickCamera(user.Value, recoil.Normalized() * 0.5f * recoilScalar);
+// ADT-Tweak Start
+//         _recoil.KickCamera(user.Value, recoil.Normalized() * 0.5f * recoilScalar);
+// ADT-Tweak End
+        var shakeIntensity = _cfg.GetCVar(CCVars.ScreenShakeIntensity);
+        _recoil.KickCamera(user.Value, recoil.Normalized() * (0.5f + ((0.13f - 0.5f) * shakeIntensity)) * recoilScalar); // ADT screenshake
     }
 
     protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? tracked = null)

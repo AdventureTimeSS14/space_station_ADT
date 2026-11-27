@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: AmmoTypes
+  name: guide-entry-ammo-types
+  text: "/ServerInfo/ADT/Guidebook/Security/AmmoTypes.xml"

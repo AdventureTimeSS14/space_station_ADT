@@ -20,6 +20,8 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
+using Content.Shared.ADT.Weapons.Ranged.Systems;
+using Content.Shared.ADT.Wieldable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
@@ -39,6 +41,7 @@ public abstract partial class SharedWieldableSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private UseDelaySystem _delay = default!;
+    [Dependency] private GunShieldBraceSystem _shieldBrace = default!;
 
     public override void Initialize()
     {
@@ -161,6 +164,11 @@ public abstract partial class SharedWieldableSystem : EntitySystem
 
         if (component.WieldBonusExamineMessage != null)
             args.PushText(Loc.GetString(component.WieldBonusExamineMessage));
+
+        // Starlight-start
+        if (_shieldBrace.TryGetBraceExamineMessage((uid, component)) is { } braceMessage)
+            args.PushText(braceMessage);
+        // Starlight-end
     }
 
     private void AddToggleWieldVerb(EntityUid uid, WieldableComponent component, GetVerbsEvent<InteractionVerb> args)
@@ -189,6 +197,12 @@ public abstract partial class SharedWieldableSystem : EntitySystem
     private void OnUseInHand(EntityUid uid, WieldableComponent component, UseInHandEvent args)
     {
         if (args.Handled)
+            return;
+
+        if (!component.Wielded
+            && HasComp<UseBeforeWieldComponent>(uid)
+            && TryComp<BatteryWeaponFireModesComponent>(uid, out var fireModes)
+            && fireModes.FireModes.Count > 1)
             return;
 
         if (!component.Wielded)

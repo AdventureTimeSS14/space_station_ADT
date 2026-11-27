@@ -1,0 +1,19 @@
+- type: !PartialOnly entity
+  id: BaseWeaponRifle
+  components:
+  - type: GunHeat
+    heatPerShot: 750
+    temperaturePerShot: 1.6
+    baseJamChance: 0.0005
+    maxJamChance: 0
+    glowTemperature: 673.15
+    unsafePickupTemperature: 473.15
+    failureTemperature: 1203.15
+    meltTemperature: 2000
+    coolingTime: 180
+
+- type: !PartialOnly entity
+  id: WeaponRifleLecter
+  components:
+  - type: Gun
+    fireRate: 6

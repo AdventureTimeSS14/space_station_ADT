@@ -8,6 +8,7 @@ using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Implants;
 using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.Camera; // ADT screenshake
 using Content.Shared.ADT.Weapons.Melee;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -36,6 +37,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -72,9 +74,11 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private SharedStaminaSystem _stamina = default!;
     [Dependency] private DamageExamineSystem _damageExamine = default!;
     [Dependency] private SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private ScreenshakeSystem _screenshake = default!; // ADT screenshake
 
     [Dependency] private EntityQuery<DamageableComponent> _damageQuery = default!;
 
+    private static readonly string BluntDamageName = "Blunt"; // ADT screenshake
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
     /// <summary>
@@ -654,6 +658,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         if (!TerminatingOrDeleted(target.Value))
         {
+            DoScreenshake(meleeUid, damageResult, user, targets); // ADT screenshake
             if (damageResult.GetTotal() > FixedPoint2.Zero)
             {
                 DoDamageEffect(targets, user, targetXform);
@@ -823,6 +828,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         if (targets.Count > 0)
         {
+            DoScreenshake(meleeUid, appliedDamage, user, targets); // ADT screenshake
             if (appliedDamage.GetTotal() > FixedPoint2.Zero)
             {
                 DoDamageEffect(targets, user, Transform(targets.First()));
@@ -1203,4 +1209,23 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     /// </summary>
     /// <param name="ent">The weapon entity tracking swings.</param>
     protected virtual void ResetUndamagedSwingsCount(Entity<MeleeWeaponComponent> ent) { }
+
+    // ADT screenshake
+    private void DoScreenshake(EntityUid weapon, DamageSpecifier damage, EntityUid attacker, IEnumerable<EntityUid> targets)
+    {
+        if (damage.GetTotal() > 8)
+        {
+            var targetShake = new ScreenshakeParameters { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+            foreach (var target in targets)
+                _screenshake.Screenshake(target, targetShake, null);
+        }
+
+        var bluntRequirement = damage.DamageDict.TryGetValue(BluntDamageName, out var blunt) && blunt >= 20;
+        var wieldRequirement = TryComp<WieldableComponent>(weapon, out var wieldable) && wieldable.Wielded;
+        if (!bluntRequirement && !wieldRequirement)
+            return;
+
+        _screenshake.Screenshake(attacker, null,
+            new ScreenshakeParameters { Trauma = 0.08f, DecayRate = 1f, Frequency = 0.009f });
+    }
 }

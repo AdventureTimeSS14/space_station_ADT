@@ -1,4 +1,7 @@
-﻿using Content.Shared.Clothing.Components;
+// ADT-Tweak Start
+// ﻿using Content.Shared.Clothing.Components;
+// ADT-Tweak End
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
@@ -69,7 +72,10 @@ public abstract partial class SharedArmorSystem : EntitySystem
             return;
         // ADT-Tweak-End
 
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+// ADT-Tweak Start
+//         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+// ADT-Tweak End
+        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers, args.Args.ArmorPenetration);
     }
 
     private void OnBorgDamageModify(EntityUid uid, ArmorComponent component,
@@ -78,7 +84,10 @@ public abstract partial class SharedArmorSystem : EntitySystem
         if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
             return;
 
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+// ADT-Tweak Start
+//         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+// ADT-Tweak End
+        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers, args.Args.ArmorPenetration);
     }
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)

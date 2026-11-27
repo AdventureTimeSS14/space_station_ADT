@@ -5,7 +5,7 @@ using Robust.Shared.Utility;
 namespace Content.Client._RMC14.Attachable.Components;
 
 [RegisterComponent, AutoGenerateComponentState]
-[Access(typeof(AttachableHolderVisualsSystem))]
+[Access(typeof(AttachableHolderVisualsSystem), typeof(Content.Client.ADT.Weapons.Ranged.GunHeatSystem))]
 public sealed partial class AttachableVisualsComponent : Component
 {
     /// <summary>
@@ -63,4 +63,11 @@ public sealed partial class AttachableVisualsComponent : Component
 
     [DataField, AutoNetworkedField]
     public Vector2 Offset;
+
+    /// <summary>
+    /// Where the visible metal ends, as a fraction of the sprite width from the left.
+    /// Barrel modules sit on the left of the tile, so this is the real muzzle, not the tile edge.
+    /// </summary>
+    [DataField]
+    public float MuzzleFraction;
 }

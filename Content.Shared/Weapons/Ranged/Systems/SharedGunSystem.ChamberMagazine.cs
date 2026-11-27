@@ -94,6 +94,15 @@ public abstract partial class SharedGunSystem
     /// </summary>
     public void UseChambered(EntityUid uid, ChamberMagazineAmmoProviderComponent component, EntityUid? user = null)
     {
+        if (TryComp<Content.Shared.ADT.Weapons.Ranged.Components.GunHeatComponent>(uid, out var heat) && heat.Failed)
+        {
+            Audio.PlayPredicted(heat.MeltSound, uid, user);
+
+            if (user != null)
+                PopupSystem.PopupEntity(Loc.GetString("gun-heat-failed-blocked"), uid, user.Value);
+            return;
+        }
+
         if (component.BoltClosed == false)
         {
             ToggleBolt(uid, component, user);

@@ -12,3 +12,4 @@ guide-entry-adt-rule7 = Rule 7
 guide-entry-adt-rule8 = Rule 8
 guide-entry-adt-rule9 = Rule 9
 guide-entry-adt-rule10 = Rule 10
+guide-entry-ammo-types = Ammunition Types

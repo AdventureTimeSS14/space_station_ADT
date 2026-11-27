@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.ADT.Weapons.Hitscan.Events;
 using Content.Shared.Damage;
 using Robust.Shared.Map;
 
@@ -28,13 +29,34 @@ public record struct HitscanTraceEvent
 
     /// <summary>
     /// Player who shot the gun, if null the gun was fired by itself.
+    /// Keep the original shooter across pierce/ricochet/reflect so they stay ignored by raycasts.
     /// </summary>
     public EntityUid? Shooter;
+
+    /// <summary>
+    /// Extra entity to ignore for this leg (e.g. the body/wall just pierced or bounced from).
+    /// </summary>
+    public EntityUid? IgnoredEntity;
 
     /// <summary>
     /// Target that was being aimed at (Not necessarily hit).
     /// </summary>
     public EntityUid? Target;
+
+    /// <summary>
+    /// ADT hitscan #3142: aim destination used for distance-based MobMover hit chance.
+    /// </summary>
+    public EntityCoordinates ToCoordinates;
+
+    /// <summary>
+    /// Aggregated visual segments for bounce/pierce/reflect (Starlight Shooting 2.0).
+    /// </summary>
+    public List<HitscanTrace>? OutputTrace;
+
+    /// <summary>
+    /// Seed for the random rolls of this leg. Null falls back to the regular random.
+    /// </summary>
+    public int? PredictionSeed;
 }
 
 /// <summary>
@@ -42,6 +64,14 @@ public record struct HitscanTraceEvent
 /// </summary>
 public record struct HitscanRaycastFiredData
 {
+    // Starlight-start
+    /// <summary>
+    /// Seed for the random rolls of this leg. Set on shots the shooter's client predicts,
+    /// so both sides roll the same cover and crowd checks. Null falls back to the regular random.
+    /// </summary>
+    public int? PredictionSeed;
+    // Starlight-end
+
     /// <summary>
     /// Direction that the ray was fired towards.
     /// </summary>
@@ -66,6 +96,16 @@ public record struct HitscanRaycastFiredData
     /// Player who shot the gun, if null the gun was fired by itself.
     /// </summary>
     public EntityUid? Shooter;
+
+    /// <summary>
+    /// World position of the impact, if null the raycast didn't hit anyone.
+    /// </summary>
+    public Vector2? HitPosition;
+
+    /// <summary>
+    /// Aggregated visual segments for the full hitscan chain.
+    /// </summary>
+    public List<HitscanTrace>? OutputTrace;
 }
 
 /// <summary>
@@ -125,4 +165,9 @@ public record struct HitscanDamageDealtEvent
     /// The amount of damage that the target was dealt.
     /// </summary>
     public DamageSpecifier DamageDealt;
+
+    /// <summary>
+    /// ADT: raycast data for blood spray / follow-up effects (Starlight Shooting 2.0).
+    /// </summary>
+    public HitscanRaycastFiredData Data;
 }

@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -37,10 +38,14 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Utility;
+using Content.Shared.ADT.Weapons.Hitscan.Events;
 using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.ADT.Crawling.Components;
+using Content.Shared.ADT.Camera; // ADT screenshake
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Movement.Components;
 using Content.Goobstation.Common.Weapons.Multishot; // ADT-Tweak 
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -78,6 +83,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected SharedTransformSystem TransformSystem = default!;
     [Dependency] protected TagSystem TagSystem = default!;
     [Dependency] protected ThrowingSystem ThrowingSystem = default!;
+    [Dependency] private ScreenshakeSystem _screenshake = default!; // ADT screenshake
 
     /// <summary>
     /// Default projectile speed
@@ -181,9 +187,27 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
         // ADT Content end
 
-        gun.Comp.ShootCoordinates = GetCoordinates(msg.Coordinates);
-        gun.Comp.Target = GetEntity(msg.Target);
-        AttemptShoot(user.Value, gun);
+// ADT-Tweak Start
+//         gun.Comp.ShootCoordinates = GetCoordinates(msg.Coordinates);
+//         gun.Comp.Target = GetEntity(msg.Target);
+//         AttemptShoot(user.Value, gun);
+// ADT-Tweak End
+        if (!gun.Comp.BurstActivated)
+        {
+            gun.Comp.ShootCoordinates = GetCoordinates(msg.Coordinates);
+            gun.Comp.Target = GetEntity(msg.Target);
+        }
+
+        _shotTick = GetBurstShotTick(gun.Comp) ?? GetRequestTick(msg.Tick);
+        try
+        {
+            AttemptShoot(user.Value, gun);
+        }
+        finally
+        {
+            _shotTick = null;
+        }
+
         if (msg.Continuous)
             gun.Comp.ShotCounter = 0;
     }
@@ -272,8 +296,17 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         ent.Comp.ShotCounter = 0;
-        ent.Comp.ShootCoordinates = null;
-        ent.Comp.Target = null;
+// ADT-Tweak Start
+//         ent.Comp.ShootCoordinates = null;
+//         ent.Comp.Target = null;
+// ADT-Tweak End
+        // Starlight-start
+        if (!ent.Comp.BurstActivated)
+        {
+            ent.Comp.ShootCoordinates = null;
+            ent.Comp.Target = null;
+        }
+        // Starlight-end
         DirtyField(ent.AsNullable(), nameof(GunComponent.ShotCounter));
     }
 
@@ -357,7 +390,10 @@ public abstract partial class SharedGunSystem : EntitySystem
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
         // curTime - fireRate is insufficient because if you time it just right you can get a 3rd shot out slightly quicker.
-        if (gun.Comp.NextFire < curTime - fireRate || gun.Comp.ShotCounter == 0 && gun.Comp.NextFire < curTime)
+// ADT-Tweak Start
+//         if (gun.Comp.NextFire < curTime - fireRate || gun.Comp.ShotCounter == 0 && gun.Comp.NextFire < curTime)
+// ADT-Tweak End
+        if (gun.Comp.NextFire < curTime - fireRate || (gun.Comp.ShotCounter == 0 && gun.Comp.NextFire < curTime))
             gun.Comp.NextFire = curTime;
 
         var shots = 0;
@@ -406,9 +442,12 @@ public abstract partial class SharedGunSystem : EntitySystem
             {
                 PopupSystem.PopupEntity(attemptEv.Message, gun, user);
             }
-            gun.Comp.BurstActivated = false;
-            gun.Comp.BurstShotsCount = 0;
+// ADT-Tweak Start
+//             gun.Comp.BurstActivated = false;
+//             gun.Comp.BurstShotsCount = 0;
+// ADT-Tweak End
             gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
+            SetBurst(gun, false, 0);
             return false;
         }
 
@@ -435,8 +474,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             var emptyGunShotEvent = new OnEmptyGunShotEvent(user);
             RaiseLocalEvent(gun, ref emptyGunShotEvent);
 
-            gun.Comp.BurstActivated = false;
-            gun.Comp.BurstShotsCount = 0;
+// ADT-Tweak Start
+//             gun.Comp.BurstActivated = false;
+//             gun.Comp.BurstShotsCount = 0;
+// ADT-Tweak End
+            SetBurst(gun, false, 0); // Starlight-edit
             gun.Comp.NextFire += TimeSpan.FromSeconds(gun.Comp.BurstCooldown);
 
             // Play empty gun sounds if relevant
@@ -456,24 +498,57 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         // Handle burstfire
-        if (gun.Comp.SelectedMode == SelectiveFire.Burst)
+// ADT-Tweak Start
+//         if (gun.Comp.SelectedMode == SelectiveFire.Burst)
+//         {
+//             gun.Comp.BurstActivated = true;
+//         }
+//         if (gun.Comp.BurstActivated)
+// ADT-Tweak End
+        if (gun.Comp.SelectedMode == SelectiveFire.Burst || gun.Comp.BurstActivated)
         {
-            gun.Comp.BurstActivated = true;
-        }
-        if (gun.Comp.BurstActivated)
-        {
-            gun.Comp.BurstShotsCount += shots;
-            if (gun.Comp.BurstShotsCount >= gun.Comp.ShotsPerBurstModified)
+// ADT-Tweak Start
+//             gun.Comp.BurstShotsCount += shots;
+//             if (gun.Comp.BurstShotsCount >= gun.Comp.ShotsPerBurstModified)
+// ADT-Tweak End
+            var burstShots = gun.Comp.BurstShotsCount + shots;
+
+            if (!gun.Comp.BurstActivated)
+            {
+                gun.Comp.BurstTick = ShotTick;
+                DirtyField(gun.AsNullable(), nameof(GunComponent.BurstTick));
+            }
+
+            if (burstShots >= gun.Comp.ShotsPerBurstModified)
             {
                 gun.Comp.NextFire += TimeSpan.FromSeconds(gun.Comp.BurstCooldown);
-                gun.Comp.BurstActivated = false;
-                gun.Comp.BurstShotsCount = 0;
+// ADT-Tweak Start
+//                 gun.Comp.BurstActivated = false;
+//                 gun.Comp.BurstShotsCount = 0;
+// ADT-Tweak End
+                SetBurst(gun, false, 0);
+            }
+            else
+            {
+                SetBurst(gun, true, burstShots);
             }
         }
         var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value); // ADT TWEAK
         RaiseLocalEvent(gun, ref shotEv); //ADT tweak
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
+        // ADT screenshake: preserve the existing hitscan Shoot signature.
+        var fired = ev.Ammo.Any(ammo => ammo.Shootable is not CartridgeAmmoComponent { Spent: true });
         Shoot(gun, ev.Ammo, fromCoordinates, shotEv.ToCoordinates, out var userImpulse, user, throwItems: attemptEv.ThrowItems); //ADTR tweaked
+        if (fired)
+        {
+            var rotation = new ScreenshakeParameters
+            {
+                Trauma = 0.035f * gun.Comp.CameraRecoilScalarModified,
+                DecayRate = 1.2f,
+                Frequency = 0.008f,
+            };
+            _screenshake.Screenshake(user, null, rotation);
+        }
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;
@@ -515,7 +590,10 @@ public abstract partial class SharedGunSystem : EntitySystem
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
 
-        var targetMapVelocity = gunVelocity + direction.Normalized() * speed;
+// ADT-Tweak Start
+//         var targetMapVelocity = gunVelocity + direction.Normalized() * speed;
+// ADT-Tweak End
+        var targetMapVelocity = gunVelocity + (direction.Normalized() * speed);
         var currentMapVelocity = Physics.GetMapLinearVelocity(uid, physics);
         var finalLinear = physics.LinearVelocity + targetMapVelocity - currentMapVelocity;
         Physics.SetLinearVelocity(uid, finalLinear, body: physics);
@@ -572,7 +650,11 @@ public abstract partial class SharedGunSystem : EntitySystem
     protected void EjectCartridge(
         EntityUid entity,
         Angle? angle = null,
-        bool playSound = true)
+// ADT-Tweak Start
+//         bool playSound = true)
+// ADT-Tweak End
+        bool playSound = true,
+        EntityUid? user = null) // Starlight-edit: predicted the sound
     {
         // TODO: Sound limit version.
         var offsetPos = Random.NextVector2(EjectOffset);
@@ -595,7 +677,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             var audioParams = cartridge.EjectSound?.Params ?? AudioParams.Default;
             audioParams = audioParams.AddVolume(-1f).WithVariation(SharedContentAudioSystem.DefaultVariation);
-            Audio.PlayPvs(cartridge.EjectSound, entity, audioParams);
+// ADT-Tweak Start
+//             Audio.PlayPvs(cartridge.EjectSound, entity, audioParams);
+// ADT-Tweak End
+            if (user != null)
+                Audio.PlayPredicted(cartridge.EjectSound, entity, user, audioParams);
+            else
+                Audio.PlayPvs(cartridge.EjectSound, entity, audioParams);
         }
     }
 
@@ -641,6 +729,82 @@ public abstract partial class SharedGunSystem : EntitySystem
         const float impulseStrength = 25.0f;
         var impulseVector = shotDirection * impulseStrength;
         Physics.ApplyLinearImpulse(user, -impulseVector, body: user.Comp);
+    }
+
+    protected static readonly AudioParams EjectSoundParams =
+        AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f);
+
+    public Angle PeekSpread(Entity<GunComponent?> gun, TimeSpan? curTime = null)
+    {
+        if (!Resolve(gun, ref gun.Comp, false))
+            return Angle.Zero;
+
+        return new Angle(GetNextShotTheta(gun.Comp, curTime ?? Timing.CurTime));
+    }
+
+    /// <summary>
+    /// Applies recoil to the current shot and stores that angle, matching vanilla ADT.
+    /// </summary>
+    public Angle UpdateCurrentAngle(Entity<GunComponent> gun, TimeSpan? curTime = null)
+    {
+        var theta = GetNextShotTheta(gun.Comp, curTime ?? Timing.CurTime);
+        gun.Comp.CurrentAngle = new Angle(theta);
+        DirtyField(gun.AsNullable(), nameof(GunComponent.CurrentAngle));
+        return gun.Comp.CurrentAngle;
+    }
+
+    private static double GetNextShotTheta(GunComponent comp, TimeSpan curTime)
+    {
+        var timeSinceLastFire = (curTime - comp.LastFire).TotalSeconds;
+        return MathHelper.Clamp(
+            comp.CurrentAngle.Theta + comp.AngleIncreaseModified.Theta - comp.AngleDecayModified.Theta * timeSinceLastFire,
+            comp.MinAngleModified.Theta,
+            comp.MaxAngleModified.Theta);
+    }
+
+    public Angle GetRecoilAngle(Entity<GunComponent> gun, Angle direction, TimeSpan? curTime = null)
+    {
+        var spread = UpdateCurrentAngle(gun, curTime).Theta;
+
+#pragma warning disable CS0618
+        var random = GetShotRandom(gun, RecoilSalt).NextFloat(-0.5f, 0.5f);
+#pragma warning restore CS0618
+        return new Angle(direction.Theta + spread * random);
+    }
+
+    private void SetBurst(Entity<GunComponent> gun, bool activated, int shotsCount)
+    {
+        if (gun.Comp.BurstActivated != activated)
+        {
+            gun.Comp.BurstActivated = activated;
+            DirtyField(gun.AsNullable(), nameof(GunComponent.BurstActivated));
+        }
+
+        if (gun.Comp.BurstShotsCount != shotsCount)
+        {
+            gun.Comp.BurstShotsCount = shotsCount;
+            DirtyField(gun.AsNullable(), nameof(GunComponent.BurstShotsCount));
+        }
+    }
+
+    public bool ContinueBurst(EntityUid user, Entity<GunComponent> gun)
+    {
+        if (gun.Comp.ShootCoordinates == null)
+        {
+            SetBurst(gun, false, 0);
+            return false;
+        }
+
+        var previous = _shotTick;
+        _shotTick = GetBurstShotTick(gun.Comp) ?? previous;
+        try
+        {
+            return AttemptShoot(user, gun);
+        }
+        finally
+        {
+            _shotTick = previous;
+        }
     }
 
     public void RefreshModifiers(Entity<GunComponent?> gun)
@@ -729,8 +893,48 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed class HitscanEvent : EntityEventArgs
     {
-        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
-        public float Lifetime; // ADT-Tweak BAS
+// ADT-Tweak Start
+//         public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
+//         public float Lifetime; // ADT-Tweak BAS
+// ADT-Tweak End
+        /// <summary>
+        /// Legacy sprite list (BSA / lasers without Trace aggregation).
+        /// </summary>
+        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)>? Sprites;
+
+        /// <summary>
+        /// ADT BSA lifetime for legacy <see cref="Sprites"/> playback.
+        /// </summary>
+        public float Lifetime;
+
+        // ADT: Starlight Shooting 2.0 / Hollow Point multi-segment traces
+        public List<HitscanTrace>? Traces;
+        public SpriteSpecifier? MuzzleFlash;
+        public SpriteSpecifier? TravelFlash;
+        public SpriteSpecifier? ImpactFlash;
+        public ExtendedSpriteSpecifier? Bullet;
+        public float Speed = 315f;
+        public float MuzzleLinger = 0.6f;
+        public float TravelLinger = 0.8f;
+        public float ImpactLinger = 1.3f;
+        public float BeamStartScale = 0.05f;
+        public float FlashThickness = 1f;
+        public string? ImpactSparks = "ImpactSparksEffect";
+        public string? BulletHole = "BulletHoleEffect";
+        public float BulletHoleOffset = 0.15f;
+
+        public NetEntity? Shooter;
+        public NetEntity? Gun;
+
+        /// <summary>
+        /// Seed of the shot this trace belongs to, so the shooter can match a predicted trace.
+        /// </summary>
+        public int? PredictionSeed;
+
+        /// <summary>
+        /// Prototype of the hitscan, so the shooter can play the impact sound the server leaves to it.
+        /// </summary>
+        public string? Prototype;
     }
 
     /// <summary>

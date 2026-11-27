@@ -27,7 +27,10 @@
   description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
-    proto: BulletCaselessRifle
+    # ADT-Tweak Start
+    # proto: BulletCaselessRifle
+    # ADT-Tweak End
+    proto: BulletCaselessRifleTraceSP # ADT tweak
 
 - type: entity
   parent: BaseCartridgeCaselessRifle
@@ -36,7 +39,10 @@
   description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
-    proto: BulletCaselessRiflePractice
+    # ADT-Tweak Start
+    # proto: BulletCaselessRiflePractice
+    # ADT-Tweak End
+    proto: BulletCaselessRifleTracePractice # ADT tweak
   - type: Sprite
     layers:
       - state: base

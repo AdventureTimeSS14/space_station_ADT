@@ -215,3 +215,45 @@
   id: ADTVampirePoolShader
   kind: source
   path: "/Textures/ADT/Shaders/vampire_pool.swsl"
+
+- type: shader
+  id: GunHeat
+  kind: source
+  path: "/Textures/ADT/Shaders/gun_heat.swsl"
+  params:
+    heat: 0
+    tipX: 0.5
+    originX: -0.5
+    spanX: 1
+    hotEnd: 0.02
+    fadeEnd: 0.2
+
+- type: shader
+  id: GunHeatInhand
+  kind: source
+  path: "/Textures/ADT/Shaders/gun_heat_inhand.swsl"
+  params:
+    displaced: 0
+    displacementSize: 127
+    reachMin: 1.5
+    reachMax: 9
+
+- type: shader
+  id: GunHeatInhandDisplaced
+  kind: source
+  path: "/Textures/ADT/Shaders/gun_heat_inhand.swsl"
+  params:
+    displaced: 1
+    displacementSize: 127
+    reachMin: 1.5
+    reachMax: 9
+
+- type: shader
+  id: GunHeatInhandDisplacedStencil
+  kind: source
+  path: "/Textures/ADT/Shaders/gun_heat_inhand.swsl"
+  params:
+    displaced: 1
+    displacementSize: 127
+    reachMin: 1.5
+    reachMax: 9

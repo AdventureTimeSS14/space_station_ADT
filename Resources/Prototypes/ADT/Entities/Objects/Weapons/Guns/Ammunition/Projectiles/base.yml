@@ -1,0 +1,122 @@
+- type: entity
+  id: ADTBaseBullet
+  parent: BaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanPierce
+    chance: 0.40
+    deviation: 0.2
+    pierceLevel: Flesh
+  - type: HitscanRicochet
+    chance: 0.30
+
+- type: entity
+  id: ADTBaseBulletSP
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    armorPenetration: -0.13
+    damage:
+      types:
+        Piercing: 14
+  - type: StaminaDamageOnCollide
+    damage: 2
+  - type: HitscanPierce
+    chance: 0.4
+    deviation: 0.2
+  - type: HitscanRicochet
+    chance: 0.3
+
+- type: entity
+  id: ADTBaseBulletHP
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    armorPenetration: -1
+    damage:
+      types:
+        Piercing: 21
+  - type: StaminaDamageOnCollide
+    damage: 5
+  - type: HitscanPierce
+    chance: 0.03
+    deviation: 0.2
+  - type: HitscanRicochet
+    chance: 0.15
+
+- type: entity
+  id: ADTBaseBulletFMJ
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    armorPenetration: 0.2
+    damage:
+      types:
+        Piercing: 11
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.2
+    pierceLevel: Wood
+  - type: HitscanRicochet
+    chance: 0.8
+
+- type: entity
+  id: ADTBaseBulletAP
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    armorPenetration: 0.45
+    damage:
+      types:
+        Piercing: 11
+  - type: HitscanPierce
+    chance: 0.81
+    deviation: 0.2
+    pierceLevel: Metal
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: piercing
+      shader: unshaded
+
+- type: entity
+  id: ADTBaseBulletIncendiary
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    armorPenetration: -0.25
+    damage:
+      types:
+        Piercing: 10
+        Heat: 4
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.2
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: IgniteOnCollide
+    fireStacks: 0.25
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: incendiary
+      shader: unshaded
+

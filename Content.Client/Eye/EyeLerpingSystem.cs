@@ -36,6 +36,7 @@ public sealed partial class EyeLerpingSystem : EntitySystem
         UpdatesAfter.Add(typeof(TransformSystem));
         UpdatesAfter.Add(typeof(Robust.Client.Physics.PhysicsSystem));
         UpdatesBefore.Add(typeof(SharedEyeSystem));
+        UpdatesBefore.Add(typeof(EyeSystem)); // ADT screenshake
         UpdatesOutsidePrediction = true;
     }
 
@@ -66,7 +67,11 @@ public sealed partial class EyeLerpingSystem : EntitySystem
 
         if (component.Eye != null)
         {
-            _eye.SetRotation(uid, lerpInfo.TargetRotation, component);
+// ADT-Tweak Start
+//             _eye.SetRotation(uid, lerpInfo.TargetRotation, component);
+// ADT-Tweak End
+            if (TryComp<ContentEyeComponent>(uid, out var contentEye))
+                contentEye.BaseRotation = lerpInfo.TargetRotation; // ADT screenshake
             _eye.SetZoom(uid, lerpInfo.TargetZoom, component);
         }
     }
@@ -175,9 +180,15 @@ public sealed partial class EyeLerpingSystem : EntitySystem
     {
         var tickFraction = (float) _gameTiming.TickFraction / ushort.MaxValue;
         const double lerpMinimum = 0.00001;
-        var query = AllEntityQuery<LerpingEyeComponent, EyeComponent, TransformComponent>();
+// ADT-Tweak Start
+//         var query = AllEntityQuery<LerpingEyeComponent, EyeComponent, TransformComponent>();
+// ADT-Tweak End
+        var query = AllEntityQuery<LerpingEyeComponent, EyeComponent, ContentEyeComponent, TransformComponent>(); // ADT screenshake
 
-        while (query.MoveNext(out var entity, out var lerpInfo, out var eye, out var xform))
+// ADT-Tweak Start
+//         while (query.MoveNext(out var entity, out var lerpInfo, out var eye, out var xform))
+// ADT-Tweak End
+        while (query.MoveNext(out var entity, out var lerpInfo, out var eye, out var contentEye, out var xform))
         {
             // Handle zoom
             var zoomDiff = Vector2.Lerp(lerpInfo.LastZoom, lerpInfo.TargetZoom, tickFraction);
@@ -199,7 +210,10 @@ public sealed partial class EyeLerpingSystem : EntitySystem
 
             if (!NeedsLerp(mover))
             {
-                _eye.SetRotation(entity, lerpInfo.TargetRotation, eye);
+// ADT-Tweak Start
+//                 _eye.SetRotation(entity, lerpInfo.TargetRotation, eye);
+// ADT-Tweak End
+                contentEye.BaseRotation = lerpInfo.TargetRotation; // ADT screenshake
                 continue;
             }
 
@@ -207,11 +221,17 @@ public sealed partial class EyeLerpingSystem : EntitySystem
 
             if (Math.Abs(shortest.Theta) < lerpMinimum)
             {
-                _eye.SetRotation(entity, lerpInfo.TargetRotation, eye);
+// ADT-Tweak Start
+//                 _eye.SetRotation(entity, lerpInfo.TargetRotation, eye);
+// ADT-Tweak End
+                contentEye.BaseRotation = lerpInfo.TargetRotation; // ADT screenshake
                 continue;
             }
 
-            _eye.SetRotation(entity, shortest * tickFraction + lerpInfo.LastRotation, eye);
+// ADT-Tweak Start
+//             _eye.SetRotation(entity, shortest * tickFraction + lerpInfo.LastRotation, eye);
+// ADT-Tweak End
+            contentEye.BaseRotation = shortest * tickFraction + lerpInfo.LastRotation; // ADT screenshake
         }
     }
 }

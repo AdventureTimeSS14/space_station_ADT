@@ -8,7 +8,10 @@
     tags:
       - CartridgeRifle
   - type: CartridgeAmmo
-    proto: BulletRifle
+    # ADT-Tweak Start
+    # proto: BulletRifle
+    # ADT-Tweak End
+    proto: BulletRifleTraceSP # ADT tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -24,7 +27,10 @@
   description: A modern intermediate cartridge for combat rifles. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
-    proto: BulletRifle
+    # ADT-Tweak Start
+    # proto: BulletRifle
+    # ADT-Tweak End
+    proto: BulletRifleTraceSP # ADT tweak
 
 - type: entity
   parent: BaseCartridgeRifle
@@ -33,7 +39,10 @@
   description: A modern intermediate cartridge for combat rifles. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
-    proto: BulletRiflePractice
+    # ADT-Tweak Start
+    # proto: BulletRiflePractice
+    # ADT-Tweak End
+    proto: BulletRifleTracePractice # ADT tweak
   - type: Sprite
     layers:
       - state: base
@@ -49,7 +58,10 @@
   description: A modern intermediate cartridge for combat rifles. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: CartridgeAmmo
-    proto: BulletRifleIncendiary
+    # ADT-Tweak Start
+    # proto: BulletRifleIncendiary
+    # ADT-Tweak End
+    proto: BulletRifleTraceIncendiary # ADT tweak
   - type: Sprite
     layers:
       - state: base
@@ -65,7 +77,10 @@
   description: A modern intermediate cartridge for combat rifles. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
   components:
   - type: CartridgeAmmo
-    proto: BulletRifleUranium
+    # ADT-Tweak Start
+    # proto: BulletRifleUranium
+    # ADT-Tweak End
+    proto: BulletRifleTraceUranium # ADT tweak
   - type: Sprite
     layers:
       - state: base

@@ -6,11 +6,14 @@ namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
-    private void InitializeSpentAmmo()
-    {
-        SubscribeLocalEvent<SpentAmmoVisualsComponent, AppearanceChangeEvent>(OnSpentAmmoAppearance);
-    }
-
+// ADT-Tweak Start
+//     private void InitializeSpentAmmo()
+//     {
+//         SubscribeLocalEvent<SpentAmmoVisualsComponent, AppearanceChangeEvent>(OnSpentAmmoAppearance);
+//     }
+//
+// ADT-Tweak End
+    [SubscribeLocalEvent]
     private void OnSpentAmmoAppearance(Entity<SpentAmmoVisualsComponent> ent, ref AppearanceChangeEvent args)
     {
         var sprite = args.Sprite;

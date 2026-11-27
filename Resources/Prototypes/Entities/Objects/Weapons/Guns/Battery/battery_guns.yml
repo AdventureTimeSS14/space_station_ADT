@@ -359,6 +359,9 @@
       collection: GenericHit
   - type: AltFireMelee
   - type: GunExecutionBlacklist #ADT-Tweak
+  - type: Tag
+    tags:
+    - LaserWeapon
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 3.3 #ADT_Tweak 2 -> 3.3
@@ -522,6 +525,9 @@
   - type: Battery
     maxCharge: 2500 # ADT tweak 5000 -> 2500
     startingCharge: 2500 # ADT tweak 5000 -> 2500
+  - type: Tag
+    tags:
+    - LaserWeapon
 
 - type: entity
   name: pulse rifle
@@ -595,6 +601,9 @@
     autoRecharge: true
     autoRechargeRate: 100
     # ADT tweak end
+  - type: Tag
+    tags:
+    - LaserWeapon
 
 - type: entity
   name: laser cannon
@@ -662,6 +671,7 @@
   - type: Tag
     tags:
     - TurretCompatibleWeapon
+    - LaserWeapon
 
 - type: entity
   name: portable particle decelerator

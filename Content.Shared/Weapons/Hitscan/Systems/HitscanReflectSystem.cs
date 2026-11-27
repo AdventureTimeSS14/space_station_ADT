@@ -2,7 +2,10 @@ using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Reflect;
-using Robust.Shared.Random;
+// ADT-Tweak Start
+// using Robust.Shared.Random;
+// ADT-Tweak End
+using Robust.Shared.Map;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
@@ -36,13 +39,21 @@ public sealed partial class HitscanReflectSystem : EntitySystem
         args.Cancelled = true;
 
         var fromEffect = Transform(data.HitEntity.Value).Coordinates;
+        if (Transform(data.HitEntity.Value).MapUid is { } hitMap && data.HitPosition is { } hitPosition)
+            fromEffect = new EntityCoordinates(hitMap, hitPosition);
 
         var hitFiredEvent = new HitscanTraceEvent
         {
             FromCoordinates = fromEffect,
+            ToCoordinates = fromEffect.Offset(ev.Direction), // ADT hitscan #3142
             ShotDirection = ev.Direction,
             Gun = data.Gun,
-            Shooter = data.HitEntity.Value,
+// ADT-Tweak Start
+//             Shooter = data.HitEntity.Value,
+// ADT-Tweak End
+            Shooter = data.Shooter, // keep original shooter ignored
+            IgnoredEntity = data.HitEntity, // don't immediately re-hit reflector
+            OutputTrace = data.OutputTrace,
         };
 
         RaiseLocalEvent(hitscan, ref hitFiredEvent);

@@ -5,6 +5,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Timing;
 using Content.Shared._RMC14.Weapons.Ranged;
 
 namespace Content.Shared.Weapons.Ranged.Components;
@@ -45,6 +46,13 @@ public sealed partial class GunComponent : Component
     // These values are very small for now until we get a debug overlay and fine tune it
 
     /// <summary>
+    /// ADT Hollow Point (#275): gun choke contribution to multi-pellet / hitscan spread, in degrees.
+    /// Averaged with <c>ProjectileSpreadComponent.Spread</c> when firing spreads.
+    /// </summary>
+    [DataField]
+    public Angle Spread = Angle.FromDegrees(5);
+
+    /// <summary>
     /// The base scalar value applied to the vector governing camera recoil.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -62,7 +70,12 @@ public sealed partial class GunComponent : Component
     /// Last time the gun fired.
     /// Used for recoil purposes.
     /// </summary>
-    [DataField]
+// ADT-Tweak Start
+//     [DataField]
+// ADT-Tweak End
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoNetworkedField]
+    [AutoPausedField]
     public TimeSpan LastFire = TimeSpan.Zero;
 
     /// <summary>
@@ -265,7 +278,21 @@ public sealed partial class GunComponent : Component
     /// Firing direction for an item not being held (e.g. shuttle cannons, thrown guns still firing).
     /// </summary>
     [DataField]
-    public Vector2 DefaultDirection = new Vector2(0, -1);
+// ADT-Tweak Start
+//     public Vector2 DefaultDirection = new Vector2(0, -1);
+// ADT-Tweak End
+    public Vector2 DefaultDirection = new(0, -1);
+
+    #region Starlight
+    [ViewVariables, AutoNetworkedField]
+    public GameTick BurstTick;
+
+    /// <summary>
+    /// Pump-action guns do not eject a casing on the shot itself.
+    /// </summary>
+    [DataField]
+    public bool Pump;
+    #endregion
 }
 
 [Flags]

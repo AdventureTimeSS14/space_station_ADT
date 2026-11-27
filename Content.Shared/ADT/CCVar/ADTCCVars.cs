@@ -7,7 +7,7 @@ using Robust.Shared;
 namespace Content.Shared.ADT.CCVar;
 
 [CVarDefs]
-public sealed class ADTCCVars
+public sealed partial class ADTCCVars
 {
     /*
     * Exploitable Info
@@ -484,6 +484,11 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
         CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
 
+    /*
+     * Graphics / combat FX (Starlight Hollow Point)
+     */
+    public static readonly CVarDef<bool> TracesEnabled =
+        CVarDef.Create("opt.traces_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
     /// <summary>
     /// How many hours pass between full wipes of every stored roll bonus. Zero or less disables wiping.
     /// </summary>

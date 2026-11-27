@@ -285,6 +285,9 @@ namespace Content.Client.IconSmoothing
                 case IconSmoothingMode.Bitmask:
                     CalculateNewSpriteBitmask(gridEntity, smooth, spriteEnt, xform);
                     break;
+                case IconSmoothingMode.Linear:
+                    CalculateNewSpriteLinear(gridEntity, smooth, spriteEnt, xform, _iconSmoothQuery);
+                    break;
                 // ADT-Tweak end
                 default:
                     throw new ArgumentOutOfRangeException();
