@@ -4,7 +4,7 @@ meta:
   engineVersion: 294.0.3
   forkId: ""
   forkVersion: ""
-  time: 11/18/2026 01:07:06
+  time: 11/20/2026 02:47:00
   entityCount: 39852
 maps:
 - 1
@@ -6446,18 +6446,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 9
     - type: Forensics
       residues: []
       fingerprints: []
@@ -6506,18 +6496,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 11
     - type: Forensics
       residues: []
       fingerprints: []
@@ -6773,18 +6753,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 13
     - type: Forensics
       residues: []
       fingerprints: []
@@ -10213,7 +10183,7 @@ entities:
       pos: 41.5,-17.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -235682.75
+      secondsUntilStateChange: -235715.58
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -10234,7 +10204,7 @@ entities:
       pos: 19.5,-2.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -366929.94
+      secondsUntilStateChange: -366962.78
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -10245,7 +10215,7 @@ entities:
       pos: 35.5,-25.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -285629.4
+      secondsUntilStateChange: -285662.25
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -10477,7 +10447,7 @@ entities:
       pos: 49.5,22.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -413420
+      secondsUntilStateChange: -413452.84
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -10560,7 +10530,7 @@ entities:
       pos: 42.5,4.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -102533.85
+      secondsUntilStateChange: -102566.69
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -10640,7 +10610,7 @@ entities:
       pos: 8.5,12.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -294043.3
+      secondsUntilStateChange: -294076.16
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -10675,7 +10645,7 @@ entities:
       pos: 6.5,46.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -44890.37
+      secondsUntilStateChange: -44923.203
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -11236,7 +11206,7 @@ entities:
       pos: -38.5,46.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -186591.64
+      secondsUntilStateChange: -186624.47
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -11564,7 +11534,7 @@ entities:
       - - Salvage
     - type: Door
       state: Opening
-      secondsUntilStateChange: -111404.38
+      secondsUntilStateChange: -111437.22
       changeAirtight: False
     - type: DeviceLinkSource
       lastSignals:
@@ -11615,7 +11585,7 @@ entities:
       pos: 57.5,-46.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -233011.67
+      secondsUntilStateChange: -233044.5
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -12604,7 +12574,7 @@ entities:
       pos: -18.5,55.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -219587.8
+      secondsUntilStateChange: -219620.62
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -12779,7 +12749,7 @@ entities:
       pos: 15.5,-43.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -328811.1
+      secondsUntilStateChange: -328843.94
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -126488,18 +126458,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 7
     - type: Forensics
       residues: []
       fingerprints: []
@@ -127674,20 +127634,8 @@ entities:
       deviceLists: []
       configurators: []
       address: 4D99-4E2E
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 5
-        adt-accessories: !type:Container
-          ents: []
     - type: Forensics
       residues: []
       fingerprints: []
@@ -145755,7 +145703,7 @@ entities:
       pos: 3.5,-8.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -148892.31
+      secondsUntilStateChange: -148925.14
     - type: DeviceNetwork
       deviceLists:
       - 18365
@@ -145834,7 +145782,7 @@ entities:
       pos: 28.5,-47.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -24047.463
+      secondsUntilStateChange: -24080.295
   - uid: 18464
     components:
     - type: Transform
@@ -146135,7 +146083,7 @@ entities:
       pos: 1.5,28.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -221853.12
+      secondsUntilStateChange: -221885.95
     - type: Firelock
       emergencyCloseCooldown: 28912.4282324
   - uid: 18506
@@ -208654,14 +208602,6 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 43.42473,-42.512604
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 50
-          reagents: []
-        food:
-          reagents: []
-      containers: []
 - proto: OrganHumanHeart
   entities:
   - uid: 27112
@@ -235580,7 +235520,7 @@ entities:
       pos: -112.5,30.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -126691.695
+      secondsUntilStateChange: -126724.53
   - uid: 31481
     components:
     - type: Transform
@@ -235589,7 +235529,7 @@ entities:
       pos: -110.5,45.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -156396.88
+      secondsUntilStateChange: -156429.7
   - uid: 31482
     components:
     - type: Transform
@@ -279296,7 +279236,7 @@ entities:
         DoorStatus: True
     - type: Door
       state: Opening
-      secondsUntilStateChange: -109023.9
+      secondsUntilStateChange: -109056.734
     - type: Airlock
       autoClose: False
   - uid: 39246

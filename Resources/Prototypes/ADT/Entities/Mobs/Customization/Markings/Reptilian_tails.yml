@@ -79,3 +79,23 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: snake
+
+- type: marking
+  id: TailDune
+  bodyPart: Tail
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: dune_tail
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: dune_tail_fluff
+
+- type: marking
+  id: TailDuneAnimated
+  bodyPart: Tail
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: dune_tail_wagging
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: dune_tail_fluff_wagging

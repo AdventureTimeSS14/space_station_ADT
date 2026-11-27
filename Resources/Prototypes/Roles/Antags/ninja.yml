@@ -22,9 +22,12 @@
     color: Green
     sound: /Audio/Misc/ninja_greeting.ogg
   components:
-  - type: EmpProtection # ADT-Tweak
+  # ADT-Tweak-start
+  - type: EmpResistance
+    strengthMultiplier: 0
+  - type: GrantNinjutsu
+  # ADT-Tweak-end
   - type: SpaceNinja
-  - type: GrantNinjutsu # ADT-Tweak
   - type: NpcFactionMember
     factions:
     - Syndicate

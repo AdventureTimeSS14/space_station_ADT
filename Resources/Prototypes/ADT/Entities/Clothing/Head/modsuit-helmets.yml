@@ -45,6 +45,8 @@
     energy: 3
     lightMask: ADTLightMaskCone
     autoRot: true
+  - type: EmpGlitch
+    durationMultiplier: 0.5
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase

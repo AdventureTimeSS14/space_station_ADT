@@ -86,6 +86,9 @@ public sealed partial class Generic : ILanguageType
         coloredLanguageMessage = ADTSpeechStress.Strip(coloredLanguageMessage);
         message = ADTSpeechStress.Strip(message);
 
+        var unknownMessage = chat.ObfuscateMessageReadability(coloredMessage, 0.2f);
+        var unknownLanguageMessage = chat.ObfuscateMessageReadability(coloredLanguageMessage, 0.2f);
+
         coloredMessage = entMan.System<ADTTenCodeSystem>().Highlight(uid, coloredMessage);
 
         // Apply language color
@@ -93,6 +96,8 @@ public sealed partial class Generic : ILanguageType
         {
             coloredMessage = $"[color={Color.Value.ToHex()}]{coloredMessage}[/color]";
             coloredLanguageMessage = $"[color={Color.Value.ToHex()}]{coloredLanguageMessage}[/color]";
+            unknownMessage = $"[color={Color.Value.ToHex()}]{unknownMessage}[/color]";
+            unknownLanguageMessage = $"[color={Color.Value.ToHex()}]{unknownLanguageMessage}[/color]";
         }
 
         // Getting verbs
@@ -134,9 +139,25 @@ public sealed partial class Generic : ILanguageType
             ("defaultSize", verb.FontSize),
             ("message", coloredLanguageMessage));
 
+        var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-say-unknown-wrap-message",
+            ("fontType", font),
+            ("fontSize", fontSize),
+            ("defaultFont", verb.FontId),
+            ("defaultSize", verb.FontSize),
+            ("message", unknownMessage));
+
+        var wrappedUnknownLanguageMessage = Loc.GetString("chat-manager-entity-say-unknown-wrap-message",
+            ("fontType", font),
+            ("fontSize", fontSize),
+            ("defaultFont", verb.FontId),
+            ("defaultSize", verb.FontSize),
+            ("message", unknownLanguageMessage));
+
         // Send
         var isShout = message.TrimEnd().EndsWith("!");
-        chat.SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, uid, range, language: Language, ignoreWalls: isShout);
+        chat.SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, uid, range, language: Language, ignoreWalls: isShout,
+            unknownMessage: unknownMessage, wrappedUnknownMessage: wrappedUnknownMessage,
+            unknownLanguageMessage: unknownLanguageMessage, wrappedUnknownLanguageMessage: wrappedUnknownLanguageMessage);
         success = true;
     }
 

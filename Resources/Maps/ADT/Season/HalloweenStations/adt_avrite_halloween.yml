@@ -279681,106 +279681,36 @@ entities:
     - type: Transform
       parent: 2
       pos: 16.388885,-55.312786
-    - type: HandheldLight
-      toggleActionEntity: 70
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 70
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 73
     components:
     - type: Transform
       parent: 2
       pos: 25.495367,-56.364426
-    - type: HandheldLight
-      toggleActionEntity: 74
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 74
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 77
     components:
     - type: Transform
       parent: 2
       pos: -45.53949,-26.33919
-    - type: HandheldLight
-      toggleActionEntity: 78
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 78
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 79
     components:
     - type: Transform
       parent: 2
       pos: -54.433254,-4.3183427
-    - type: HandheldLight
-      toggleActionEntity: 80
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 80
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 81
     components:
     - type: Transform
       parent: 2
       pos: -59.5481,-23.354498
-    - type: HandheldLight
-      toggleActionEntity: 82
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        actions: !type:Container
-          ents:
-          - 82
-          showEnts: False
-          occludes: True
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 36573
     components:
     - type: Transform
@@ -287380,12 +287310,6 @@ entities:
 
 
         С уважением строители станции.
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents: []
-      containers:
-      - food
     - type: Fixtures
       fixtures:
         fix1:
@@ -287420,10 +287344,6 @@ entities:
           - InteractImpassable
           - Opaque
           layer: []
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 38
   - uid: 4350
     components:
     - type: Transform

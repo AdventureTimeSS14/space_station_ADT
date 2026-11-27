@@ -137,6 +137,11 @@
   - type: GrabProtection
   - type: NoSlip
   - type: ProtectedFromStepTriggers
+  - type: EmpPowerDrainCap
+    capPercentage: 0.35
+  - type: MechEmpGlitch
+    cameraGlitchDurationMultiplier: 0.5
+    cameraGlitchAmount: 1.2
   # ADT-tweak-End
 
 - type: entity

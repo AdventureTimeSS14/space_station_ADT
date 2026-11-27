@@ -1,13 +1,30 @@
-// using Content.Shared.ADT.EMP;
-// using Robust.Shared.GameStates;
+using Robust.Shared.GameStates;
 
-// namespace Content.Shared.ADT.EMP;
+namespace Content.Shared.ADT.EMP;
 
-// [RegisterComponent, NetworkedComponent]
-// public sealed partial class EmpContainerProtectionComponent : Component
-// {
-//     public List<EntityUid> Batteries = new();
+[RegisterComponent, NetworkedComponent]
+public sealed partial class EmpContainerProtectionComponent : Component
+{
+    [ViewVariables]
+    public Dictionary<EntityUid, BatteryData> Batteries = new();
 
-//     [DataField]
-//     public string ContainerId = "cell_slot";
-// }
+    [DataField]
+    public string ContainerId = "cell_slot";
+
+    [DataField]
+    public float StrengthMultiplier = 0f;
+
+    [DataField]
+    public float DurationMultiplier = 1f;
+
+    [DataField]
+    public bool CapEnergyConsumption = false;
+
+    [DataField]
+    public bool CapRelativeToMaxCharge = true;
+
+    [DataField]
+    public float CapPercentage = 0.5f;
+
+    public record struct BatteryData(float Protection, float DurationMult, bool CapConsumption, bool CapRelativeToMax, float CapPercentage);
+}
