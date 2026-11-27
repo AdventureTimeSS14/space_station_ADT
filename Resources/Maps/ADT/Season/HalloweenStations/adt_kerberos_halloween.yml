@@ -5859,7 +5859,7 @@ entities:
       pos: 79.5,-4.5
 - proto: ADTBaseWeaponCaseNTBS
   entities:
-  - uid: 140
+  - uid: 175
     components:
     - type: MetaData
       name: Кейс имплантов
@@ -143512,7 +143512,7 @@ entities:
   - uid: 4
     components:
     - type: MetaData
-      name: Антидод
+      name: Антидот
       desc: 'К бутылке прекреплена записка: "Выпейте его, включите координаты и ждите спасательный отряд."'
     - type: Transform
       parent: 3

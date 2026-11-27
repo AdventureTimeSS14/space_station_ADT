@@ -141001,7 +141001,7 @@ entities:
   - uid: 15
     components:
     - type: MetaData
-      name: Антидод
+      name: Антидот
       desc: 'К бутылке прекреплена записка: "Выпейте его, включите координаты и ждите спасательный отряд."'
     - type: Transform
       parent: 14
