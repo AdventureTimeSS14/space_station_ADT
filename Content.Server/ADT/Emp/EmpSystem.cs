@@ -26,12 +26,12 @@ public sealed partial class EmpSystem
         var duration = MathF.Min((float)args.Duration.TotalSeconds * ent.Comp.DurationMultiplier, ent.Comp.MaxDuration);
 
         var list = EmpSpeechComponent.Accents.ToHashSet();
-        for (var i = 0; i < ent.Comp.AccentsAmount; i++)
+        for (var i = 0; i < ent.Comp.AccentsAmount && list.Count > 0; i++)
         {
             var picked = _random.Pick(list);
             list.Remove(picked);
 
-            _statusEffect.TryAddStatusEffect(ent.Owner, picked, out _, TimeSpan.FromSeconds(duration));
+            _statusEffect.TryUpdateStatusEffectDuration(ent.Owner, picked, TimeSpan.FromSeconds(duration));
         }
     }
 
@@ -39,7 +39,7 @@ public sealed partial class EmpSystem
     {
         var duration = MathF.Min((float)args.Duration.TotalSeconds * ent.Comp.DurationMultiplier, ent.Comp.MaxDuration);
 
-        _statusEffect.TryAddStatusEffect(ent.Owner, "ADTStatusEffectEmpSlowdown", out _, TimeSpan.FromSeconds(duration));
+        _statusEffect.TryUpdateStatusEffectDuration(ent.Owner, "ADTStatusEffectEmpSlowdown", TimeSpan.FromSeconds(duration));
     }
 
     private void OnGlitchEmp(Entity<EmpGlitchComponent> ent, ref EmpPulseEvent args)
