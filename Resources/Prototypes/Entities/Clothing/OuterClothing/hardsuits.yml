@@ -1235,7 +1235,9 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  - type: EmpProtection # ADT-Tweak
+  - type: EmpResistance # ADT-Tweak
+    strengthMultiplier: 0
+    durationMultiplier: 0
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
   # ADT-Tweak-start
