@@ -4,9 +4,12 @@ using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
+using Content.Shared.Hands;
 using Content.Shared.Heretic;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -30,6 +33,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
     [Dependency] private MovementSpeedModifierSystem _movement = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedStarMarkSystem _starMark = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     protected const string JointId = "stargaze";
 
@@ -39,6 +43,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
 
         SubscribeLocalEvent<StarGazerComponent, StarGazeEvent>(OnStarGaze);
         SubscribeLocalEvent<StarGazerComponent, MeleeHitEvent>(OnStarGazerHit);
+        SubscribeLocalEvent<StarGazerComponent, BeforeEquippingHandEvent>(OnBeforeEquippingHand);
 
         SubscribeLocalEvent<StarGazeComponent, StarGazeDoAfterEvent>(OnStarGazeDoAfter);
         SubscribeLocalEvent<StarGazeComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
@@ -55,6 +60,15 @@ public abstract class SharedStarGazerSystem : EntitySystem
         {
             _starMark.TryApplyStarMark(uid);
         }
+    }
+
+    private void OnBeforeEquippingHand(Entity<StarGazerComponent> ent, ref BeforeEquippingHandEvent args)
+    {
+        if (HasComp<HumanoidProfileComponent>(args.Item))
+            return;
+
+        args.Cancelled = true;
+        _popup.PopupEntity(Loc.GetString("stargazer-hands-only"), ent, ent, PopupType.SmallCaution);
     }
 
     private void OnStarGazeAttackAttempt(Entity<StarGazeComponent> ent, ref AttackAttemptEvent args)

@@ -1,0 +1,15 @@
+ent-HereticBladeMoon = moon blade
+    .desc = A blade of iron, reflecting the truth of the earth.
+    .suffix = Moon
+ent-HereticMoonAmulet = moonlight amulet
+    .desc = A piece of the mind, the soul and the moon.
+ent-ADTClothingOuterArmorHereticMoon = resplendent heretic robe
+    .desc = An opulent garb that twists the sight. While worn, all damage you take is turned into harm to the mind instead, and no weapon, cage or crowd can hold you still.
+ent-ADTClothingHeadHatHoodHereticMoon = resplendent heretic hood
+    .desc = A hood that hides you from distant eyes, and keeps the screaming of the crowd from reaching you.
+ent-ProjectileLunarParade = lunar parade
+    .desc = Join the parade.
+ent-MobMoonIllusion = ringleader echo
+    .desc = A shimmering echo of the ringleader.
+ent-MoonAscensionAura = moon ascension aura
+    .desc = Madness given form.

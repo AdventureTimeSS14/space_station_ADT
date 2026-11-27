@@ -1,0 +1,51 @@
+- type: entity
+  id: MawedCrucible
+  parent: BaseStructure
+  name: mawed crucible
+  description: A deep cast-iron basin, gripped by steel teeth. It smells of rust and old blood.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Heretic/items.rsi
+    layers:
+    - state: crucible
+      map: [ "base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.CrucibleVisuals.Empty:
+        base:
+          True: { state: crucible_empty }
+          False: { state: crucible }
+  - type: Appearance
+  - type: MawedCrucible
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#329a00"
+  - type: UserInterface
+    interfaces:
+      enum.MawedCrucibleUiKey.Key:
+        type: MawedCrucibleBoundUserInterface
+  - type: ActivatableUI
+    key: enum.MawedCrucibleUiKey.Key
+  - type: ActivatableUiUserWhitelist
+    checkMind: true
+    whitelist:
+      components:
+      - Heretic
+      - Ghoul
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak

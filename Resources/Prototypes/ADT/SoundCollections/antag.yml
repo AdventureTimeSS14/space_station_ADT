@@ -22,3 +22,16 @@
   - /Audio/ADT/Heretic/curse/curse4.ogg
   - /Audio/ADT/Heretic/curse/curse5.ogg
   - /Audio/ADT/Heretic/curse/curse6.ogg
+
+# ADT Heretic: шипение тени (речь и эмоции крч)
+- type: soundCollection
+  id: HissSay
+  files:
+  - /Audio/ADT/Heretic/hiss/hiss1.ogg
+  - /Audio/ADT/Heretic/hiss/hiss2.ogg
+
+- type: soundCollection
+  id: HissGasp
+  files:
+  - /Audio/ADT/Heretic/hiss/lowHiss2.ogg
+  - /Audio/ADT/Heretic/hiss/lowHiss3.ogg

@@ -12,6 +12,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -67,6 +68,12 @@ namespace Content.Server.Heretic.Ritual;
     [DataField]
     public bool OnlyHumanoid = true;
 
+    [DataField]
+    public bool GibOnInvalid;
+
+    [DataField]
+    public float MinCellular;
+
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
@@ -97,10 +104,10 @@ namespace Content.Server.Heretic.Ritual;
             return false;
         }
 
-        // get all the dead ones
+        List<EntityUid>? invalid = null;
+
         foreach (var look in lookup)
         {
-            // ADT: never count the performer, they may be standing on the rune
             if (look == args.Performer)
                 continue;
 
@@ -113,18 +120,30 @@ namespace Content.Server.Heretic.Ritual;
                 && !_heretic.TryGetHereticComponent(look, out _, out _)) // or other heretics
                 continue;
 
-            if (mobstate.CurrentState != Shared.Mobs.MobState.Alive)
-                uids.Add(look);
+            uids.Add(look);
         }
 
         if (uids.Count < Min)
         {
+            if (GibOnInvalid && invalid is { Count: > 0 })
+            {
+                foreach (var uid in invalid.Take((int) MathF.Min(Min - uids.Count, invalid.Count)))
+                    Gib(uid);
+            }
+
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
             return false;
         }
 
         outstr = null;
         return true;
+    }
+
+    private void Gib(EntityUid uid)
+    {
+        IoCManager.Resolve<IEntitySystemManager>()
+            .GetEntitySystem<Content.Shared.Gibbing.GibbingSystem>()
+            .Gib(uid);
     }
 
     public override void Finalize(RitualData args)
@@ -160,8 +179,8 @@ namespace Content.Server.Heretic.Ritual;
                 knowledgeGain += isCommand || isSec ? 3f : 2f;
 
             try
-            {
                 // ADT: no gib, teleport + coord sensors instead
+            {
                 SafeSacrifice(args, uid);
             }
             catch (Exception e)

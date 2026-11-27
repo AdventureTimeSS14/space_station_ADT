@@ -341,6 +341,7 @@
     - type: Tag
       tags:
         - Mop
+        - Rag # ADT-Tweak
     - type: Fiber
       fiberColor: fibers-white
     - type: DnaSubstanceTrace

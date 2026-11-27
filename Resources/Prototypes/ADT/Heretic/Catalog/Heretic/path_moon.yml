@@ -1,0 +1,169 @@
+- type: listing
+  id: KnowledgePathStartMoon
+  name: knowledge-path-moon-s1-name
+  description: knowledge-path-moon-s1-desc
+  icon: { sprite: ADT/Heretic/moon_knowledge.rsi, state: node_moon }
+  productHereticKnowledge: MoonlightTroupe
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Lock
+    - Void
+    - Rust
+    - Cosmos
+    - Moon
+
+- type: listing
+  id: HereticMoonPath2
+  name: knowledge-path-moon-s2-name
+  description: knowledge-path-moon-s2-desc
+  icon: { sprite: ADT/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfMoon
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath3
+  name: knowledge-path-moon-s3-name
+  description: knowledge-path-moon-s3-desc
+  icon: { sprite: ADT/Heretic/moon_knowledge.rsi, state: grasp_moon }
+  productHereticKnowledge: MarkOfMoon
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath4
+  name: knowledge-path-moon-s4-name
+  description: knowledge-path-moon-s4-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: mind_gate }
+  productHereticKnowledge: MindGate
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath5
+  name: knowledge-path-moon-s5-name
+  description: knowledge-path-moon-s5-desc
+  icon: { sprite: ADT/Heretic/items.rsi, state: moon_amulette }
+  productHereticKnowledge: MoonAmulet
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath6
+  name: knowledge-path-moon-s6-name
+  description: knowledge-path-moon-s6-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: moon_parade }
+  productHereticKnowledge: LunarParade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath7
+  name: knowledge-path-moon-s7-name
+  description: knowledge-path-moon-s7-desc
+  icon: { sprite: ADT/Heretic/moon_knowledge.rsi, state: blade_upgrade_moon }
+  productHereticKnowledge: MoonBladeUpgrade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath8
+  name: knowledge-path-moon-s8-name
+  description: knowledge-path-moon-s8-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: moon_ringleader }
+  productHereticKnowledge: RingleadersRise
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath9
+  name: knowledge-path-moon-s9-name
+  description: knowledge-path-moon-s9-desc
+  icon: { sprite: ADT/Heretic/moon_knowledge.rsi, state: node_moon }
+  productHereticKnowledge: AscensionMoon
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    requiresCanAscend: true
+    stage: 8
+    whitelist:
+    - Moon

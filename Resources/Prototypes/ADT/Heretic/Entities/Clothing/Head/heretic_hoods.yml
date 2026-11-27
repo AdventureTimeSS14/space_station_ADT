@@ -46,7 +46,6 @@
   - type: Clothing
     sprite: ADT/Heretic/HereticHoods/ashen_hood.rsi
 
-# ADT: Cosmos/Rust hoods
 - type: entity
   id: ADTClothingHeadHatHoodHereticCosmos
   parent: ClothingHeadHatHoodHeretic

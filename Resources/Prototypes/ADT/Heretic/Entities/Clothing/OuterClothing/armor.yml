@@ -37,7 +37,7 @@
   parent: [ ClothingOuterBaseMedium, ClothingOuterJacketToggleableBase, AllowSuitStorageClothing, BaseMagicContraband ]
   id: ClothingOuterArmorCloakVoid
   name: void cloak
-  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing. With the hood down it seals out vacuum and cold; with the hood up it hides from those who search you.
   components:
   - type: ADTInjectionSlowdown
   - type: Sprite
@@ -76,6 +76,7 @@
       - HereticItem
       - Knife
       - Meat
+      - CodexCicatrix
       components:
       # ADT: no BodyPart, only Organ
       - Organ

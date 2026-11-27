@@ -10,6 +10,7 @@ using Content.Shared.Follower.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
@@ -28,6 +29,9 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Weapons.Reflect;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Ensnaring.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Input.Binding;
@@ -68,11 +72,13 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         SubscribeLocalEvent<ProtectiveBladeComponent, ComponentStartup>(OnStartup);
 
         SubscribeLocalEvent<ProtectiveBladesComponent, InteractHandEvent>(OnHereticInteract, after: [typeof(BuckleSystem)]);
+        SubscribeLocalEvent<ShadowCloakEntityComponent, InteractHandEvent>(OnShadowInteract, after: [typeof(BuckleSystem)]);
         SubscribeLocalEvent<ProtectiveBladesComponent, BeforeDamageChangedEvent>(OnTakeDamage);
         SubscribeLocalEvent<ProtectiveBladesComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction,
             after: [typeof(HereticAbilitySystem), typeof(RiposteeSystem)]);
         SubscribeLocalEvent<ProtectiveBladesComponent, ProjectileReflectAttemptEvent>(OnProjectileReflectAttempt);
         SubscribeLocalEvent<ProtectiveBladesComponent, HitScanReflectAttemptEvent>(OnHitscanReflectAttempt);
+        SubscribeLocalEvent<ProtectiveBladesComponent, ThrowHitByEvent>(OnThrownHitBy, before: [typeof(SharedCreamPieSystem)]);
 
         SubscribeLocalEvent<ProtectiveBladesComponent, StoppedFollowingEntityEvent>(OnStopFollowing);
 
@@ -113,6 +119,15 @@ public sealed class ProtectiveBladeSystem : EntitySystem
             args.Handled = true;
     }
 
+    private void OnShadowInteract(Entity<ShadowCloakEntityComponent> ent, ref InteractHandEvent args)
+    {
+        if (args.Handled || ent.Comp.User is not { } user || args.User != user)
+            return;
+
+        if (TryThrowProtectiveBlade(user, null))
+            args.Handled = true;
+    }
+
     private void OnProjectileReflectAttempt(Entity<ProtectiveBladesComponent> ent, ref ProjectileReflectAttemptEvent args)
     {
         if (args.Cancelled)
@@ -121,15 +136,43 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         foreach (var blade in GetBlades(ent))
         {
             if (!TryComp<ReflectComponent>(blade, out var reflect))
-                return;
-
-            if (!_reflect.TryReflectProjectile((blade, reflect), ent, args.ProjUid))
                 continue;
 
-            args.Cancelled = true;
+            if (_reflect.TryReflectProjectile((blade, reflect), ent, args.ProjUid))
+            {
+                args.Cancelled = true;
+                RemoveProtectiveBlade(blade);
+                return;
+            }
+        }
+
+        foreach (var blade in GetBlades(ent))
+        {
+            QueueDel(args.ProjUid);
+            _audio.PlayPvs(BladeBlockSound, ent);
             RemoveProtectiveBlade(blade);
+            args.Cancelled = true;
             break;
         }
+    }
+
+    private void OnThrownHitBy(Entity<ProtectiveBladesComponent> ent, ref ThrowHitByEvent args)
+    {
+        if (args.Target != ent.Owner)
+            return;
+
+        var blades = GetBlades(ent);
+        if (blades.Count == 0)
+            return;
+
+        var thrown = args.Thrown;
+        RemComp<ThrownItemComponent>(thrown);
+        RemComp<CreamPieComponent>(thrown);
+        RemComp<EnsnaringComponent>(thrown);
+        Del(thrown);
+
+        _audio.PlayPvs(BladeBlockSound, ent);
+        RemoveProtectiveBlade(blades[0]);
     }
 
     private void OnHitscanReflectAttempt(Entity<ProtectiveBladesComponent> ent, ref HitScanReflectAttemptEvent args)
@@ -140,7 +183,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         foreach (var blade in GetBlades(ent))
         {
             if (!TryComp<ReflectComponent>(blade, out var reflect))
-                return;
+                continue;
 
             if (!_reflect.TryReflectHitscan(
                     (blade, reflect),

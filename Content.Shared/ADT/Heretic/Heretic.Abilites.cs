@@ -253,6 +253,27 @@ public sealed partial class EventHereticRealignment : InstantActionEvent
 public sealed partial class HereticChampionStanceEvent : HereticKnowledgeEvent;
 public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 
+public sealed partial class HereticBladePassiveRiposteEvent : HereticKnowledgeEvent
+{
+    [DataField]
+    public float Cooldown = 20f;
+}
+
+public sealed partial class EventHereticSacraments : InstantActionEvent
+{
+    [DataField]
+    public TimeSpan Time = TimeSpan.FromSeconds(6.7);
+
+    [DataField]
+    public EntProtoId Status = "SacramentsOfPowerStatusEffect";
+}
+
+public sealed partial class EventHereticDomainExpansion : InstantActionEvent
+{
+    [DataField]
+    public float Radius = 9f;
+}
+
 // lock
 public sealed partial class EventHereticBulglarFinesse : InstantActionEvent { }
 public sealed partial class EventHereticLastRefugee : InstantActionEvent { }
@@ -389,6 +410,10 @@ public sealed partial class EventHereticCosmosPassive : HereticKnowledgeEvent;
 // side
 public sealed partial class EventHereticIceSpear : InstantActionEvent;
 
+public sealed partial class ToggleAbyssalMaskEvent : InstantActionEvent;
+
+public sealed partial class RecallItemEvent : InstantActionEvent;
+
 public sealed partial class EventHereticCleave : WorldTargetActionEvent
 {
     [DataField]
@@ -457,7 +482,7 @@ public sealed class LaserBeamEndpointPositionEvent(NetEntity uid, MapCoordinates
 }
 
 [ImplicitDataDefinitionForInheritors]
-public abstract partial class HereticKnowledgeEvent : EntityEventArgs
+public partial class HereticKnowledgeEvent : EntityEventArgs
 {
     public EntityUid Heretic;
 

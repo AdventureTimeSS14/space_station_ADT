@@ -128,6 +128,16 @@
           task: GunCombatCompound
 
     # Reload gun
+    # ADT-Tweak-start
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+            - type: Gun
+        - !type:CanReloadGunPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ReloadGunOperator
+    # ADT-Tweak-end
     # TODO
 
     # Equip a gun from inventory if one found, preferring over pickup.
@@ -173,6 +183,10 @@
             - type: Gun
         - !type:GunAmmoPrecondition
           maxPercent: 0.001
+        # ADT-Tweak-start
+        - !type:CanReloadGunPrecondition
+          invert: true
+        # ADT-Tweak-end
       tasks:
         - !type:HTNPrimitiveTask
           preconditions:

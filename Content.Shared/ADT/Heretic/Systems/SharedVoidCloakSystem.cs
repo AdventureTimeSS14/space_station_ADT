@@ -83,6 +83,7 @@ public abstract class SharedVoidCloakSystem : EntitySystem
             return;
 
         EnsureComp<StripMenuInvisibleComponent>(cloak);
+        RemCompDeferred<HereticMagicItemComponent>(cloak);
         UpdatePressureProtection(cloak, false);
     }
 
@@ -96,6 +97,7 @@ public abstract class SharedVoidCloakSystem : EntitySystem
             return;
 
         RemCompDeferred<StripMenuInvisibleComponent>(cloak);
+        EnsureComp<HereticMagicItemComponent>(cloak);
         UpdatePressureProtection(cloak, true);
     }
 

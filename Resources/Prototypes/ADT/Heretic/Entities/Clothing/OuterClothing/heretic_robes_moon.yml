@@ -1,0 +1,45 @@
+- type: entity
+  id: ADTClothingOuterArmorHereticMoon
+  parent: ClothingOuterArmorHeretic
+  name: resplendent heretic robe
+  description: An opulent garb that twists the sight. While worn, all damage you take is turned into harm to the mind instead, and no weapon, cage or crowd can hold you still.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/OuterClothing/moon_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/OuterClothing/moon_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Shock: 1
+        Cold: 1
+        Caustic: 1
+        Bloodloss: 1
+        Asphyxiation: 1
+        Cellular: 1
+  - type: ExplosionResistance
+    damageCoefficient: 1
+  - type: StaminaResistance
+    damageCoefficient: 1
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticMoon
+    slot: head
+  - type: FootstepModifier
+    slots: OUTERCLOTHING
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+  - type: ClothingGrantComponent
+    component:
+    - type: ForestAdmonitionsEntity
+      revealDuration: 0
+      selfVisibility: 1
+      revealDistance: 7
+      revealDistanceSoft: 6

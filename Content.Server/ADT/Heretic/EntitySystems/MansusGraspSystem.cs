@@ -42,7 +42,7 @@ using Content.Shared.Wall;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed class MansusGraspSystem : SharedMansusGraspSystem
+public sealed partial class MansusGraspSystem : SharedMansusGraspSystem
 {
     [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private SharedStaminaSystem _stamina = default!;
@@ -177,8 +177,10 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         {
             // only its own blades, for the Mansus infusion
             "Blade" => _tag.HasTag(target, "HereticBladeBlade"),
-            // knocks doors open
-            "Lock" => HasComp<DoorComponent>(target),
+            // knocks doors open, unlocks lockers, ejects mechs, clears access readers
+            "Lock" => HasComp<DoorComponent>(target)
+                       || HasComp<Content.Shared.Lock.LockComponent>(target)
+                       || HasComp<Content.Shared.Access.Components.AccessReaderComponent>(target),
             // rusts structures and kills station AI
             "Rust" => HasComp<StationAiHolderComponent>(target)
                       || HasComp<WallComponent>(target) || _tag.HasTag(target, "Catwalk")
@@ -189,6 +191,9 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
     private bool GraspTarget(Entity<MansusGraspComponent> grasp, EntityUid user, EntityUid target)
     {
+        if (TryComp<ShadowCloakEntityComponent>(target, out var shadow) && shadow.User is { } shadowUser)
+            target = shadowUser;
+
         if (!_heretic.TryGetHereticComponent(user, out var hereticComp, out _))
         {
             QueueDel(grasp);

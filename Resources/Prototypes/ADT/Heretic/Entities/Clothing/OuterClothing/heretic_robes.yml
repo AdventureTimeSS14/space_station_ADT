@@ -58,7 +58,6 @@
     clothingPrototype: ADTClothingHeadHatHoodHereticAsh
     slot: head
 
-# ADT: Cosmos/Rust armor
 - type: entity
   id: ADTClothingOuterArmorHereticCosmos
   parent: ClothingOuterArmorHeretic

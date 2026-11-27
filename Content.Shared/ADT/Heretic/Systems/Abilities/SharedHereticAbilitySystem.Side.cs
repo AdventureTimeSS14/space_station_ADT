@@ -41,7 +41,10 @@ public abstract partial class SharedHereticAbilitySystem
         if (!TryUseAbility(args))
             return;
 
-        _statusNew.TryAddStatusEffectDuration(ent, args.Status, args.Lifetime ?? TimeSpan.Zero);
+        if (args.Lifetime is { } lifetime)
+            _statusNew.TryAddStatusEffectDuration(ent, args.Status, lifetime);
+        else
+            _statusNew.TryAddStatusEffect(ent, args.Status, out _);
     }
 
     private void OnIceSpear(EventHereticIceSpear args)
