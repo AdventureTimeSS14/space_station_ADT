@@ -426,6 +426,9 @@
 - type: Tag
   id: ADTMechEquipmentClown
 
+- type: Tag
+  id: ADTGreytideMechEquip
+
 # MECH END /\/\/\/\/\/\/\
 
 - type: Tag
