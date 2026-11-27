@@ -82,3 +82,9 @@
   id: ADTSatchelErichStohl
   inhand:
   - ADTClothingBackpackSatchelErichStohl
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseDesignerOliver28
+  inhand:
+  - ADTBriefcaseBrownDesignerOliver28

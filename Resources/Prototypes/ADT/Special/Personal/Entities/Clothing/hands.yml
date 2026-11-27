@@ -228,3 +228,19 @@
     state: icon
   - type: Clothing
     sprite: ADT/Special/Personal/IronLotus/iron_lotus_gloves.rsi
+
+#Oliver28
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: ADTClothingHandsGlovesCombatOliver28
+  name: worn combat gloves
+  description: Their protective properties have deteriorated over time, but they still protect the wearer from electric shock just as well.
+  suffix: Sponsor, Oliver28, only for an engineer
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative

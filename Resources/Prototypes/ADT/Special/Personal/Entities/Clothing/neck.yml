@@ -283,3 +283,39 @@
     sprite: ADT/Special/Personal/Shinoba/blueshield.rsi
   - type: Item
     size: Normal
+
+#Oliver28
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckDesignerOliver28
+  name: designer cloak
+  description: A thick cloak impregnated with gunpowder and soot, a testament to great perseverance on the path toward an equally great goal. Sewn into the inside of the cloak is a label reading Property of Olifer Rechler.
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Oliver28/cloak.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodOliver28
+    requiredSlot:
+    - neck
+    slot: head
+  - type: HideLayerClothing
+    layers:
+      Tail: NECK
+      TailOverlay: NECK
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodOliver28
+  categories: [ HideSpawnMenu ]
+  name: web coat hood
+  components:
+  - type: Sprite
+    sprite: ADT/Special/Personal/Oliver28/cloak_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Special/Personal/Oliver28/cloak_helmet.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair

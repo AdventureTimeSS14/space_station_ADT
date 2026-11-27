@@ -406,3 +406,16 @@
         - id: ADTClothingShoesArbitratorBootsIllumy
         - id: ADTClothingOuterArbitratorCapeIllumy
         - id: ADTClothingUniformArbitratorJumpsuitIllumy
+
+- type: entity
+  id: ADTBriefcaseBrownDesignerOliver28
+  name: designer briefcase
+  parent: BriefcaseBrown
+  suffix: Filled, Oliver28
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHandsGlovesCombatOliver28
+        - id: ADTClothingNeckDesignerOliver28
