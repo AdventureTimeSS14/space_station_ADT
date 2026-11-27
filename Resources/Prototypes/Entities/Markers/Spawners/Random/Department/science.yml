@@ -27,6 +27,7 @@
     - PowerCellMedium
     - FlashlightLantern
     # ADT-Tweak start
+    - SMESCoilStockPart
     - CapacitorStockPart
     - MicroServoStockPart
     - MatterBinStockPart

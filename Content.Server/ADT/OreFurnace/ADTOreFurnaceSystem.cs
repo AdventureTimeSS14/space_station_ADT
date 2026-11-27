@@ -90,10 +90,10 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
         var binTier = args.GetPartRating(MachinePartIds.MatterBin, 1f);
 
         component.OutputMultiplier = RefreshPartsEvent.GetTierMultiplier(laserTier, 0.20f)
-            * RefreshPartsEvent.GetTierMultiplier(binTier, -0.10f);
+            * RefreshPartsEvent.GetTierMultiplier(args.GetNonOmniRating(MachinePartIds.MatterBin, 1f), -0.10f);
 
         component.PointsMultiplier = RefreshPartsEvent.GetTierMultiplier(binTier, 0.20f)
-            * RefreshPartsEvent.GetTierMultiplier(laserTier, -0.10f);
+            * RefreshPartsEvent.GetTierMultiplier(args.GetNonOmniRating(MachinePartIds.MicroLaser, 1f), -0.10f);
 
         Dirty(uid, component);
         UpdateUiState((uid, component));

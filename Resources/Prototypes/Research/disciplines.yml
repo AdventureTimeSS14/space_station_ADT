@@ -10,6 +10,7 @@
     1: 0
     2: 0.75
     3: 0.75
+    4: 0.95 # ADT-Tweak
 
 - type: techDiscipline
   id: Arsenal

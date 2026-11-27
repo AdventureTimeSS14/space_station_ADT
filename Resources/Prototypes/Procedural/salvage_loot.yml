@@ -45,6 +45,23 @@
           cost: 2
         - proto: NuclearBombKeg
           cost: 5
+        # ADT-Tweak start
+        - proto: OmniCapacitorStockPart
+          cost: 1
+          prob: 0.3
+        - proto: OmniScanningModuleStockPart
+          cost: 1
+          prob: 0.3
+        - proto: OmniServoStockPart
+          cost: 1
+          prob: 0.3
+        - proto: OmniMicroLaserStockPart
+          cost: 1
+          prob: 0.3
+        - proto: OmniMatterBinStockPart
+          cost: 1
+          prob: 0.3
+        # ADT-Tweak start
         - proto: ChemistryBottleOmnizine
           prob: 0.5
         - proto: PortableGeneratorPacman

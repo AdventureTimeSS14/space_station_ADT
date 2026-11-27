@@ -13,6 +13,13 @@ machine-part-name-manipulator = Manipulator
 machine-part-name-matter-bin = Matter Bin
 machine-part-name-power-cell = Power Cell
 
+machine-part-name-smes-coil = SMES Coil
+machine-part-name-subspace-ansible = Bluespace Ansible
+machine-part-name-hyperwave-filter = Hyperwave Filter
+machine-part-name-subspace-transmitter = Data Laser Transmitter
+machine-part-name-treatment-disk = Bluespace Treatment Disk
+machine-part-name-wavelength-analyzer = Bluespace Transmission Analyzer
+
 two-way-lever-left = push left
 two-way-lever-right = push right
 two-way-lever-cant = can't push the lever that way!

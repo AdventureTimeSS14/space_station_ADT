@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from BLACKSTONE at https://github.com/Blackstone-SS13/BLACKSTONE/blob/d3e606bfdf1e3388175c9a0bfc1b0ea3ebb20669/icons/effects/beam.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "rped_upgrade",
+            "delays": [
+                [
+                    0.030000001,
+                    0.030000001,
+                    0.030000001,
+                    0.030000001
+                ]
+            ]
+        }
+    ]
+}
