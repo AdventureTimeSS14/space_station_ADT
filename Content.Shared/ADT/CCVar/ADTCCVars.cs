@@ -9,6 +9,10 @@ namespace Content.Shared.ADT.CCVar;
 [CVarDefs]
 public sealed class ADTCCVars
 {
+    /// <summary>Show the character introduction when joining from the lobby.</summary>
+    public static readonly CVarDef<bool> RoundIntroEnabled =
+        CVarDef.Create("game.round_intro", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
     * Exploitable Info
     */
