@@ -16,6 +16,7 @@
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ShowOocPatronColor" Text="{Loc 'ui-options-show-ooc-patron-color'}" />
                 <CheckBox Name="ShowLoocAboveHeadCheckBox" Text="{Loc 'ui-options-show-looc-on-head'}" />
+                <CheckBox Name="RunechatCheckBox" Text="{Loc 'ui-options-runechat'}" /> <!-- ADT-Tweak -->
                 <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
                 <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
                 <CheckBox Name="ShowChatJobIconsCheckBox" Text="{Loc 'ui-options-show-chat-job-icons'}" /> <!-- ADT-Tweak -->
