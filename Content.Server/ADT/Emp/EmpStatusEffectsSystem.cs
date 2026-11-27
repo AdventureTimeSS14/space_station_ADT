@@ -28,7 +28,8 @@ public sealed class EmpStatusEffectsSystem : EntitySystem
         var accents = new List<EntProtoId>(ent.Comp.Accents);
         for (var i = 0; i < ent.Comp.AccentsAmount && accents.Count > 0; i++)
         {
-            _statusEffect.TryUpdateStatusEffectDuration(ent, _random.PickAndTake(accents), duration);
+            if (_statusEffect.TryUpdateStatusEffectDuration(ent, _random.PickAndTake(accents), duration))
+                args.Affected = true;
         }
     }
 
@@ -36,7 +37,8 @@ public sealed class EmpStatusEffectsSystem : EntitySystem
     {
         var duration = GetDuration(args.Duration, ent.Comp.DurationMultiplier, ent.Comp.MaxDuration);
 
-        _statusEffect.TryUpdateStatusEffectDuration(ent, SlowdownEffect, duration);
+        if (_statusEffect.TryUpdateStatusEffectDuration(ent, SlowdownEffect, duration))
+            args.Affected = true;
     }
 
     private static TimeSpan GetDuration(TimeSpan duration, float multiplier, float max)
