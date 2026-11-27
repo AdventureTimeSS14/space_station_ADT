@@ -1110,3 +1110,12 @@
 
 - type: Tag
   id: LatheReagentContainer
+
+- type: Tag
+  id: PestSpray
+
+- type: Tag
+  id: FireBomb
+
+- type: Tag
+  id: OxygenTank

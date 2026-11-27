@@ -187,7 +187,7 @@
   - type: GenericVisualizer
     visuals:
       enum.BreechVisuals.Open:
-        enum.BreechVisuals.Open:
+        enum.GunVisualLayers.Base:
           True: { state: bolt-open }
           False: { state: base }
   - type: BreechLoaded
@@ -340,7 +340,7 @@
   - type: GenericVisualizer
     visuals:
       enum.BreechVisuals.Open:
-        enum.BreechVisuals.Open:
+        enum.GunVisualLayers.Base:
           True: { state: bolt-open }
           False: { state: base }
   - type: BreechLoaded

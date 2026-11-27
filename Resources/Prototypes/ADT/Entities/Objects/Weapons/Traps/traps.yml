@@ -61,7 +61,7 @@
   start: ShotgunTrapPacked
   graph:
   - node: ShotgunTrapPacked
-    entity: ShotgunTrap
+    entity: ADTShotgunTrap
     edges:
     - to: ShotgunTrapPacked
       completed:

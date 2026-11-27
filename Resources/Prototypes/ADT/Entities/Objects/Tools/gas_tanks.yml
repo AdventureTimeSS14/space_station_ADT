@@ -2,7 +2,7 @@
   parent: GasTankBase
   id: ADTBluespaceAirTank
   name: bluespace air tank
-  description: A bluespace expanded gas tank. Holds 20L of gas
+  description: A bluespace expanded gas tank. Holds 100L of gas
   components:
   - type: Sprite
     sprite: ADT/Objects/Tanks/bluespace_air_tank.rsi
@@ -31,7 +31,7 @@
   parent: ExtendedEmergencyOxygenTank
   id: ADTSmallBluespaceAirTank
   name: pocket bluespace air tank
-  description: A pocket sized bluespace gas tank. Holds 10L of gas
+  description: A pocket sized bluespace gas tank. Holds 50L of gas
   components:
   - type: Sprite
     sprite: ADT/Objects/Tanks/bluespace_pocket_tank.rsi
