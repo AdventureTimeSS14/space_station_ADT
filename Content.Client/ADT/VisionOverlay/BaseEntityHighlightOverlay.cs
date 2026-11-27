@@ -81,18 +81,14 @@ public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
             if (spriteLayer is not SpriteComponent.Layer layer)
                 continue;
 
-            var shader = GetDisplacementShader(layer);
-            if (layer.Shader == null && layer.Color.Equals(Color.White) && shader == null)
+            if (layer.Shader == null && layer.Color.Equals(Color.White))
                 continue;
 
             _clearedLayers.Add((layer, layer.Shader, layer.Color));
-            layer.Shader = shader;
+            layer.Shader = null;
             layer.Color = Color.White;
         }
     }
-
-    protected virtual ShaderInstance? GetDisplacementShader(SpriteComponent.Layer layer)
-        => null;
 
     private void RestoreSprite(SpriteComponent sprite)
     {
