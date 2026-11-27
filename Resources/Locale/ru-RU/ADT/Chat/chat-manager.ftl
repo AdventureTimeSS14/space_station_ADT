@@ -2,3 +2,4 @@ chat-manager-send-ooc-admin-wrap-message = OOC: [bold]{ $playerName }{ $patronTi
 chat-manager-send-ooc-admin-sponsor-wrap-message = OOC: [bold][color={ $patronColor }]{ $playerName }[/color]{ $patronTitle }:[/bold] { $message }
 chat-speech-verb-name-supermatter = Автоматический двигатель кристалла Сверхматерии
 chat-speech-verb-supermatter = уведомляет
+chat-manager-entity-say-unknown-wrap-message = [BubbleHeader]Кто-то[/BubbleHeader] говорит, "[BubbleContent][tfont="{ $fontType }" size={ $fontSize } defaultFont={ $defaultFont } defaultSize={ $defaultSize } ]{ $message }[/tfont][/BubbleContent]"
