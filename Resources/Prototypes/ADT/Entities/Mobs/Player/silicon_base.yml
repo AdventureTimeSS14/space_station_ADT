@@ -381,7 +381,6 @@
         - Pacified
         # - PsionicsDisabled
         # - PsionicallyInsulated
-        - SeeingStatic
     - type: FlashImmunity
       showInExamine: false
       includeExamine: false

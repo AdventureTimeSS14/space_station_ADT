@@ -1,0 +1,139 @@
+using System.Linq;
+using Content.Shared.ADT.EMP;
+using Content.Shared.Power.Components;
+using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Containers;
+
+namespace Content.Shared.Emp;
+
+public abstract partial class SharedEmpSystem
+{
+    [Dependency] private SharedContainerSystem _container = default!;
+
+    private void InitializeADT()
+    {
+        SubscribeLocalEvent<EmpDisablingComponent, EmpPulseEvent>(OnDisablingPulse);
+        SubscribeLocalEvent<EmpDisabledComponent, ShotAttemptedEvent>(OnDisabledShot);
+
+        SubscribeLocalEvent<EmpContainerProtectionComponent, EntInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<EmpContainerProtectionComponent, EntRemovedFromContainerMessage>(OnEjected);
+        SubscribeLocalEvent<EmpContainerProtectionComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<EmpContainerProtectionComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnDisablingPulse(EntityUid uid, EmpDisablingComponent component, ref EmpPulseEvent args)
+    {
+        args.Disabled = true;
+        args.Duration = component.DisablingTime;
+    }
+
+    private void OnDisabledShot(Entity<EmpDisabledComponent> ent, ref ShotAttemptedEvent args)
+    {
+        args.Cancel();
+    }
+
+    private void OnInserted(Entity<EmpContainerProtectionComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID != ent.Comp.ContainerId)
+            return;
+
+        StartProtection(ent, args.Entity);
+    }
+
+    private void OnEjected(Entity<EmpContainerProtectionComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID != ent.Comp.ContainerId)
+            return;
+
+        StopProtection(ent, args.Entity);
+    }
+
+    private void StartProtection(Entity<EmpContainerProtectionComponent> ent, EntityUid battery)
+    {
+        if (Timing.ApplyingState)
+            return;
+
+        if (!HasComp<BatteryComponent>(battery) || ent.Comp.Batteries.ContainsKey(battery))
+            return;
+
+        var originalResistance = 1f;
+        var originalDurationMult = 1f;
+        var cap = TryComp<EmpPowerDrainCapComponent>(battery, out var drainCap);
+        var capRelToMax = drainCap?.RelativeToMaxCharge ?? false;
+        var capPercentage = drainCap?.CapPercentage ?? 1f;
+
+        if (TryComp<EmpResistanceComponent>(battery, out var resistance))
+        {
+            originalResistance = resistance.StrengthMultiplier;
+            originalDurationMult = resistance.DurationMultiplier;
+        }
+
+        if (ent.Comp.CapEnergyConsumption)
+        {
+            drainCap = EnsureComp<EmpPowerDrainCapComponent>(battery);
+            drainCap.RelativeToMaxCharge = ent.Comp.CapRelativeToMaxCharge;
+            drainCap.CapPercentage = ent.Comp.CapPercentage;
+            Dirty(battery, drainCap);
+        }
+
+        var baseBatteryData = new EmpContainerProtectionComponent.BatteryData(originalResistance, originalDurationMult, cap, capRelToMax, capPercentage);
+        ent.Comp.Batteries.Add(battery, baseBatteryData);
+
+        resistance = EnsureComp<EmpResistanceComponent>(battery);
+        resistance.StrengthMultiplier *= ent.Comp.StrengthMultiplier;
+        resistance.DurationMultiplier *= ent.Comp.DurationMultiplier;
+        Dirty(battery, resistance);
+    }
+
+    private void StopProtection(Entity<EmpContainerProtectionComponent> ent, EntityUid battery)
+    {
+        if (!ent.Comp.Batteries.Remove(battery, out var original))
+            return;
+
+        if (Timing.ApplyingState || TerminatingOrDeleted(battery))
+            return;
+
+        if (original.Protection == 1f && original.DurationMult == 1f)
+        {
+            RemComp<EmpResistanceComponent>(battery);
+        }
+        else
+        {
+            var resistance = EnsureComp<EmpResistanceComponent>(battery);
+            resistance.StrengthMultiplier = original.Protection;
+            resistance.DurationMultiplier = original.DurationMult;
+            Dirty(battery, resistance);
+        }
+
+        if (!original.CapConsumption)
+        {
+            RemComp<EmpPowerDrainCapComponent>(battery);
+        }
+        else
+        {
+            var cap = EnsureComp<EmpPowerDrainCapComponent>(battery);
+            cap.RelativeToMaxCharge = original.CapRelativeToMax;
+            cap.CapPercentage = original.CapPercentage;
+            Dirty(battery, cap);
+        }
+    }
+
+    private void OnInit(Entity<EmpContainerProtectionComponent> ent, ref MapInitEvent args)
+    {
+        if (!_container.TryGetContainer(ent.Owner, ent.Comp.ContainerId, out var container))
+            return;
+
+        foreach (var item in container.ContainedEntities)
+        {
+            StartProtection(ent, item);
+        }
+    }
+
+    private void OnShutdown(Entity<EmpContainerProtectionComponent> ent, ref ComponentShutdown args)
+    {
+        foreach (var battery in ent.Comp.Batteries.Keys.ToArray())
+        {
+            StopProtection(ent, battery);
+        }
+    }
+}
