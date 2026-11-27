@@ -1,115 +1,4 @@
 - type: trait
-  id: Tall
-  name: trait-tall-name
-  description: trait-tall-desc
-  category: Quirks
-  cost: 0
-  whitelist:
-    components:
-      - SizeAttributeWhitelist
-  conflicts:
-    - Short
-  effects:
-    - !type:OverrideCompsEffect
-      components:
-        - type: SizeAttribute
-          tall: true
-
-- type: trait
-  id: Short
-  name: trait-short-name
-  description: trait-short-desc
-  category: Quirks
-  cost: 0
-  whitelist:
-    components:
-      - SizeAttributeWhitelist
-  conflicts:
-    - Tall
-  effects:
-    - !type:OverrideCompsEffect
-      components:
-        - type: SizeAttribute
-          short: true
-
-- type: trait
-  id: SoftWalk
-  name: trait-soft-walk-name
-  description: trait-soft-walk-desc
-  category: Quirks
-  cost: 1
-  speciesBlacklist:
-    - IPC
-    - NovakidSpecies
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SoftWalk
-
-- type: trait
-  id: Freerunning
-  name: trait-freerunning-name
-  description: trait-freerunning-desc
-  category: Quirks
-  cost: 1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Freerunning
-
-- type: trait
-  id: Sprinter
-  name: trait-sprinter-name
-  description: trait-sprinter-desc
-  category: Quirks
-  cost: 4
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Sprinter
-          modifier: 1.05
-
-- type: trait
-  id: HardThrower
-  name: trait-hard-thrower-name
-  description: trait-hard-thrower-desc
-  category: Quirks
-  cost: 2
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: HardThrower
-          modifier: 1.3
-
-- type: trait
-  id: Voracious
-  name: trait-voracious-name
-  description: trait-voracious-desc
-  category: Quirks
-  cost: 1
-  speciesBlacklist:
-    - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: FoodConsumptionSpeedModifier
-          modifier: 0.5
-
-- type: trait
-  id: AlcoholTolerance
-  name: trait-drunk-tolerance-name
-  description: trait-drunk-tolerance-desc
-  category: Quirks
-  cost: 2
-  speciesBlacklist:
-    - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: LightweightDrunk
-          boozeStrengthMultiplier: 0.5
-
-- type: trait
   id: ADTDisproportionate
   name: trait-disproportionate-name
   description: trait-disproportionate-desc
@@ -141,114 +30,94 @@
             state: jumpsuit-female
 
 - type: trait
-  id: ADTFemaleIPC
-  name: trait-female-ipc-name
-  description: trait-female-ipc-desc
+  id: ADTDissociativeIdentity
+  name: trait-dissociative-identity-name
+  description: trait-dissociative-identity-desc
   category: Quirks
-  cost: 0
-  speciesWhitelist:
+  cost: 1
+  speciesBlacklist:
     - IPC
-  rewriteComponents: true
-  conflicts:
-    - ADTMaleIPC
-    - ADTCuteIPC
-    - ADTXenoborgIPC
-  components:
-  - type: Vocal
-    emoteSounds: FemaleIPC
-  - type: Tag
-    tags:
-    - CanPilot
-    - SiliconFootstepSound
-    - DoorBumpOpener
-    - ChangelingBlacklist
-    - ADTSiliconStealthWhitelist
-    - ADTSiliconEmotes
-    - ADTIgnoreChokeSpeechBlocking
-    - Unimplantable
-
-- type: trait
-  id: ADTMaleIPC
-  name: trait-male-ipc-name
-  description: trait-male-ipc-desc
-  category: Quirks
-  cost: 0
-  speciesWhitelist:
-    - IPC
-  rewriteComponents: true
-  conflicts:
-    - ADTFemaleIPC
-    - ADTCuteIPC
-    - ADTXenoborgIPC
-  components:
-  - type: Vocal
-    emoteSounds: MaleIPC
-  - type: Tag
-    tags:
-    - CanPilot
-    - SiliconFootstepSound
-    - DoorBumpOpener
-    - ChangelingBlacklist
-    - ADTSiliconStealthWhitelist
-    - ADTSiliconEmotes
-    - ADTIgnoreChokeSpeechBlocking
-    - Unimplantable
-
-- type: trait
-  id: ADTCuteIPC
-  name: trait-cute-ipc-name
-  description: trait-cute-ipc-desc
-  category: Quirks
-  cost: 0
-  speciesWhitelist:
-    - IPC
-  rewriteComponents: true
-  conflicts:
-    - ADTFemaleIPC
-    - ADTMaleIPC
-    - ADTXenoborgIPC
-  components:
-  - type: Vocal
-    emoteSounds: CuteIPC
-  - type: Tag
-    tags:
-    - CanPilot
-    - SiliconFootstepSound
-    - DoorBumpOpener
-    - ChangelingBlacklist
-    - ADTSiliconStealthWhitelist
-    - ADTSiliconEmotes
-    - ADTIgnoreChokeSpeechBlocking
-    - Unimplantable
-    - ADTIPCCuteEmotes
-    - ADTCatEmotes
-
-- type: trait
-  id: ADTXenoborgIPC
-  name: trait-xenoborg-ipc-name
-  description: trait-xenoborg-ipc-desc
-  category: Quirks
-  cost: 0
-  speciesWhitelist:
-    - IPC
-  rewriteComponents: true
-  conflicts:
-    - ADTFemaleIPC
-    - ADTMaleIPC
-    - ADTCuteIPC
-  components:
-  - type: Vocal
-    emoteSounds: XenoborgIPC
-  - type: Tag
-    tags:
-    - CanPilot
-    - SiliconFootstepSound
-    - DoorBumpOpener
-    - ChangelingBlacklist
-    - ADTSiliconStealthWhitelist
-    - ADTSiliconEmotes
-    - ADTIgnoreChokeSpeechBlocking
-    - Unimplantable
+  departmentBlacklist:
+    - Command
+    - Security
+    - Medical
+    - CentcomSpecialists
+  jobBlacklist:
+    - ADTBlueShieldOfficer
+    - IAA
+    - Lawyer
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DissociativeIdentity
+          chameleonClothing:
+            jumpsuit: ClothingUniformJumpsuitChameleon
+            outerClothing: ClothingOuterChameleon
+            shoes: ClothingShoesChameleon
+            head: ClothingHeadHatChameleon
+          chameleonImplant: ChameleonControllerImplant
+          alterComponents:
+          - type: Physics
+            bodyType: KinematicController
+          - type: Fixtures
+            fixtures:
+              fix1:
+                shape:
+                  !type:PhysShapeCircle
+                  radius: 0.35
+                density: 50
+                mask:
+                - Impassable
+                - LowImpassable
+                - BlobImpassable
+                layer:
+                - None
+          - type: DissociativeAlterBody
+          - type: AntagImmune
+          - type: ADTVirusImmune
+            absolute: true
+          - type: StatusIcon
+            bounds: -0.5,-0.5,0.5,0.5
+          - type: InputMover
+          - type: MobMover
+          - type: MovementSpeedModifier
+            baseWalkSpeed: 2.5
+            baseSprintSpeed: 4.5
+          - type: Actions
+          - type: Alerts
+          - type: DoAfter
+          - type: Examiner
+          - type: Eye
+          - type: ContentEye
+          - type: MindContainer
+          - type: TTS
+          - type: LanguageSpeaker
+          - type: Speech
+            speechSounds: Alto
+          - type: Emoting
+          - type: TypingIndicator
+          - type: Grammar
+            attributes:
+              proper: true
+          - type: MidroundCustomization
+            allowedLayers:
+            - Hair
+            - FacialHair
+            playSoundForVoiceChange: false
+          - type: UserInterface
+            interfaces:
+              enum.MidroundCustomizationUiKey.Key:
+                type: MidroundCustomizationBoundUserInterface
+              enum.DissociativeAlterSetupUiKey.Key:
+                type: DissociativeAlterSetupBoundUserInterface
+          - type: GhostRole
+            allowMovement: true
+            allowSpeech: true
+            makeSentient: true
+            name: ghost-role-information-dissociative-alter-name
+            description: ghost-role-information-dissociative-alter-description
+            rules: ghost-role-information-dissociative-alter-rules
+          - type: GhostTakeoverAvailable
 
 - type: trait
   id: ADTInvertRun
@@ -262,48 +131,64 @@
         - type: ADTInvertRun
 
 - type: trait
-  id: ADTRoboticVoiceIPC
-  name: trait-robotic-voice-ipc-name
-  description: trait-robotic-voice-ipc-desc
+  id: AlcoholTolerance
+  name: trait-drunk-tolerance-name
+  description: trait-drunk-tolerance-desc
   category: Quirks
-  cost: 0
-  speciesWhitelist:
-    - IPC
-  effects:
-    - !type:SetTTSEffect
-      effect: robotic
-
-- type: trait
-  id: Pacifist
-  name: trait-pacifist-name
-  description: trait-pacifist-desc
-  category: Disabilities
-  cost: -4
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Pacified
-
-- type: trait
-  id: LightweightDrunk
-  name: trait-lightweight-name
-  description: trait-lightweight-desc
-  category: Disabilities
-  cost: -1
+  cost: 2
   speciesBlacklist:
     - IPC
-    - NovakidSpecies
   effects:
     - !type:AddCompsEffect
       components:
         - type: LightweightDrunk
-          boozeStrengthMultiplier: 2
+          boozeStrengthMultiplier: 0.5
+
+- type: trait
+  id: Freerunning
+  name: trait-freerunning-name
+  description: trait-freerunning-desc
+  category: Quirks
+  cost: 1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Freerunning
+
+- type: trait
+  id: HardThrower
+  name: trait-hard-thrower-name
+  description: trait-hard-thrower-desc
+  category: Quirks
+  cost: 2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: HardThrower
+          modifier: 1.3
+
+- type: trait
+  id: Short
+  name: trait-short-name
+  description: trait-short-desc
+  category: Quirks
+  cost: 0
+  whitelist:
+    components:
+      - SizeAttributeWhitelist
+  conflicts:
+    - Tall
+  effects:
+    - !type:OverrideCompsEffect
+      components:
+        - type: SizeAttribute
+          short: true
 
 - type: trait
   id: Snoring
   name: trait-snoring-name
   description: trait-snoring-desc
-  category: Disabilities
+  category: Quirks
   cost: 0
   speciesBlacklist:
     - IPC
@@ -314,12 +199,58 @@
         - type: Snoring
 
 - type: trait
-  id: Clumsy
-  name: trait-clumsy-name
-  description: trait-clumsy-desc
-  category: Disabilities
-  cost: -1
+  id: SoftWalk
+  name: trait-soft-walk-name
+  description: trait-soft-walk-desc
+  category: Quirks
+  cost: 1
+  speciesBlacklist:
+    - IPC
+    - NovakidSpecies
   effects:
-    - !type:AddStatusEffect
-      statusEffects:
-        - ADTStatusEffectClumsyTrait
+    - !type:AddCompsEffect
+      components:
+        - type: SoftWalk
+
+- type: trait
+  id: Sprinter
+  name: trait-sprinter-name
+  description: trait-sprinter-desc
+  category: Quirks
+  cost: 4
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Sprinter
+          modifier: 1.05
+
+- type: trait
+  id: Tall
+  name: trait-tall-name
+  description: trait-tall-desc
+  category: Quirks
+  cost: 0
+  whitelist:
+    components:
+      - SizeAttributeWhitelist
+  conflicts:
+    - Short
+  effects:
+    - !type:OverrideCompsEffect
+      components:
+        - type: SizeAttribute
+          tall: true
+
+- type: trait
+  id: Voracious
+  name: trait-voracious-name
+  description: trait-voracious-desc
+  category: Quirks
+  cost: 1
+  speciesBlacklist:
+    - IPC
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: FoodConsumptionSpeedModifier
+          modifier: 0.5
