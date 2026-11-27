@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.ADT.Silicon;
+using Content.Shared.ADT.IPC;
 using Content.Shared.Ghost.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -205,7 +205,7 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     protected void Attach(Entity<IVDripComponent> iv, EntityUid user, EntityUid to)
     {
-        if (HasComp<MobIpcComponent>(to))
+        if (HasComp<SiliconComponent>(to))
             return;
 
         if (!InRange(iv, to))

@@ -24,14 +24,12 @@ namespace Content.Shared.Electrocution
         public readonly EntityUid TargetUid;
         public readonly EntityUid? SourceUid;
         public readonly float SiemensCoefficient;
-        public readonly float? ShockDamage; // Parkstation-IPC
 
-        public ElectrocutedEvent(EntityUid targetUid, EntityUid? sourceUid, float siemensCoefficient, float? shockDamage = null) // Parkstation-IPC
+        public ElectrocutedEvent(EntityUid targetUid, EntityUid? sourceUid, float siemensCoefficient)
         {
             TargetUid = targetUid;
             SourceUid = sourceUid;
             SiemensCoefficient = siemensCoefficient;
-            ShockDamage = shockDamage; // Parkstation-IPC
         }
     }
 }

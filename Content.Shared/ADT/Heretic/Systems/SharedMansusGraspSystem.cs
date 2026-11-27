@@ -1,9 +1,9 @@
 //
 
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.IPC;
 using Content.Shared.Damage.Components;
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.BackStab;

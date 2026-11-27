@@ -6,7 +6,7 @@ using Content.Shared.ADT.BarbellBench;
 using Content.Shared.ADT.BarbellBench.Components;
 using Content.Shared.ADT.BarbellBench.Systems;
 using Content.Shared.ADT.Damage.Events;
-using Content.Shared.ADT.Silicon;
+using Content.Shared.ADT.IPC;
 using Content.Shared.ADT.Training;
 using Content.Shared.Alert;
 using Content.Shared.Buckle;
@@ -201,7 +201,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
     private void OnBeforeStaminaCrit(Entity<StaminaComponent> ent, ref BeforeStaminaCritEvent args)
     {
-        if (HasComp<MobIpcComponent>(ent))
+        if (HasComp<SiliconComponent>(ent))
             return;
 
         if (!TryComp<BuckleComponent>(ent, out var buckle) || buckle.BuckledTo is not { } benchUid)
@@ -232,7 +232,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
     private void OnPinnedUnbuckleAttempt(Entity<BarbellPinnedComponent> ent, ref UnbuckleAttemptEvent args)
     {
-        if (HasComp<MobIpcComponent>(ent))
+        if (HasComp<SiliconComponent>(ent))
         {
             Unpin(ent, null, false);
             return;

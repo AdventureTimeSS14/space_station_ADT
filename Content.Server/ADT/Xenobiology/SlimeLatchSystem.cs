@@ -1,3 +1,4 @@
+using Content.Shared.ADT.IPC;
 using Content.Shared.ADT.Xenobiology;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ActionBlocker;
@@ -27,7 +28,6 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Physics;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.ADT.Silicon.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;

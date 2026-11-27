@@ -1,17 +1,21 @@
-// Simple station
-
-using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Bed.Sleep;
-using Robust.Shared.Serialization;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Ghost.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Lock;
+using Content.Shared.Mobs;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.PowerCell.Components;
 
-namespace Content.Shared.ADT.Silicon.Systems;
+namespace Content.Shared.ADT.IPC;
 
-public sealed class SharedSiliconChargeSystem : EntitySystem
+public abstract class SharedSiliconSystem : EntitySystem
 {
     [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] protected MovementSpeedModifierSystem MoveMod = default!;
 
     public override void Initialize()
     {
@@ -21,72 +25,99 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ItemSlotInsertAttemptEvent>(OnItemSlotInsertAttempt);
         SubscribeLocalEvent<SiliconComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);
         SubscribeLocalEvent<SiliconComponent, TryingToSleepEvent>(OnTryingToSleep);
+        SubscribeLocalEvent<SiliconComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<SiliconComponent, LockToggledEvent>(OnLockToggled);
+        SubscribeLocalEvent<SiliconComponent, LockToggleAttemptEvent>(OnLockToggleAttempt);
     }
 
-    private void OnItemSlotInsertAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotInsertAttemptEvent args)
+    private bool IsBatterySlot(EntityUid uid, ItemSlot slot)
     {
-        if (args.Cancelled
-            || !TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp)
-            || !_itemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot)
-            || cellSlot != args.Slot || args.User != uid)
+        return TryComp<PowerCellSlotComponent>(uid, out var cellSlot)
+            && _itemSlots.TryGetSlot(uid, cellSlot.CellSlotId, out var batterySlot)
+            && batterySlot == slot;
+    }
+
+    private void OnItemSlotInsertAttempt(Entity<SiliconComponent> ent, ref ItemSlotInsertAttemptEvent args)
+    {
+        if (args.Cancelled || args.User != ent.Owner || !IsBatterySlot(ent, args.Slot))
             return;
 
         args.Cancelled = true;
     }
 
-    private void OnItemSlotEjectAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotEjectAttemptEvent args)
+    private void OnItemSlotEjectAttempt(Entity<SiliconComponent> ent, ref ItemSlotEjectAttemptEvent args)
     {
-        if (args.Cancelled
-            || !TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp)
-            || !_itemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot)
-            || cellSlot != args.Slot || args.User != uid)
+        if (args.Cancelled || args.User != ent.Owner || !IsBatterySlot(ent, args.Slot))
             return;
 
         args.Cancelled = true;
     }
 
-    private void OnRefreshMovespeed(EntityUid uid, SiliconComponent component, RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshMovespeed(Entity<SiliconComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (!component.BatteryPowered)
+        if (!ent.Comp.BatteryPowered)
             return;
 
-        var closest = 0;
+        int? closest = null;
+        foreach (var threshold in ent.Comp.SpeedModifierThresholds.Keys)
+        {
+            if (ent.Comp.ChargeState >= threshold && (closest == null || threshold > closest))
+                closest = threshold;
+        }
 
-        foreach (var state in component.SpeedModifierThresholds)
-            if (component.ChargeState >= state.Key && state.Key > closest)
-                closest = state.Key;
+        if (closest == null)
+            return;
 
-        var speedMod = component.SpeedModifierThresholds[closest];
-
+        var speedMod = ent.Comp.SpeedModifierThresholds[closest.Value];
         args.ModifySpeed(speedMod, speedMod);
     }
 
-    /// <summary>
-    ///     Silicon entities can now also be Living player entities. We may want to prevent them from sleeping if they can't sleep.
-    /// </summary>
-    private void OnTryingToSleep(EntityUid uid, SiliconComponent component, ref TryingToSleepEvent args)
+    private void OnTryingToSleep(Entity<SiliconComponent> ent, ref TryingToSleepEvent args)
     {
-        args.Cancelled = !component.DoSiliconsDreamOfElectricSheep;
+        if (ent.Comp.CanSleep || ent.Comp.Drained)
+            return;
+
+        args.Cancelled = true;
     }
-}
 
-public enum SiliconType
-{
-    Player,
-    GhostRole,
-    Npc,
-}
-
-/// <summary>
-///     Event raised when a Silicon's charge state needs to be updated.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class SiliconChargeStateUpdateEvent : EntityEventArgs
-{
-    public short ChargePercent { get; }
-
-    public SiliconChargeStateUpdateEvent(short chargePercent)
+    protected virtual void OnMobStateChanged(Entity<SiliconComponent> ent, ref MobStateChangedEvent args)
     {
-        ChargePercent = chargePercent;
+        if (!ent.Comp.DisableLightOnDeath)
+            return;
+
+        if (args.NewMobState == MobState.Dead)
+        {
+            if (!_pointLight.TryGetLight(ent.Owner, out var light) || !light.Enabled)
+                return;
+
+            _pointLight.SetEnabled(ent.Owner, false, light);
+            ent.Comp.LightDisabledByDeath = true;
+            return;
+        }
+
+        if (args.OldMobState != MobState.Dead || !ent.Comp.LightDisabledByDeath)
+            return;
+
+        _pointLight.SetEnabled(ent.Owner, true);
+        ent.Comp.LightDisabledByDeath = false;
+    }
+
+    private void OnLockToggled(Entity<SiliconComponent> ent, ref LockToggledEvent args)
+    {
+        if (!ent.Comp.LockBatterySlot
+            || !TryComp<PowerCellSlotComponent>(ent, out var cellSlot)
+            || !TryComp<ItemSlotsComponent>(ent, out var itemSlots)
+            || !_itemSlots.TryGetSlot((ent, itemSlots), cellSlot.CellSlotId, out var slot))
+            return;
+
+        _itemSlots.SetLock((ent, itemSlots), slot, args.Locked);
+    }
+
+    private void OnLockToggleAttempt(Entity<SiliconComponent> ent, ref LockToggleAttemptEvent args)
+    {
+        if (!ent.Comp.LockBatterySlot || args.Silent || args.User == ent.Owner || HasComp<GhostComponent>(args.User))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("batteryslotrequireslock-component-alert-owner", ("user", Identity.Entity(args.User, EntityManager))), ent, ent, PopupType.Large);
     }
 }

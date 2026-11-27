@@ -1,7 +1,7 @@
 //
 
-using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.ADT.IPC;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;

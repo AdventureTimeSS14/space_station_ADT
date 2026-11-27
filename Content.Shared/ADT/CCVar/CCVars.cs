@@ -8,17 +8,6 @@ namespace Content.Shared.ADT.CCVar;
 public sealed class SimpleStationCCVars
 {
     /*
-     * Silicons
-     */
-    #region Silicons
-    /// <summary>
-    ///     The amount of time between NPC Silicons draining their battery in seconds.
-    /// </summary>
-    public static readonly CVarDef<float> SiliconNpcUpdateTime =
-        CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
-    #endregion Silicons
-
-    /*
     * Jetpack
     */
     #region Jetpack System

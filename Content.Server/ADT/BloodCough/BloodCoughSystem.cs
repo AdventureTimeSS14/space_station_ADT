@@ -1,6 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Fluids.EntitySystems;
-using Content.Shared.ADT.Silicon.Components;
+using Content.Shared.ADT.IPC;
 using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
