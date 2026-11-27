@@ -177,10 +177,21 @@
   # ADT-Tweak end
   - type: BallisticAmmoProvider
     capacity: 2
+    cycleable: true # ADT-tweak
   - type: Construction
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
+  # ADT-Tweak start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: bolt-open }
+          False: { state: base }
+  - type: BreechLoaded
+  # ADT-Tweak end
 
 - type: entity
   name: double-barreled shotgun
@@ -319,10 +330,21 @@
     spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 2
+    cycleable: true # ADT-tweak
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
+  # ADT-Tweak start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: bolt-open }
+          False: { state: base }
+  - type: BreechLoaded
+  # ADT-Tweak end
 
 - type: entity
   name: sawn-off shotgun

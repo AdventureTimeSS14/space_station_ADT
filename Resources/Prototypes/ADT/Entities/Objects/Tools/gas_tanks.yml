@@ -1,0 +1,55 @@
+- type: entity
+  parent: GasTankBase
+  id: ADTBluespaceAirTank
+  name: bluespace air tank
+  description: A bluespace expanded gas tank. Holds 20L of gas
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tanks/bluespace_air_tank.rsi
+    layers:
+    - state: icon
+    - sprite: Objects/Tanks/oxygen.rsi
+      state: integrity-unshaded-0
+      map: [ "enum.MaxPressureVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+      visible: false
+    - sprite: Objects/Tanks/oxygen.rsi
+      state: mask
+      map: [ "enum.MaxPressureVisualLayers.Base" ]
+      visible: false
+  - type: Item
+    sprite: ADT/Objects/Tanks/bluespace_air_tank.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Tanks/bluespace_air_tank.rsi
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 100
+      temperature: 293.15
+
+- type: entity
+  parent: ExtendedEmergencyOxygenTank
+  id: ADTSmallBluespaceAirTank
+  name: pocket bluespace air tank
+  description: A pocket sized bluespace gas tank. Holds 10L of gas
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tanks/bluespace_pocket_tank.rsi
+    layers:
+    - state: icon
+    - sprite: Objects/Tanks/oxygen.rsi
+      state: integrity-unshaded-0
+      map: [ "enum.MaxPressureVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+      visible: false
+    - sprite: Objects/Tanks/oxygen.rsi
+      state: mask
+      map: [ "enum.MaxPressureVisualLayers.Base" ]
+      visible: false
+  - type: Item
+    sprite: ADT/Objects/Tanks/bluespace_pocket_tank.rsi
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 50
+      temperature: 293.15

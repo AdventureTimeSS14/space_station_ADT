@@ -191,6 +191,8 @@
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
   - ADTClothingEyesGlassesGasTemperature ## ADT-Tweak
+  - ADTBluespaceAirTank # ADT-tweak
+  - ADTSmallBluespaceAirTank # ADT-tweak
   technologyPrerequisites:
   - AtmosphericTech
 # ADT Research Console Rework start

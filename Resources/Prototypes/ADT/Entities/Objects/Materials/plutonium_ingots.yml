@@ -12,13 +12,14 @@
     stackType: Plutonium
     baseLayer: base
     layerStates:
-    - iron # Why iron? Because I haven't gotten a spriter to make better
-    - iron_2
-    - iron_3
+    - plutonium
+    - plutonium_2
+    - plutonium_3
   - type: Sprite
-    state: iron_3
+    sprite: ADT/Objects/Materials/fissiles.rsi
+    state: plutonium_3
     layers:
-    - state: iron_3
+    - state: plutonium_3
       map: ["base"]
   - type: Item
     heldPrefix: plutonium

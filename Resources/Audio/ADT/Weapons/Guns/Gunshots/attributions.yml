@@ -12,3 +12,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "smg.ogg from Space Station 14 (taken from tgstation), pitched down by Etvy for Adventure Time project"
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["bigshotgun_fire"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Created by Vunsunta, modified by kleinerstation13 (Github)"
+  source: "https://www.dropbox.com/scl/fi/dd03xhdhwg9em8l1xyxtr/Vunsunta-Firearm-Sound-Pack-V2.zip?rlkey=p7cyhkgf462v2bikj8awjbugu&e=2&st=hesyx5au&dl=0"

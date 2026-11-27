@@ -181,6 +181,8 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  - ADTJugBluespace
+  - NFVialBluespace
   position: 5,-3
   requiredTech:
   - ADTSyringeGun

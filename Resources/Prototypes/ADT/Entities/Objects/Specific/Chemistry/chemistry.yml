@@ -45,3 +45,45 @@
   - type: Tag
     tags:
     - Syringe
+
+- type: entity
+  name: bluespace jug
+  parent: Jug
+  id: ADTJugBluespace
+  description: Uses bluespace technology to contain an impossible amount of liquid.
+  components:
+    - type: Solution
+      solution:
+        maxVol: 2000
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Chemistry/jug_bluespace.rsi
+      layers:
+        - state: jug
+        - state: jug-unlit
+          shader: unshaded
+        - state: jug1
+          map: [ "enum.SolutionContainerLayers.Fill" ]
+          visible: false
+    - type: Item
+      sprite: ADT/Objects/Specific/Chemistry/jug_bluespace.rsi
+      inhandVisuals:
+        left:
+        - state: inhand-left
+        - state: inhand-left-unlit
+          shader: unshaded
+        - state: inhand-left-fill-1
+          map: [ "enum.SolutionContainerLayers.Fill" ]
+          visible: false
+        right:
+        - state: inhand-right
+        - state: inhand-right-unlit
+          shader: unshaded
+        - state: inhand-right-fill-1
+          map: [ "enum.SolutionContainerLayers.Fill" ]
+          visible: false
+    - type: StaticPrice
+      price: 30
+    - type: Destructible
+      thresholds: []
+    - type: SolutionContainerVisuals
+      maxFillLevels: 6

@@ -211,6 +211,8 @@
         whitelist:
           components:
           - FitsInDispenser
+          tags:
+          - LatheReagentContainer
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
@@ -272,6 +274,7 @@
     - XenobioPack #ADT Tweak
     - XenobagHoldingPack #ADT Tweak
     - PartsDynamic #ADT-Tweak: machine parts
+    - BluespaceAirTanks # ADT-tweak
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo

@@ -59,3 +59,8 @@
         Quantity: 60
   - type: Item
     sprite: Objects/Tools/Hydroponics/sprays.rsi
+# ADT-tweak start
+  - type: Tag
+    tags:
+    - PestSpray
+# ADT-tweak end

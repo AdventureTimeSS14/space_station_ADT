@@ -142,3 +142,108 @@
     state: rpg
   - type: StaticPrice
     price: 20
+
+- type: entity
+  id: ADTCartridgeBaseImprovisedShell
+  parent: [BaseItem, BaseMajorContraband]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+     - ImprovisedShell
+  - type: Item
+    size: Normal
+  - type: CartridgeAmmo
+
+- type: entity
+  id: ADTCartridgeExplosiveImprovisedShell
+  name: improvised shell
+  description:
+  parent: ADTCartridgeBaseImprovisedShell
+  components:
+   - type: CartridgeAmmo
+     proto: ADTImprovisedShellBulletExplosive
+   - type: Sprite
+     sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/makeshift.rsi
+     layers:
+     - state: explosive
+       map: ["enum.AmmoVisualLayers.Base"]
+   - type: Appearance
+   - type: SpentAmmoVisuals
+   - type: Construction
+     node: ADTCartridgeExplosiveImprovisedShell
+     graph: ADTCartridgeExplosiveImprovisedShell
+
+- type: entity
+  id: ADTCartridgeFlameImprovisedShell
+  name: improvised shell
+  description:
+  parent: ADTCartridgeBaseImprovisedShell
+  components:
+   - type: CartridgeAmmo
+     proto: ADTImprovisedShellBulletFlame
+   - type: Sprite
+     sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/makeshift.rsi
+     layers:
+     - state: flame
+       map: ["enum.AmmoVisualLayers.Base"]
+   - type: Appearance
+   - type: SpentAmmoVisuals
+   - type: Construction
+     node: ADTCartridgeFlameImprovisedShell
+     graph: ADTCartridgeFlameImprovisedShell
+
+- type: entity
+  id: ADTCartridgeFlameUnfinished
+  name: improvised shell unfinished
+  parent: DrinkBase
+  components:
+   - type: Sprite
+     sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/makeshift.rsi
+     layers:
+     - state: flame
+       map: ["enum.AmmoVisualLayers.Base"]
+   - type: Construction
+     node: ADTCartridgeFlameUnfinished
+     graph: ADTCartridgeFlameImprovisedShell
+   - type: SolutionContainerManager
+     solutions:
+       drink:
+         maxVol: 30
+
+- type: entity
+  id: ADTCartridgeSmokeImprovisedShell
+  name: improvised shell
+  description: 
+  parent: ADTCartridgeBaseImprovisedShell
+  components:
+   - type: CartridgeAmmo
+     proto: ADTImprovisedShellBulletSmoke
+   - type: Sprite
+     sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/makeshift.rsi
+     layers:
+     - state: smoke
+       map: ["enum.AmmoVisualLayers.Base"]
+   - type: Appearance
+   - type: SpentAmmoVisuals
+   - type: Construction
+     node: ADTCartridgeSmokeImprovisedShell
+     graph: ADTCartridgeSmokeImprovisedShell
+
+- type: entity
+  id: ADTCartridgeSmokeUnfinished
+  name: improvised shell unfinished
+  parent: DrinkBase
+  components:
+   - type: Sprite
+     sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/makeshift.rsi
+     layers:
+     - state: smoke
+       map: ["enum.AmmoVisualLayers.Base"]
+   - type: Construction
+     node: ADTCartridgeSmokeUnfinished
+     graph: ADTCartridgeSmokeImprovisedShell
+   - type: SolutionContainerManager
+     solutions:
+       drink:
+         maxVol: 10

@@ -1,0 +1,19 @@
+- type: latheRecipe
+  id: ADTBluespaceAirTank
+  result: ADTBluespaceAirTank
+  completetime: 5
+  materials:
+    Steel: 2000
+    Silver: 750
+    Plasma: 1000
+    ADTBScrystal: 400 
+
+- type: latheRecipe
+  id: ADTSmallBluespaceAirTank
+  result: ADTSmallBluespaceAirTank
+  completetime: 5
+  materials:
+    Steel: 1000
+    Silver: 750
+    Plasma: 500
+    ADTBScrystal: 200 
