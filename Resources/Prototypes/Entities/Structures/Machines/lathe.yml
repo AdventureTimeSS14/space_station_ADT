@@ -148,6 +148,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # ADT-tweak-start
+    - ADTDoubleEmergencyTanks
     - ADTScienceTrigger
     - ADTServiceStaticPack
     - ADTRecorderStaticPack
