@@ -79,11 +79,6 @@ public sealed partial class NinjaSuitSystem : SharedNinjaSuitSystem
             return;
         }
 
-        // ADT TWEAK START
-        RemCompDeferred<EmpProtectionComponent>(battery.Value.Owner);
-        EnsureComp<EmpProtectionComponent>(inserting.Owner);
-        // ADT TWEAK END
-
         // tell ninja abilities that use battery to update it so they don't use charge from the old one
         if (!_ninja.IsNinja(user))
             return;
