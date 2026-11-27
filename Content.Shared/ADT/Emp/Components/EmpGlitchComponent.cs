@@ -22,6 +22,4 @@ public sealed partial class EmpGlitchComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public TimeSpan GlitchEnd;
-
-    public override bool SendOnlyToOwner => true;
 }

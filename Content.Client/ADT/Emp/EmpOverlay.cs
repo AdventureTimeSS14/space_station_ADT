@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.ADT.EMP;
+using Content.Shared.Inventory;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -22,6 +23,7 @@ public sealed class EmpOverlay : Overlay
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
+    private readonly InventorySystem _inventory;
     private readonly ShaderInstance _datamoshShader;
     private IRenderTexture? _prevFrame;
     private EmpGlitchComponent? _glitch;
@@ -31,12 +33,14 @@ public sealed class EmpOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
+        _inventory = _entMan.System<InventorySystem>();
         _datamoshShader = _proto.Index(DatamoshShader).InstanceUnique();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (!_entMan.TryGetComponent(_player.LocalEntity, out _glitch) || _timing.CurTime >= _glitch.GlitchEnd)
+        _glitch = GetActiveGlitch();
+        if (_glitch == null)
         {
             ResetFrame();
             return false;
@@ -89,6 +93,22 @@ public sealed class EmpOverlay : Overlay
         worldHandle.UseShader(_datamoshShader);
         worldHandle.DrawRect(args.WorldBounds, Color.White);
         worldHandle.UseShader(null);
+    }
+
+    private EmpGlitchComponent? GetActiveGlitch()
+    {
+        if (_player.LocalEntity is not { } player)
+            return null;
+
+        if (_entMan.TryGetComponent<EmpGlitchComponent>(player, out var glitch) && _timing.CurTime < glitch.GlitchEnd)
+            return glitch;
+
+        if (_inventory.TryGetSlotEntity(player, "head", out var head)
+            && _entMan.TryGetComponent(head, out glitch)
+            && _timing.CurTime < glitch.GlitchEnd)
+            return glitch;
+
+        return null;
     }
 
     private void ResetFrame()

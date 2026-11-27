@@ -1,6 +1,8 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.ADT.EMP;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class EmpContainerProtectionComponent : Component
 {
     [ViewVariables]
