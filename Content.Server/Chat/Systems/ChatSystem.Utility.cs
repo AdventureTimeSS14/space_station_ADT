@@ -75,20 +75,16 @@ public sealed partial class ChatSystem
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false, bool checkVisibility = true, bool ignoreWalls = false) // ADT-Tweak
+    public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false, bool checkVisibility = true, bool ignoreWalls = false, string? unknownMessage = null, string? wrappedUnknownMessage = null, string? unknownLanguageMessage = null, string? wrappedUnknownLanguageMessage = null) // ADT-Tweak
     {
-        // ADT-Tweak-Start
-        var lang = language != null ? ProtoMan.Index(language.Value) : _language.GetCurrentLanguage(source);
-        // ADT-Tweak-End
+        var lang = language != null ? ProtoMan.Index(language.Value) : _language.GetCurrentLanguage(source);  // ADT-Tweak
 
         foreach (var (session, data) in GetRecipients(source, VoiceRange))
         {
             // ADT-Tweak-Start
             if (session.AttachedEntity is not { Valid: true } listener)
                 continue;
-
-            if (checkVisibility && !data.Observer && !HasLineOfSight(listener, source, ignoreWalls: ignoreWalls))
-                continue;
+            
 
             var condition = true;
             foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
@@ -106,6 +102,29 @@ public sealed partial class ChatSystem
             var entHideChat = entRange == MessageRangeCheckResult.HideChat;
 
             // ADT-Tweak-Start
+            if (checkVisibility && !data.Observer && !HasLineOfSight(listener, source, ignoreWalls: ignoreWalls))
+            {
+                if (wrappedUnknownMessage != null)
+                {
+                    var unknownPlain = unknownMessage ?? string.Empty;
+                    var unknownWrapped = wrappedUnknownMessage;
+                    if (!ignoreLanguage && !_language.CanUnderstand(listener, lang))
+                    {
+                        unknownPlain = unknownLanguageMessage ?? unknownPlain;
+                        unknownWrapped = wrappedUnknownLanguageMessage ?? wrappedUnknownMessage;
+                    }
+
+                    if (listener != source && _deafness.TryGetDeafenedMessage(listener, unknownPlain, out var deafenedUnknown))
+                    {
+                        _chatManager.ChatMessageToOne(channel, deafenedUnknown, deafenedUnknown, source, entHideChat, session.Channel, author: author);
+                        continue;
+                    }
+
+                    _chatManager.ChatMessageToOne(channel, unknownPlain, unknownWrapped, source, entHideChat, session.Channel, author: author);
+                }
+                continue;
+            }
+
             if (listener != source && _deafness.TryGetDeafenedMessage(listener, message, out var deafened))
             {
                 _chatManager.ChatMessageToOne(channel, deafened, deafened, source, entHideChat, session.Channel, author: author);

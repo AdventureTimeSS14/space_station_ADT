@@ -13,9 +13,6 @@
   id: ADTStarvation
 
 - type: statusEffect
-  id: SeeingStatic
-
-- type: statusEffect
   id: Weakness
 
 - type: statusEffect

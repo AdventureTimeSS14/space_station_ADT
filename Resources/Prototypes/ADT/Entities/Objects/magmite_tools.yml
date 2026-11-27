@@ -76,5 +76,6 @@
       map: ["enum.GpsVisualLayers.Emp"]
       shader: unshaded
       visible: false
-  - type: EmpProtection
+  - type: EmpResistance
+    strengthMultiplier: 0
   - type: ADTGpsWaypoints

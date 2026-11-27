@@ -1,176 +1,33 @@
 - type: trait
-  id: Deaf
-  name: trait-deaf-name
-  description: trait-deaf-description
+  id: ADTNoirVision
+  name: trait-adt-noir-vision-name
+  description: trait-adt-noir-vision-desc
   category: Disabilities
   cost: -1
   effects:
     - !type:AddCompsEffect
       components:
-        - type: DeafTrait
-
-- type: trait
-  id: DamagedThroat
-  name: trait-damaged-throat-name
-  description: trait-damaged-throat-desc
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: DamagedThroat
-  speciesBlacklist:
-    - IPC
-
-
-- type: trait
-  id: Echolalia
-  name: trait-echolalia-name
-  description: trait-echolalia-desc
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: ActiveListener
-          range: 5
-        - type: ParrotSpeech
-          maximumPhraseLength: 24
-          minimumWait: 300
-          maximumWait: 900
-          learnChance: 0.1
-
-- type: trait
-  id: Touchy
-  name: trait-touchy-name
-  description: trait-touchy-desc
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Touchy
-
-- type: trait
-  id: Sheltered
-  name: trait-sheltered-name
-  description: trait-sheltered-desc
-  category: Disabilities
-  cost: -2
-  effects:
-    - !type:RemoveLanguagesEffect
-      preserveLanguages:
-      - SignLanguage
-  departmentBlacklist:
-    - Command
-    - Security
-    - CentcomSpecialists
-
-- type: trait
-  id: Dysgraphia
-  name: trait-dysgraphia-name
-  description: trait-dysgraphia-desc
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: BlockWriting
-
-- type: trait
-  id: Frail
-  name: trait-frail-name
-  description: trait-frail-description
-  category: Disabilities
-  cost: -2
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Frail
-          modifiers:
-            Blunt: 1.5
-            Slash: 1.5
-            Piercing: 1.5
-            Heat: 1.2
-            Cold: 1.2
-            Shock: 1.2
-
-- type: trait
-  id: SoftHands
-  name: trait-soft-hands-name
-  description: trait-soft-hands-desc
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: WieldingBlocker
-
-- type: trait
-  id: UnadaptedToSpace
-  name: trait-unadapted-to-space-name
-  description: trait-unadapted-to-space-desc
-  category: Disabilities
-  cost: -3
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: UnadaptedToSpace
-  speciesBlacklist:
-  - NovakidSpecies
-
-- type: trait
-  id: Debts
-  name: trait-debts-name
-  description: trait-debts-description
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:StartingBalanceEffect
-      balance: 0
+        - type: NoirOverlay
   conflicts:
-    - OnEdgeOfBankruptcy
+    - Monochromacy
 
 - type: trait
-  id: OnEdgeOfBankruptcy
-  name: trait-on-edge-of-bankruptcy-name
-  description: trait-on-edge-of-bankruptcy-description
+  id: AlcoholicAddiction
+  name: trait-alcoholic-addiction-name
+  description: trait-alcoholic-addiction-desc
   category: Disabilities
-  cost: -2
-  effects:
-    - !type:StartingBalanceEffect
-      balance: -500
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
   conflicts:
-    - Debts
-
-# Система аллергии не работала, трайт давал очко ни за что.
-#- type: trait
-#  id: Allergic
-#  name: trait-allergic-name
-#  description: trait-allergic-desc
-#  category: Disabilities
-#  components:
-#    - type: Allergic
-#  cost: -1
-#  quirk: true
-#  speciesBlacklist:
-#  - NovakidSpecies
-#  - Diona
-#  - SlimePerson
-#  - IPC
-
-- type: trait
-  id: WantedCriminal
-  name: trait-wanted-criminal-name
-  description: trait-wanted-criminal-description
-  category: Disabilities
-  cost: -2
+  - RandomAddiction
   effects:
-    - !type:ArrestWarrantEffect
-  departmentBlacklist:
-    - Command
-    - Security
-    - CentcomSpecialists
+  - !type:AddictionTraitEffect
+    kind: Alcohol
+  - !type:SpawnItemInBackpackEffect
+    item: DrinkBeerBottleFull
 
 - type: trait
   id: Blindness
@@ -198,150 +55,119 @@
     - PoorVision
 
 - type: trait
-  id: PoorVision
-  name: trait-poor-vision-name
-  description: trait-poor-vision-desc
+  id: Clumsy
+  name: trait-clumsy-name
+  description: trait-clumsy-desc
   category: Disabilities
   cost: -1
-  whitelist:
-    components:
-      - Blindable
+  effects:
+    - !type:AddStatusEffect
+      statusEffects:
+        - ADTStatusEffectClumsyTrait
+
+- type: trait
+  id: DamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-desc
+  category: Disabilities
+  cost: -1
   effects:
     - !type:AddCompsEffect
       components:
-        - type: PermanentBlindness
-          blindness: 4
-    - !type:SpawnItemInHandEffect
-      item: ClothingEyesGlasses
+        - type: DamagedThroat
+  speciesBlacklist:
+    - IPC
+
+- type: trait
+  id: Deaf
+  name: trait-deaf-name
+  description: trait-deaf-description
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DeafTrait
+
+- type: trait
+  id: Debts
+  name: trait-debts-name
+  description: trait-debts-description
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:StartingBalanceEffect
+      balance: 0
   conflicts:
-    - Blindness
+    - OnEdgeOfBankruptcy
 
 - type: trait
-  id: Narcolepsy
-  name: trait-narcolepsy-name
-  description: trait-narcolepsy-desc
+  id: DrugAddiction
+  name: trait-drug-addiction-name
+  description: trait-drug-addiction-desc
   category: Disabilities
   cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Narcolepsy
-          maxTimeBetweenIncidents: 600
-          minTimeBetweenIncidents: 300
-          maxDurationOfIncident: 30
-          minDurationOfIncident: 10
-
-- type: trait
-  id: Unrevivable
-  name: trait-unrevivable-name
-  description: trait-unrevivable-desc
-  category: Disabilities
-  cost: -3
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Unrevivable
-          cloneable: true
   speciesBlacklist:
   - IPC
-  - NovakidSpecies
+  - Diona
+  - SlimePerson
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Drug
+  - !type:SpawnItemInBackpackEffect
+    item: PillSpaceDrugs
 
 - type: trait
-  id: Uncloneable
-  name: trait-uncloneable-name
-  description: trait-uncloneable-desc
+  id: Dysgraphia
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BlockWriting
+
+- type: trait
+  id: Echolalia
+  name: trait-echolalia-name
+  description: trait-echolalia-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ActiveListener
+          range: 5
+        - type: ParrotSpeech
+          maximumPhraseLength: 24
+          minimumWait: 300
+          maximumWait: 900
+          learnChance: 0.1
+
+- type: trait
+  id: Frail
+  name: trait-frail-name
+  description: trait-frail-description
   category: Disabilities
   cost: -2
   effects:
     - !type:AddCompsEffect
       components:
-        - type: Uncloneable
-  speciesBlacklist:
-  - IPC
-  - NovakidSpecies
-  - Vox
-
-- type: trait
-  id: Paralyzed
-  name: trait-paralyzed-name
-  description: trait-paralyzed-desc
-  category: Disabilities
-  cost: -4
-  speciesBlacklist:
-    - IPC
-  departmentBlacklist:
-    - Security
-  jobBlacklist:
-    - ADTBlueShieldOfficer
-    - SalvageSpecialist
-    - ADTMiner
-    - Captain
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: LegsParalyzed
-    - !type:SpawnItemInHandEffect
-      item: ADTVehicleWheelchairFolded
-
-- type: trait
-  id: Monochromacy
-  name: trait-monochromacy-name
-  description: trait-monochromacy-desc
-  category: Disabilities
-  cost: -1
-  conflicts:
-    - ADTNoirVision
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: BlackAndWhiteOverlay
-
-- type: trait
-  id: Muted
-  name: trait-muted-name
-  description: trait-muted-desc
-  category: Disabilities
-  cost: -1
-  blacklist:
-    components:
-      - BorgChassis
-  departmentBlacklist:
-    - Command
-    - Security
-    - CentcomSpecialists
-  specials:
-  - !type:ApplyStatusEffectSpecial
-    statusEffects:
-    - TraitStatusEffectMuted
-
-- type: trait
-  id: Paracusia
-  name: trait-paracusia-name
-  description: trait-paracusia-desc
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Paracusia
-          minTimeBetweenIncidents: 0.1
-          maxTimeBetweenIncidents: 300
-          maxSoundDistance: 7
-          sounds:
-            collection: Paracusia
-
-- type: trait
-  id: PainNumbness
-  name: trait-painnumbness-name
-  description: trait-painnumbness-desc
-  category: Disabilities
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: PainNumbnessStatusEffect
-          hideHealthAlert: true
-          hidePainOverlay: true
+        - type: Frail
+          modifiers:
+            Blunt: 1.5
+            Slash: 1.5
+            Piercing: 1.5
+            Heat: 1.2
+            Cold: 1.2
+            Shock: 1.2
 
 - type: trait
   id: Hemophilia
@@ -375,109 +201,303 @@
     - ADTBlueShieldOfficer
 
 - type: trait
-  id: ADTDissociativeIdentity
-  name: trait-dissociative-identity-name
-  description: trait-dissociative-identity-desc
+  id: LightweightDrunk
+  name: trait-lightweight-name
+  description: trait-lightweight-desc
   category: Disabilities
-  cost: 1
-  departmentBlacklist:
-    - Command
-    - Security
-    - Medical
-    - CentcomSpecialists
-  jobBlacklist:
-    - ADTBlueShieldOfficer
-    - IAA
-    - Lawyer
+  cost: -1
   speciesBlacklist:
     - IPC
     - NovakidSpecies
-    - SlimePerson
-    - Diona
-    - Vox
   effects:
     - !type:AddCompsEffect
       components:
-        - type: DissociativeIdentity
-          chameleonClothing:
-            jumpsuit: ClothingUniformJumpsuitChameleon
-            outerClothing: ClothingOuterChameleon
-            shoes: ClothingShoesChameleon
-            head: ClothingHeadHatChameleon
-          chameleonImplant: ChameleonControllerImplant
-          alterComponents:
-          - type: Physics
-            bodyType: KinematicController
-          - type: Fixtures
-            fixtures:
-              fix1:
-                shape:
-                  !type:PhysShapeCircle
-                  radius: 0.35
-                density: 50
-                mask:
-                - Impassable
-                - LowImpassable
-                - BlobImpassable
-                layer:
-                - None
-          - type: DissociativeAlterBody
-          - type: AntagImmune
-          - type: ADTVirusImmune
-            absolute: true
-          - type: StatusIcon
-            bounds: -0.5,-0.5,0.5,0.5
-          - type: InputMover
-          - type: MobMover
-          - type: MovementSpeedModifier
-            baseWalkSpeed: 2.5
-            baseSprintSpeed: 4.5
-          - type: Actions
-          - type: Alerts
-          - type: DoAfter
-          - type: Examiner
-          - type: Eye
-          - type: ContentEye
-          - type: MindContainer
-          - type: TTS
-          - type: LanguageSpeaker
-          - type: Speech
-            speechSounds: Alto
-          - type: Emoting
-          - type: TypingIndicator
-          - type: Grammar
-            attributes:
-              proper: true
-          - type: MidroundCustomization
-            allowedLayers:
-            - Hair
-            - FacialHair
-            playSoundForVoiceChange: false
-          - type: UserInterface
-            interfaces:
-              enum.MidroundCustomizationUiKey.Key:
-                type: MidroundCustomizationBoundUserInterface
-              enum.DissociativeAlterSetupUiKey.Key:
-                type: DissociativeAlterSetupBoundUserInterface
-          - type: GhostRole
-            allowMovement: true
-            allowSpeech: true
-            makeSentient: true
-            name: ghost-role-information-dissociative-alter-name
-            description: ghost-role-information-dissociative-alter-description
-            rules: ghost-role-information-dissociative-alter-rules
-          - type: GhostTakeoverAvailable
+        - type: LightweightDrunk
+          boozeStrengthMultiplier: 2
 
 - type: trait
-  id: ADTNoirVision
-  name: trait-adt-noir-vision-name
-  description: trait-adt-noir-vision-desc
+  id: Monochromacy
+  name: trait-monochromacy-name
+  description: trait-monochromacy-desc
+  category: Disabilities
+  cost: -1
+  conflicts:
+    - ADTNoirVision
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BlackAndWhiteOverlay
+
+- type: trait
+  id: Muted
+  name: trait-muted-name
+  description: trait-muted-desc
+  category: Disabilities
+  cost: -1
+  blacklist:
+    components:
+      - BorgChassis
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - TraitStatusEffectMuted
+
+- type: trait
+  id: Narcolepsy
+  name: trait-narcolepsy-name
+  description: trait-narcolepsy-desc
   category: Disabilities
   cost: -1
   effects:
     - !type:AddCompsEffect
       components:
-        - type: NoirOverlay
-  conflicts:
-    - Monochromacy
+        - type: Narcolepsy
+          maxTimeBetweenIncidents: 600
+          minTimeBetweenIncidents: 300
+          maxDurationOfIncident: 30
+          minDurationOfIncident: 10
 
+- type: trait
+  id: NicotineAddiction
+  name: trait-nicotine-addiction-name
+  description: trait-nicotine-addiction-desc
+  category: Disabilities
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Nicotine
+  - !type:SpawnItemInBackpackEffect
+    item: ADTCigPackHalfSmoked
+
+- type: trait
+  id: OnEdgeOfBankruptcy
+  name: trait-on-edge-of-bankruptcy-name
+  description: trait-on-edge-of-bankruptcy-description
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:StartingBalanceEffect
+      balance: -500
+  conflicts:
+    - Debts
+
+# Система аллергии не работала, трайт давал очко ни за что.
+#- type: trait
+#  id: Allergic
+#  name: trait-allergic-name
+#  description: trait-allergic-desc
+#  category: Disabilities
+#  components:
+#    - type: Allergic
+#  cost: -1
+#  quirk: true
+#  speciesBlacklist:
+#  - NovakidSpecies
+#  - Diona
+#  - SlimePerson
+#  - IPC
+
+- type: trait
+  id: Pacifist
+  name: trait-pacifist-name
+  description: trait-pacifist-desc
+  category: Disabilities
+  cost: -4
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Pacified
+
+- type: trait
+  id: PainNumbness
+  name: trait-painnumbness-name
+  description: trait-painnumbness-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: PainNumbnessStatusEffect
+          hideHealthAlert: true
+          hidePainOverlay: true
+
+- type: trait
+  id: Paracusia
+  name: trait-paracusia-name
+  description: trait-paracusia-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Paracusia
+          minTimeBetweenIncidents: 0.1
+          maxTimeBetweenIncidents: 300
+          maxSoundDistance: 7
+          sounds:
+            collection: Paracusia
+
+- type: trait
+  id: Paralyzed
+  name: trait-paralyzed-name
+  description: trait-paralyzed-desc
+  category: Disabilities
+  cost: -4
+  speciesBlacklist:
+    - IPC
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer
+    - SalvageSpecialist
+    - ADTMiner
+    - Captain
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: LegsParalyzed
+    - !type:SpawnItemInHandEffect
+      item: ADTVehicleWheelchairFolded
+
+- type: trait
+  id: PoorVision
+  name: trait-poor-vision-name
+  description: trait-poor-vision-desc
+  category: Disabilities
+  cost: -1
+  whitelist:
+    components:
+      - Blindable
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: PermanentBlindness
+          blindness: 4
+    - !type:SpawnItemInHandEffect
+      item: ClothingEyesGlasses
+  conflicts:
+    - Blindness
+
+- type: trait
+  id: RandomAddiction
+  name: trait-random-addiction-name
+  description: trait-random-addiction-desc
+  category: Disabilities
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
+  effects:
+  - !type:RandomAddictionEffect
+    pool:
+    - Alcohol
+    - Nicotine
+    - Drug
+
+- type: trait
+  id: Sheltered
+  name: trait-sheltered-name
+  description: trait-sheltered-desc
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:RemoveLanguagesEffect
+      preserveLanguages:
+      - SignLanguage
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
+
+- type: trait
+  id: SoftHands
+  name: trait-soft-hands-name
+  description: trait-soft-hands-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: WieldingBlocker
+
+- type: trait
+  id: Touchy
+  name: trait-touchy-name
+  description: trait-touchy-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Touchy
+
+- type: trait
+  id: UnadaptedToSpace
+  name: trait-unadapted-to-space-name
+  description: trait-unadapted-to-space-desc
+  category: Disabilities
+  cost: -3
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: UnadaptedToSpace
+  speciesBlacklist:
+  - NovakidSpecies
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Uncloneable
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+  - Vox
+
+- type: trait
+  id: Unrevivable
+  name: trait-unrevivable-name
+  description: trait-unrevivable-desc
+  category: Disabilities
+  cost: -3
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Unrevivable
+          cloneable: true
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+
+- type: trait
+  id: WantedCriminal
+  name: trait-wanted-criminal-name
+  description: trait-wanted-criminal-description
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:ArrestWarrantEffect
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists

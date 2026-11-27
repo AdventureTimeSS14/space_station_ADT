@@ -187,6 +187,7 @@
         whitelist:
           tags:
             - PowerCell
+  - type: EmpContainerProtection # ADT-Tweak
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
