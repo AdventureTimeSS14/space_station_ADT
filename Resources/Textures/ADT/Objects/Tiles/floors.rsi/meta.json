@@ -1,0 +1,86 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGStation: https://github.com/tgstation/tgstation/blob/dba6deaae50ce3d9cae6e346ce95aa49d74fcbcb/icons/turf/floors/catwalk_plating.dmi , https://github.com/tgstation/tgstation/blob/HEAD/icons/turf/floors.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "dark-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "dark-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "steel-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "steel-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "white-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "white-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "dark-corner"
+        },
+        {
+            "name": "dark-edge"
+        },
+        {
+            "name": "dark-half"
+        },
+        {
+            "name": "dark-plastic-mono"
+        },
+        {
+            "name": "dark-plastic-corner"
+        },
+        {
+            "name": "dark-plastic-edge"
+        },
+        {
+            "name": "dark-plastic-half"
+        },
+        {
+            "name": "steel-corner"
+        },
+        {
+            "name": "steel-edge"
+        },
+        {
+            "name": "steel-half"
+        },
+        {
+            "name": "white-corner"
+        },
+        {
+            "name": "white-edge"
+        },
+        {
+            "name": "white-half"
+        },
+        {
+            "name": "catwalk-dark"
+        },
+        {
+            "name": "catwalk-plastic-dark"
+        },
+        {
+            "name": "catwalk-steel"
+        },
+        {
+            "name": "catwalk-white"
+        }
+    ]
+}

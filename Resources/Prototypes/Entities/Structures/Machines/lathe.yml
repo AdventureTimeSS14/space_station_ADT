@@ -797,6 +797,9 @@
     - PlasticTilesStatic
     - CarpetTilesStatic
     - PreciousTilesStatic
+#ADT tweak start
+    - ADTTiles
+#ADT tweak end
     dynamicPacks:
     - FauxTiles
   - type: MaterialStorage

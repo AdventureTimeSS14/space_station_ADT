@@ -771,3 +771,187 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorDarkCorner
+  name: adt-tiles-floor-dark-corner
+  sprite: /Textures/ADT/Tiles/floors/dark-corner.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkCorner
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorDarkEdge
+  name: adt-tiles-floor-dark-edge
+  sprite: /Textures/ADT/Tiles/floors/dark-edge.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkEdge
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorDarkHalf
+  name: adt-tiles-floor-dark-half
+  sprite: /Textures/ADT/Tiles/floors/dark-half.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorDarkHalfTurned
+  name: adt-tiles-floor-dark-half
+  sprite: /Textures/ADT/Tiles/floors/dark-half-turned.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorDarkPlasticMono
+  name: adt-tiles-floor-dark-plastic-mono
+  sprite: /Textures/ADT/Tiles/floors/dark-plastic-mono.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkPlasticMono
+
+- type: tile
+  id: ADTFloorDarkPlasticCorner
+  name: adt-tiles-floor-dark-plastic-corner
+  sprite: /Textures/ADT/Tiles/floors/dark-plastic-corner.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkPlasticCorner
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorDarkPlasticEdge
+  name: adt-tiles-floor-dark-plastic-edge
+  sprite: /Textures/ADT/Tiles/floors/dark-plastic-edge.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkPlasticEdge
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorDarkPlasticHalf
+  name: adt-tiles-floor-dark-plastic-half
+  sprite: /Textures/ADT/Tiles/floors/dark-plastic-half.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkPlasticHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorDarkPlasticHalfTurned
+  name: adt-tiles-floor-dark-plastic-half
+  sprite: /Textures/ADT/Tiles/floors/dark-plastic-half-turned.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemDarkPlasticHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorSteelCorner
+  name: adt-tiles-floor-steel-corner
+  sprite: /Textures/ADT/Tiles/floors/steel-corner.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemSteelCorner
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorSteelEdge
+  name: adt-tiles-floor-steel-edge
+  sprite: /Textures/ADT/Tiles/floors/steel-edge.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemSteelEdge
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorSteelHalf
+  name: adt-tiles-floor-steel-half
+  sprite: /Textures/ADT/Tiles/floors/steel-half.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemSteelHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorSteelHalfTurned
+  name: adt-tiles-floor-steel-half
+  sprite: /Textures/ADT/Tiles/floors/steel-half-turned.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemSteelHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorWhiteCorner
+  name: adt-tiles-floor-white-corner
+  sprite: /Textures/ADT/Tiles/floors/white-corner.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemWhiteCorner
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorWhiteEdge
+  name: adt-tiles-floor-white-edge
+  sprite: /Textures/ADT/Tiles/floors/white-edge.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemWhiteEdge
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorWhiteHalf
+  name: adt-tiles-floor-white-half
+  sprite: /Textures/ADT/Tiles/floors/white-half.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemWhiteHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorWhiteHalfTurned
+  name: adt-tiles-floor-white-half
+  sprite: /Textures/ADT/Tiles/floors/white-half-turned.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemWhiteHalf
+  allowRotationMirror: true
+
+- type: tile
+  id: ADTFloorCatwalkDark
+  name: adt-tiles-floor-catwalk-dark
+  sprite: /Textures/ADT/Tiles/floors/catwalk-dark.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemCatwalkDark
+
+- type: tile
+  id: ADTFloorCatwalkPlasticDark
+  name: adt-tiles-floor-catwalk-plastic-dark
+  sprite: /Textures/ADT/Tiles/floors/catwalk-plastic-dark.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemCatwalkPlasticDark
+
+- type: tile
+  id: ADTFloorCatwalkSteel
+  name: adt-tiles-floor-catwalk-steel
+  sprite: /Textures/ADT/Tiles/floors/catwalk-steel.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemCatwalkSteel
+
+- type: tile
+  id: ADTFloorCatwalkWhite
+  name: adt-tiles-floor-catwalk-white
+  sprite: /Textures/ADT/Tiles/floors/catwalk-white.png
+  parent: BaseStationTile
+  variants: 1
+  itemDrop: ADTFloorTileItemCatwalkWhite

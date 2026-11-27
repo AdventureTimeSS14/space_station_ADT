@@ -1,0 +1,273 @@
+- type: entity
+  name: dark tile
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemDarkCorner
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tiles/floors.rsi
+    state: dark-corner
+  - type: Item
+    sprite: ADT/Objects/Tiles/floors.rsi
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkCorner
+  - type: Stack
+    stackType: ADTFloorTileDarkCornerStack
+
+- type: entity
+  name: dark tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemDarkEdge
+  components:
+  - type: Sprite
+    state: dark-edge
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkEdge
+  - type: Stack
+    stackType: ADTFloorTileDarkEdgeStack
+
+- type: entity
+  name: dark tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemDarkHalf
+  components:
+  - type: Sprite
+    state: dark-half
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkHalf
+  - type: Stack
+    stackType: ADTFloorTileDarkHalfStack
+
+- type: entity
+  name: dark plastic mono
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemDarkPlasticMono
+  components:
+  - type: Sprite
+    state: dark-plastic-mono
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkPlasticMono
+  - type: Stack
+    stackType: ADTFloorTileDarkPlasticMonoStack
+
+- type: entity
+  name: dark plastic tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemDarkPlasticCorner
+  components:
+  - type: Sprite
+    state: dark-plastic-corner
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkPlasticCorner
+  - type: Stack
+    stackType: ADTFloorTileDarkPlasticCornerStack
+
+- type: entity
+  name: dark plastic tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemDarkPlasticEdge
+  components:
+  - type: Sprite
+    state: dark-plastic-edge
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkPlasticEdge
+  - type: Stack
+    stackType: ADTFloorTileDarkPlasticEdgeStack
+
+- type: entity
+  name: dark plastic tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemDarkPlasticHalf
+  components:
+  - type: Sprite
+    state: dark-plastic-half
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorDarkPlasticHalf
+  - type: Stack
+    stackType: ADTFloorTileDarkPlasticHalfStack
+
+- type: entity
+  name: steel tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemSteelCorner
+  components:
+  - type: Sprite
+    state: steel-corner
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorSteelCorner
+  - type: Stack
+    stackType: ADTFloorTileSteelCornerStack
+
+- type: entity
+  name: steel tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemSteelEdge
+  components:
+  - type: Sprite
+    state: steel-edge
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorSteelEdge
+  - type: Stack
+    stackType: ADTFloorTileSteelEdgeStack
+
+- type: entity
+  name: steel tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemSteelHalf
+  components:
+  - type: Sprite
+    state: steel-half
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorSteelHalf
+  - type: Stack
+    stackType: ADTFloorTileSteelHalfStack
+
+- type: entity
+  name: white tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemWhiteCorner
+  components:
+  - type: Sprite
+    state: white-corner
+  - type: Item
+    heldPrefix: white
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWhiteCorner
+  - type: Stack
+    stackType: ADTFloorTileWhiteCornerStack
+
+- type: entity
+  name: white tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemWhiteEdge
+  components:
+  - type: Sprite
+    state: white-edge
+  - type: Item
+    heldPrefix: white
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWhiteEdge
+  - type: Stack
+    stackType: ADTFloorTileWhiteEdgeStack
+
+- type: entity
+  name: white tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemWhiteHalf
+  components:
+  - type: Sprite
+    state: white-half
+  - type: Item
+    heldPrefix: white
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWhiteHalf
+  - type: Stack
+    stackType: ADTFloorTileWhiteHalfStack
+
+- type: entity
+  name: catwalk tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemCatwalkDark
+  components:
+  - type: Sprite
+    state: catwalk-dark
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorCatwalkDark
+  - type: Stack
+    stackType: ADTFloorTileCatwalkDarkStack
+
+- type: entity
+  name: catwalk tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemCatwalkPlasticDark
+  components:
+  - type: Sprite
+    state: catwalk-plastic-dark
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorCatwalkPlasticDark
+  - type: Stack
+    stackType: ADTFloorTileCatwalkPlasticDarkStack
+
+- type: entity
+  name: catwalk tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemCatwalkSteel
+  components:
+  - type: Sprite
+    state: catwalk-steel
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorCatwalkSteel
+  - type: Stack
+    stackType: ADTFloorTileCatwalkSteelStack
+
+- type: entity
+  name: catwalk tile
+  parent: ADTFloorTileItemDarkCorner
+  id: ADTFloorTileItemCatwalkWhite
+  components:
+  - type: Sprite
+    state: catwalk-white
+  - type: Item
+    heldPrefix: white
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorCatwalkWhite
+  - type: Stack
+    stackType: ADTFloorTileCatwalkWhiteStack

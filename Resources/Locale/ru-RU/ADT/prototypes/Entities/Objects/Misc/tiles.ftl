@@ -1,0 +1,55 @@
+ent-ADTFloorTileItemDarkCorner = чёрный пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = угловой
+ent-ADTFloorTileItemDarkEdge = чёрный пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = стыковой
+ent-ADTFloorTileItemDarkHalf = чёрный пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = половинчатый
+
+ent-ADTFloorTileItemDarkPlasticMono = чёрный пластиковый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = моно
+ent-ADTFloorTileItemDarkPlasticCorner = чёрный пластиковый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = угловой
+ent-ADTFloorTileItemDarkPlasticEdge = чёрный пластиковый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = стыковой
+ent-ADTFloorTileItemDarkPlasticHalf = чёрный пластиковый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = половинчатый
+
+ent-ADTFloorTileItemSteelCorner = стальной пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = угловой
+ent-ADTFloorTileItemSteelEdge = стальной пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = стыковой
+ent-ADTFloorTileItemSteelHalf = стальной пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = половинчатый
+
+ent-ADTFloorTileItemWhiteCorner = белый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = угловой
+ent-ADTFloorTileItemWhiteEdge = белый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = стыковой
+ent-ADTFloorTileItemWhiteHalf = белый пол
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = половинчатый
+
+ent-ADTFloorTileItemCatwalkDark = мостик
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = чёрный
+ent-ADTFloorTileItemCatwalkPlasticDark = мостик
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = чёрный пластиковый
+ent-ADTFloorTileItemCatwalkSteel = мостик
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = стальной
+ent-ADTFloorTileItemCatwalkWhite = мостик
+    .desc = Может послужить неплохим метательным оружием.
+    .suffix = белый
