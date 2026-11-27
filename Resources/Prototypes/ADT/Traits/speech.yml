@@ -1,4 +1,171 @@
 - type: trait
+  id: Accentless
+  name: trait-accentless-name
+  description: trait-accentless-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Accentless
+          removes:
+            - type: OwOAccent
+            - type: NyaAccent
+            - type: LizardAccent
+            - type: MothAccent
+            - type: GrowlingAccent
+            - type: RoarAccent
+            - type: ResomiAccent
+            - type: VoxAccent
+            - type: SkeletonAccent
+            - type: DamagedSiliconAccent
+#            - type: ReplacementAccent
+
+- type: trait
+  id: ADTCuteIPC
+  name: trait-cute-ipc-name
+  description: trait-cute-ipc-desc
+  category: SpeechTraits
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTXenoborgIPC
+  components:
+  - type: Vocal
+    emoteSounds: CuteIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - ADTIPCCuteEmotes
+    - ADTCatEmotes
+
+- type: trait
+  id: ADTFemaleIPC
+  name: trait-female-ipc-name
+  description: trait-female-ipc-desc
+  category: SpeechTraits
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTMaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
+  components:
+  - type: Vocal
+    emoteSounds: FemaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+
+- type: trait
+  id: ADTMaleIPC
+  name: trait-male-ipc-name
+  description: trait-male-ipc-desc
+  category: SpeechTraits
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
+  components:
+  - type: Vocal
+    emoteSounds: MaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+
+- type: trait
+  id: ADTRoboticVoiceIPC
+  name: trait-robotic-voice-ipc-name
+  description: trait-robotic-voice-ipc-desc
+  category: SpeechTraits
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  effects:
+    - !type:SetTTSEffect
+      effect: robotic
+
+- type: trait
+  id: ADTXenoborgIPC
+  name: trait-xenoborg-ipc-name
+  description: trait-xenoborg-ipc-desc
+  category: SpeechTraits
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTCuteIPC
+  components:
+  - type: Vocal
+    emoteSounds: XenoborgIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+
+- type: trait
+  id: ArchaicAccent
+  name: trait-archaic-accent-name
+  description: trait-archaic-accent-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BackwardsAccent
+
+- type: trait
+  id: BurrinessAccent
+  name: trait-burriness-accent-name
+  description: trait-burriness-accent-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BurrinessAccent
+
+- type: trait
   id: ChavAccent
   name: trait-chav-accent-name
   description: trait-chav-accent-desc
@@ -12,6 +179,51 @@
     - Command
     - Security
     - CentcomSpecialists
+
+- type: trait
+  id: CowboyAccent
+  name: trait-cowboy-name
+  description: trait-cowboy-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ReplacementAccent
+          accent: cowboy
+
+- type: trait
+  id: FrenchAccent
+  name: trait-french-name
+  description: trait-french-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: FrenchAccent
+
+- type: trait
+  id: FrontalLisp
+  name: trait-frontal-lisp-name
+  description: trait-frontal-lisp-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: FrontalLisp
+
+- type: trait
+  id: GermanAccent
+  name: trait-german-name
+  description: trait-german-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ADTGermanAccent
 
 - type: trait
   id: Hushed
@@ -28,26 +240,28 @@
         - type: Hushed
 
 - type: trait
-  id: ArchaicAccent
-  name: trait-archaic-accent-name
-  description: trait-archaic-accent-desc
+  id: ItalianAccent
+  name: trait-italian-name
+  description: trait-italian-desc
   category: SpeechTraits
   cost: 0
   effects:
     - !type:AddCompsEffect
       components:
-        - type: BackwardsAccent
+        - type: ReplacementAccent
+          accent: italian
 
 - type: trait
-  id: ScottishAccent
-  name: trait-scottish-accent-name
-  description: trait-scottish-accent-desc
+  id: Liar
+  name: trait-liar-name
+  description: trait-liar-desc
   category: SpeechTraits
   cost: 0
   effects:
     - !type:AddCompsEffect
       components:
-        - type: SlurredAccent
+        - type: ReplacementAccent
+          accent: mobster
 
 - type: trait
   id: MothAccent
@@ -63,29 +277,15 @@
     - Moth
 
 - type: trait
-  id: SickTeethAccent
-  name: trait-sick-teeth-accent-name
-  description: trait-sick-teeth-accent-desc
+  id: PirateAccent
+  name: trait-pirate-accent-name
+  description: trait-pirate-accent-desc
   category: SpeechTraits
   cost: 0
   effects:
     - !type:AddCompsEffect
       components:
-        - type: SickTeethAccent
-  speciesBlacklist:
-    - IPC
-
-
-- type: trait
-  id: BurrinessAccent
-  name: trait-burriness-accent-name
-  description: trait-burriness-accent-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: BurrinessAccent
+        - type: PirateAccent
 
 - type: trait
   id: PseudobulbarAffect
@@ -115,120 +315,15 @@
             - Crying
 
 - type: trait
-  id: Accentless
-  name: trait-accentless-name
-  description: trait-accentless-desc
+  id: ScottishAccent
+  name: trait-scottish-accent-name
+  description: trait-scottish-accent-desc
   category: SpeechTraits
   cost: 0
   effects:
     - !type:AddCompsEffect
       components:
-        - type: Accentless
-          removes:
-            - type: OwOAccent
-            - type: NyaAccent
-            - type: LizardAccent
-            - type: MothAccent
-            - type: GrowlingAccent
-            - type: RoarAccent
-            - type: ResomiAccent
-            - type: VoxAccent
-            - type: SkeletonAccent
-            - type: DamagedSiliconAccent
-#            - type: ReplacementAccent
-
-# 1 Cost
-
-- type: trait
-  id: SouthernAccent
-  name: trait-southern-name
-  description: trait-southern-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SouthernAccent
-
-- type: trait
-  id: PirateAccent
-  name: trait-pirate-accent-name
-  description: trait-pirate-accent-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: PirateAccent
-
-- type: trait
-  id: CowboyAccent
-  name: trait-cowboy-name
-  description: trait-cowboy-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: ReplacementAccent
-          accent: cowboy
-
-- type: trait
-  id: GermanAccent
-  name: trait-german-name
-  description: trait-german-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: ADTGermanAccent
-
-- type: trait
-  id: ItalianAccent
-  name: trait-italian-name
-  description: trait-italian-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: ReplacementAccent
-          accent: italian
-
-- type: trait
-  id: FrenchAccent
-  name: trait-french-name
-  description: trait-french-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: FrenchAccent
-
-- type: trait
-  id: SpanishAccent
-  name: trait-spanish-name
-  description: trait-spanish-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SpanishAccent
-
-- type: trait
-  id: Liar
-  name: trait-liar-name
-  description: trait-liar-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: ReplacementAccent
-          accent: mobster
+        - type: SlurredAccent
 
 # - type: trait # ADT-Tweak. ScottishAccent now defined in /Prototypes/ADT/Traits/speech.yml
 #   id: ScottishAccent
@@ -240,7 +335,18 @@
 #   - type: ReplacementAccent
 #     accent: scottish
 
-# 2 Cost
+- type: trait
+  id: SickTeethAccent
+  name: trait-sick-teeth-accent-name
+  description: trait-sick-teeth-accent-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: SickTeethAccent
+  speciesBlacklist:
+    - IPC
 
 - type: trait
   id: SocialAnxiety
@@ -258,12 +364,23 @@
           cutRandomProb: 0
 
 - type: trait
-  id: FrontalLisp
-  name: trait-frontal-lisp-name
-  description: trait-frontal-lisp-desc
+  id: SouthernAccent
+  name: trait-southern-name
+  description: trait-southern-desc
   category: SpeechTraits
   cost: 0
   effects:
     - !type:AddCompsEffect
       components:
-        - type: FrontalLisp
+        - type: SouthernAccent
+
+- type: trait
+  id: SpanishAccent
+  name: trait-spanish-name
+  description: trait-spanish-desc
+  category: SpeechTraits
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: SpanishAccent
