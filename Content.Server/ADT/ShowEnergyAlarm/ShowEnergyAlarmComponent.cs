@@ -10,7 +10,7 @@ public sealed partial class ShowEnergyAlarmComponent : Component
     public ProtoId<AlertPrototype> PowerAlert = "ModsuitPower";
 
     [DataField]
-    public bool ShowWithoutBattery;
+    public ProtoId<AlertPrototype>? NoBatteryAlert;
 
     public EntityUid? User;
 }

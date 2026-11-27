@@ -63,9 +63,17 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
     private void OnUnequipped(Entity<ShowEnergyAlarmComponent> ent, ref GotUnequippedEvent args)
     {
         if (ent.Comp.User != null)
-            _alerts.ClearAlert(ent.Comp.User.Value, ent.Comp.PowerAlert);
+            ClearAlerts(ent, ent.Comp.User.Value);
 
         ent.Comp.User = null;
+    }
+
+    private void ClearAlerts(Entity<ShowEnergyAlarmComponent> ent, EntityUid user)
+    {
+        _alerts.ClearAlert(user, ent.Comp.PowerAlert);
+
+        if (ent.Comp.NoBatteryAlert is { } noBatteryAlert)
+            _alerts.ClearAlert(user, noBatteryAlert);
     }
 
     private void UpdatePowerAlert(Entity<ShowEnergyAlarmComponent> ent)
@@ -75,22 +83,24 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
 
         if (TryComp<PowerCellDrawComponent>(ent, out var draw) && !draw.Enabled)
         {
-            _alerts.ClearAlert(user, ent.Comp.PowerAlert);
+            ClearAlerts(ent, user);
             return;
         }
-
-        var minSeverity = _alerts.GetMinSeverity(ent.Comp.PowerAlert);
 
         if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
         {
-            if (ent.Comp.ShowWithoutBattery)
-                _alerts.ShowAlert(user, ent.Comp.PowerAlert, minSeverity);
-            else
-                _alerts.ClearAlert(user, ent.Comp.PowerAlert);
+            _alerts.ClearAlert(user, ent.Comp.PowerAlert);
+
+            if (ent.Comp.NoBatteryAlert is { } noBatteryAlert)
+                _alerts.ShowAlert(user, noBatteryAlert);
 
             return;
         }
 
+        if (ent.Comp.NoBatteryAlert is { } staleNoBatteryAlert)
+            _alerts.ClearAlert(user, staleNoBatteryAlert);
+
+        var minSeverity = _alerts.GetMinSeverity(ent.Comp.PowerAlert);
         var levels = _alerts.GetMaxSeverity(ent.Comp.PowerAlert) - minSeverity + 1;
         var charge = MathF.Max(0f, _battery.GetCharge(battery.Value.AsNullable()));
         var level = ContentHelpers.RoundToLevels(charge, battery.Value.Comp.MaxCharge, levels);

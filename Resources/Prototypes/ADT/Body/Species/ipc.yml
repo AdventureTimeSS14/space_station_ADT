@@ -227,7 +227,7 @@
       0: 0.00
   - type: ShowEnergyAlarm
     powerAlert: AiBattery
-    showWithoutBattery: true
+    noBatteryAlert: ADTSiliconBatteryNone
   - type: BatteryDrinker
   - type: UnpoweredFlashlight
   - type: PointLight
