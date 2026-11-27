@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.CantShoot;
 using Content.Shared.ADT.EMP;
 using Content.Shared.Power.Components;
@@ -50,7 +51,10 @@ public abstract partial class SharedEmpSystem
 
     private void StartProtection(Entity<EmpContainerProtectionComponent> ent, EntityUid battery)
     {
-        if (!HasComp<BatteryComponent>(battery))
+        if (Timing.ApplyingState)
+            return;
+
+        if (!HasComp<BatteryComponent>(battery) || ent.Comp.Batteries.ContainsKey(battery))
             return;
 
         var originalResistance = 1f;
@@ -70,19 +74,24 @@ public abstract partial class SharedEmpSystem
             drainCap = EnsureComp<EmpPowerDrainCapComponent>(battery);
             drainCap.RelativeToMaxCharge = ent.Comp.CapRelativeToMaxCharge;
             drainCap.CapPercentage = ent.Comp.CapPercentage;
+            Dirty(battery, drainCap);
         }
 
         var baseBatteryData = new EmpContainerProtectionComponent.BatteryData(originalResistance, originalDurationMult, cap, capRelToMax, capPercentage);
-        ent.Comp.Batteries.TryAdd(battery, baseBatteryData);
+        ent.Comp.Batteries.Add(battery, baseBatteryData);
 
         resistance = EnsureComp<EmpResistanceComponent>(battery);
         resistance.StrengthMultiplier *= ent.Comp.StrengthMultiplier;
         resistance.DurationMultiplier *= ent.Comp.DurationMultiplier;
+        Dirty(battery, resistance);
     }
 
     private void StopProtection(Entity<EmpContainerProtectionComponent> ent, EntityUid battery)
     {
-        if (!ent.Comp.Batteries.TryGetValue(battery, out var original))
+        if (!ent.Comp.Batteries.Remove(battery, out var original))
+            return;
+
+        if (Timing.ApplyingState || TerminatingOrDeleted(battery))
             return;
 
         if (original.Protection == 1f && original.DurationMult == 1f)
@@ -94,18 +103,20 @@ public abstract partial class SharedEmpSystem
             var resistance = EnsureComp<EmpResistanceComponent>(battery);
             resistance.StrengthMultiplier = original.Protection;
             resistance.DurationMultiplier = original.DurationMult;
+            Dirty(battery, resistance);
         }
 
         if (!original.CapConsumption)
+        {
             RemComp<EmpPowerDrainCapComponent>(battery);
+        }
         else
         {
             var cap = EnsureComp<EmpPowerDrainCapComponent>(battery);
             cap.RelativeToMaxCharge = original.CapRelativeToMax;
             cap.CapPercentage = original.CapPercentage;
+            Dirty(battery, cap);
         }
-
-        ent.Comp.Batteries.Remove(battery);
     }
 
     private void OnInit(Entity<EmpContainerProtectionComponent> ent, ref MapInitEvent args)
@@ -121,9 +132,9 @@ public abstract partial class SharedEmpSystem
 
     private void OnShutdown(Entity<EmpContainerProtectionComponent> ent, ref ComponentShutdown args)
     {
-        foreach (var item in ent.Comp.Batteries)
+        foreach (var battery in ent.Comp.Batteries.Keys.ToArray())
         {
-            StopProtection(ent, item.Key);
+            StopProtection(ent, battery);
         }
     }
 }

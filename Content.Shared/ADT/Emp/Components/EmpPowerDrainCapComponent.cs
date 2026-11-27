@@ -2,12 +2,12 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.EMP;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class EmpPowerDrainCapComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool RelativeToMaxCharge = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float CapPercentage = 0.5f;
 }
