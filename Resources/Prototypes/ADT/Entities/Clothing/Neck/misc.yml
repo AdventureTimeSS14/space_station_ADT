@@ -102,6 +102,18 @@
     sprite: ADT/Clothing/Neck/Misc/gold_cross.rsi
   - type: HolyRelic
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTSilverNT
+  name: gold cross
+  description: A NT made of silver. For the most elite priests? of the NT
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/silver_nt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/silver_nt.rsi
+  - type: HolyRelic
+
 #09-05
 - type: entity
   parent: ClothingNeckPinBase

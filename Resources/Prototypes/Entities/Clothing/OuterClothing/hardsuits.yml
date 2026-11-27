@@ -1218,7 +1218,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.15
   - type: FireProtection
-    reduction: 0.8
+    reduction: 1 # ADT-Tweak 0.8 > 1
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
     damageCoefficient: 0.15 # Needs 21 hits with a disabler to stun :godo:
   - type: Armor
@@ -1228,13 +1228,14 @@
         Slash: 0.1
         Piercing: 0.1
         Heat: 0.1
-        Radiation: 0.05
+        Radiation: 0.01
         Caustic: 0.1
         Shock: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
+  - type: EmpProtection # ADT-Tweak
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
   # ADT-Tweak-start
@@ -1242,9 +1243,7 @@
     zombificationResistanceCoefficient: 0 # Чтобы админы не выдавали амбузол ручками.
   - type: ClothingGrantComponent
     component:
-    - type: SupermatterImmune
     - type: GrabProtection
-  - type: SupermatterImmune
   - type: DNALocker
   - type: Unremoveable
   # ADT-Tweak-end

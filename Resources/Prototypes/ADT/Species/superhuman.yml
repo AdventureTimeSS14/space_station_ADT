@@ -1,0 +1,19 @@
+- type: species
+  id: ADTSuperHuman
+  name: species-name-adt-superhuman
+  roundStart: false
+  prototype: ADTMobSuperHuman
+  dollPrototype: ADTAppearanceSuperHuman
+  skinColoration: HumanToned
+  pros:
+  - Вы увидели офицера Отряда Смерти!
+  special:
+  - Если вы это читаете, могу пожелать вам лишь удачи.
+  cons:
+  - Вы увидели офицера Отряда Смерти...
+  defaultLanguages:
+  - SolCommon
+  maxAge: 200
+  oldAge: 200
+  youngAge: 40
+  minAge: 30

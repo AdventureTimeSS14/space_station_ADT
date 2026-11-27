@@ -43,3 +43,62 @@
         whitelist:
           tags:
             - CartridgeMagnum
+
+- type: entity
+  name: bonecrusher
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolBonecrusher
+  description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/bonecrusher.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/bonecrusher.rsi
+  - type: Gun
+    minAngle: 4
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 1
+    fireRate: 4
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/50_deagle.ogg
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineReactive30
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazineReactive30
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - ADTCartridgeReactive30
+  - type: ItemMapper
+    sprite: ADT/Objects/Weapons/Guns/Pistols/bonecrusher.rsi
+    containerWhitelist: [gun_magazine]
+    mapLayers:
+      mag-0:
+        whitelist:
+          tags:
+          - ADTMagazineReactive30
+  - type: DNAGunLocker
+  - type: ADTGripModuleHolder
+  - type: Item
+    shape:
+    - 0,0,1,2

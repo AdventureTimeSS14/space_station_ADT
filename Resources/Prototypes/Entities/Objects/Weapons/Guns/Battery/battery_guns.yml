@@ -547,25 +547,25 @@
     zeroVisible: false
   - type: Appearance
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifier: 0.4
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+  - type: Gun
+    fireRate: 4.5 # ADT tweak 1.5 -> 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      - SemiAuto
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
     damage:
       types:
-        Blunt: 9
+        Blunt: 25
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  # ADT-Tweak end
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
-  - type: Gun
-    fireRate: 3 # ADT tweak 1.5 -> 3
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  # ADT-Tweak start
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -574,6 +574,7 @@
           - ADTAttachmentLaserSight
           - SurvivalKnifeAttachment
       rmc-aslot-rail:
+        startingAttachable: ADTAttachmentMagneticHarness
         whitelist:
             tags:
             - ADTAttachmentMagneticHarness
@@ -583,18 +584,18 @@
     offsets:
       rmc-aslot-underbarrel: 0.25, -0.14
       rmc-aslot-rail: -0.03125, -0.09375
-  # ADT-Tweak end
   - type: BatteryAmmoProvider
-    proto: Pulse
+    proto: ADTPulseHigh
     fireCost: 100
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
-    # ADT tweak start
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 100
-    # ADT tweak end
+    autoRechargeRate: 200
+  - type: ADTGripModuleHolder
+  - type: DNALocker
+  # ADT tweak end
 
 - type: entity
   name: laser cannon
@@ -1451,7 +1452,7 @@
   id: WeaponRangeFinderXenoborg
   name: xenoborg range finder
   components:
-  - type: Sprite 
+  - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/xenoborg_range_finder.rsi
     layers:
     - state: icon

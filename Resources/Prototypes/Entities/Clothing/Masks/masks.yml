@@ -562,6 +562,7 @@
         Slash: 0.80
         Piercing: 0.90
         Heat: 0.90
+  - type: ThermalVisionItem # ADT-Tweak
 
 - type: entity
   parent: ClothingMaskBase

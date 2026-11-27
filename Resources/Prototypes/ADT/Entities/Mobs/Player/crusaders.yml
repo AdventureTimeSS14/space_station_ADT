@@ -2,26 +2,7 @@
   id: ADTERTCrusaderBase
   parent: EventHumanoidCentcomm
   randomizeName: false
-  speciesBlacklist:
-  - Diona
-  - Vox
-  - KoboltSpecies
-  - DemonSpecies
-  - CelecernSpecies
-  - NovakidSpecies
-  - TajaranSpecies
-  - UrsusSpecies
-  - Moth
-  - VulpkaninSpecies
-  - Shadekin
-  - Arachnid
-  - Reptilian
-  - Felinid
-  - Resomi
-  - SlimePerson
-  - Dwarf
-  - IPC
-  - DraskSpecies
+  species: Human
   components:
   - type: RelicBound
   - type: ADTVirusImmune

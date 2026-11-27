@@ -1205,3 +1205,7 @@ ADTBigThruster: ADTThrusterBig
 ADTVendingMachineCiviMedVend: ADTVendingMachineCiviMed
 ADTVendingMachinePill: ADTVendingMachineCiviMed
 VendingMachineMedicalBase: ADTVendingMachineCiviMed
+
+# ADT-Tweak 2026-11-27
+SyringeCase: ADTSyringeCase
+SyringeCaseAlt: ADTSyringeCaseAlt

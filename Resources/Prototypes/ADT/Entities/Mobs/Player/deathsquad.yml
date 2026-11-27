@@ -1,0 +1,348 @@
+- type: entity # Перенёс из визовских сюда
+  id: RandomHumanoidSpawnerDeathSquad
+  name: Death Squad Agent
+  suffix: ERTRole, Death Squad
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstDeadSquad
+      - NamesLastDeadSquadCallsign
+      nameFormat: name-format-standard
+
+- type: entity # Пулеметчик
+  parent: RandomHumanoidSpawnerDeathSquad
+  id: ADTRandomHumanoidSpawnerDeathSquadMiniGunner
+  name: Death Squad Agent
+  suffix: ERTRole, Death Squad
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ADTDeathSquadMiniGunner
+- type: entity # Паладин
+  parent: RandomHumanoidSpawnerDeathSquad
+  id: ADTRandomHumanoidSpawnerDeathSquadPaladine
+  name: Death Squad Agent
+  suffix: ERTRole, Death Squad
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ADTDeathSquadPaladine
+- type: entity # Скаут
+  parent: RandomHumanoidSpawnerDeathSquad
+  id: ADTRandomHumanoidSpawnerDeathSquadPulseRifle
+  name: Death Squad Agent
+  suffix: ERTRole, Death Squad
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ADTDeathSquadPulseRifle
+- type: entity # Гранатометчик
+  parent: RandomHumanoidSpawnerDeathSquad
+  id: ADTRandomHumanoidSpawnerDeathSquadGrenader
+  name: Death Squad Agent
+  suffix: ERTRole, Death Squad
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ADTDeathSquadGrenader
+- type: entity # Коммандос
+  parent: RandomHumanoidSpawnerDeathSquad
+  id: ADTRandomHumanoidSpawnerDeathSquadCommandos
+  name: Death Squad Agent
+  suffix: ERTRole, Death Squad
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ADTDeathSquadCommandos
+
+- type: randomHumanoidSettings
+  id: ADTDeathSquadBase
+  parent: EventHumanoidCentcomm
+  randomizeName: false
+  species: ADTSuperHuman
+  components:
+    - type: GhostRole
+      name: ghost-role-information-Death-Squad-name
+      description: ghost-role-information-Death-Squad-description
+      rules: ghost-role-information-Death-Squad-rules
+      raffle:
+        settings: short
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      job: DeathSquad
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+      - DeathRattleImplantCentcomm
+      - FreedomImplant
+      - DeathAcidifierImplant
+    - type: GrantHellRip
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstDeadSquad
+      - NamesLastDeadSquadCallsign
+      nameFormat: name-format-standard
+
+- type: randomHumanoidSettings
+  id: ADTDeathSquadMiniGunner
+  parent: ADTDeathSquadBase
+  randomizeName: false
+  species: ADTSuperHuman
+  components:
+    - type: Loadout
+      prototypes: [ ADTDeathSquadGearMiniGunner ]
+      roleLoadout: [ RoleSurvivalEVA ]
+
+- type: startingGear
+  id: ADTDeathSquadGearMiniGunner
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ADTClothingBackpackMinigun
+    mask: ClothingMaskGasDeathSquad
+    eyes: ADTClothingEyesGlassesSunglassesDeathSquad
+    ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitDeathsquad
+    shoes: ClothingShoesBootsMagAdv
+    id: DeathsquadPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponRevolverMatebaAP
+    belt: ADTClothingWarBeltDeathSquadFilled
+  storage:
+    back:
+    - WeaponPulsePistol
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - EnergySword
+    - EnergyShield
+    - ToolDebug # spanish army knife
+    - ADTSyringeCaseAltCombatMed
+    - ADTSyringeCaseAltAirloss
+    - ADTSyringeCaseAltStabilizide
+    - WelderExperimental
+    - Hypospray
+    - ADTWeaponsTacticalAxe
+    - ADTMedkitERTFilled
+  inhand:
+    - ADTWeaponMinigun
+
+- type: randomHumanoidSettings
+  id: ADTDeathSquadPaladine
+  parent: ADTDeathSquadBase
+  randomizeName: false
+  species: ADTSuperHuman
+  components:
+    - type: Loadout
+      prototypes: [ ADTDeathSquadGearPaladine ]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: Chaplain
+      statusIcon: ChaplainFaction
+      faith: 25
+      maxFaith: 25
+      baseRegen: 2
+      regenDelay: 20
+      maxFollowers: 0
+      believerCost: 2
+      makeBelieverDuration: 4.7
+      shieldCost: 3.3
+      shieldDuration: 90
+      exorcismCost: 2
+      exorcismDamage:
+        types:
+          Holy: 22.5
+      exorcismSuppression: 37.5
+      exorcismSlowdown: 6
+      exorcismSlowdownMultiplier: 0.33
+      blessingCost: 1.3
+      blessingHeal:
+        groups:
+          Brute: -22.5
+          Burn: -22.5
+      revenantDamage: 75
+      revenantSelfDamage: 15
+      actions:
+      - ActionChaplainHolyShield
+      - ActionChaplainHolyWater
+      - ActionChaplainExorcism
+      - ActionChaplainBlessing
+      - ADTActionCrusaderKnock
+    - type: BibleUser
+    - type: Crusader
+      master: true
+
+- type: startingGear
+  id: ADTDeathSquadGearPaladine
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ADTClothingDeathSquadBackpack
+    mask: ClothingMaskGasDeathSquad
+    eyes: ADTClothingEyesGlassesSunglassesDeathSquad
+    ears: ClothingHeadsetAltCentCom
+    neck: ADTSilverNT
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitDeathsquad
+    shoes: ClothingShoesBootsMagAdv
+    id: DeathsquadPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponRevolverMatebaAP
+    belt: ADTClothingWarBeltDeathSquadFilled
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - EnergySword
+    - EnergyShield
+    - ToolDebug # spanish army knife
+    - ADTSyringeCaseAltCombatMed
+    - ADTSyringeCaseAltAirloss
+    - ADTSyringeCaseAltStabilizide
+    - WelderExperimental
+    - Hypospray
+    - ADTWeaponsTacticalAxe
+    - ADTMedkitERTFilled
+  inhand:
+    - ADTWeaponsTacticalHammerMega
+
+- type: randomHumanoidSettings
+  id: ADTDeathSquadPulseRifle
+  parent: ADTDeathSquadBase
+  randomizeName: false
+  species: ADTSuperHuman
+  components:
+    - type: Loadout
+      prototypes: [ ADTDeathSquadGearPulseRifle ]
+      roleLoadout: [ RoleSurvivalEVA ]
+
+- type: startingGear
+  id: ADTDeathSquadGearPulseRifle
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ADTClothingDeathSquadBackpack
+    mask: ClothingMaskGasDeathSquad
+    eyes: ADTClothingEyesGlassesSunglassesDeathSquad
+    ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitDeathsquad
+    shoes: ClothingShoesBootsMagAdv
+    id: DeathsquadPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponRevolverMatebaAP
+    belt: ADTClothingWarBeltDeathSquadFilled
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - EnergySword
+    - EnergyShield
+    - ToolDebug # spanish army knife
+    - ADTSyringeCaseAltCombatMed
+    - ADTSyringeCaseAltAirloss
+    - ADTSyringeCaseAltStabilizide
+    - WelderExperimental
+    - Hypospray
+    - ADTWeaponsTacticalAxe
+    - ADTMedkitERTFilled
+  inhand:
+    - WeaponPulseRifle
+
+- type: randomHumanoidSettings
+  id: ADTDeathSquadGrenader
+  parent: ADTDeathSquadBase
+  randomizeName: false
+  species: ADTSuperHuman
+  components:
+    - type: Loadout
+      prototypes: [ ADTDeathSquadGearGrenader ]
+      roleLoadout: [ RoleSurvivalEVA ]
+
+- type: startingGear
+  id: ADTDeathSquadGearGrenader
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ADTClothingDeathSquadBackpack
+    mask: ClothingMaskGasDeathSquad
+    eyes: ADTClothingEyesGlassesSunglassesDeathSquad
+    ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitDeathsquad
+    shoes: ClothingShoesBootsMagAdv
+    id: DeathsquadPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponRevolverMatebaAP
+    belt: ADTClothingWarBeltDeathSquadGrenaderFilled
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - EnergySword
+    - EnergyShield
+    - ToolDebug # spanish army knife
+    - ADTSyringeCaseAltCombatMed
+    - ADTSyringeCaseAltAirloss
+    - ADTSyringeCaseAltStabilizide
+    - WelderExperimental
+    - Hypospray
+    - ADTWeaponsTacticalAxe
+    - ADTMedkitERTFilled
+    - WeaponCaseNT40mmGrenadeDrumBlast
+    - WeaponCaseNT40mmGrenadeDrumBlastHEAT
+    - WeaponCaseNT40mmGrenadeDrumEMPBaton
+  inhand:
+    - ADTWeaponLauncherMGL
+
+- type: randomHumanoidSettings
+  id: ADTDeathSquadCommandos
+  parent: ADTDeathSquadBase
+  randomizeName: false
+  species: ADTSuperHuman
+  components:
+    - type: Loadout
+      prototypes: [ ADTDeathSquadGearCommandos ]
+      roleLoadout: [ RoleSurvivalEVA ]
+
+- type: startingGear
+  id: ADTDeathSquadGearCommandos
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ADTClothingDeathSquadBackpack
+    head: ClothingHeadHatBeretCentcomNaval
+    mask: ClothingMaskGasDeathSquad
+    eyes: ADTClothingEyesGlassesSunglassesDeathSquad
+    ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitDeathsquad
+    shoes: ClothingShoesBootsMagAdv
+    id: DeathsquadPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponRevolverMatebaAP
+    belt: ADTClothingWarBeltDeathSquadCommandosFilled
+  storage:
+    back:
+    - WeaponPulsePistol
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - EnergySword
+    - EnergyShield
+    - ToolDebug # spanish army knife
+    - ADTSyringeCaseAltCombatMed
+    - ADTSyringeCaseAltAirloss
+    - ADTSyringeCaseAltStabilizide
+    - WelderExperimental
+    - Hypospray
+    - ADTWeaponsTacticalAxe
+    - ADTMedkitERTFilled
+    - ADTMagazineBoxReactive30Can
+    - ADTMagazineBoxReactive30Can
+    - ADTMagazineBoxReactive30CanIncendiary
+  inhand:
+    - ADTMacheteCommandos
+    - ADTWeaponPistolBonecrusher

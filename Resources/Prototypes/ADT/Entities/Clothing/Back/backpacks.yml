@@ -1,4 +1,20 @@
-﻿#ОСЩ
+﻿# Эскадрон
+
+- type: entity
+  parent: [ ClothingBackpackHoldingBase, ClothingBackpackERTSecurity ]
+  id: ADTClothingDeathSquadBackpack
+  name: death squadron backpack
+  description: A spacious backpack using bluespace technology.
+  components:
+  - type: Sprite
+    sprite: Corvax/Back/Backpacks/deathsquad-backpack.rsi
+  - type: Storage
+    grid:
+    - 0,0,13,7
+    maxItemSize: Ginormous
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+#ОСЩ
 
 - type: entity
   parent: ClothingBackpackSecurity
@@ -126,3 +142,36 @@
     sprite:  ADT/Clothing/Back/winrar.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+- type: entity
+  parent: ADTClothingDeathSquadBackpack
+  id: ADTClothingBackpackMinigun
+  name: minigun ammo backpack
+  description: A backpack that feeds a mounted minigun.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/minigun_backpack.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Back/minigun_backpack.rsi
+  - type: Tag
+    tags:
+    - Backpack
+    - ADTMinigunAmmoBackpack
+  - type: Storage
+    grid:
+    - 0,0,9,6
+    maxItemSize: Huge
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeLightRifleCaseless
+    capacity: 3000
+    whitelist:
+      tags:
+      - ADTCartridgeLightRifleCaseless
+  - type: BallisticAmmoInteractLoader
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      ballistic-ammo: !type:Container
+        ents: []
+      minigun: !type:ContainerSlot

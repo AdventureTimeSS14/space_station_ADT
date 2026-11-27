@@ -37,6 +37,9 @@ reagent-desc-adt-weak-virus-plasma = Разбавленная вирусная �
 reagent-name-adt-vaccine = вакцина
 reagent-desc-adt-vaccine = Раствор антител, который лечит болезнь и защищает от повторного заражения.
 
+reagent-name-adt-stabilizide = стабилизид
+reagent-desc-adt-stabilizide = Редкий и малоизвестный в широких кругах реагент, редкие очевидцы сообщали о высоких способностях к лечению разрушенной структуры организма.
+
 reagent-name-adt-plasma-dust = плазменная пыль
 reagent-desc-adt-plasma-dust = Тонкая пыль из плазмы. Обладает необычными мутагенными свойствами как для вирусов, так и для слаймов.
 reagent-name-adt-syndicate-antiviral = антивирусная сыворотка Синдиката

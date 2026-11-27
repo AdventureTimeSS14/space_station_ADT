@@ -112,3 +112,14 @@ ent-WeaponCaseNTTrackingImplants = { ent-WeaponCaseNTM90 }
 ent-WeaponCaseNTMindShieldImplants = { ent-WeaponCaseNTM90 }
     .desc = { ent-WeaponCaseNTM90.desc }
     .suffix = { "Импланты Щит Разума" }
+
+ent-WeaponCaseNT40mmGrenadeDrumBlast = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }
+    .suffix = { "Гранаты, Эскадрон Смерти" }
+ent-WeaponCaseNT40mmGrenadeDrumEMPBaton = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }
+    .suffix = { "Гранаты, Эскадрон Смерти" }
+ent-WeaponCaseNT40mmGrenadeDrumBlastHEAT = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }
+    .suffix = { "Гранаты, Эскадрон Смерти" }
+

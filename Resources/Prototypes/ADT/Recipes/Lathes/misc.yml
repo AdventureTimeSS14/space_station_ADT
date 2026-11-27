@@ -141,15 +141,15 @@
     Copper: 100
 
 - type: latheRecipe
-  id: SyringeCase
-  result: SyringeCase
+  id: ADTSyringeCase
+  result: ADTSyringeCase
   completetime: 2
   materials:
     Plastic: 100
 
 - type: latheRecipe
-  id: SyringeCaseAlt
-  result: SyringeCaseAlt
+  id: ADTSyringeCaseAlt
+  result: ADTSyringeCaseAlt
   completetime: 2
   materials:
     Plastic: 100

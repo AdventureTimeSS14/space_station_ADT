@@ -225,3 +225,48 @@
         - id: MedkitCombatFilled
         - id: CombatMedipen
           amount: 2
+
+- type: entity
+  id: ADTClothingWarBeltDeathSquadFilled
+  parent: ADTShipBattleClothingBeltWarbelt
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpeedLoaderMagnumAP
+          amount: 6
+        - id: MedkitCombatFilled
+        - id: CombatMedipen
+          amount: 2
+
+- type: entity
+  id: ADTClothingWarBeltDeathSquadGrenaderFilled
+  parent: ADTShipBattleClothingBeltWarbelt
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazine40mmGrenadeDrumHEAT
+          amount: 2
+        - id: ADTMagazine40mmGrenadeDrumBlast
+          amount: 4
+        - id: ADTMagazine40mmGrenadeDrumSmoke
+          amount: 3
+
+- type: entity
+  id: ADTClothingWarBeltDeathSquadCommandosFilled
+  parent: ADTShipBattleClothingBeltWarbelt
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazineReactive30
+          amount: 6
+        - id: ADTMagazineReactive30Incendiary
+          amount: 3

@@ -1,0 +1,44 @@
+- type: entity
+  name: minigun
+  parent: BaseWeaponHeavyMachineGun
+  id: ADTWeaponMinigun
+  description: Spray and pray. Uses .30 rifle ammunition (7.62 mm) from a dedicated backpack.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    slots: SUITSTORAGE
+    quickEquip: false
+    sprite: ADT/Objects/Weapons/Guns/HMGs/minigun_inhands.rsi
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/HMGs/minigun_inhands.rsi
+    shape:
+    - 0,0,2,0
+    - 0,1,6,2
+    - 1,3,4,4
+  - type: Gun
+    fireRate: 15
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+    maxAngle: 10
+    minAngle: 3
+  - type: ClothingSlotAmmoProvider
+  - type: SlotBasedConnectedContainer
+    targetSlot: BACK
+    containerWhitelist:
+      tags:
+      - ADTMinigunAmmoBackpack
+  - type: Tag
+    tags:
+    - Storage
+  - type: ADTGripModuleHolder
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        startingAttachable: ADTAttachmentMagneticHarness
+        whitelist:
+          tags:
+          - ADTAttachmentMagneticHarness
+  - type: DNAGunLocker

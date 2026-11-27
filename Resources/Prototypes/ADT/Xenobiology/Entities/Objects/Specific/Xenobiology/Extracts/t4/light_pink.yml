@@ -91,5 +91,6 @@
       - IPC
       - ADTShadowlingSpecies
       - ADTLesserShadowlingSpecies
+      - ADTSuperHuman
     scalingOffset: 1
   shouldDelete: false

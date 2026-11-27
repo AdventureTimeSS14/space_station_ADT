@@ -14,6 +14,9 @@
   - type: Item
     sprite: ADT/Objects/Storage/weaponcase.rsi
     size: Huge
+    shape:
+    - 0,0,2,3
+    storedRotation: -90
   - type: Storage
     grid:
     - 0,0,8,3

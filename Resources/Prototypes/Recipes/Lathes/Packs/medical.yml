@@ -77,8 +77,8 @@
   - MedkitAdvanced
   - MedkitRadiation
   - MedkitCombat
-  - SyringeCase # ADT-Tweak
-  - SyringeCaseAlt # ADT-Tweak
+  - ADTSyringeCase # ADT-Tweak
+  - ADTSyringeCaseAlt # ADT-Tweak
 
 - type: latheRecipePack
   id: MedicalBoardsStatic

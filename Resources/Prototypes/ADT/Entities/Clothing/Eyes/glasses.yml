@@ -222,3 +222,28 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/thermal.rsi
   - type: ThermalSight
+
+- type: entity
+  parent: ClothingEyesGlassesCheapSunglasses
+  id: ADTClothingEyesGlassesSunglassesDeathSquad
+  name: sun glasses
+  suffix: deathsquad
+  description: A pair of black sunglasses.
+  components:
+  - type: FlashImmunity
+  - type: ShowHealthBars
+  - type: ShowHealthIcons
+  - type: SolutionScanner
+  - type: ThermalVisionItem
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
+  - type: EyeProtection
+    protectionTime: 3600
+  - type: Tag
+    tags:
+    - Sunglasses
+  - type: ClothingGrantComponent #ADT-Tweak
+    component:
+    - type: SupermatterHallucinationImmune

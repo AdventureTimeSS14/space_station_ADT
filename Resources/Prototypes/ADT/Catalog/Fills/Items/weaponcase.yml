@@ -334,6 +334,52 @@
           amount: 6
 
 - type: entity
+  id: WeaponCaseNT40mmGrenadeDrumBlast
+  name: weapon Case
+  suffix: 40 mm grenade
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazine40mmGrenadeDrumBlast
+          amount: 8
+
+- type: entity
+  id: WeaponCaseNT40mmGrenadeDrumEMPBaton
+  name: weapon Case
+  suffix: 40 mm grenade
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazine40mmGrenadeDrumEMP
+          amount: 4
+        - id: ADTMagazine40mmGrenadeDrumBaton
+          amount: 4
+
+- type: entity
+  id: WeaponCaseNT40mmGrenadeDrumBlastHEAT
+  name: weapon Case
+  suffix: 40 mm grenade
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazine40mmGrenadeDrumBlast
+          amount: 4
+        - id: ADTMagazine40mmGrenadeDrumHEAT
+          amount: 4
+
+- type: entity
   id: WeaponCaseNTAPAmmo
   name: weapon case
   description: Case with weapons.

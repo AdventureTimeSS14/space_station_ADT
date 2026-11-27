@@ -87,3 +87,19 @@ ent-ADTRandomHumanoidSpawnerCentcomOfficial = Представитель Цен�
 
 ent-ADTRandomHumanoidSpawnerSODOfficer = Офицер ДСО
     .desc = { "" }
+
+ent-ADTRandomHumanoidSpawnerDeathSquadMiniGunner = Агент Эскадрона смерти
+    .suffix = Эскадрон смерти, Пулемётчик
+    .desc = { "" }
+ent-ADTRandomHumanoidSpawnerDeathSquadPaladine = Агент Эскадрона смерти
+    .suffix = Эскадрон смерти, Паладин
+    .desc = { "" }
+ent-ADTRandomHumanoidSpawnerDeathSquadPulseRifle = Агент Эскадрона смерти
+    .suffix = Эскадрон смерти, Скаут
+    .desc = { "" }
+ent-ADTRandomHumanoidSpawnerDeathSquadGrenader = Агент Эскадрона смерти
+    .suffix = Эскадрон смерти, Гранатометчик
+    .desc = { "" }
+ent-ADTRandomHumanoidSpawnerDeathSquadCommandos = Агент Эскадрона смерти
+    .suffix = Эскадрон смерти, Коммандос
+    .desc = { "" }
