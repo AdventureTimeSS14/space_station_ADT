@@ -309,7 +309,7 @@
   name: mHAR-21 "Ma Deuce" Heavy Antimaterial Rifle
   parent: ADTBaseMechGun
   id: ADTMechGunMHAR21
-  description: mH21 "Ma Deuce" Heavy Antimaterial RifleAR-
+  description: mHAR-21 "Ma Deuce" Heavy Antimaterial Rifle
   components:
   - type: Sprite
     sprite: Objects/Specific/Mech/mecha_equipment.rsi

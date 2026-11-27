@@ -18,3 +18,20 @@
     grid:
     - 0,0,8,3
     maxItemSize: Huge
+
+- type: entity
+  id: ADTSyndicateWeaponCase
+  parent: BaseStorageItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/syndicate_case.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Storage/syndicate_case.rsi
+    size: Huge
+  - type: Storage
+    grid:
+    - 0,0,8,3
+    maxItemSize: Huge
+  - type: StaticPrice
+    price: 500

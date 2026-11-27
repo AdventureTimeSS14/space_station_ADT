@@ -23,3 +23,5 @@ mod-no-user = пользователь отсутствует
 alerts-modsuit-power-name = Заряд МОДсьюта
 alerts-modsuit-power-desc = Показывает, сколько заряда осталось у вашего МОДа.
 modsuit-module-incompatible = Несовместим с установленным модулем: { $module }.
+modsuit-energy-shield-overload = Дефлекторное поле перегружается и схлопывается!
+modsuit-energy-shield-recharged = Дефлекторное поле снова оживает.

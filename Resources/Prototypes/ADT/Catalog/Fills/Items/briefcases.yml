@@ -63,3 +63,51 @@
         - id: ADTClothingUniformJumpskirtCMOHike
         - id: ADTClothingUniformJumpsuitCMOHike
         - id: ADTClothingShoesHighboots
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTNukeopsBoxFragGrenades
+  components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: GrenadeFrag
+          amount: 7
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTNukeopsBoxMiniBombs
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyndieMiniBomb
+          amount: 3
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTNukeopsBoxIncendiaryGrenades
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: GrenadeIncendiary
+          amount: 4
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTNukeopsBoxShrapnelGrenades
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: GrenadeShrapnel
+          amount: 4

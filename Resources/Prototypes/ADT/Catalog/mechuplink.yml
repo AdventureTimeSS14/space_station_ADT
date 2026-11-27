@@ -7,7 +7,7 @@
   description: uplink-syndimech-mech-gygax-desc
   productEntity: ADTMechDarkGygaxBattery
   cost:
-    Telecrystal: 30
+    Telecrystal: 25
   categories:
   - ADTUplinkMechMechs
 
@@ -17,7 +17,7 @@
   description: uplink-syndimech-mech-mauler-desc
   productEntity: ADTMechMaulerBattery
   cost:
-    Telecrystal: 50
+    Telecrystal: 40
   categories:
   - ADTUplinkMechMechs
 
@@ -39,7 +39,7 @@
   description: uplink-syndimech-weapon-solaris-desc
   productEntity: ADTMechGunSolarisLaserCannon
   cost:
-    Telecrystal: 9
+    Telecrystal: 6
   categories:
   - ADTUplinkMechWeapon
 
@@ -49,7 +49,7 @@
   description: uplink-syndimech-weapon-tesla-desc
   productEntity: ADTMechGunTeslaCannon
   cost:
-    Telecrystal: 7
+    Telecrystal: 6
   categories:
   - ADTUplinkMechWeapon
 
@@ -59,7 +59,7 @@
   description: uplink-syndimech-weapon-scatter-desc
   productEntity: ADTMechGunScattershot
   cost:
-    Telecrystal: 9
+    Telecrystal: 6
   categories:
   - ADTUplinkMechWeapon
 
@@ -69,7 +69,7 @@
   description: uplink-syndimech-weapon-ultra-desc
   productEntity: ADTMechGunUltraAC2
   cost:
-    Telecrystal: 9
+    Telecrystal: 6
   categories:
   - ADTUplinkMechWeapon
 
@@ -79,19 +79,19 @@
   description: uplink-syndimech-weapon-hades-desc
   productEntity: ADTMechGunFNX99Hades
   cost:
-    Telecrystal: 11
+    Telecrystal: 8
   categories:
   - ADTUplinkMechWeapon
 
-# - type: listing
-#   id: UplinkMechGunMHAR21
-#   name: uplink-syndimech-weapon-madeuce-name
-#   description: uplink-syndimech-weapon-madeuce-desc
-#   productEntity: ADTMechGunMHAR21
-#   cost:
-#     Telecrystal: 12
-#   categories:
-#   - ADTUplinkMechWeapon
+- type: listing
+  id: UplinkMechGunMHAR21
+  name: uplink-syndimech-weapon-madeuce-name
+  description: uplink-syndimech-weapon-madeuce-desc
+  productEntity: ADTMechGunMHAR21
+  cost:
+    Telecrystal: 19
+  categories:
+  - ADTUplinkMechWeapon
 
 
 - type: listing
@@ -133,7 +133,7 @@
   description: uplink-syndimech-equipment-welder-industrial-desc
   productEntity: WelderIndustrial
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
   - ADTUplinkMechEquipment
 
@@ -143,7 +143,7 @@
   description: uplink-syndimech-equipment-welder-industrial-advanced-desc
   productEntity: WelderIndustrialAdvanced
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - ADTUplinkMechEquipment
 
@@ -153,7 +153,7 @@
   description: uplink-syndimech-equipment-powercellhigh-desc
   productEntity: PowerCellHigh
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
   - ADTUplinkMechEquipment
 
@@ -163,7 +163,18 @@
   description: uplink-syndimech-equipment-powercellhyper-desc
   productEntity: PowerCellHyper
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
+  categories:
+  - ADTUplinkMechEquipment
+
+- type: listing
+  id: UplinkMechPowerCellMicroreactor
+  name: uplink-syndimech-equipment-microreactor-name
+  description: uplink-syndimech-equipment-microreactor-desc
+  icon: { sprite: /Textures/Objects/Power/power_cells.rsi, state: microreactor }
+  productEntity: PowerCellMicroreactor
+  cost:
+    Telecrystal: 15
   categories:
   - ADTUplinkMechEquipment
 
