@@ -8,9 +8,25 @@ namespace Content.Client.ADT.ThermalVision;
 
 public sealed class ThermalVisionEntityHighlightOverlay : BaseEntityHighlightOverlay
 {
-    public ThermalVisionEntityHighlightOverlay(ShaderPrototype shader) : base(shader)
+    private static readonly ProtoId<ShaderPrototype> DisplacedDraw = "DisplacedDraw";
+    private static readonly ProtoId<ShaderPrototype> DisplacedDrawUnshaded = "DisplacedDrawUnshaded";
+    private static readonly ProtoId<ShaderPrototype> DisplacedStencilDraw = "DisplacedStencilDraw";
+
+    private readonly ShaderInstance _displacedBodyShader;
+
+    public ThermalVisionEntityHighlightOverlay(ShaderPrototype shader, ShaderPrototype displacedBodyShader) : base(shader)
     {
         ZIndex = (int) OverlayZIndexes.ThermalVisionEntityHighlight;
+        _displacedBodyShader = displacedBodyShader.InstanceUnique();
+    }
+
+    protected override ShaderInstance? GetDisplacementShader(SpriteComponent.Layer layer)
+    {
+        return layer.ShaderPrototype == DisplacedDraw ||
+               layer.ShaderPrototype == DisplacedDrawUnshaded ||
+               layer.ShaderPrototype == DisplacedStencilDraw
+            ? _displacedBodyShader
+            : null;
     }
 
     protected override void DrawHighlights(in OverlayDrawArgs args, Angle eyeRotation)

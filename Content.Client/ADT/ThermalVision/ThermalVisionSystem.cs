@@ -27,6 +27,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     private const string ScreenShaderId = "ADTThermalVisionScreenShader";
     private const string ScreenShaderAltId = "ADTThermalVisionScreenShaderHalfAlpha";
     private const string BodyShaderId = "ADTThermalBodyShader";
+    private const string DisplacedBodyShaderId = "ADTThermalDisplacedBodyShader";
     private const string LightShaderId = "ADTLightHighlightShader";
 
     public override void Initialize()
@@ -36,7 +37,9 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerAttachedEvent>(OnAttached);
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerDetachedEvent>(OnDetached);
 
-        _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BodyShaderId));
+        _throughWallsOverlay = new(
+            _prototypes.Index<ShaderPrototype>(BodyShaderId),
+            _prototypes.Index<ShaderPrototype>(DisplacedBodyShaderId));
         _lightSourcesOverlay = new(_prototypes.Index<ShaderPrototype>(LightShaderId));
     }
 

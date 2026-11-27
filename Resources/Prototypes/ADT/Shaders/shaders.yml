@@ -128,6 +128,18 @@
     NoiseStrength: 0.12
 
 - type: shader
+  id: ADTThermalDisplacedBodyShader
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal_displaced_body.swsl"
+  params:
+    SpectrumMin: 0.12
+    SpectrumMax: 0.95
+    HeatBoost: 1.15
+    DetailPower: 0.75
+    NoiseStrength: 0.12
+    displacementSize: 127
+
+- type: shader
   id: ADTLightHighlightShader
   kind: source
   path: "/Textures/ADT/Shaders/light_highlight.swsl"
