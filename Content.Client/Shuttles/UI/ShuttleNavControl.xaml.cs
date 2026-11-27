@@ -16,7 +16,7 @@ using Robust.Shared.Physics.Components;
 namespace Content.Client.Shuttles.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class ShuttleNavControl : BaseShuttleControl
+public partial class ShuttleNavControl : BaseShuttleControl // ADT-Tweak: unsealed for the Mono gunnery radar
 {
     private readonly SharedMapSystem _maps;
     private readonly SharedShuttleSystem _shuttles;
@@ -25,14 +25,14 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.
     /// </summary>
-    private EntityCoordinates? _coordinates;
+    protected EntityCoordinates? _coordinates; // ADT-Tweak: private > protected
 
     /// <summary>
     /// Entity of controlling console
     /// </summary>
-    private EntityUid? _consoleEntity;
+    protected EntityUid? _consoleEntity; // ADT-Tweak: private > protected
 
-    private Angle? _rotation;
+    protected Angle? _rotation; // ADT-Tweak: private > protected
 
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 
@@ -49,12 +49,15 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
     private List<Entity<MapGridComponent>> _grids = new();
 
-    public ShuttleNavControl() : base(64f, 256f, 256f)
+    public ShuttleNavControl() : this(64f, 256f, 256f) { } // ADT-Tweak
+
+    protected ShuttleNavControl(float minRange, float maxRange, float range) : base(minRange, maxRange, range) // ADT-Tweak: ranges for the gunnery radar
     {
         RobustXamlLoader.Load(this);
         _maps = EntManager.System<SharedMapSystem>();
         _shuttles = EntManager.System<SharedShuttleSystem>();
         _transform = EntManager.System<SharedTransformSystem>();
+        InitializeBlips(); // ADT-Tweak
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
@@ -156,6 +159,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+        WorldToView = worldToShuttle * shuttleToView; // ADT-Tweak
 
         // ADT-Tweak-Start
         DrawNorthLine(handle, ourEntRot + _rotation.Value);
@@ -295,6 +299,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             }
         }
 
+        DrawBlips(handle, xform, ourEntRot + _rotation.Value); // ADT-Tweak: Mono radar blips and ship shields
     }
 
     /// <summary>
@@ -359,7 +364,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         }
     }
 
-    private Vector2 InverseScalePosition(Vector2 value)
+    protected Vector2 InverseScalePosition(Vector2 value) // ADT-Tweak: private > protected
     {
         return (value - MidPointVector) / MinimapScale;
     }

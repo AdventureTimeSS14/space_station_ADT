@@ -1,0 +1,277 @@
+# Monolith : Gunnery Server
+- type: entity
+  id: GunneryServerBase
+  parent: BaseMachinePowered
+  name: gunnery control server
+  description: Manages the remote operation of ship weapons.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/gunnery_server.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ExtensionCableReceiver
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Construction # Mono
+    graph: MachineGunneryServer # LuaM Machine > MachineGunneryServer
+    node: machine
+    containers:
+      - machine_board
+      - machine_parts
+  - type: ContainerContainer # Mono
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ExaminableBattery
+  - type: BatterySelfRecharger
+  - type: StaticPrice
+    price: 200
+  - type: Anchorable # LuaM
+    delay: 15
+
+- type: entity
+  id: GunneryServerLow
+  parent: GunneryServerBase
+  name: low-power gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSLowCircuitboard
+  - type: FireControlServer
+    processingPower: 24
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 125
+    startingCharge: 125
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: ApcPowerReceiverBattery
+    idleLoad: 5
+    batteryRechargeRate: 300
+    batteryRechargeEfficiency: 0.95
+
+- type: entity
+  id: GunneryServerMedium
+  parent: GunneryServerBase
+  name: medium-power gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSMediumCircuitboard
+  - type: FireControlServer
+    processingPower: 42
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 250
+    startingCharge: 250
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: ApcPowerReceiverBattery
+    idleLoad: 10
+    batteryRechargeRate: 600
+    batteryRechargeEfficiency: 0.95
+  
+
+- type: entity
+  id: GunneryServerHigh
+  parent: GunneryServerBase
+  name: high-power gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSHighCircuitboard
+  - type: FireControlServer
+    processingPower: 60
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 500
+    startingCharge: 500
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 20
+    batteryRechargeRate: 1200
+    batteryRechargeEfficiency: 0.95
+
+- type: entity
+  id: GunneryServerUltra
+  parent: GunneryServerBase
+  name: ultra-high-power gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSUltraCircuitboard
+  - type: FireControlServer
+    processingPower: 90
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 50
+    batteryRechargeRate: 2400
+    batteryRechargeEfficiency: 0.95
+  - type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover -- It turns out, a lot could and did.
+    flags: Anchorable
+
+- type: entity
+  id: GunneryServerOmega
+  parent: GunneryServerBase
+  name: omega-high-power gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSUltraCircuitboard
+  - type: FireControlServer
+    processingPower: 300
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ApcPowerReceiver
+    powerLoad: 4000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 100
+    batteryRechargeRate: 4800
+    batteryRechargeEfficiency: 0.95
+  - type: Anchorable # Sorry Flyssa, but I am NOT risking this being used for a missile bus.
+    flags: Anchorable
+
+- type: entity
+  id: GunneryServerStation
+  parent: GunneryServerBase
+  name: station gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSStationCircuitboard
+  - type: FireControlServer
+    processingPower: 3000
+  # no thermal sig
+  # TODO: nuke this off ships
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 2500
+    startingCharge: 2500
+  - type: ApcPowerReceiver
+    powerLoad: 5000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 50
+    batteryRechargeRate: 6000
+    batteryRechargeEfficiency: 0.95
+  - type: Anchorable
+    flags: Anchorable
+
+- type: entity
+  id: GunneryServerStationConsolesEnforced
+  parent: GunneryServerBase
+  name: station gunnery control server
+  suffix: Enforced Max Consoles
+  components:
+  - type: Machine
+    board: MachineGCSStationCircuitboard
+  - type: FireControlServer
+    processingPower: 3000
+    enforceMaxConsoles: true
+    maxConsoles: 2
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 2500
+    startingCharge: 2500
+  - type: ApcPowerReceiver
+    powerLoad: 5000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 50
+    batteryRechargeRate: 6000
+    batteryRechargeEfficiency: 0.95
+  - type: Anchorable
+    flags: Anchorable
+
+# Monolith : Gunnery Computer
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerGunneryConsole
+  name: gunnery control console
+  description: Interfaces with the gunnery control server to operate ship weapons.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: ActivatableUIRequiresPower
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_not_rot
+    - map: ["computerLayerKeyboard"]
+      state: gunnery_keyboard
+    - map: ["computerLayerScreen"]
+      state: gunnery_screen
+    - map: ["computerLayerKeys"]
+      state: gunnery_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: FireControlConsole
+  # - type: ShipNpcTarget # Commented by LuaM
+  #   needPower: true
+  - type: TargetSeekingTarget
+  - type: ActivatableUI
+    key: enum.FireControlConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.FireControlConsoleUiKey.Key:
+          type: FireControlConsoleBoundUserInterface
+          requireInputValidation: false
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: RadarConsole
+  - type: Computer
+    board: GunneryControlComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#ff8400"
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#fc9403"
+    scale: 1.5
+    shape: diamond
+    gridConfig:
+      color: "#fc9403"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-0.5,0.5,0.5"
+
+# LuaM
+- type: entity
+  id: GunneryServerExtra
+  parent: GunneryServerBase
+  name: Extra-high-power gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSExtraCircuitboard
+  - type: FireControlServer
+    processingPower: 120 # Извини Восход, Коврал запретил делать тебя убийцей всего живого
+  - type: Battery
+    netsync: false # charged from the power net, see BatterySystem
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: ApcPowerReceiver
+    powerLoad: 3000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 75
+    batteryRechargeRate: 3600
+    batteryRechargeEfficiency: 0.95

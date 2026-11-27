@@ -1,6 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 
@@ -29,6 +30,14 @@ public abstract partial class SharedGunSystem
     {
         if (!args.IsInDetailsRange)
             return;
+
+        // ADT-Tweak-Start: Mono infinite ammo
+        if (TryComp<BallisticAmmoProviderComponent>(GetMagazineEntity(uid), out var ballistic) && ballistic.InfiniteUnspawned)
+        {
+            args.PushMarkup(Loc.GetString("gun-magazine-infinite-examine", ("color", AmmoExamineColor)));
+            return;
+        }
+        // ADT-Tweak-End
 
         var (count, _) = GetMagazineCountCapacity(uid, component);
         args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", count)));

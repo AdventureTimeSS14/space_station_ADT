@@ -19,11 +19,29 @@ public sealed partial class GunSystem
 
         while (query.MoveNext(out var uid, out var gun))
         {
+            // ADT-Tweak-Start: Mono fire control keeps the gun shooting at its coordinates for a while
+            TryComp(uid, out AutoShootGunComponent? autoShoot);
+            var fireControlled = false;
+            if (autoShoot != null && autoShoot.RemainingTime > TimeSpan.Zero)
+            {
+                autoShoot.RemainingTime -= TimeSpan.FromSeconds(frameTime);
+                fireControlled = true;
+            }
+            // ADT-Tweak-End
+
             if (gun.NextFire > Timing.CurTime)
                 continue;
 
-            if (TryComp(uid, out AutoShootGunComponent? autoShoot))
+            if (autoShoot != null) // ADT-Tweak: TryComp moved up
             {
+                // ADT-Tweak-Start
+                if (fireControlled && gun.ShootCoordinates is { } coords)
+                {
+                    AttemptShoot(uid, (uid, gun), coords);
+                    continue;
+                }
+                // ADT-Tweak-End
+
                 if (!autoShoot.Enabled)
                     continue;
 

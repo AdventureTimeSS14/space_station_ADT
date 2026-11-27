@@ -181,6 +181,14 @@ public abstract partial class SharedGunSystem
         if (!args.IsInDetailsRange)
             return;
 
+        // ADT-Tweak-Start: Mono infinite ammo
+        if (ent.Comp.InfiniteUnspawned)
+        {
+            args.PushMarkup(Loc.GetString("gun-magazine-infinite-examine", ("color", AmmoExamineColor)));
+            return;
+        }
+        // ADT-Tweak-End
+
         args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", GetBallisticShots(ent.Comp))));
     }
 
@@ -234,7 +242,7 @@ public abstract partial class SharedGunSystem
 
     protected int GetBallisticShots(BallisticAmmoProviderComponent component)
     {
-        return component.Entities.Count + component.UnspawnedCount;
+        return component.Entities.Count + (component.InfiniteUnspawned ? 0 : component.UnspawnedCount); // ADT-Tweak: Mono infinite ammo
     }
 
     private void OnBallisticTakeAmmo(Entity<BallisticAmmoProviderComponent> ent, ref TakeAmmoEvent args)
@@ -249,6 +257,10 @@ public abstract partial class SharedGunSystem
                 DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
                 Containers.Remove(existingEnt, ent.Comp.Container);
                 ammoEntity = existingEnt;
+            }
+            else if (ent.Comp.InfiniteUnspawned && ent.Comp.Proto != null) // ADT-Tweak: Mono infinite ammo
+            {
+                ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
             }
             else if (ent.Comp.UnspawnedCount > 0)
             {
