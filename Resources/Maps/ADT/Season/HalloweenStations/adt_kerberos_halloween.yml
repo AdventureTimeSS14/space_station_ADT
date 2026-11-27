@@ -5859,41 +5859,18 @@ entities:
       pos: 79.5,-4.5
 - proto: ADTBaseWeaponCaseNTBS
   entities:
-  - uid: 175
+  - uid: 140
     components:
     - type: MetaData
       name: Кейс имплантов
     - type: Transform
       parent: 2
       pos: 60.52724,5.54202
-    - type: Storage
-      storedItems:
-        176:
-          position: 0,0
-          _rotation: South
-        179:
-          position: 3,0
-          _rotation: South
-        180:
-          position: 4,0
-          _rotation: South
-        177:
-          position: 5,0
-          _rotation: South
-        178:
-          position: 6,0
-          _rotation: South
-    - type: ContainerContainer
+    - type: EntityTableContainerFill
       containers:
-        storagebase: !type:Container
-          ents:
-          - 180
-          - 177
-          - 178
-          - 179
-          - 176
-          showEnts: False
-          occludes: True
+        storagebase:
+          id: MindShieldImplanter
+          amount: 5
 - proto: ADTBathBroom
   entities:
   - uid: 181
@@ -210150,26 +210127,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -70.36416,-20.707722
-- proto: MindShieldImplanter
-  entities:
-  - uid: 176
-    components:
-    - type: Transform
-      parent: 175
-    - type: Physics
-      canCollide: False
-  - uid: 177
-    components:
-    - type: Transform
-      parent: 175
-    - type: Physics
-      canCollide: False
-  - uid: 178
-    components:
-    - type: Transform
-      parent: 175
-    - type: Physics
-      canCollide: False
 - proto: MinimoogInstrument
   entities:
   - uid: 27400
@@ -251789,18 +251746,6 @@ entities:
       pos: -50.473225,-32.360363
 - proto: TrackingImplanter
   entities:
-  - uid: 179
-    components:
-    - type: Transform
-      parent: 175
-    - type: Physics
-      canCollide: False
-  - uid: 180
-    components:
-    - type: Transform
-      parent: 175
-    - type: Physics
-      canCollide: False
   - uid: 34210
     components:
     - type: Transform

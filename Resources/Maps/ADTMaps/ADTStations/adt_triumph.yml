@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 294.0.3
-  forkId: SS14_DEV
-  forkVersion: e0b98394305c263bacb405100064801e5598b8ed
-  time: 11/26/2026 14:48:04
-  entityCount: 54518
+  forkId: ""
+  forkVersion: ""
+  time: 11/27/2026 12:03:06
+  entityCount: 54519
 maps:
 - 1
 grids:
@@ -14,7 +14,6 @@ grids:
 - 54261
 orphans: []
 nullspace:
-- 54367
 - 54368
 - 54369
 - 54370
@@ -166,6 +165,7 @@ nullspace:
 - 54516
 - 54517
 - 54518
+- 54519
 tilemap:
   1: Space
   63: ADTFloorShipDarkGray
@@ -5239,7 +5239,6 @@ entities:
     - type: GridSplitNode
     - type: ChunkContainer
       chunkEntities:
-      - 54367
       - 54368
       - 54369
       - 54370
@@ -5387,6 +5386,7 @@ entities:
       - 54512
       - 54513
       - 54514
+      - 54515
   - uid: 15
     mapInit: true
     paused: true
@@ -5668,10 +5668,10 @@ entities:
     - type: GridSplitNode
     - type: ChunkContainer
       chunkEntities:
-      - 54515
       - 54516
       - 54517
       - 54518
+      - 54519
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 54
@@ -6210,7 +6210,7 @@ entities:
       pos: -9.5,-67.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -440328.5
+      secondsUntilStateChange: -440399.16
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -7186,17 +7186,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7219,17 +7219,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7252,17 +7252,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7285,17 +7285,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7318,17 +7318,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7351,17 +7351,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7384,17 +7384,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7417,17 +7417,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7450,17 +7450,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7483,17 +7483,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7728,17 +7728,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7761,17 +7761,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7794,17 +7794,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7827,17 +7827,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7860,17 +7860,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7893,17 +7893,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7926,17 +7926,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7959,17 +7959,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -7992,17 +7992,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -8025,17 +8025,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: EmitSoundOnCollide
@@ -14242,7 +14242,7 @@ entities:
       pos: -4.5,21.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -234339.52
+      secondsUntilStateChange: -234410.16
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -14582,7 +14582,7 @@ entities:
       pos: 63.5,-7.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -585724.3
+      secondsUntilStateChange: -585794.94
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -14796,7 +14796,7 @@ entities:
       pos: -114.5,3.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -423079.2
+      secondsUntilStateChange: -423149.84
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -15728,7 +15728,7 @@ entities:
       pos: 51.5,21.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -401276.72
+      secondsUntilStateChange: -401347.38
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -16196,7 +16196,7 @@ entities:
       pos: 17.5,32.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -323047.28
+      secondsUntilStateChange: -323117.94
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -16523,7 +16523,7 @@ entities:
       pos: 44.5,0.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -590517.8
+      secondsUntilStateChange: -590588.44
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -16742,7 +16742,7 @@ entities:
       pos: 2.5,1.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -238261.56
+      secondsUntilStateChange: -238332.2
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -16984,7 +16984,7 @@ entities:
       pos: 40.5,-47.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -390770.78
+      secondsUntilStateChange: -390841.44
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -17035,7 +17035,7 @@ entities:
       pos: -4.5,25.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -57932.19
+      secondsUntilStateChange: -58002.832
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -145047,7 +145047,7 @@ entities:
       pos: -19.462145,26.58541
 - proto: ChunkEntity
   entities:
-  - uid: 54367
+  - uid: 54368
     components:
     - type: ChunkEntity
       root: 2
@@ -145298,7 +145298,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             7807: -99,10
-  - uid: 54368
+  - uid: 54369
     components:
     - type: ChunkEntity
       root: 2
@@ -145537,7 +145537,7 @@ entities:
             11716: 18.752928,82.705894
             11717: 19.046463,82.76297
             11718: 19.462303,82.85266
-  - uid: 54369
+  - uid: 54370
     components:
     - type: ChunkEntity
       root: 2
@@ -145741,7 +145741,7 @@ entities:
             angle: 1.5707963267948966 rad
           decals:
             152: 104.0214,26.508001
-  - uid: 54370
+  - uid: 54371
     components:
     - type: ChunkEntity
       root: 2
@@ -146251,7 +146251,7 @@ entities:
           decals:
             17502: 16,30
             17521: 16,29
-  - uid: 54371
+  - uid: 54372
     components:
     - type: ChunkEntity
       root: 2
@@ -146383,7 +146383,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8042: -120,-33
-  - uid: 54372
+  - uid: 54373
     components:
     - type: ChunkEntity
       root: 2
@@ -146792,7 +146792,7 @@ entities:
             color: '#E08012CC'
           decals:
             18407: -32,-15
-  - uid: 54373
+  - uid: 54374
     components:
     - type: ChunkEntity
       root: 2
@@ -146902,7 +146902,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             1902: -31,-72
-  - uid: 54374
+  - uid: 54375
     components:
     - type: ChunkEntity
       root: 2
@@ -147175,7 +147175,7 @@ entities:
             11313: -69,10
             11314: -68,10
             11316: -68,6
-  - uid: 54375
+  - uid: 54376
     components:
     - type: ChunkEntity
       root: 2
@@ -147353,7 +147353,7 @@ entities:
           decals:
             9445: -126,-6
             9448: -127,-6
-  - uid: 54376
+  - uid: 54377
     components:
     - type: ChunkEntity
       root: 2
@@ -147486,7 +147486,7 @@ entities:
             11292: -103,-8
             11293: -104,-5
             11294: -103,-2
-  - uid: 54377
+  - uid: 54378
     components:
     - type: ChunkEntity
       root: 2
@@ -147669,7 +147669,7 @@ entities:
             9339: -105,-41
             9340: -106,-38
             9341: -107,-38
-  - uid: 54378
+  - uid: 54379
     components:
     - type: ChunkEntity
       root: 2
@@ -148060,7 +148060,7 @@ entities:
             10590: 141.18202,49.22021
             10591: 140.74171,48.767677
             10592: 141.15756,48.743217
-  - uid: 54379
+  - uid: 54380
     components:
     - type: ChunkEntity
       root: 2
@@ -148318,7 +148318,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             19778: 117.19362,58.668293
-  - uid: 54380
+  - uid: 54381
     components:
     - type: ChunkEntity
       root: 2
@@ -148504,7 +148504,7 @@ entities:
             cleanable: True
           decals:
             19883: 127.950714,41.137897
-  - uid: 54381
+  - uid: 54382
     components:
     - type: ChunkEntity
       root: 2
@@ -148668,7 +148668,7 @@ entities:
             cleanable: True
           decals:
             19882: 128.55612,41.358047
-  - uid: 54382
+  - uid: 54383
     components:
     - type: ChunkEntity
       root: 2
@@ -148929,7 +148929,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             17526: -10,-51
-  - uid: 54383
+  - uid: 54384
     components:
     - type: ChunkEntity
       root: 2
@@ -149108,7 +149108,7 @@ entities:
             1637: 1,-94
             1639: 2,-96
             18864: 2,-92
-  - uid: 54384
+  - uid: 54385
     components:
     - type: ChunkEntity
       root: 2
@@ -149197,7 +149197,7 @@ entities:
             1638: 5,-100
             1640: 2,-97
             1667: 14,-98
-  - uid: 54385
+  - uid: 54386
     components:
     - type: ChunkEntity
       root: 2
@@ -149728,7 +149728,7 @@ entities:
             1309: 22,-40
             1310: 22,-41
             1311: 22,-42
-  - uid: 54386
+  - uid: 54387
     components:
     - type: ChunkEntity
       root: 2
@@ -150172,7 +150172,7 @@ entities:
             1252: 45,-39
             1253: 46,-39
             1254: 47,-39
-  - uid: 54387
+  - uid: 54388
     components:
     - type: ChunkEntity
       root: 2
@@ -150364,7 +150364,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             2232: -21,-38
-  - uid: 54388
+  - uid: 54389
     components:
     - type: ChunkEntity
       root: 2
@@ -150876,7 +150876,7 @@ entities:
             4219: 20.657885,9.765316
             4220: 21.318336,9.618549
             4221: 21.375414,10.0343895
-  - uid: 54389
+  - uid: 54390
     components:
     - type: ChunkEntity
       root: 2
@@ -151431,7 +151431,7 @@ entities:
             color: '#E944F1FF'
           decals:
             11491: 18,-1
-  - uid: 54390
+  - uid: 54391
     components:
     - type: ChunkEntity
       root: 2
@@ -151688,7 +151688,7 @@ entities:
             13464: -11,5
             13465: -11,4
             13466: -11,3
-  - uid: 54391
+  - uid: 54392
     components:
     - type: ChunkEntity
       root: 2
@@ -152080,7 +152080,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             16804: 4,19
-  - uid: 54392
+  - uid: 54393
     components:
     - type: ChunkEntity
       root: 2
@@ -152313,7 +152313,7 @@ entities:
             12795: -44,39
             12823: -35,43
             12857: -39,43
-  - uid: 54393
+  - uid: 54394
     components:
     - type: ChunkEntity
       root: 2
@@ -152589,7 +152589,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             15516: -48,19
-  - uid: 54394
+  - uid: 54395
     components:
     - type: ChunkEntity
       root: 2
@@ -152710,7 +152710,7 @@ entities:
             15522: -49,20
             15523: -49,21
             15527: -49,22
-  - uid: 54395
+  - uid: 54396
     components:
     - type: ChunkEntity
       root: 2
@@ -152963,7 +152963,7 @@ entities:
           decals:
             15273: -48,6
             15274: -48,7
-  - uid: 54396
+  - uid: 54397
     components:
     - type: ChunkEntity
       root: 2
@@ -153190,7 +153190,7 @@ entities:
             color: '#FFA512FF'
           decals:
             7127: -17,-21
-  - uid: 54397
+  - uid: 54398
     components:
     - type: ChunkEntity
       root: 2
@@ -153389,7 +153389,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             7774: -80,-11
-  - uid: 54398
+  - uid: 54399
     components:
     - type: ChunkEntity
       root: 2
@@ -153517,7 +153517,7 @@ entities:
             cleanable: True
           decals:
             11278: -95,3
-  - uid: 54399
+  - uid: 54400
     components:
     - type: ChunkEntity
       root: 2
@@ -154035,7 +154035,7 @@ entities:
             color: '#FA2727CC'
           decals:
             12074: -1,32
-  - uid: 54400
+  - uid: 54401
     components:
     - type: ChunkEntity
       root: 2
@@ -154310,7 +154310,7 @@ entities:
             13050: 5,46
             13055: 3,45
             13056: 10,46
-  - uid: 54401
+  - uid: 54402
     components:
     - type: ChunkEntity
       root: 2
@@ -154553,7 +154553,7 @@ entities:
             5777: 12,51
             5778: 13,51
             5779: 14,51
-  - uid: 54402
+  - uid: 54403
     components:
     - type: ChunkEntity
       root: 2
@@ -154825,7 +154825,7 @@ entities:
             cleanable: True
           decals:
             19182: -9,50
-  - uid: 54403
+  - uid: 54404
     components:
     - type: ChunkEntity
       root: 2
@@ -155211,7 +155211,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             13445: 9,4
-  - uid: 54404
+  - uid: 54405
     components:
     - type: ChunkEntity
       root: 2
@@ -155679,7 +155679,7 @@ entities:
           decals:
             14798: -13,-10
             14799: -9,-10
-  - uid: 54405
+  - uid: 54406
     components:
     - type: ChunkEntity
       root: 2
@@ -156179,7 +156179,7 @@ entities:
             11016: 6,-9
             11566: 6,-5
             13366: 7,-5
-  - uid: 54406
+  - uid: 54407
     components:
     - type: ChunkEntity
       root: 2
@@ -156617,7 +156617,7 @@ entities:
             color: '#FA2727CC'
           decals:
             12073: -1,30
-  - uid: 54407
+  - uid: 54408
     components:
     - type: ChunkEntity
       root: 2
@@ -156975,7 +156975,7 @@ entities:
           decals:
             15289: -52,7
             15291: -52,6
-  - uid: 54408
+  - uid: 54409
     components:
     - type: ChunkEntity
       root: 2
@@ -157392,7 +157392,7 @@ entities:
             11678: -21.00686,30.973679
             11679: -20.786709,30.54153
             11680: -20.436098,30.280613
-  - uid: 54409
+  - uid: 54410
     components:
     - type: ChunkEntity
       root: 2
@@ -157514,7 +157514,7 @@ entities:
             11265: -61,-3
             11266: -61,-5
             11267: -62,-6
-  - uid: 54410
+  - uid: 54411
     components:
     - type: ChunkEntity
       root: 2
@@ -157956,7 +157956,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             1330: 19,-49
-  - uid: 54411
+  - uid: 54412
     components:
     - type: ChunkEntity
       root: 2
@@ -158192,7 +158192,7 @@ entities:
             15477: 35,-51
             15478: 35,-52
             15479: 35,-53
-  - uid: 54412
+  - uid: 54413
     components:
     - type: ChunkEntity
       root: 2
@@ -158551,7 +158551,7 @@ entities:
             2825: -11,-34
             2826: -11,-35
             2827: -9,-34
-  - uid: 54413
+  - uid: 54414
     components:
     - type: ChunkEntity
       root: 2
@@ -158721,7 +158721,7 @@ entities:
             17483: -23,-57
             17484: -23,-56
             17485: -23,-55
-  - uid: 54414
+  - uid: 54415
     components:
     - type: ChunkEntity
       root: 2
@@ -159074,7 +159074,7 @@ entities:
             2040: 6,-56
             16772: 6,-63
             16774: 6,-64
-  - uid: 54415
+  - uid: 54416
     components:
     - type: ChunkEntity
       root: 2
@@ -159254,7 +159254,7 @@ entities:
             2816: -15.055273,-73.889915
             2817: -14,-73
             2818: -16,-74
-  - uid: 54416
+  - uid: 54417
     components:
     - type: ChunkEntity
       root: 2
@@ -159541,7 +159541,7 @@ entities:
             1582: 10,-78
             1583: 10,-79
             1584: 10,-80
-  - uid: 54417
+  - uid: 54418
     components:
     - type: ChunkEntity
       root: 2
@@ -159806,7 +159806,7 @@ entities:
             color: '#B17D39FF'
           decals:
             1259: 48,-41
-  - uid: 54418
+  - uid: 54419
     components:
     - type: ChunkEntity
       root: 2
@@ -159941,7 +159941,7 @@ entities:
           decals:
             380: 60,-65
             400: 49,-69
-  - uid: 54419
+  - uid: 54420
     components:
     - type: ChunkEntity
       root: 2
@@ -160095,7 +160095,7 @@ entities:
             cleanable: True
           decals:
             2819: 20,-80
-  - uid: 54420
+  - uid: 54421
     components:
     - type: ChunkEntity
       root: 2
@@ -160442,7 +160442,7 @@ entities:
             1213: 35,-28
             1214: 35,-29
             1240: 39,-30
-  - uid: 54421
+  - uid: 54422
     components:
     - type: ChunkEntity
       root: 2
@@ -160625,7 +160625,7 @@ entities:
           decals:
             10832: 90,22
             10833: 89,22
-  - uid: 54422
+  - uid: 54423
     components:
     - type: ChunkEntity
       root: 2
@@ -160795,7 +160795,7 @@ entities:
             color: '#30D5C8CC'
           decals:
             14876: -36,-6
-  - uid: 54423
+  - uid: 54424
     components:
     - type: ChunkEntity
       root: 2
@@ -160889,7 +160889,7 @@ entities:
           decals:
             2820: 19,-81
             2821: 21,-82
-  - uid: 54424
+  - uid: 54425
     components:
     - type: ChunkEntity
       root: 2
@@ -161033,7 +161033,7 @@ entities:
             5366: 52,63
             5367: 51,63
             5368: 50,63
-  - uid: 54425
+  - uid: 54426
     components:
     - type: ChunkEntity
       root: 2
@@ -161166,7 +161166,7 @@ entities:
           decals:
             125: 95,44
             128: 95,39
-  - uid: 54426
+  - uid: 54427
     components:
     - type: ChunkEntity
       root: 2
@@ -161182,7 +161182,7 @@ entities:
           decals:
             3315: 64,-8
             3316: 64,-6
-  - uid: 54427
+  - uid: 54428
     components:
     - type: ChunkEntity
       root: 2
@@ -161317,7 +161317,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             14168: 55,-17
-  - uid: 54428
+  - uid: 54429
     components:
     - type: ChunkEntity
       root: 2
@@ -161453,7 +161453,7 @@ entities:
             color: '#42AAFFFF'
           decals:
             5258: 35,64
-  - uid: 54429
+  - uid: 54430
     components:
     - type: ChunkEntity
       root: 2
@@ -161544,7 +161544,7 @@ entities:
           decals:
             12738: -36,56
             12739: -34,56
-  - uid: 54430
+  - uid: 54431
     components:
     - type: ChunkEntity
       root: 2
@@ -161617,7 +161617,7 @@ entities:
           decals:
             9819: -61.75255,48.2681
             9820: -60.78939,50.772316
-  - uid: 54431
+  - uid: 54432
     components:
     - type: ChunkEntity
       root: 2
@@ -161769,7 +161769,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8648: -132,39
-  - uid: 54432
+  - uid: 54433
     components:
     - type: ChunkEntity
       root: 2
@@ -161791,7 +161791,7 @@ entities:
           decals:
             9979: 95,-10
             9980: 95,-12
-  - uid: 54433
+  - uid: 54434
     components:
     - type: ChunkEntity
       root: 2
@@ -161867,7 +161867,7 @@ entities:
           decals:
             378: 52,-64
             379: 59,-64
-  - uid: 54434
+  - uid: 54435
     components:
     - type: ChunkEntity
       root: 2
@@ -161882,7 +161882,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             19364: -8,102
-  - uid: 54435
+  - uid: 54436
     components:
     - type: ChunkEntity
       root: 2
@@ -162022,7 +162022,7 @@ entities:
             9543: -1,88
             9544: -1,87
             9545: -1,86
-  - uid: 54436
+  - uid: 54437
     components:
     - type: ChunkEntity
       root: 2
@@ -162096,7 +162096,7 @@ entities:
             color: '#FA2727FF'
           decals:
             9576: 3,97
-  - uid: 54437
+  - uid: 54438
     components:
     - type: ChunkEntity
       root: 2
@@ -162482,7 +162482,7 @@ entities:
             9665: -131.36243,-10.761562
             9666: -131.19055,-11.199062
             9667: -130.8468,-10.855312
-  - uid: 54438
+  - uid: 54439
     components:
     - type: ChunkEntity
       root: 2
@@ -162719,7 +162719,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             19467: -6.2917233,-31.599379
-  - uid: 54439
+  - uid: 54440
     components:
     - type: ChunkEntity
       root: 2
@@ -163071,7 +163071,7 @@ entities:
             20266: 27,43
             20267: 27,44
             20268: 27,45
-  - uid: 54440
+  - uid: 54441
     components:
     - type: ChunkEntity
       root: 2
@@ -163481,7 +163481,7 @@ entities:
             color: '#FFFBFF93'
           decals:
             11667: -20.248564,32.188583
-  - uid: 54441
+  - uid: 54442
     components:
     - type: ChunkEntity
       root: 2
@@ -163638,7 +163638,7 @@ entities:
           decals:
             5919: -17,62
             5928: -17,58
-  - uid: 54442
+  - uid: 54443
     components:
     - type: ChunkEntity
       root: 2
@@ -163881,7 +163881,7 @@ entities:
             cleanable: True
           decals:
             11403: 34,-71
-  - uid: 54443
+  - uid: 54444
     components:
     - type: ChunkEntity
       root: 2
@@ -164036,7 +164036,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8355: -111,-20
-  - uid: 54444
+  - uid: 54445
     components:
     - type: ChunkEntity
       root: 2
@@ -164309,7 +164309,7 @@ entities:
             8169: -137,-21
             8170: -137,-22
             8351: -129,-17
-  - uid: 54445
+  - uid: 54446
     components:
     - type: ChunkEntity
       root: 2
@@ -164516,7 +164516,7 @@ entities:
             cleanable: True
           decals:
             9240: -152,-21
-  - uid: 54446
+  - uid: 54447
     components:
     - type: ChunkEntity
       root: 2
@@ -164740,7 +164740,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8040: -119,-32
-  - uid: 54447
+  - uid: 54448
     components:
     - type: ChunkEntity
       root: 2
@@ -165080,7 +165080,7 @@ entities:
           decals:
             8578: -129,12
             8583: -131,13
-  - uid: 54448
+  - uid: 54449
     components:
     - type: ChunkEntity
       root: 2
@@ -165253,7 +165253,7 @@ entities:
             color: '#800909FF'
           decals:
             8537: -136,18
-  - uid: 54449
+  - uid: 54450
     components:
     - type: ChunkEntity
       root: 2
@@ -165376,7 +165376,7 @@ entities:
           decals:
             8628: -128,35
             8646: -123,47
-  - uid: 54450
+  - uid: 54451
     components:
     - type: ChunkEntity
       root: 2
@@ -165757,7 +165757,7 @@ entities:
           decals:
             2733: 2,-40
             2734: 2,-41
-  - uid: 54451
+  - uid: 54452
     components:
     - type: ChunkEntity
       root: 2
@@ -166155,7 +166155,7 @@ entities:
             color: '#FF00FFCC'
           decals:
             16146: 12,-26
-  - uid: 54452
+  - uid: 54453
     components:
     - type: ChunkEntity
       root: 2
@@ -166638,7 +166638,7 @@ entities:
             color: '#FA7500CC'
           decals:
             14270: 29,-17
-  - uid: 54453
+  - uid: 54454
     components:
     - type: ChunkEntity
       root: 2
@@ -166911,7 +166911,7 @@ entities:
             4880: 37,17
             4881: 38,17
             4882: 39,17
-  - uid: 54454
+  - uid: 54455
     components:
     - type: ChunkEntity
       root: 2
@@ -167277,7 +167277,7 @@ entities:
             11174: 43.313538,14.004613
             11175: 33.47444,13.580118
             11176: 32.682777,14.017618
-  - uid: 54455
+  - uid: 54456
     components:
     - type: ChunkEntity
       root: 2
@@ -167568,7 +167568,7 @@ entities:
             color: '#E944F1CC'
           decals:
             17584: 46,42
-  - uid: 54456
+  - uid: 54457
     components:
     - type: ChunkEntity
       root: 2
@@ -167796,7 +167796,7 @@ entities:
             color: '#F0AB52CC'
           decals:
             17560: 57,42
-  - uid: 54457
+  - uid: 54458
     components:
     - type: ChunkEntity
       root: 2
@@ -167918,7 +167918,7 @@ entities:
           decals:
             8442: -147,-8
             8443: -147,-2
-  - uid: 54458
+  - uid: 54459
     components:
     - type: ChunkEntity
       root: 2
@@ -167977,7 +167977,7 @@ entities:
             color: '#800909FF'
           decals:
             8427: -145,0
-  - uid: 54459
+  - uid: 54460
     components:
     - type: ChunkEntity
       root: 2
@@ -168071,7 +168071,7 @@ entities:
           decals:
             8530: -127,16
             8531: -127,17
-  - uid: 54460
+  - uid: 54461
     components:
     - type: ChunkEntity
       root: 2
@@ -168226,7 +168226,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             8571: -128,14
-  - uid: 54461
+  - uid: 54462
     components:
     - type: ChunkEntity
       root: 2
@@ -168259,7 +168259,7 @@ entities:
             cleanable: True
           decals:
             9175: -136,-33
-  - uid: 54462
+  - uid: 54463
     components:
     - type: ChunkEntity
       root: 2
@@ -168588,7 +168588,7 @@ entities:
             10780: 111.273,-31.593092
             10783: 111.55425,-31.853508
             10785: 111.36675,-31.978508
-  - uid: 54463
+  - uid: 54464
     components:
     - type: ChunkEntity
       root: 2
@@ -168733,7 +168733,7 @@ entities:
             cleanable: True
           decals:
             10781: 112.48134,-31.916008
-  - uid: 54464
+  - uid: 54465
     components:
     - type: ChunkEntity
       root: 2
@@ -168926,7 +168926,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             5260: 32,63
-  - uid: 54465
+  - uid: 54466
     components:
     - type: ChunkEntity
       root: 2
@@ -169111,7 +169111,7 @@ entities:
             color: '#89EC2CFF'
           decals:
             17707: 58,16
-  - uid: 54466
+  - uid: 54467
     components:
     - type: ChunkEntity
       root: 2
@@ -169379,7 +169379,7 @@ entities:
             color: '#A91409FF'
           decals:
             17710: 52,15
-  - uid: 54467
+  - uid: 54468
     components:
     - type: ChunkEntity
       root: 2
@@ -169674,7 +169674,7 @@ entities:
           decals:
             14166: 55,-15
             14167: 55,-16
-  - uid: 54468
+  - uid: 54469
     components:
     - type: ChunkEntity
       root: 2
@@ -170212,7 +170212,7 @@ entities:
             color: '#BB1E1ECC'
           decals:
             14012: 36,-2
-  - uid: 54469
+  - uid: 54470
     components:
     - type: ChunkEntity
       root: 2
@@ -170326,7 +170326,7 @@ entities:
           decals:
             2718: -34,-23
             19628: -35,-24
-  - uid: 54470
+  - uid: 54471
     components:
     - type: ChunkEntity
       root: 2
@@ -170438,7 +170438,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             7775: -81,-11
-  - uid: 54471
+  - uid: 54472
     components:
     - type: ChunkEntity
       root: 2
@@ -170499,7 +170499,7 @@ entities:
             10779: 111.845924,-32.582676
             10782: 111.74175,-32.103508
             10784: 111.38759,-32.405594
-  - uid: 54472
+  - uid: 54473
     components:
     - type: ChunkEntity
       root: 2
@@ -170530,7 +170530,7 @@ entities:
             cleanable: True
           decals:
             10778: 112.82509,-32.863926
-  - uid: 54473
+  - uid: 54474
     components:
     - type: ChunkEntity
       root: 2
@@ -170645,7 +170645,7 @@ entities:
             5361: 55,64
             5362: 54,64
             5363: 53,64
-  - uid: 54474
+  - uid: 54475
     components:
     - type: ChunkEntity
       root: 2
@@ -170870,7 +170870,7 @@ entities:
             11699: 15.018518,81.042534
             11700: 15.344667,80.806076
             11701: 15.858353,80.87946
-  - uid: 54475
+  - uid: 54476
     components:
     - type: ChunkEntity
       root: 2
@@ -170955,7 +170955,7 @@ entities:
             angle: -1.5707963267948966 rad
           decals:
             9686: 131,26
-  - uid: 54476
+  - uid: 54477
     components:
     - type: ChunkEntity
       root: 2
@@ -171013,7 +171013,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9814: -86.84019,53.264027
-  - uid: 54477
+  - uid: 54478
     components:
     - type: ChunkEntity
       root: 2
@@ -171057,7 +171057,7 @@ entities:
             9773: -88.161964,68.77461
             9780: -94.77678,72.6856
             9781: -95.21708,74.77703
-  - uid: 54478
+  - uid: 54479
     components:
     - type: ChunkEntity
       root: 2
@@ -171114,7 +171114,7 @@ entities:
           decals:
             9836: -71.89101,66.88703
             9837: -78.99087,72.43508
-  - uid: 54479
+  - uid: 54480
     components:
     - type: ChunkEntity
       root: 2
@@ -171179,7 +171179,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9821: -65.57767,49.396374
-  - uid: 54480
+  - uid: 54481
     components:
     - type: ChunkEntity
       root: 2
@@ -171228,7 +171228,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9842: -57.260845,71.033676
-  - uid: 54481
+  - uid: 54482
     components:
     - type: ChunkEntity
       root: 2
@@ -171248,7 +171248,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9839: -72.03312,82.15129
-  - uid: 54482
+  - uid: 54483
     components:
     - type: ChunkEntity
       root: 2
@@ -171263,7 +171263,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             10685: -91.16751,34.045742
-  - uid: 54483
+  - uid: 54484
     components:
     - type: ChunkEntity
       root: 2
@@ -171309,7 +171309,7 @@ entities:
             5263: 31,68
             5264: 31,67
             5265: 31,66
-  - uid: 54484
+  - uid: 54485
     components:
     - type: ChunkEntity
       root: 2
@@ -171394,7 +171394,7 @@ entities:
           decals:
             17580: 10,66
             17581: 10,67
-  - uid: 54485
+  - uid: 54486
     components:
     - type: ChunkEntity
       root: 2
@@ -171458,7 +171458,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9702: 125,27
-  - uid: 54486
+  - uid: 54487
     components:
     - type: ChunkEntity
       root: 2
@@ -171626,7 +171626,7 @@ entities:
           decals:
             19545: -61.842136,38.215218
             19546: -48.73076,47.36622
-  - uid: 54487
+  - uid: 54488
     components:
     - type: ChunkEntity
       root: 2
@@ -171793,7 +171793,7 @@ entities:
             20256: 27,49
             20257: 27,50
             20258: 27,51
-  - uid: 54488
+  - uid: 54489
     components:
     - type: ChunkEntity
       root: 2
@@ -171826,7 +171826,7 @@ entities:
             8706: -123,48
             8710: -122,48
             8711: -122,48
-  - uid: 54489
+  - uid: 54490
     components:
     - type: ChunkEntity
       root: 2
@@ -172048,7 +172048,7 @@ entities:
             11: 99,34
             12: 99,33
             13: 99,32
-  - uid: 54490
+  - uid: 54491
     components:
     - type: ChunkEntity
       root: 2
@@ -172153,7 +172153,7 @@ entities:
             6851: -26,15
             6852: -26,14
             6853: -26,13
-  - uid: 54491
+  - uid: 54492
     components:
     - type: ChunkEntity
       root: 2
@@ -172222,7 +172222,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9654: -0.53780985,64.39512
-  - uid: 54492
+  - uid: 54493
     components:
     - type: ChunkEntity
       root: 2
@@ -172313,7 +172313,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9813: -96.059,54.997715
-  - uid: 54493
+  - uid: 54494
     components:
     - type: ChunkEntity
       root: 2
@@ -172556,7 +172556,7 @@ entities:
             18946: -23.383293,-95.60612
             18947: -23.26871,-95.8457
             18953: -22.084513,-95.99154
-  - uid: 54494
+  - uid: 54495
     components:
     - type: ChunkEntity
       root: 2
@@ -172612,7 +172612,7 @@ entities:
           decals:
             1641: -6,-98
             1649: -6,-99
-  - uid: 54495
+  - uid: 54496
     components:
     - type: ChunkEntity
       root: 2
@@ -172751,7 +172751,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             1596: -3,-81
-  - uid: 54496
+  - uid: 54497
     components:
     - type: ChunkEntity
       root: 2
@@ -172879,7 +172879,7 @@ entities:
             18970: -18.432955,-100.44613
             18971: -19.211494,-98.34196
             18972: -18.555244,-98.43571
-  - uid: 54497
+  - uid: 54498
     components:
     - type: ChunkEntity
       root: 2
@@ -172913,7 +172913,7 @@ entities:
             9774: -97.076256,65.92204
             9778: -100.418144,71.612366
             9779: -98.84957,73.5662
-  - uid: 54498
+  - uid: 54499
     components:
     - type: ChunkEntity
       root: 2
@@ -172941,7 +172941,7 @@ entities:
             19115: -33.04428,-94.979836
             19116: -33.29428,-92.80796
             19117: -33.51303,-93.96421
-  - uid: 54499
+  - uid: 54500
     components:
     - type: ChunkEntity
       root: 2
@@ -172956,7 +172956,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             19076: -32.068398,-96.73456
-  - uid: 54500
+  - uid: 54501
     components:
     - type: ChunkEntity
       root: 2
@@ -173100,7 +173100,7 @@ entities:
             9946: 101,-16
             9977: 96,-12
             9978: 96,-10
-  - uid: 54501
+  - uid: 54502
     components:
     - type: ChunkEntity
       root: 2
@@ -173128,7 +173128,7 @@ entities:
             cleanable: True
           decals:
             11466: 17,96
-  - uid: 54502
+  - uid: 54503
     components:
     - type: ChunkEntity
       root: 2
@@ -173150,7 +173150,7 @@ entities:
             cleanable: True
           decals:
             11613: 64,-66
-  - uid: 54503
+  - uid: 54504
     components:
     - type: ChunkEntity
       root: 2
@@ -173191,7 +173191,7 @@ entities:
           decals:
             10657: 108.67833,55.7958
             10658: 108.99021,63.09074
-  - uid: 54504
+  - uid: 54505
     components:
     - type: ChunkEntity
       root: 2
@@ -173207,7 +173207,7 @@ entities:
             cleanable: True
           decals:
             11610: 64,-64
-  - uid: 54505
+  - uid: 54506
     components:
     - type: ChunkEntity
       root: 2
@@ -173222,7 +173222,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             11152: 85.73896,59.40861
-  - uid: 54506
+  - uid: 54507
     components:
     - type: ChunkEntity
       root: 2
@@ -173253,7 +173253,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9847: -39.48791,76.18387
-  - uid: 54507
+  - uid: 54508
     components:
     - type: ChunkEntity
       root: 2
@@ -173274,7 +173274,7 @@ entities:
           decals:
             9872: -69.00166,46.229458
             9873: -66.63505,44.66088
-  - uid: 54508
+  - uid: 54509
     components:
     - type: ChunkEntity
       root: 2
@@ -173289,7 +173289,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             10600: 95.68605,10.8591
-  - uid: 54509
+  - uid: 54510
     components:
     - type: ChunkEntity
       root: 2
@@ -173309,7 +173309,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             10595: 98.02199,5.0458674
-  - uid: 54510
+  - uid: 54511
     components:
     - type: ChunkEntity
       root: 2
@@ -173330,7 +173330,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             10660: 108.13641,66.96845
-  - uid: 54511
+  - uid: 54512
     components:
     - type: ChunkEntity
       root: 2
@@ -173345,7 +173345,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             10662: 122.19635,64.29596
-  - uid: 54512
+  - uid: 54513
     components:
     - type: ChunkEntity
       root: 2
@@ -173360,7 +173360,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             10664: 132.27394,64.039116
-  - uid: 54513
+  - uid: 54514
     components:
     - type: ChunkEntity
       root: 2
@@ -173375,7 +173375,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             9843: -54.70159,82.013695
-  - uid: 54514
+  - uid: 54515
     components:
     - type: ChunkEntity
       root: 2
@@ -173418,7 +173418,7 @@ entities:
             color: '#FFFFFFFF'
           decals:
             17120: 18,-98
-  - uid: 54515
+  - uid: 54516
     components:
     - type: ChunkEntity
       root: 54261
@@ -173474,7 +173474,7 @@ entities:
             color: '#52B4E9CC'
           decals:
             18: 0,0
-  - uid: 54516
+  - uid: 54517
     components:
     - type: ChunkEntity
       root: 54261
@@ -173504,7 +173504,7 @@ entities:
             color: '#52B4E9CC'
           decals:
             11: -1,1
-  - uid: 54517
+  - uid: 54518
     components:
     - type: ChunkEntity
       root: 54261
@@ -173549,7 +173549,7 @@ entities:
             color: '#52B4E9CC'
           decals:
             9: 0,-2
-  - uid: 54518
+  - uid: 54519
     components:
     - type: ChunkEntity
       root: 54261
@@ -180239,7 +180239,7 @@ entities:
       pos: -5.5,-56.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -234544.69
+      secondsUntilStateChange: -234615.33
   - uid: 27431
     components:
     - type: Transform
@@ -199401,7 +199401,7 @@ entities:
       pos: 40.5,-3.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -269862.84
+      secondsUntilStateChange: -269933.5
     - type: DeviceNetwork
       deviceLists:
       - 815
@@ -295153,6 +295153,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 32.5,2.5
+- proto: SpawnPointADTVirologist
+  entities:
+  - uid: 54367
+    components:
+    - type: Transform
+      parent: 2
+      pos: 59.5,11.5
 - proto: SpawnPointAtmos
   entities:
   - uid: 44344
@@ -297043,17 +297050,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297087,17 +297094,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297131,17 +297138,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297175,17 +297182,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297219,17 +297226,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297263,17 +297270,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297307,17 +297314,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297351,17 +297358,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297395,17 +297402,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -297439,17 +297446,17 @@ entities:
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 100
+          damage: 10
         behaviors:
+        - !type:SpillBehavior
+          solution: food
         - !type:DoActsBehavior
           acts: Destruction
       - triggersOnce: False
         triggered: False
         trigger: !type:DamageTrigger
-          damage: 10
+          damage: 100
         behaviors:
-        - !type:SpillBehavior
-          solution: food
         - !type:DoActsBehavior
           acts: Destruction
     - type: Solution
@@ -349804,7 +349811,7 @@ entities:
         DoorStatus: True
     - type: Door
       state: Opening
-      secondsUntilStateChange: -3464.9175
+      secondsUntilStateChange: -3535.559
     - type: Airlock
       autoClose: False
   - uid: 53651
