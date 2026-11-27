@@ -251,11 +251,11 @@
       storagebase: !type:AllSelector
         children:
         - id: ADTMagazine40mmGrenadeDrumHEAT
-          amount: 2
+          amount: 1
         - id: ADTMagazine40mmGrenadeDrumBlast
-          amount: 4
+          amount: 2
         - id: ADTMagazine40mmGrenadeDrumSmoke
-          amount: 3
+          amount: 1
 
 - type: entity
   id: ADTClothingWarBeltDeathSquadCommandosFilled
