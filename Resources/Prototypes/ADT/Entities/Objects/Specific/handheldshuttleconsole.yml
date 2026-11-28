@@ -11,7 +11,7 @@
   - type: Item
     storedRotation: -90
   - type: ShuttleConsole
-    isHandheldConsole: true
+  - type: ADTHandheldShuttleConsole
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key
   - type: UserInterface
