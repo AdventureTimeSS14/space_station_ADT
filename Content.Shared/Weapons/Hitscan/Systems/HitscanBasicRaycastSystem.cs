@@ -37,7 +37,7 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
         var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
         var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false);
 
-        // ADT-Tweak BSA start
+        // ADT-Tweak BSA start, Adventure Space MIT
         if (HasComp<HitscanPierceComponent>(ent.Owner))
         {
             var pierceDistance = ent.Comp.MaxDistance;
@@ -71,7 +71,7 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
             }
             return;
         }
-        // ADT-Tweak BSA end
+        // ADT-Tweak BSA end, Adventure Space MIT
 
         var target = args.Target;
         // If you are in a container, use the raycast result
@@ -185,7 +185,7 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
             RaiseNetworkEvent(new SharedGunSystem.HitscanEvent
             {
                 Sprites = sprites,
-                Lifetime = vizComp.EffectLifetime, // ADT-Tweak BSA 
+                Lifetime = vizComp.EffectLifetime, // ADT-Tweak BSA, Adventure Space MIT
             }, Filter.Pvs(fromCoordinates, entityMan: EntityManager));
         }
     }

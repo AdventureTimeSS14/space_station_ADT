@@ -1,3 +1,7 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Adventure Space
+
+
 namespace Content.Shared.Weapons.Hitscan.Components;
 
 /// <summary>

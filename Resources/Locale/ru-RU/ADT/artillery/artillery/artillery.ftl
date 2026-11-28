@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Adventure Space
+
 artillery-console-title = Монитор наведения блюспейс артиллерии
 artillery-console-beacons = Цели
 artillery-console-fire = ОГОНЬ!

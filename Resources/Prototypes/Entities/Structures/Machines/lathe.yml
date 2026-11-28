@@ -352,7 +352,7 @@
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard
     - ADTVirologyBoards
-    - BluespaceArtilleryBoards
+    - BluespaceArtilleryBoards # Adventure Space MIT
     - ReactorCircuitboards
     # ADT-tweak-end
   - type: EmagLatheRecipes
