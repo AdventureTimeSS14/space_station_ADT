@@ -1,40 +1,37 @@
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ComponentalActions.Components;
+namespace Content.Shared.ADT.ComponentalActions.Components;
 
 [RegisterComponent]
-[AutoGenerateComponentState(true)]
-public sealed partial class StasisHealActComponent : Component
+public sealed partial class StasisHealActComponent : Component, IComponentalActionComponent
 {
     [DataField]
-    public bool Active = false;
+    public EntProtoId Action { get; set; } = "CompActionStasisHeal";
 
     [DataField]
-    public float SpeedModifier = 1f;
+    public EntityUid? ActionEntity { get; set; }
 
     [DataField]
-    public float BaseSprintSpeed = 3f;
+    public float Speed = 1f;
 
     [DataField]
-    public float BaseWalkSpeed = 3f;
+    public float BruteHeal = -0.1f;
 
     [DataField]
-    public float RegenerateBurnHealAmount = -0.05f;
+    public float OtherHeal = -0.05f;
 
     [DataField]
-    public float RegenerateBruteHealAmount = -0.1f;
+    public float BloodRestore = 0.25f;
 
     [DataField]
-    public float RegenerateBloodVolumeHealAmount = 0.25f;
+    public float BleedReduce = -0.01f;
 
-    [DataField]
-    public float RegenerateBleedReduceAmount = -0.01f;
+    [ViewVariables]
+    public bool Active;
 
-    [DataField("healAction")]
-    public EntProtoId Action = "CompActionStasisHeal";
+    [ViewVariables]
+    public float SavedWalkSpeed;
 
-    [DataField, AutoNetworkedField]
-    public EntityUid? ActionEntity;
-
+    [ViewVariables]
+    public float SavedSprintSpeed;
 }

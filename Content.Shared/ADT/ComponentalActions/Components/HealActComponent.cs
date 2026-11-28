@@ -1,37 +1,29 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ComponentalActions.Components;
+namespace Content.Shared.ADT.ComponentalActions.Components;
 
 [RegisterComponent]
-[AutoGenerateComponentState(true)]
-public sealed partial class HealActComponent : Component
+public sealed partial class HealActComponent : Component, IComponentalActionComponent
 {
-    [DataField("healSound")]
-    public SoundSpecifier HealSound = new SoundPathSpecifier("/Audio/ADT/Blob/blobattack.ogg");
-
-    /// <summary>
-    /// Volume control for the spell.
-    /// </summary>
-    [DataField("healVolume")]
-    public float HealVolume = 1f;
+    [DataField]
+    public EntProtoId Action { get; set; } = "CompActionHeal";
 
     [DataField]
-    public float RegenerateBurnHealAmount = -50f;
+    public EntityUid? ActionEntity { get; set; }
 
     [DataField]
-    public float RegenerateBruteHealAmount = -75f;
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/Blob/blobattack.ogg");
 
     [DataField]
-    public float RegenerateBloodVolumeHealAmount = 100f;
+    public float BruteHeal = -75f;
 
     [DataField]
-    public float RegenerateBleedReduceAmount = -100f;
+    public float BurnHeal = -50f;
 
-    [DataField("healAction")]
-    public EntProtoId Action = "CompActionHeal";
+    [DataField]
+    public float BloodRestore = 100f;
 
-    [DataField, AutoNetworkedField]
-    public EntityUid? ActionEntity;
-
+    [DataField]
+    public float BleedReduce = -100f;
 }

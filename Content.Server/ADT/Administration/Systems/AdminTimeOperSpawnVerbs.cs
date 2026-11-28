@@ -1,7 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Shared.Actions;
+using Content.Shared.ADT.ComponentalActions.Components;
 using Content.Shared.Administration;
-using Content.Shared.ComponentalActions.Components;
 using Content.Shared.Database;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
@@ -65,11 +65,7 @@ public sealed partial class AdminVerbSystem
                         var targetMind = _mindSystem.GetMind(args.Target);
                         _audio.PlayPvs("/Audio/Magic/forcewall.ogg", mobUid);
 
-                        EnsureComp<TeleportActComponent>(mobUid, out var teleport);
-                        if (teleport?.ActionEntity != null)
-                        {
-                            // EnsureComp<ActionComponent>(teleport.ActionEntity.Value).UseDelay = TimeSpan.FromSeconds(1); RAT tweak, сейчас починить не могу, починить потом
-                        }
+                        EnsureComp<TeleportActComponent>(mobUid);
                         EnsureComp<ElectrionPulseActComponent>(mobUid);
 
                         if (targetMind != null)
