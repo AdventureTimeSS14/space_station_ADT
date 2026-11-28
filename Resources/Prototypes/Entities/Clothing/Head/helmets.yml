@@ -87,8 +87,6 @@
     foldedEquippedPrefix: open
     foldedHeldPrefix: open
   - type: Appearance
-  - type: CoveredSlot
-    slots: [eyes]
   #ADT-Tweak-End
 
 #Mercenary Helmet
@@ -135,10 +133,6 @@
   #  layers:
   #    Hair: HEAD
   #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
-  #ADT-Tweak-End
 
 #Syndicate SWAT Helmet
 - type: entity
@@ -156,10 +150,6 @@
   #- type: HideLayerClothing
   #  layers:
   #    Hair: HEAD
-  #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
   #ADT-Tweak-End
 
 #Light Riot Helmet
@@ -202,10 +192,6 @@
 #  - type: HideLayerClothing
 #    layers:
 #      Hair: HEAD
-  #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
   #ADT-Tweak-End
 
 #Bombsuit Helmet
@@ -275,10 +261,6 @@
   #  layers:
   #    Hair: HEAD
   #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
-  #ADT-Tweak-End
 
 #Space Ninja Helmet
 - type: entity
@@ -322,8 +304,6 @@
   #    Hair: HEAD
   #ADT-Tweak-End
   #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
   - type: Tag
     tags:
       - ADTTemplarHelmet
@@ -363,10 +343,6 @@
   #- type: HideLayerClothing
   #  layers:
   #    Hair: HEAD
-  #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
   #ADT-Tweak-End
 
 #Fire Helmet
@@ -448,10 +424,6 @@
       Hair: HEAD
       Snout: HEAD
   - type: BreathMask
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
-  #ADT-Tweak-End
 
 #Chitinous Helmet
 - type: entity
@@ -476,10 +448,6 @@
   #  layers:
   #    Hair: HEAD
   #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
-  #ADT-Tweak-End
 
 #ERT HELMETS
 #ERT Leader Helmet
@@ -498,10 +466,6 @@
   #  layers:
   #    Hair: HEAD
   #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
-  #ADT-Tweak-End
 
 #ERT Security Helmet
 - type: entity
@@ -518,10 +482,6 @@
   #- type: HideLayerClothing
   #  layers:
   #    Hair: HEAD
-  #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
   #ADT-Tweak-End
 
 #ERT Medic Helmet
@@ -540,10 +500,6 @@
   #  layers:
   #    Hair: HEAD
   #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
-  #ADT-Tweak-End
 
 #ERT Engineer Helmet
 - type: entity
@@ -561,10 +517,6 @@
   #  layers:
   #    Hair: HEAD
   #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
-  #ADT-Tweak-End
 
 #ERT Janitor Helmet
 - type: entity
@@ -581,10 +533,6 @@
   #- type: HideLayerClothing
   #  layers:
   #    Hair: HEAD
-  #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
   #ADT-Tweak-End
 
 - type: entity
@@ -608,10 +556,6 @@
   #- type: HideLayerClothing
   #  layers:
   #    Hair: HEAD
-  #ADT-Tweak-End
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
   #ADT-Tweak-End
 
 #Bone Helmet
@@ -638,8 +582,6 @@
         Piercing: 0.93
         Heat: 0.93
         Caustic: 0.95
-  - type: CoveredSlot
-    slots: [eyes, mask]
   #ADT-Tweak-End
 
 #Ironclad II Helmet
@@ -740,8 +682,6 @@
 #    - SecurityHelmet
   #ADT-Tweak-End
   #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes]
   - type: Tag
     tags:
     - WhitelistChameleon

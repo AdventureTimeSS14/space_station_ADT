@@ -29,8 +29,6 @@
     - Recyclable
     - WhitelistChameleon
   #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [underwearb, underweart]
   - type: ADTAccessoryHolder
     maxAccessories: 5
   #ADT-Tweak-End
@@ -43,10 +41,6 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
-  #ADT-Tweak-Start
-  - type: CoveredSlot # Backmen
-    slots: [underweart]
-  #ADT-Tweak-End
 
 - type: entity
   abstract: true
@@ -64,8 +58,6 @@
   # - type: StationLimitedNetwork
   # #ADT-Tweak End
   #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [underwearb, underweart]
   - type: Tag
     tags:
       - ClothMade
@@ -82,10 +74,6 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [underweart]
-  #ADT-Tweak-End
 
 - type: entity
   abstract: true

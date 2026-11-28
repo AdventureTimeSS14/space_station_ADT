@@ -37,8 +37,6 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: CoveredSlot
-    slots: [eyes]
 
 - type: entity
   parent: ClothingHeadBase

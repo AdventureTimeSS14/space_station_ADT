@@ -44,8 +44,6 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
-  - type: CoveredSlot
-    slots: [underweart]
 
 ##Sponsor Shoes
 - type: entity

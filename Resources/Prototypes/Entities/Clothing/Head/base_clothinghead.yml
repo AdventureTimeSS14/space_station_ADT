@@ -145,10 +145,6 @@
     - HeadTop
     - HeadSide
     - FacialHair
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
-  #ADT-Tweak-End
 
 
 - type: entity
@@ -206,8 +202,6 @@
     - FacialHair
   #ADT-Tweak-Start
   - type: InjectorsBlocker
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
   #ADT-Tweak-End
 
 - type: entity

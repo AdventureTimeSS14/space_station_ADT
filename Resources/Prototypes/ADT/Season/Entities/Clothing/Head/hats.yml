@@ -154,8 +154,6 @@
         Heat: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.95
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
 
 - type: entity
   parent: ClothingHeadBase
