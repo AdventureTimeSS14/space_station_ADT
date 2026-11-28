@@ -1,9 +1,9 @@
+using Content.Shared.ADT.BackStab;
 using Content.Shared.ADT.Crushers.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Marker;
-using Content.Shared.Weapons.Melee.Backstab;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -18,7 +18,7 @@ public sealed class CrusherRageSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private BackstabDamageMultipilierSystem _backstab = default!;
+    [Dependency] private BackStabSystem _backstab = default!;
 
     public override void Initialize()
     {
