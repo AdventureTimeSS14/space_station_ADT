@@ -31,7 +31,7 @@
       types:
         Cellular: 20
     speciesSpinDamage:
-      MobIpc:
+      Silicon:
         types:
           Blunt: 40
       BorgChassis:

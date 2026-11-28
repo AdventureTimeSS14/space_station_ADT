@@ -564,7 +564,7 @@
   #ADT-Tweak-Start
   blacklist:
     components:
-    - MobIpc
+    - Silicon
   #ADT-Tweak-End
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
