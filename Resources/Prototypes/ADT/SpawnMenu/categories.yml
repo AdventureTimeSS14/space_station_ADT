@@ -101,16 +101,6 @@
   - "SpaceShip Battle"
 
 - type: adtSpawnCategory
-  id: ADTSpawnBluespaceHarvester
-  name: adt-spawn-category-bluespace-harvester
-  parentCategory: ADTSpawnModes
-  order: 1
-  priority: 1010
-  suffixTags:
-  - "Bluespace Harvester"
-  - Блюспейс-харвестер
-
-- type: adtSpawnCategory
   id: ADTSpawnGelios
   name: adt-spawn-category-gelios
   parentCategory: ADTSpawnModes

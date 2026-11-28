@@ -49,7 +49,6 @@ adt-spawn-category-sponsor = Спонсорское
 adt-spawn-category-centcomm = ЦК и ОБР
 adt-spawn-category-modes = Режимы и карты
 adt-spawn-category-ship-battle = Корабельные бои
-adt-spawn-category-bluespace-harvester = Блюспейс-харвестер
 adt-spawn-category-gelios = Гелиос
 adt-spawn-category-salvage-ruleset = Утилизация (правило)
 adt-spawn-category-challenge = Испытания

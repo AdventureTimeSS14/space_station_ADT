@@ -48,7 +48,6 @@
       - DefaultStationBeaconNukeOps
       - NuclearBomb
       # Special
-      - ADTBluespaceHarvesterRift
       - DefaultStationBeaconNuclear
       - DefaultStationBeaconCentComm
   - type: ActivatableUI

@@ -1205,3 +1205,5 @@ ADTBigThruster: ADTThrusterBig
 ADTVendingMachineCiviMedVend: ADTVendingMachineCiviMed
 ADTVendingMachinePill: ADTVendingMachineCiviMed
 VendingMachineMedicalBase: ADTVendingMachineCiviMed
+ADTRandomHarvesterTechnologyDisk: null
+ADTRandomHarvesterSeeds: null
