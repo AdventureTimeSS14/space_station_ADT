@@ -34,46 +34,6 @@ ent-ADTOrganVoiceOfGod = связки бога
 ent-ActionADTVoiceOfGod = Глас Божий
     .desc = Переключить божественный голос. Пока он активен, ваша речь становится командой, которой слушающие не смогут ослушаться.
 
-ent-ADTAnomalousCrystalBase = аномальный кристалл
-    .desc = Странный осколок кристалла. Нахождение рядом с ним наполняет вас смесью восторга и ужаса.
-
-ent-ADTAnomalousCrystalHonk = { ent-ADTAnomalousCrystalBase }
-    .desc = { ent-ADTAnomalousCrystalBase.desc }
-    .suffix = Хонк
-
-ent-ADTAnomalousCrystalThemeWarp = { ent-ADTAnomalousCrystalBase }
-    .desc = { ent-ADTAnomalousCrystalBase.desc }
-    .suffix = Перекраска
-
-ent-ADTAnomalousCrystalEmitter = { ent-ADTAnomalousCrystalBase }
-    .desc = { ent-ADTAnomalousCrystalBase.desc }
-    .suffix = Излучатель
-
-ent-ADTAnomalousCrystalDarkReprise = { ent-ADTAnomalousCrystalBase }
-    .desc = { ent-ADTAnomalousCrystalBase.desc }
-    .suffix = Тёмная реприза
-
-ent-ADTAnomalousCrystalHelpers = { ent-ADTAnomalousCrystalBase }
-    .desc = { ent-ADTAnomalousCrystalBase.desc }
-    .suffix = Духи света
-
-ent-ADTAnomalousCrystalRefresher = { ent-ADTAnomalousCrystalBase }
-    .desc = { ent-ADTAnomalousCrystalBase.desc }
-    .suffix = Обновитель
-
-ent-ADTAnomalousCrystalPossessor = { ent-ADTAnomalousCrystalBase }
-    .desc = { ent-ADTAnomalousCrystalBase.desc }
-    .suffix = Вселение
-
-ent-ActionADTExitPossession = Покинуть тело
-    .desc = Покинуть тело, в которое вы вселились. Оно не переживёт этого.
-
-ent-ADTMobLightgeist = дух света
-    .desc = Это маленькое парящее создание - абсолютно неизвестная форма жизни... Его присутствие наполняет вас чувством умиротворения.
-
-ent-ADTMobDarkRepriseShadow = тенелюд
-    .desc = Тёмная измождённая фигура. Свет, похоже, причиняет ей боль.
-
 adt-kinetic-trophy-blaster-tubes = После взрыва метки следующий выстрел дестабилизатора наносит дополнительный урон.
 crusher-effect-blaster-tubes = После взрыва метки следующий выстрел дестабилизатора наносит дополнительно [color=red]{ $damage }[/color] урона.
 adt-kinetic-trophy-empowered-legion-skull = После взрыва метки позволяет совершить рывок на 3 клетки.
@@ -108,7 +68,3 @@ adt-voice-of-god-how-high = НАСКОЛЬКО ВЫСОКО?!
 adt-voice-of-god-target-name = { $target }
 adt-voice-of-god-user-name = { $user }!
 
-adt-crystal-dark-reprise-revive = Тьма возвращает вас к жизни!
-adt-crystal-helpers-ready = Аномальный кристалл пробуждается! Теперь призраки могут стать духами света.
-adt-ghost-role-lightgeist-name = Дух света
-adt-ghost-role-lightgeist-description = Маленькое парящее существо, способное понемногу лечить живых. Очень хрупкое.
