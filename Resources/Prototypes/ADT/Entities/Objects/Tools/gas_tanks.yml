@@ -22,7 +22,7 @@
   - type: Clothing
     sprite: ADT/Objects/Tanks/bluespace_air_tank.rsi
   - type: GasTank
-    releasePressure: 21.3
+    releasePressure: 101.3
     air:
       volume: 100
       temperature: 293.15
@@ -49,7 +49,7 @@
   - type: Item
     sprite: ADT/Objects/Tanks/bluespace_pocket_tank.rsi
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 101.3
     air:
       volume: 50
       temperature: 293.15
