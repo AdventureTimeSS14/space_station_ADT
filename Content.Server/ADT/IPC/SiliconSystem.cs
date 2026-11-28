@@ -107,7 +107,7 @@ public sealed class SiliconSystem : SharedSiliconSystem
         {
             ent.Comp.ChargeState = chargeState;
             Dirty(ent);
-            MoveMod.RefreshMovementSpeedModifiers(ent);
+            MoveMod.RefreshMovementSpeedModifiers(ent.Owner);
         }
 
         SetDrained(ent, chargeState == 0);

@@ -49,7 +49,7 @@ public sealed class ADTHandheldShuttleConsoleSystem : EntitySystem
             drone.Entity = ent.Comp.LinkedConsole;
     }
 
-    private void OnUIOpen(Entity<ADTHandheldShuttleConsoleComponent> ent, AfterActivatableUIOpenEvent args)
+    private void OnUIOpen(Entity<ADTHandheldShuttleConsoleComponent> ent, ref AfterActivatableUIOpenEvent args)
     {
         var target = _console.GetDroneConsole(ent);
         if (target == null)
