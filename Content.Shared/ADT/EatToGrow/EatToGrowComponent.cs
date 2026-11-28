@@ -1,22 +1,17 @@
-using Content.Shared.Damage;
-using Robust.Shared.GameStates;
-
 namespace Content.Shared.ADT.EatToGrow;
-[RegisterComponent, NetworkedComponent]
+
+[RegisterComponent]
 public sealed partial class EatToGrowComponent : Component
 {
     [DataField]
-    public float Growth = 0.1f; // percentage growth
+    public float Growth = 0.1f;
 
     [DataField]
-    public float MaxGrowth = 5.0f; // max allowed scale multiplier
+    public float MaxGrowth = 5f;
 
     [DataField]
-    public float CurrentScale = 1.0f; // current scale
+    public bool ShrinkOnDeath = true;
 
-    [DataField]
-    public bool ShrinkOnDeath = true; // Revert to original size on death?
-
-    [DataField]
-    public int TimesGrown = 0; // how many times have they grown?
+    [ViewVariables]
+    public float CurrentScale = 1f;
 }

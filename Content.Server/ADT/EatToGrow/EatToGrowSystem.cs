@@ -1,91 +1,70 @@
+using System.Numerics;
 using Content.Shared.ADT.EatToGrow;
+using Content.Shared.Mobs;
+using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Mobs; // mobstate changed event
-using Content.Shared.Nutrition; // before fully eaten event
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Sprite;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
-using System.Numerics;
-using Content.Shared.Sprite; // using for vectors
-namespace Content.ADT.Server.EatToGrow;
 
+namespace Content.Server.ADT.EatToGrow;
 
 public sealed class EatToGrowSystem : EntitySystem
 {
     [Dependency] private AppearanceSystem _appearance = default!;
-    [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EatToGrowComponent, FullyEatenEvent>(OnFoodEaten);
-        SubscribeLocalEvent<EatToGrowComponent, MobStateChangedEvent>(ShrinkOnDeath);
+        SubscribeLocalEvent<EatToGrowComponent, IngestingEvent>(OnIngesting);
+        SubscribeLocalEvent<EatToGrowComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
-    private void OnFoodEaten(Entity<EatToGrowComponent> ent, ref FullyEatenEvent args)
+    private void OnIngesting(Entity<EatToGrowComponent> ent, ref IngestingEvent args)
     {
-        // The entity that ate the food (the mothroach, human, etc.)
-        var eater = args.User;
-
-        // Only grow entities that have EatToGrowComponent.
-        if (!TryComp<EatToGrowComponent>(eater, out var comp))
-            return;
-        // if growing would go over the limit, return
-        if (comp.CurrentScale >= comp.MaxGrowth)
+        if (!TryComp<EdibleComponent>(args.Food, out var edible) || edible.Edible != IngestionSystem.Food)
             return;
 
-        Grow(eater, comp, 1);
+        SetScale(ent, MathF.Min(ent.Comp.CurrentScale + ent.Comp.Growth, ent.Comp.MaxGrowth));
     }
 
-    private void Grow(EntityUid eater, EatToGrowComponent comp, float scale)
+    private void OnMobStateChanged(Entity<EatToGrowComponent> ent, ref MobStateChangedEvent args)
     {
-        // Uses scale variable to  multiply the growth, mainly used for shrinking
-        // Add growth
-        comp.CurrentScale += comp.Growth;
-        comp.CurrentScale = MathF.Min(comp.CurrentScale, comp.MaxGrowth);
+        if (args.NewMobState != MobState.Dead || !ent.Comp.ShrinkOnDeath)
+            return;
 
-        EnsureComp<ScaleVisualsComponent>(eater);
+        SetScale(ent, 1f);
+    }
 
-        var appearanceComponent = EnsureComp<AppearanceComponent>(eater);
-        if (!_appearance.TryGetData<Vector2>(eater, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
+    private void SetScale(Entity<EatToGrowComponent> ent, float scale)
+    {
+        var delta = scale - ent.Comp.CurrentScale;
+        if (MathHelper.CloseTo(delta, 0f))
+            return;
+
+        ent.Comp.CurrentScale = scale;
+
+        EnsureComp<ScaleVisualsComponent>(ent);
+        var appearance = EnsureComp<AppearanceComponent>(ent);
+        if (!_appearance.TryGetData<Vector2>(ent, ScaleVisuals.Scale, out var oldScale, appearance))
             oldScale = Vector2.One;
 
-        _appearance.SetData(eater, ScaleVisuals.Scale, oldScale + scale * new Vector2(comp.Growth, comp.Growth), appearanceComponent);
+        _appearance.SetData(ent, ScaleVisuals.Scale, oldScale + new Vector2(delta, delta), appearance);
 
-        Dirty(eater, comp); // Sync updated growth to client.
+        if (!TryComp<FixturesComponent>(ent, out var fixtures))
+            return;
 
-        // add 1 to times grown
-        comp.TimesGrown += 1;
-
-        // Grow the fixture by 1/4 the growth
-        if (TryComp(eater, out FixturesComponent? manager))
+        foreach (var (id, fixture) in fixtures.Fixtures)
         {
-            foreach (var (id, fixture) in manager.Fixtures)
-            {
-                if (fixture.Shape is PhysShapeCircle circle)
-                {
-                    _physics.SetPositionRadius(
-                        eater, id, fixture, circle,
-                        circle.Position, circle.Radius + scale * (comp.Growth / 4), manager);
-                }
-            }
+            if (fixture.Shape is not PhysShapeCircle circle)
+                continue;
+
+            _physics.SetPositionRadius(ent, id, fixture, circle, circle.Position, circle.Radius + delta / 4, fixtures);
         }
-        return; // If fails, return
-    }
-    private void ShrinkOnDeath(Entity<EatToGrowComponent> eater, ref MobStateChangedEvent args)
-    {
-        // Copied from TryGrow, just need to grow in reverse
-        if (args.NewMobState != MobState.Dead || !TryComp<EatToGrowComponent>(eater, out var comp) || comp.ShrinkOnDeath == false)
-        return;
-
-        // shrink the entity
-        Grow(eater, comp, -comp.TimesGrown); // uses the negative of times grown to shrink the entity back to normal
-
-        // Reset data on shrink
-        comp.CurrentScale = 1f;
-        comp.TimesGrown = 0;
     }
 }
