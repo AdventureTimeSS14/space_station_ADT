@@ -21,16 +21,6 @@
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -44,16 +34,6 @@
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: StealTarget
     stealGroup: ClothingNeckGoldmedal
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -65,16 +45,6 @@
     sprite: Clothing/Neck/Medals/cargomedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/cargomedal.rsi
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -86,16 +56,6 @@
     sprite: Clothing/Neck/Medals/engineermedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/engineermedal.rsi
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -107,16 +67,6 @@
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -128,16 +78,6 @@
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -149,16 +89,6 @@
     sprite: Clothing/Neck/Medals/securitymedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/securitymedal.rsi
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
 
 - type: entity
   parent: ClothingNeckMedalBase
@@ -172,13 +102,3 @@
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: StealTarget
     stealGroup: ClothingNeckClownmedal
-    # ADT tweak start
-  - type: CrewMedal
-  - type: ActivatableUI
-    key: enum.CrewMedalUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.CrewMedalUiKey.Key:
-        type: CrewMedalBoundUserInterface
-    # ADT tweak end
