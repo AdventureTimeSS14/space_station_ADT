@@ -413,7 +413,7 @@ namespace Content.Client.Lobby.UI
 
             // ADT-Tweak start. Корректно вставляем вкладки для кастомизации персонажа и их названия
             #region InvokeRefresh
-            bool ttsIsEnabled = _cfgManager.GetCVar(ADTTTSCVars.TTSEnabled); // ADT-Tweak
+            bool ttsIsEnabled = _cfgManager.GetCVar(ADTCCVars.TTSEnabled); // ADT-Tweak
             int valueTTSEnable = ttsIsEnabled ? 1 : 0; // Переменная для перехода на следующий индекс вкладки, если ТТС включён, чтобы их названия не накладывались друг на друга
 
             TabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
@@ -466,7 +466,7 @@ namespace Content.Client.Lobby.UI
 
         private void RefreshVoiceTab()
         {
-            if (!_cfgManager.GetCVar(ADTTTSCVars.TTSEnabled))
+            if (!_cfgManager.GetCVar(ADTCCVars.TTSEnabled))
                 return;
 
             _ttsTab = new TTSTab();

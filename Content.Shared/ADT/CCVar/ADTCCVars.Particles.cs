@@ -1,8 +1,8 @@
 using Robust.Shared.Configuration;
 
-namespace Content.Shared.CCVar;
+namespace Content.Shared.ADT.CCVar;
 
-public sealed partial class CCVars
+public sealed partial class ADTCCVars
 {
     /// <summary>
     /// Controls particle effect quality.

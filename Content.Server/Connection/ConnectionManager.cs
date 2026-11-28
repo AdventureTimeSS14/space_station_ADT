@@ -251,7 +251,7 @@ namespace Content.Server.Connection
 
             var adminData = await _db.GetAdminDataForAsync(e.UserId);
             // ADT-Tweak-Start: Check Auth for Discord ID
-            if (_cfg.GetCVar(DiscordAuthCCVars.DiscordAuthEnable) && adminData == null)
+            if (_cfg.GetCVar(ADTCCVars.DiscordAuthEnable) && adminData == null)
             {
                 var discordId = await _db.GetDiscordIdAsync(userId);
                 if (discordId != null)

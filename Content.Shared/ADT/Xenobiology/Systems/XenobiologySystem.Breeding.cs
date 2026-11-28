@@ -63,7 +63,7 @@ public partial class XenobiologySystem
 
         ApplyBreed(ent, ent.Comp.Breed);
 
-        Subs.CVar(_configuration, SimpleStationCCVars.XenobiologyBreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
+        Subs.CVar(_configuration, ADTCCVars.XenobiologyBreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
     }
 
@@ -303,9 +303,9 @@ public partial class XenobiologySystem
     /// </summary>
     public float GetBreedingSlowdown(Entity<SlimeComponent> ent, int? localDensity = null)
     {
-        var max = _configuration.GetCVar(SimpleStationCCVars.XenobiologyMaxSlimesPerGrid);
-        var start = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownStart);
-        var factor = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownFactor);
+        var max = _configuration.GetCVar(ADTCCVars.XenobiologyMaxSlimesPerGrid);
+        var start = _configuration.GetCVar(ADTCCVars.XenobiologyBreedingSlowdownStart);
+        var factor = _configuration.GetCVar(ADTCCVars.XenobiologyBreedingSlowdownFactor);
 
         if (max <= 0 || factor <= 0)
             return 0f;

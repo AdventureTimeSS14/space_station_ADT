@@ -129,9 +129,9 @@ namespace Content.Server.GameTicking
                     // ADT-Tweak-End
 
                     // ADT-Tweak-start: Постит в дис админчата, о заходе новых игроков
-                    if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)) && firstConnection)
+                    if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTCCVars.DiscordAdminchatWebhook)) && firstConnection)
                     {
-                        var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
+                        var webhookUrl = _cfg.GetCVar(ADTCCVars.DiscordAdminchatWebhook);
 
                         if (webhookUrl == null)
                             return;

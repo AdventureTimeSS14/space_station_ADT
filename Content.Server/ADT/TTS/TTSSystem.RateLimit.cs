@@ -17,8 +17,8 @@ public sealed partial class TTSSystem
     {
         _rateLimitManager.Register(RateLimitKey,
             new RateLimitRegistration(
-                ADTTTSCVars.TTSRateLimitPeriod,
-                ADTTTSCVars.TTSRateLimitCount,
+                ADTCCVars.TTSRateLimitPeriod,
+                ADTCCVars.TTSRateLimitCount,
                 RateLimitPlayerLimited));
     }
 

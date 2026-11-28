@@ -35,8 +35,8 @@ public sealed class ADTTraitSystem : EntitySystem
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
 
-        Subs.CVar(_config, SimpleStationCCVars.MaxTraitCount, value => _maxTraitCount = value, true);
-        Subs.CVar(_config, SimpleStationCCVars.MaxTraitPoints, value => _maxTraitPoints = value, true);
+        Subs.CVar(_config, ADTCCVars.MaxTraitCount, value => _maxTraitCount = value, true);
+        Subs.CVar(_config, ADTCCVars.MaxTraitPoints, value => _maxTraitPoints = value, true);
     }
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)

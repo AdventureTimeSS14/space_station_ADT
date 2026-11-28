@@ -13,7 +13,7 @@ public sealed partial class TTSSystem
 
     private void InitializeRadio()
     {
-        _cfg.OnValueChanged(ADTTTSCVars.TTSRadioEnabled, v => _radioEnabled = v, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSRadioEnabled, v => _radioEnabled = v, true);
 
         SubscribeLocalEvent<RadioSpokeEvent>(OnRadioSpoke);
     }

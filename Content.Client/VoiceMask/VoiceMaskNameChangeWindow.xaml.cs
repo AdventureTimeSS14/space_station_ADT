@@ -62,7 +62,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             SpeechVerbSelector.SelectId(args.Id);
         };
 
-        if (IoCManager.Resolve<IConfigurationManager>().GetCVar(ADTTTSCVars.TTSEnabled))// ADT-Tweak
+        if (IoCManager.Resolve<IConfigurationManager>().GetCVar(ADTCCVars.TTSEnabled))// ADT-Tweak
         {
             TTSContainer.Visible = true;
             ReloadVoices(IoCManager.Resolve<IPrototypeManager>());

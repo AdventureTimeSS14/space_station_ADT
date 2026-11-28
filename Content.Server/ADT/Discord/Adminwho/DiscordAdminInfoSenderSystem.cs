@@ -43,7 +43,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 
     private async void SendAdminInfoToDiscord()
     {
-        var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminwhoWebhook);
+        var webhookUrl = _cfg.GetCVar(ADTCCVars.DiscordAdminwhoWebhook);
 
         if (string.IsNullOrEmpty(webhookUrl))
             return;

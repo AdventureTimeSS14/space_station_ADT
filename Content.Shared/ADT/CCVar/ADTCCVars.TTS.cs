@@ -2,8 +2,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Shared.ADT.CCVar;
 
-[CVarDefs]
-public sealed class ADTTTSCVars
+public sealed partial class ADTCCVars
 {
     /// <summary>
     ///     Enables or disables TTS.

@@ -1,6 +1,6 @@
 using System.Numerics;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Particles;
-using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -125,24 +125,24 @@ public sealed partial class ParticleSystem : EntitySystem
         _overlay = new ParticleOverlay(this, _transform);
         _overlayManager.AddOverlay(_overlay);
 
-        _cfg.OnValueChanged(CCVars.ParticleQuality, OnQualityChanged, invokeImmediately: true);
-        _cfg.OnValueChanged(CCVars.ParticleGlobalBudget, _onGlobalBudgetChanged = v =>
+        _cfg.OnValueChanged(ADTCCVars.ParticleQuality, OnQualityChanged, invokeImmediately: true);
+        _cfg.OnValueChanged(ADTCCVars.ParticleGlobalBudget, _onGlobalBudgetChanged = v =>
         {
             if (_quality == QualityBudgets.Length - 1)
                 _globalBudget = v;
         });
-        _cfg.OnValueChanged(CCVars.ParticleAutoLodEmitters, _onAutoLodChanged = v => _lodThreshold = v, invokeImmediately: true);
+        _cfg.OnValueChanged(ADTCCVars.ParticleAutoLodEmitters, _onAutoLodChanged = v => _lodThreshold = v, invokeImmediately: true);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _cfg.UnsubValueChanged(CCVars.ParticleQuality, OnQualityChanged);
+        _cfg.UnsubValueChanged(ADTCCVars.ParticleQuality, OnQualityChanged);
         if (_onGlobalBudgetChanged != null)
-            _cfg.UnsubValueChanged(CCVars.ParticleGlobalBudget, _onGlobalBudgetChanged);
+            _cfg.UnsubValueChanged(ADTCCVars.ParticleGlobalBudget, _onGlobalBudgetChanged);
         if (_onAutoLodChanged != null)
-            _cfg.UnsubValueChanged(CCVars.ParticleAutoLodEmitters, _onAutoLodChanged);
+            _cfg.UnsubValueChanged(ADTCCVars.ParticleAutoLodEmitters, _onAutoLodChanged);
         _overlayManager.RemoveOverlay(_overlay);
         _emitters.Clear();
         _emittersByHandle.Clear();
@@ -167,7 +167,7 @@ public sealed partial class ParticleSystem : EntitySystem
         _quality = quality;
         _inViewEmitters = 0;
         _globalBudget = quality == QualityBudgets.Length - 1
-            ? _cfg.GetCVar(CCVars.ParticleGlobalBudget)
+            ? _cfg.GetCVar(ADTCCVars.ParticleGlobalBudget)
             : QualityBudgets[quality];
 
         RaiseLocalEvent(new ParticleSettingsChangedEvent(quality));

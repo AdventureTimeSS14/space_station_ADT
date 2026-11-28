@@ -77,7 +77,7 @@ public sealed class TTSManager
             ConnectTimeout = TimeSpan.FromSeconds(5),
         });
 
-        _cfg.OnValueChanged(ADTTTSCVars.TTSEnabled, v =>
+        _cfg.OnValueChanged(ADTCCVars.TTSEnabled, v =>
         {
             _isEnabled = v;
 
@@ -85,18 +85,18 @@ public sealed class TTSManager
                 ResetCache();
         }, true);
 
-        _cfg.OnValueChanged(ADTTTSCVars.TTSMaxCache, val =>
+        _cfg.OnValueChanged(ADTCCVars.TTSMaxCache, val =>
         {
             _maxCachedCount = val;
             ResetCache();
         }, true);
 
-        _cfg.OnValueChanged(ADTTTSCVars.TTSApiUrl, v => SetApiUrl(v), true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSApiToken, v => _apiToken = v, true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSMaxConcurrentRequests, v => _maxConcurrent = Math.Max(1, v), true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSMaxQueuedRequests, v => _maxQueued = Math.Max(0, v), true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSCircuitBreakerFailures, v => _breakerFailures = v, true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSCircuitBreakerCooldown, v => _breakerCooldown = v, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSApiUrl, v => SetApiUrl(v), true);
+        _cfg.OnValueChanged(ADTCCVars.TTSApiToken, v => _apiToken = v, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSMaxConcurrentRequests, v => _maxConcurrent = Math.Max(1, v), true);
+        _cfg.OnValueChanged(ADTCCVars.TTSMaxQueuedRequests, v => _maxQueued = Math.Max(0, v), true);
+        _cfg.OnValueChanged(ADTCCVars.TTSCircuitBreakerFailures, v => _breakerFailures = v, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSCircuitBreakerCooldown, v => _breakerCooldown = v, true);
     }
 
     private void SetApiUrl(string url)
@@ -166,7 +166,7 @@ public sealed class TTSManager
                 return null;
             }
 
-            var timeout = TimeSpan.FromSeconds(_cfg.GetCVar(ADTTTSCVars.TTSApiTimeout));
+            var timeout = TimeSpan.FromSeconds(_cfg.GetCVar(ADTCCVars.TTSApiTimeout));
             using var cts = new CancellationTokenSource(timeout);
 
             if (!await TryEnterAsync(cts.Token))
