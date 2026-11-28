@@ -1,5 +1,5 @@
-// SPDX-License-identifier: MIT
-// Copyright (c) 2026 Adventure Space
+<!--SPDX-License-identifier: MIT-->
+<!--Copyright (c) 2026 Adventure Space-->
 
 <ui:ArtilleryConsoleWindow xmlns="https://spacestation14.io"
                       xmlns:ui="clr-namespace:Content.Client.ADT.Artillery"
