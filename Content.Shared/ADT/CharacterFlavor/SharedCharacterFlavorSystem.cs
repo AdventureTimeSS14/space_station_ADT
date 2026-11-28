@@ -5,9 +5,9 @@ using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.ADT.CharecterFlavor;
+namespace Content.Shared.ADT.CharacterFlavor;
 
-public abstract class SharedCharecterFlavorSystem : EntitySystem
+public abstract class SharedCharacterFlavorSystem : EntitySystem
 {
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] protected IConfigurationManager ConfigManager = default!;

@@ -49,7 +49,7 @@ using Content.Shared.Mindshield; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.DetailExaminable;
-using Content.Shared.ADT.CharecterFlavor; // ADT-Changeling-Tweak
+using Content.Shared.ADT.CharacterFlavor; // ADT-Changeling-Tweak
 using Content.Shared.Preferences; // ADT
 
 namespace Content.Server.Polymorph.Systems;

@@ -44,8 +44,8 @@ using Direction = Robust.Shared.Maths.Direction;
 using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
 using Content.Client.ADT.TTS;
 using Content.Client.ADT.UserInterface.Controls;
-using Content.Client.ADT.CharecterFlavor;
-using Content.Shared.ADT.CharecterFlavor;
+using Content.Client.ADT.CharacterFlavor;
+using Content.Shared.ADT.CharacterFlavor;
 
 namespace Content.Client.Lobby.UI
 {
@@ -666,7 +666,7 @@ namespace Content.Client.Lobby.UI
             // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
             if (!string.IsNullOrWhiteSpace(url))
             {
-                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(url);
+                _entManager.System<CharacterFlavorSystem>().RequestHeadshotPreview(url);
             }
         }
 
@@ -688,7 +688,7 @@ namespace Content.Client.Lobby.UI
             // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
             if (!string.IsNullOrWhiteSpace(Profile.HeadshotUrl))
             {
-                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(Profile.HeadshotUrl);
+                _entManager.System<CharacterFlavorSystem>().RequestHeadshotPreview(Profile.HeadshotUrl);
             }
         }
         //ADT-tweak-end

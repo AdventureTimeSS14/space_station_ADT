@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
 using Robust.Client.Graphics;
 
-namespace Content.Client.ADT.CharecterFlavor;
+namespace Content.Client.ADT.CharacterFlavor;
 
 /// <summary>
 /// Глобальный кэш текстур для headshot изображений.

@@ -1,13 +1,13 @@
 // Inspired by Nyanotrasen
 using System.Collections.Concurrent;
 using System.Linq;
-using Content.Shared.ADT.CharecterFlavor;
+using Content.Shared.ADT.CharacterFlavor;
 using Robust.Client.UserInterface;
 using Robust.Shared.Timing;
 
-namespace Content.Client.ADT.CharecterFlavor;
+namespace Content.Client.ADT.CharacterFlavor;
 
-public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
+public sealed class CharacterFlavorSystem : SharedCharacterFlavorSystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IUserInterfaceManager _ui = default!;

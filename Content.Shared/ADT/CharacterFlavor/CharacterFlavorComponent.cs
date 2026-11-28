@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.CharecterFlavor;
+namespace Content.Shared.ADT.CharacterFlavor;
 
 [RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
 public sealed partial class CharacterFlavorComponent : Component

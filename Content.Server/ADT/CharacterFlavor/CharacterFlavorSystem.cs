@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared.ADT.CCVar;
-using Content.Shared.ADT.CharecterFlavor;
+using Content.Shared.ADT.CharacterFlavor;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
@@ -21,9 +21,9 @@ using SixLabors.ImageSharp.Formats.Webp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
-namespace Content.Server.ADT.CharecterFlavor;
+namespace Content.Server.ADT.CharacterFlavor;
 
-public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
+public sealed class CharacterFlavorSystem : SharedCharacterFlavorSystem
 {
     [Dependency] private IConfigurationManager _config = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
