@@ -30,10 +30,6 @@
     - Snout
     - SnoutOverlay # ADT Tweak
     hideOnToggle: true
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, ears]
-  #ADT-Tweak-End
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]

@@ -44,8 +44,8 @@ using Direction = Robust.Shared.Maths.Direction;
 using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
 using Content.Client.ADT.TTS;
 using Content.Client.ADT.UserInterface.Controls;
-using Content.Client.ADT.CharecterFlavor;
-using Content.Shared.ADT.CharecterFlavor;
+using Content.Client.ADT.CharacterFlavor;
+using Content.Shared.ADT.CharacterFlavor;
 
 namespace Content.Client.Lobby.UI
 {
@@ -413,7 +413,7 @@ namespace Content.Client.Lobby.UI
 
             // ADT-Tweak start. Корректно вставляем вкладки для кастомизации персонажа и их названия
             #region InvokeRefresh
-            bool ttsIsEnabled = _cfgManager.GetCVar(ADTTTSCVars.TTSEnabled); // ADT-Tweak
+            bool ttsIsEnabled = _cfgManager.GetCVar(ADTCCVars.TTSEnabled); // ADT-Tweak
             int valueTTSEnable = ttsIsEnabled ? 1 : 0; // Переменная для перехода на следующий индекс вкладки, если ТТС включён, чтобы их названия не накладывались друг на друга
 
             TabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
@@ -466,7 +466,7 @@ namespace Content.Client.Lobby.UI
 
         private void RefreshVoiceTab()
         {
-            if (!_cfgManager.GetCVar(ADTTTSCVars.TTSEnabled))
+            if (!_cfgManager.GetCVar(ADTCCVars.TTSEnabled))
                 return;
 
             _ttsTab = new TTSTab();
@@ -666,7 +666,7 @@ namespace Content.Client.Lobby.UI
             // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
             if (!string.IsNullOrWhiteSpace(url))
             {
-                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(url);
+                _entManager.System<CharacterFlavorSystem>().RequestHeadshotPreview(url);
             }
         }
 
@@ -688,7 +688,7 @@ namespace Content.Client.Lobby.UI
             // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
             if (!string.IsNullOrWhiteSpace(Profile.HeadshotUrl))
             {
-                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(Profile.HeadshotUrl);
+                _entManager.System<CharacterFlavorSystem>().RequestHeadshotPreview(Profile.HeadshotUrl);
             }
         }
         //ADT-tweak-end

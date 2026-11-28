@@ -1,26 +1,24 @@
-using Content.Shared.Power.Components;
+using Content.Shared.Alert;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.Alert;
-using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Rounding;
 
 namespace Content.Server.ADT.ShowEnergy;
 
 public sealed class ShowEnergyAlarmSystem : EntitySystem
 {
-    [Dependency] private AlertsSystem _alertsSystem = default!;
-    [Dependency] private PowerCellSystem _powerCellSystem = default!;
-    [Dependency] private SharedBatterySystem _batterySystem = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
 
     private float _updateAccumulator;
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<ShowEnergyAlarmComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ShowEnergyAlarmComponent, PowerCellChangedEvent>(OnPowerCellUpdate);
         SubscribeLocalEvent<ShowEnergyAlarmComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<ShowEnergyAlarmComponent, GotUnequippedEvent>(OnUnequipped);
@@ -38,48 +36,74 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.User != null)
-                UpdateClothingPowerAlert((uid, comp));
+                UpdatePowerAlert((uid, comp));
         }
     }
 
-    private void OnPowerCellUpdate(EntityUid uid, ShowEnergyAlarmComponent component, PowerCellChangedEvent args)
+    private void OnMapInit(Entity<ShowEnergyAlarmComponent> ent, ref MapInitEvent args)
     {
-        UpdateClothingPowerAlert((uid, component));
-    }
-
-    private void OnEquipped(EntityUid uid, ShowEnergyAlarmComponent component, GotEquippedEvent args)
-    {
-        component.User = args.EquipTarget;
-        UpdateClothingPowerAlert((uid, component));
-    }
-
-    private void OnUnequipped(EntityUid uid, ShowEnergyAlarmComponent component, GotUnequippedEvent args)
-    {
-        if (component.User != null)
-            _alertsSystem.ClearAlert(component.User.Value, component.PowerAlert);
-
-        component.User = null;
-    }
-
-    private void UpdateClothingPowerAlert(Entity<ShowEnergyAlarmComponent> entity)
-    {
-        var (uid, comp) = entity;
-
-        if (!TryComp<PowerCellDrawComponent>(uid, out var drawComp) || entity.Comp.User == null)
+        if (HasComp<ClothingComponent>(ent))
             return;
 
-        if (!TryComp<PowerCellSlotComponent>(uid, out var cellSlot)
-            || !_powerCellSystem.TryGetBatteryFromSlot((uid, cellSlot), out var battery)
-            || !drawComp.Enabled)
+        ent.Comp.User = ent.Owner;
+        UpdatePowerAlert(ent);
+    }
+
+    private void OnPowerCellUpdate(Entity<ShowEnergyAlarmComponent> ent, ref PowerCellChangedEvent args)
+    {
+        UpdatePowerAlert(ent);
+    }
+
+    private void OnEquipped(Entity<ShowEnergyAlarmComponent> ent, ref GotEquippedEvent args)
+    {
+        ent.Comp.User = args.EquipTarget;
+        UpdatePowerAlert(ent);
+    }
+
+    private void OnUnequipped(Entity<ShowEnergyAlarmComponent> ent, ref GotUnequippedEvent args)
+    {
+        if (ent.Comp.User != null)
+            ClearAlerts(ent, ent.Comp.User.Value);
+
+        ent.Comp.User = null;
+    }
+
+    private void ClearAlerts(Entity<ShowEnergyAlarmComponent> ent, EntityUid user)
+    {
+        _alerts.ClearAlert(user, ent.Comp.PowerAlert);
+
+        if (ent.Comp.NoBatteryAlert is { } noBatteryAlert)
+            _alerts.ClearAlert(user, noBatteryAlert);
+    }
+
+    private void UpdatePowerAlert(Entity<ShowEnergyAlarmComponent> ent)
+    {
+        if (ent.Comp.User is not { } user)
+            return;
+
+        if (TryComp<PowerCellDrawComponent>(ent, out var draw) && !draw.Enabled)
         {
-            _alertsSystem.ClearAlert(entity.Comp.User.Value, comp.PowerAlert);
+            ClearAlerts(ent, user);
             return;
         }
 
-        if (!TryComp<BatteryComponent>(battery!.Value, out var batteryComp))
-            return;
+        if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
+        {
+            _alerts.ClearAlert(user, ent.Comp.PowerAlert);
 
-        var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, _batterySystem.GetCharge(battery.Value.AsNullable())), batteryComp.MaxCharge, 6);
-        _alertsSystem.ShowAlert(entity.Comp.User.Value, comp.PowerAlert, (short) severity);
+            if (ent.Comp.NoBatteryAlert is { } noBatteryAlert)
+                _alerts.ShowAlert(user, noBatteryAlert);
+
+            return;
+        }
+
+        if (ent.Comp.NoBatteryAlert is { } staleNoBatteryAlert)
+            _alerts.ClearAlert(user, staleNoBatteryAlert);
+
+        var minSeverity = _alerts.GetMinSeverity(ent.Comp.PowerAlert);
+        var levels = _alerts.GetMaxSeverity(ent.Comp.PowerAlert) - minSeverity + 1;
+        var charge = MathF.Max(0f, _battery.GetCharge(battery.Value.AsNullable()));
+        var level = ContentHelpers.RoundToLevels(charge, battery.Value.Comp.MaxCharge, levels);
+        _alerts.ShowAlert(user, ent.Comp.PowerAlert, (short) (minSeverity + level));
     }
 }

@@ -10,16 +10,24 @@
     drawdepth: HighFloorObjects
     layers:
       - state: mangal
-        map: ["enum.MangalVisualLayers.Main"]
       - state: mangal_coat
-        map: ["enum.MangalVisualLayers.Coals"]
+        map: ["coals"]
         visible: false
       - state: mangal_fire
-        map: ["enum.MangalVisualLayers.Fire"]
+        map: ["fire"]
         shader: unshaded
         visible: false
   - type: Appearance
-  - type: MangalVisualizer
+  - type: GenericVisualizer
+    visuals:
+      enum.FuelableVisuals.HasFuel:
+        coals:
+          True: { visible: true }
+          False: { visible: false }
+      enum.FireVisuals.OnFire:
+        fire:
+          True: { visible: true }
+          False: { visible: false }
   - type: Fuelable
     fuelCapacitySeconds: 900
     maxFireStacks: 10

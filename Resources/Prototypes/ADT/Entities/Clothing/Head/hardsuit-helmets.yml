@@ -39,8 +39,6 @@
     - FacialHair
     - SnoutOverlay
   - type: InjectorsBlocker
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
 
 - type: entity
   parent: ClothingHeadHardsuitBase

@@ -102,7 +102,7 @@ public sealed partial class SlimeScannerSystem : EntitySystem
             var slimeEnt = new Entity<SlimeComponent>(target, slime);
             var density = _xenobio.GetLocalSlimeDensity(slimeEnt);
             var slowdown = _xenobio.GetBreedingSlowdown(slimeEnt);
-            var maxSlimes = _cfg.GetCVar(SimpleStationCCVars.XenobiologyMaxSlimesPerGrid);
+            var maxSlimes = _cfg.GetCVar(ADTCCVars.XenobiologyMaxSlimesPerGrid);
 
             return new SlimeScannerScannedMessage(
                 GetNetEntity(target),

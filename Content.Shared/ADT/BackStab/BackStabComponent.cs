@@ -4,14 +4,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage;
+
 namespace Content.Shared.ADT.BackStab;
 
 [RegisterComponent]
 public sealed partial class BackStabComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float DamageMultiplier = 2f;
+    [DataField]
+    public DamageSpecifier BonusDamage = new();
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public Angle Tolerance = Angle.FromDegrees(45d);
 }

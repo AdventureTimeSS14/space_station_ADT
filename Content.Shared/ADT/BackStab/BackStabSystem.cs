@@ -4,10 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using System.Numerics;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
@@ -15,18 +12,19 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.BackStab;
 
 public sealed class BackStabSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private INetManager _net = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private StandingStateSystem _standing = default!;
+
+    public static readonly Angle DefaultTolerance = Angle.FromDegrees(45d);
 
     public static readonly SoundSpecifier BackstabSound =
         new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/guillotine.ogg");
@@ -35,29 +33,43 @@ public sealed class BackStabSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BackStabComponent, MeleeHitEvent>(HandleHit);
+        SubscribeLocalEvent<BackStabComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void HandleHit(Entity<BackStabComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<BackStabComponent> ent, ref MeleeHitEvent args)
     {
-        if (ent.Comp.DamageMultiplier < 1f || !args.IsHit || args.HitEntities.Count != 1)
+        if (!args.IsHit)
             return;
 
-        var target = args.HitEntities.First();
+        foreach (var target in args.HitEntities)
+        {
+            if (target == args.User)
+                continue;
 
-        if (!TryBackstab(target, args.User, ent.Comp.Tolerance))
-            return;
+            if (!IsBehindTarget(args.User, target, ent.Comp.Tolerance))
+                continue;
 
-        var total = args.BaseDamage.GetTotal();
+            _damageable.TryChangeDamage(target, ent.Comp.BonusDamage, origin: args.User);
+        }
+    }
 
-        var damage = total * ent.Comp.DamageMultiplier;
+    public bool IsBehindTarget(EntityUid user, EntityUid target, Angle? tolerance = null)
+    {
+        var behindAngle = _transform.GetWorldRotation(target).GetCardinalDir().GetOpposite().ToAngle();
 
-        args.BonusDamage += new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Slash"), damage - total);
+        var userPos = _transform.GetMapCoordinates(user).Position;
+        var targetPos = _transform.GetMapCoordinates(target).Position;
+        var currentAngle = (userPos - targetPos).ToWorldAngle();
+
+        var difference = Angle.ShortestDistance(behindAngle, currentAngle);
+        var maxDifference = tolerance ?? DefaultTolerance;
+
+        return Math.Abs(difference.Degrees) < maxDifference.Degrees;
     }
 
     public bool TryBackstab(EntityUid target,
         EntityUid user,
-        Angle tolerance,
+        Angle? tolerance = null,
         bool showPopup = true,
         bool playSound = true,
         bool alwaysBackstabLaying = true)
@@ -65,31 +77,14 @@ public sealed class BackStabSystem : EntitySystem
         if (target == user || !HasComp<MobStateComponent>(target))
             return false;
 
-        if (alwaysBackstabLaying && _standing.IsDown(target))
-        {
-            BackstabEffects(target, showPopup, playSound);
-            return true;
-        }
-
-        var xform = Transform(target);
-        var userXform = Transform(user);
-        var v1 = -_transform.GetWorldRotation(xform).ToWorldVec();
-        var v2 = _transform.GetWorldPosition(userXform) - _transform.GetWorldPosition(xform);
-
-        var v1Len = v1.Length();
-        var v2Len = v2.Length();
-        var angle = v1Len > 0 && v2Len > 0
-            ? MathF.Acos(Vector2.Dot(v1, v2) / (v1Len * v2Len))
-            : 0f;
-
-        if (angle > tolerance.Theta)
+        if (!(alwaysBackstabLaying && _standing.IsDown(target)) && !IsBehindTarget(user, target, tolerance))
             return false;
 
         BackstabEffects(target, showPopup, playSound);
         return true;
     }
 
-    private void BackstabEffects(EntityUid target, bool showPopup = true, bool playSound = true)
+    private void BackstabEffects(EntityUid target, bool showPopup, bool playSound)
     {
         if (_net.IsClient)
             return;

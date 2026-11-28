@@ -1,26 +1,16 @@
 using Robust.Shared.Configuration;
-using Content.Shared.ADT.Supermatter;
-using Content.Shared.ADT.Supermatter.Components;
-using Content.Shared.Atmos;
-using Robust.Shared;
 
 namespace Content.Shared.ADT.CCVar;
 
 [CVarDefs]
-public sealed class ADTCCVars
+public sealed partial class ADTCCVars
 {
-    /*
-    * Exploitable Info
-    */
     /// <summary>
     /// Включает скрытую информацию персонажа (видна только владельцу, антагам и призракам).
     /// </summary>
     public static readonly CVarDef<bool> ExploitableSecrets =
         CVarDef.Create("ic.exploitable_info", true, CVar.SERVER | CVar.REPLICATED);
 
-    /*
-    * Barks
-    */
     public static readonly CVarDef<bool> BarksEnabled =
         CVarDef.Create("barks.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
@@ -42,329 +32,23 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /*
-    * Boss music
-    */
-
     public static readonly CVarDef<bool> BossMusicEnabled =
         CVarDef.Create("adt.boss_music_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     public static readonly CVarDef<float> BossMusicVolume =
         CVarDef.Create("adt.boss_music_volume", 1.5f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /*
-    * Radial menu
-    */
     public static readonly CVarDef<bool> CenterRadialMenu =
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /*
-    * Text outline
-    */
     public static readonly CVarDef<bool> EnableTextOutline =
         CVarDef.Create("accessibility.text_outline", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /*
-    * Discord
-    */
-
-    public static readonly CVarDef<string> DiscordBansWebhook =
-        CVarDef.Create("discord.bans_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
-
-    /*
-    * Offer Items
-    */
     public static readonly CVarDef<bool> OfferModeIndicatorsPointShow =
         CVarDef.Create("hud.offer_mode_indicators_point_show", true, CVar.ARCHIVE | CVar.CLIENTONLY);
 
-    /*
-    * Language
-    */
     public static readonly CVarDef<bool> EnableLanguageFonts =
         CVarDef.Create("lang.enable_fonts", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    #region Supermatter
-
-    /// <summary>
-    ///     Toggles whether or not Cascade delaminations can occur. If disabled, it will always delam into a Nuke.
-    /// </summary>
-    public static readonly CVarDef<bool> SupermatterDoCascadeDelam =
-        CVarDef.Create("supermatter.do_cascade", true, CVar.SERVER);
-
-    /// <summary>
-    ///     The supermatter gains +1 bolts of electricity.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPowerMinPenaltyThreshold =
-        CVarDef.Create("supermatter.power_min_penalty_threshold", 3000f, CVar.SERVER);
-
-    /// <summary>
-    ///     The cutoff on power properly doing damage, pulling shit around.
-    ///     The supermatter will also spawn anomalies, and gains +2 bolts of electricity.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPowerPenaltyThreshold =
-        CVarDef.Create("supermatter.power_penalty_threshold", 5000f, CVar.SERVER);
-
-    /// <summary>
-    ///     Above this, the supermatter spawns anomalies at an increased rate, and gains +1 bolt of electricity.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterSeverePowerPenaltyThreshold =
-        CVarDef.Create("supermatter.power_penalty_threshold_severe", 7000f, CVar.SERVER);
-
-    /// <summary>
-    ///     Above this, the supermatter spawns pyro anomalies at an increased rate, and gains +1 bolt of electricity.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterCriticalPowerPenaltyThreshold =
-        CVarDef.Create("supermatter.power_penalty_threshold_critical", 9000f, CVar.SERVER);
-
-    /// <summary>
-    ///     The minimum pressure for a pure ammonia atmosphere to begin being consumed.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterAmmoniaConsumptionPressure =
-        CVarDef.Create("supermatter.ammonia_consumption_pressure", Atmospherics.OneAtmosphere * 0.01f, CVar.SERVER);
-
-    /// <summary>
-    ///     How the amount of ammonia consumed per tick scales with partial pressure.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterAmmoniaPressureScaling =
-        CVarDef.Create("supermatter.ammonia_pressure_scaling", Atmospherics.OneAtmosphere * 0.05f, CVar.SERVER);
-
-    /// <summary>
-    ///     How much the amount of ammonia consumed per tick scales with the gas mix power ratio.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterAmmoniaGasMixScaling =
-        CVarDef.Create("supermatter.ammonia_gas_mix_scaling", 0.3f, CVar.SERVER);
-
-    /// <summary>
-    ///     The amount of matter power generated for every mole of ammonia consumed.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterAmmoniaPowerGain =
-        CVarDef.Create("supermatter.ammonia_power_gain", 10f, CVar.SERVER);
-
-    /// <summary>
-    ///     When true, bypass the normal checks to determine delam type, and instead use the type chosen by supermatter.forced_delam_type
-    /// </summary>
-    public static readonly CVarDef<bool> SupermatterDoForceDelam =
-        CVarDef.Create("supermatter.do_force_delam", false, CVar.SERVER);
-
-    /// <summary>
-    ///     Maximum safe operational temperature in degrees Celsius.
-    ///     Supermatter begins taking damage above this temperature.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterHeatPenaltyThreshold =
-        CVarDef.Create("supermatter.heat_penalty_threshold", 40f, CVar.SERVER);
-
-    /// <summary>
-    ///     The percentage of the supermatter's matter power that is converted into power each atmos tick.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterMatterPowerConversion =
-        CVarDef.Create("supermatter.matter_power_conversion", 10f, CVar.SERVER);
-
-    /// <summary>
-    ///     Divisor on the amount of gas absorbed by the supermatter during the roundstart grace period.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterGasEfficiencyGraceModifier =
-        CVarDef.Create("supermatter.gas_efficiency_grace_modifier", 2.5f, CVar.SERVER);
-
-    /// <summary>
-    ///     Divisor on the amount of damage that the supermatter takes from absorbing hot gas.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterMoleHeatPenalty =
-        CVarDef.Create("supermatter.mole_heat_penalty", 350f, CVar.SERVER);
-
-    /// <summary>
-    ///     Above this threshold the supermatter will delaminate into a singulo and take damage from gas moles.
-    ///     Below this threshold, the supermatter can heal damage.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterMolePenaltyThreshold =
-        CVarDef.Create("supermatter.mole_penalty_threshold", 100f, CVar.SERVER);
-
-    /// <summary>
-    ///     Divisor on the amount of oxygen released during atmospheric reactions.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterOxygenReleaseModifier =
-        CVarDef.Create("supermatter.oxygen_release_modifier", 325f, CVar.SERVER);
-
-    /// <summary>
-    ///     Divisor on the amount of plasma released during atmospheric reactions.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPlasmaReleaseModifier =
-        CVarDef.Create("supermatter.plasma_release_modifier", 750f, CVar.SERVER);
-
-    /// <summary>
-    ///     Percentage of inhibitor gas needed before the charge inertia chain reaction effect starts.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPowerlossInhibitionGasThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_gas_threshold", 0.2f, CVar.SERVER);
-
-    /// <summary>
-    ///     Moles of the gas needed before the charge inertia chain reaction effect starts.
-    ///     Scales powerloss inhibition down until this amount of moles is reached.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 12f, CVar.SERVER);
-
-    /// <summary>
-    ///     Bonus powerloss inhibition boost if this amount of moles is reached.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleBoostThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_boost_threshold", 500f, CVar.SERVER);
-
-    /// <summary>
-    ///     Base amount of radiation that the supermatter emits.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterRadsBase =
-        CVarDef.Create("supermatter.rads_base", 4f, CVar.SERVER);
-
-    /// <summary>
-    ///     Directly multiplies the amount of rads put out by the supermatter. Be VERY conservative with this.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterRadsModifier =
-        CVarDef.Create("supermatter.rads_modifier", 1f, CVar.SERVER);
-
-    /// <summary>
-    ///     Multiplier on the overall power produced during supermatter atmospheric reactions.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterReactionPowerModifier =
-        CVarDef.Create("supermatter.reaction_power_modifier", 0.55f, CVar.SERVER);
-
-    /// <summary>
-    ///     Divisor on the amount that atmospheric reactions increase the supermatter's temperature.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterThermalReleaseModifier =
-        CVarDef.Create("supermatter.thermal_release_modifier", 5f, CVar.SERVER);
-
-    /// <summary>
-    ///     How often the supermatter should announce its status.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterYellTimer =
-        CVarDef.Create("supermatter.yell_timer", 60f, CVar.SERVER);
-
-    #endregion
-
-    #region Admin
-
-    /// <summary>
-    /// Включает или отключает уведомления администраторов о сообщениях,
-    /// содержащих оскорбительные выражения в адрес родственников.
-    /// </summary>
-    public static readonly CVarDef<bool> ChatFilterAdminAlertEnable =
-        CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
-
-    #endregion
-
-    /// <summary>
-    /// Включает или отключает отображение дополнительной лобби-панели в пользовательском интерфейсе.
-    /// При значении true панель отображается, при false - скрывается.
-    /// </summary>
-    public static readonly CVarDef<bool> ExtraLobbyPanelEnabled =
-        CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
-
-    /// <summary>
-    /// Ссылка на канал привязки аккаунта сски к дискорду
-    /// </summary>
-    public static readonly CVarDef<string> DiscordLinkChannel =
-        CVarDef.Create("discord.link_channel", string.Empty, CVar.REPLICATED | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Хранит токен бота Discord для авторизации при взаимодействии с Discord API.
-    /// Этот токен используется для выполнения операций от имени бота, таких как получение информации о пользователях.
-    /// Токен должен быть передан в строковом формате.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordTokenBot =
-        CVarDef.Create("discord.token_bot", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
-
-
-    public static readonly CVarDef<bool> MapRotationEnabled =
-        CVarDef.Create("game.map_rotation_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> MapRotationExcludeDepth =
-        CVarDef.Create("game.map_rotation_exclude_depth", 1, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> MapRotationBonusCap =
-        CVarDef.Create("game.map_rotation_bonus_cap", 0, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> MapRotationMinPlayers =
-        CVarDef.Create("game.map_rotation_min_players", 20, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<bool> LobbyWarmupEnabled =
-        CVarDef.Create("game.lobby_warmup_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> LobbyWarmupMinPlayers =
-        CVarDef.Create("game.lobby_warmup_min_players", 60, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> LobbyWarmupIdle =
-        CVarDef.Create("game.lobby_warmup_idle", 30, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> LobbyWarmupMaxWait =
-        CVarDef.Create("game.lobby_warmup_max_wait", 180, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Запускать ли голосования за карту и режим при входе в лобби.
-    /// </summary>
-    public static readonly CVarDef<bool> LobbyAutoVote =
-        CVarDef.Create("game.lobby_auto_vote", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-
-    public static readonly CVarDef<float> BookPrinterUploadCooldown =
-        CVarDef.Create("bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<bool> BookPrinterUploadCooldownEnabled =
-        CVarDef.Create("bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<bool> PaySalary =
-        CVarDef.Create("economy.pay_salary", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Доля зарплаты, уходящая как взнос на содержание станции в счёт PrimaryAccount.
-    /// 0.15 = 15% зарплаты идёт в бюджет станции. 0 отключает налог.
-    /// </summary>
-    public static readonly CVarDef<float> SalaryTaxRate =
-        CVarDef.Create("economy.salary_tax_rate", 0.20f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Рыночный перегрев - перезакупленный товар дешевеет в приёмке на паллетах.
-    /// </summary>
-    public static readonly CVarDef<bool> MarketDeflation =
-        CVarDef.Create("economy.market_deflation", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Минимальный депозит ЦК на каждый департаментский счёт каждую выплату зарплаты.
-    /// </summary>
-    public static readonly CVarDef<int> DepartmentDeposit =
-        CVarDef.Create("economy.department_deposit", 2000, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Интервал выплат зарплат
-    /// </summary>
-    public static readonly CVarDef<int> SalaryDelay =
-        CVarDef.Create("economy.salary_delay", 2700, CVar.SERVERONLY);
-
-    /// <summary>
-    /// Максимальное количество записей в истории транзакций счёта
-    /// </summary>
-    public static readonly CVarDef<int> BankHistoryLimit =
-        CVarDef.Create("economy.bank_history_limit", 100, CVar.SERVERONLY);
-
-    /// <summary>
-    /// Насыщение цены газа: до этого числа молей цена линейная, дальше -
-    /// логарифмическая убывающая отдача. Базовое значение 0 - ничего резаться не будет.
-    /// </summary>
-    public static readonly CVarDef<float> GasPriceSaturationMoles =
-        CVarDef.Create("economy.gas_price_saturation_moles", 50f, CVar.SERVERONLY);
-
-
-
-    /// <summary>
-    /// Whether or not to spawn space whales if the entity is too far away from the station
-    /// </summary>
-    public static readonly CVarDef<bool> SpaceWhaleSpawn =
-        CVarDef.Create("misc.space_whale_spawn", true, CVar.SERVER);
-
-    /// <summary>
-    /// The distance to spawn a space whale from the station
-    /// </summary>
-    public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
-        CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
 
     /// <summary>
     /// If enabled, job icons in chat and status icons are available.
@@ -381,11 +65,7 @@ public sealed class ADTCCVars
     public static readonly CVarDef<bool> EnableChatJobIcons =
         CVarDef.Create("adt.chat_job_icons_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /*
-    * Headshot
-    */
-    // public static readonly CVarDef<string> HeadshotUrl =
-    // CVarDef.Create("ic.headshot_url", "https://discord.com/channels/901772674865455115/1446603657255850085", CVar.SERVER | CVar.REPLICATED);
+
     public static readonly CVarDef<string> HeadshotDomain =
         CVarDef.Create("ic.headshot_domain", "i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
 
@@ -407,43 +87,6 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> HeadshotMaxCacheCount =
         CVarDef.Create("ic.headshot_max_cache_count", 100, CVar.SERVER);
 
-    /*
-    * Fix PoolManager. Cvars
-    */
-
-    /// <summary>
-    /// Whether ghostbar is enabled.
-    /// </summary>
-    public static readonly CVarDef<bool> GhostbarEnabled =
-        CVarDef.Create("ghostbar.enabled", true, CVar.SERVERONLY);
-
-    /// <summary>
-    /// Whether planet spawning is enabled.
-    /// </summary>
-    public static readonly CVarDef<bool> PlanetSpawnerEnabled =
-        CVarDef.Create("planet_spawner.enabled", true, CVar.SERVERONLY);
-
-    /// <summary>
-    /// Whether biome generation on planets is enabled.
-    /// </summary>
-    public static readonly CVarDef<bool> BiomeGenerationEnabled =
-        CVarDef.Create("biome.generation_enabled", true, CVar.SERVERONLY);
-
-    /*
-     * Atmos
-     */
-
-     /// <summary>
-    /// Whether overpressure pipe damage is enabled.
-    /// When enabled, pipes with OverpressurePipeDamageComponent will take damage when pressure exceeds the limit.
-    /// </summary>
-    public static readonly CVarDef<bool> OverpressurePipeDamageEnabled =
-        CVarDef.Create("atmos.overpressure_pipe_damage_enabled", true, CVar.SERVERONLY);
-
-    /*
-    * Pointing
-    */
-
     /// <summary>
     /// If enabled, pointing messages are duplicated into chat with an entity icon.
     /// When disabled, only popups are shown
@@ -458,52 +101,6 @@ public sealed class ADTCCVars
     public static readonly CVarDef<bool> EnableChatPointingIcons =
         CVarDef.Create("adt.chat_pointing_icons_enabled", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT);
 
-     /*
-     * Blob
-     */
-
-    /// <summary>
-    ///     Whether blob tiles are allowed to spread onto space tiles.
-    /// </summary>
-    public static readonly CVarDef<bool> BlobCanGrowInSpace =
-        CVarDef.Create("blob.grow_space", true, CVar.SERVER);
-
-     /*
-     * Antag Roll Bonus
-     */
-
-    public static readonly CVarDef<bool> AntagRollBonusEnabled =
-        CVarDef.Create("antag.roll_bonus_enabled", true, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> AntagRollBonusPerRound =
-        CVarDef.Create("antag.roll_bonus_per_round", 0.15f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> AntagRollBonusInfoRateLimitPeriod =
-        CVarDef.Create("antag.roll_bonus_info_rate_limit_period", 5f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
-        CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
-
-    /// <summary>
-    /// How many hours pass between full wipes of every stored roll bonus. Zero or less disables wiping.
-    /// </summary>
-    public static readonly CVarDef<float> AntagRollBonusWipeHours =
-        CVarDef.Create("antag.roll_bonus_wipe_hours", 36f, CVar.SERVERONLY);
-
-     /*
-     * Heretic
-     */
-
-    /// <summary>
-    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
-    /// </summary>
-    public static readonly CVarDef<bool> HereticAscensionRequiresObjectives =
-        CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
-
-    /*
-     * Chat Highlight Sound
-     */
-
     public static readonly CVarDef<bool> ChatHighlightSoundEnabled =
         CVarDef.Create("adt.chat_highlight_sound_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
 
@@ -513,177 +110,10 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> ChatHighlightSoundVolume =
         CVarDef.Create("adt.chat_highlight_sound_volume", 1f, CVar.ARCHIVE | CVar.CLIENTONLY);
 
-    /*
-    * Logic Circuit
-    */
-
-    public static readonly CVarDef<bool> LogicEnabled =
-        CVarDef.Create("adt.logic.enabled", true, CVar.SERVERONLY);
-
     /// <summary>
-    /// Сколько элементов помещается в одну схему.
+    /// Включает или отключает уведомления администраторов о сообщениях,
+    /// содержащих оскорбительные выражения в адрес родственников.
     /// </summary>
-    public static readonly CVarDef<int> LogicMaxElements =
-        CVarDef.Create("adt.logic.max_elements", 64, CVar.SERVER | CVar.REPLICATED);
-
-    /// <summary>
-    /// Сколько проводов помещается в одну схему.
-    /// </summary>
-    public static readonly CVarDef<int> LogicMaxWires =
-        CVarDef.Create("adt.logic.max_wires", 128, CVar.SERVER | CVar.REPLICATED);
-
-    /// <summary>
-    /// Сколько схем может тикать одновременно.
-    /// </summary>
-    public static readonly CVarDef<int> LogicMaxActiveCircuits =
-        CVarDef.Create("adt.logic.max_active_circuits", 64, CVar.SERVERONLY);
-
-    /// <summary>
-    /// Сколько тиков сервера проходит между обновлениями схемы.
-    /// </summary>
-    public static readonly CVarDef<int> LogicTickInterval =
-        CVarDef.Create("adt.logic.tick_interval", 2, CVar.SERVERONLY);
-
-    /// <summary>
-    /// Предел длины текстового сигнала в символах.
-    /// </summary>
-    public static readonly CVarDef<int> LogicMaxSignalLength =
-        CVarDef.Create("adt.logic.max_signal_length", 64, CVar.SERVER | CVar.REPLICATED);
-
-    /// <summary>
-    /// Предел длины значения в настройках элемента.
-    /// </summary>
-    public static readonly CVarDef<int> LogicMaxConfigLength =
-        CVarDef.Create("adt.logic.max_config_length", 512, CVar.SERVER | CVar.REPLICATED);
-
-    /// <summary>
-    /// Предел времени в миллисекундах, который все схемы вместе могут занять за один тик.
-    public static readonly CVarDef<float> LogicBudgetMs =
-        CVarDef.Create("adt.logic.budget_ms", 2f, CVar.SERVERONLY);
-
-    /*
-     * Join Queue
-     */
-
-    public static readonly CVarDef<bool> QueueGamesEnabled =
-        CVarDef.Create("queue.games_enabled", true, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> QueueGamesScoreToSpin =
-        CVarDef.Create("queue.games_score_to_spin", 3, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> QueueGamesSlotWinChance =
-        CVarDef.Create("queue.games_slot_win_chance", 0.05f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> QueueGamesSlotBypassMinutes =
-        CVarDef.Create("queue.games_slot_bypass_minutes", 10f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> QueueGamesTurnTime =
-        CVarDef.Create("queue.games_turn_time", 30f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> HostReservedSlots =
-        CVarDef.Create("queue.host_reserved_slots", 5, CVar.SERVERONLY);
-
-    /*
-     * State diagnostics
-     */
-
-    public static readonly CVarDef<bool> StateDiagnosticsEnabled =
-        CVarDef.Create("adt.state_diag_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> StateDiagnosticsRequestThreshold =
-        CVarDef.Create("adt.state_diag_request_threshold", 2, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<float> StateDiagnosticsWindow =
-        CVarDef.Create("adt.state_diag_window", 60f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<float> StateDiagnosticsCooldown =
-        CVarDef.Create("adt.state_diag_cooldown", 300f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<float> StateDiagnosticsRadius =
-        CVarDef.Create("adt.state_diag_radius", 20f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /*
-     * Canvas
-     */
-
-    public static readonly CVarDef<bool> CanvasEnabled =
-        CVarDef.Create("adt.canvas.enabled", true, CVar.SERVER | CVar.REPLICATED);
-
-    public static readonly CVarDef<bool> CanvasWhitelist =
-        CVarDef.Create("adt.canvas.whitelist", true, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasRulesAccepted =
-        CVarDef.Create("adt.canvas.rules_accepted", 0, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<int> CanvasMaxPaintingMb =
-        CVarDef.Create("adt.canvas.max_painting_mb", 24, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasMaxLayersMb =
-        CVarDef.Create("adt.canvas.max_layers_mb", 48, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasMaxSessions =
-        CVarDef.Create("adt.canvas.max_sessions", 12, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasMaxSessionsPerPlayer =
-        CVarDef.Create("adt.canvas.max_sessions_per_player", 1, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> CanvasHostGrace =
-        CVarDef.Create("adt.canvas.host_grace", 300f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasMaxEditors =
-        CVarDef.Create("adt.canvas.max_editors", 4, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> CanvasJoinRequestCooldown =
-        CVarDef.Create("adt.canvas.join_request_cooldown", 60f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasStrokeSamplesPerSec =
-        CVarDef.Create("adt.canvas.stroke_samples_per_sec", 1000, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasCommitDebounceMs =
-        CVarDef.Create("adt.canvas.commit_debounce_ms", 600, CVar.SERVER | CVar.REPLICATED);
-
-    public static readonly CVarDef<float> CanvasAutosaveInterval =
-        CVarDef.Create("adt.canvas.autosave_interval", 120f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasDownKbps =
-        CVarDef.Create("adt.canvas.down_kbps", 512, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasUpKbps =
-        CVarDef.Create("adt.canvas.up_kbps", 256, CVar.SERVER | CVar.REPLICATED);
-
-    public static readonly CVarDef<int> CanvasDraftSlots =
-        CVarDef.Create("adt.canvas.draft_slots", 2, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasDraftTtlDays =
-        CVarDef.Create("adt.canvas.draft_ttl_days", 14, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasPendingPerPlayer =
-        CVarDef.Create("adt.canvas.pending_per_player", 2, CVar.SERVERONLY);
-
-    public static readonly CVarDef<float> CanvasSubmitCooldown =
-        CVarDef.Create("adt.canvas.submit_cooldown", 600f, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasRejectTtlDays =
-        CVarDef.Create("adt.canvas.reject_ttl_days", 3, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasApprovedPerPlayer =
-        CVarDef.Create("adt.canvas.approved_per_player", 20, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasApprovedTotalMb =
-        CVarDef.Create("adt.canvas.approved_total_mb", 0, CVar.SERVERONLY);
-
-    public static readonly CVarDef<string> CanvasBlobStore =
-        CVarDef.Create("adt.canvas.blob_store", "db", CVar.SERVERONLY);
-
-    public static readonly CVarDef<string> CanvasBlobDir =
-        CVarDef.Create("adt.canvas.blob_dir", "", CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> CanvasClientCacheMb =
-        CVarDef.Create("adt.canvas.client_cache_mb", 512, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<string> CanvasPressurePreset =
-        CVarDef.Create("adt.canvas.pressure_preset", "Liner", CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<bool> CanvasRightClickPicker =
-        CVarDef.Create("adt.canvas.right_click_picker", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<bool> ChatFilterAdminAlertEnable =
+        CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
 }

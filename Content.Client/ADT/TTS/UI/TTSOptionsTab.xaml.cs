@@ -34,7 +34,7 @@ public sealed partial class TTSOptionsTab : Control
         IoCManager.InjectDependencies(this);
 
         Control.AddOptionPercentSlider(
-            ADTTTSCVars.TTSVolume,
+            ADTCCVars.TTSVolume,
             SliderVolumeTts,
             scale: ContentAudioSystem.TtsMultiplier);
 
@@ -46,10 +46,10 @@ public sealed partial class TTSOptionsTab : Control
                 new OptionDropDownCVar<bool>.ValueOption(false, Loc.GetString("ui-options-tts-speech")),
             ]);
 
-        Control.AddOptionCheckBox(ADTTTSCVars.TTSRadioClientEnabled, RadioEnabledCheckBox);
+        Control.AddOptionCheckBox(ADTCCVars.TTSRadioClientEnabled, RadioEnabledCheckBox);
 
         Control.AddOptionPercentSlider(
-            ADTTTSCVars.TTSRadioVolume,
+            ADTCCVars.TTSRadioVolume,
             SliderRadioVolume,
             scale: ContentAudioSystem.TtsMultiplier);
 
@@ -170,7 +170,7 @@ public sealed class OptionRadioChannelVolumes : BaseOptionCVar<string>
         OptionsTabControlRow controller,
         IConfigurationManager cfg,
         Dictionary<string, Slider> sliders)
-        : base(controller, cfg, ADTTTSCVars.TTSRadioChannelVolumes)
+        : base(controller, cfg, ADTCCVars.TTSRadioChannelVolumes)
     {
         _sliders = sliders;
 

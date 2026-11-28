@@ -10,16 +10,34 @@
     drawdepth: HighFloorObjects
     layers:
       - state: furnace
-        map: ["enum.BurzhujkaVisualLayers.Main"]
+        map: ["base"]
       - state: open_coat
-        map: ["enum.BurzhujkaVisualLayers.Coals"]
+        map: ["coals"]
         visible: false
       - state: open_fire
-        map: ["enum.BurzhujkaVisualLayers.Fire"]
+        map: ["fire"]
         shader: unshaded
         visible: false
+      - state: furnace
+        map: ["door"]
   - type: Appearance
-  - type: BurzhujkaVisualizer
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        base:
+          True: { state: open }
+          False: { state: furnace }
+        door:
+          True: { visible: false }
+          False: { visible: true }
+      enum.FuelableVisuals.HasFuel:
+        coals:
+          True: { visible: true }
+          False: { visible: false }
+      enum.FireVisuals.OnFire:
+        fire:
+          True: { visible: true }
+          False: { visible: false }
   - type: Fuelable
     fuelCapacitySeconds: 900
     maxFireStacks: 10

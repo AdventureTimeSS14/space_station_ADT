@@ -2,8 +2,8 @@ using Content.Server.Actions;
 using Content.Server.ADT.Salvage.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
+using Content.Shared.ADT.IPC;
 using Content.Shared.ADT.Salvage.Components;
-using Content.Shared.ADT.Silicon;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
@@ -169,7 +169,7 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
     {
-        if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidProfileComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
+        if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidProfileComponent>(args.User) || HasComp<SiliconComponent>(args.User))
         {
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);
             return;

@@ -24,7 +24,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 // ADT-Tweak-Start. Убираем надпись защиты от вспышек из описания новакида, КПБ
 using Content.Shared.ADT.Novakid;
-using Content.Shared.ADT.Silicon;
 // ADT-Tweak-End
 
 namespace Content.Shared.Flash;

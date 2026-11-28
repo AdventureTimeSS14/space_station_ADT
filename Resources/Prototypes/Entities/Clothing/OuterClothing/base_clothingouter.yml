@@ -210,8 +210,6 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-  - type: CoveredSlot
-    slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
   - type: HideLayerClothing
     slots:
     - Tail

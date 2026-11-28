@@ -1,13 +1,3 @@
-# Данный прототип связан с работой от @temporaldarkness (discord). Код, связанный с этим прототипом, был взят с https://github.com/ss14-ganimed/ENT14-Master.
-- type: entity
-  parent: BaseFlatpack
-  id: ADTBookPrinterFlatpack
-  name: book printer flatpack
-  description: A flatpack used for constructing a book printer.
-  components:
-  - type: Flatpack
-    entity: ADTBookPrinter
-
 - type: entity
   parent: BaseFlatpack
   id: ADTChemistryColdplateFlatpack

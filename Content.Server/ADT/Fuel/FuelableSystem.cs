@@ -17,6 +17,7 @@ public sealed class FuelableSystem : EntitySystem
 {
     [Dependency] private FlammableSystem _flammable = default!;
     [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private StackSystem _stacks = default!;
@@ -42,6 +43,7 @@ public sealed class FuelableSystem : EntitySystem
 
         UpdateFireStacksFromFuel(ent);
         UpdateLight(ent);
+        UpdateVisuals(ent);
     }
 
     private void OnInteractUsing(Entity<FuelableComponent> ent, ref InteractUsingEvent args)
@@ -133,6 +135,7 @@ public sealed class FuelableSystem : EntitySystem
 
         UpdateFireStacksFromFuel(ent);
         UpdateLight(ent);
+        UpdateVisuals(ent);
 
         _popup.PopupEntity(Loc.GetString("adt-fuelable-inserted"), ent, args.User);
         args.Handled = true;
@@ -151,6 +154,7 @@ public sealed class FuelableSystem : EntitySystem
                     _flammable.SetFireStacks(uid, 0f, flammable);
 
                 UpdateLight((uid, fuelable));
+                UpdateVisuals((uid, fuelable));
                 continue;
             }
 
@@ -182,6 +186,11 @@ public sealed class FuelableSystem : EntitySystem
             return;
 
         _flammable.SetFireStacks(ent, FuelToFireStacks(ent.Comp), flammable);
+    }
+
+    private void UpdateVisuals(Entity<FuelableComponent> ent)
+    {
+        _appearance.SetData(ent, FuelableVisuals.HasFuel, ent.Comp.FuelSeconds > 0f);
     }
 
     private void UpdateLight(Entity<FuelableComponent> ent)

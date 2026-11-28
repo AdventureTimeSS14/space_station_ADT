@@ -302,16 +302,6 @@ namespace Content.Server.Database
 
         #endregion
 
-        // ADT-BookPrinter-Start
-        #region BookPrinter
-
-        Task<bool> DeleteBookPrinterEntryAsync(int bookId);
-        Task<List<BookPrinterEntry>> GetBookPrinterEntriesAsync();
-        Task UploadBookPrinterEntryAsync(BookPrinterEntry bookEntry);
-
-        #endregion
-        // ADT-BookPrinter-End
-
         // ADT-Thunderdome-Start
         #region Thunderdome
 
@@ -1082,26 +1072,6 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
-
-        // ADT-BookPrinter-Start
-        public Task<List<BookPrinterEntry>> GetBookPrinterEntriesAsync()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetBookPrinterEntries());
-        }
-
-        public Task<bool> DeleteBookPrinterEntryAsync(int bookId)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.DeleteBookPrinterEntryAsync(bookId));
-        }
-
-        public Task UploadBookPrinterEntryAsync(BookPrinterEntry bookEntry)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.UploadBookPrinterEntry(bookEntry));
-        }
-        // ADT-BookPrinter-Start
 
         // ADT-Thunderdome-Start
         public Task<List<ThunderdomeLeaderboardRow>> GetThunderdomeLeaderboardAsync(int count)

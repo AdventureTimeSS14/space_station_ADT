@@ -1,33 +1,23 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-namespace Content.Shared.ComponentalActions.Components;
+
+namespace Content.Shared.ADT.ComponentalActions.Components;
 
 [RegisterComponent]
-[AutoGenerateComponentState(true)]
-public sealed partial class ProjectileActComponent : Component
+public sealed partial class ProjectileActComponent : Component, IComponentalActionComponent
 {
-    /// <summary>
-    /// What entity should be spawned.
-    /// </summary>
-    [DataField("prototype", required: true)]
-    public EntProtoId Prototype = "BulletKinetic";
-
-    /// <summary>
-    /// Gets the targeted spawn positions; may lead to multiple entities being spawned.
-    /// </summary>
-    [DataField("posData")]
-    public ComponentalActionsSpawnData Pos = new TargetCasterPos();
+    [DataField]
+    public EntProtoId Action { get; set; } = "CompActionShoot";
 
     [DataField]
-    public SoundSpecifier ShootSound = new SoundPathSpecifier("/Audio/Weapons/Xeno/alien_spitacid.ogg");
+    public EntityUid? ActionEntity { get; set; }
 
-    [DataField("shootVolume")]
-    public float ShootVolume = 5f;
+    [DataField]
+    public EntProtoId Prototype = "BulletKinetic";
 
-    [DataField("projAction")]
-    public EntProtoId Action = "CompActionShoot";
+    [DataField]
+    public float Speed = 20f;
 
-    [DataField, AutoNetworkedField]
-    public EntityUid? ActionEntity;
-
+    [DataField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Weapons/Xeno/alien_spitacid.ogg", AudioParams.Default.WithVolume(5f));
 }

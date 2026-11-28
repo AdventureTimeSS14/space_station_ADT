@@ -29,11 +29,6 @@ reagent-effect-guidebook-adjust-allergic-stack =
         [true] [color=green]{ $amount }[/color]
        *[false] [color=red]{ $amount }[/color]
     } ед.
-reagent-effect-guidebook-wash-stamp-reaction =
-    { $chance ->
-        [1] Смывает
-       *[other] смывают
-    } печати с лица
 reagent-effect-guidebook-cure-clone-cellular-decay =
     { $chance ->
         [1] Останавливает

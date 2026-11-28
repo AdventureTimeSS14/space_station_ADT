@@ -1,4 +1,4 @@
-using Content.Shared.ADT.Silicon;
+using Content.Shared.ADT.IPC;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
@@ -26,7 +26,7 @@ public sealed class TrainingProgressSystem : EntitySystem
         if (!performer.Valid || TerminatingOrDeleted(performer))
             return;
 
-        if (HasComp<MobIpcComponent>(performer))
+        if (HasComp<SiliconComponent>(performer))
             return;
 
         if (!TryComp<TrainingEquipmentComponent>(equipment, out var settings))

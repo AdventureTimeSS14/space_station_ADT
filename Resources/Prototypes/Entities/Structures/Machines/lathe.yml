@@ -343,7 +343,6 @@
     - MechBoards
     - ShuttleBoards
     # ADT-tweak-start
-    - ADTBluespaceHarvesterPack
     - ADTArcade
     # - ADTIndustrialCharger # ADT-Tweak
     - ADTAdvancedThruster

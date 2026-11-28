@@ -278,3 +278,8 @@
     state: overfed
   name: alerts-adt-well-fed-great-name
   description: alerts-adt-well-fed-great-desc
+
+- type: alert
+  parent: BorgBatteryNone
+  id: ADTSiliconBatteryNone
+  clientHandled: false

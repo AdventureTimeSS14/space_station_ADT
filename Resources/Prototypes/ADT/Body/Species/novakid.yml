@@ -240,10 +240,6 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashStamp
-    - reagents: [Water, SpaceCleaner]
-      methods: [Touch]
-      effects:
       - !type:WashCreamPie
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]

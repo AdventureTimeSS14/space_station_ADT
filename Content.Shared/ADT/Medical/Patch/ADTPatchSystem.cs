@@ -1,4 +1,4 @@
-using Content.Shared.ADT.Silicon;
+using Content.Shared.ADT.IPC;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
@@ -174,7 +174,7 @@ public sealed class ADTPatchSystem : EntitySystem
 
     private bool CanApply(Entity<ADTPatchComponent> ent, EntityUid user, EntityUid target)
     {
-        if (!HasComp<BloodstreamComponent>(target) || HasComp<MobIpcComponent>(target))
+        if (!HasComp<BloodstreamComponent>(target) || HasComp<SiliconComponent>(target))
         {
             _popup.PopupClient(
                 Loc.GetString("adt-patch-invalid-target", ("patch", ent.Owner), ("target", Identity.Entity(target, EntityManager))),

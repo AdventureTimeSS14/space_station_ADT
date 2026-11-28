@@ -56,7 +56,6 @@ using Robust.Shared.Map.Components;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
-using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Stunnable;
 using Content.Server.Power.Components; // ADT-Revenant-Tweak
 using Robust.Shared.Map.Components;

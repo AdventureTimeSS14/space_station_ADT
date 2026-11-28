@@ -82,7 +82,7 @@ public sealed partial class TTSSystem : EntitySystem
 
     public override void Initialize()
     {
-        _cfg.OnValueChanged(ADTTTSCVars.TTSEnabled, v => _isEnabled = v, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSEnabled, v => _isEnabled = v, true);
 
         SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);

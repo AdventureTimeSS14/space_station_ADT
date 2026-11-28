@@ -211,7 +211,7 @@
   - DeviceDesynchronizer
   # ADT Research Console Rework start
   requiredTech:
-  - ADTBluespaceMining
+  - AdvancedAnomalyResearch
   position: 4,-3
   # ADT Research Console Rework end
 

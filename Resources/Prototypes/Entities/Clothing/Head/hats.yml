@@ -1233,10 +1233,6 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
-  #ADT-Tweak-Start
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
-  #ADT-Tweak-End
 
 - type: entity
   parent: ClothingHeadBase

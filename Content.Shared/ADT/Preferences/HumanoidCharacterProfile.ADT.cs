@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.ADT.CharecterFlavor;
+using Content.Shared.ADT.CharacterFlavor;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.Sponsors;
 using Content.Shared.ADT.SpeechBarks;

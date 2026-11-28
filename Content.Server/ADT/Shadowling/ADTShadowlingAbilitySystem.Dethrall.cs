@@ -1,3 +1,4 @@
+using Content.Shared.ADT.IPC;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
@@ -9,7 +10,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Light.Components;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.ADT.Silicon.Components;
 
 namespace Content.Server.ADT.Shadowling;
 

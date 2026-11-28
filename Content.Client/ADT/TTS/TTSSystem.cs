@@ -50,11 +50,11 @@ public sealed class TTSSystem : EntitySystem
         }
 
         _sawmill = Logger.GetSawmill("tts");
-        _cfg.OnValueChanged(ADTTTSCVars.TTSVolume, OnTtsVolumeChanged, true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSEnabled, OnTtsEnabledChanged, true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSRadioClientEnabled, OnRadioEnabledChanged, true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSRadioVolume, OnRadioVolumeChanged, true);
-        _cfg.OnValueChanged(ADTTTSCVars.TTSRadioChannelVolumes, OnChannelVolumesChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSVolume, OnTtsVolumeChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSEnabled, OnTtsEnabledChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSRadioClientEnabled, OnRadioEnabledChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSRadioVolume, OnRadioVolumeChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.TTSRadioChannelVolumes, OnChannelVolumesChanged, true);
 
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
     }
@@ -62,11 +62,11 @@ public sealed class TTSSystem : EntitySystem
     public override void Shutdown()
     {
         base.Shutdown();
-        _cfg.UnsubValueChanged(ADTTTSCVars.TTSVolume, OnTtsVolumeChanged);
-        _cfg.UnsubValueChanged(ADTTTSCVars.TTSEnabled, OnTtsEnabledChanged);
-        _cfg.UnsubValueChanged(ADTTTSCVars.TTSRadioClientEnabled, OnRadioEnabledChanged);
-        _cfg.UnsubValueChanged(ADTTTSCVars.TTSRadioVolume, OnRadioVolumeChanged);
-        _cfg.UnsubValueChanged(ADTTTSCVars.TTSRadioChannelVolumes, OnChannelVolumesChanged);
+        _cfg.UnsubValueChanged(ADTCCVars.TTSVolume, OnTtsVolumeChanged);
+        _cfg.UnsubValueChanged(ADTCCVars.TTSEnabled, OnTtsEnabledChanged);
+        _cfg.UnsubValueChanged(ADTCCVars.TTSRadioClientEnabled, OnRadioEnabledChanged);
+        _cfg.UnsubValueChanged(ADTCCVars.TTSRadioVolume, OnRadioVolumeChanged);
+        _cfg.UnsubValueChanged(ADTCCVars.TTSRadioChannelVolumes, OnChannelVolumesChanged);
     }
 
     public void RequestPreviewTTS(string voiceId)

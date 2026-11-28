@@ -49,8 +49,8 @@ public sealed partial class TraitsTab : BoxContainer
         _adtSponsors.Updated += OnSponsorsUpdated;
 
         // Subscribe to CVars
-        _cfg.OnValueChanged(SimpleStationCCVars.MaxTraitCount, OnMaxTraitCountChanged, true);
-        _cfg.OnValueChanged(SimpleStationCCVars.MaxTraitPoints, OnMaxTraitPointsChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.MaxTraitCount, OnMaxTraitCountChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.MaxTraitPoints, OnMaxTraitPointsChanged, true);
 
         PopulateCategories();
         UpdateGlobalStats();

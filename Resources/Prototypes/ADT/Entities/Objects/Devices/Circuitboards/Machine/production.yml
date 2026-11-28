@@ -16,19 +16,6 @@
           amount: 2
           defaultPrototype: Beaker
 
-# Оригинал данного прототипа был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
-# Ganimed-Book-Printer-Start
-- type: entity
-  id: ADTBookPrinterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: book printer machine board
-  components:
-  - type: MachineBoard
-    prototype: ADTBookPrinter
-    partRequirements:
-      Servo: 2
-# Ganimed-Book-Printer-End
-
 - type: entity
   id: ADTBarmenKettleCircuit
   parent: BaseMachineCircuitboard
@@ -244,33 +231,6 @@
           defaultPrototype: Beaker
 
 #End of Frontier Station
-
-# Блюспейс харвестер, чё уж
-
-- type: entity
-  id: ADTMachineBluespaceHarvesterCircuitboard
-  parent: BaseMachineCircuitboard
-  name: Bluespace Harvester board
-  description: A machine board for a Bluespace Harvester
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Misc/module_bluespace.rsi
-    state: bluespace
-  - type: MachineBoard
-    prototype: ADTBluespaceHarvester
-    stackRequirements:
-      Glass: 15
-      Steel: 15
-      CableHV: 5
-      ADTBScrystal: 10
-    partRequirements:
-      Servo: 20
-    tagRequirements:
-      GlassBeaker:
-        amount: 5
-        defaultPrototype: Beaker
-  - type: Item
-    size: Normal
 
 # движки
 

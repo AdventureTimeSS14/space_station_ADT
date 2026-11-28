@@ -3,7 +3,6 @@
   id: BasePaper
   abstract: true
   components:
-  - type: PaperOrigami # ADT-Tweak. Оригами из бумаги
   - type: Tag
     tags:
     - Document
@@ -78,11 +77,6 @@
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
-    # ADT-Tweak start
-    - state: paperairplane
-      map: ["enum.PaperOrigamiState.State"]
-      visible: false
-    # ADT-Tweak end
   - type: Paper
   - type: PaperLabelType
   - type: ActivatableUI
@@ -127,7 +121,6 @@
     - Document
     - Trash
     - Paper
-    - ADTDoNotMakeOrigami # ADT-Tweak. Оригами из бумаги
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
@@ -139,9 +132,6 @@
       visible: false
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
-      visible: false
-    - state: paperairplane
-      map: ["enum.PaperOrigamiState.State"]
       visible: false
     # ADT-Tweak end.
 
@@ -242,7 +232,6 @@
     - Document
     - Trash
     - Paper
-    - ADTDoNotMakeOrigami # ADT-Fix. Оригами из бумаги
   - type: PaperVisuals
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
@@ -440,9 +429,6 @@
       visible: false
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
-      visible: false
-    - state: paperairplane
-      map: ["enum.PaperOrigamiState.State"]
       visible: false
     # ADT-Tweak end.
 

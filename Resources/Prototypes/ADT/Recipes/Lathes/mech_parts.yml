@@ -603,16 +603,6 @@
     Copper: 1000
     Zinc: 1000
 
-# - type: latheRecipe
-#   id: MechEquipmentGravipult
-#   result: MechEquipmentGravipult
-#   category: Mech
-#   completetime: 3
-#   materials:
-#     Steel: 650
-#     Plastic: 150
-#     Glass: 300
-
 #Оружие мехов
 
 - type: latheRecipe

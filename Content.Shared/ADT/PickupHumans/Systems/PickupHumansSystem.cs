@@ -1,8 +1,8 @@
 using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Components.PickupHumans;
+using Content.Shared.ADT.IPC;
 using Content.Shared.ADT.Shadekin;
-using Content.Shared.ADT.Silicon;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
@@ -145,7 +145,7 @@ public sealed class PickupHumansSystem : EntitySystem
         if (_standing.IsDown(carrier))
             return false;
 
-        if (!HasComp<MobIpcComponent>(carrier) && HasComp<MobIpcComponent>(carried))
+        if (!HasComp<SiliconComponent>(carrier) && HasComp<SiliconComponent>(carried))
         {
             if (showPopup)
                 PopupTo(Loc.GetString("popup-pickup-attempt-ipc"), carrier);

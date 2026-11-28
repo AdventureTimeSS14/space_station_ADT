@@ -124,7 +124,7 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_spear-inhands.rsi
   - type: DisarmMalus
   - type: Wieldable
-  - type: BackstabDamageMultipilier
+  - type: BackStab
     bonusDamage:
       types:
         Slash: 8
@@ -264,7 +264,7 @@
     angle: 0
     animation: WeaponArcThrust
     range: 2
-  - type: BackstabDamageMultipilier
+  - type: BackStab
     bonusDamage:
       types:
         Slash: 16
@@ -348,7 +348,7 @@
   - type: Item
     size: Ginormous
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_machete-inhands.rsi
-  - type: BackstabDamageMultipilier
+  - type: BackStab
     bonusDamage:
       types:
         Slash: 8

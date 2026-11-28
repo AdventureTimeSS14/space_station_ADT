@@ -21,6 +21,4 @@
   - type: ExplosionResistance
     damageCoefficient: 0.70
   - type: GroupExamine
-  - type: CoveredSlot
-    slots: [eyes, mask, ears]
 
