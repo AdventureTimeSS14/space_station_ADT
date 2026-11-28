@@ -78,7 +78,6 @@ namespace Content.Client.IoC
             // ADT-Tweak
             collection.Register<Content.Client.ADT.Sponsors.SponsorManager>();
             collection.Register<ISharedSponsorManager, Content.Client.ADT.Sponsors.SponsorManager>();
-            collection.Register<Content.Client.ADT.StateDiagnostics.StateDiagnosticsManager>();
             collection.Register<Content.Client.ADT.Drawing.Sync.CanvasNetManager>();
             // ADT-Tweak
             collection.Register<JoinQueueManager>(); // Corvax-Queue
