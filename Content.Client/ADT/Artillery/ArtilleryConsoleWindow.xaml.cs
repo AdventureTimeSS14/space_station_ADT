@@ -1,3 +1,6 @@
+// SPDX-License-identifier: MIT
+// Copyright (c) 2026 Adventure Space
+
 using Content.Client.Computer;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.Artillery;

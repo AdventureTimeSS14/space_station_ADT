@@ -1,3 +1,6 @@
+// SPDX-License-identifier: MIT
+// Copyright (c) 2026 Adventure Space
+
 using Content.Server.Audio;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Chat.Systems;

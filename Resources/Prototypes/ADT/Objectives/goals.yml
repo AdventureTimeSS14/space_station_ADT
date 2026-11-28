@@ -178,12 +178,15 @@
   name: adt-station-goal-solars-name
   text: adt-station-goal-solars
 
+# Adventure Space MIT
 - type: stationGoal
   id: BluespaceArtillery
   name: station-goal-bluespace-artillery-name
   text: station-goal-bluespace-artillery
   spawns:
   - BSABlueprint
+# Adventure Space MIT
+
 # Цели вирусологии
 
 - type: stationGoal

@@ -1,3 +1,6 @@
+# SPDX-License-identifier: MIT
+# Copyright (c) 2026 Adventure Space
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: BaseArtilleryConsoleFrame

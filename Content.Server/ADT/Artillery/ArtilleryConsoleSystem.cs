@@ -1,3 +1,6 @@
+// SPDX-License-identifier: MIT
+// Copyright (c) 2026 Adventure Space
+
 using Content.Server.Power.Components;
 using Content.Server.Popups;
 using Content.Shared.Access.Components;

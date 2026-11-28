@@ -1,3 +1,6 @@
+// SPDX-License-identifier: MIT
+// Copyright (c) 2026 Adventure Space
+
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;

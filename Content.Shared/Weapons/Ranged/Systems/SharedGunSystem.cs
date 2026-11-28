@@ -729,8 +729,10 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed class HitscanEvent : EntityEventArgs
     {
+        // ADT-Tweak start BSA, Adventure Space MIT
         public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
-        public float Lifetime; // ADT-Tweak BAS
+        public float Lifetime;
+        // ADT-Tweak end BSA, Adventure Space MIT
     }
 
     /// <summary>

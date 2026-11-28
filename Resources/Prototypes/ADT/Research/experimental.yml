@@ -86,6 +86,7 @@
   requiredTech:
   - AlternativeResearch
 
+# Adventure Space MIT
 - type: technology
   id: BluespaceArtillery
   name: research-technology-bluespace-artillery
@@ -100,6 +101,7 @@
   position: 4,-4
   requiredTech:
   - ADTQuantumPartsTech
+# Adventure Space MIT
 
 - type: technology
   id: ADTAdvancedPartsTech

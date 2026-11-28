@@ -111,6 +111,7 @@
       types:
         Heat: 10
 
+# Adventure Space MIT
 - type: entity
   id: ArtilleryBluespaceHitscan
   name: artillery bluespace laser ray
@@ -139,3 +140,4 @@
     impactFlash:
       sprite: ADT/Objects/Weapons/BSA.rsi
       state: impact_BSA
+# Adventure Space MIT

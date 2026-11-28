@@ -7,6 +7,7 @@
 #    Diamond: 200
 #    ADTBScrystal: 100
 
+# Adventure Space MIT
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   abstract: true
@@ -18,3 +19,4 @@
     Plasma: 100
     Silver: 150
     Gold: 100
+# Adventure Space MIT

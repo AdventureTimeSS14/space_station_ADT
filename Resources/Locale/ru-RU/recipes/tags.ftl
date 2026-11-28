@@ -51,10 +51,12 @@ construction-graph-tag-empty-bottle = пустая бутылка
 construction-graph-tag-extinguisher = огнетушитель
 # other
 construction-graph-tag-light-bulb = лампочка
+# Adventure Space MIT
 construction-graph-tag-second-light-bulb = вторую лампочку
 construction-graph-tag-third-light-bulb = третью лампочку
 construction-graph-tag-fourth-light-bulb = четвёртую лампочку
 construction-graph-tag-fifth-light-bulb = пятую лампочку
+# Adventure Space MIT
 construction-graph-tag-radio = радио
 construction-graph-tag-pipe = газовая труба
 construction-graph-tag-human-head = человеческая голова
@@ -73,7 +75,7 @@ construction-graph-tag-apron = фартук
 construction-graph-tag-utility-belt = пояс для инструментов
 soil-construction-graph-any-mushroom = любой гриб
 construction-graph-tag-mop-basic = швабра
-construction-graph-tag-blueprint-bsa = чертёж БСА
+construction-graph-tag-blueprint-bsa = чертёж БСА # Adventure Space MIT
 # toys
 construction-graph-tag-rubber-ducky = резиновая уточка
 construction-graph-tag-ghost = плюшевый призрак

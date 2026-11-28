@@ -919,11 +919,13 @@
 
 # XENOBIO - END
 
+# Adventure Space MIT
 - type: Tag
   id: BoardBSA
 
 - type: Tag
   id: BlueprintBSA
+# Adventure Space MIT
 
 - type: Tag
   id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
