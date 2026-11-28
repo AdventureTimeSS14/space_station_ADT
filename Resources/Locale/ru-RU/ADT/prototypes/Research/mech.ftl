@@ -14,7 +14,6 @@ research-technology-mech-cutters = Плазменные резаки
 research-technology-mech-drill = Тяжёлые буры
 research-technology-mech-diamond-drill = Алмазные буры
 research-technology-mech-armor = Бронирование мехов
-research-technology-mech-catapult = Гравитационные катапульты
 research-technology-mech-energy-gun-small = Легкое энергооружие меха
 research-technology-mech-energy-gun-heavy = Тяжелое энергооружие меха
 research-technology-mech-gun-small = Легкое оружие меха
