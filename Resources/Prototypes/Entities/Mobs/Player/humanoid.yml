@@ -30,65 +30,52 @@
 
 ## Death Squad
 
-- type: entity
-  id: RandomHumanoidSpawnerDeathSquad
-  name: Death Squad Agent
-  suffix: ERTRole, Death Squad
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
-      state: icon
-    - type: RandomMetadata
-      nameSegments:
-      - NamesFirstDeadSquad
-      - NamesLastDeadSquadCallsign
-      nameFormat: name-format-standard
-    - type: RandomHumanoidSpawner
-      settings: DeathSquad
+# - type: entity
+#   id: RandomHumanoidSpawnerDeathSquad
+#   name: Death Squad Agent
+#   suffix: ERTRole, Death Squad
+#   components:
+#     - type: Sprite
+#       sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+#       state: icon
+#     - type: RandomMetadata
+#       nameSegments:
+#       - NamesFirstDeadSquad
+#       - NamesLastDeadSquadCallsign
+#       nameFormat: name-format-standard
+#     - type: RandomHumanoidSpawner
+#       settings: DeathSquad
 
-- type: randomHumanoidSettings
-  id: DeathSquad
-  parent: EventHumanoidCentcomm
-  randomizeName: false
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
-  components:
-    - type: GhostRole
-      name: ghost-role-information-Death-Squad-name
-      description: ghost-role-information-Death-Squad-description
-      rules: ghost-role-information-Death-Squad-rules
-      raffle:
-        settings: short
-      mindRoles:
-      - MindRoleGhostRoleFamiliar
-      job: DeathSquad
-    - type: Loadout
-      prototypes: [ DeathSquadGear ]
-      roleLoadout: [ RoleSurvivalEVA ]
-    - type: GrantHellRip
-    - type: RandomMetadata
-      nameSegments:
-      - NamesFirstDeadSquad
-      - NamesLastDeadSquadCallsign
-      nameFormat: name-format-standard
+# - type: randomHumanoidSettings
+#   id: DeathSquad
+#   parent: EventHumanoidCentcomm
+#   randomizeName: false
+#   species: ADTSuperHuman
+#   components:
+#     - type: GhostRole
+#       name: ghost-role-information-Death-Squad-name
+#       description: ghost-role-information-Death-Squad-description
+#       rules: ghost-role-information-Death-Squad-rules
+#       raffle:
+#         settings: short
+#       mindRoles:
+#       - MindRoleGhostRoleFamiliar
+#       job: DeathSquad
+#     - type: Loadout
+#       prototypes: [ DeathSquadGear ]
+#       roleLoadout: [ RoleSurvivalEVA ]
+#     - type: AutoImplant
+#       implants:
+#       - MindShieldImplant
+#       - DeathRattleImplantCentcomm
+#       - FreedomImplant
+#       - DeathAcidifierImplant
+#     - type: GrantHellRip
+#     - type: RandomMetadata
+#       nameSegments:
+#       - NamesFirstDeadSquad
+#       - NamesLastDeadSquadCallsign
+#       nameFormat: name-format-standard
 
 
 # ## ERT Leader

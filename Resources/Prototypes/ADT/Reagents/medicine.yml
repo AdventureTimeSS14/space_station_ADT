@@ -960,3 +960,23 @@
       effects:
       - !type:ADTCureDiseases
         virusesOnly: true
+
+- type: reagent
+  id: ADTStabilizide
+  name: reagent-name-adt-stabilizide
+  group: Medicine
+  desc: reagent-desc-adt-stabilizide
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#fffc34"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: -1.5
+      - !type:CleanBloodstream
+        cleanseRate: 1
+      - !type:ADTCureDiseases

@@ -1104,3 +1104,12 @@
 
 - type: Tag
   id: ADTCoaltreeLog
+
+- type: Tag
+  id: ADTMinigunAmmoBackpack # Used by ADTWeaponMinigun
+
+- type: Tag
+  id: ADTMagazine40mmGrenadeDrum
+
+- type: Tag
+  id: ADTCartridgeLightRifleCaseless

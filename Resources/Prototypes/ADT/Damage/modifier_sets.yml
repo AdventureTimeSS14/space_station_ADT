@@ -467,3 +467,37 @@
     Heat: 0.85
     Poison: 0.8
     Cellular: 1.3
+
+- type: damageModifierSet
+  id: ADTSuperHuman
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
+    Heat: 0.9
+    Cold: 0.8
+    Shock: 0.8
+    Radiation: 1.5
+    Asphyxiation: 0.8
+    Bloodloss: 0.5
+    Poison: 0.5
+    Caustic: 0.9
+    Cellular: 2
+
+- type: damageModifierSet
+  id: ADTBloodlossSuperHuman # ослабление накопления стаков кровотечения у суперлюдей
+  coefficients:
+    Asphyxiation: 0.0
+    Bloodloss: 0.0 # no double dipping
+    Blunt: 0.02
+    Caustic: 0.0
+    Cellular: 0.0
+    Cold: 0.0
+    Heat: -0.1 # heat damage cauterizes wounds, but will still hurt obviously.
+    Holy: 0
+    Piercing: 0.01
+    Poison: 0.0
+    Radiation: 0.0
+    Shock: 0.0
+    Slash: 0.04
+    Structural: 0.0

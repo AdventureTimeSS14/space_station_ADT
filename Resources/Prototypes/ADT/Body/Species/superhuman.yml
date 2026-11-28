@@ -1,0 +1,524 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: ADTSuperHuman
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+      weight: 0
+    enum.HumanoidVisualLayers.Hair:
+      limit: 3 #
+      required: false
+      weight: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+      weight: 0
+    enum.HumanoidVisualLayers.LArm:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 3 #
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+      weight: 0
+    enum.HumanoidVisualLayers.Special:
+      limit: 1
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: ADTAppearanceSuperHuman
+  categories: [ HideSpawnMenu ]
+  name: human appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: ADTOrganSuperHumanTorso
+      Head: ADTOrganSuperHumanHead
+      ArmLeft: ADTOrganSuperHumanArmLeft
+      ArmRight: ADTOrganSuperHumanArmRight
+      HandRight: ADTOrganSuperHumanHandRight
+      HandLeft: ADTOrganSuperHumanHandLeft
+      LegLeft: ADTOrganSuperHumanLegLeft
+      LegRight: ADTOrganSuperHumanLegRight
+      FootLeft: ADTOrganSuperHumanFootLeft
+      FootRight: ADTOrganSuperHumanFootRight
+      Brain: ADTOrganSuperHumanBrain
+      Eyes: ADTOrganSuperHumanEyes
+      Tongue: ADTOrganSuperHumanTongue
+      Appendix: ADTOrganSuperHumanAppendix
+      Ears: ADTOrganSuperHumanEars
+      Lungs: ADTOrganSuperHumanLungs
+      Heart: ADTOrganSuperHumanHeart
+      Stomach: ADTOrganSuperHumanStomach
+      Liver: ADTOrganSuperHumanLiver
+      Kidneys: ADTOrganSuperHumanKidneys
+  - type: Inventory
+    speciesId: superhuman
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: jumpsuit_socks_under
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: shoes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: gloves
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: jumpsuit_socks_under
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: eyes_head
+      underweart:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: jumpsuit_socks_under
+      underwearb:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: jumpsuit_socks_under
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: jumpsuit_socks_under
+      back:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: back
+      eyes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: eyes_head
+      ears:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: ears_mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: neck
+      mask:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: ears_mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Superhuman/displacement.rsi
+            state: outerstorage
+  - type: HumanoidProfile
+    species: ADTSuperHuman
+
+- type: entity
+  parent:
+  - ADTAppearanceSuperHuman
+  - BaseSpeciesMob
+  id: ADTMobSuperHuman
+  name: Urist McHands
+  suffix: event, DeathSquad
+  components:
+  - type: Sprite
+    scale: 1.3, 1.3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      500: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      120: 0.8
+      200: 0.6
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: MetalThud
+    damage:
+      types:
+        Blunt: 20
+        Structural: 10
+    bluntStaminaDamageFactor: 1.5
+  - type: Barotrauma
+    maxDamage: 500
+    damage:
+      types:
+        Blunt: 0.1
+  - type: PassiveDamage
+    intervalHaltOnDamageTaken: 0s
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: -0.1
+        Blunt: -0.2
+        Piercing: -0.2
+        Slash: -0.3
+        Poison: -0.1
+        Shock: -0.1
+        Caustic: -0.02
+        Cellular: 0.1
+  - type: Fingerprint
+  - type: MobState
+  - type: OfferItem
+  - type: RadiationPopup
+  - type: PickupHumans
+    handsRequired: 1
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: TimeDespawnDamage
+  - type: Blindable
+  - type: Temperature
+    specificHeat: 42
+    thermalConductivity: 100
+  - type: TemperatureDamage
+    heatDamageThreshold: 365
+    coldDamageThreshold: 220
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 0.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      220: 0.9
+      150: 0.8
+      70: 0.7
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 7500
+    shiveringHeatRegulation: 7500
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 2
+  - type: Internals
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.2
+    damageRecovery:
+      types:
+        Asphyxiation: -4
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    damage: #per second, scales with number of fire 'stacks'
+      types:
+        Heat: 0.1 # goob edit - ash heretic must weep
+  # ADT-Tweak-Start
+  - type: RMCStopDropRollVisuals
+  - type: CanBeFirePatted
+  - type: FirePatter
+    stacks: -1
+  - type: StatusEffects
+    allowed:
+    - Stutter
+    - Electrocution
+    - Pacified
+    - Flashed
+    - Adrenaline
+    - Weakness
+    - ADTStarvation
+  - type: SolutionManager
+  - type: InjectableSolution
+    solution: bloodstream
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+    bloodRefreshAmount: 1
+    bleedReductionAmount: 1
+    damageBleedModifiers: ADTBloodlossSuperHuman
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 750
+      behaviors:
+      - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 3000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 15
+      behaviors:
+      - !type:PopupBehavior
+        popup: mouth-taste-metal
+        popupType: LargeCaution
+        targetOnly: true
+  - type: ADTLavalandHumanResists
+    reference: ADTMobSuperHuman
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+  - type: LightningTarget
+    priority: 5
+    lightningExplode: false
+  - type: GhostOnMove
+    mustBeDead: true
+  - type: Pullable
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus
+  - type: RotationVisuals
+    defaultRotation: -90 # ADT-Tweak
+    horizontalRotation: -90 # ADT-Tweak
+  - type: HumanoidProfile
+  - type: TypingIndicator
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 450
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: SpeechBarks
+  - type: Posing
+  - type: TTS
+    voice: space_marines_2_dow
+  - type: Puller
+  - type: GrabIntent
+  - type: GrabModifier
+    grabEscapeModifier: -0.2
+    grabEscapeMultiplier: 0.5
+    grabMoveSpeedMultiplier: 2
+    startingGrabStage: Hard
+  - type: Grabbable
+  - type: Speech
+    speechSounds: Alto
+  - type: Vocal
+    emoteSounds: MaleHuman
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: MobPrice
+    price: 1500 # Kidnapping a living person and selling them for cred is a good move.
+    deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+  - type: RandomPrice
+    maxRandomPrice: 20000
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+  # ADT-Tweak start
+  - type: Damageable
+    damageModifierSet: ADTSuperHuman
+  - type: Injurable
+    damageContainer: Biological
+  - type: DamageOverlay
+  - type: RadiationReceiver
+  - type: Stamina
+    baseCritThreshold: 300
+    stunTime: 3s
+    decay: 9
+  - type: StunVisuals
+  - type: ZombieImmune
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: ADTOrganSuperHuman
+  abstract: true
+  suffix: superhuman
+
+- type: entity
+  id: ADTOrganSuperHumanMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Human ]
+
+- type: entity
+  parent: OrganHuman
+  id: ADTOrganSuperHumanInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: OrganHuman
+  id: ADTOrganSuperHumanExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Superhuman/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Superhuman/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: ADTSuperHuman
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay # ADT-Tweak
+
+- type: entity
+  parent: [ OrganBaseArmLeft, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, ADTOrganSuperHumanInternal ]
+  id: ADTOrganSuperHumanBrain
+
+- type: entity
+  parent: [ OrganBaseEyes, ADTOrganSuperHumanInternal, ADTOrganSuperHumanExternal ]
+  id: ADTOrganSuperHumanEyes
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Superhuman/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTongue, ADTOrganSuperHumanInternal ]
+  id: ADTOrganSuperHumanTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, ADTOrganSuperHumanInternal ]
+  id: ADTOrganSuperHumanAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, ADTOrganSuperHumanInternal ]
+  id: ADTOrganSuperHumanEars
+
+- type: entity
+  parent: [ OrganBaseLungs, ADTOrganSuperHumanInternal, ADTOrganSuperHumanMetabolizer ]
+  id: ADTOrganSuperHumanLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, ADTOrganSuperHumanInternal, ADTOrganSuperHumanMetabolizer ]
+  id: ADTOrganSuperHumanHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, ADTOrganSuperHumanInternal, ADTOrganSuperHumanMetabolizer ]
+  id: ADTOrganSuperHumanStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, ADTOrganSuperHumanInternal, ADTOrganSuperHumanMetabolizer ]
+  id: ADTOrganSuperHumanLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, ADTOrganSuperHumanInternal, ADTOrganSuperHumanMetabolizer ]
+  id: ADTOrganSuperHumanKidneys

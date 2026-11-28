@@ -968,7 +968,9 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
-  - type: SupermatterImmune  # ADT-Tweak
+  - type: ClothingGrantComponent # ADT-Tweak start
+    component:
+    - type: SupermatterImmune # ADT-Tweak end
 
 #MISC. HARDSUITS
 #Clown Hardsuit

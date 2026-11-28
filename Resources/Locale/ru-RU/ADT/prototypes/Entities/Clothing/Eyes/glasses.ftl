@@ -39,5 +39,9 @@ ent-ADTClothingEyesGlassesMonocle = монокль
 ent-ADTClothingEyesGlassesGasTemperature = термальные очки атмосферных техников
     .desc = Программно ограниченые термальные очки для атмосферных техников.
 
+ent-ADTClothingEyesGlassesSunglassesDeathSquad = высокотехнологичные темные очки
+    .desc = Простые солнцезащитные очки в которые вшили сверхтехнологичные сканеры.
+    .suffix = Эскадрон Смерти
+
 adt-vision-tint-verb-on = Включить цветные линзы
 adt-vision-tint-verb-off = Выключить цветные линзы

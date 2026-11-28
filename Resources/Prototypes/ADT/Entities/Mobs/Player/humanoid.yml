@@ -1,4 +1,3 @@
-
 - type: entity
   id: ADTRandomHumanoidSpawnerERTLeader
   name: ERT leader
@@ -31,26 +30,7 @@
   id: ADTERTLeader
   parent: EventHumanoidMindShielded
   randomizeName: false
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - Felinid
-    - Resomi
-    - SlimePerson
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
+  species: Human
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
@@ -130,26 +110,7 @@
 - type: randomHumanoidSettings
   id: ADTERTJanitor
   parent: ADTERTLeader
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
+  species: Human
   components:
     - type: GhostRole
       name: ghost-role-information-ert-janitor-name
@@ -240,26 +201,7 @@
 - type: randomHumanoidSettings
   id: ADTERTEngineer
   parent: ADTERTLeader
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
+  species: Human
   components:
     - type: GhostRole
       name: ghost-role-information-ert-engineer-name
@@ -349,26 +291,7 @@
 
 - type: randomHumanoidSettings
   id: ADTERTSecurity
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
+  species: Human
   parent: ADTERTLeader
   components:
     - type: GhostRole
@@ -456,26 +379,7 @@
 - type: randomHumanoidSettings
   id: ADTERTMedical
   parent: ADTERTLeader
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Felinid
-    - Resomi
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
+  species: Human
   components:
     - type: GhostRole
       name: ghost-role-information-ert-medical-name
@@ -560,26 +464,7 @@
       - MindShieldImplant
 
 - type: randomHumanoidSettings
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - Felinid
-    - Resomi
-    - SlimePerson
-    - Dwarf
-    - IPC
-    - DraskSpecies # ADT-Tweak-end
+  species: Human
   id: ADTCmndCBURNAgent
   components:
     - type: MindShield
@@ -604,26 +489,7 @@
 - type: randomHumanoidSettings
   id: ADTCentcomInspectorSettings
   parent: EventHumanoidMindShielded
-  speciesBlacklist:
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies
+  species: Human
   components:
     - type: Loadout
       prototypes: [ ADTCentComInspectorGear ]
@@ -642,26 +508,7 @@
 - type: randomHumanoidSettings
   id: ADTCentcomInquisitorSettings
   parent: EventHumanoidMindShielded
-  speciesBlacklist:
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies
+  species: Human
   components:
     - type: Loadout
       prototypes: [ ADTInquisitorGear ]
@@ -712,26 +559,7 @@
 
 - type: randomHumanoidSettings
   id: ADTCentcomOfficial
-  speciesBlacklist: # ADT-Tweak-start
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies
+  species: Human
   parent: EventHumanoidMindShielded
   components: # ADT-Remove-Ghostrole
     - type: Loadout
@@ -751,26 +579,7 @@
 - type: randomHumanoidSettings
   id: ADTSODOfficerSettings
   parent: EventHumanoidMindShielded
-  speciesBlacklist:
-    - Diona
-    - Vox
-    - KoboltSpecies
-    - DemonSpecies
-    - CelecernSpecies
-    - NovakidSpecies
-    - TajaranSpecies
-    - UrsusSpecies
-    - Moth
-    - VulpkaninSpecies
-    - Shadekin
-    - Arachnid
-    - Reptilian
-    - SlimePerson
-    - Felinid
-    - Resomi
-    - Dwarf
-    - IPC
-    - DraskSpecies
+  species: Human
   components:
     - type: Loadout
       prototypes: [ ADTSODOfficerGear ]

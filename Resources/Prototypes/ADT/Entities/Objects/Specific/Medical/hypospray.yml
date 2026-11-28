@@ -51,7 +51,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: hemostasispen_empty
-  - type: Injector 
+  - type: Injector
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: Solution
@@ -79,7 +79,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: stimulantpen_empty
-  - type: Injector 
+  - type: Injector
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: Solution
@@ -107,7 +107,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: crisispen_empty
-  - type: Injector 
+  - type: Injector
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: Solution
@@ -185,7 +185,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: barkeepersfriend_empty
-  - type: Injector 
+  - type: Injector
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: Solution
@@ -223,6 +223,32 @@
     activeModeProtoId: ADTCustomMedipenInjectMode
     allowedModes:
     - ADTCustomMedipenInjectMode
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: stabilizide auto-injector
+  parent: ChemicalMedipen
+  id: ADTStabilizideAutoInjector
+  description: A rapid dose of coagulants and circulatory fluids. Contains stabilizide.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: crisispen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: crisispen_empty
+  - type: Injector
+    currentTransferAmount: 20
+    activeModeProtoId: HyposprayInjectMode
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: ADTStabilizide
+        Quantity: 20
   - type: Tag
     tags:
     - ADTMedipen

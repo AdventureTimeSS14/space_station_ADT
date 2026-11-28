@@ -31,3 +31,7 @@ ent-ADTRNDInducer = { ent-ADTEngiInducer }
 ent-ADTRNDInducerBattery = { ent-ADTEngiInducer }
     .desc = { ent-ADTEngiInducer.desc }
     .suffix = Батарея, РНД
+
+ent-ADTFultonDeathSquad = Скоростной фултон
+    .desc = Фултон, быстро переносящий использующего в на маяк.
+    .suffix = Эскадрон Смерти

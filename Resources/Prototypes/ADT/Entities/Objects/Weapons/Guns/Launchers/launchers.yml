@@ -104,4 +104,83 @@
   - type: Item
     size: Huge
 
-
+- type: entity
+  name: MGL launcher
+  parent: [BaseWeaponLauncher, BaseGunWieldable]
+  id: ADTWeaponLauncherMGL
+  suffix: Actual
+  description: PLOOP.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Launchers/mgl_launcher.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Launchers/mgl_launcher.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  # - type: RunAndGunBlocker
+    # maxVelocity: 3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 25
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: Gun
+    fireRate: 1.5
+    projectileSpeed: 30
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazine40mmGrenadeDrumBlast
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazine40mmGrenadeDrum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - ADT40mmGrenade
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ADTGripModuleHolder
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        startingAttachable: ADTAttachmentMagneticHarness
+        whitelist:
+          tags:
+          - ADTAttachmentMagneticHarness
+  - type: Appearance
+  - type: DNAGunLocker
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2

@@ -1,0 +1,8 @@
+- type: entity
+  parent: CartridgeLightRifle
+  id: ADTCartridgeLightRifleCaseless
+  name: cartridge (7.62mm rifle)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLightRifle
+    deleteOnSpawn: true

@@ -29,3 +29,13 @@ ent-ADTClothingWarBeltJanitorERTFilled = варбелт
 ent-ADTClothingWarBeltSODOfficerFilled = варбелт
     .desc = Пояс с несколькими вместительными подсумками.
     .suffix = { "Офицер ДСО" }
+
+ent-ADTClothingWarBeltDeathSquadFilled = варбелт
+    .desc = Пояс с несколькими вместительными подсумками.
+    .suffix = { "Эскадрон Смерти" }
+ent-ADTClothingWarBeltDeathSquadGrenaderFilled = варбелт
+    .desc = Пояс с несколькими вместительными подсумками.
+    .suffix = { "Эскадрон Смерти, Гранатомётчик" }
+ent-ADTClothingWarBeltDeathSquadCommandosFilled = варбелт
+    .desc = Пояс с несколькими вместительными подсумками.
+    .suffix = { "Эскадрон Смерти, Коммандос" }

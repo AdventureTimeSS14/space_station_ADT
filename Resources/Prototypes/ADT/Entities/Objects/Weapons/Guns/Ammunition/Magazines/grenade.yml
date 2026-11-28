@@ -1,0 +1,125 @@
+- type: entity
+  parent: BaseMagazineGrenade
+  id: ADTMagazine40mmGrenadeDrumEmpty
+  name: 40 mm grenade drum
+  components:
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - ADTMagazine40mmGrenadeDrum
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ADT40mmGrenade
+    capacity: 6
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Grenade/mgl_launcher_drums.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#dbdbdb"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+
+- type: entity
+  parent: ADTMagazine40mmGrenadeDrumEmpty
+  id: ADTMagazine40mmGrenadeDrumBaton
+  name: 40 mm baton grenade drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADT40mmGrenadeBaton
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#30722d"
+
+- type: entity
+  parent: ADTMagazine40mmGrenadeDrumEmpty
+  id: ADTMagazine40mmGrenadeDrumBlast
+  name: 40 mm blast grenade drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADT40mmGrenadeBlast
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#d73307"
+
+- type: entity
+  parent: ADTMagazine40mmGrenadeDrumEmpty
+  id: ADTMagazine40mmGrenadeDrumHEAT
+  name: 40 mm HEAT grenade drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADT40mmGrenadeHEAT
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#72382d"
+
+- type: entity
+  parent: ADTMagazine40mmGrenadeDrumEmpty
+  id: ADTMagazine40mmGrenadeDrumEMP
+  name: 40 mm EMP grenade drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADT40mmGrenadeEMP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#526ed1"
+
+- type: entity
+  parent: ADTMagazine40mmGrenadeDrumEmpty
+  id: ADTMagazine40mmGrenadeDrumFlash
+  name: 40 mm flash grenade drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADT40mmGrenadeFlash
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ffdf00"
+
+- type: entity
+  parent: ADTMagazine40mmGrenadeDrumEmpty
+  id: ADTMagazine40mmGrenadeDrumSmoke
+  name: 40 mm smoke grenade drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADT40mmGrenadeSmoke
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#808080"

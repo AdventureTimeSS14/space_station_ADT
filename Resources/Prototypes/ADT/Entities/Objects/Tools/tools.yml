@@ -143,3 +143,13 @@
     sprite: ADT/Objects/Tools/supermatter_scalpel.rsi
     storedRotation: 90
   - type : SupermatterImmune
+
+- type: entity
+  parent: Fulton
+  id: ADTFultonDeathSquad
+  name: fulton
+  suffix: Full
+  description: Used to extract containers, items, or forcibly recruit people into your base of operations.
+  components:
+  - type: Fulton
+    duration: 5
