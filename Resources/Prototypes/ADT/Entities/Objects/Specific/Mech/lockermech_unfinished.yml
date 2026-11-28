@@ -1,0 +1,13 @@
+- type: entity
+  id: ADTLockermechUnfinished
+  parent: BaseStructureDynamic
+  name: Lockermech
+  components: 
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Mech/lockermech.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: lockermech-broken
+  - type: Construction
+    node: locker
+    graph: ADTMechLockermechGraph

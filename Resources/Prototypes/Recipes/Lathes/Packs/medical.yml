@@ -98,6 +98,8 @@
   recipes:
   # - ChemicalPayload # ADT-Tweak
   - BluespaceBeaker
+  - ADTJugBluespace # ADT-Tweak
+  - NFVialBluespace # ADT-Tweak
 ##- CryostasisBeaker
 ##- SyringeCryostasis
   - SyringeBluespace

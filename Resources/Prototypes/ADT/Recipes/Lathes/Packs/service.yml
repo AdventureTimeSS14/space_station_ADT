@@ -151,3 +151,9 @@
   - ADTFunnyPaint
   - ADTSprayPaintWhite
   - ADTSprayPaintBlack
+
+- type: latheRecipePack
+  id: ADTDoubleEmergencyTanks
+  recipes:
+    - DoubleEmergencyOxygenTank
+    - DoubleEmergencyNitrogenTank

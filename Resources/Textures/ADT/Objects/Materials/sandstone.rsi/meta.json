@@ -9,6 +9,12 @@
     "states": [
         {
             "name": "sandstone"
+        },
+        {
+            "name": "sandstone_2"
+        },
+        {
+            "name": "sandstone_3"
         }
     ]
 }

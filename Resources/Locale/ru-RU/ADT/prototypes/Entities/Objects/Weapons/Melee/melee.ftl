@@ -141,3 +141,6 @@ ent-ADTWeaponsTacticalHammer = штурмовая кувалда
 
 ent-ADTWeaponChainsword = цепной меч
     .desc = Совмещение лёгкости меча и разрушительности бензопилы. Не забудьте включить перед использованием.
+
+ent-ADTWeaponSledgehammer = кувалда
+.desc = УБЕЙ УБЕЙ УБЕЙ УБЕЙ

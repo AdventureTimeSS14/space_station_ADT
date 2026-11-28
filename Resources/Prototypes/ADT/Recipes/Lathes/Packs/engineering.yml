@@ -65,3 +65,9 @@
 #  id: ADTMegaCharger
 #  recipes:
 #  - ADTMegaCellRechargerCircuitboardRecipe
+
+- type: latheRecipePack
+  id: BluespaceAirTanks
+  recipes:
+    - ADTBluespaceAirTank
+    - ADTSmallBluespaceAirTank

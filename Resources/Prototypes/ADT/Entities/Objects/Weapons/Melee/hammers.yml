@@ -37,3 +37,37 @@
   - type: Construction
     graph: ADTWeaponHammerImprovised
     node: hammer
+
+- type: entity
+  parent: BaseItem
+  id: ADTWeaponSledgehammer
+  name: sledgehammer
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/sledgehammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    range: 1.65
+    attackRate: 0.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Structural: 200
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Objects/Weapons/Melee/sledgehammer.rsi
+  - type: MeleeThrowOnHit
+    speed: 10
+    distance: 3
+  - type: FlipOnHit
+  - type: Wieldable
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/sledgehammer.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - back

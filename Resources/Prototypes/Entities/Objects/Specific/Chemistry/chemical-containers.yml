@@ -25,6 +25,7 @@
   - type: Tag
     tags:
     - ChemDispensable
+    - LatheReagentContainer #ADT-tweak
 
 - type: entity
   parent: Jug

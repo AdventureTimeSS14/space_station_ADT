@@ -24,12 +24,20 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Materials/sandstone.rsi
-    state: sandstone
+    state: sandstone_3
+    layers:
+    - state: sandstone_3
+      map: ["base"]
   - type: Item
     size: Small
   - type: Stack
     stackType: ADTSandstone
-    count: 30
+    count: 50
+    baseLayer: base
+    layerStates: 
+    - sandstone
+    - sandstone_2
+    - sandstone_3
   - type: Material
   - type: PhysicalComposition
     materialComposition:

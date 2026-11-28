@@ -277,3 +277,67 @@
   targetNode: makeshift_tank_ready
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ShotgunTrap
+  graph: ShotgunTrap
+  startNode: start
+  targetNode: shotgunTrap
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTCartridgeExplosiveImprovisedShell
+  graph: ADTCartridgeExplosiveImprovisedShell
+  startNode: start
+  targetNode: ADTCartridgeExplosiveImprovisedShell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTCartridgeFlameImprovisedShell
+  graph: ADTCartridgeFlameImprovisedShell
+  startNode: start
+  targetNode: ADTCartridgeFlameImprovisedShell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTCartridgeSmokeImprovisedShell
+  graph: ADTCartridgeSmokeImprovisedShell
+  startNode: start
+  targetNode: ADTCartridgeSmokeImprovisedShell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTWeaponLauncherBombarda
+  graph: ADTWeaponLauncherBombarda
+  startNode: start
+  targetNode: ADTWeaponLauncherBombarda
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTWeaponLauncherBomplet
+  graph: ADTWeaponLauncherBomplet
+  startNode: start
+  targetNode: ADTWeaponLauncherBomplet
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTMechLockermechGraph
+  graph: ADTMechLockermechGraph
+  startNode: start
+  targetNode: lockermech
+  category: construction-category-misc
+  objectType: Structure
+
+- type: construction
+  id: ADTAttachmentMakeshiftSuppressor
+  graph: ADTAttachmentMakeshiftSuppressor
+  startNode: start
+  targetNode: ADTAttachmentMakeshiftSuppressor
+  category: construction-category-weapons
+  objectType: Item

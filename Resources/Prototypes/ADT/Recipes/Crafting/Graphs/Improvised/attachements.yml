@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: ADTAttachmentMakeshiftSuppressor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTAttachmentMakeshiftSuppressor
+      steps: 
+      - tag: DrinkCan
+        name: construction-graph-tag-empty-can
+        icon:
+          sprite: Objects/Consumable/Drinks/cola.rsi
+          state: icon_open
+      - material: Steel
+        amount: 1
+        doAfter: 2
+  - node: ADTAttachmentMakeshiftSuppressor
+    entity: ADTAttachmentMakeshiftSuppressor

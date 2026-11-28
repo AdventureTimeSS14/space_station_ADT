@@ -115,3 +115,8 @@ construction-graph-tag-microphone = микрофон
 adt-construction-graph-tag-emergency-toolbox = аварийный ящик
 adt-construction-graph-tag-emergency-crowbar = аварийный лом
 adt-construction-graph-tag-crowbar = лом
+
+construction-graph-tag-firebomb = самодельная бомба
+construction-graph-tag-oxygen-tank = кислородный баллон
+construction-graph-tag-pest-spray = спрей от вредителей
+construction-graph-tag-remote-signaller = передатчик сигналов

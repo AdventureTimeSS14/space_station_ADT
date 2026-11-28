@@ -36,3 +36,26 @@
     Steel: 500
     Plastic: 700
     Copper: 400
+
+- type: latheRecipe
+  id: ADTJugBluespace
+  result: ADTJugBluespace
+  completetime: 4
+  materials:
+    Steel: 750
+    Plastic: 750
+    Plasma: 250
+    Silver: 100
+    ADTBScrystal: 150
+
+- type: latheRecipe
+  id: NFVialBluespace
+  result: NFVialBluespace
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 150
+    Glass: 250
+    Plasma: 100
+    Silver: 50
+    ADTBScrystal: 100

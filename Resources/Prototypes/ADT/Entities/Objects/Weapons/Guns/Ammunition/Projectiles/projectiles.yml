@@ -252,3 +252,52 @@
         Piercing: 1.5
         Holy: 7
   - type: HolyDamage
+
+- type: entity
+  parent: BaseBulletTrigger
+  name: improvised shell
+  id: ADTImprovisedShellBulletExplosive
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/makeshift.rsi
+    layers:
+      - state: exp
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 55
+    intensitySlope: 2
+    maxIntensity: 35
+    canCreateVacuum: false
+
+- type: entity
+  parent: BaseBulletTrigger
+  name: improvised shell
+  id: ADTImprovisedShellBulletFlame
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/makeshift.rsi
+    layers:
+      - state: flame
+  - type: TileFireOnTrigger
+    spawn: RMCTileFireWeak
+
+- type: entity
+  parent: BaseBulletTrigger
+  name: improvised shell
+  id: ADTImprovisedShellBulletSmoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/makeshift.rsi
+    layers:
+      - state: smoke
+  - type: SmokeOnTrigger
+    duration: 10
+    spreadAmount: 30
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 50

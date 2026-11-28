@@ -4,7 +4,7 @@ ent-ADTClothingBackpackDuffelBlueshield = вещмешок офицера син
 ent-ADTClothingBackpackDuffelCentcom = вещмешок Центком
     .desc = Самый роскошный и дорогой вещмешок который вы когда-либо видели.
 
-ent-ADTClothingBackpackDuffelDurathead = дюротканевый вещмешок
+ent-ADTClothingBackpackDuffelDurathead = дюратканевый вещмешок
     .desc = Вещмешок выполненый из более прочной и эластичной дюраткани.
 
 ent-ADTClothingBackpackDuffelParamedic = вещмешок парамедика

@@ -426,6 +426,9 @@
 - type: Tag
   id: ADTMechEquipmentClown
 
+- type: Tag
+  id: ADTGreytideMechEquip
+
 # MECH END /\/\/\/\/\/\/\
 
 - type: Tag
@@ -1104,3 +1107,18 @@
 
 - type: Tag
   id: ADTCoaltreeLog
+
+- type: Tag
+  id: LatheReagentContainer
+
+- type: Tag
+  id: PestSpray
+
+- type: Tag
+  id: FireBomb
+
+- type: Tag
+  id: OxygenTank
+
+- type: Tag
+  id: ImprovisedShell

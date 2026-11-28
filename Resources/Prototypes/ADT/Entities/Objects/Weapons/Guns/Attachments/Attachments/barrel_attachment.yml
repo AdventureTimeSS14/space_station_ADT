@@ -52,3 +52,16 @@
   - type: AttachableVisuals
     prefix: antilying
   - type: AttachableAntiLyingWarrior
+
+- type: entity
+  parent: ADTAttachmentSuppressor
+  id: ADTAttachmentMakeshiftSuppressor
+  name: makeshift suppressor
+  components: 
+  - type: Sprite
+    state: makeshiftsuppressor
+  - type: AttachableVisuals
+    prefix: makeshiftsuppressor
+  - type: Construction
+    graph: ADTAttachmentMakeshiftSuppressor
+    node: ADTAttachmentMakeshiftSuppressor
