@@ -1207,3 +1207,7 @@ ADTVendingMachinePill: ADTVendingMachineCiviMed
 VendingMachineMedicalBase: ADTVendingMachineCiviMed
 ADTRandomHarvesterTechnologyDisk: null
 ADTRandomHarvesterSeeds: null
+ADTBookPrinter: null
+ADTBookPrinterFilled: null
+ADTBookPrinterFlatpack: null
+ADTBookPrinterInkCartridge: null

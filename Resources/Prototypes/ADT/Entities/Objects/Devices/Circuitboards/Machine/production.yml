@@ -16,19 +16,6 @@
           amount: 2
           defaultPrototype: Beaker
 
-# Оригинал данного прототипа был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
-# Ganimed-Book-Printer-Start
-- type: entity
-  id: ADTBookPrinterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: book printer machine board
-  components:
-  - type: MachineBoard
-    prototype: ADTBookPrinter
-    partRequirements:
-      Servo: 2
-# Ganimed-Book-Printer-End
-
 - type: entity
   id: ADTBarmenKettleCircuit
   parent: BaseMachineCircuitboard

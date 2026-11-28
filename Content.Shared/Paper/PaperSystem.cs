@@ -282,7 +282,7 @@ public sealed partial class PaperSystem : EntitySystem
         {
             entity.Comp.StampedBy.Add(stampInfo);
             Dirty(entity);
-            if ((entity.Comp.StampState == null || entity.Comp.StampState == "paper_stamp-void") && TryComp<AppearanceComponent>(entity, out var appearance)) // ADT-BookPrinter
+            if (entity.Comp.StampState == null && TryComp<AppearanceComponent>(entity, out var appearance))
             {
                 entity.Comp.StampState = spriteStampState;
                 // Would be nice to be able to display multiple sprites on the paper
@@ -372,21 +372,6 @@ public sealed partial class PaperSystem : EntitySystem
         return false;
     }
     // ADT-Tweak: end
-
-    // ADT-BookPrinter-Start
-    public void UpdateStampState(Entity<PaperComponent> entity)
-    {
-        if (TryComp<AppearanceComponent>(entity, out var appearance))
-        {
-            var stampState = entity.Comp.StampState ?? "paper_stamp-void";
-            _appearance.SetData(entity, PaperVisuals.Stamp, stampState, appearance);
-        }
-        else
-        {
-            return;
-        }
-    }
-    // ADT-BookPrinter-End
 
     public void CopyStamps(Entity<PaperComponent?> source, Entity<PaperComponent?> target)
     {

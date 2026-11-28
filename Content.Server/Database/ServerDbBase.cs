@@ -1458,56 +1458,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return notesCol;
         }
 
-        // ADT-BookPrinter-Start
-        public async Task<List<BookPrinterEntry>> GetBookPrinterEntries()
-        {
-            await using var db = await GetDb();
-            return await GetBookPrinterEntriesImpl(db);
-        }
-
-        public async Task<bool> DeleteBookPrinterEntryAsync(int bookId)
-        {
-            await using var db = await GetDb();
-
-            var book = await db.DbContext.BookPrinterEntry
-                .Include(b => b.StampedBy)
-                .Where(b => b.Id == bookId)
-                .FirstOrDefaultAsync();
-
-            if (book == null)
-                return false;
-
-            if (book.StampedBy != null && book.StampedBy.Any())
-            {
-                db.DbContext.RemoveRange(book.StampedBy);
-            }
-
-            db.DbContext.BookPrinterEntry.Remove(book);
-            await db.DbContext.SaveChangesAsync();
-
-            return true;
-        }
-
-        protected async Task<List<BookPrinterEntry>> GetBookPrinterEntriesImpl(DbGuard db)
-        {
-            return await db.DbContext.BookPrinterEntry
-                .Include(entry => entry.StampedBy)
-                .ToListAsync();
-        }
-
-        public async Task UploadBookPrinterEntry(BookPrinterEntry bookEntry)
-        {
-            await using var db = await GetDb();
-            await UploadBookPrinterEntryImpl(db, bookEntry);
-        }
-
-        protected async Task UploadBookPrinterEntryImpl(DbGuard db, BookPrinterEntry bookEntry)
-        {
-            db.DbContext.BookPrinterEntry.Add(bookEntry);
-            await db.DbContext.SaveChangesAsync();
-        }
-        // ADT-BookPrinter-End
-
         // ADT-Thunderdome-Start
         public async Task<List<ThunderdomeLeaderboardRow>> GetThunderdomeLeaderboard(int count)
         {

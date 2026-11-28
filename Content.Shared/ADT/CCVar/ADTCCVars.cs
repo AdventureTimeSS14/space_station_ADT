@@ -305,12 +305,6 @@ public sealed class ADTCCVars
         CVarDef.Create("game.lobby_auto_vote", true, CVar.SERVERONLY | CVar.ARCHIVE);
 
 
-    public static readonly CVarDef<float> BookPrinterUploadCooldown =
-        CVarDef.Create("bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<bool> BookPrinterUploadCooldownEnabled =
-        CVarDef.Create("bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
     public static readonly CVarDef<bool> PaySalary =
         CVarDef.Create("economy.pay_salary", true, CVar.SERVERONLY | CVar.ARCHIVE);
 
