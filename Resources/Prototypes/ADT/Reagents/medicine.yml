@@ -977,3 +977,6 @@
         damage:
           types:
             Cellular: -1.5
+      - !type:CleanBloodstream
+        cleanseRate: 1
+      - !type:ADTCureDiseases
