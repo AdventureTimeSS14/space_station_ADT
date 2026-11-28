@@ -3,12 +3,6 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.ADT.Effects;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.HighFrequencyBlade (эффекты еретика)
-[RegisterComponent]
-public sealed partial class RandomRotationComponent : Component
-{
-}
-
 public sealed class RandomRotationSystem : EntitySystem
 {
     [Dependency] private INetManager _net = default!;
@@ -24,7 +18,9 @@ public sealed class RandomRotationSystem : EntitySystem
 
     private void OnMapInit(Entity<RandomRotationComponent> ent, ref MapInitEvent args)
     {
-        if (_net.IsServer || IsClientSide(ent))
-            _transform.SetLocalRotation(ent, _random.NextAngle());
+        if (_net.IsClient && !IsClientSide(ent))
+            return;
+
+        _transform.SetLocalRotation(ent, _random.NextAngle());
     }
 }
