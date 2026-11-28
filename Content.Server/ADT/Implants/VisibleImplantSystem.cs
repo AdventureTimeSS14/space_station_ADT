@@ -64,7 +64,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 
         SubscribeLocalEvent<SundownerShieldsComponent, MapInitEvent>(InitShields);
         SubscribeLocalEvent<SundownerShieldsComponent, ComponentShutdown>(ShutdownShields);
-        SubscribeLocalEvent<SundownerShieldsComponent, ExplosionDownAttemptEvent>(OnSundownerExplosionDown);
+        SubscribeLocalEvent<SundownerShieldsComponent, InventoryRelayedEvent<ExplosionDownAttemptEvent>>(OnSundownerExplosionDown);
         SubscribeLocalEvent<SundownerShieldsComponent, GetExplosionResistanceEvent>(OnGetExplosionResistance);
         SubscribeLocalEvent<SundownerShieldsComponent, DamageModifyEvent>(OnDamage);
         SubscribeLocalEvent<SundownerShieldsComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
@@ -207,9 +207,9 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         _appearance.SetData(uid, SundownerShieldsVisuals.Closed, false);
     }
 
-    private void OnSundownerExplosionDown(EntityUid uid, SundownerShieldsComponent comp, ref ExplosionDownAttemptEvent args)
+    private void OnSundownerExplosionDown(EntityUid uid, SundownerShieldsComponent comp, ref InventoryRelayedEvent<ExplosionDownAttemptEvent> args)
     {
-        args.Cancelled = true;
+        args.Args.Cancelled = true;
     }
 
     private void OnGetExplosionResistance(EntityUid uid, SundownerShieldsComponent comp, ref GetExplosionResistanceEvent args)

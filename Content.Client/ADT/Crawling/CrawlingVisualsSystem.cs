@@ -4,7 +4,7 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.ADT.Crawling;
 
-public sealed partial class CrawlingSystem : EntitySystem
+public sealed class CrawlingVisualsSystem : EntitySystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private StandingStateSystem _standing = default!;
